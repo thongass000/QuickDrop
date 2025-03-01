@@ -20,7 +20,7 @@
 "NFiles" = "%d ไฟล์";
 
 /* No comment provided by engineer. */
-"NotificationsDenied.Message" = "NearDrop ไม่สามารถแสดงการแจ้งเตือนไฟล์ที่เข้ามาได้ โปรดให้สิทธิ์การแจ้งเตือน ในการตั้งค่าระบบ";
+"NotificationsDenied.Message" = "QuickDrop ไม่สามารถแสดงการแจ้งเตือนไฟล์ที่เข้ามาได้ โปรดให้สิทธิ์การแจ้งเตือน ในการตั้งค่าระบบ";
 
 /* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "การตั้งค่า";
@@ -32,7 +32,7 @@
 "PinCode" = "PIN: %@";
 
 /* No comment provided by engineer. */
-"Quit" = "ออก NearDrop";
+"Quit" = "ออก QuickDrop";
 
 /* No comment provided by engineer. */
 "TransferError" = "เกิดข้อผิดพลาดในการรับไฟล์จาก %@";
@@ -44,14 +44,30 @@
 "PrivacyPolicy" = "นโยบายความเป็นส่วนตัว";
 "UserManual" = "คู่มือการใช้งาน";
 
-"WelcomeToNearDrop" = "ยินดีต้อนรับสู่ NearDrop";
+"WelcomeToQuickDrop" = "ยินดีต้อนรับสู่ QuickDrop";
 
 "Acknowledgements" = "คำขอบคุณ";
+"SupportQuickDrop" = "สนับสนุน QuickDrop";
 
-"UserManualDescription" = "เมื่อ NearDrop กำลังทำงานอยู่ ไอคอนจะปรากฏในแถบเมนูที่ด้านบนของหน้าจอของคุณ คลิกที่ไอคอน NearDrop หากคุณต้องการหยุดรับไฟล์
+"UserManualDescription" = "เมื่อ QuickDrop กำลังทำงานอยู่ ไอคอนจะปรากฏในแถบเมนูที่ด้านบนของหน้าจอของคุณ คลิกที่ไอคอน QuickDrop หากคุณต้องการหยุดรับไฟล์
 
 สำคัญ: อุปกรณ์ Android และ Mac ของคุณจะต้องเชื่อมต่อกับเครือข่าย WiFi เดียวกันเพื่อถ่ายโอนไฟล์ หากมีการแจ้งเตือนให้อนุญาตการเชื่อมต่อขาเข้า โปรดอนุญาต
 
 ในการส่งไฟล์จากอุปกรณ์ Android ของคุณไปยัง Mac ให้แตะที่ไอคอนแชร์บนโทรศัพท์ของคุณ และเลือก \"Quick Share\" หรือ \"Nearby Share\" Mac ของคุณจะแสดงในรายการอุปกรณ์ที่พร้อมใช้งาน
 
 หลังจากนั้น คุณจะเห็นการแจ้งเตือนบน Mac ของคุณ วางเคอร์เซอร์เหนือการแจ้งเตือนเพื่อยอมรับหรือปฏิเสธการถ่ายโอนไฟล์";
+
+"plusview_title" = "ขอบคุณที่ใช้ QuickDrop!";
+"plusview_description" = "ปลดล็อก QuickDrop+ เพื่อรับไฟล์ต่อไป QuickDrop+ เป็นการซื้อครั้งเดียว – คุณสามารถใช้แอปได้ตลอดไปโดยไม่ต้องสมัครสมาชิก";
+"plusview_success_title" = "ขอบคุณสำหรับการซื้อ!";
+"plusview_success_description" = "คุณสามารถรับไฟล์ได้ต่อไปโดยไม่มีข้อจำกัดแล้ว";
+"plusview_success_button" = "รับทราบ!";
+"plusview_unlock_label" = "สนับสนุน QuickDrop";
+
+"plusview_restorepurchase" = "เคยซื้อแล้ว?";
+"plusview_restorefailed" = "เกิดปัญหาในการกู้คืนการซื้อของคุณ";
+"plusview_restorefailed_proceed" = "ตกลง";
+"plusview_purchasefailed" = "การซื้อล้มเหลว";
+"plusview_purchasefaileddescription" = "หากข้อความนี้ปรากฏขึ้นโดยไม่คาดคิด โปรดตรวจสอบว่าคุณเชื่อมต่ออินเทอร์เน็ตและเปิดใช้งานการซื้อภายในแอปในอุปกรณ์ของคุณแล้วลองอีกครั้ง";
+"plusview_nothingtorestore" = "ไม่มีรายการที่ต้องกู้คืน!";
+"plusview_productRequestFailed" = "ไม่สามารถดึงข้อมูลการซื้อภายในแอปได้ในขณะนี้";

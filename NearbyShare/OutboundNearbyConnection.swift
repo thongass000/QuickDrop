@@ -80,7 +80,7 @@ class OutboundNearbyConnection:NearbyConnection{
 	override func processReceivedFrame(frameData: Data) {
 		do{
 			#if DEBUG
-			print("received \(frameData), state is \(currentState)")
+			log("received \(frameData), state is \(currentState)")
 			#endif
 			switch currentState {
 			case .initial:
@@ -105,12 +105,12 @@ class OutboundNearbyConnection:NearbyConnection{
 	
 	override func processTransferSetupFrame(_ frame: Sharing_Nearby_Frame) throws {
 		if frame.hasV1 && frame.v1.hasType, case .cancel = frame.v1.type {
-			print("Transfer canceled")
+			log("Transfer canceled")
 			try sendDisconnectionAndDisconnect()
 			delegate?.outboundConnection(connection: self, failedWithError: NearbyError.canceled(reason: .userCanceled))
 			return
 		}
-		print(frame)
+        log(frame.debugDescription)
 		switch currentState{
 		case .sentPairedKeyEncryption:
 			try processPairedKeyEncryption(frame: frame)
@@ -224,7 +224,7 @@ class OutboundNearbyConnection:NearbyConnection{
 	
 	private func processConnectionResponse(frame:Location_Nearby_Connections_OfflineFrame) throws{
 		#if DEBUG
-		print("connection response: \(frame)")
+		log("connection response: \(frame)")
 		#endif
 		guard frame.version == .v1 else {throw NearbyError.protocolError("Unexpected offline frame version \(frame.version)")}
 		guard frame.v1.type == .connectionResponse else {throw NearbyError.protocolError("Unexpected frame type \(frame.v1.type)")}
@@ -306,7 +306,7 @@ class OutboundNearbyConnection:NearbyConnection{
 			}
 		}
 		#if DEBUG
-		print("sent introduction: \(introduction)")
+		log("sent introduction: \(introduction)")
 		#endif
 		try sendTransferSetupFrame(introduction)
 		
@@ -355,7 +355,7 @@ class OutboundNearbyConnection:NearbyConnection{
 			}
 			if queue.isEmpty{
 				#if DEBUG
-				print("Disconnecting because all files have been transferred")
+				log("Disconnecting because all files have been transferred")
 				#endif
 				try sendDisconnectionAndDisconnect()
 				delegate?.outboundConnectionTransferFinished(connection: self)
@@ -399,7 +399,7 @@ class OutboundNearbyConnection:NearbyConnection{
 			}
 		})
 		#if DEBUG
-		print("sent file chunk, current transfer: \(String(describing: currentTransfer))")
+		log("sent file chunk, current transfer: \(String(describing: currentTransfer))")
 		#endif
 		totalBytesSent+=Int64(fileBuffer.count)
 		delegate?.outboundConnection(connection: self, transferProgress: Double(totalBytesSent)/Double(totalBytesToSend))
@@ -422,7 +422,7 @@ class OutboundNearbyConnection:NearbyConnection{
 			wrapper.v1.payloadTransfer=transfer
 			try encryptAndSendOfflineFrame(wrapper)
 			#if DEBUG
-			print("sent EOF, current transfer: \(String(describing: currentTransfer))")
+			log("sent EOF, current transfer: \(String(describing: currentTransfer))")
 			#endif
 		}
 	}

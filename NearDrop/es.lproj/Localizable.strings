@@ -20,7 +20,7 @@
 //"NFiles" = "%d files";
 
 /* No comment provided by engineer. */
-"NotificationsDenied.Message" = "NearDrop necesita poder mostrar notificaciones para las transferencias de archivos entrantes. Permite las notificaciones en la configuración del sistema.";
+"NotificationsDenied.Message" = "QuickDrop necesita poder mostrar notificaciones para las transferencias de archivos entrantes. Permite las notificaciones en la configuración del sistema.";
 
 /* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Abrir la configuración del sistema";
@@ -32,7 +32,7 @@
 "PinCode" = "PIN: %@";
 
 /* No comment provided by engineer. */
-"Quit" = "Salir de NearDrop";
+"Quit" = "Salir de QuickDrop";
 
 /* No comment provided by engineer. */
 "TransferError" = "Error al recibir archivos de %@";
@@ -44,14 +44,31 @@
 "PrivacyPolicy" = "Política de privacidad";
 "UserManual" = "Manual de usuario";
 
-"WelcomeToNearDrop" = "Bienvenido a NearDrop";
+"WelcomeToQuickDrop" = "Bienvenido a QuickDrop";
 
 "Acknowledgements" = "Agradecimientos";
+"SupportQuickDrop" = "Apoyar QuickDrop";
 
-"UserManualDescription" = "Cuando NearDrop está en ejecución, aparecerá en la barra de menú en la parte superior de tu pantalla. Haz clic en el icono de NearDrop si deseas dejar de recibir archivos.
+"UserManualDescription" = "Cuando QuickDrop está en ejecución, aparecerá en la barra de menú en la parte superior de tu pantalla. Haz clic en el icono de QuickDrop si deseas dejar de recibir archivos.
 
 Importante: Tu dispositivo Android y tu Mac deben estar conectados a la misma red WiFi para transferir archivos. Si se te solicita permitir conexiones entrantes, por favor, acéptalas.
 
 Para enviar archivos desde tu dispositivo Android a tu Mac, toca el icono de compartir en tu teléfono y selecciona \"Quick Share\" o \"Nearby Share\". Tu Mac aparecerá como un dispositivo disponible.
 
 Después de esto, verás una notificación en tu Mac. Pasa el cursor sobre la notificación para aceptar o rechazar la transferencia del archivo.";
+
+
+"plusview_title" = "¡Gracias por usar QuickDrop!";
+"plusview_description" = "Desbloquea QuickDrop+ para seguir recibiendo archivos. QuickDrop+ es una compra única: puedes conservar la aplicación para siempre, sin necesidad de suscripción.";
+"plusview_success_title" = "¡Gracias por tu compra!";
+"plusview_success_description" = "Ahora puedes seguir recibiendo archivos sin restricciones.";
+"plusview_success_button" = "¡Entendido!";
+"plusview_unlock_label" = "Apoyar QuickDrop";
+
+"plusview_restorepurchase" = "¿Ya lo compraste?";
+"plusview_restorefailed" = "Hubo un problema al restaurar tu compra";
+"plusview_restorefailed_proceed" = "Aceptar";
+"plusview_purchasefailed" = "La compra ha fallado";
+"plusview_purchasefaileddescription" = "Si este mensaje apareció inesperadamente, asegúrate de estar conectado a Internet y que las compras dentro de la aplicación estén habilitadas en tu dispositivo, luego intenta nuevamente.";
+"plusview_nothingtorestore" = "¡No hay nada que restaurar!";
+"plusview_productRequestFailed" = "No se pueden recuperar las compras dentro de la aplicación en este momento.";

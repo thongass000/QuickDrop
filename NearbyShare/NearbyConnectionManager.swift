@@ -1,6 +1,6 @@
 //
 //  NearbyConnectionManager.swift
-//  NearDrop
+//  QuickDrop
 //
 //  Created by Grishka on 08.04.2023.
 //
@@ -296,19 +296,19 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 	
 	private func maybeAddFoundDevice(service:NWBrowser.Result){
 		#if DEBUG
-		print("found service \(service)")
+        log("found service \(service)")
 		#endif
 		for interface in service.interfaces{
 			if case .loopback=interface.type{
 				#if DEBUG
-				print("ignoring localhost service")
+                log("ignoring localhost service")
 				#endif
 				return
 			}
 		}
 		guard let endpointID=endpointID(for: service) else {return}
 		#if DEBUG
-		print("service name is valid, endpoint ID \(endpointID)")
+        log("service name is valid, endpoint ID \(endpointID)")
 		#endif
 		var foundService=FoundServiceInfo(service: service)
 		

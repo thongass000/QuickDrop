@@ -20,7 +20,7 @@
 "NFiles" = "%d bestanden";
 
 /* No comment provided by engineer. */
-"NotificationsDenied.Message" = "NearDrop moet meldingen kunnen weergeven voor inkomende bestandsoverdrachten. Sta meldingen toe in de systeeminstellingen.";
+"NotificationsDenied.Message" = "QuickDrop moet meldingen kunnen weergeven voor inkomende bestandsoverdrachten. Sta meldingen toe in de systeeminstellingen.";
 
 /* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Instellingen openen";
@@ -32,7 +32,7 @@
 "PinCode" = "PIN: %@";
 
 /* No comment provided by engineer. */
-"Quit" = "NearDrop afsluiten";
+"Quit" = "QuickDrop afsluiten";
 
 /* No comment provided by engineer. */
 "TransferError" = "Mislukt om bestanden te ontvangen van %@";
@@ -46,14 +46,30 @@
 
 "UserManual" = "Gebruikershandleiding";
 
-"WelcomeToNearDrop" = "Welkom bij NearDrop";
+"WelcomeToQuickDrop" = "Welkom bij QuickDrop";
 
 "Acknowledgements" = "Erkenningen";
+"SupportQuickDrop" = "Ondersteun QuickDrop";
 
-"UserManualDescription" = "Wanneer NearDrop actief is, verschijnt het in de menubalk bovenaan je scherm. Klik op het NearDrop-pictogram als je wilt stoppen met het ontvangen van bestanden.
+"UserManualDescription" = "Wanneer QuickDrop actief is, verschijnt het in de menubalk bovenaan je scherm. Klik op het QuickDrop-pictogram als je wilt stoppen met het ontvangen van bestanden.
 
 Belangrijk: Je Android-apparaat en je Mac moeten verbonden zijn met hetzelfde WiFi-netwerk om bestanden over te dragen. Als je wordt gevraagd om inkomende verbindingen toe te staan, geef dan toestemming.
 
 Om bestanden van je Android-apparaat naar je Mac te verzenden, tik op het deelpictogram op je telefoon en selecteer \"Quick Share\" of \"Nearby Share\". Je Mac wordt weergegeven als een beschikbaar apparaat.
 
 Daarna zie je een melding op je Mac. Beweeg de muis over de melding om het bestandsoverdracht te accepteren of te weigeren.";
+
+"plusview_title" = "Bedankt voor het gebruiken van QuickDrop!";
+"plusview_description" = "Ontgrendel QuickDrop+ om bestanden te blijven ontvangen. QuickDrop+ is een eenmalige aankoop – je kunt de app voor altijd behouden, geen abonnement nodig.";
+"plusview_success_title" = "Bedankt voor je aankoop!";
+"plusview_success_description" = "Je kunt nu bestanden blijven ontvangen zonder beperkingen.";
+"plusview_success_button" = "Begrepen!";
+"plusview_unlock_label" = "Ondersteun QuickDrop";
+
+"plusview_restorepurchase" = "Al gekocht?";
+"plusview_restorefailed" = "Er was een probleem bij het herstellen van je aankoop";
+"plusview_restorefailed_proceed" = "Oké";
+"plusview_purchasefailed" = "Aankoop mislukt";
+"plusview_purchasefaileddescription" = "Als dit bericht onverwachts verschijnt, controleer dan of je verbonden bent met internet en of in-app aankopen zijn ingeschakeld op je apparaat, en probeer het opnieuw.";
+"plusview_nothingtorestore" = "Er is niets om te herstellen!";
+"plusview_productRequestFailed" = "In-app aankopen kunnen momenteel niet worden opgehaald.";

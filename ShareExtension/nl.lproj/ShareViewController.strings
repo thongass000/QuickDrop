@@ -1,6 +1,6 @@
 
-/* Class = "NSTextFieldCell"; title = "NearDrop"; ObjectID = "0xp-rC-2gr"; */
-"0xp-rC-2gr.title" = "NearDrop";
+/* Class = "NSTextFieldCell"; title = "QuickDrop"; ObjectID = "0xp-rC-2gr"; */
+"0xp-rC-2gr.title" = "QuickDrop";
 
 /* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "6Up-t3-mwm"; */
 "6Up-t3-mwm.title" = "Annuleren";

@@ -1,6 +1,6 @@
 //
 //  WelcomeScreen.swift
-//  NearDrop
+//  QuickDrop
 //
 //  Created by Leon Böttger on 03.01.25.
 //
@@ -10,9 +10,18 @@ import SwiftUI
 struct WelcomeScreen: View {
     
     @State private var newWindow: NSWindow? // Retain the NSWindow object
+    @AppStorage(UserDefaultsKeys.plusVersion.rawValue) var isPlusVersion = false
+    
+    @Environment(\.colorScheme) var colorScheme
+    @State var taps = 0
+    
+    let openIAP: () -> Void
     
     var body: some View {
-        
+        ZStack {
+            Color.defaultBackground
+                .edgesIgnoringSafeArea(.all)
+    
         ScrollView {
             
             VStack {
@@ -20,8 +29,18 @@ struct WelcomeScreen: View {
                     .resizable()
                     .frame(width: 150, height: 150)
                     .padding(.top, 50)
+                    .onTapGesture {
+                        taps += 1
+                        print("Tapped \(taps) times")
+                        
+                        if taps == 5 {
+                            let logString = LogManager.sharedInstance.getLogString()
+                            copyToClipboard(logString)
+                            print("Copied log to clipboard")
+                        }
+                    }
                 
-                Text("WelcomeToNearDrop") 
+                Text("WelcomeToQuickDrop") 
                     .font(.largeTitle)
                     .padding()
                 
@@ -29,25 +48,63 @@ struct WelcomeScreen: View {
                 .multilineTextAlignment(.center)
                 .padding()
                 
-                
-                Button {
-                    openNewWindow()
-                } label: {
-                    Text("Acknowledgements")
-                        .underline()
-                        .font(.footnote)
-                        .opacity(0.5)
+                HStack(spacing: 30) {
+                    
+                    Button {
+                        openNewWindow()
+                    } label: {
+                        Text("Acknowledgements")
+                            .underline()
+                            .font(.footnote)
+                            .opacity(0.5)
+                    }
+                    .buttonStyle(.plain)
+                    
+                    if !isPlusVersion {
+                        Button {
+                            openIAP()
+                        } label: {
+                            Text("SupportQuickDrop")
+                                .underline()
+                                .font(.footnote)
+                                .opacity(0.5)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    
+                    #if DEBUG
+                    Button {
+                        for key in UserDefaultsKeys.allCases {
+                            UserDefaults.standard.removeObject(forKey: key.rawValue)
+                        }
+                    } label: {
+                        Text("Reset UD")
+                            .underline()
+                            .font(.footnote)
+                            .opacity(0.5)
+                    }
+                    .buttonStyle(.plain)
+                    #endif
                 }
-                .buttonStyle(.plain)
+                .onAppear {
+//                    #if DEBUG
+//                    isPlusVersion = false
+//                    #endif
+                }
                 .padding()
-              
-                
             }
             .frame(maxWidth: 500)
             .frame(maxWidth: .infinity)
         }
+        }
         
         .frame(width: 1000, height: 600)
+    }
+    
+    func copyToClipboard(_ text: String) {
+        let pasteboard = NSPasteboard.general
+        pasteboard.clearContents()
+        pasteboard.setString(text, forType: .string)
     }
     
     func openNewWindow() {
@@ -62,19 +119,46 @@ struct WelcomeScreen: View {
         window.isReleasedWhenClosed = false
         window.title = NSLocalizedString("Acknowledgements", value: "Acknowledgements", comment: "")
         window.contentView = NSHostingView(rootView: LicensePage())
-        window.level = .floating
+        
+        // Ensure the window is always on top
+        NSApp.activate(ignoringOtherApps: true) // Brings the whole app to the front
         window.makeKeyAndOrderFront(nil)
+        window.level = .normal
         
         // Retain the window to prevent deallocation
         newWindow = window
     }
 }
 
+import SwiftUI
+import AppKit
+
+struct VisualEffectBlur: NSViewRepresentable {
+    var material: NSVisualEffectView.Material
+    var blendingMode: NSVisualEffectView.BlendingMode
+
+    func makeNSView(context: Context) -> NSVisualEffectView {
+        let view = NSVisualEffectView()
+        view.material = material
+        view.blendingMode = blendingMode
+        view.state = .active
+        return view
+    }
+
+    func updateNSView(_ nsView: NSVisualEffectView, context: Context) {
+        nsView.material = material
+        nsView.blendingMode = blendingMode
+    }
+}
+
 
 struct LicensePage: View {
     var body: some View {
-        ScrollView {
-            Text("""
+        ZStack {
+            Color.defaultBackground
+                .edgesIgnoringSafeArea(.all)
+            ScrollView {
+                Text("""
 NearDrop
 https://github.com/grishka/NearDrop
 
@@ -193,12 +277,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 """)
-            .padding()
+                .padding()
+            }
         }
     }
 }
 
 
 #Preview {
-    WelcomeScreen()
+    WelcomeScreen(openIAP: {})
 }

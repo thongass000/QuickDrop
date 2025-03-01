@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  NearDrop
+//  QuickDrop
 //
 //  Created by Grishka on 08.04.2023.
 //
@@ -12,11 +12,13 @@ import SwiftUI
 import StoreKit
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, MainAppDelegate{
+class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
     private var statusItem:NSStatusItem?
     private var activeIncomingTransfers:[String:TransferInfo]=[:]
     
-    var window: NSWindow?
+    var welcomeWindow: NSWindow?
+    var plusWindow: NSWindow?
+    private var iapManager: IAPManager?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let menu=NSMenu()
@@ -24,9 +26,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         menu.addItem(withTitle: String(format: NSLocalizedString("DeviceName", value: "Device name: %@", comment: ""), arguments: [Host.current().localizedName!]), action: nil, keyEquivalent: "")
         menu.addItem(NSMenuItem.separator())
         
-        // Add "Recommended Apps" menu item
-        let recommendedAppsItem = NSMenuItem(title: NSLocalizedString("RecommendedApps", value: "Recommended Apps", comment: ""), action: #selector(openRecommendedApps), keyEquivalent: "")
-        menu.addItem(recommendedAppsItem)
+//        // Add "Recommended Apps" menu item
+//        let recommendedAppsItem = NSMenuItem(title: NSLocalizedString("RecommendedApps", value: "Recommended Apps", comment: ""), action: #selector(openRecommendedApps), keyEquivalent: "")
+//        menu.addItem(recommendedAppsItem)
         
         // Add "Privacy Policy" menu item
         let privacyPolicyItem = NSMenuItem(title: NSLocalizedString("PrivacyPolicy", value: "Privacy Policy", comment: ""), action: #selector(openPrivacyPolicy), keyEquivalent: "")
@@ -37,7 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         let userManualItem = NSMenuItem(title: NSLocalizedString("UserManual", value: "User Manual", comment: ""), action: #selector(openWelcomeScreen), keyEquivalent: "")
         menu.addItem(userManualItem)
         
-        menu.addItem(withTitle: NSLocalizedString("Quit", value: "Quit NearDrop", comment: ""), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "")
+        menu.addItem(withTitle: NSLocalizedString("Quit", value: "Quit QuickDrop", comment: ""), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "")
         
         
         statusItem=NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
@@ -45,50 +47,101 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         statusItem?.menu=menu
         statusItem?.behavior = .removalAllowed
         
-        let nc=UNUserNotificationCenter.current()
-        nc.requestAuthorization(options: [.alert, .sound]) { granted, err in
-            if !granted{
-                DispatchQueue.main.async {
-                    self.showNotificationsDeniedAlert()
-                }
-            }
-        }
-        nc.delegate=self
-        let incomingTransfersCategory=UNNotificationCategory(identifier: "INCOMING_TRANSFERS", actions: [
-            UNNotificationAction(identifier: "ACCEPT", title: NSLocalizedString("Accept", comment: ""), options: UNNotificationActionOptions.authenticationRequired)
-        ], intentIdentifiers: [])
-        let errorsCategory=UNNotificationCategory(identifier: "ERRORS", actions: [], intentIdentifiers: [])
-        nc.setNotificationCategories([incomingTransfersCategory, errorsCategory])
         NearbyConnectionManager.shared.mainAppDelegate=self
         NearbyConnectionManager.shared.becomeVisible()
         
-        if !UserDefaults.standard.bool(forKey: "ShowedWelcomeScreen"){
+        iapManager = IAPManager.sharedInstance
+        iapManager?.startObserving()
+        
+        // app did not lauch before
+        if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.appLaunchedBefore.rawValue){
+            
+            log("Opening welcome screen")
+            // open welcome screen
             openWelcomeScreen()
-            UserDefaults.standard.set(true, forKey: "ShowedWelcomeScreen")
+            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.appLaunchedBefore.rawValue)
+            
+            // user installed the app after the IAP was implemented, set the user as eligible for IAP
+            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.isEligibleForIap.rawValue)
+        }
+        else {
+            // app launched before
+            
+            // user installed the app before the IAP was implemented, grant the plus version
+            if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.isEligibleForIap.rawValue) {
+                log("Granting plus version for old user")
+                UserDefaults.standard.set(true, forKey: UserDefaultsKeys.plusVersion.rawValue)
+            }
+            else {
+                if !isPlusVersion() {
+                    log("New user - plus version cannot be granted")
+                }
+            }
         }
     }
     
     
     @objc func openWelcomeScreen() {
         // Create the welcome screen SwiftUI view
-        let welcomeView = WelcomeScreen()
+        let welcomeView = WelcomeScreen {
+            self.openPlusScreen(continueTransfer: {})
+        }
         
         // Create an NSWindow to host the SwiftUI view
-        window = NSWindow(
+        welcomeWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 400, height: 300),
             styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false
         )
-        window?.center()
-        window?.isReleasedWhenClosed = false
-        window?.setFrameAutosaveName("WelcomeScreen")
-        window?.contentView = NSHostingView(rootView: welcomeView)
+        welcomeWindow?.center()
+        welcomeWindow?.isReleasedWhenClosed = false
+        welcomeWindow?.setFrameAutosaveName("WelcomeScreen")
+        welcomeWindow?.contentView = NSHostingView(rootView: welcomeView)
+        
+        welcomeWindow?.isOpaque = false
+        welcomeWindow?.backgroundColor = .clear
         
         // Ensure the window is always on top
-        window?.level = .floating
+        NSApp.activate(ignoringOtherApps: true) // Brings the whole app to the front
+        welcomeWindow?.makeKeyAndOrderFront(nil)
+        welcomeWindow?.level = .normal
+    }
+    
+    
+    @objc func openPlusScreen(continueTransfer: @escaping () -> Void) {
+        // Create the welcome screen SwiftUI view
+        let plusView = GetPlusView(closeView: {
+            self.plusWindow?.close()
+            continueTransfer()
+        })
         
-        window?.makeKeyAndOrderFront(nil)
+        // Create an NSWindow to host the SwiftUI view
+        plusWindow = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 400, height: 300),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+        
+        plusWindow?.center()
+        plusWindow?.isReleasedWhenClosed = false
+        plusWindow?.setFrameAutosaveName("PlusScreen")
+        plusWindow?.contentView = NSHostingView(rootView: plusView)
+        
+        // Ensure the window is always on top
+        NSApp.activate(ignoringOtherApps: true) // Brings the whole app to the front
+        plusWindow?.makeKeyAndOrderFront(nil)
+        plusWindow?.level = .normal
+    }
+    
+    
+    func isPlusVersion() -> Bool {
+        return UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
+    }
+    
+    func transmissionCount() -> Int {
+        return UserDefaults.standard.integer(forKey: UserDefaultsKeys.transmissionCount.rawValue)
     }
     
     
@@ -113,106 +166,130 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     func applicationWillTerminate(_ aNotification: Notification) {
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        iapManager?.stopObserving()
     }
     
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
     
-    func showNotificationsDeniedAlert(){
-        let alert=NSAlert()
-        alert.alertStyle = .critical
-        alert.messageText=NSLocalizedString("NotificationsDenied.Title", value: "Notification Permission Required", comment: "")
-        alert.informativeText=NSLocalizedString("NotificationsDenied.Message", value: "NearDrop needs to be able to display notifications for incoming file transfers. Please allow notifications in System Settings.", comment: "")
-        alert.addButton(withTitle: NSLocalizedString("NotificationsDenied.OpenSettings", value: "Open settings", comment: ""))
-        alert.addButton(withTitle: NSLocalizedString("Quit", value: "Quit NearDrop", comment: ""))
-        let result=alert.runModal()
-        if result==NSApplication.ModalResponse.alertFirstButtonReturn{
-            NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.notifications")!)
-        }else if result==NSApplication.ModalResponse.alertSecondButtonReturn{
-            NSApplication.shared.terminate(nil)
-        }
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let transferID=response.notification.request.content.userInfo["transferID"]! as! String
-        NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: response.actionIdentifier=="ACCEPT")
-        if response.actionIdentifier != "ACCEPT"{
+    public func continueTransmission(accept: Bool, transferID: String) {
+        NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: accept)
+        
+        if !accept {
             activeIncomingTransfers.removeValue(forKey: transferID)
         }
-        completionHandler()
-    }
-    
-    public func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.sound, .banner])
     }
     
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo) {
-        let fileStr:String
-        if let textTitle=transfer.textDescription{
-            fileStr=textTitle
-        }else if transfer.files.count==1{
-            fileStr=transfer.files[0].name
-        }else{
-            fileStr=String.localizedStringWithFormat(NSLocalizedString("NFiles", value: "%d files", comment: ""), transfer.files.count)
+        self.activeIncomingTransfers[transfer.id] = TransferInfo(device: device, transfer: transfer)
+        
+        NSSound(named: NSSound.Name("NSUserNotificationDefaultSoundName"))?.play()
+        
+        let alert = NSAlert()
+        alert.alertStyle = .informational
+        
+        let fileStr: String
+        
+        if let textTitle = transfer.textDescription{
+            fileStr = textTitle
+        } else if transfer.files.count == 1 {
+            fileStr = transfer.files[0].name
+        } else {
+            fileStr = String.localizedStringWithFormat(NSLocalizedString("NFiles", value: "%d files", comment: ""), transfer.files.count)
         }
-        let notificationContent=UNMutableNotificationContent()
-        notificationContent.title="NearDrop"
-        notificationContent.subtitle=String(format:NSLocalizedString("PinCode", value: "PIN: %@", comment: ""), arguments: [transfer.pinCode!])
-        notificationContent.body=String(format: NSLocalizedString("DeviceSendingFiles", value: "%1$@ is sending you %2$@", comment: ""), arguments: [device.name, fileStr])
-        notificationContent.sound = .default
-        notificationContent.categoryIdentifier="INCOMING_TRANSFERS"
-        notificationContent.userInfo=["transferID": transfer.id]
-        if #available(macOS 11.0, *){
-            NDNotificationCenterHackery.removeDefaultAction(notificationContent)
+        
+        let mainMessage = String(format: NSLocalizedString("DeviceSendingFiles", value: "%1$@ is sending you %2$@", comment: ""), arguments: [device.name, fileStr])
+        let pinCodeMessage = String(format:NSLocalizedString("PinCode", value: "PIN: %@", comment: ""), arguments: [transfer.pinCode!])
+        let transferID = transfer.id
+        
+        alert.messageText = "QuickDrop - \(pinCodeMessage)"
+        alert.informativeText = mainMessage
+        alert.addButton(withTitle: NSLocalizedString("Accept", comment: ""))
+        alert.addButton(withTitle: NSLocalizedString("Decline", comment: ""))
+        
+        let result = alert.runModal()
+        
+        if result == .alertFirstButtonReturn {
+            
+            if !isPlusVersion() && transmissionCount() > 0 {
+                self.openPlusScreen {
+                    self.continueTransmission(accept: self.isPlusVersion(), transferID: transferID)
+                }
+            }
+            else {
+                continueTransmission(accept: true, transferID: transferID)
+            }
+            
+        } else if result == .alertSecondButtonReturn {
+            
+            continueTransmission(accept: false, transferID: transferID)
         }
-        let notificationReq=UNNotificationRequest(identifier: "transfer_"+transfer.id, content: notificationContent, trigger: nil)
-        UNUserNotificationCenter.current().add(notificationReq)
-        self.activeIncomingTransfers[transfer.id]=TransferInfo(device: device, transfer: transfer)
     }
     
     func incomingTransfer(id: String, didFinishWith error: Error?) {
-        guard let transfer=self.activeIncomingTransfers[id] else {return}
-        if let error=error{
-            let notificationContent=UNMutableNotificationContent()
-            notificationContent.title=String(format: NSLocalizedString("TransferError", value: "Failed to receive files from %@", comment: ""), arguments: [transfer.device.name])
-            if let ne=(error as? NearbyError){
-                switch ne{
+        guard let transfer = self.activeIncomingTransfers[id] else { return }
+        if let error = error {
+            
+            let alert = NSAlert()
+            alert.alertStyle = .critical
+            
+            alert.messageText = String(format: NSLocalizedString("TransferError", value: "Failed to receive files from %@", comment: ""), arguments: [transfer.device.name])
+            var description = ""
+            
+            if let ne = (error as? NearbyError){
+                switch ne {
                 case .inputOutput:
-                    notificationContent.body="I/O Error";
+                    description = "I/O Error";
                 case .protocolError(_):
-                    notificationContent.body=NSLocalizedString("Error.Protocol", value: "Communication error", comment: "")
+                    description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "")
                 case .requiredFieldMissing:
-                    notificationContent.body=NSLocalizedString("Error.Protocol", value: "Communication error", comment: "")
+                    description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "")
                 case .ukey2:
-                    notificationContent.body=NSLocalizedString("Error.Crypto", value: "Encryption error", comment: "")
+                    description = NSLocalizedString("Error.Crypto", value: "Encryption error", comment: "")
                 case .canceled(reason: _):
                     break; // can't happen for incoming transfers
                 }
-            }else{
-                notificationContent.body=error.localizedDescription
+            } else {
+                description = error.localizedDescription
             }
-            notificationContent.categoryIdentifier="ERRORS"
-            UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "transferError_"+id, content: notificationContent, trigger: nil))
+            
+            alert.informativeText = description
+            let _ = alert.runModal()
         }
-        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["transfer_"+id])
+        else {
+            let currentCount = transmissionCount()
+            
+            if currentCount % 20 == 0 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    SKStoreReviewController.requestReview()
+                }
+            }
+            
+            UserDefaults.standard.set(currentCount + 1, forKey: UserDefaultsKeys.transmissionCount.rawValue)
+        }
+        
         self.activeIncomingTransfers.removeValue(forKey: id)
-        
-        let currentCount = UserDefaults.standard.integer(forKey: "reviewRequestCountKey")
-       
-        if currentCount % 20 == 0 {   
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                SKStoreReviewController.requestReview()
-            }
-        }
-        
-        UserDefaults.standard.set(currentCount + 1, forKey: "reviewRequestCountKey")
     }
 }
 
-struct TransferInfo{
-    let device:RemoteDeviceInfo
-    let transfer:TransferMetadata
+struct TransferInfo {
+    let device: RemoteDeviceInfo
+    let transfer: TransferMetadata
+}
+
+class WindowDelegate: NSObject, NSWindowDelegate {
+    
+    let willClose: () -> Void
+    
+    init(willClose: @escaping () -> Void) {
+        self.willClose = willClose
+    }
+
+    
+    func windowWillClose(_ notification: Notification) {
+        print("Window closed!")
+        // Perform any cleanup or state updates here
+        willClose()
+    }
 }

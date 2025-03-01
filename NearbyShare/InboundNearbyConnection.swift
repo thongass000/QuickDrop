@@ -1,6 +1,6 @@
 //
 //  InboundNearbyConnection.swift
-//  NearDrop
+//  QuickDrop
 //
 //  Created by Grishka on 08.04.2023.
 //
@@ -37,7 +37,7 @@ class InboundNearbyConnection: NearbyConnection{
 		do{
 			try deletePartiallyReceivedFiles()
 		}catch{
-			print("Error deleting partially received files: \(error)")
+			log("Error deleting partially received files: \(error)")
 		}
 		DispatchQueue.main.async {
 			self.delegate?.connectionWasTerminated(connection: self, error: self.lastError)
@@ -66,7 +66,7 @@ class InboundNearbyConnection: NearbyConnection{
 			}
 		}catch{
 			lastError=error
-			print("Deserialization error: \(error) in state \(currentState)")
+			log("Deserialization error: \(error) in state \(currentState)")
 #if !DEBUG
 			protocolError()
 #endif
@@ -75,7 +75,7 @@ class InboundNearbyConnection: NearbyConnection{
 	
 	override internal func processTransferSetupFrame(_ frame:Sharing_Nearby_Frame) throws{
 		if frame.hasV1 && frame.v1.hasType, case .cancel = frame.v1.type {
-			print("Transfer canceled")
+			log("Transfer canceled")
 			try sendDisconnectionAndDisconnect()
 			return
 		}
@@ -87,8 +87,8 @@ class InboundNearbyConnection: NearbyConnection{
 		case .receivedPairedKeyResult:
 			try processIntroductionFrame(frame)
 		default:
-			print("Unexpected connection state in processTransferSetupFrame: \(currentState)")
-			print(frame)
+			log("Unexpected connection state in processTransferSetupFrame: \(currentState)")
+            log(frame.debugDescription)
 		}
 	}
 	
@@ -259,7 +259,7 @@ class InboundNearbyConnection: NearbyConnection{
 			try sendTransferSetupFrame(pairedEncryption)
 			currentState = .sentConnectionResponse
 		} else {
-			print("Unhandled offline frame plaintext: \(frame)")
+			log("Unhandled offline frame plaintext: \(frame)")
 		}
 	}
 	
@@ -390,7 +390,7 @@ class InboundNearbyConnection: NearbyConnection{
 			try sendTransferSetupFrame(frame)
 			try sendDisconnectionAndDisconnect()
 		}catch{
-			print("Error \(error)")
+			log("Error \(error)")
 			protocolError()
 		}
 	}

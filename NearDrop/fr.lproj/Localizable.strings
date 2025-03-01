@@ -20,7 +20,7 @@
 "NFiles" = "%d fichiers";
 
 /* No comment provided by engineer. */
-"NotificationsDenied.Message" = "NearDrop doit pouvoir afficher des notifications pour les transferts de fichiers entrants. Veuillez autoriser les notifications dans les paramètres système.";
+"NotificationsDenied.Message" = "QuickDrop doit pouvoir afficher des notifications pour les transferts de fichiers entrants. Veuillez autoriser les notifications dans les paramètres système.";
 
 /* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Ouvrir les paramètres";
@@ -32,7 +32,7 @@
 "PinCode" = "CODE PIN : %@";
 
 /* No comment provided by engineer. */
-"Quit" = "Quitter NearDrop";
+"Quit" = "Quitter QuickDrop";
 
 /* No comment provided by engineer. */
 "TransferError" = "Échec de la réception des fichiers de %@";
@@ -44,14 +44,30 @@
 "PrivacyPolicy" = "Politique de confidentialité";
 "UserManual" = "Manuel d'utilisateur";
 
-"WelcomeToNearDrop" = "Bienvenue sur NearDrop";
+"WelcomeToQuickDrop" = "Bienvenue sur QuickDrop";
 
 "Acknowledgements" = "Remerciements";
+"SupportQuickDrop" = "Soutenir QuickDrop";
 
-"UserManualDescription" = "Lorsque NearDrop est en cours d'exécution, il apparaît dans la barre de menu en haut de votre écran. Cliquez sur l'icône NearDrop si vous souhaitez arrêter de recevoir des fichiers.
+"UserManualDescription" = "Lorsque QuickDrop est en cours d'exécution, il apparaît dans la barre de menu en haut de votre écran. Cliquez sur l'icône QuickDrop si vous souhaitez arrêter de recevoir des fichiers.
 
 Important : Votre appareil Android et votre Mac doivent être connectés au même réseau Wi-Fi pour transférer des fichiers. Si vous êtes invité à autoriser les connexions entrantes, veuillez les autoriser.
 
 Pour envoyer des fichiers de votre appareil Android vers votre Mac, appuyez sur l'icône de partage sur votre téléphone et sélectionnez \"Quick Share\" ou \"Nearby Share\". Votre Mac sera affiché comme un appareil disponible.
 
 Après cela, vous verrez une notification sur votre Mac. Survolez la notification pour accepter ou refuser le transfert de fichiers.";
+
+"plusview_title" = "Merci d'utiliser QuickDrop !";
+"plusview_description" = "Débloquez QuickDrop+ pour continuer à recevoir des fichiers. QuickDrop+ est un achat unique – vous pourrez conserver l'application à vie, sans abonnement.";
+"plusview_success_title" = "Merci pour votre achat !";
+"plusview_success_description" = "Vous pouvez maintenant continuer à recevoir des fichiers sans restrictions.";
+"plusview_success_button" = "D'accord !";
+"plusview_unlock_label" = "Soutenir QuickDrop";
+
+"plusview_restorepurchase" = "Déjà acheté ?";
+"plusview_restorefailed" = "Un problème est survenu lors de la restauration de votre achat";
+"plusview_restorefailed_proceed" = "OK";
+"plusview_purchasefailed" = "Échec de l'achat";
+"plusview_purchasefaileddescription" = "Si ce message est apparu de manière inattendue, assurez-vous d'être connecté à Internet et que les achats intégrés sont activés sur votre appareil, puis réessayez.";
+"plusview_nothingtorestore" = "Aucun achat à restaurer !";
+"plusview_productRequestFailed" = "Impossible de récupérer les achats intégrés pour le moment.";

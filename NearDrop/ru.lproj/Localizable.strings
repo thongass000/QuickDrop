@@ -23,7 +23,7 @@
 "PinCode" = "PIN: %@";
 
 /* No comment provided by engineer. */
-"Quit" = "Завершить NearDrop";
+"Quit" = "Завершить QuickDrop";
 
 /* No comment provided by engineer. */
 "TransferError" = "Не удалость принять файлы от %@";
@@ -32,7 +32,7 @@
 "VisibleToEveryone" = "Видимость: все";
 
 /* No comment provided by engineer. */
-"NotificationsDenied.Message" = "NearDrop необходима возможность показывать уведомления о входящих файлах. Пожалуйста, разрешите уведомления в Системных настройках.";
+"NotificationsDenied.Message" = "QuickDrop необходима возможность показывать уведомления о входящих файлах. Пожалуйста, разрешите уведомления в Системных настройках.";
 
 /* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Открыть настройки";
@@ -46,14 +46,30 @@
 
 "UserManual" = "Руководство пользователя";
 
-"WelcomeToNearDrop" = "Добро пожаловать в NearDrop";
+"WelcomeToQuickDrop" = "Добро пожаловать в QuickDrop";
 
 "Acknowledgements" = "Благодарности";
+"SupportQuickDrop" = "Поддержать QuickDrop";
 
-"UserManualDescription" = "Когда NearDrop запущен, он отображается в строке меню в верхней части экрана. Нажмите на значок NearDrop, если вы хотите прекратить получение файлов.
+"UserManualDescription" = "Когда QuickDrop запущен, он отображается в строке меню в верхней части экрана. Нажмите на значок QuickDrop, если вы хотите прекратить получение файлов.
 
 Важно: Ваше устройство Android и Mac должны быть подключены к одной и той же сети Wi-Fi для передачи файлов. Если появится запрос на разрешение входящих подключений, пожалуйста, разрешите их.
 
 Чтобы отправить файлы с вашего устройства Android на Mac, нажмите на значок «Поделиться» на вашем телефоне и выберите \"Quick Share\" или \"Nearby Share\". Ваш Mac отобразится в списке доступных устройств.
 
 После этого на вашем Mac появится уведомление. Наведите курсор на уведомление, чтобы принять или отклонить передачу файла.";
+
+"plusview_title" = "Спасибо за использование QuickDrop!";
+"plusview_description" = "Разблокируйте QuickDrop+, чтобы продолжать получать файлы. QuickDrop+ — это разовая покупка: приложение останется у вас навсегда, без подписки.";
+"plusview_success_title" = "Спасибо за покупку!";
+"plusview_success_description" = "Теперь вы можете продолжать получать файлы без ограничений.";
+"plusview_success_button" = "Понял!";
+"plusview_unlock_label" = "Поддержать QuickDrop";
+
+"plusview_restorepurchase" = "Уже куплено?";
+"plusview_restorefailed" = "Произошла ошибка при восстановлении покупки";
+"plusview_restorefailed_proceed" = "Окей";
+"plusview_purchasefailed" = "Ошибка покупки";
+"plusview_purchasefaileddescription" = "Если это сообщение появилось неожиданно, убедитесь, что у вас есть доступ к интернету и включены встроенные покупки на вашем устройстве, затем попробуйте снова.";
+"plusview_nothingtorestore" = "Нет покупок для восстановления!";
+"plusview_productRequestFailed" = "Не удалось получить данные о встроенных покупках.";

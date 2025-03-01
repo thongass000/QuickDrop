@@ -20,7 +20,7 @@
 "NFiles" = "%d fájl";
 
 /* No comment provided by engineer. */
-"NotificationsDenied.Message" = "A NearDrop-nak szüksége van értesítéseket küldeni a bejövő fájlok fogadásához. Kérlek engedélyezd az értesítésekhez való hozzáférést a Rendszerbeállításokban.";
+"NotificationsDenied.Message" = "A QuickDrop-nak szüksége van értesítéseket küldeni a bejövő fájlok fogadásához. Kérlek engedélyezd az értesítésekhez való hozzáférést a Rendszerbeállításokban.";
 
 /* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Beállítások megnyitása";
@@ -32,7 +32,7 @@
 "PinCode" = "JELKÓD: %@";
 
 /* No comment provided by engineer. */
-"Quit" = "NearDrop bezárása";
+"Quit" = "QuickDrop bezárása";
 
 /* No comment provided by engineer. */
 "TransferError" = "Nem sikerült %@-tól/től fájlokat fogadni";
@@ -44,14 +44,30 @@
 "PrivacyPolicy" = "Adatvédelmi irányelvek";
 "UserManual" = "Felhasználói kézikönyv";
 
-"WelcomeToNearDrop" = "Üdvözlünk a NearDropban";
+"WelcomeToQuickDrop" = "Üdvözlünk a QuickDropban";
 
 "Acknowledgements" = "Köszönetnyilvánítás";
+"SupportQuickDrop" = "Támogasd a QuickDropot";
 
-"UserManualDescription" = "Amikor a NearDrop fut, az megjelenik a képernyő tetején található menüsorban. Kattints a NearDrop ikonra, ha szeretnéd leállítani a fájlok fogadását.
+"UserManualDescription" = "Amikor a QuickDrop fut, az megjelenik a képernyő tetején található menüsorban. Kattints a QuickDrop ikonra, ha szeretnéd leállítani a fájlok fogadását.
 
 Fontos: Az Android-eszközödnek és a Mac számítógépednek ugyanarra a Wi-Fi hálózatra kell csatlakozniuk a fájlok átviteléhez. Ha megjelenik egy kérdés a bejövő kapcsolatok engedélyezésére, kérjük, engedélyezd azokat.
 
 Fájlok küldéséhez az Android-eszközödről a Mac-re érintsd meg a megosztás ikont a telefonodon, majd válaszd a \"Quick Share\" vagy a \"Nearby Share\" lehetőséget. A Mac-ed elérhető eszközként fog megjelenni.
 
 Ezt követően értesítést fogsz látni a Mac-en. Vidd az egérmutatót az értesítés fölé, hogy elfogadd vagy elutasítsd a fájlátvitelt.";
+
+"plusview_title" = "Köszönjük, hogy használod a QuickDropot!";
+"plusview_description" = "Oldd fel a QuickDrop+ funkciót, hogy továbbra is fogadhass fájlokat. A QuickDrop+ egy egyszeri vásárlás – az alkalmazást örökre megtarthatod, előfizetés nélkül.";
+"plusview_success_title" = "Köszönjük a vásárlást!";
+"plusview_success_description" = "Mostantól korlátozások nélkül fogadhatsz fájlokat.";
+"plusview_success_button" = "Értettem!";
+"plusview_unlock_label" = "Támogasd a QuickDropot";
+
+"plusview_restorepurchase" = "Már megvásároltad?";
+"plusview_restorefailed" = "Hiba történt a vásárlás visszaállítása során";
+"plusview_restorefailed_proceed" = "Rendben";
+"plusview_purchasefailed" = "A vásárlás sikertelen";
+"plusview_purchasefaileddescription" = "Ha ez az üzenet váratlanul jelent meg, ellenőrizd az internetkapcsolatot, és győződj meg róla, hogy az alkalmazáson belüli vásárlások engedélyezve vannak az eszközödön, majd próbáld újra.";
+"plusview_nothingtorestore" = "Nincs visszaállítható vásárlás!";
+"plusview_productRequestFailed" = "Jelenleg nem lehet lekérni az alkalmazáson belüli vásárlásokat.";

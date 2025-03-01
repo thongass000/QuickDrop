@@ -20,7 +20,7 @@
 "NFiles" = "%d fișiere";
 
 /* No comment provided by engineer. */
-"NotificationsDenied.Message" = "NearDrop trebuie să poată afișa notificări pentru transferurile de fișiere primite. Vă rugăm să permiteți notificările în Setările Sistemului.";
+"NotificationsDenied.Message" = "QuickDrop trebuie să poată afișa notificări pentru transferurile de fișiere primite. Vă rugăm să permiteți notificările în Setările Sistemului.";
 
 /* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Deschide setările";
@@ -32,7 +32,7 @@
 "PinCode" = "COD PIN : %@";
 
 /* No comment provided by engineer. */
-"Quit" = "Închide NearDrop";
+"Quit" = "Închide QuickDrop";
 
 /* No comment provided by engineer. */
 "TransferError" = "Recepționarea fișierelor de la %@ a eșuat";
@@ -44,14 +44,30 @@
 "PrivacyPolicy" = "Politica de confidențialitate";
 "UserManual" = "Manualul utilizatorului";
 
-"WelcomeToNearDrop" = "Bine ai venit la NearDrop";
+"WelcomeToQuickDrop" = "Bine ai venit la QuickDrop";
 
 "Acknowledgements" = "Mulțumiri";
+"SupportQuickDrop" = "Susține QuickDrop";
 
-"UserManualDescription" = "Când NearDrop este în funcțiune, va apărea în bara de meniu din partea de sus a ecranului. Fă clic pe iconița NearDrop dacă dorești să oprești primirea fișierelor.
+"UserManualDescription" = "Când QuickDrop este în funcțiune, va apărea în bara de meniu din partea de sus a ecranului. Fă clic pe iconița QuickDrop dacă dorești să oprești primirea fișierelor.
 
 Important: Dispozitivul tău Android și Mac-ul tău trebuie să fie conectate la aceeași rețea Wi-Fi pentru a transfera fișiere. Dacă ți se solicită să permiți conexiunile intrante, te rugăm să le permiți.
 
 Pentru a trimite fișiere de pe dispozitivul tău Android pe Mac, apasă pe iconița de partajare de pe telefon și selectează „Quick Share” sau „Nearby Share”. Mac-ul tău va apărea ca dispozitiv disponibil.
 
 După aceea, vei vedea o notificare pe Mac. Plasează cursorul peste notificare pentru a accepta sau a respinge transferul fișierelor.";
+
+"plusview_title" = "Mulțumim că folosești QuickDrop!";
+"plusview_description" = "Deblochează QuickDrop+ pentru a continua să primești fișiere. QuickDrop+ este o achiziție unică – poți păstra aplicația pentru totdeauna, fără abonament.";
+"plusview_success_title" = "Mulțumim pentru achiziție!";
+"plusview_success_description" = "Acum poți continua să primești fișiere fără restricții.";
+"plusview_success_button" = "Înțeles!";
+"plusview_unlock_label" = "Susține QuickDrop";
+
+"plusview_restorepurchase" = "Deja cumpărat?";
+"plusview_restorefailed" = "A apărut o problemă la restaurarea achiziției";
+"plusview_restorefailed_proceed" = "OK";
+"plusview_purchasefailed" = "Achiziția a eșuat";
+"plusview_purchasefaileddescription" = "Dacă acest mesaj a apărut neașteptat, asigură-te că ești conectat la internet și că achizițiile în aplicație sunt activate pe dispozitivul tău, apoi încearcă din nou.";
+"plusview_nothingtorestore" = "Nu există nimic de restaurat!";
+"plusview_productRequestFailed" = "Momentan, nu se pot obține informații despre achizițiile în aplicație.";

@@ -20,7 +20,7 @@
 "NFiles" = "%d ملفات";
 
 /* No comment provided by engineer. */
-"NotificationsDenied.Message" = "يحتاج NearDrop إلى القدرة على عرض الإشعارات لنقل الملفات الواردة. يرجى السماح بالإشعارات في إعدادات النظام.";
+"NotificationsDenied.Message" = "يحتاج QuickDrop إلى القدرة على عرض الإشعارات لنقل الملفات الواردة. يرجى السماح بالإشعارات في إعدادات النظام.";
 
 /* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "افتح الإعدادات";
@@ -32,7 +32,7 @@
 "PinCode" = "الرمز السري: %@";
 
 /* No comment provided by engineer. */
-"Quit" = "إنهاء NearDrop";
+"Quit" = "إنهاء QuickDrop";
 
 /* No comment provided by engineer. */
 "TransferError" = "فشل في استقبال الملفات من %@";
@@ -44,14 +44,30 @@
 "PrivacyPolicy" = "سياسة الخصوصية";
 "UserManual" = "دليل المستخدم";
 
-"WelcomeToNearDrop" = "مرحبًا بك في NearDrop";
+"WelcomeToQuickDrop" = "مرحبًا بك في QuickDrop";
 
 "Acknowledgements" = "الشكر والتقدير";
+"SupportQuickDrop" = "ادعم QuickDrop";
 
-"UserManualDescription" = "عندما يكون NearDrop قيد التشغيل، سيظهر في شريط القائمة في الجزء العلوي من شاشتك. انقر على أيقونة NearDrop إذا كنت ترغب في التوقف عن تلقي الملفات.
+"UserManualDescription" = "عندما يكون QuickDrop قيد التشغيل، سيظهر في شريط القائمة في الجزء العلوي من شاشتك. انقر على أيقونة QuickDrop إذا كنت ترغب في التوقف عن تلقي الملفات.
 
 مهم: يجب أن يكون جهاز Android الخاص بك وMac متصلين بنفس شبكة Wi-Fi لنقل الملفات. إذا تم مطالبتك بالسماح بالاتصالات الواردة، يرجى السماح بها.
 
 لإرسال الملفات من جهاز Android إلى جهاز Mac، انقر على أيقونة المشاركة في هاتفك واختر \"Quick Share\" أو \"Nearby Share\". سيظهر جهاز Mac الخاص بك كجهاز متاح.
 
 بعد ذلك، سترى إشعارًا على جهاز Mac الخاص بك. مرر الماوس فوق الإشعار لقبول أو رفض نقل الملفات.";
+
+"plusview_title" = "شكرًا لاستخدامك QuickDrop!";
+"plusview_description" = "قم بفتح QuickDrop+ لمواصلة استقبال الملفات. QuickDrop+ هو عملية شراء لمرة واحدة – يمكنك الاحتفاظ بالتطبيق إلى الأبد بدون اشتراك.";
+"plusview_success_title" = "شكرًا لشرائك!";
+"plusview_success_description" = "يمكنك الآن متابعة استقبال الملفات بدون قيود.";
+"plusview_success_button" = "حسنًا!";
+"plusview_unlock_label" = "ادعم QuickDrop";
+
+"plusview_restorepurchase" = "هل اشتريته بالفعل؟";
+"plusview_restorefailed" = "حدثت مشكلة أثناء استعادة عملية الشراء";
+"plusview_restorefailed_proceed" = "موافق";
+"plusview_purchasefailed" = "فشل الشراء";
+"plusview_purchasefaileddescription" = "إذا ظهر هذا الرسالة بشكل غير متوقع، يرجى التأكد من اتصالك بالإنترنت وأن عمليات الشراء داخل التطبيق مفعّلة على جهازك، ثم حاول مرة أخرى.";
+"plusview_nothingtorestore" = "لا يوجد شيء لاستعادته!";
+"plusview_productRequestFailed" = "تعذر جلب عمليات الشراء داخل التطبيق في الوقت الحالي.";

@@ -20,7 +20,7 @@
 "NFiles" = "%dつのファイル";
 
 /* No comment provided by engineer. */
-"NotificationsDenied.Message" = "NearDropでファイル受信の通知を表示できる必要があります。システム設定で通知を許可してください。";
+"NotificationsDenied.Message" = "QuickDropでファイル受信の通知を表示できる必要があります。システム設定で通知を許可してください。";
 
 /* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "設定を開く";
@@ -32,7 +32,7 @@
 "PinCode" = "PIN: %@";
 
 /* No comment provided by engineer. */
-"Quit" = "NearDropを終了";
+"Quit" = "QuickDropを終了";
 
 /* No comment provided by engineer. */
 "TransferError" = "%@からのファイル受信に失敗しました。";
@@ -44,14 +44,30 @@
 "PrivacyPolicy" = "プライバシーポリシー";
 "UserManual" = "ユーザーマニュアル";
 
-"WelcomeToNearDrop" = "NearDropへようこそ";
+"WelcomeToQuickDrop" = "QuickDropへようこそ";
 
 "Acknowledgements" = "謝辞";
+"SupportQuickDrop" = "QuickDrop をサポート";
 
-"UserManualDescription" = "NearDropが実行中の場合、画面上部のメニューバーに表示されます。ファイルの受信を停止したい場合は、NearDropのアイコンをクリックしてください。
+"UserManualDescription" = "QuickDropが実行中の場合、画面上部のメニューバーに表示されます。ファイルの受信を停止したい場合は、QuickDropのアイコンをクリックしてください。
 
 重要: AndroidデバイスとMacは、ファイルを転送するために同じWi-Fiネットワークに接続している必要があります。接続の許可を求められた場合は、それを許可してください。
 
 AndroidデバイスからMacにファイルを送信するには、電話の共有アイコンをタップし、\"クイックシェア\"Quick Share\"Nearby Share\"を選択してください。Macは利用可能なデバイスとして表示されます。
 
 その後、Macに通知が表示されます。通知にカーソルを合わせて、ファイル転送を承認または拒否してください。";
+
+"plusview_title" = "QuickDropをご利用いただきありがとうございます！";
+"plusview_description" = "QuickDrop+をアンロックして、引き続きファイルを受信しましょう。QuickDrop+は一度購入すれば、サブスクリプションなしで永久にアプリを利用できます。";
+"plusview_success_title" = "ご購入ありがとうございます！";
+"plusview_success_description" = "これで、制限なくファイルを受信できます。";
+"plusview_success_button" = "了解！";
+"plusview_unlock_label" = "QuickDropをサポート";
+
+"plusview_restorepurchase" = "すでに購入済みですか？";
+"plusview_restorefailed" = "購入の復元中に問題が発生しました";
+"plusview_restorefailed_proceed" = "OK";
+"plusview_purchasefailed" = "購入に失敗しました";
+"plusview_purchasefaileddescription" = "このメッセージが予期せず表示された場合、インターネット接続を確認し、アプリ内購入が有効になっていることを確認した上で再試行してください。";
+"plusview_nothingtorestore" = "復元するものがありません！";
+"plusview_productRequestFailed" = "現在、アプリ内購入情報を取得できません。";

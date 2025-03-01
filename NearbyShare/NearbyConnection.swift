@@ -1,6 +1,6 @@
 //
 //  NearbyConnection.swift
-//  NearDrop
+//  QuickDrop
 //
 //  Created by Grishka on 09.04.2023.
 //
@@ -16,7 +16,7 @@ import BigInt
 
 class NearbyConnection{
 	internal static let SANE_FRAME_LENGTH=5*1024*1024
-	private static let dispatchQueue=DispatchQueue(label: "me.grishka.NearDrop.queue", qos: .utility) // FIFO (non-concurrent) queue to avoid those exciting concurrency bugs
+	private static let dispatchQueue=DispatchQueue(label: "com.leonboettger.quickdrop.queue", qos: .utility) // FIFO (non-concurrent) queue to avoid those exciting concurrency bugs
 	
 	internal let connection:NWConnection
 	internal var remoteDeviceInfo:RemoteDeviceInfo?
@@ -57,7 +57,7 @@ class NearbyConnection{
 				self.receiveFrameAsync()
 			} else if case .failed(let err) = state {
 				self.lastError=err
-				print("Error opening socket: \(err)")
+				log("Error opening socket: \(err)")
 				self.handleConnectionClosure()
 			}
 		}
@@ -68,7 +68,7 @@ class NearbyConnection{
 	func connectionReady(){}
 	
 	internal func handleConnectionClosure(){
-		print("Connection closed")
+		log("Connection closed")
 	}
 	
 	internal func protocolError(){
@@ -295,11 +295,11 @@ class NearbyConnection{
 			}
 		}else if offlineFrame.hasV1 && offlineFrame.v1.hasType, case .keepAlive = offlineFrame.v1.type{
 			#if DEBUG
-			print("Sent keep-alive")
+			log("Sent keep-alive")
 			#endif
 			sendKeepAlive(ack: true)
 		}else{
-			print("Unhandled offline frame encrypted: \(offlineFrame)")
+			log("Unhandled offline frame encrypted: \(offlineFrame)")
 		}
 	}
 	
@@ -444,7 +444,7 @@ class NearbyConnection{
 				sendFrameAsync(try offlineFrame.serializedData())
 			}
 		}catch{
-			print("Error sending KEEP_ALIVE: \(error)")
+			log("Error sending KEEP_ALIVE: \(error)")
 		}
 	}
 }
