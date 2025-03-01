@@ -273,23 +273,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
     }
 }
 
+
 struct TransferInfo {
     let device: RemoteDeviceInfo
     let transfer: TransferMetadata
-}
-
-class WindowDelegate: NSObject, NSWindowDelegate {
-    
-    let willClose: () -> Void
-    
-    init(willClose: @escaping () -> Void) {
-        self.willClose = willClose
-    }
-
-    
-    func windowWillClose(_ notification: Notification) {
-        print("Window closed!")
-        // Perform any cleanup or state updates here
-        willClose()
-    }
 }

@@ -88,14 +88,19 @@ class IAPManager: NSObject, ObservableObject {
 
 extension IAPManager: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        
+        log("IAP updatedTransactions")
+        
         transactions.forEach { (transaction) in
-
+            
             switch transaction.transactionState {
             case .purchased:
+                log("IAP purchased")
                 onBuyProductHandler?(.success(true))
                 SKPaymentQueue.default().finishTransaction(transaction)
                 
             case .restored:
+                log("IAP restored")
                 totalRestoredPurchases += 1
                 onBuyProductHandler?(.success(true))
                 SKPaymentQueue.default().finishTransaction(transaction)
@@ -120,17 +125,16 @@ extension IAPManager: SKPaymentTransactionObserver {
     }
     
     
-    
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        if totalRestoredPurchases != 0 {
-            onBuyProductHandler?(.success(true))
-        } else {
-            log("[LUI] IAP: No purchases to restore!")
-            onBuyProductHandler?(.success(false))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            if self.totalRestoredPurchases == 0 {
+                log("[LUI] IAP: No purchases to restore!")
+                self.onBuyProductHandler?(.success(false))
+            }
         }
     }
-    
-    
+        
+        
     func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
         if let error = error as? SKError {
             if error.code != .paymentCancelled {

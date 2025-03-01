@@ -105,16 +105,19 @@ struct GetPlusView: View {
                 switch result {
                 case .success(let success):
                     if success {
+                        log("[LUI] Restored purchases successfully")
                         withAnimation {
                             isPlusVersion = true
                         }
                         boughtSuccessAlert = true
                     } else {
+                        log("[LUI] Nothing to restore")
                         //nothing to restore
-                        restoreFailed(message: "plusview_nothingtorestore")
+                        restoreFailed(message: "plusview_nothingtorestore".localized())
                     }
                     
                 case .failure(let error):
+                    log("[LUI] Error restoring purchases: \(error.localizedDescription)")
                     log(error.localizedDescription)
                     restoreFailed(message: error.localizedDescription)
                 }
