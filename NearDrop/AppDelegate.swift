@@ -10,20 +10,24 @@ import UserNotifications
 import NearbyShare
 import SwiftUI
 import StoreKit
+import AudioToolbox
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
-    private var statusItem:NSStatusItem?
-    private var activeIncomingTransfers:[String:TransferInfo]=[:]
+    private var statusItem: NSStatusItem?
+    private var activeIncomingTransfers: [String : TransferInfo] = [:]
     
     var welcomeWindow: NSWindow?
     var plusWindow: NSWindow?
     private var iapManager: IAPManager?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let menu=NSMenu()
+        
+        let menu = NSMenu()
+        
         menu.addItem(withTitle: NSLocalizedString("VisibleToEveryone", value: "Visible to everyone", comment: ""), action: nil, keyEquivalent: "")
         menu.addItem(withTitle: String(format: NSLocalizedString("DeviceName", value: "Device name: %@", comment: ""), arguments: [Host.current().localizedName!]), action: nil, keyEquivalent: "")
+        
         menu.addItem(NSMenuItem.separator())
         
 //        // Add "Recommended Apps" menu item
@@ -41,10 +45,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
         
         menu.addItem(withTitle: NSLocalizedString("Quit", value: "Quit QuickDrop", comment: ""), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "")
         
-        
-        statusItem=NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        statusItem?.button?.image=NSImage(named: "MenuBarIcon")
-        statusItem?.menu=menu
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        statusItem?.button?.image = NSImage(named: "MenuBarIcon")
+        statusItem?.menu = menu
         statusItem?.behavior = .removalAllowed
         
         NearbyConnectionManager.shared.mainAppDelegate=self
@@ -184,7 +187,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo) {
         self.activeIncomingTransfers[transfer.id] = TransferInfo(device: device, transfer: transfer)
         
-        NSSound(named: NSSound.Name("NSUserNotificationDefaultSoundName"))?.play()
+        AudioManager.playSound()
         
         let alert = NSAlert()
         alert.alertStyle = .informational

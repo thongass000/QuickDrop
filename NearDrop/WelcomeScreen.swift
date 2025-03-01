@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WelcomeScreen: View {
     
-    @State private var newWindow: NSWindow? // Retain the NSWindow object
+    @State private var newWindow: NSWindow?
     @AppStorage(UserDefaultsKeys.plusVersion.rawValue) var isPlusVersion = false
     
     @Environment(\.colorScheme) var colorScheme
@@ -85,11 +85,6 @@ struct WelcomeScreen: View {
                     }
                     .buttonStyle(.plain)
                     #endif
-                }
-                .onAppear {
-//                    #if DEBUG
-//                    isPlusVersion = false
-//                    #endif
                 }
                 .padding()
             }
@@ -276,6 +271,32 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
+
+All of the sounds listed below are provided under the Creative Commons Attribution 4.0 International License.
+
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+Creative Commons Attribution 4.0 International Public License (2020/14/09)
+
+[...]
+
+Section 5 – Disclaimer of Warranties and Limitation of Liability.
+
+Unless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.
+To the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.
+The disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.
+
+[...]
+
+All sounds are copyrighted material of https://notificationsounds.com
+
+Terms of use: https://notificationsounds.com/terms-of-use
+
+Sound files:
+
+https://notificationsounds.com/notification-sounds/time-is-now-585
+
+Modifications to sound files: Volume and length, no previous modifications.
 """)
                 .padding()
             }
