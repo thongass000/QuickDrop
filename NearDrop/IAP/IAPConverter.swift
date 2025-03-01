@@ -8,7 +8,7 @@ import StoreKit
 
 class IAPConverter: NSObject, SKRequestDelegate {
     
-    let switchToIAPAfterBundleVersion = "6"
+    let switchToIAPAfterAppVersion = "1.2"
     
     static let shared = IAPConverter()
     
@@ -27,7 +27,7 @@ class IAPConverter: NSObject, SKRequestDelegate {
                     if case .verified(let appTransaction) = shared {
                         
                         let originalVersion = appTransaction.originalAppVersion
-                        let newModelVersion = switchToIAPAfterBundleVersion
+                        let newModelVersion = switchToIAPAfterAppVersion
                         log("[LUI] Original Purchased Version: \(originalVersion) | New Model Version: \(newModelVersion)")
                         
                         if originalVersion.compare(newModelVersion, options: .numeric) == .orderedAscending {
