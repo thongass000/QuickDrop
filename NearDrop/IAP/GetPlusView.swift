@@ -91,7 +91,7 @@ struct GetPlusView: View {
         }
         .frame(width: 400, height: 200)
     }
-
+    
     
     func restorePurchases() {
         
@@ -126,10 +126,10 @@ struct GetPlusView: View {
         
         func restoreFailed(message: String) {
             
-            #if targetEnvironment(simulator)
+#if targetEnvironment(simulator)
             isPlusVersion = true
             dismissView()
-            #else
+#else
             
             // now, try to convert from old version
             IAPConverter.shared.restoreIAPfromPreviousPurchase { success in
@@ -153,7 +153,7 @@ struct GetPlusView: View {
                     }
                 }
             }
-            #endif
+#endif
         }
     }
     
@@ -215,11 +215,11 @@ struct GetPlusView: View {
                 case .failure(let error):
                     errorText = error.localizedDescription
                     
-                    if(shouldBuy){
+                    if shouldBuy {
                         warning = true
                     }
                     
-                    withAnimation{
+                    withAnimation {
                         buying = false
                     }
                 }
