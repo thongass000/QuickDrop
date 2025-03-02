@@ -61,11 +61,11 @@ Um Dateien von deinem Android-Gerät an deinen Mac zu senden, tippe auf deinem H
 Daraufhin wird eine Benachrichtigung auf deinem Mac angezeigt. Bewege den Mauszeiger über die Benachrichtigung, um die Dateiübertragung zu akzeptieren oder abzulehnen.
 
 
-Troubleshooting – Wenn dein Mac nicht auf deinem Android-Gerät angezeigt wird oder die Übertragung fehlgeschlagen ist, versuche Folgendes:
+Wenn dein Mac nicht auf deinem Android-Gerät angezeigt wird oder die Übertragung fehlgeschlagen ist, versuche Folgendes:
 
-1) Stelle sicher, dass beide Geräte mit demselben WiFi-Netzwerk verbunden sind. 2) Starte QuickDrop neu, indem du auf das Symbol in der Menüleiste klickst, den letzten Eintrag auswählst und die App erneut öffnest. 3) Starte dein Android-Gerät neu.
+1) Stelle sicher, dass beide Geräte mit demselben WLAN-Netzwerk verbunden sind. 2) Starte QuickDrop neu, indem du auf das Symbol in der Menüleiste klickst, den letzten Eintrag auswählst und die App erneut öffnest. 3) Starte dein Android-Gerät neu.
 
-Wenn du weiterhin Probleme hast, könnten diese durch deinen WLAN-Router verursacht werden. Einige Router erlauben es Geräten nicht, miteinander zu kommunizieren. Stelle sicher, dass diese Einstellung in den Router-Einstellungen korrekt konfiguriert ist. Wenn du diese Einstellung nicht ändern kannst, aktiviere den WiFi-Hotspot auf deinem Android-Gerät und verbinde deinen Mac direkt mit deinem Hotspot.";
+Wenn du weiterhin Probleme hast, könnten diese durch deinen WLAN-Router verursacht werden. Einige Router erlauben es Geräten nicht, miteinander zu kommunizieren. Stelle sicher, dass diese Einstellung in den Router-Einstellungen korrekt konfiguriert ist. Wenn du diese Einstellung nicht ändern kannst, aktiviere den WLAN-Hotspot auf deinem Android-Gerät und verbinde deinen Mac direkt mit deinem Hotspot.";
 
 "plusview_title" = "Danke, dass du QuickDrop benutzt!";
 "plusview_description" = "Schalte QuickDrop+ frei, um weiterhin Dateien zu empfangen. QuickDrop+ ist ein einmaliger Kauf – du kannst die App für immer behalten, kein Abonnement erforderlich.";
