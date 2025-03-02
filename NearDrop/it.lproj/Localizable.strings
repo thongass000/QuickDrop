@@ -56,7 +56,14 @@ Importante: Il tuo dispositivo Android e il tuo Mac devono essere connessi alla 
 
 Per inviare file dal tuo dispositivo Android al tuo Mac, tocca l'icona di condivisione sul tuo telefono e seleziona \"Quick Share\" o \"Nearby Share\". Il tuo Mac verrà elencato come dispositivo disponibile.
 
-Dopo di ciò, vedrai una notifica sul tuo Mac. Passa il cursore sulla notifica per accettare o rifiutare il trasferimento del file.";
+Dopo di ciò, vedrai una notifica sul tuo Mac. Passa il cursore sulla notifica per accettare o rifiutare il trasferimento del file.
+
+
+Troubleshooting – Se il tuo Mac non appare sul tuo dispositivo Android o la trasmissione è fallita, prova quanto segue:
+
+1) Assicurati che entrambi i dispositivi siano connessi alla stessa rete WiFi. 2) Riavvia QuickDrop cliccando sull’icona della barra dei menu, scegli l’ultima voce e riapri l’app. 3) Riavvia il tuo dispositivo Android.
+
+Se il problema persiste, potrebbe essere causato dal tuo router WiFi. Alcuni router non permettono ai dispositivi di comunicare tra loro. Cerca di assicurarti che questa impostazione sia configurata correttamente nelle impostazioni del router. Se non puoi modificare questa impostazione, abilita l’hotspot WiFi sul tuo dispositivo Android e collega il tuo Mac direttamente al tuo hotspot.”";
 
 
 "plusview_title" = "Grazie per aver usato QuickDrop!";
