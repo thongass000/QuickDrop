@@ -207,6 +207,7 @@
 		E9C8C6D42CFF66650053474D /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E9C8C6D52CFF66650053474D /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ro; path = ro.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		E9C8C6D62CFF66650053474D /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EB316B672D74709E00F476C4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = de; path = de.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		EB36435F2D73A29F009CDFF8 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		EB3643612D73A2CA009CDFF8 /* timeIsNow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timeIsNow.mp3; sourceTree = "<group>"; };
 		EB4ACE3C2D345A0800A0AF4C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -604,6 +605,7 @@
 				E94E45DB2BBD6464009804EF /* pt-PT */,
 				69FE60242C03778C0082D326 /* ar */,
 				E9C8C6D52CFF66650053474D /* ro */,
+				EB316B672D74709E00F476C4 /* de */,
 			);
 			name = Localizable.stringsdict;
 			sourceTree = "<group>";

@@ -8,7 +8,7 @@
 "DeviceName" = "Gerätename: %@";
 
 /* No comment provided by engineer. */
-"DeviceSendingFiles" = "%1$@ möchte dir \"%2$@\" senden";
+"DeviceSendingFiles" = "%1$@ möchte dir %2$@ senden";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Verschlüsselungsfehler";
