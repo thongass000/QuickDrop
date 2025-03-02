@@ -34,6 +34,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
 //        let recommendedAppsItem = NSMenuItem(title: NSLocalizedString("RecommendedApps", value: "Recommended Apps", comment: ""), action: #selector(openRecommendedApps), keyEquivalent: "")
 //        menu.addItem(recommendedAppsItem)
         
+        // Add "Recommended Apps" menu item
+        let recommendedAppsItem = NSMenuItem(title: NSLocalizedString("GetSupport", value: "Support", comment: ""), action: #selector(getSupport), keyEquivalent: "")
+        menu.addItem(recommendedAppsItem)
+        
         // Add "Privacy Policy" menu item
         let privacyPolicyItem = NSMenuItem(title: NSLocalizedString("PrivacyPolicy", value: "Privacy Policy", comment: ""), action: #selector(openPrivacyPolicy), keyEquivalent: "")
         menu.addItem(privacyPolicyItem)
@@ -151,6 +155,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
     // Action for "Recommended Apps" menu item
     @objc func openRecommendedApps() {
         if let url = URL(string: "https://apps.apple.com/de/developer/leon-boettger/id1537384790") {
+            NSWorkspace.shared.open(url)
+        }
+    }
+    
+    @objc func getSupport() {
+        if let url = URL(string: "mailto:quickdrop@leonboettger.com?subject=QuickDrop") {
             NSWorkspace.shared.open(url)
         }
     }
