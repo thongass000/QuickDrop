@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
         let menu = NSMenu()
         
         menu.addItem(withTitle: NSLocalizedString("VisibleToEveryone", value: "Visible to everyone", comment: ""), action: nil, keyEquivalent: "")
-        menu.addItem(withTitle: String(format: NSLocalizedString("DeviceName", value: "Device name: %@", comment: ""), arguments: [Host.current().localizedName!]), action: nil, keyEquivalent: "")
+        menu.addItem(withTitle: String(format: NSLocalizedString("DeviceName", value: "Device name: %@", comment: ""), arguments: [Host.current().localizedName ?? "Mac"]), action: nil, keyEquivalent: "")
         
         menu.addItem(NSMenuItem.separator())
         
@@ -213,7 +213,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
         }
         
         let mainMessage = String(format: NSLocalizedString("DeviceSendingFiles", value: "%1$@ is sending you %2$@", comment: ""), arguments: [device.name, fileStr])
-        let pinCodeMessage = String(format:NSLocalizedString("PinCode", value: "PIN: %@", comment: ""), arguments: [transfer.pinCode!])
+        let pinCodeMessage = String(format:NSLocalizedString("PinCode", value: "PIN: %@", comment: ""), arguments: [transfer.pinCode ?? "?"])
         let transferID = transfer.id
         
         alert.messageText = "QuickDrop - \(pinCodeMessage)"
