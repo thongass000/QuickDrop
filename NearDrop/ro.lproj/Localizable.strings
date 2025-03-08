@@ -83,3 +83,12 @@ Dacă întâmpini în continuare probleme, acestea ar putea fi cauzate de router
 "plusview_purchasefaileddescription" = "Dacă acest mesaj a apărut neașteptat, asigură-te că ești conectat la internet și că achizițiile în aplicație sunt activate pe dispozitivul tău, apoi încearcă din nou.";
 "plusview_nothingtorestore" = "Nu există nimic de restaurat!";
 "plusview_productRequestFailed" = "Momentan, nu se pot obține informații despre achizițiile în aplicație.";
+
+"Connecting" = "Se conectează...";
+"NotEnoughSpace" = "Spațiu insuficient pe disc";
+"Sending" = "Se trimite...";
+"TransferCanceled" = "Anulat";
+"TransferDeclined" = "Refuzat";
+"TransferFinished" = "Transfer finalizat";
+"TransferTimedOut" = "Timpul a expirat";
+"UnsupportedType" = "Tip de atașament neacceptat";  

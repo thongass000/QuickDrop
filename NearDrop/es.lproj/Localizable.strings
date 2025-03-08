@@ -84,3 +84,12 @@ Si aún encuentras problemas, estos podrían ser causados por tu router WiFi. Al
 "plusview_purchasefaileddescription" = "Si este mensaje apareció inesperadamente, asegúrate de estar conectado a Internet y que las compras dentro de la aplicación estén habilitadas en tu dispositivo, luego intenta nuevamente.";
 "plusview_nothingtorestore" = "¡No hay nada que restaurar!";
 "plusview_productRequestFailed" = "No se pueden recuperar las compras dentro de la aplicación en este momento.";
+
+"Connecting" = "Conectando...";
+"NotEnoughSpace" = "Espacio en disco insuficiente";
+"Sending" = "Enviando...";
+"TransferCanceled" = "Cancelado";
+"TransferDeclined" = "Rechazado";
+"TransferFinished" = "Transferencia finalizada";
+"TransferTimedOut" = "Tiempo de espera agotado";
+"UnsupportedType" = "Tipo de archivo adjunto no compatible";  

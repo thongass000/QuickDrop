@@ -84,3 +84,13 @@ Ha továbbra is problémákat tapasztalsz, azok a WiFi-routeredből adódhatnak.
 "plusview_purchasefaileddescription" = "Ha ez az üzenet váratlanul jelent meg, ellenőrizd az internetkapcsolatot, és győződj meg róla, hogy az alkalmazáson belüli vásárlások engedélyezve vannak az eszközödön, majd próbáld újra.";
 "plusview_nothingtorestore" = "Nincs visszaállítható vásárlás!";
 "plusview_productRequestFailed" = "Jelenleg nem lehet lekérni az alkalmazáson belüli vásárlásokat.";
+
+
+"Connecting" = "Csatlakozás...";
+"NotEnoughSpace" = "Nincs elég lemezterület";
+"Sending" = "Küldés...";
+"TransferCanceled" = "Megszakítva";
+"TransferDeclined" = "Elutasítva";
+"TransferFinished" = "Átvitel befejezve";
+"TransferTimedOut" = "Időtúllépés";
+"UnsupportedType" = "Nem támogatott csatolmánytípus";  

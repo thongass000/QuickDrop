@@ -2,11 +2,6 @@
 /* Class = "NSTextFieldCell"; title = "QuickDrop"; ObjectID = "0xp-rC-2gr"; */
 "0xp-rC-2gr.title" = "QuickDrop";
 
-/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "6Up-t3-mwm"; */
-"6Up-t3-mwm.title" = "Anulare";
-
-/* Class = "NSTextFieldCell"; title = "Looking for devices..."; ObjectID = "NaJ-Wx-Pim"; */
-"NaJ-Wx-Pim.title" = "Căutare dispozitive...";
-
-/* Class = "NSTextFieldCell"; title = "If you don't see your device, open \"Google Files\" app and tap \"Receive\" on the Nearby Share tab."; ObjectID = "vla-gF-eJo"; */
-"vla-gF-eJo.title" = "Dacă nu vezi dispozitivul tău, deschide aplicația \"Google Files\" și apasă pe butonul \"Primește\".";
+"6Up-t3-mwm.title" = "Anulează";
+"NaJ-Wx-Pim.title" = "Se caută dispozitive...";
+"vla-gF-eJo.title" = "Dacă nu vezi dispozitivul tău, instalează și deschide aplicația 'Files by Google' și atinge 'Primește' în colțul din dreapta jos. Notă: În prezent, nu este compatibil cu Samsung.";  

@@ -83,3 +83,13 @@ Se il problema persiste, potrebbe essere causato dal tuo router WiFi. Alcuni rou
 "plusview_purchasefaileddescription" = "Se questo messaggio è apparso inaspettatamente, assicurati di essere connesso a Internet e che gli acquisti in-app siano abilitati sul tuo dispositivo, quindi riprova.";
 "plusview_nothingtorestore" = "Non c'è nulla da ripristinare!";
 "plusview_productRequestFailed" = "Impossibile recuperare gli acquisti in-app al momento.";
+
+
+"Connecting" = "Connessione in corso...";
+"NotEnoughSpace" = "Spazio su disco insufficiente";
+"Sending" = "Invio in corso...";
+"TransferCanceled" = "Annullato";
+"TransferDeclined" = "Rifiutato";
+"TransferFinished" = "Trasferimento completato";
+"TransferTimedOut" = "Tempo scaduto";
+"UnsupportedType" = "Tipo di allegato non supportato";  

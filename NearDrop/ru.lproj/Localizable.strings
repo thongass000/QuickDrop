@@ -86,3 +86,13 @@
 "plusview_purchasefaileddescription" = "Если это сообщение появилось неожиданно, убедитесь, что у вас есть доступ к интернету и включены встроенные покупки на вашем устройстве, затем попробуйте снова.";
 "plusview_nothingtorestore" = "Нет покупок для восстановления!";
 "plusview_productRequestFailed" = "Не удалось получить данные о встроенных покупках.";
+
+
+"Connecting" = "Подключение...";
+"NotEnoughSpace" = "Недостаточно места на диске";
+"Sending" = "Отправка...";
+"TransferCanceled" = "Отменено";
+"TransferDeclined" = "Отклонено";
+"TransferFinished" = "Передача завершена";
+"TransferTimedOut" = "Время ожидания истекло";
+"UnsupportedType" = "Тип вложения не поддерживается";  

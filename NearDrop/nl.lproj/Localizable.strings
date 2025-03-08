@@ -84,3 +84,12 @@ Als je nog steeds problemen ondervindt, kunnen deze veroorzaakt worden door je W
 "plusview_purchasefaileddescription" = "Als dit bericht onverwachts verschijnt, controleer dan of je verbonden bent met internet en of in-app aankopen zijn ingeschakeld op je apparaat, en probeer het opnieuw.";
 "plusview_nothingtorestore" = "Er is niets om te herstellen!";
 "plusview_productRequestFailed" = "In-app aankopen kunnen momenteel niet worden opgehaald.";
+
+"Connecting" = "Verbinden...";
+"NotEnoughSpace" = "Onvoldoende schijfruimte";
+"Sending" = "Bezig met verzenden...";
+"TransferCanceled" = "Geannuleerd";
+"TransferDeclined" = "Geweigerd";
+"TransferFinished" = "Overdracht voltooid";
+"TransferTimedOut" = "Time-out";
+"UnsupportedType" = "Bijlagetype niet ondersteund";  

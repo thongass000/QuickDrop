@@ -86,3 +86,12 @@ Wenn du weiterhin Probleme hast, könnten diese durch deinen WLAN-Router verursa
 "plusview_purchasefaileddescription" = "Falls diese Nachricht unerwartet erscheint, stelle sicher, dass du mit dem Internet verbunden bist und In-App-Käufe auf deinem Gerät aktiviert sind, und versuche es erneut.";
 "plusview_nothingtorestore" = "Es gibt nichts wiederherzustellen!";
 "plusview_productRequestFailed" = "In-App-Käufe können momentan nicht abgerufen werden.";
+
+"Connecting" = "Verbinden...";
+"NotEnoughSpace" = "Nicht genügend Speicherplatz";
+"Sending" = "Senden...";
+"TransferCanceled" = "Abgebrochen";
+"TransferDeclined" = "Abgelehnt";
+"TransferFinished" = "Übertragung abgeschlossen";
+"TransferTimedOut" = "Zeitüberschreitung";
+"UnsupportedType" = "Typ nicht unterstützt";

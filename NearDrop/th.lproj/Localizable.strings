@@ -84,3 +84,12 @@
 "plusview_purchasefaileddescription" = "หากข้อความนี้ปรากฏขึ้นโดยไม่คาดคิด โปรดตรวจสอบว่าคุณเชื่อมต่ออินเทอร์เน็ตและเปิดใช้งานการซื้อภายในแอปในอุปกรณ์ของคุณแล้วลองอีกครั้ง";
 "plusview_nothingtorestore" = "ไม่มีรายการที่ต้องกู้คืน!";
 "plusview_productRequestFailed" = "ไม่สามารถดึงข้อมูลการซื้อภายในแอปได้ในขณะนี้";
+
+"Connecting" = "กำลังเชื่อมต่อ...";
+"NotEnoughSpace" = "พื้นที่ดิสก์ไม่เพียงพอ";
+"Sending" = "กำลังส่ง...";
+"TransferCanceled" = "ยกเลิก";
+"TransferDeclined" = "ถูกปฏิเสธ";
+"TransferFinished" = "การโอนเสร็จสิ้น";
+"TransferTimedOut" = "หมดเวลา";
+"UnsupportedType" = "ไม่รองรับประเภทไฟล์แนบ";  

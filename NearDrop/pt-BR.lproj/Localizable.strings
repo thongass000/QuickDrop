@@ -84,3 +84,12 @@ Se você ainda encontrar problemas, eles podem ser causados pelo seu roteador Wi
 "plusview_purchasefaileddescription" = "Se esta mensagem apareceu inesperadamente, verifique se você está conectado à internet e se as compras dentro do app estão ativadas no seu dispositivo e tente novamente.";
 "plusview_nothingtorestore" = "Nada para restaurar!";
 "plusview_productRequestFailed" = "Não foi possível recuperar as compras dentro do aplicativo no momento.";
+
+"Connecting" = "Conectando...";
+"NotEnoughSpace" = "Espaço em disco insuficiente";
+"Sending" = "Enviando...";
+"TransferCanceled" = "Cancelado";
+"TransferDeclined" = "Recusado";
+"TransferFinished" = "Transferência concluída";
+"TransferTimedOut" = "Tempo esgotado";
+"UnsupportedType" = "Tipo de anexo não suportado";  

@@ -90,3 +90,15 @@ If you still encounter issues, the issues could be caused due to your WiFi route
 "plusview_purchasefaileddescription" = "If this message appeared unexpectedly, please make sure that you are connected to the Internet and In-App-Purchases are enabled for your device and then try again.";
 "plusview_nothingtorestore" = "There is nothing to restore!";
 "plusview_productRequestFailed" = "Unable to fetch In-App Purchases at the moment.";
+
+
+
+/* Share Extension */
+"Connecting" = "Connecting...";
+"NotEnoughSpace" = "Not enough disk space";
+"Sending" = "Sending...";
+"TransferCanceled" = "Canceled";
+"TransferDeclined" = "Declined";
+"TransferFinished" = "Transfer finished";
+"TransferTimedOut" = "Timed out";
+"UnsupportedType" = "Attachment type not supported";

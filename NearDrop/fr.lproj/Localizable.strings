@@ -83,3 +83,13 @@ Si vous rencontrez toujours des problèmes, ceux-ci peuvent être causés par vo
 "plusview_purchasefaileddescription" = "Si ce message est apparu de manière inattendue, assurez-vous d'être connecté à Internet et que les achats intégrés sont activés sur votre appareil, puis réessayez.";
 "plusview_nothingtorestore" = "Aucun achat à restaurer !";
 "plusview_productRequestFailed" = "Impossible de récupérer les achats intégrés pour le moment.";
+
+
+"Connecting" = "Connexion en cours...";
+"NotEnoughSpace" = "Espace disque insuffisant";
+"Sending" = "Envoi en cours...";
+"TransferCanceled" = "Annulé";
+"TransferDeclined" = "Refusé";
+"TransferFinished" = "Transfert terminé";
+"TransferTimedOut" = "Délai dépassé";
+"UnsupportedType" = "Type de pièce jointe non pris en charge";  

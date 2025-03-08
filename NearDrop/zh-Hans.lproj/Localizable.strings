@@ -83,3 +83,13 @@
 "plusview_purchasefaileddescription" = "如果此消息意外出现，请确保您已连接到互联网，并且设备已启用应用内购买功能，然后重试。";
 "plusview_nothingtorestore" = "没有可恢复的购买！";
 "plusview_productRequestFailed" = "暂时无法获取应用内购买信息。";
+
+
+"Connecting" = "正在连接...";
+"NotEnoughSpace" = "磁盘空间不足";
+"Sending" = "正在发送...";
+"TransferCanceled" = "已取消";
+"TransferDeclined" = "已拒绝";
+"TransferFinished" = "传输完成";
+"TransferTimedOut" = "超时";
+"UnsupportedType" = "不支持的附件类型";  

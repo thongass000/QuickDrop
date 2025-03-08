@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="ShareViewController" customModule="NearDropShareExtension" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="ShareViewController" customModule="QuickDropShareExtension" customModuleProvider="target">
             <connections>
                 <outlet property="contentWrap" destination="ACO-U2-AZj" id="PAE-Pw-Vyx"/>
                 <outlet property="filesIcon" destination="afM-Om-nLQ" id="I58-a3-SBZ"/>

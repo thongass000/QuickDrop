@@ -84,3 +84,12 @@
 "plusview_purchasefaileddescription" = "إذا ظهر هذا الرسالة بشكل غير متوقع، يرجى التأكد من اتصالك بالإنترنت وأن عمليات الشراء داخل التطبيق مفعّلة على جهازك، ثم حاول مرة أخرى.";
 "plusview_nothingtorestore" = "لا يوجد شيء لاستعادته!";
 "plusview_productRequestFailed" = "تعذر جلب عمليات الشراء داخل التطبيق في الوقت الحالي.";
+
+"Connecting" = "جارٍ الاتصال...";
+"NotEnoughSpace" = "مساحة القرص غير كافية";
+"Sending" = "جارٍ الإرسال...";
+"TransferCanceled" = "تم الإلغاء";
+"TransferDeclined" = "تم الرفض";
+"TransferFinished" = "اكتمل النقل";
+"TransferTimedOut" = "انتهت المهلة";
+"UnsupportedType" = "نوع المرفق غير مدعوم";  
