@@ -44,6 +44,14 @@
 "GetSupport" = "Támogatás";
 "PrivacyPolicy" = "Adatvédelmi irányelvek";
 "UserManual" = "Felhasználói kézikönyv";
+"SendFiles" = "Fájlok küldése";
+"ReceiveFiles" = "Fájlok fogadása";
+"DeviceNotShown" = "Az eszköz nem látható?";
+"Troubleshooting" = "Hibaelhárítás";
+
+"SendFilesDescription" = "Fájl küldéséhez az Android-eszközödre kattints a Megosztás ikonra, vagy kattints jobb gombbal a fájlra, és válaszd a “Megosztás” lehetőséget. Ezután válaszd a “QuickDrop” alkalmazást a listából, és kövesd az utasításokat.
+
+Ha a QuickDrop nem jelenik meg a listában, kattints a “Bővítmények szerkesztése” gombra, görgess lefelé, és kapcsold be a QuickDrop kapcsolót.";
 
 "WelcomeToQuickDrop" = "Üdvözlünk a QuickDropban";
 
@@ -52,14 +60,11 @@
 
 "UserManualDescription" = "Amikor a QuickDrop fut, az megjelenik a képernyő tetején található menüsorban. Kattints a QuickDrop ikonra, ha szeretnéd leállítani a fájlok fogadását.
 
-Fontos: Az Android-eszközödnek és a Mac számítógépednek ugyanarra a Wi-Fi hálózatra kell csatlakozniuk a fájlok átviteléhez. Ha megjelenik egy kérdés a bejövő kapcsolatok engedélyezésére, kérjük, engedélyezd azokat.
-
 Fájlok küldéséhez az Android-eszközödről a Mac-re érintsd meg a megosztás ikont a telefonodon, majd válaszd a \"Quick Share\" vagy a \"Nearby Share\" lehetőséget. A Mac-ed elérhető eszközként fog megjelenni.
 
-Ezt követően értesítést fogsz látni a Mac-en. Vidd az egérmutatót az értesítés fölé, hogy elfogadd vagy elutasítsd a fájlátvitelt.
+Fontos: Az Android-eszközödnek és a Mac számítógépednek ugyanarra a Wi-Fi hálózatra kell csatlakozniuk a fájlok átviteléhez. Ha megjelenik egy kérdés a bejövő kapcsolatok engedélyezésére, kérjük, engedélyezd azokat.";
 
-
-Ha a Mac nem jelenik meg az Android-eszközödön, vagy a továbbítás nem sikerült, próbáld ki a következőket:
+"TroubleshootingDescription" = "Ha a Mac nem jelenik meg az Android-eszközödön, vagy a továbbítás nem sikerült, próbáld ki a következőket:
 
 1) Győződj meg róla, hogy mindkét eszköz ugyanarra a WiFi hálózatra van csatlakoztatva. 2) Indítsd újra a QuickDrop-ot azzal, hogy rákattintasz a menüsor ikonra, válaszd az utolsó bejegyzést, és nyisd meg újra az alkalmazást. 3) Indítsd újra az Android-eszközödet.
 

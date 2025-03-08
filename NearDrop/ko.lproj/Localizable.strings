@@ -44,6 +44,13 @@
 "GetSupport" = "지원";
 "PrivacyPolicy" = "개인정보 처리방침";
 "UserManual" = "사용자 매뉴얼";
+"SendFiles" = "파일 보내기";
+"ReceiveFiles" = "파일 받기";
+"DeviceNotShown" = "장치가 표시되지 않음?";
+"Troubleshooting" = "문제 해결";
+"SendFilesDescription" = "Android 기기로 파일을 보내려면 공유 아이콘을 클릭하거나 파일을 마우스 오른쪽 버튼으로 클릭한 후 “공유”를 선택하세요. 그런 다음 앱 목록에서 “QuickDrop”을 선택하고 안내를 따르세요.
+
+목록에서 QuickDrop이 보이지 않으면 “확장 프로그램 편집”을 클릭하고 아래로 스크롤한 후 QuickDrop 토글을 활성화하세요.";
 
 "WelcomeToQuickDrop" = "QuickDrop에 오신 것을 환영합니다";
 
@@ -52,14 +59,11 @@
 
 "UserManualDescription" = "QuickDrop이 실행 중이면 화면 상단 메뉴 막대에 나타납니다. 파일 수신을 중지하려면 QuickDrop 아이콘을 클릭하세요.
 
-중요: Android 기기와 Mac이 파일을 전송하려면 동일한 WiFi 네트워크에 연결되어 있어야 합니다. 들어오는 연결을 허용하라는 메시지가 표시되면 허용하세요.
-
 Android 기기에서 Mac으로 파일을 전송하려면 휴대전화에서 공유 아이콘을 탭한 다음 \"Quick Share\" 또는 \"Nearby Share\"를 선택하세요. Mac이 사용 가능한 장치로 표시됩니다.
 
-그 후, Mac에서 알림이 표시됩니다. 알림 위에 커서를 올려 파일 전송을 수락하거나 거부하세요.
+중요: Android 기기와 Mac이 파일을 전송하려면 동일한 WiFi 네트워크에 연결되어 있어야 합니다. 들어오는 연결을 허용하라는 메시지가 표시되면 허용하세요.";
 
-
-Mac이 Android 기기에서 표시되지 않거나 전송에 실패한 경우 다음 단계를 시도해 보세요:
+"TroubleshootingDescription" = "Mac이 Android 기기에서 표시되지 않거나 전송에 실패한 경우 다음 단계를 시도해 보세요:
 
 1) 두 장치가 동일한 WiFi 네트워크에 연결되어 있는지 확인하세요. 2) 메뉴 막대 아이콘을 클릭하고 마지막 항목을 선택한 후 앱을 다시 열어 QuickDrop을 재시작하세요. 3) Android 기기를 재시작하세요.
 

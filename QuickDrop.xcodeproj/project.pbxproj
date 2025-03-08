@@ -43,6 +43,9 @@
 		EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7CD1462D6FB0E800CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7CD1472D6FB0E800CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
+		EB7F54102D78E6DF00989564 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F540F2D78E6DD00989564 /* Sidebar.swift */; };
+		EB7F54122D78E96000989564 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54112D78E95C00989564 /* TutorialView.swift */; };
+		EB7F54142D78E9E700989564 /* LicenseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54132D78E9E400989564 /* LicenseWindow.swift */; };
 		EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -213,6 +216,9 @@
 		EB4ACE3C2D345A0800A0AF4C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EB7CD1422D6FAEAF00CB0CB5 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		EB7F540F2D78E6DD00989564 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		EB7F54112D78E95C00989564 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		EB7F54132D78E9E400989564 /* LicenseWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWindow.swift; sourceTree = "<group>"; };
 		EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		EBD2A2182D28619200BCB8E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -304,7 +310,10 @@
 				EBD2A2182D28619200BCB8E2 /* Info.plist */,
 				69DA9A1129E0BF5100A442DA /* AppDelegate.swift */,
 				EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */,
+				EB7F54112D78E95C00989564 /* TutorialView.swift */,
+				EB7F54132D78E9E400989564 /* LicenseWindow.swift */,
 				EB36435F2D73A29F009CDFF8 /* AudioManager.swift */,
+				EB7F540F2D78E6DD00989564 /* Sidebar.swift */,
 				EB7CD1422D6FAEAF00CB0CB5 /* UserDefaultsKeys.swift */,
 				EB7CD13B2D6F8B6500CB0CB5 /* IAP */,
 				69DA9A1329E0BF5200A442DA /* Assets.xcassets */,
@@ -528,8 +537,11 @@
 			files = (
 				EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */,
 				EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */,
+				EB7F54142D78E9E700989564 /* LicenseWindow.swift in Sources */,
 				EB7CD1432D6FAEB400CB0CB5 /* UserDefaultsKeys.swift in Sources */,
 				69DA9A1229E0BF5100A442DA /* AppDelegate.swift in Sources */,
+				EB7F54102D78E6DF00989564 /* Sidebar.swift in Sources */,
+				EB7F54122D78E96000989564 /* TutorialView.swift in Sources */,
 				EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -795,7 +807,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 11;
+				SHARED_BUILD = 12;
 				SHARED_VERSION = 1.3;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -854,7 +866,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 11;
+				SHARED_BUILD = 12;
 				SHARED_VERSION = 1.3;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";

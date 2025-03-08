@@ -44,6 +44,13 @@
 "GetSupport" = "Support";
 "PrivacyPolicy" = "Politique de confidentialité";
 "UserManual" = "Manuel d'utilisateur";
+"SendFiles" = "Envoyer des fichiers";
+"ReceiveFiles" = "Recevoir des fichiers";
+"DeviceNotShown" = "Appareil non affiché?";
+"Troubleshooting" = "Dépannage";
+"SendFilesDescription" = "Pour envoyer un fichier vers votre appareil Android, cliquez sur l’icône Partager ou faites un clic droit sur le fichier et sélectionnez “Partager”. Ensuite, sélectionnez “QuickDrop” dans la liste des applications et suivez les instructions.
+
+Si vous ne voyez pas QuickDrop dans la liste, cliquez sur “Modifier les extensions”, faites défiler vers le bas et activez l’option pour QuickDrop.";
 
 "WelcomeToQuickDrop" = "Bienvenue sur QuickDrop";
 
@@ -52,14 +59,11 @@
 
 "UserManualDescription" = "Lorsque QuickDrop est en cours d'exécution, il apparaît dans la barre de menu en haut de votre écran. Cliquez sur l'icône QuickDrop si vous souhaitez arrêter de recevoir des fichiers.
 
-Important : Votre appareil Android et votre Mac doivent être connectés au même réseau Wi-Fi pour transférer des fichiers. Si vous êtes invité à autoriser les connexions entrantes, veuillez les autoriser.
-
 Pour envoyer des fichiers de votre appareil Android vers votre Mac, appuyez sur l'icône de partage sur votre téléphone et sélectionnez \"Quick Share\" ou \"Nearby Share\". Votre Mac sera affiché comme un appareil disponible.
 
-Après cela, vous verrez une notification sur votre Mac. Survolez la notification pour accepter ou refuser le transfert de fichiers.
+Important: Votre appareil Android et votre Mac doivent être connectés au même réseau Wi-Fi pour transférer des fichiers. Si vous êtes invité à autoriser les connexions entrantes, veuillez les autoriser.";
 
-
-Si votre Mac n’apparaît pas sur votre appareil Android ou si la transmission a échoué, essayez les étapes suivantes :
+"TroubleshootingDescription" = "Si votre Mac n’apparaît pas sur votre appareil Android ou si la transmission a échoué, essayez les étapes suivantes :
 
 1) Assurez-vous que les deux appareils sont connectés au même réseau WiFi. 2) Redémarrez QuickDrop en cliquant sur l’icône de la barre de menu, sélectionnez la dernière entrée et ouvrez à nouveau l’application. 3) Redémarrez votre appareil Android.
 

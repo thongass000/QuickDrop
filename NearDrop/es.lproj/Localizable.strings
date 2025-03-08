@@ -44,6 +44,14 @@
 "GetSupport" = "Soporte";
 "PrivacyPolicy" = "Política de privacidad";
 "UserManual" = "Manual de usuario";
+"SendFiles" = "Enviar archivos";
+"ReceiveFiles" = "Recibir archivos";
+"DeviceNotShown" = "¿Dispositivo no mostrado?";
+"Troubleshooting" = "Solución de problemas";
+
+"SendFilesDescription" = "Para enviar un archivo a tu dispositivo Android, haz clic en el icono Compartir o haz clic derecho sobre el archivo y selecciona “Compartir”. Luego, selecciona “QuickDrop” de la lista de aplicaciones y sigue las instrucciones.
+
+Si no ves QuickDrop en la lista, haz clic en “Editar extensiones”, desplázate hacia abajo y activa el interruptor para QuickDrop.";
 
 "WelcomeToQuickDrop" = "Bienvenido a QuickDrop";
 
@@ -52,19 +60,15 @@
 
 "UserManualDescription" = "Cuando QuickDrop está en ejecución, aparecerá en la barra de menú en la parte superior de tu pantalla. Haz clic en el icono de QuickDrop si deseas dejar de recibir archivos.
 
-Importante: Tu dispositivo Android y tu Mac deben estar conectados a la misma red WiFi para transferir archivos. Si se te solicita permitir conexiones entrantes, por favor, acéptalas.
-
 Para enviar archivos desde tu dispositivo Android a tu Mac, toca el icono de compartir en tu teléfono y selecciona \"Quick Share\" o \"Nearby Share\". Tu Mac aparecerá como un dispositivo disponible.
 
-Después de esto, verás una notificación en tu Mac. Pasa el cursor sobre la notificación para aceptar o rechazar la transferencia del archivo.
+Importante: Tu dispositivo Android y tu Mac deben estar conectados a la misma red WiFi para transferir archivos. Si se te solicita permitir conexiones entrantes, por favor, acéptalas.";
 
-
-Si tu Mac no aparece en tu dispositivo Android o la transmisión falló, prueba lo siguiente:
+"TroubleshootingDescription" = "Si tu Mac no aparece en tu dispositivo Android o la transmisión falló, prueba lo siguiente:
 
 1) Asegúrate de que ambos dispositivos estén conectados a la misma red WiFi. 2) Reinicia QuickDrop haciendo clic en el icono de la barra de menú, selecciona la última entrada y abre la aplicación nuevamente. 3) Reinicia tu dispositivo Android.
 
 Si aún encuentras problemas, estos podrían ser causados por tu router WiFi. Algunos routers no permiten que los dispositivos se comuniquen entre sí. Asegúrate de que esta configuración esté configurada adecuadamente en la configuración de tu router. Si no puedes cambiar esta configuración, habilita el punto de acceso WiFi en tu dispositivo Android y conecta tu Mac directamente a tu hotspot.";
-
 
 "plusview_title" = "¡Gracias por usar QuickDrop!";
 "plusview_description" = "Desbloquea QuickDrop+ para seguir recibiendo archivos. QuickDrop+ es una compra única: puedes conservar la aplicación para siempre, sin necesidad de suscripción.";

@@ -44,6 +44,13 @@
 "GetSupport" = "Suporte";
 "PrivacyPolicy" = "Política de privacidade";
 "UserManual" = "Manual do usuário";
+"SendFiles" = "Enviar ficheiros";
+"ReceiveFiles" = "Receber ficheiros";
+"DeviceNotShown" = "Dispositivo não mostrado?";
+"Troubleshooting" = "Resolução de problemas";
+"SendFilesDescription" = "Para enviar um ficheiro para o teu dispositivo Android, clica no ícone de Partilhar ou clica com o botão direito no ficheiro e seleciona “Partilhar”. Depois, escolhe “QuickDrop” na lista de aplicações e segue as instruções.
+
+Se não vires o QuickDrop na lista, clica em “Editar extensões”, desliza para baixo e ativa a opção para o QuickDrop.";
 
 "WelcomeToQuickDrop" = "Bem-vindo ao QuickDrop";
 
@@ -52,14 +59,11 @@
 
 "UserManualDescription" = "Quando o QuickDrop estiver em execução, ele aparecerá na barra de menu na parte superior da sua tela. Clique no ícone do QuickDrop se quiser parar de receber arquivos.
 
-Importante: Seu dispositivo Android e seu Mac precisam estar conectados à mesma rede Wi-Fi para transferir arquivos. Se for solicitado que você permita conexões de entrada, por favor, permita.
-
 Para enviar arquivos do seu dispositivo Android para o seu Mac, toque no ícone de compartilhamento no seu telefone e selecione \"Quick Share\" ou \"Nearby Share\". O seu Mac será exibido como um dispositivo disponível.
 
-Depois disso, você verá uma notificação no seu Mac. Passe o cursor sobre a notificação para aceitar ou recusar a transferência do arquivo.
+Importante: Seu dispositivo Android e seu Mac precisam estar conectados à mesma rede Wi-Fi para transferir arquivos. Se for solicitado que você permita conexões de entrada, por favor, permita.";
 
-
-Se o seu Mac não aparecer no seu dispositivo Android ou a transmissão falhar, tente o seguinte:
+"TroubleshootingDescription" = "Se o seu Mac não aparecer no seu dispositivo Android ou a transmissão falhar, tente o seguinte:
 
 1) Certifique-se de que ambos os dispositivos estão conectados à mesma rede WiFi. 2) Reinicie o QuickDrop clicando no ícone da barra de menu, escolha a última entrada e abra a aplicação novamente. 3) Reinicie o seu dispositivo Android.
 

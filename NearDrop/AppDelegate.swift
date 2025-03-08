@@ -96,18 +96,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
         
         // Create an NSWindow to host the SwiftUI view
         welcomeWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 400, height: 300),
+            contentRect: NSRect(x: 0, y: 0, width: 400, height: 280),
             styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false
         )
+        
+        welcomeWindow?.styleMask.insert(.fullSizeContentView)
+        welcomeWindow?.titleVisibility = .hidden
+        welcomeWindow?.titlebarAppearsTransparent = true
+        
         welcomeWindow?.center()
         welcomeWindow?.isReleasedWhenClosed = false
         welcomeWindow?.setFrameAutosaveName("WelcomeScreen")
         welcomeWindow?.contentView = NSHostingView(rootView: welcomeView)
-        
-        welcomeWindow?.isOpaque = false
-        welcomeWindow?.backgroundColor = .clear
         
         // Ensure the window is always on top
         NSApp.activate(ignoringOtherApps: true) // Brings the whole app to the front
@@ -167,7 +169,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
     
     // Action for "Privacy Policy" menu item
     @objc func openPrivacyPolicy() {
-        if let url = URL(string: "  ") {
+        if let url = URL(string: "http://leonboettger.com/privacy") {
             NSWorkspace.shared.open(url)
         }
     }

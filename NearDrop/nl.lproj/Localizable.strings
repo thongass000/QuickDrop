@@ -45,6 +45,13 @@
 "PrivacyPolicy" = "Privacybeleid";
 
 "UserManual" = "Gebruikershandleiding";
+"SendFiles" = "Bestanden verzenden";
+"ReceiveFiles" = "Bestanden ontvangen";
+"DeviceNotShown" = "Apparaat niet weergegeven?";
+"Troubleshooting" = "Probleemoplossing";
+"SendFilesDescription" = "Om een bestand naar je Android-apparaat te verzenden, klik op het deelpictogram of klik met de rechtermuisknop op het bestand en selecteer “Delen”. Selecteer vervolgens “QuickDrop” uit de lijst met apps en volg de instructies.
+
+Als je QuickDrop niet in de lijst ziet, klik op “Extensies bewerken”, scrol naar beneden en schakel de schakelaar voor QuickDrop in.";
 
 "WelcomeToQuickDrop" = "Welkom bij QuickDrop";
 
@@ -53,14 +60,11 @@
 
 "UserManualDescription" = "Wanneer QuickDrop actief is, verschijnt het in de menubalk bovenaan je scherm. Klik op het QuickDrop-pictogram als je wilt stoppen met het ontvangen van bestanden.
 
-Belangrijk: Je Android-apparaat en je Mac moeten verbonden zijn met hetzelfde WiFi-netwerk om bestanden over te dragen. Als je wordt gevraagd om inkomende verbindingen toe te staan, geef dan toestemming.
-
 Om bestanden van je Android-apparaat naar je Mac te verzenden, tik op het deelpictogram op je telefoon en selecteer \"Quick Share\" of \"Nearby Share\". Je Mac wordt weergegeven als een beschikbaar apparaat.
 
-Daarna zie je een melding op je Mac. Beweeg de muis over de melding om het bestandsoverdracht te accepteren of te weigeren.
+Belangrijk: Je Android-apparaat en je Mac moeten verbonden zijn met hetzelfde WiFi-netwerk om bestanden over te dragen. Als je wordt gevraagd om inkomende verbindingen toe te staan, geef dan toestemming.";
 
-
-Als je Mac niet wordt weergegeven op je Android-apparaat of de overdracht is mislukt, probeer dan het volgende:
+"TroubleshootingDescription" = "Als je Mac niet wordt weergegeven op je Android-apparaat of de overdracht is mislukt, probeer dan het volgende:
 
 1) Zorg ervoor dat beide apparaten zijn verbonden met hetzelfde WiFi-netwerk. 2) Start QuickDrop opnieuw door op het pictogram in de menubalk te klikken, de laatste invoer te kiezen en de app opnieuw te openen. 3) Start je Android-apparaat opnieuw op.
 
