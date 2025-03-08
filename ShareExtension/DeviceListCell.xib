@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="206" height="82"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QPM-sE-maP">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QPM-sE-maP">
                     <rect key="frame" x="-2" y="0.0" width="210" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="TBS-IE-2DT"/>
