@@ -71,7 +71,7 @@ Fontos: Az Android-eszközödnek és a Mac számítógépednek ugyanarra a Wi-Fi
 Ha továbbra is problémákat tapasztalsz, azok a WiFi-routeredből adódhatnak. Néhány router nem engedi, hogy az eszközök kommunikáljanak egymással. Győződj meg róla, hogy a router beállítása megfelelően van konfigurálva. Ha nem tudod módosítani ezt a beállítást, engedélyezd a WiFi hotspotot az Android-eszközödön, és csatlakoztasd a Mac-et közvetlenül a hotspotodhoz.";
 
 "plusview_title" = "Köszönjük, hogy használod a QuickDropot!";
-"plusview_description" = "Oldd fel a QuickDrop+ funkciót, hogy továbbra is fogadhass fájlokat. A QuickDrop+ egy egyszeri vásárlás – az alkalmazást örökre megtarthatod, előfizetés nélkül.";
+"plusview_description" = "Oldd fel a QuickDrop+-t, hogy korlátlanul folytathasd a fájlcserét. A QuickDrop+ egy egyszeri vásárlás – előfizetés nem szükséges. Az összes jelenlegi és jövőbeli funkciót tartalmazza.";  
 "plusview_success_title" = "Köszönjük a vásárlást!";
 "plusview_success_description" = "Mostantól korlátozások nélkül fogadhatsz fájlokat.";
 "plusview_success_button" = "Értettem!";

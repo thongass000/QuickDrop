@@ -70,7 +70,7 @@
 如果问题仍然存在，可能是由于WiFi路由器导致的。有些路由器不允许设备彼此通信。请确保在路由器设置中正确设置此选项。如果您无法更改此设置，请在您的Android设备上启用WiFi热点，并将Mac直接连接到您的热点。";
 
 "plusview_title" = "感谢使用 QuickDrop!";
-"plusview_description" = "解锁 QuickDrop+ 以继续接收文件。QuickDrop+ 是一次性购买 – 无需订阅，你可以永久保留此应用。";
+"plusview_description" = "解锁 QuickDrop+ 以无限制地交换文件。QuickDrop+ 是一次性购买 – 无需订阅。所有当前和未来的功能均包含在内。";  
 "plusview_success_title" = "感谢您的购买!";
 "plusview_success_description" = "您现在可以无限制地接收文件了。";
 "plusview_success_button" = "知道了!";

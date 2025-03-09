@@ -70,7 +70,7 @@ Important: Votre appareil Android et votre Mac doivent être connectés au même
 Si vous rencontrez toujours des problèmes, ceux-ci peuvent être causés par votre routeur WiFi. Certains routeurs ne permettent pas aux appareils de communiquer entre eux. Assurez-vous que ce paramètre est correctement configuré dans les paramètres de votre routeur. Si vous ne pouvez pas modifier ce paramètre, activez le point d’accès WiFi sur votre appareil Android et connectez votre Mac directement à votre point d’accès.";
 
 "plusview_title" = "Merci d'utiliser QuickDrop !";
-"plusview_description" = "Débloquez QuickDrop+ pour continuer à recevoir des fichiers. QuickDrop+ est un achat unique – vous pourrez conserver l'application à vie, sans abonnement.";
+"plusview_description" = "Débloquez QuickDrop+ pour continuer à échanger des fichiers sans limites. QuickDrop+ est un achat unique – aucun abonnement requis. Toutes les fonctionnalités actuelles et futures sont incluses.";  
 "plusview_success_title" = "Merci pour votre achat !";
 "plusview_success_description" = "Vous pouvez maintenant continuer à recevoir des fichiers sans restrictions.";
 "plusview_success_button" = "D'accord !";

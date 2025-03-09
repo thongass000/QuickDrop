@@ -127,7 +127,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
         
         // Create an NSWindow to host the SwiftUI view
         plusWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 400, height: 300),
+            contentRect: NSRect(x: 0, y: 0, width: plusViewWidth, height: plusViewHeight),
             styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false

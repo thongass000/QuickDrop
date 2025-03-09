@@ -8,6 +8,9 @@
 import SwiftUI
 import StoreKit
 
+let plusViewWidth: CGFloat = 440
+let plusViewHeight: CGFloat = 200
+
 struct GetPlusView: View {
     
     @AppStorage(UserDefaultsKeys.plusVersion.rawValue) var isPlusVersion = false
@@ -89,9 +92,8 @@ struct GetPlusView: View {
             .animation(.default, value: validPrice)
             .padding()
         }
-        .frame(width: 400, height: 200)
+        .frame(width: plusViewWidth, height: plusViewHeight)
     }
-    
     
     func restorePurchases() {
         
