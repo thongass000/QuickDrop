@@ -31,17 +31,25 @@ struct WelcomeScreen: View {
             .listStyle(SidebarListStyle())
             
             Divider()
+                .opacity(colorScheme == .light ? 1 : 0)
+//                .overlay(
+//                    Color.black.opacity(colorScheme == .dark ? 1 : 0)
+//                    )
                 .edgesIgnoringSafeArea(.vertical)
             
-            switch selection {
-            case .receive:
-                TutorialView(title: "WelcomeToQuickDrop", text: "UserManualDescription", showsLicense: true, openIAP: openIAP)
+            ZStack {
+                Color.defaultBackground.edgesIgnoringSafeArea(.vertical)
                 
-            case .send:
-                TutorialView(title: "SendFiles", text: "SendFilesDescription", showsLicense: false, openIAP: openIAP)
-                
-            default:
-                TutorialView(title: "Troubleshooting", text: "TroubleshootingDescription", showsLicense: false, openIAP: openIAP)
+                switch selection {
+                case .receive:
+                    TutorialView(title: "WelcomeToQuickDrop", text: "UserManualDescription", showsLicense: true, openIAP: openIAP)
+                    
+                case .send:
+                    TutorialView(title: "SendFiles", text: "SendFilesDescription", showsLicense: false, openIAP: openIAP)
+                    
+                default:
+                    TutorialView(title: "Troubleshooting", text: "TroubleshootingDescription", showsLicense: false, openIAP: openIAP)
+                }
             }
         }
         .frame(width: 1000, height: 600)
