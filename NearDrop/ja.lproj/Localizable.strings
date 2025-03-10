@@ -57,11 +57,11 @@
 "Acknowledgements" = "謝辞";
 "SupportQuickDrop" = "QuickDrop をサポート";
 
-"UserManualDescription" = "QuickDropが実行中の場合、画面上部のメニューバーに表示されます。ファイルの受信を停止したい場合は、QuickDropのアイコンをクリックしてください。
+"UserManualDescription" = "QuickDropが実行されていると、画面上部のメニューバーに表示されます。ファイルの受信を停止するには、QuickDropアイコンをクリックしてください。
 
-AndroidデバイスからMacにファイルを送信するには、電話の共有アイコンをタップし、\"クイックシェア\"Quick Share\"Nearby Share\"を選択してください。Macは利用可能なデバイスとして表示されます。
+AndroidデバイスからMacにファイルを送信するには、スマートフォンの共有アイコンをタップし、「Quick Share」を選択します。Macが利用可能なデバイスとして表示されます。ファイルはダウンロードフォルダに保存されます。
 
-重要: AndroidデバイスとMacは、ファイルを転送するために同じWi-Fiネットワークに接続している必要があります。接続の許可を求められた場合は、それを許可してください。";
+重要: AndroidデバイスとMacは同じWiFiネットワークに接続されている必要があります。受信接続を許可するよう求められた場合は、許可してください。";
 
 "TroubleshootingDescription" = "MacがAndroidデバイスに表示されない場合や転送に失敗した場合は、次の手順を試してください：
 

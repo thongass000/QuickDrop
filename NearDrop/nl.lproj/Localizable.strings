@@ -58,11 +58,11 @@ Als je QuickDrop niet in de lijst ziet, klik op “Extensies bewerken”, scrol 
 "Acknowledgements" = "Erkenningen";
 "SupportQuickDrop" = "Ondersteun QuickDrop";
 
-"UserManualDescription" = "Wanneer QuickDrop actief is, verschijnt het in de menubalk bovenaan je scherm. Klik op het QuickDrop-pictogram als je wilt stoppen met het ontvangen van bestanden.
+"UserManualDescription" = "Wanneer QuickDrop actief is, verschijnt het in de menubalk bovenaan je scherm. Klik op het QuickDrop-icoon als je wilt stoppen met het ontvangen van bestanden.
 
-Om bestanden van je Android-apparaat naar je Mac te verzenden, tik op het deelpictogram op je telefoon en selecteer \"Quick Share\" of \"Nearby Share\". Je Mac wordt weergegeven als een beschikbaar apparaat.
+Om bestanden van je Android-apparaat naar je Mac te sturen, tik op het deel-icoon op je telefoon en selecteer \"Quick Share\". Je Mac wordt weergegeven als een beschikbaar apparaat. Bestanden worden opgeslagen in je Downloads-map.
 
-Belangrijk: Je Android-apparaat en je Mac moeten verbonden zijn met hetzelfde WiFi-netwerk om bestanden over te dragen. Als je wordt gevraagd om inkomende verbindingen toe te staan, geef dan toestemming.";
+Belangrijk: Je Android-apparaat en Mac moeten op hetzelfde WiFi-netwerk zitten om bestanden over te dragen. Als je wordt gevraagd om inkomende verbindingen toe te staan, accepteer deze dan.";
 
 "TroubleshootingDescription" = "Als je Mac niet wordt weergegeven op je Android-apparaat of de overdracht is mislukt, probeer dan het volgende:
 

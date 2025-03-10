@@ -57,11 +57,11 @@
 "Acknowledgements" = "致谢";
 "SupportQuickDrop" = "支持 QuickDrop";
 
-"UserManualDescription" = "当 QuickDrop 运行时，它会出现在屏幕顶部的菜单栏中。如果您想停止接收文件，请点击 QuickDrop 图标。
+"UserManualDescription" = "当 QuickDrop 运行时，它会显示在屏幕顶部的菜单栏中。如果您想停止接收文件，请点击 QuickDrop 图标。
 
-要将文件从 Android 设备发送到 Mac，请点击手机上的分享图标，然后选择“Quick Share”或“Nearby Share”。您的 Mac 将显示为可用设备。
+要将文件从 Android 设备发送到 Mac，请点击手机上的共享图标，然后选择“Quick Share”。您的 Mac 将列为可用设备。文件将保存在“下载”文件夹中。
 
-重要提示：您的 Android 设备和 Mac 需要连接到同一个 WiFi 网络才能传输文件。如果系统提示允许传入连接，请选择允许。";
+重要：您的 Android 设备和 Mac 需要连接到同一个 WiFi 网络才能传输文件。如果系统提示您允许传入连接，请允许。";
 
 "TroubleshootingDescription" = "如果您的Mac未出现在Android设备上或传输失败，请尝试以下方法：
 

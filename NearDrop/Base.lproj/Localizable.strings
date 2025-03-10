@@ -65,7 +65,7 @@ If you don't see QuickDrop in the list, click on \"Edit Extensions\", scroll dow
 
 "UserManualDescription" = "When QuickDrop is running, it will appear in the menu bar at the top of your screen. Click the QuickDrop icon if you would like to stop receiving files.
             
-To send files from your Android device to your Mac, tap on the share icon on your phone, and select \"Quick Share\" or \"Nearby Share\". Your Mac will be listed as an available device.
+To send files from your Android device to your Mac, tap on the share icon on your phone, and select \"Quick Share\". Your Mac will be listed as an available device. Files will be saved in your Downloads folder.
 
 Important: Your Android device and your Mac need to be on the same WiFi network to transfer files. If you are promted to allow incoming connections, please allow them.";
 

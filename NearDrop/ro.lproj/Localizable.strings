@@ -57,11 +57,11 @@ Dacă nu vezi QuickDrop în listă, dă clic pe “Editare extensii”, deruleaz
 "Acknowledgements" = "Mulțumiri";
 "SupportQuickDrop" = "Susține QuickDrop";
 
-"UserManualDescription" = "Când QuickDrop este în funcțiune, va apărea în bara de meniu din partea de sus a ecranului. Fă clic pe iconița QuickDrop dacă dorești să oprești primirea fișierelor.
+"UserManualDescription" = "Când QuickDrop rulează, acesta va apărea în bara de meniu din partea de sus a ecranului. Fă clic pe pictograma QuickDrop dacă dorești să oprești primirea fișierelor.
 
-Pentru a trimite fișiere de pe dispozitivul tău Android pe Mac, apasă pe iconița de partajare de pe telefon și selectează „Quick Share” sau „Nearby Share”. Mac-ul tău va apărea ca dispozitiv disponibil.
+Pentru a trimite fișiere de pe dispozitivul Android pe Mac, atinge pictograma de partajare de pe telefon și selectează \"Quick Share\". Mac-ul tău va fi afișat ca un dispozitiv disponibil. Fișierele vor fi salvate în folderul Descărcări.
 
-Important: Dispozitivul tău Android și Mac-ul tău trebuie să fie conectate la aceeași rețea Wi-Fi pentru a transfera fișiere. Dacă ți se solicită să permiți conexiunile intrante, te rugăm să le permiți.";
+Important: Dispozitivul tău Android și Mac-ul trebuie să fie conectate la aceeași rețea WiFi pentru a transfera fișiere. Dacă ți se cere să permiți conexiuni de intrare, te rog să accepți.";
 
 "TroubleshootingDescription" = "Dacă Mac-ul tău nu apare pe dispozitivul tău Android sau transferul a eșuat, încearcă următoarele:
 

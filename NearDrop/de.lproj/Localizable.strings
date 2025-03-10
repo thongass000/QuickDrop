@@ -62,7 +62,7 @@ Falls QuickDrop nicht in der Liste erscheint, klicke auf „Erweiterungen bearbe
 
 "UserManualDescription" = "Wenn QuickDrop ausgeführt wird, wird es in der Menüleiste am oberen Rand des Bildschirms angezeigt. Klicke auf das QuickDrop-Symbol, um den Empfang von Dateien zu beenden.
             
-Um Dateien von deinem Android-Gerät an deinen Mac zu senden, tippe auf deinem Handy auf das Teilen-Symbol und wähle „Quick Share“ oder „Nearby Share“. Dein Mac wird als verfügbares Gerät aufgelistet.
+Um Dateien von deinem Android-Gerät an deinen Mac zu senden, tippe auf deinem Handy auf das Teilen-Symbol und wähle „Quick Share“ aus. Dein Mac wird als verfügbares Gerät aufgelistet. Die Dateien werden im Downloads-Ordner gespeichert.
 
 Wichtig: Dein Android-Gerät und dein Mac müssen sich im selben Netzwerk befinden, um Dateien zu übertragen. Wenn du aufgefordert wirst, eingehende Verbindungen zuzulassen, lasse sie bitte zu.";
 

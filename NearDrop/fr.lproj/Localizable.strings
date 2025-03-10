@@ -59,9 +59,9 @@ Si vous ne voyez pas QuickDrop dans la liste, cliquez sur “Modifier les extens
 
 "UserManualDescription" = "Lorsque QuickDrop est en cours d'exécution, il apparaît dans la barre de menu en haut de votre écran. Cliquez sur l'icône QuickDrop si vous souhaitez arrêter de recevoir des fichiers.
 
-Pour envoyer des fichiers de votre appareil Android vers votre Mac, appuyez sur l'icône de partage sur votre téléphone et sélectionnez \"Quick Share\" ou \"Nearby Share\". Votre Mac sera affiché comme un appareil disponible.
+Pour envoyer des fichiers depuis votre appareil Android vers votre Mac, appuyez sur l'icône de partage sur votre téléphone et sélectionnez \"Quick Share\". Votre Mac apparaîtra comme un appareil disponible. Les fichiers seront enregistrés dans votre dossier Téléchargements.
 
-Important: Votre appareil Android et votre Mac doivent être connectés au même réseau Wi-Fi pour transférer des fichiers. Si vous êtes invité à autoriser les connexions entrantes, veuillez les autoriser.";
+Important : votre appareil Android et votre Mac doivent être connectés au même réseau WiFi pour transférer des fichiers. Si une demande d'autorisation de connexions entrantes apparaît, veuillez l'accepter.";
 
 "TroubleshootingDescription" = "Si votre Mac n’apparaît pas sur votre appareil Android ou si la transmission a échoué, essayez les étapes suivantes :
 

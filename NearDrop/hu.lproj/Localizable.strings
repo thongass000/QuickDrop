@@ -58,11 +58,11 @@ Ha a QuickDrop nem jelenik meg a listában, kattints a “Bővítmények szerkes
 "Acknowledgements" = "Köszönetnyilvánítás";
 "SupportQuickDrop" = "Támogasd a QuickDropot";
 
-"UserManualDescription" = "Amikor a QuickDrop fut, az megjelenik a képernyő tetején található menüsorban. Kattints a QuickDrop ikonra, ha szeretnéd leállítani a fájlok fogadását.
+"UserManualDescription" = "Amikor a QuickDrop fut, megjelenik a képernyő tetején lévő menüsorban. Kattints a QuickDrop ikonra, ha le szeretnéd állítani a fájlok fogadását.
 
-Fájlok küldéséhez az Android-eszközödről a Mac-re érintsd meg a megosztás ikont a telefonodon, majd válaszd a \"Quick Share\" vagy a \"Nearby Share\" lehetőséget. A Mac-ed elérhető eszközként fog megjelenni.
+Ha fájlokat szeretnél küldeni Android-eszközödről Mac-re, érintsd meg a megosztás ikont a telefonodon, majd válaszd a \"Quick Share\" lehetőséget. A Mac-ed megjelenik az elérhető eszközök listájában. A fájlok a Letöltések mappába kerülnek.
 
-Fontos: Az Android-eszközödnek és a Mac számítógépednek ugyanarra a Wi-Fi hálózatra kell csatlakozniuk a fájlok átviteléhez. Ha megjelenik egy kérdés a bejövő kapcsolatok engedélyezésére, kérjük, engedélyezd azokat.";
+Fontos: Az Android-eszközödnek és a Mac-ednek ugyanazon a WiFi hálózaton kell lennie a fájlátvitelhez. Ha engedélyezési kérés jelenik meg a bejövő kapcsolatokhoz, fogadd el.";
 
 "TroubleshootingDescription" = "Ha a Mac nem jelenik meg az Android-eszközödön, vagy a továbbítás nem sikerült, próbáld ki a következőket:
 
