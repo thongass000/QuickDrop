@@ -94,4 +94,4 @@ Ha továbbra is problémákat tapasztalsz, azok a WiFi-routeredből adódhatnak.
 "TransferFinished" = "Átvitel befejezve";
 "TransferTimedOut" = "Időtúllépés";
 "UnsupportedType" = "Nem támogatott csatolmánytípus";  
-"QrCodeInstructions" = "Olvasd be a QR-kódot az Android készüléked kamerájával. Ezután megjelenik az előző képernyőn.\n\nAlternatív megoldásként telepítsd és nyisd meg a 'Files by Google' alkalmazást, majd koppints a 'Fogadás' gombra a jobb alsó sarokban.";
+"QrCodeInstructions" = "Olvasd be a QR-kódot az Android készüléked kamerájával. Ezután a telefonod megjelenik az előző képernyőn.\n\nAlternatív megoldásként telepítsd és nyisd meg a 'Files by Google' alkalmazást, majd koppints a 'Fogadás' gombra a jobb alsó sarokban.";

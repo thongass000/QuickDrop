@@ -93,4 +93,4 @@
 "TransferFinished" = "传输完成";
 "TransferTimedOut" = "超时";
 "UnsupportedType" = "不支持的附件类型";  
-"QrCodeInstructions" = "使用您的 Android 设备的相机扫描二维码。之后，它将在上一个屏幕上显示。\n\n或者，安装并打开 'Files by Google' 应用，然后点击右下角的“接收”。";
+"QrCodeInstructions" = "使用您的 Android 设备的相机扫描二维码。之后，您的手机将在上一个屏幕上显示。\n\n或者，安装并打开 'Files by Google' 应用，然后点击右下角的“接收”。";

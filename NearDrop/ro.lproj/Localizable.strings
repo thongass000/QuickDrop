@@ -92,4 +92,4 @@ Dacă întâmpini în continuare probleme, acestea ar putea fi cauzate de router
 "TransferFinished" = "Transfer finalizat";
 "TransferTimedOut" = "Timpul a expirat";
 "UnsupportedType" = "Tip de atașament neacceptat";  
-"QrCodeInstructions" = "Scanează codul QR cu camera dispozitivului tău Android. După aceea, acesta va apărea pe ecranul anterior.\n\nAlternativ, instalează și deschide aplicația 'Files by Google' și apasă pe 'Primește' în colțul din dreapta jos.";
+"QrCodeInstructions" = "Scanează codul QR cu camera dispozitivului tău Android. După aceea, telefonul tău va apărea pe ecranul anterior.\n\nAlternativ, instalează și deschide aplicația 'Files by Google' și apasă pe 'Primește' în colțul din dreapta jos.";
