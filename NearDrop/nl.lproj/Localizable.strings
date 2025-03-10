@@ -93,3 +93,4 @@ Als je nog steeds problemen ondervindt, kunnen deze veroorzaakt worden door je W
 "TransferFinished" = "Overdracht voltooid";
 "TransferTimedOut" = "Time-out";
 "UnsupportedType" = "Bijlagetype niet ondersteund";  
+"QrCodeInstructions" = "Scan de QR-code met de camera van je Android-apparaat. Daarna verschijnt het op het vorige scherm.\n\nAls alternatief kun je de app 'Files by Google' installeren en openen en op 'Ontvangen' tikken rechtsonder.";

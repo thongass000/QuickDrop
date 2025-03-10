@@ -91,24 +91,37 @@ Gw
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="ACO-U2-AZj">
-                    <rect key="frame" x="0.0" y="40" width="404" height="146"/>
-                </customView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CF4-AV-wG4">
+                    <rect key="frame" x="3" y="3" width="189" height="32"/>
+                    <buttonCell key="cell" type="push" title="Don't see your device?" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j2l-tf-7in">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                    </buttonCell>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="WQ4-sg-Puk"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="WyJ-wc-nKO"/>
+                    </constraints>
+                    <connections>
+                        <action selector="dontSeeDeviceButton:" target="-2" id="EZu-rX-Ewr"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="OEz-QK-nem" firstAttribute="top" secondItem="1xF-vr-5sH" secondAttribute="bottom" constant="10" id="852-oh-vM0"/>
                 <constraint firstItem="OEz-QK-nem" firstAttribute="leading" secondItem="afM-Om-nLQ" secondAttribute="trailing" constant="5" id="CIj-Dk-Md0"/>
-                <constraint firstAttribute="trailing" secondItem="ACO-U2-AZj" secondAttribute="trailing" id="HIg-sX-IK0"/>
-                <constraint firstItem="ACO-U2-AZj" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="IGL-2g-wpe"/>
+                <constraint firstItem="CF4-AV-wG4" firstAttribute="leading" secondItem="afM-Om-nLQ" secondAttribute="leading" id="KfB-g2-nez"/>
                 <constraint firstItem="afM-Om-nLQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="LK2-cg-qcY"/>
-                <constraint firstItem="NVE-vN-dkz" firstAttribute="top" secondItem="ACO-U2-AZj" secondAttribute="bottom" constant="10" id="RSD-PX-W0H"/>
                 <constraint firstAttribute="bottom" secondItem="NVE-vN-dkz" secondAttribute="bottom" constant="10" id="USG-Gg-of3"/>
                 <constraint firstAttribute="trailing" secondItem="NVE-vN-dkz" secondAttribute="trailing" constant="10" id="Z6U-4n-4tO"/>
+                <constraint firstItem="CF4-AV-wG4" firstAttribute="baseline" secondItem="NVE-vN-dkz" secondAttribute="baseline" id="duh-UD-VUw"/>
                 <constraint firstItem="afM-Om-nLQ" firstAttribute="top" secondItem="1" secondAttribute="top" constant="36" id="fUG-kT-wb0"/>
+                <constraint firstItem="NVE-vN-dkz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CF4-AV-wG4" secondAttribute="trailing" constant="12" symbolic="YES" id="kWX-0G-L7t"/>
                 <constraint firstItem="1xF-vr-5sH" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="sCA-yf-S9L"/>
                 <constraint firstItem="1xF-vr-5sH" firstAttribute="top" secondItem="1" secondAttribute="top" constant="10" id="tFn-vk-9Cq"/>
                 <constraint firstAttribute="trailing" secondItem="OEz-QK-nem" secondAttribute="trailing" constant="10" id="vyd-BI-oDH"/>
-                <constraint firstItem="ACO-U2-AZj" firstAttribute="top" secondItem="OEz-QK-nem" secondAttribute="bottom" constant="10" id="x5r-wc-s4x"/>
             </constraints>
             <point key="canvasLocation" x="140" y="-36"/>
         </customView>
@@ -131,7 +144,7 @@ Gw
                     <rect key="frame" x="-2" y="0.0" width="525" height="32"/>
                     <textFieldCell key="cell" alignment="center" title="If you don't see your device, open the &quot;Google Files&quot; app and tap &quot;Receive&quot; on the Nearby Share tab." id="vla-gF-eJo">
                         <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
@@ -256,6 +269,11 @@ Gw
             </scroller>
             <point key="canvasLocation" x="-397.5" y="30"/>
         </scrollView>
+        <customView id="ACO-U2-AZj">
+            <rect key="frame" x="0.0" y="0.0" width="404" height="146"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <point key="canvasLocation" x="140" y="-36"/>
+        </customView>
     </objects>
     <resources>
         <image name="NSCaution" width="32" height="32"/>

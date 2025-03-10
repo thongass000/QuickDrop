@@ -189,11 +189,3 @@ extension IAPManager.IAPManagerError: LocalizedError {
         }
     }
 }
-
-
-public extension String {
-    func localized() -> String {
-        let localizedString = NSLocalizedString(self, comment: "")
-        return localizedString
-    }
-}

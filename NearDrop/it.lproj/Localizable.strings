@@ -93,3 +93,4 @@ Se il problema persiste, potrebbe essere causato dal tuo router WiFi. Alcuni rou
 "TransferFinished" = "Trasferimento completato";
 "TransferTimedOut" = "Tempo scaduto";
 "UnsupportedType" = "Tipo di allegato non supportato";  
+"QrCodeInstructions" = "Scansiona il codice QR con la fotocamera del tuo dispositivo Android. Successivamente, apparirà nella schermata precedente.\n\nIn alternativa, installa e apri l'app 'Files by Google' e tocca 'Ricevi' in basso a destra.";

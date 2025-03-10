@@ -7,10 +7,13 @@
 
 import Foundation
 import Cocoa
+import SwiftUI
 import NearbyShare
 
 class ShareViewController: NSViewController, ShareExtensionDelegate{
 	
+    private var qrWindow: NSWindow?
+    
 	private var urls:[URL]=[]
 	private var foundDevices:[RemoteDeviceInfo]=[]
 	private var chosenDevice:RemoteDeviceInfo?
@@ -121,6 +124,37 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 		let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
 		self.extensionContext!.cancelRequest(withError: cancelError)
 	}
+    
+    @IBAction func dontSeeDeviceButton(_ sender: AnyObject?) {
+        openQrScreen()
+    }
+    
+    @objc func openQrScreen() {
+        // Create the welcome screen SwiftUI view
+        let qrCodeView = QrCodeView()
+        
+        // Create an NSWindow to host the SwiftUI view
+        qrWindow = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: qrCodeViewSize.width, height: qrCodeViewSize.height),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+        
+        qrWindow?.styleMask.insert(.fullSizeContentView)
+        qrWindow?.titleVisibility = .hidden
+        qrWindow?.titlebarAppearsTransparent = true
+        
+        qrWindow?.center()
+        qrWindow?.isReleasedWhenClosed = false
+        qrWindow?.setFrameAutosaveName("QrCodeScreen")
+        qrWindow?.contentView = NSHostingView(rootView: qrCodeView)
+        
+        // Ensure the window is always on top
+        NSApp.activate(ignoringOtherApps: true) // Brings the whole app to the front
+        qrWindow?.makeKeyAndOrderFront(nil)
+        qrWindow?.level = .normal
+    }
 	
 	private func urlsReady(){
 		for url in urls{

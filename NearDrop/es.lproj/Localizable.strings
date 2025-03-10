@@ -93,3 +93,4 @@ Si aún encuentras problemas, estos podrían ser causados por tu router WiFi. Al
 "TransferFinished" = "Transferencia finalizada";
 "TransferTimedOut" = "Tiempo de espera agotado";
 "UnsupportedType" = "Tipo de archivo adjunto no compatible";  
+"QrCodeInstructions" = "Escanea el código QR con la cámara de tu dispositivo Android. Luego, aparecerá en la pantalla anterior.\n\nComo alternativa, instala y abre la aplicación 'Files by Google' y toca 'Recibir' en la parte inferior derecha.";

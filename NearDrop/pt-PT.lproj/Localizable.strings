@@ -93,3 +93,4 @@ Se ainda tiver problemas, estes podem ser causados pelo seu router WiFi. Alguns 
 "TransferFinished" = "Transferência concluída";
 "TransferTimedOut" = "Tempo limite excedido";
 "UnsupportedType" = "Tipo de anexo não suportado";  
+"QrCodeInstructions" = "Digitalize o código QR com a câmara do seu dispositivo Android. Depois, ele aparecerá no ecrã anterior.\n\nEm alternativa, instale e abra a aplicação 'Files by Google' e toque em 'Receber' no canto inferior direito.";
