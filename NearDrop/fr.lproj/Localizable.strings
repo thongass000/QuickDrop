@@ -94,3 +94,6 @@ Si vous rencontrez toujours des problèmes, ceux-ci peuvent être causés par vo
 "TransferTimedOut" = "Délai dépassé";
 "UnsupportedType" = "Type de pièce jointe non pris en charge";  
 "QrCodeInstructions" = "Scannez le code QR avec l’appareil photo de votre appareil Android. Ensuite, votre téléphone apparaîtra sur l’écran précédent.\n\nSinon, installez et ouvrez l’application 'Files by Google' et appuyez sur 'Recevoir' en bas à droite.";
+"TypeNotSupported" = "Type non pris en charge";
+"TypeNotSupportedDescription" = "Le type de fichier sélectionné n'est pas pris en charge. Si vous souhaitez tout de même le partager, faites un clic droit sur le fichier, sélectionnez \"Compresser\" puis envoyez le fichier compressé.";
+"TypeNotSupportedButton" = "D'accord";  

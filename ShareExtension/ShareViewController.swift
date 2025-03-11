@@ -163,9 +163,25 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 			if url.isFileURL{
 				let isDirectory=UnsafeMutablePointer<ObjCBool>.allocate(capacity: 1)
 				if FileManager.default.fileExists(atPath: url.path, isDirectory: isDirectory) && isDirectory.pointee.boolValue{
-					log("Canceling share request because URL \(url) is a directory")
-					let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
-					self.extensionContext!.cancelRequest(withError: cancelError)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        log("Canceling share request because URL \(url) is a directory")
+                        
+                        let alert = NSAlert()
+                        alert.alertStyle = .critical
+                        
+                        alert.messageText = "TypeNotSupported".localized()
+                        alert.informativeText = "TypeNotSupportedDescription".localized()
+                        alert.addButton(withTitle: "TypeNotSupportedButton".localized())
+                        
+                        let _ = alert.runModal()
+                        let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.extensionContext!.cancelRequest(withError: cancelError)
+                        }
+                    }
+                    
 					return
 				}
 			}

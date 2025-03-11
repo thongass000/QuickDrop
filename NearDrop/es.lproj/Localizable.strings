@@ -94,3 +94,6 @@ Si aún encuentras problemas, estos podrían ser causados por tu router WiFi. Al
 "TransferTimedOut" = "Tiempo de espera agotado";
 "UnsupportedType" = "Tipo de archivo adjunto no compatible";  
 "QrCodeInstructions" = "Escanea el código QR con la cámara de tu dispositivo Android. Luego, tu teléfono aparecerá en la pantalla anterior.\n\nComo alternativa, instala y abre la aplicación 'Files by Google' y toca 'Recibir' en la parte inferior derecha.";
+"TypeNotSupported" = "Tipo no soportado";
+"TypeNotSupportedDescription" = "El tipo de archivo seleccionado no es compatible. Si aún deseas compartirlo, haz clic derecho en el archivo, selecciona \"Comprimir\" y luego envía el archivo comprimido.";
+"TypeNotSupportedButton" = "Vale";  

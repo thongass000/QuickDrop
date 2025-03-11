@@ -93,3 +93,6 @@ Dacă întâmpini în continuare probleme, acestea ar putea fi cauzate de router
 "TransferTimedOut" = "Timpul a expirat";
 "UnsupportedType" = "Tip de atașament neacceptat";  
 "QrCodeInstructions" = "Scanează codul QR cu camera dispozitivului tău Android. După aceea, telefonul tău va apărea pe ecranul anterior.\n\nAlternativ, instalează și deschide aplicația 'Files by Google' și apasă pe 'Primește' în colțul din dreapta jos.";
+"TypeNotSupported" = "Tip nesuportat";
+"TypeNotSupportedDescription" = "Tipul de fișier selectat nu este acceptat. Dacă dorești să îl trimiți oricum, fă clic dreapta pe fișier, selectează \"Comprimă\" și apoi trimite fișierul comprimat.";
+"TypeNotSupportedButton" = "Ok";  
