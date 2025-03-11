@@ -109,7 +109,7 @@ Gw
                     </connections>
                 </button>
                 <customView id="ACO-U2-AZj">
-                    <rect key="frame" x="0.0" y="51" width="404" height="146"/>
+                    <rect key="frame" x="0.0" y="48" width="404" height="146"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </customView>
             </subviews>

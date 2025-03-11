@@ -111,6 +111,9 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 	}
 	
 	override func viewWillDisappear() {
+        
+        self.qrWindow?.close()
+        
 		if chosenDevice==nil{
 			NearbyConnectionManager.shared.stopDeviceDiscovery()
 		}
@@ -118,7 +121,10 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 	}
 
 	@IBAction func cancel(_ sender: AnyObject?) {
-		if let device=chosenDevice{
+		
+        self.qrWindow?.close()
+        
+        if let device=chosenDevice{
 			NearbyConnectionManager.shared.cancelOutgoingTransfer(id: device.id!)
 		}
 		let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
@@ -140,10 +146,6 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
             backing: .buffered,
             defer: false
         )
-        
-        qrWindow?.styleMask.insert(.fullSizeContentView)
-        qrWindow?.titleVisibility = .hidden
-        qrWindow?.titlebarAppearsTransparent = true
         
         qrWindow?.center()
         qrWindow?.isReleasedWhenClosed = false
