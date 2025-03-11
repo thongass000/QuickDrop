@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-let qrCodeViewSize = CGSize(width: 600.0, height: 310.0)
+let qrCodeViewSize = CGSize(width: 600.0, height: 300.0)
 
 struct QrCodeView: View {
     @State private var qrCode: String = ""

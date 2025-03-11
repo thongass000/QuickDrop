@@ -94,7 +94,7 @@ Ha továbbra is problémákat tapasztalsz, azok a WiFi-routeredből adódhatnak.
 "TransferFinished" = "Átvitel befejezve";
 "TransferTimedOut" = "Időtúllépés";
 "UnsupportedType" = "Nem támogatott csatolmánytípus";  
-"QrCodeInstructions" = "Olvasd be a QR-kódot az Android készüléked kamerájával. Ezután a telefonod megjelenik az előző képernyőn.\n\nAlternatív megoldásként telepítsd és nyisd meg a 'Files by Google' alkalmazást, majd koppints a 'Fogadás' gombra a jobb alsó sarokban.";
+"QrCodeInstructions" = "Olvasd be a QR-kódot az Android készüléked kamerájával. Ezután a telefonod megjelenik az előző képernyőn.\n\nHa problémát tapasztalsz, nyisd meg az Android beállításokat, és keresd meg a 'Quick Share' opciót. Állítsd be a 'Ki oszthat meg veled' lehetőséget 'Mindenki'-re, és próbáld újra.\n\nAlternatív megoldásként telepítsd és nyisd meg a 'Files by Google' alkalmazást, majd koppints a 'Fogadás' gombra a jobb alsó sarokban.";  
 "TypeNotSupported" = "Nem támogatott típus";
 "TypeNotSupportedDescription" = "A kiválasztott fájltípus nem támogatott. Ha mégis meg szeretnéd osztani, kattints jobb gombbal a fájlra, válaszd a \"Tömörítés\" lehetőséget, majd küldd el a tömörített fájlt.";
 "TypeNotSupportedButton" = "Rendben";  

@@ -95,7 +95,7 @@ Wenn du weiterhin Probleme hast, könnten diese durch deinen WLAN-Router verursa
 "TransferFinished" = "Übertragung abgeschlossen";
 "TransferTimedOut" = "Zeitüberschreitung";
 "UnsupportedType" = "Typ nicht unterstützt";
-"QrCodeInstructions" = "Scanne den QR-Code mit der Kamera deines Android-Geräts. Danach wird dein Telefon auf dem vorherigen Bildschirm angezeigt.\n\nAlternativ kannst du die App 'Files by Google' installieren, öffnen, und unten rechts auf 'Empfangen' tippen.";
+"QrCodeInstructions" = "Scanne den QR-Code mit der Kamera deines Android-Geräts. Danach wird dein Telefon auf dem vorherigen Bildschirm angezeigt.\n\nBei Problemem öffne die Einstellungen deines Android-Geräts und suche nach 'Quick Share'. Ändere die Einstellung 'Wer kann etwas für dich freigeben' auf 'Alle' und versuche es erneut.\n\nAlternativ kannst du die App 'Files by Google' installieren, öffnen, und unten rechts auf 'Empfangen' tippen.";
 "TypeNotSupported" = "Typ nicht unterstützt";
 "TypeNotSupportedDescription" = "Der ausgewählte Dateityp wird nicht unterstützt. Wenn du ihn trotzdem teilen möchtest, klicke mit der rechten Maustaste auf die Datei, wähle „Komprimieren“ aus und sende dann die komprimierte Datei.";
 "TypeNotSupportedButton" = "Okay";
