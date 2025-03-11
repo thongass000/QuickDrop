@@ -164,25 +164,33 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 				let isDirectory=UnsafeMutablePointer<ObjCBool>.allocate(capacity: 1)
 				if FileManager.default.fileExists(atPath: url.path, isDirectory: isDirectory) && isDirectory.pointee.boolValue{
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        log("Canceling share request because URL \(url) is a directory")
+                    do {
+                        let zipUrl = try createZipAtTmp(zipFilename: url.lastPathComponent, fromDirectory: url)
                         
-                        let alert = NSAlert()
-                        alert.alertStyle = .critical
-                        
-                        alert.messageText = "TypeNotSupported".localized()
-                        alert.informativeText = "TypeNotSupportedDescription".localized()
-                        alert.addButton(withTitle: "TypeNotSupportedButton".localized())
-                        
-                        let _ = alert.runModal()
-                        let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
-                        
+                        let index = urls.firstIndex(of: url)
+                        urls[index!] = zipUrl
+                    }
+                    catch {
+                        log("Error creating zip file: \(error)")
+                     
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            log("Canceling share request because URL \(url) is a directory")
+                            
+                            let alert = NSAlert()
+                            alert.alertStyle = .critical
+                            
+                            alert.messageText = "TypeNotSupported".localized()
+                            alert.informativeText = "TypeNotSupportedDescription".localized()
+                            alert.addButton(withTitle: "TypeNotSupportedButton".localized())
+                            
+                            let _ = alert.runModal()
+                            let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
+                            
                             self.extensionContext!.cancelRequest(withError: cancelError)
                         }
+                        
+                        return
                     }
-                    
-					return
 				}
 			}
 		}
