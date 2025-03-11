@@ -257,6 +257,9 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 	}
 	
 	func selectDevice(device:RemoteDeviceInfo){
+        
+        self.qrWindow?.close()
+        
 		NearbyConnectionManager.shared.stopDeviceDiscovery()
 		listViewWrapper?.animator().isHidden=true
 		progressView?.animator().isHidden=false
