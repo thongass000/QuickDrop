@@ -109,7 +109,7 @@ Gw
                     </connections>
                 </button>
                 <customView id="ACO-U2-AZj">
-                    <rect key="frame" x="0.0" y="48" width="404" height="146"/>
+                    <rect key="frame" x="0.0" y="39" width="404" height="146"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </customView>
             </subviews>
@@ -130,40 +130,31 @@ Gw
             <point key="canvasLocation" x="140" y="-36"/>
         </customView>
         <stackView wantsLayer="YES" distribution="equalSpacing" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="fLZ-IA-bPS">
-            <rect key="frame" x="0.0" y="0.0" width="521" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="521" height="130"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="fCj-wF-rEj">
-                    <rect key="frame" x="245" y="68" width="32" height="32"/>
+                    <rect key="frame" x="245" y="61" width="32" height="39"/>
                 </progressIndicator>
                 <textField wantsLayer="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="27P-yf-gUd">
-                    <rect key="frame" x="189" y="42" width="144" height="16"/>
+                    <rect key="frame" x="189" y="35" width="144" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Looking for devices..." id="NaJ-Wx-Pim">
                         <font key="font" textStyle="headline" name=".SFNS-Bold"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="V5W-Rm-YVM">
-                    <rect key="frame" x="-2" y="0.0" width="525" height="32"/>
-                    <textFieldCell key="cell" alignment="center" title="If you don't see your device, open the &quot;Google Files&quot; app and tap &quot;Receive&quot; on the Nearby Share tab." id="vla-gF-eJo">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="27P-yf-gUd" firstAttribute="top" secondItem="fCj-wF-rEj" secondAttribute="bottom" constant="10" id="87W-ec-fMh"/>
-                <constraint firstItem="V5W-Rm-YVM" firstAttribute="top" secondItem="27P-yf-gUd" secondAttribute="bottom" constant="10" id="OSI-wI-LcY"/>
+                <constraint firstAttribute="bottom" secondItem="27P-yf-gUd" secondAttribute="bottom" constant="35" id="L3k-0X-y8j"/>
+                <constraint firstItem="fCj-wF-rEj" firstAttribute="top" secondItem="fLZ-IA-bPS" secondAttribute="top" constant="30" id="Uon-lo-9kV"/>
             </constraints>
             <visibilityPriorities>
                 <integer value="1000"/>
                 <integer value="1000"/>
-                <integer value="1000"/>
             </visibilityPriorities>
             <customSpacing>
-                <real value="3.4028234663852886e+38"/>
                 <real value="3.4028234663852886e+38"/>
                 <real value="3.4028234663852886e+38"/>
             </customSpacing>

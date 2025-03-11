@@ -263,7 +263,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 		NearbyConnectionManager.shared.stopDeviceDiscovery()
 		listViewWrapper?.animator().isHidden=true
 		progressView?.animator().isHidden=false
-		progressDeviceName?.stringValue=device.name
+        progressDeviceName?.stringValue=getDeviceName(device: device)
 		progressDeviceIcon?.image=imageForDeviceType(type: device.type)
 		progressProgressBar?.startAnimation(nil)
 		progressState?.stringValue=NSLocalizedString("Connecting", value: "Connecting...", comment: "")
@@ -308,7 +308,7 @@ extension ShareViewController:NSCollectionViewDataSource{
 		let item=collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DeviceListCell"), for: indexPath)
 		guard let collectionViewItem = item as? DeviceListCell else {return item}
 		let device=foundDevices[indexPath[1]]
-		collectionViewItem.textField?.stringValue=device.name
+        collectionViewItem.textField?.stringValue=getDeviceName(device: device)
 		collectionViewItem.imageView?.image=imageForDeviceType(type: device.type)
 		// TODO maybe there's a better way to handle clicks on collection view items? I'm still new to Apple's way of doing UIs so I may do dumb shit occasionally
 		collectionViewItem.clickHandler={
@@ -316,4 +316,11 @@ extension ShareViewController:NSCollectionViewDataSource{
 		}
 		return collectionViewItem
 	}
+    
+    func getDeviceName(device: RemoteDeviceInfo) -> String {
+        if device.name.count <= 1 {
+            return "Android"
+        }
+        return device.name
+    }
 }
