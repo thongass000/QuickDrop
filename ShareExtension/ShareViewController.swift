@@ -18,7 +18,10 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 	private var foundDevices:[RemoteDeviceInfo]=[]
 	private var chosenDevice:RemoteDeviceInfo?
 	private var lastError:Error?
-	
+    private var refreshTimer: Timer? = nil
+    private var isDiscovering=false
+
+    
 	@IBOutlet var filesIcon:NSImageView?
 	@IBOutlet var filesLabel:NSTextField?
 	@IBOutlet var loadingOverlay:NSStackView?
@@ -107,7 +110,30 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 	override func viewDidLoad(){
 		super.viewDidLoad()
 		NearbyConnectionManager.shared.startDeviceDiscovery()
+        isDiscovering = true
+        
 		NearbyConnectionManager.shared.addShareExtensionDelegate(self)
+        
+        let refreshInterval = 7.0
+        
+        refreshTimer = Timer.scheduledTimer(withTimeInterval: refreshInterval, repeats: true, block: { _ in
+            
+            log("Refreshing device list")
+            
+            if self.isDiscovering {
+                NearbyConnectionManager.shared.stopDeviceDiscovery()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    if self.isDiscovering {
+                        NearbyConnectionManager.shared.startDeviceDiscovery()
+                    }
+                }
+            }
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + refreshInterval) {
+            self.refreshTimer?.fire()
+        }
 	}
 	
 	override func viewWillDisappear() {
@@ -116,6 +142,8 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         
 		if chosenDevice==nil{
 			NearbyConnectionManager.shared.stopDeviceDiscovery()
+            isDiscovering = false
+            refreshTimer?.invalidate()
 		}
 		NearbyConnectionManager.shared.removeShareExtensionDelegate(self)
 	}
@@ -285,6 +313,9 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         self.qrWindow?.close()
         
 		NearbyConnectionManager.shared.stopDeviceDiscovery()
+        isDiscovering = false
+        refreshTimer?.invalidate()
+        
 		listViewWrapper?.animator().isHidden=true
 		progressView?.animator().isHidden=false
         progressDeviceName?.stringValue=getDeviceName(device: device)
