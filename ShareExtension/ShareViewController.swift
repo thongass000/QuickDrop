@@ -109,29 +109,34 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 	
 	override func viewDidLoad(){
 		super.viewDidLoad()
-		NearbyConnectionManager.shared.startDeviceDiscovery()
-        isDiscovering = true
+        
+        launchMainApp()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            NearbyConnectionManager.shared.startDeviceDiscovery()
+            self.isDiscovering = true
+        }
         
 		NearbyConnectionManager.shared.addShareExtensionDelegate(self)
         
-        let refreshInterval = 7.0
-        
-        refreshTimer = Timer.scheduledTimer(withTimeInterval: refreshInterval, repeats: true, block: { _ in
-            
-            // Restart device discovery if no devices are found
-            if self.isDiscovering && self.foundDevices.isEmpty {
-                
-                log("Refreshing device list")
-                
-                NearbyConnectionManager.shared.stopDeviceDiscovery()
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    if self.isDiscovering {
-                        NearbyConnectionManager.shared.startDeviceDiscovery()
-                    }
-                }
-            }
-        })
+//        let refreshInterval = 7.0
+//        
+//        refreshTimer = Timer.scheduledTimer(withTimeInterval: refreshInterval, repeats: true, block: { _ in
+//            
+//            // Restart device discovery if no devices are found
+//            if self.isDiscovering && self.foundDevices.isEmpty {
+//                
+//                log("Refreshing device list")
+//                
+//                NearbyConnectionManager.shared.stopDeviceDiscovery()
+//                
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                    if self.isDiscovering {
+//                        NearbyConnectionManager.shared.startDeviceDiscovery()
+//                    }
+//                }
+//            }
+//        })
 	}
 	
 	override func viewWillDisappear() {
@@ -139,9 +144,9 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         self.qrWindow?.close()
         
 		if chosenDevice==nil{
-			NearbyConnectionManager.shared.stopDeviceDiscovery()
             isDiscovering = false
             refreshTimer?.invalidate()
+            NearbyConnectionManager.shared.stopDeviceDiscovery()
 		}
 		NearbyConnectionManager.shared.removeShareExtensionDelegate(self)
 	}
@@ -309,10 +314,10 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 	func selectDevice(device:RemoteDeviceInfo){
         
         self.qrWindow?.close()
-        
-		NearbyConnectionManager.shared.stopDeviceDiscovery()
+
         isDiscovering = false
         refreshTimer?.invalidate()
+		NearbyConnectionManager.shared.stopDeviceDiscovery()
         
 		listViewWrapper?.animator().isHidden=true
 		progressView?.animator().isHidden=false
@@ -375,5 +380,25 @@ extension ShareViewController:NSCollectionViewDataSource{
             return "Android"
         }
         return device.name
+    }
+}
+
+
+func launchMainApp() {
+    let bundleIdentifier = "com.leonboettger.neardrop"
+    let runningApps = NSWorkspace.shared.runningApplications
+
+    // Check if the app is already running
+    let isRunning = runningApps.contains { $0.bundleIdentifier == bundleIdentifier }
+    
+    if !isRunning {
+        log("Launching main app")
+        NSWorkspace.shared.launchApplication(withBundleIdentifier: bundleIdentifier,
+                                             options: [.default],
+                                             additionalEventParamDescriptor: nil,
+                                             launchIdentifier: nil)
+    }
+    else {
+        log("Main app is already running")
     }
 }
