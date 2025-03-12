@@ -237,22 +237,23 @@ Gw
             </customSpacing>
             <point key="canvasLocation" x="4" y="-288"/>
         </stackView>
-        <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="A4d-Qt-PsT">
+        <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="A4d-Qt-PsT">
             <rect key="frame" x="0.0" y="0.0" width="271" height="172"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <clipView key="contentView" id="cCr-8P-Lya">
-                <rect key="frame" x="1" y="1" width="269" height="170"/>
+            <clipView key="contentView" drawsBackground="NO" id="cCr-8P-Lya">
+                <rect key="frame" x="0.0" y="0.0" width="271" height="172"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <collectionView id="gZI-Zb-Blx">
-                        <rect key="frame" x="0.0" y="0.0" width="269" height="170"/>
+                        <rect key="frame" x="0.0" y="0.0" width="271" height="172"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="ATS-Jd-odC">
                             <size key="itemSize" width="50" height="50"/>
                         </collectionViewFlowLayout>
-                        <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <color key="primaryBackgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </collectionView>
                 </subviews>
+                <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             </clipView>
             <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="3j2-z3-G1e">
                 <rect key="frame" x="-100" y="-100" width="402" height="16"/>
