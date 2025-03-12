@@ -118,9 +118,11 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         
         refreshTimer = Timer.scheduledTimer(withTimeInterval: refreshInterval, repeats: true, block: { _ in
             
-            log("Refreshing device list")
-            
-            if self.isDiscovering {
+            // Restart device discovery if no devices are found
+            if self.isDiscovering && self.foundDevices.isEmpty {
+                
+                log("Refreshing device list")
+                
                 NearbyConnectionManager.shared.stopDeviceDiscovery()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -130,10 +132,6 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
                 }
             }
         })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + refreshInterval) {
-            self.refreshTimer?.fire()
-        }
 	}
 	
 	override func viewWillDisappear() {
