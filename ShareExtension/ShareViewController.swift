@@ -245,6 +245,8 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 		}
 		foundDevices.append(device)
 		listView?.animator().insertItems(at: [[0, foundDevices.count-1]])
+        
+        qrWindow?.close()
 	}
 	
 	func removeDevice(id: String){

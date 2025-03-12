@@ -38,11 +38,11 @@ struct QrCodeView: View {
             
             Spacer()
         }
-        .frame(width: qrCodeViewSize.width, height: qrCodeViewSize.height)
     }
 }
 
 
 #Preview {
     QrCodeView()
+        .frame(width: qrCodeViewSize.width, height: qrCodeViewSize.height)
 }

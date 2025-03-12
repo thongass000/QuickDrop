@@ -15,18 +15,7 @@
 //    private let viewModel = ShareViewModel()
 //    
 //    override func loadView() {
-//        self.view = NSHostingView(rootView: ShareView(viewModel: viewModel))
-//    }
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        NearbyConnectionManager.shared.startDeviceDiscovery()
-//        NearbyConnectionManager.shared.addShareExtensionDelegate(viewModel)
-//    }
-//    
-//    override func viewWillDisappear() {
-//        NearbyConnectionManager.shared.stopDeviceDiscovery()
-//        NearbyConnectionManager.shared.removeShareExtensionDelegate(viewModel)
+//        self.view = NSHostingView(rootView: ShareView())
 //    }
 //}
 //
@@ -97,7 +86,7 @@
 //import SwiftUI
 //
 //struct ShareView: View {
-//    @ObservedObject var viewModel: ShareViewModel
+//    @StateObject var viewModel: ShareViewModel = ShareViewModel()
 //
 //    var body: some View {
 //        VStack(spacing: 20) {
@@ -123,6 +112,14 @@
 //                .padding()
 //        }
 //        .padding()
+//        .onAppear {
+//            NearbyConnectionManager.shared.startDeviceDiscovery()
+//            NearbyConnectionManager.shared.addShareExtensionDelegate(viewModel)
+//        }
+//        .onDisappear {
+//            NearbyConnectionManager.shared.stopDeviceDiscovery()
+//            NearbyConnectionManager.shared.removeShareExtensionDelegate(viewModel)
+//        }
 //    }
 //
 //    private func deviceImageName(for type: RemoteDeviceInfo.DeviceType) -> String {
@@ -135,4 +132,9 @@
 //            return "iphone"
 //        }
 //    }
+//}
+//
+//
+//#Preview {
+//    ShareView()
 //}

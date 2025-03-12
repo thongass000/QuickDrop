@@ -52,6 +52,7 @@
 		EB96ED8F2D7F8105004B3FF1 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
 		EB96ED902D7F8114004B3FF1 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
 		EBCC27F92D80C9F90079C478 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC27F82D80C9F70079C478 /* Zip.swift */; };
+		EBCC29012D8202F90079C478 /* ShareViewControllerSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED882D7F79B9004B3FF1 /* ShareViewControllerSwiftUI.swift */; };
 		EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -535,6 +536,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBCC29012D8202F90079C478 /* ShareViewControllerSwiftUI.swift in Sources */,
 				EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */,
 				EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */,
 				EB96ED8C2D7F7E7B004B3FF1 /* QrCodeView.swift in Sources */,
