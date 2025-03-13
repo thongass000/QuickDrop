@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="ShareViewController" customModule="QuickDropShareExtension" customModuleProvider="target">
             <connections>
                 <outlet property="contentWrap" destination="ACO-U2-AZj" id="PAE-Pw-Vyx"/>
+                <outlet property="dontSeeDeviceButton" destination="CF4-AV-wG4" id="KWW-f4-IO0"/>
                 <outlet property="filesIcon" destination="afM-Om-nLQ" id="I58-a3-SBZ"/>
                 <outlet property="filesLabel" destination="OEz-QK-nem" id="his-3f-6kx"/>
                 <outlet property="largeProgress" destination="fCj-wF-rEj" id="jEg-Uc-Ur7"/>
@@ -57,7 +58,7 @@ Gw
                             </constraints>
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="QuickDropIcon" id="q3u-Am-ZIA"/>
                         </imageView>
-                        <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aNc-0i-CWK">
+                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aNc-0i-CWK">
                             <rect key="frame" x="19" y="0.0" width="73" height="16"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="QuickDrop" allowsEditingTextAttributes="YES" id="0xp-rC-2gr">
                                 <font key="font" metaFont="systemBold"/>
@@ -83,7 +84,7 @@ Gw
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="jOq-9r-V1W"/>
                 </imageView>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OEz-QK-nem">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OEz-QK-nem">
                     <rect key="frame" x="29" y="196" width="367" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingMiddle" truncatesLastVisibleLine="YES" id="opy-Bj-x6u">
                         <font key="font" metaFont="system"/>
@@ -136,7 +137,7 @@ Gw
                 <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="fCj-wF-rEj">
                     <rect key="frame" x="245" y="61" width="32" height="39"/>
                 </progressIndicator>
-                <textField wantsLayer="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="27P-yf-gUd">
+                <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="27P-yf-gUd">
                     <rect key="frame" x="189" y="35" width="144" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Looking for devices..." id="NaJ-Wx-Pim">
                         <font key="font" textStyle="headline" name=".SFNS-Bold"/>
@@ -193,7 +194,7 @@ Gw
                         <constraint firstAttribute="bottom" secondItem="84U-lB-SRB" secondAttribute="bottom" id="uh8-T1-Vd8"/>
                     </constraints>
                 </customView>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJc-gw-4ux">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJc-gw-4ux">
                     <rect key="frame" x="-2" y="56" width="388" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" id="QzI-qQ-OBb">
                         <font key="font" metaFont="system"/>
@@ -207,7 +208,7 @@ Gw
                         <constraint firstAttribute="width" constant="200" id="bM2-Ih-2UC"/>
                     </constraints>
                 </progressIndicator>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y8I-D3-scQ">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y8I-D3-scQ">
                     <rect key="frame" x="165" y="0.0" width="54" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" id="Iin-UY-IE5">
                         <font key="font" metaFont="system"/>
@@ -242,7 +243,7 @@ Gw
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <clipView key="contentView" drawsBackground="NO" id="cCr-8P-Lya">
                 <rect key="frame" x="0.0" y="0.0" width="271" height="172"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView id="gZI-Zb-Blx">
                         <rect key="frame" x="0.0" y="0.0" width="271" height="172"/>

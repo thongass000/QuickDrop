@@ -93,7 +93,10 @@ Se você ainda encontrar problemas, eles podem ser causados pelo seu roteador Wi
 "TransferFinished" = "Transferência concluída";
 "TransferTimedOut" = "Tempo esgotado";
 "UnsupportedType" = "Tipo de anexo não suportado";  
-"QrCodeInstructions" = "Escaneie o código QR com a câmera do seu dispositivo Android. Depois, seu telefone aparecerá na tela anterior.\n\nSe tiver problemas, abra as configurações do seu Android e procure por 'Quick Share'. Altere a configuração 'Quem pode compartilhar com você' para 'Todos', e tente novamente.\n\nComo alternativa, instale e abra o app 'Files by Google' e toque em 'Receber' no canto inferior direito.";  
+"QrCodeInstructions" = "Escaneie o código QR com a câmera do seu dispositivo Android. Depois, seu telefone aparecerá na tela anterior.\n\nComo alternativa, instale e abra o app 'Files by Google' e toque em 'Receber' no canto inferior direito.";  
 "TypeNotSupported" = "Tipo não suportado";
 "TypeNotSupportedDescription" = "O tipo de arquivo selecionado não é suportado. Se quiser compartilhá-lo mesmo assim, clique com o botão direito no arquivo, selecione \"Comprimir\" e envie o arquivo compactado.";
 "TypeNotSupportedButton" = "Ok";  
+"TimeoutTitle" = "Algo deu errado";
+"TimeoutDescription" = "O QuickDrop não conseguiu se conectar ao seu telefone. Abra as configurações do seu dispositivo Android e procure por 'Quick Share'. Altere a configuração 'Quem pode compartilhar com você' para 'Todos' e tente novamente.";
+"TimeoutButton" = "Ok";  

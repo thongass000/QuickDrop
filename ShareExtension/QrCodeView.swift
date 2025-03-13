@@ -7,15 +7,27 @@
 
 import SwiftUI
 
-let qrCodeViewSize = CGSize(width: 600.0, height: 300.0)
+let qrCodeViewSize = CGSize(width: 530.0, height: 270.0)
 
 struct QrCodeView: View {
     @State private var qrCode: String = ""
+    let closeView: () -> Void
     
     var body: some View {
+  
         VStack {
             
-            Spacer()
+            Button(action: {
+                closeView()
+            }, label: {
+                Image(systemName: "xmark")
+                    .font(.system(size: 20))
+                    .foregroundColor(.gray)
+            })
+            .buttonStyle(PlainButtonStyle())
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(.trailing, 15)
+            .padding(.top, 15)
             
             HStack {
                 Spacer()
@@ -23,26 +35,31 @@ struct QrCodeView: View {
                 Image("QR")
                     .resizable()
                     .aspectRatio(1, contentMode: .fit)
-                    .frame(height: 230)
+                    .frame(height: 190)
                 
                 Spacer()
                 
+                
                 Text("QrCodeInstructions".localized())
-                    .padding(.top)
+                    .padding(.top, 5)
                     .padding(.horizontal)
+                    .fixedSize(horizontal: false, vertical: true)
                     .multilineTextAlignment(.center)
+                
                 
                 Spacer()
             }
             .padding(.horizontal)
+            .padding(.bottom)
             
             Spacer()
+        
         }
+        .frame(width: qrCodeViewSize.width, height: qrCodeViewSize.height)
     }
 }
 
 
 #Preview {
-    QrCodeView()
-        .frame(width: qrCodeViewSize.width, height: qrCodeViewSize.height)
+    QrCodeView(closeView: {})
 }

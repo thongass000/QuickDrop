@@ -11,8 +11,6 @@ import SwiftUI
 import NearbyShare
 
 class ShareViewController: NSViewController, ShareExtensionDelegate{
-	
-    private var qrWindow: NSWindow?
     
 	private var urls:[URL]=[]
 	private var foundDevices:[RemoteDeviceInfo]=[]
@@ -21,6 +19,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
     private var refreshTimer: Timer? = nil
     private var isDiscovering=false
 
+    private var connectionEstablished = false
     
 	@IBOutlet var filesIcon:NSImageView?
 	@IBOutlet var filesLabel:NSTextField?
@@ -36,8 +35,12 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 	@IBOutlet var progressState:NSTextField?
 	@IBOutlet var progressDeviceIconWrap:NSView?
 	@IBOutlet var progressDeviceSecondaryIcon:NSImageView?
-	
-	override var nibName: NSNib.Name? {
+    @IBOutlet var dontSeeDeviceButton: NSButton?
+    
+    private var qrCodeSheetView: NSPanel? = nil
+    private var sheetAttachedWindow: NSWindow? = nil
+    
+    override var nibName: NSNib.Name? {
 		return NSNib.Name("ShareViewController")
 	}
 
@@ -118,30 +121,9 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         }
         
 		NearbyConnectionManager.shared.addShareExtensionDelegate(self)
-        
-//        let refreshInterval = 7.0
-//        
-//        refreshTimer = Timer.scheduledTimer(withTimeInterval: refreshInterval, repeats: true, block: { _ in
-//            
-//            // Restart device discovery if no devices are found
-//            if self.isDiscovering && self.foundDevices.isEmpty {
-//                
-//                log("Refreshing device list")
-//                
-//                NearbyConnectionManager.shared.stopDeviceDiscovery()
-//                
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//                    if self.isDiscovering {
-//                        NearbyConnectionManager.shared.startDeviceDiscovery()
-//                    }
-//                }
-//            }
-//        })
 	}
 	
 	override func viewWillDisappear() {
-        
-        self.qrWindow?.close()
         
 		if chosenDevice==nil{
             isDiscovering = false
@@ -152,8 +134,6 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 	}
 
 	@IBAction func cancel(_ sender: AnyObject?) {
-		
-        self.qrWindow?.close()
         
         if let device=chosenDevice{
 			NearbyConnectionManager.shared.cancelOutgoingTransfer(id: device.id!)
@@ -162,33 +142,41 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 		self.extensionContext!.cancelRequest(withError: cancelError)
 	}
     
-    @IBAction func dontSeeDeviceButton(_ sender: AnyObject?) {
-        openQrScreen()
+    private func closeQrCodeView() {
+        if let mainWindow = sheetAttachedWindow, let qrCodeView = self.qrCodeSheetView {
+            mainWindow.endSheet(qrCodeView)
+            
+            self.qrCodeSheetView = nil
+            self.sheetAttachedWindow = nil
+        }
     }
     
-    @objc func openQrScreen() {
-        // Create the welcome screen SwiftUI view
-        let qrCodeView = QrCodeView()
+    @IBAction func dontSeeDeviceButton(_ sender: AnyObject?) {
         
-        // Create an NSWindow to host the SwiftUI view
-        qrWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: qrCodeViewSize.width, height: qrCodeViewSize.height),
-            styleMask: [.titled, .closable],
-            backing: .buffered,
-            defer: false
-        )
+        let contentView = QrCodeView {
+            self.closeQrCodeView()
+        }
         
-        qrWindow?.center()
-        qrWindow?.isReleasedWhenClosed = false
-        qrWindow?.setFrameAutosaveName("QrCodeScreen")
-        qrWindow?.contentView = NSHostingView(rootView: qrCodeView)
+        let hostingView = NSHostingView(rootView: contentView)
         
-        // Ensure the window is always on top
-        NSApp.activate(ignoringOtherApps: true) // Brings the whole app to the front
-        qrWindow?.makeKeyAndOrderFront(nil)
-        qrWindow?.level = .normal
+        let panel = NSPanel(contentRect: NSRect(x: 0, y: 0, width: qrCodeViewSize.width, height: qrCodeViewSize.height),
+                            styleMask: [.titled, .closable, .utilityWindow],
+                            backing: .buffered,
+                            defer: false)
+        
+        panel.title = "SwiftUI Sheet"
+        panel.contentView = hostingView
+        
+        self.qrCodeSheetView = panel
+        
+        if let mainWindow = NSApp.mainWindow {
+            
+            self.sheetAttachedWindow = mainWindow
+            mainWindow.beginSheet(panel) { _ in }
+        }
     }
-	
+    
+    
 	private func urlsReady(){
 		for url in urls{
 			if url.isFileURL{
@@ -246,7 +234,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 		foundDevices.append(device)
 		listView?.animator().insertItems(at: [[0, foundDevices.count-1]])
         
-        qrWindow?.close()
+        closeQrCodeView()
 	}
 	
 	func removeDevice(id: String){
@@ -266,6 +254,9 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 	}
 	
 	func connectionWasEstablished(pinCode: String) {
+        
+        connectionEstablished = true
+        
 		progressState?.stringValue=String(format:NSLocalizedString("PinCode", value: "PIN: %@", comment: ""), arguments: [pinCode])
 		progressProgressBar?.isIndeterminate=false
 		progressProgressBar?.maxValue=1000
@@ -314,14 +305,13 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 	}
 	
 	func selectDevice(device:RemoteDeviceInfo){
-        
-        self.qrWindow?.close()
 
         isDiscovering = false
         refreshTimer?.invalidate()
 		NearbyConnectionManager.shared.stopDeviceDiscovery()
         
 		listViewWrapper?.animator().isHidden=true
+        dontSeeDeviceButton?.animator().isHidden=true
 		progressView?.animator().isHidden=false
         progressDeviceName?.stringValue=getDeviceName(device: device)
 		progressDeviceIcon?.image=imageForDeviceType(type: device.type)
@@ -329,6 +319,20 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
 		progressState?.stringValue=NSLocalizedString("Connecting", value: "Connecting...", comment: "")
 		chosenDevice=device
 		NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: urls)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 13.0) {
+            if !self.connectionEstablished {
+                
+                let alert = NSAlert()
+                alert.alertStyle = .critical
+                
+                alert.messageText = "TimeoutTitle".localized()
+                alert.informativeText = "TimeoutDescription".localized()
+                alert.addButton(withTitle: "TimeoutButton".localized())
+                
+                let _ = alert.runModal()
+            }
+        }
 	}
 	
 	private func dismissDelayed(){
