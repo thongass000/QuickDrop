@@ -115,7 +115,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
     override func viewDidLoad(){
         super.viewDidLoad()
         
-        launchMainApp()
+        dicoverDevices()
         NearbyConnectionManager.shared.addShareExtensionDelegate(self)
     }
     
@@ -146,7 +146,11 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
     
     
     @IBAction func dontSeeDeviceButton(_ sender: AnyObject?) {
-        
+        openQrCodeView()
+    }
+    
+    
+    private func openQrCodeView() {
         let contentView = QrCodeView {
             self.closeQrCodeView()
         }
@@ -235,15 +239,17 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         }
     }
     
+    
     func addDevice(device: RemoteDeviceInfo) {
-        if foundDevices.isEmpty{
-            loadingOverlay?.animator().isHidden=true
+        if foundDevices.isEmpty {
+            loadingOverlay?.animator().isHidden = true
         }
         foundDevices.append(device)
         listView?.animator().insertItems(at: [[0, foundDevices.count-1]])
         
         closeQrCodeView()
     }
+    
     
     func removeDevice(id: String) {
         if chosenDevice != nil {
@@ -261,6 +267,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         }
     }
     
+    
     func connectionWasEstablished(pinCode: String) {
         
         connectionEstablished = true
@@ -270,6 +277,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         progressProgressBar?.maxValue = 1000
         progressProgressBar?.doubleValue = 0
     }
+    
     
     func connectionFailed(with error: Error) {
         
@@ -303,18 +311,22 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         }
     }
     
+    
     func transferAccepted() {
         progressState?.stringValue=NSLocalizedString("Sending", value: "Sending...", comment: "")
     }
+    
     
     func transferProgress(progress: Double) {
         progressProgressBar!.doubleValue=progress*progressProgressBar!.maxValue
     }
     
+    
     func transferFinished() {
         progressState?.stringValue=NSLocalizedString("TransferFinished", value: "Transfer finished", comment: "")
         dismissDelayed()
     }
+    
     
     func selectDevice(device:RemoteDeviceInfo){
         
@@ -351,6 +363,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: timeoutAlert)
     }
     
+    
     private func dismissDelayed(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             
@@ -363,7 +376,8 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         }
     }
     
-    private func launchMainApp() {
+    
+    private func dicoverDevices() {
         let bundleIdentifier = "com.leonboettger.neardrop"
         let runningApps = NSWorkspace.shared.runningApplications
         
@@ -386,6 +400,12 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
             log("Main app is already running")
             NearbyConnectionManager.shared.startDeviceDiscovery()
             self.isDiscovering = true
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            if self.foundDevices.isEmpty {
+                self.openQrCodeView()
+            }
         }
     }
 }
