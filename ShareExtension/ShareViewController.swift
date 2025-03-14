@@ -354,7 +354,6 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
                 alert.informativeText = "TimeoutDescription".localized()
                 alert.addButton(withTitle: "TimeoutButton".localized())
                 
-                
                 alert.beginSheetModal(for: self.view.window!) { _ in }
             }
         }
@@ -394,15 +393,20 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 NearbyConnectionManager.shared.startDeviceDiscovery()
                 self.isDiscovering = true
+                self.scheduleAutomaticQrCodeView()
             }
         }
         else {
             log("Main app is already running")
             NearbyConnectionManager.shared.startDeviceDiscovery()
             self.isDiscovering = true
+            self.scheduleAutomaticQrCodeView()
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+    }
+    
+    
+    private func scheduleAutomaticQrCodeView() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             if self.foundDevices.isEmpty {
                 self.openQrCodeView()
             }

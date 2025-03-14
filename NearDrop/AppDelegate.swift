@@ -246,10 +246,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
         guard let transfer = self.activeIncomingTransfers[id] else { return }
         if let error = error {
             
-            let alert = NSAlert()
-            alert.alertStyle = .critical
-            
-            alert.messageText = String(format: NSLocalizedString("TransferError", value: "Failed to receive files from %@", comment: ""), arguments: [transfer.device.name])
             var description = ""
             
             if let ne = (error as? NearbyError){
@@ -269,7 +265,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
                 description = error.localizedDescription
             }
             
+            let alert = NSAlert()
+            alert.alertStyle = .critical
+
+            alert.messageText = String(format: NSLocalizedString("TransferError", value: "Failed to receive files from %@", comment: ""), arguments: [transfer.device.name])
             alert.informativeText = description
+            alert.addButton(withTitle: "TypeNotSupportedButton".localized())
+            
             let _ = alert.runModal()
         }
         else {
