@@ -45,14 +45,12 @@
 		EB7F54142D78E9E700989564 /* LicenseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54132D78E9E400989564 /* LicenseWindow.swift */; };
 		EB9237C42D7CDF8B00CA3A42 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69D2C32B29E77F2200EC7E30 /* Localizable.strings */; };
 		EB9237C52D7CDF9000CA3A42 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 69D2C33629E78DF400EC7E30 /* Localizable.stringsdict */; };
-		EB96ED892D7F79BE004B3FF1 /* ShareViewControllerSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED882D7F79B9004B3FF1 /* ShareViewControllerSwiftUI.swift */; };
 		EB96ED8B2D7F7CF7004B3FF1 /* QrCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* QrCodeView.swift */; };
 		EB96ED8C2D7F7E7B004B3FF1 /* QrCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* QrCodeView.swift */; };
 		EB96ED8D2D7F7EA3004B3FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
 		EB96ED8F2D7F8105004B3FF1 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
 		EB96ED902D7F8114004B3FF1 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
 		EBCC27F92D80C9F90079C478 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC27F82D80C9F70079C478 /* Zip.swift */; };
-		EBCC29012D8202F90079C478 /* ShareViewControllerSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED882D7F79B9004B3FF1 /* ShareViewControllerSwiftUI.swift */; };
 		EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -211,7 +209,6 @@
 		EB9237BF2D7CDE3E00CA3A42 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/ShareViewController.strings"; sourceTree = "<group>"; };
 		EB9237C12D7CDE4000CA3A42 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ShareViewController.strings; sourceTree = "<group>"; };
 		EB9237C32D7CDE4100CA3A42 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/ShareViewController.strings; sourceTree = "<group>"; };
-		EB96ED882D7F79B9004B3FF1 /* ShareViewControllerSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewControllerSwiftUI.swift; sourceTree = "<group>"; };
 		EB96ED8A2D7F7CF4004B3FF1 /* QrCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeView.swift; sourceTree = "<group>"; };
 		EB96ED8E2D7F8103004B3FF1 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		EBCC27F82D80C9F70079C478 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
@@ -264,7 +261,6 @@
 		699DEBA22AB0573200115D22 /* ShareExtension */ = {
 			isa = PBXGroup;
 			children = (
-				EB96ED882D7F79B9004B3FF1 /* ShareViewControllerSwiftUI.swift */,
 				699DEBA52AB0573200115D22 /* ShareViewController.swift */,
 				EBCC27F82D80C9F70079C478 /* Zip.swift */,
 				EB96ED8A2D7F7CF4004B3FF1 /* QrCodeView.swift */,
@@ -522,7 +518,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB96ED892D7F79BE004B3FF1 /* ShareViewControllerSwiftUI.swift in Sources */,
 				EB96ED902D7F8114004B3FF1 /* Localized.swift in Sources */,
 				699DEBA62AB0573200115D22 /* ShareViewController.swift in Sources */,
 				EB96ED8B2D7F7CF7004B3FF1 /* QrCodeView.swift in Sources */,
@@ -536,7 +531,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBCC29012D8202F90079C478 /* ShareViewControllerSwiftUI.swift in Sources */,
 				EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */,
 				EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */,
 				EB96ED8C2D7F7E7B004B3FF1 /* QrCodeView.swift in Sources */,

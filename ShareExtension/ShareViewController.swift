@@ -406,7 +406,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
     
     
     private func scheduleAutomaticQrCodeView() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             if self.foundDevices.isEmpty {
                 self.openQrCodeView()
             }
