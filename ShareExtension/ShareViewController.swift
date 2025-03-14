@@ -402,7 +402,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
             self.isDiscovering = true
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             if self.foundDevices.isEmpty {
                 self.openQrCodeView()
             }

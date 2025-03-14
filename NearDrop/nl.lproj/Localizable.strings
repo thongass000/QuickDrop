@@ -93,7 +93,7 @@ Als je nog steeds problemen ondervindt, kunnen deze veroorzaakt worden door je W
 "TransferFinished" = "Overdracht voltooid";
 "TransferTimedOut" = "Time-out";
 "UnsupportedType" = "Bijlagetype niet ondersteund";  
-"QrCodeInstructions" = "Scan de QR-code met de camera van je Android-apparaat. Daarna verschijnt je telefoon op het vorige scherm.\n\nJe kunt ook de app 'Files by Google' installeren en openen en tikken op 'Ontvangen' rechtsonder.";  
+"QrCodeInstructions" = "Scan de QR-code met je Android-apparaat om het met je Mac te verbinden. Zorg ervoor dat je telefoon met hetzelfde netwerk is verbonden.\n\nJe kunt ook de app 'Files by Google' installeren en openen en op 'Ontvangen' tikken rechtsonder.";  
 "TypeNotSupported" = "Type niet ondersteund";
 "TypeNotSupportedDescription" = "Het geselecteerde bestandstype wordt niet ondersteund. Als je het toch wilt delen, klik met de rechtermuisknop op het bestand, selecteer \"Comprimeren\" en stuur vervolgens het gecomprimeerde bestand.";
 "TypeNotSupportedButton" = "Oké";  

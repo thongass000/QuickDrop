@@ -93,7 +93,7 @@
 "TransferFinished" = "传输完成";
 "TransferTimedOut" = "超时";
 "UnsupportedType" = "不支持的附件类型";  
-"QrCodeInstructions" = "使用 Android 设备的摄像头扫描二维码。之后，您的手机将在上一个屏幕中显示。\n\n或者，安装并打开“Files by Google”应用，然后点击右下角的“接收”。";  
+"QrCodeInstructions" = "使用您的 Android 设备扫描二维码，将其连接到您的 Mac。请确保您的手机连接到同一网络。\n\n或者，安装并打开 'Files by Google' 应用程序，然后点击右下角的 '接收'。";  
 "TypeNotSupported" = "不支持的类型";
 "TypeNotSupportedDescription" = "所选文件类型不受支持。如果仍要分享，请右键点击文件，选择“压缩”，然后发送压缩后的文件。";
 "TypeNotSupportedButton" = "好的";  

@@ -102,7 +102,7 @@ If you still encounter issues, the issues could be caused due to your WiFi route
 "TransferFinished" = "Transfer finished";
 "TransferTimedOut" = "Timed out";
 "UnsupportedType" = "Attachment type not supported";
-"QrCodeInstructions" = "Scan the QR Code with the camera of your Android device. Afterward, your phone will show up in the previous screen.\n\nAlternatively, install and open the 'Files by Google' app and tap 'Receive' at the bottom right.";
+"QrCodeInstructions" = "Scan the QR Code with your Android device to connect it to your Mac. Make sure your phone is connected to the same network.\n\nAlternatively, install and open the 'Files by Google' app and tap 'Receive' at the bottom right.";
 "TypeNotSupported" = "Type not supported";
 "TypeNotSupportedDescription" = "The selected file type is not supported. If you want to share it anyway, right-click the file, select \"Compress\" and then send the compressed file.";
 "TypeNotSupportedButton" = "Okay";

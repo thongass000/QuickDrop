@@ -93,7 +93,7 @@ Se il problema persiste, potrebbe essere causato dal tuo router WiFi. Alcuni rou
 "TransferFinished" = "Trasferimento completato";
 "TransferTimedOut" = "Tempo scaduto";
 "UnsupportedType" = "Tipo di allegato non supportato";  
-"QrCodeInstructions" = "Scansiona il codice QR con la fotocamera del tuo dispositivo Android. Dopodiché, il telefono apparirà nella schermata precedente.\n\nIn alternativa, installa e apri l'app 'Files by Google' e tocca 'Ricevi' in basso a destra.";  
+"QrCodeInstructions" = "Scansiona il codice QR con il tuo dispositivo Android per collegarlo al tuo Mac. Assicurati che il telefono sia connesso alla stessa rete.\n\nIn alternativa, installa e apri l'app 'Files by Google' e tocca 'Ricevi' in basso a destra.";  
 "TypeNotSupported" = "Tipo non supportato";
 "TypeNotSupportedDescription" = "Il tipo di file selezionato non è supportato. Se desideri comunque condividerlo, fai clic con il tasto destro sul file, seleziona \"Comprimi\" e poi invia il file compresso.";
 "TypeNotSupportedButton" = "Ok";  
