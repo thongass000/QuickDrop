@@ -151,7 +151,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
     
     
     private func openQrCodeView() {
-        if qrCodeSheetView != nil {
+        if qrCodeSheetView == nil {
             let contentView = QrCodeView {
                 self.closeQrCodeView()
             }
