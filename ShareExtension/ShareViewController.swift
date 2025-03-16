@@ -151,26 +151,28 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
     
     
     private func openQrCodeView() {
-        let contentView = QrCodeView {
-            self.closeQrCodeView()
-        }
-        
-        let hostingView = NSHostingView(rootView: contentView)
-        
-        let panel = NSPanel(contentRect: NSRect(x: 0, y: 0, width: qrCodeViewSize.width, height: qrCodeViewSize.height),
-                            styleMask: [.titled, .closable, .utilityWindow],
-                            backing: .buffered,
-                            defer: false)
-        
-        panel.title = "SwiftUI Sheet"
-        panel.contentView = hostingView
-        
-        self.qrCodeSheetView = panel
-        
-        if let mainWindow = NSApp.mainWindow {
+        if qrCodeSheetView != nil {
+            let contentView = QrCodeView {
+                self.closeQrCodeView()
+            }
             
-            self.sheetAttachedWindow = mainWindow
-            mainWindow.beginSheet(panel) { _ in }
+            let hostingView = NSHostingView(rootView: contentView)
+            
+            let panel = NSPanel(contentRect: NSRect(x: 0, y: 0, width: qrCodeViewSize.width, height: qrCodeViewSize.height),
+                                styleMask: [.titled, .closable, .utilityWindow],
+                                backing: .buffered,
+                                defer: false)
+            
+            panel.title = "SwiftUI Sheet"
+            panel.contentView = hostingView
+            
+            self.qrCodeSheetView = panel
+            
+            if let mainWindow = NSApp.mainWindow {
+                
+                self.sheetAttachedWindow = mainWindow
+                mainWindow.beginSheet(panel) { _ in }
+            }
         }
     }
     
