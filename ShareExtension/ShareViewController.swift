@@ -16,8 +16,6 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
     private var foundDevices:[RemoteDeviceInfo]=[]
     private var chosenDevice:RemoteDeviceInfo?
     private var lastError:Error?
-    private var refreshTimer: Timer? = nil
-    private var isDiscovering=false
     
     private var connectionEstablished = false
     private var timeoutDispatchWorkItem: DispatchWorkItem? = nil
@@ -127,8 +125,6 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         timeoutDispatchWorkItem?.cancel()
         
         if chosenDevice==nil{
-            isDiscovering = false
-            refreshTimer?.invalidate()
             NearbyConnectionManager.shared.stopDeviceDiscovery()
         }
         NearbyConnectionManager.shared.removeShareExtensionDelegate(self)
@@ -163,7 +159,6 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
                                 backing: .buffered,
                                 defer: false)
             
-            panel.title = "SwiftUI Sheet"
             panel.contentView = hostingView
             
             self.qrCodeSheetView = panel
@@ -332,8 +327,6 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
     
     func selectDevice(device:RemoteDeviceInfo){
         
-        isDiscovering = false
-        refreshTimer?.invalidate()
         NearbyConnectionManager.shared.stopDeviceDiscovery()
         
         listViewWrapper?.animator().isHidden=true
@@ -394,14 +387,12 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 NearbyConnectionManager.shared.startDeviceDiscovery()
-                self.isDiscovering = true
                 self.scheduleAutomaticQrCodeView()
             }
         }
         else {
             log("Main app is already running")
             NearbyConnectionManager.shared.startDeviceDiscovery()
-            self.isDiscovering = true
             self.scheduleAutomaticQrCodeView()
         }
     }

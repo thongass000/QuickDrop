@@ -1,5 +1,5 @@
 //
-//  QrCodeVIew.swift
+//  QrCodeView.swift
 //  QuickDrop
 //
 //  Created by Leon Böttger on 10.03.25.
