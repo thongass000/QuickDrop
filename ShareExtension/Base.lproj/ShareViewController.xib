@@ -58,7 +58,7 @@ Gw
                             </constraints>
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="QuickDropIcon" id="q3u-Am-ZIA"/>
                         </imageView>
-                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aNc-0i-CWK">
+                        <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aNc-0i-CWK">
                             <rect key="frame" x="19" y="0.0" width="73" height="16"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="QuickDrop" allowsEditingTextAttributes="YES" id="0xp-rC-2gr">
                                 <font key="font" metaFont="systemBold"/>
@@ -84,7 +84,7 @@ Gw
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="jOq-9r-V1W"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OEz-QK-nem">
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OEz-QK-nem">
                     <rect key="frame" x="29" y="196" width="367" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingMiddle" truncatesLastVisibleLine="YES" id="opy-Bj-x6u">
                         <font key="font" metaFont="system"/>
@@ -137,7 +137,7 @@ Gw
                 <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="fCj-wF-rEj">
                     <rect key="frame" x="245" y="61" width="32" height="39"/>
                 </progressIndicator>
-                <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="27P-yf-gUd">
+                <textField wantsLayer="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="27P-yf-gUd">
                     <rect key="frame" x="189" y="35" width="144" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Looking for devices..." id="NaJ-Wx-Pim">
                         <font key="font" textStyle="headline" name=".SFNS-Bold"/>
@@ -194,7 +194,7 @@ Gw
                         <constraint firstAttribute="bottom" secondItem="84U-lB-SRB" secondAttribute="bottom" id="uh8-T1-Vd8"/>
                     </constraints>
                 </customView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJc-gw-4ux">
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJc-gw-4ux">
                     <rect key="frame" x="-2" y="56" width="388" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" id="QzI-qQ-OBb">
                         <font key="font" metaFont="system"/>
@@ -208,7 +208,7 @@ Gw
                         <constraint firstAttribute="width" constant="200" id="bM2-Ih-2UC"/>
                     </constraints>
                 </progressIndicator>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y8I-D3-scQ">
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y8I-D3-scQ">
                     <rect key="frame" x="165" y="0.0" width="54" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" id="Iin-UY-IE5">
                         <font key="font" metaFont="system"/>

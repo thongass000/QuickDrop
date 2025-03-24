@@ -44,8 +44,8 @@ class NearbyConnection{
 	private var clientSeq:Int32=0
 	
 	private(set) var pinCode:String?
-	
-	init(connection:NWConnection, id:String) {
+
+    init(connection:NWConnection, id:String) {
 		self.connection=connection
 		self.id=id
 	}

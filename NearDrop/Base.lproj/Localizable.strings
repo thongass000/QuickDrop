@@ -73,7 +73,7 @@ Important: Your Android device and your Mac need to be on the same WiFi network 
 
 1) Make sure that both devices are connected to the same WiFi network. 2) Restart QuickDrop by clicking the menu bar icon, choose the last entry, and open the app again. 3) Restart your Android device.
 
-If you still encounter issues, the issues could be caused due to your WiFi router. Some routers don't allow devices to communicate with each other. Try to make sure that this setting is set appropriately in your router settings. If you cannot change this setting, enable WiFi Hotspot on your Android device and connect your Mac to your hotspot directly.";
+If you still encounter issues, the issues could be caused due to your WiFi router. Some routers don't allow devices to communicate with each other. Try to make sure that this setting is set appropriately in your router settings.";
 
 
 "plusview_title" = "Thanks for using QuickDrop!";

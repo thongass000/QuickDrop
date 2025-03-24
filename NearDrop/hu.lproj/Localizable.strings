@@ -68,7 +68,7 @@ Fontos: Az Android-eszközödnek és a Mac-ednek ugyanazon a WiFi hálózaton ke
 
 1) Győződj meg róla, hogy mindkét eszköz ugyanarra a WiFi hálózatra van csatlakoztatva. 2) Indítsd újra a QuickDrop-ot azzal, hogy rákattintasz a menüsor ikonra, válaszd az utolsó bejegyzést, és nyisd meg újra az alkalmazást. 3) Indítsd újra az Android-eszközödet.
 
-Ha továbbra is problémákat tapasztalsz, azok a WiFi-routeredből adódhatnak. Néhány router nem engedi, hogy az eszközök kommunikáljanak egymással. Győződj meg róla, hogy a router beállítása megfelelően van konfigurálva. Ha nem tudod módosítani ezt a beállítást, engedélyezd a WiFi hotspotot az Android-eszközödön, és csatlakoztasd a Mac-et közvetlenül a hotspotodhoz.";
+Ha továbbra is problémákat tapasztalsz, azok a WiFi-routeredből adódhatnak. Néhány router nem engedi, hogy az eszközök kommunikáljanak egymással. Győződj meg róla, hogy a router beállítása megfelelően van konfigurálva.";
 
 "plusview_title" = "Köszönjük, hogy használod a QuickDropot!";
 "plusview_description" = "Oldd fel a QuickDrop+-t, hogy korlátlanul folytathasd a fájlcserét. A QuickDrop+ egy egyszeri vásárlás – előfizetés nem szükséges. Az összes jelenlegi és jövőbeli funkciót tartalmazza.";  
