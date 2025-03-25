@@ -22,6 +22,7 @@ class InboundNearbyConnection: NearbyConnection{
 	private var cipherCommitment:Data?
 	
 	private var textPayloadID:Int64=0
+    private var securityScopeUrl: URL?
 	
 	enum State{
 		case initial, receivedConnectionRequest, sentUkeyServerInit, receivedUkeyClientFinish, sentConnectionResponse, sentPairedKeyResult, receivedPairedKeyResult, waitingForUserConsent, receivingFiles, disconnected
@@ -32,6 +33,7 @@ class InboundNearbyConnection: NearbyConnection{
 	}
 	
 	override func handleConnectionClosure() {
+
 		super.handleConnectionClosure()
 		currentState = .disconnected
 		do{
@@ -41,6 +43,11 @@ class InboundNearbyConnection: NearbyConnection{
 		}
 		DispatchQueue.main.async {
 			self.delegate?.connectionWasTerminated(connection: self, error: self.lastError)
+            
+            if let url = self.securityScopeUrl {
+                log("Stopped accessing security scoped resource.")
+                url.stopAccessingSecurityScopedResource()
+            }
 		}
 	}
 	
@@ -280,7 +287,7 @@ class InboundNearbyConnection: NearbyConnection{
 		currentState = .receivedPairedKeyResult
 	}
 	
-	private func makeFileDestinationURL(_ initialDest:URL) -> URL{
+	private func makeFileDestinationURL(_ initialDest:URL) -> URL {
 		var dest=initialDest
 		if FileManager.default.fileExists(atPath: dest.path){
 			var counter=1
@@ -302,14 +309,18 @@ class InboundNearbyConnection: NearbyConnection{
 	private func processIntroductionFrame(_ frame:Sharing_Nearby_Frame) throws{
 		guard frame.hasV1, frame.v1.hasIntroduction else { throw NearbyError.requiredFieldMissing("shareNearbyFrame.v1.introduction") }
 		currentState = .waitingForUserConsent
+        
 		if frame.v1.introduction.fileMetadata.count>0 && frame.v1.introduction.textMetadata.isEmpty{
-			let downloadsDirectory=(try FileManager.default.url(for: .downloadsDirectory, in: .userDomainMask, appropriateFor: nil, create: true)).resolvingSymlinksInPath()
-			for file in frame.v1.introduction.fileMetadata{
-				let dest=makeFileDestinationURL(downloadsDirectory.appendingPathComponent(file.name))
-				let info=InternalFileInfo(meta: FileMetadata(name: file.name, size: file.size, mimeType: file.mimeType),
+            
+            let saveDirectory = getSaveDirectory()
+            
+			for file in frame.v1.introduction.fileMetadata {
+                
+				let dest = makeFileDestinationURL(saveDirectory.appendingPathComponent(file.name))
+				let info = InternalFileInfo(meta: FileMetadata(name: file.name, size: file.size, mimeType: file.mimeType),
 										  payloadID: file.payloadID,
 										  destinationURL: dest)
-				transferredFiles[file.payloadID]=info
+				transferredFiles[file.payloadID] = info
 			}
 			let metadata=TransferMetadata(files: transferredFiles.map({$0.value.meta}), id: id, pinCode: pinCode)
 			DispatchQueue.main.async {
@@ -324,10 +335,12 @@ class InboundNearbyConnection: NearbyConnection{
 					self.delegate?.obtainUserConsent(for: metadata, from: self.remoteDeviceInfo!, connection: self)
 				}
 			}else if case .text=meta.type{
-				let downloadsDirectory=(try FileManager.default.url(for: .downloadsDirectory, in: .userDomainMask, appropriateFor: nil, create: true)).resolvingSymlinksInPath()
+				
+                let saveDirectory = getSaveDirectory()
+                
 				let dateFormatter=DateFormatter()
 				dateFormatter.dateFormat="yyyy-MM-dd HH.mm.ss"
-				let dest=makeFileDestinationURL(downloadsDirectory.appendingPathComponent("\(dateFormatter.string(from: Date())).txt"))
+				let dest=makeFileDestinationURL(saveDirectory.appendingPathComponent("\(dateFormatter.string(from: Date())).txt"))
 				let info=InternalFileInfo(meta: FileMetadata(name: dest.lastPathComponent, size: meta.size, mimeType: "text/plain"),
 										  payloadID: meta.payloadID,
 										  destinationURL: dest)
@@ -342,6 +355,32 @@ class InboundNearbyConnection: NearbyConnection{
 			rejectTransfer(with: .unsupportedAttachmentType)
 		}
 	}
+    
+    private func getSaveDirectory() -> URL {
+        if let bookmarkData = UserDefaults.standard.data(forKey: UserDefaultsKeys.saveFolderBookmark.rawValue) {
+            var isStale = false
+            do {
+                let url = try URL(resolvingBookmarkData: bookmarkData, options: .withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &isStale)
+                    if !isStale {
+                        if url.startAccessingSecurityScopedResource() {
+                            self.securityScopeUrl = url
+                            return url
+                        }
+                    } else {
+                        print("Bookmark is stale, using default downloads folder.")
+                    }
+                
+            } catch {
+                print("Failed to resolve bookmark: \(error), using default downloads folder.")
+            }
+        }
+        
+        do {
+            return try FileManager.default.url(for: .downloadsDirectory, in: .userDomainMask, appropriateFor: nil, create: true).resolvingSymlinksInPath()
+        } catch {
+            fatalError("Failed to get downloads directory: \(error)")
+        }
+    }
 	
 	func submitUserConsent(accepted:Bool){
 		DispatchQueue.global(qos: .utility).async {

@@ -52,7 +52,16 @@
 
 "PrivacyPolicy" = "Privacy Policy";
 
-"UserManual" = "User Manual";
+"DeviceCurrentlySendingFiles" = "%1$@ is sending you %2$@";
+"UserManual" = "User Manual & Settings";
+"Settings" = "Settings";
+"AutomaticallyAcceptFiles" = "Automatically Accept Incoming Files";
+"AutomaticallyAcceptFilesFooter" = "Enabling this setting is only recommended in your private network. Anyone on the same network can send files to your device without your consent.";
+
+"SaveFilesTo" = "Save Incoming Files To:";
+"SaveFilesLocation" = "Incomping Files Location";
+"SaveFilesToButton" = "Select…";
+"DownloadsFolder" = "Downloads";
 
 "SendFiles" = "Send Files";
 "ReceiveFiles" = "Receive Files";

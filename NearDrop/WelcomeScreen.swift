@@ -20,21 +20,24 @@ struct WelcomeScreen: View {
         
         HStack(spacing: 0) {
             List(selection: $selection) {
-                ForEach(Tabs.allCases, id: \.self) { tab in
+                ForEach(Tabs.allCases.filter({$0 != .settings}), id: \.self) { tab in
                     Label(tab.title, systemImage: tab.systemImage)
                       //  .font(.system(size: 13))
                         .tag(tab)
                         .frame(height: 30)
                 }
+                
+                Divider()
+                
+                Label(Tabs.settings.title, systemImage: Tabs.settings.systemImage)
+                    .tag(Tabs.settings)
+                    .frame(height: 30)
             }
             .frame(width: 220)
             .listStyle(SidebarListStyle())
             
             Divider()
                 .opacity(colorScheme == .light ? 1 : 0)
-//                .overlay(
-//                    Color.black.opacity(colorScheme == .dark ? 1 : 0)
-//                    )
                 .edgesIgnoringSafeArea(.vertical)
             
             ZStack {
@@ -47,8 +50,11 @@ struct WelcomeScreen: View {
                 case .send:
                     TutorialView(title: "SendFiles", text: "SendFilesDescription", showsLicense: false, openIAP: openIAP)
                     
-                default:
+                case .troubleshooting:
                     TutorialView(title: "Troubleshooting", text: "TroubleshootingDescription", showsLicense: false, openIAP: openIAP)
+                    
+                default:
+                    SettingsView()
                 }
             }
         }
@@ -61,6 +67,7 @@ enum Tabs: CaseIterable {
     case receive
     case send
     case troubleshooting
+    case settings
     
     var title: String {
         switch self {
@@ -70,17 +77,21 @@ enum Tabs: CaseIterable {
             return "SendFiles".localized()
         case .troubleshooting:
             return "DeviceNotShown".localized()
+        case .settings:
+            return "Settings".localized()
         }
     }
     
     var systemImage: String {
         switch self {
         case .receive:
-            return "tray.and.arrow.down.fill"
+            return "tray.and.arrow.down"
         case .send:
-            return "tray.and.arrow.up.fill"
+            return "tray.and.arrow.up"
         case .troubleshooting:
-            return "exclamationmark.triangle.fill"
+            return "exclamationmark.triangle"
+        case .settings:
+            return "gear"
         }
     }
 }

@@ -13,7 +13,7 @@ import StoreKit
 import AudioToolbox
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
+class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, MainAppDelegate{
     private var statusItem: NSStatusItem?
     private var activeIncomingTransfers: [String : TransferInfo] = [:]
     
@@ -85,6 +85,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
                 }
             }
         }
+        
+        UNUserNotificationCenter.current().delegate=self
     }
     
     
@@ -149,6 +151,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
         return UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
     }
     
+    
     func transmissionCount() -> Int {
         return UserDefaults.standard.integer(forKey: UserDefaultsKeys.transmissionCount.rawValue)
     }
@@ -161,11 +164,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
         }
     }
     
+    
     @objc func getSupport() {
         if let url = URL(string: "mailto:quickdrop@leonboettger.com?subject=QuickDrop") {
             NSWorkspace.shared.open(url)
         }
     }
+    
     
     // Action for "Privacy Policy" menu item
     @objc func openPrivacyPolicy() {
@@ -174,19 +179,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
         }
     }
     
+    
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         statusItem?.isVisible=true
         return true
     }
+    
+    
+    public func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                 willPresent notification: UNNotification,
+                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+         completionHandler([.sound, .banner])
+     }
+    
     
     func applicationWillTerminate(_ aNotification: Notification) {
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         iapManager?.stopObserving()
     }
     
+    
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
+    
     
     public func continueTransmission(accept: Bool, transferID: String) {
         NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: accept)
@@ -196,17 +212,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
         }
     }
     
+    
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo) {
         self.activeIncomingTransfers[transfer.id] = TransferInfo(device: device, transfer: transfer)
         
         AudioManager.playSound()
         
-        let alert = NSAlert()
-        alert.alertStyle = .informational
+        let acceptAutomatically = UserDefaults.standard.bool(forKey: UserDefaultsKeys.automaticallyAcceptFiles.rawValue)
         
         let fileStr: String
         
-        if let textTitle = transfer.textDescription{
+        if let textTitle = transfer.textDescription {
             fileStr = textTitle
         } else if transfer.files.count == 1 {
             fileStr = transfer.files[0].name
@@ -214,33 +230,64 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainAppDelegate{
             fileStr = String.localizedStringWithFormat(NSLocalizedString("NFiles", value: "%d files", comment: ""), transfer.files.count)
         }
         
-        let mainMessage = String(format: NSLocalizedString("DeviceSendingFiles", value: "%1$@ is sending you %2$@", comment: ""), arguments: [device.name, fileStr])
+        let mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingFiles" : "DeviceSendingFiles").localized(), arguments: [device.name, fileStr])
         let pinCodeMessage = String(format:NSLocalizedString("PinCode", value: "PIN: %@", comment: ""), arguments: [transfer.pinCode ?? "?"])
         let transferID = transfer.id
         
-        alert.messageText = "QuickDrop - \(pinCodeMessage)"
-        alert.informativeText = mainMessage
-        alert.addButton(withTitle: NSLocalizedString("Accept", comment: ""))
-        alert.addButton(withTitle: NSLocalizedString("Decline", comment: ""))
         
-        let result = alert.runModal()
-        
-        if result == .alertFirstButtonReturn {
+        if acceptAutomatically {
+            pressAcceptButton(transferID: transfer.id)
             
-            if !isPlusVersion() && transmissionCount() > 0 {
-                self.openPlusScreen {
-                    self.continueTransmission(accept: self.isPlusVersion(), transferID: transferID)
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, err in
+                if granted {
+                    log("User granted notification permissions")
+                    
+                    let notificationContent = UNMutableNotificationContent()
+                    notificationContent.title = "QuickDrop"
+                    notificationContent.body = mainMessage
+                    notificationContent.sound = nil
+                    let notificationId = UUID().uuidString
+                    
+                    let notificationReq = UNNotificationRequest(identifier: notificationId, content: notificationContent, trigger: nil)
+                    UNUserNotificationCenter.current().add(notificationReq)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notificationId])
+                    }
                 }
             }
-            else {
-                continueTransmission(accept: true, transferID: transferID)
+        }
+        else {
+            let alert = NSAlert()
+            alert.alertStyle = .informational
+            
+            alert.messageText = "QuickDrop - \(pinCodeMessage)"
+            alert.informativeText = mainMessage
+            alert.addButton(withTitle: NSLocalizedString("Accept", comment: ""))
+            alert.addButton(withTitle: NSLocalizedString("Decline", comment: ""))
+            
+            let result = alert.runModal()
+            
+            if result == .alertFirstButtonReturn {
+                pressAcceptButton(transferID: transferID)
+            } else if result == .alertSecondButtonReturn {
+                continueTransmission(accept: false, transferID: transferID)
             }
-            
-        } else if result == .alertSecondButtonReturn {
-            
-            continueTransmission(accept: false, transferID: transferID)
         }
     }
+    
+    
+    private func pressAcceptButton(transferID: String) {
+        if !isPlusVersion() && transmissionCount() > 0 {
+            self.openPlusScreen {
+                self.continueTransmission(accept: self.isPlusVersion(), transferID: transferID)
+            }
+        }
+        else {
+            continueTransmission(accept: true, transferID: transferID)
+        }
+    }
+    
     
     func incomingTransfer(id: String, didFinishWith error: Error?) {
         guard let transfer = self.activeIncomingTransfers[id] else { return }

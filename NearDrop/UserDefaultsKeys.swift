@@ -12,4 +12,6 @@ enum UserDefaultsKeys: String, CaseIterable {
     case appLaunchedBefore = "ShowedWelcomeScreen"
     case plusVersion = "isPlusVersion"
     case transmissionCount = "reviewRequestCountKey"
+    case automaticallyAcceptFiles = "automaticallyAcceptFiles"
+    case saveFolderBookmark = "saveFolderBookmark"
 }

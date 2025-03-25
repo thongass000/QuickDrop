@@ -43,7 +43,16 @@
 "RecommendedApps" = "Aplicații recomandate";
 "GetSupport" = "Suport";
 "PrivacyPolicy" = "Politica de confidențialitate";
-"UserManual" = "Manualul utilizatorului";
+"DeviceCurrentlySendingFiles" = "%1$@ îți trimite %2$@";
+"UserManual" = "Manual utilizator & Setări";
+"Settings" = "Setări";
+"AutomaticallyAcceptFiles" = "Acceptă automat fișierele primite";
+"AutomaticallyAcceptFilesFooter" = "Activarea acestei opțiuni este recomandată doar în rețeaua privată. Oricine din aceeași rețea poate trimite fișiere către dispozitivul dvs. fără consimțământ.";
+
+"SaveFilesTo" = "Salvează fișierele primite în:";
+"SaveFilesLocation" = "Locația fișierelor primite";
+"SaveFilesToButton" = "Selectează…";
+"DownloadsFolder" = "Descărcări";
 "SendFiles" = "Trimite fișiere";
 "ReceiveFiles" = "Primește fișiere";
 "DeviceNotShown" = "Dispozitivul nu este afișat?";

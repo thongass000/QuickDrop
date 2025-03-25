@@ -45,7 +45,16 @@
 
 "PrivacyPolicy" = "Datenschutzerklärung";
 
-"UserManual" = "Benutzerhandbuch";
+"DeviceCurrentlySendingFiles" = "%1$@ sendet dir %2$@";
+"UserManual" = "Benutzerhandbuch & Einstellungen";
+"Settings" = "Einstellungen";
+"AutomaticallyAcceptFiles" = "Eingehende Dateien automatisch akzeptieren";
+"AutomaticallyAcceptFilesFooter" = "Diese Einstellung wird nur in privaten Netzwerken empfohlen. Jede Person im selben Netzwerk kann ohne deine Zustimmung Dateien an diesen Mac senden.";
+
+"SaveFilesTo" = "Eingehende Dateien speichern in:";
+"SaveFilesLocation" = "Speicherort der eingehenden Dateien";
+"SaveFilesToButton" = "Auswählen…";
+"DownloadsFolder" = "Downloads";
 
 "SendFiles" = "Dateien senden";
 "ReceiveFiles" = "Dateien empfangen";

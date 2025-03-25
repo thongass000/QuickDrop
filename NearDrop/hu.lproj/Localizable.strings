@@ -43,7 +43,16 @@
 "RecommendedApps" = "Ajánlott alkalmazások";
 "GetSupport" = "Támogatás";
 "PrivacyPolicy" = "Adatvédelmi irányelvek";
-"UserManual" = "Felhasználói kézikönyv";
+"DeviceCurrentlySendingFiles" = "%1$@ éppen küldi neked: %2$@";
+"UserManual" = "Felhasználói kézikönyv és Beállítások";
+"Settings" = "Beállítások";
+"AutomaticallyAcceptFiles" = "Bejövő fájlok automatikus elfogadása";
+"AutomaticallyAcceptFilesFooter" = "Ennek a beállításnak az engedélyezése csak a saját privát hálózatán ajánlott. Bárki a hálózaton belül fájlokat küldhet az eszközére az ön beleegyezése nélkül.";
+
+"SaveFilesTo" = "Bejövő fájlok mentése ide:";
+"SaveFilesLocation" = "Bejövő fájlok helye";
+"SaveFilesToButton" = "Kiválasztás…";
+"DownloadsFolder" = "Letöltések";
 "SendFiles" = "Fájlok küldése";
 "ReceiveFiles" = "Fájlok fogadása";
 "DeviceNotShown" = "Az eszköz nem látható?";

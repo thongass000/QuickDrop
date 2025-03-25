@@ -44,7 +44,16 @@
 "GetSupport" = "Ondersteuning";
 "PrivacyPolicy" = "Privacybeleid";
 
-"UserManual" = "Gebruikershandleiding";
+"DeviceCurrentlySendingFiles" = "%1$@ stuurt je %2$@";
+"UserManual" = "Gebruikershandleiding en Instellingen";
+"Settings" = "Instellingen";
+"AutomaticallyAcceptFiles" = "Inkomende bestanden automatisch accepteren";
+"AutomaticallyAcceptFilesFooter" = "Het inschakelen van deze instelling wordt alleen aanbevolen in uw privé-netwerk. Iedereen in hetzelfde netwerk kan bestanden naar uw apparaat sturen zonder uw toestemming.";
+
+"SaveFilesTo" = "Opslaan inkomende bestanden in:";
+"SaveFilesLocation" = "Locatie van inkomende bestanden";
+"SaveFilesToButton" = "Selecteren…";
+"DownloadsFolder" = "Downloads";
 "SendFiles" = "Bestanden verzenden";
 "ReceiveFiles" = "Bestanden ontvangen";
 "DeviceNotShown" = "Apparaat niet weergegeven?";

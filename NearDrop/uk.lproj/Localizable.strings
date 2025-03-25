@@ -43,7 +43,16 @@
 "RecommendedApps" = "Рекомендовані додатки";
 "GetSupport" = "Підтримка";
 "PrivacyPolicy" = "Політика конфіденційності";
-"UserManual" = "Посібник користувача";
+"DeviceCurrentlySendingFiles" = "%1$@ надсилає вам %2$@";
+"UserManual" = "Керівництво користувача та налаштування";
+"Settings" = "Налаштування";
+"AutomaticallyAcceptFiles" = "Автоматично приймати вхідні файли";
+"AutomaticallyAcceptFilesFooter" = "Увімкнення цього параметра рекомендується лише у вашій приватній мережі. Будь-хто в тій самій мережі може надсилати файли на ваш пристрій без вашої згоди.";
+
+"SaveFilesTo" = "Зберігати вхідні файли у:";
+"SaveFilesLocation" = "Розташування вхідних файлів";
+"SaveFilesToButton" = "Вибрати…";
+"DownloadsFolder" = "Завантаження";
 "SendFiles" = "Надіслати файли";
 "ReceiveFiles" = "Отримати файли";
 "DeviceNotShown" = "Пристрій не відображається?";

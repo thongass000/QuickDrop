@@ -43,7 +43,16 @@
 "RecommendedApps" = "推荐应用";
 "GetSupport" = "支持";
 "PrivacyPolicy" = "隐私政策";
-"UserManual" = "用户手册";
+"DeviceCurrentlySendingFiles" = "%1$@ 正在向你发送 %2$@";
+"UserManual" = "用户手册与设置";
+"Settings" = "设置";
+"AutomaticallyAcceptFiles" = "自动接受传入文件";
+"AutomaticallyAcceptFilesFooter" = "仅建议在您的私人网络中启用此设置。同一网络中的任何人都可以在未经您同意的情况下向您的设备发送文件。";
+
+"SaveFilesTo" = "保存传入文件到：";
+"SaveFilesLocation" = "传入文件位置";
+"SaveFilesToButton" = "选择…";
+"DownloadsFolder" = "下载";
 "SendFiles" = "发送文件";
 "ReceiveFiles" = "接收文件";
 "DeviceNotShown" = "设备未显示？";

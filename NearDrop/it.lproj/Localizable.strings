@@ -43,7 +43,16 @@
 "RecommendedApps" = "App consigliate";
 "GetSupport" = "Supporto";
 "PrivacyPolicy" = "Informativa sulla privacy";
-"UserManual" = "Manuale utente";
+"DeviceCurrentlySendingFiles" = "%1$@ ti sta inviando %2$@";
+"UserManual" = "Manuale utente e Impostazioni";
+"Settings" = "Impostazioni";
+"AutomaticallyAcceptFiles" = "Accetta automaticamente i file in arrivo";
+"AutomaticallyAcceptFilesFooter" = "L'abilitazione di questa impostazione è consigliata solo nella tua rete privata. Chiunque nella stessa rete può inviare file al tuo dispositivo senza il tuo consenso.";
+
+"SaveFilesTo" = "Salva i file ricevuti in:";
+"SaveFilesLocation" = "Posizione dei file ricevuti";
+"SaveFilesToButton" = "Seleziona…";
+"DownloadsFolder" = "Download";
 "SendFiles" = "Invia file";
 "ReceiveFiles" = "Ricevi file";
 "DeviceNotShown" = "Dispositivo non mostrato?";

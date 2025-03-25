@@ -21,28 +21,9 @@ struct TutorialView: View {
     @AppStorage(UserDefaultsKeys.plusVersion.rawValue) var isPlusVersion = false
     
     var body: some View {
-        ScrollView {
-            
+        
+        LargeAppIconView(title: title) {
             VStack {
-                Image("AppIconHighRes")
-                    .resizable()
-                    .frame(width: 150, height: 150)
-                    .padding(.top, 50)
-                    .onTapGesture {
-                        taps += 1
-                        print("Tapped \(taps) times")
-                        
-                        if taps == 5 {
-                            let logString = LogManager.sharedInstance.getLogString()
-                            copyToClipboard(logString)
-                            print("Copied log to clipboard")
-                        }
-                    }
-                
-                Text(title.localized())
-                    .font(.largeTitle)
-                    .padding()
-                
                 Text(text.localized())
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
@@ -89,6 +70,42 @@ struct TutorialView: View {
                     }
                     .padding()
                 }
+            }
+        }
+    }
+}
+
+
+struct LargeAppIconView<Content: View>: View {
+    
+    let title: String
+    let bottomView: () -> Content
+    @State var taps = 0
+    
+    var body: some View {
+        ScrollView {
+            
+            VStack {
+                Image("AppIconHighRes")
+                    .resizable()
+                    .frame(width: 150, height: 150)
+                    .padding(.top, 50)
+                    .onTapGesture {
+                        taps += 1
+                        print("Tapped \(taps) times")
+                        
+                        if taps == 5 {
+                            let logString = LogManager.sharedInstance.getLogString()
+                            copyToClipboard(logString)
+                            print("Copied log to clipboard")
+                        }
+                    }
+                
+                Text(title.localized())
+                    .font(.largeTitle)
+                    .padding()
+                
+                bottomView()
             }
             .frame(maxWidth: 500)
             .frame(maxWidth: .infinity)
