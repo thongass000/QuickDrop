@@ -35,16 +35,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         
         menu.addItem(NSMenuItem.separator())
         
-        
-        let getSupportItem = NSMenuItem(title: NSLocalizedString("GetSupport", value: "Support", comment: ""), action: #selector(getSupport), keyEquivalent: "")
-        menu.addItem(getSupportItem)
-        
-        // Add "Privacy Policy" menu item
-        let privacyPolicyItem = NSMenuItem(title: NSLocalizedString("PrivacyPolicy", value: "Privacy Policy", comment: ""), action: #selector(openPrivacyPolicy), keyEquivalent: "")
-        menu.addItem(privacyPolicyItem)
-        
-        menu.addItem(NSMenuItem.separator())
-        
         let userManualItem = NSMenuItem(title: NSLocalizedString("UserManual", value: "User Manual", comment: ""), action: #selector(openWelcomeScreen), keyEquivalent: "")
         menu.addItem(userManualItem)
         
@@ -195,22 +185,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             NSWorkspace.shared.open(url)
         }
     }
-    
-    
-    @objc func getSupport() {
-        if let url = URL(string: "mailto:quickdrop@leonboettger.com?subject=QuickDrop") {
-            NSWorkspace.shared.open(url)
-        }
-    }
-    
-    
-    // Action for "Privacy Policy" menu item
-    @objc func openPrivacyPolicy() {
-        if let url = URL(string: "http://leonboettger.com/privacy") {
-            NSWorkspace.shared.open(url)
-        }
-    }
-    
     
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         statusItem?.isVisible=true

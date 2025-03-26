@@ -29,6 +29,41 @@ struct WelcomeScreen: View {
                 
                 Divider()
                 
+                Button {
+                    getSupport()
+                } label: {
+                    HStack {
+                        Label("GetSupport", systemImage: "questionmark.circle")
+                        
+                        Spacer()
+                        
+                        Image(systemName: "arrow.up.right")
+                            .opacity(0.3)
+                    }
+                }
+                .buttonStyle(.plain)
+                    .frame(height: 30)
+                
+                
+                Button {
+                    openPrivacyPolicy()
+                
+                } label: {
+                    
+                    HStack {
+                        Label("PrivacyPolicy", systemImage: "hand.raised")
+                        
+                        Spacer()
+                        
+                        Image(systemName: "arrow.up.right")
+                            .opacity(0.3)
+                    }
+                }
+                .buttonStyle(.plain)
+                .frame(height: 30)
+                
+                Divider()
+                
                 Label(Tabs.settings.title, systemImage: Tabs.settings.systemImage)
                     .tag(Tabs.settings)
                     .frame(height: 30)
@@ -59,6 +94,18 @@ struct WelcomeScreen: View {
             }
         }
         .frame(width: 1000, height: 600)
+    }
+    
+    func getSupport() {
+        if let url = URL(string: "mailto:quickdrop@leonboettger.com?subject=QuickDrop") {
+            NSWorkspace.shared.open(url)
+        }
+    }
+    
+    func openPrivacyPolicy() {
+        if let url = URL(string: "http://leonboettger.com/privacy") {
+            NSWorkspace.shared.open(url)
+        }
     }
 }
 
