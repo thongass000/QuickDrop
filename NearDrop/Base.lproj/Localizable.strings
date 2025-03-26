@@ -51,7 +51,8 @@
 "GetSupport" = "Support";
 
 "PrivacyPolicy" = "Privacy Policy";
-
+"SendClipboard" = "Send Clipboard";
+"Clipboard" = "Clipboard";
 "DeviceCurrentlySendingFiles" = "%1$@ is sending you %2$@";
 "UserManual" = "User Manual & Settings";
 "Settings" = "Settings";

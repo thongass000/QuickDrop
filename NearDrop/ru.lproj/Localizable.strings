@@ -44,7 +44,8 @@
 "GetSupport" = "Поддержка";
 
 "PrivacyPolicy" = "Политика конфиденциальности";
-
+"SendClipboard" = "Отправить буфер обмена";
+"Clipboard" = "Буфер обмена";
 "DeviceCurrentlySendingFiles" = "%1$@ отправляет вам %2$@";
 "UserManual" = "Руководство пользователя и Настройки";
 "Settings" = "Настройки";

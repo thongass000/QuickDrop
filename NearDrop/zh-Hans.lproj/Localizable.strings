@@ -43,6 +43,8 @@
 "RecommendedApps" = "推荐应用";
 "GetSupport" = "支持";
 "PrivacyPolicy" = "隐私政策";
+"SendClipboard" = "发送剪贴板";
+"Clipboard" = "剪贴板";
 "DeviceCurrentlySendingFiles" = "%1$@ 正在向你发送 %2$@";
 "UserManual" = "用户手册与设置";
 "Settings" = "设置";

@@ -43,6 +43,8 @@
 "RecommendedApps" = "Aanbevolen apps";
 "GetSupport" = "Ondersteuning";
 "PrivacyPolicy" = "Privacybeleid";
+"SendClipboard" = "Klembord Verzenden";
+"Clipboard" = "Klembord";
 
 "DeviceCurrentlySendingFiles" = "%1$@ stuurt je %2$@";
 "UserManual" = "Gebruikershandleiding en Instellingen";

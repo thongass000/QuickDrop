@@ -43,6 +43,8 @@
 "RecommendedApps" = "แอปแนะนำ";
 "GetSupport" = "การสนับสนุน";
 "PrivacyPolicy" = "นโยบายความเป็นส่วนตัว";
+"SendClipboard" = "ส่งคลิปบอร์ด";
+"Clipboard" = "คลิปบอร์ด";
 "DeviceCurrentlySendingFiles" = "%1$@ กำลังส่ง %2$@ ให้คุณ";
 "UserManual" = "คู่มือผู้ใช้และการตั้งค่า";
 "Settings" = "การตั้งค่า";

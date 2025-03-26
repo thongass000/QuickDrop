@@ -30,13 +30,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         
         menu.addItem(NSMenuItem.separator())
         
-//        // Add "Recommended Apps" menu item
-//        let recommendedAppsItem = NSMenuItem(title: NSLocalizedString("RecommendedApps", value: "Recommended Apps", comment: ""), action: #selector(openRecommendedApps), keyEquivalent: "")
-//        menu.addItem(recommendedAppsItem)
+        let sendClipboardItem = NSMenuItem(title: "SendClipboard".localized(), action: #selector(sendClipboard), keyEquivalent: "")
+        menu.addItem(sendClipboardItem)
         
-        // Add "Recommended Apps" menu item
-        let recommendedAppsItem = NSMenuItem(title: NSLocalizedString("GetSupport", value: "Support", comment: ""), action: #selector(getSupport), keyEquivalent: "")
-        menu.addItem(recommendedAppsItem)
+        menu.addItem(NSMenuItem.separator())
+        
+        
+        let getSupportItem = NSMenuItem(title: NSLocalizedString("GetSupport", value: "Support", comment: ""), action: #selector(getSupport), keyEquivalent: "")
+        menu.addItem(getSupportItem)
         
         // Add "Privacy Policy" menu item
         let privacyPolicyItem = NSMenuItem(title: NSLocalizedString("PrivacyPolicy", value: "Privacy Policy", comment: ""), action: #selector(openPrivacyPolicy), keyEquivalent: "")
@@ -87,6 +88,37 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
         
         UNUserNotificationCenter.current().delegate=self
+    }
+    
+    
+    @objc func sendClipboard() {
+        if let fileURL = saveClipboardToTempFile() {
+            
+            let sharingService = NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension"))
+            
+            sharingService?.perform(withItems: [fileURL])
+        }
+    }
+    
+    
+    func saveClipboardToTempFile() -> URL? {
+        let pasteboard = NSPasteboard.general
+        
+        guard let clipboardString = pasteboard.string(forType: .string) else {
+            log("No text found in clipboard.")
+            return nil
+        }
+        
+        let tempDirectory = FileManager.default.temporaryDirectory
+        let fileURL = tempDirectory.appendingPathComponent("Clipboard".localized() + ".txt")
+        
+        do {
+            try clipboardString.write(to: fileURL, atomically: true, encoding: .utf8)
+            return fileURL
+        } catch {
+            log("Failed to write file: \(error)")
+            return nil
+        }
     }
     
     

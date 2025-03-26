@@ -43,6 +43,8 @@
 "RecommendedApps" = "추천 앱";
 "GetSupport" = "지원";
 "PrivacyPolicy" = "개인정보 처리방침";
+"SendClipboard" = "클립보드 보내기";
+"Clipboard" = "클립보드";
 "DeviceCurrentlySendingFiles" = "%1$@이(가) %2$@을(를) 보내는 중입니다";
 "UserManual" = "사용자 매뉴얼 및 설정";
 "Settings" = "설정";

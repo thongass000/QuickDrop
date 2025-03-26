@@ -43,6 +43,8 @@
 "RecommendedApps" = "おすすめアプリ";
 "GetSupport" = "サポート";
 "PrivacyPolicy" = "プライバシーポリシー";
+"SendClipboard" = "クリップボードを送信";
+"Clipboard" = "クリップボード";
 "DeviceCurrentlySendingFiles" = "%1$@ が %2$@ を送信中";
 "UserManual" = "ユーザーマニュアルと設定";
 "Settings" = "設定";

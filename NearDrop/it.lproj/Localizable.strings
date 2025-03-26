@@ -43,6 +43,8 @@
 "RecommendedApps" = "App consigliate";
 "GetSupport" = "Supporto";
 "PrivacyPolicy" = "Informativa sulla privacy";
+"SendClipboard" = "Invia Appunti";
+"Clipboard" = "Appunti";
 "DeviceCurrentlySendingFiles" = "%1$@ ti sta inviando %2$@";
 "UserManual" = "Manuale utente e Impostazioni";
 "Settings" = "Impostazioni";
