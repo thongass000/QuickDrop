@@ -59,9 +59,11 @@
 "ReceiveFiles" = "Recevoir des fichiers";
 "DeviceNotShown" = "Appareil non affiché?";
 "Troubleshooting" = "Dépannage";
-"SendFilesDescription" = "Pour envoyer un fichier vers votre appareil Android, cliquez sur l’icône Partager ou faites un clic droit sur le fichier et sélectionnez “Partager”. Ensuite, sélectionnez “QuickDrop” dans la liste des applications et suivez les instructions.
+"SendFilesDescription" = "Pour envoyer un fichier vers votre appareil Android, cliquez sur l'icône de partage ou faites un clic droit sur le fichier et sélectionnez \"Partager\". Ensuite, sélectionnez \"QuickDrop\" dans la liste des applications et suivez les instructions.
 
-Si vous ne voyez pas QuickDrop dans la liste, cliquez sur “Modifier les extensions”, faites défiler vers le bas et activez l’option pour QuickDrop.";
+Si vous ne voyez pas QuickDrop dans la liste, cliquez sur \"Modifier les extensions\", faites défiler vers le bas et activez l'option pour QuickDrop.
+
+Vous pouvez également envoyer le contenu actuel du presse-papiers de votre Mac à votre appareil Android en cliquant sur l'icône QuickDrop dans la barre de menu et en sélectionnant \"Envoyer le presse-papiers\".";
 
 "WelcomeToQuickDrop" = "Bienvenue sur QuickDrop";
 

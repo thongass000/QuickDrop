@@ -59,9 +59,11 @@
 "ReceiveFiles" = "接收文件";
 "DeviceNotShown" = "设备未显示？";
 "Troubleshooting" = "故障排除";
-"SendFilesDescription" = "要将文件发送到您的 Android 设备，请点击分享图标或右键单击文件并选择“分享”。然后，从应用列表中选择“QuickDrop”，并按照说明进行操作。
+"SendFilesDescription" = "要将文件发送到您的 Android 设备，请点击共享图标或右键点击文件并选择“共享”。然后，从应用列表中选择“QuickDrop”，并按照说明进行操作。
 
-如果在列表中未看到 QuickDrop，请点击“编辑扩展”，向下滚动，并启用 QuickDrop 开关。";
+如果列表中没有 QuickDrop，请点击“编辑扩展”，向下滚动并启用 QuickDrop。
+
+您还可以通过点击菜单栏中的 QuickDrop 图标并选择“发送剪贴板”，将 Mac 剪贴板的当前内容发送到您的 Android 设备。";
 
 "WelcomeToQuickDrop" = "欢迎使用 QuickDrop";
 

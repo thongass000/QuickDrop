@@ -59,9 +59,11 @@
 "ReceiveFiles" = "Ricevi file";
 "DeviceNotShown" = "Dispositivo non mostrato?";
 "Troubleshooting" = "Risoluzione dei problemi";
-"SendFilesDescription" = "Per inviare un file al tuo dispositivo Android, fai clic sull’icona Condividi o fai clic con il tasto destro sul file e seleziona “Condividi”. Successivamente, seleziona “QuickDrop” dall’elenco delle app e segui le istruzioni.
+"SendFilesDescription" = "Per inviare un file al tuo dispositivo Android, fai clic sull'icona Condividi o fai clic con il tasto destro sul file e seleziona \"Condividi\". Successivamente, seleziona \"QuickDrop\" dall'elenco delle app e segui le istruzioni.
 
-Se non vedi QuickDrop nell’elenco, fai clic su “Modifica estensioni”, scorri verso il basso e abilita l’interruttore per QuickDrop.";
+Se non vedi QuickDrop nell'elenco, fai clic su \"Modifica Estensioni\", scorri verso il basso e abilita l'interruttore per QuickDrop.
+
+Puoi anche inviare il contenuto attuale degli appunti del tuo Mac al tuo dispositivo Android facendo clic sull'icona della barra dei menu di QuickDrop e selezionando \"Invia Appunti\".";
 
 "WelcomeToQuickDrop" = "Benvenuto su QuickDrop";
 

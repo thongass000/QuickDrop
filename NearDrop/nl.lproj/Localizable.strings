@@ -60,9 +60,11 @@
 "ReceiveFiles" = "Bestanden ontvangen";
 "DeviceNotShown" = "Apparaat niet weergegeven?";
 "Troubleshooting" = "Probleemoplossing";
-"SendFilesDescription" = "Om een bestand naar je Android-apparaat te verzenden, klik op het deelpictogram of klik met de rechtermuisknop op het bestand en selecteer “Delen”. Selecteer vervolgens “QuickDrop” uit de lijst met apps en volg de instructies.
+"SendFilesDescription" = "Om een bestand naar je Android-apparaat te sturen, klik op het Deel-icoon of klik met de rechtermuisknop op het bestand en selecteer \"Delen\". Kies vervolgens \"QuickDrop\" uit de lijst met apps en volg de instructies.
 
-Als je QuickDrop niet in de lijst ziet, klik op “Extensies bewerken”, scrol naar beneden en schakel de schakelaar voor QuickDrop in.";
+Als je QuickDrop niet in de lijst ziet, klik op \"Extensies bewerken\", scroll naar beneden en schakel QuickDrop in.
+
+Je kunt ook de huidige inhoud van het klembord van je Mac naar je Android-apparaat sturen door op het QuickDrop-pictogram in de menubalk te klikken en \"Klembord verzenden\" te selecteren.";
 
 "WelcomeToQuickDrop" = "Welkom bij QuickDrop";
 

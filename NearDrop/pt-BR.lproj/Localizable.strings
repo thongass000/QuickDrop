@@ -60,9 +60,11 @@
 "DeviceNotShown" = "Dispositivo não mostrado?";
 "Troubleshooting" = "Solução de problemas";
 
-"SendFilesDescription" = "Para enviar um arquivo para seu dispositivo Android, clique no ícone de Compartilhar ou clique com o botão direito no arquivo e selecione “Compartilhar”. Depois, selecione “QuickDrop” na lista de aplicativos e siga as instruções.
+"SendFilesDescription" = "Para enviar um arquivo para seu dispositivo Android, clique no ícone de Compartilhar ou clique com o botão direito no arquivo e selecione \"Compartilhar\". Em seguida, selecione \"QuickDrop\" na lista de aplicativos e siga as instruções.
 
-Se você não encontrar o QuickDrop na lista, clique em “Editar extensões”, role para baixo e ative a opção para QuickDrop.";
+Se não encontrar o QuickDrop na lista, clique em \"Editar Extensões\", role para baixo e ative a opção para QuickDrop.
+
+Você também pode enviar o conteúdo atual da área de transferência do seu Mac para seu dispositivo Android clicando no ícone do QuickDrop na barra de menu e selecionando \"Enviar Área de Transferência\".";
 
 "WelcomeToQuickDrop" = "Bem-vindo ao QuickDrop";
 

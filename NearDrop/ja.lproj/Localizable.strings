@@ -59,9 +59,11 @@
 "ReceiveFiles" = "ファイルを受信";
 "DeviceNotShown" = "デバイスが表示されない？";
 "Troubleshooting" = "トラブルシューティング";
-"SendFilesDescription" = "Android デバイスにファイルを送信するには、共有アイコンをクリックするか、ファイルを右クリックして「共有」を選択してください。その後、アプリのリストから「QuickDrop」を選択し、指示に従ってください。
+"SendFilesDescription" = "Androidデバイスにファイルを送信するには、共有アイコンをクリックするか、ファイルを右クリックして「共有」を選択してください。その後、アプリの一覧から「QuickDrop」を選択し、指示に従ってください。
 
-リストに QuickDrop が表示されない場合は、「拡張機能を編集」をクリックし、下にスクロールして QuickDrop のトグルを有効にしてください。";
+リストにQuickDropが表示されない場合は、「拡張機能を編集」をクリックし、下にスクロールしてQuickDropを有効にしてください。
+
+また、Macのクリップボードの内容をAndroidデバイスに送信するには、メニューバーのQuickDropアイコンをクリックし、「クリップボードを送信」を選択してください。";
 
 "WelcomeToQuickDrop" = "QuickDropへようこそ";
 

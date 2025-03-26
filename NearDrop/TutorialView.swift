@@ -25,9 +25,10 @@ struct TutorialView: View {
         LargeAppIconView(title: title) {
             VStack {
                 Text(text.localized())
-                    .multilineTextAlignment(.center)
+                    .multilineTextAlignment(.leading)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding()
+                    .frame(width: 550)
                 
                 if showsLicense {
                     HStack(spacing: 30) {
@@ -118,4 +119,9 @@ struct LargeAppIconView<Content: View>: View {
         pasteboard.clearContents()
         pasteboard.setString(text, forType: .string)
     }
+}
+
+
+#Preview {
+    WelcomeScreen(openIAP: {})
 }

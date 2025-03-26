@@ -59,9 +59,11 @@
 "ReceiveFiles" = "Primește fișiere";
 "DeviceNotShown" = "Dispozitivul nu este afișat?";
 "Troubleshooting" = "Depanare";
-"SendFilesDescription" = "Pentru a trimite un fișier către dispozitivul tău Android, dă clic pe pictograma Partajare sau fă clic dreapta pe fișier și selectează “Partajare”. Apoi, selectează “QuickDrop” din lista de aplicații și urmează instrucțiunile.
+"SendFilesDescription" = "Pentru a trimite un fișier către dispozitivul dvs. Android, faceți clic pe pictograma Partajare sau faceți clic dreapta pe fișier și selectați \"Partajare\". Apoi, selectați \"QuickDrop\" din lista de aplicații și urmați instrucțiunile.
 
-Dacă nu vezi QuickDrop în listă, dă clic pe “Editare extensii”, derulează în jos și activează comutatorul pentru QuickDrop.";
+Dacă nu vedeți QuickDrop în listă, faceți clic pe \"Editare extensii\", derulați în jos și activați opțiunea pentru QuickDrop.
+
+De asemenea, puteți trimite conținutul curent al clipboard-ului Mac-ului dvs. către dispozitivul Android făcând clic pe pictograma QuickDrop din bara de meniu și selectând \"Trimite clipboard\".";
 
 "WelcomeToQuickDrop" = "Bine ai venit la QuickDrop";
 

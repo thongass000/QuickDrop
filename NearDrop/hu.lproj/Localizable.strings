@@ -60,9 +60,11 @@
 "DeviceNotShown" = "Az eszköz nem látható?";
 "Troubleshooting" = "Hibaelhárítás";
 
-"SendFilesDescription" = "Fájl küldéséhez az Android-eszközödre kattints a Megosztás ikonra, vagy kattints jobb gombbal a fájlra, és válaszd a “Megosztás” lehetőséget. Ezután válaszd a “QuickDrop” alkalmazást a listából, és kövesd az utasításokat.
+"SendFilesDescription" = "Fájl küldéséhez az Android-eszközödre kattints a Megosztás ikonra, vagy kattints jobb gombbal a fájlra, majd válaszd a \"Megosztás\" lehetőséget. Ezután válaszd a \"QuickDrop\"-ot az alkalmazások listájából, és kövesd az utasításokat.
 
-Ha a QuickDrop nem jelenik meg a listában, kattints a “Bővítmények szerkesztése” gombra, görgess lefelé, és kapcsold be a QuickDrop kapcsolót.";
+Ha nem látod a QuickDrop-ot a listában, kattints a \"Bővítmények szerkesztése\" gombra, görgess lefelé, és kapcsold be a QuickDrop-ot.
+
+A Mac vágólapjának aktuális tartalmát is elküldheted az Android-eszközödre a QuickDrop menüsáv ikonjára kattintva, majd a \"Vágólap küldése\" opció kiválasztásával.";
 
 "WelcomeToQuickDrop" = "Üdvözlünk a QuickDropban";
 

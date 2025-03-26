@@ -71,7 +71,9 @@
 
 "SendFilesDescription" = "To send a file to your Android device, click on the Share icon or right-click on the file and select \"Share\". Afterward, select \"QuickDrop\" from the list of apps and follow the instructions.
 
-If you don't see QuickDrop in the list, click on \"Edit Extensions\", scroll down, and enable the toggle for QuickDrop.";
+If you don't see QuickDrop in the list, click on \"Edit Extensions\", scroll down, and enable the toggle for QuickDrop.
+
+You also can send the current content of your Mac's clipboard to your Android device by clicking on QuickDrop's menu bar icon and selecting \"Send Clipboard\".";
 
 "UserManualDescription" = "When QuickDrop is running, it will appear in the menu bar at the top of your screen. Click the QuickDrop icon if you would like to stop receiving files.
             

@@ -64,7 +64,9 @@
 "Troubleshooting" = "Fehlerbehebung";
 "SendFilesDescription" = "Um eine Datei an dein Android-Gerät zu senden, klicke mit der rechten Maustaste auf die Datei und wähle „Teilen“ oder wähle das Teilen-Symbol aus. Klicke anschließend auf „QuickDrop“ und folge den Anweisungen.
 
-Falls QuickDrop nicht in der Liste erscheint, klicke auf „Erweiterungen bearbeiten“, scrolle nach unten und aktiviere den Schalter für QuickDrop.";
+Falls QuickDrop nicht in der Liste erscheint, klicke auf „Erweiterungen bearbeiten“, scrolle nach unten und aktiviere den Schalter für QuickDrop.
+
+Du kannst auch den aktuellen Inhalt der Zwischenablage deines Macs an dein Android-Gerät senden, indem du auf das QuickDrop-Symbol in der Menüleiste klickst und „Zwischenablage senden“ auswählst.";
 
 "WelcomeToQuickDrop" = "Willkommen bei QuickDrop";
 
