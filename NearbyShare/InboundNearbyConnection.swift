@@ -47,6 +47,7 @@ class InboundNearbyConnection: NearbyConnection{
             if let url = self.securityScopeUrl {
                 log("Stopped accessing security scoped resource.")
                 url.stopAccessingSecurityScopedResource()
+                self.securityScopeUrl = nil
             }
 		}
 	}
@@ -393,6 +394,12 @@ class InboundNearbyConnection: NearbyConnection{
 	}
 	
 	private func acceptTransfer(){
+        
+        if currentState == .disconnected {
+            log("Detected timeout, not accepting transfer")
+            return
+        }
+        
 		do{
 			for (id, file) in transferredFiles{
 				FileManager.default.createFile(atPath: file.destinationURL.path, contents: nil)
