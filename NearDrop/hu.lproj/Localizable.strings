@@ -77,11 +77,15 @@ Ha fájlokat szeretnél küldeni Android-eszközödről Mac-re, érintsd meg a m
 
 Fontos: Az Android-eszközödnek és a Mac-ednek ugyanazon a WiFi hálózaton kell lennie a fájlátvitelhez. Ha engedélyezési kérés jelenik meg a bejövő kapcsolatokhoz, fogadd el.";
 
-"TroubleshootingDescription" = "Ha a Mac nem jelenik meg az Android-eszközödön, vagy a továbbítás nem sikerült, próbáld ki a következőket:
+"TroubleshootingDescription" = "Ha a Mac-ed nem jelenik meg az Android eszközödön, vagy az átvitel sikertelen volt, próbáld ki a következőket:
 
-1) Győződj meg róla, hogy mindkét eszköz ugyanarra a WiFi hálózatra van csatlakoztatva. 2) Indítsd újra a QuickDrop-ot azzal, hogy rákattintasz a menüsor ikonra, válaszd az utolsó bejegyzést, és nyisd meg újra az alkalmazást. 3) Indítsd újra az Android-eszközödet.
+1) Győződj meg arról, hogy mindkét eszköz ugyanahhoz a WiFi hálózathoz csatlakozik.
 
-Ha továbbra is problémákat tapasztalsz, azok a WiFi-routeredből adódhatnak. Néhány router nem engedi, hogy az eszközök kommunikáljanak egymással. Győződj meg róla, hogy a router beállítása megfelelően van konfigurálva.";
+2) Nyisd meg a Rendszerbeállításokat, és menj a \"Adatvédelem és biztonság\" > \"Helyi hálózat\" részhez. Győződj meg arról, hogy a QuickDrop engedélyezve van. Emellett a \"Hálózat\" > \"Tűzfal\" > \"Beállítások...\" menüben ellenőrizd, hogy a QuickDrop engedélyezve van-e a bejövő kapcsolatok fogadására.
+
+3) Indítsd újra a QuickDropot a menüsor ikonjára kattintva, válaszd ki az utolsó opciót, majd nyisd meg újra az alkalmazást. Indítsd újra az Android eszközödet is.
+
+Ha továbbra is problémák adódnak, azokat a WiFi routered beállításai okozhatják. Egyes routerek nem engedik az eszközök közötti kommunikációt. Ellenőrizd a router beállításait és módosítsd szükség szerint.";
 
 "plusview_title" = "Köszönjük, hogy használod a QuickDropot!";
 "plusview_description" = "Oldd fel a QuickDrop+-t, hogy korlátlanul folytathasd a fájlcserét. A QuickDrop+ egy egyszeri vásárlás – előfizetés nem szükséges. Az összes jelenlegi és jövőbeli funkciót tartalmazza.";  

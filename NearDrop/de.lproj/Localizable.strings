@@ -81,7 +81,11 @@ Wichtig: Dein Android-Gerät und dein Mac müssen sich im selben Netzwerk befind
 
 "TroubleshootingDescription" = "Wenn dein Mac nicht auf deinem Android-Gerät angezeigt wird oder die Übertragung fehlgeschlagen ist, versuche Folgendes:
 
-1) Stelle sicher, dass beide Geräte mit demselben WLAN-Netzwerk verbunden sind. 2) Starte QuickDrop neu, indem du auf das Symbol in der Menüleiste klickst, den letzten Eintrag auswählst und die App erneut öffnest. 3) Starte dein Android-Gerät neu.
+1) Stelle sicher, dass beide Geräte mit demselben WLAN-Netzwerk verbunden sind.
+
+2) Öffne die Systemeinstellungen und gehe zu „Datenschutz & Sicherheit“ > „Lokales Netzwerk“. Stelle sicher, dass QuickDrop aktiviert ist. Gehe außerdem in den Systemeinstellungen zu „Netzwerk“ > „Firewall“ > „Optionen…“. Stelle sicher, dass QuickDrop eingehende Verbindungen akzeptieren darf.
+
+3) Starte QuickDrop neu, indem du auf das Symbol in der Menüleiste klickst, den letzten Eintrag auswählst und die App erneut öffnest. Starte dein Android-Gerät neu.
 
 Wenn du weiterhin Probleme hast, könnten diese durch deinen WLAN-Router verursacht werden. Einige Router erlauben es Geräten nicht, miteinander zu kommunizieren. Stelle sicher, dass diese Einstellung in den Router-Einstellungen korrekt konfiguriert ist.";
 

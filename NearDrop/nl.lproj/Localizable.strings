@@ -77,11 +77,15 @@ Om bestanden van je Android-apparaat naar je Mac te sturen, tik op het deel-icoo
 
 Belangrijk: Je Android-apparaat en Mac moeten op hetzelfde WiFi-netwerk zitten om bestanden over te dragen. Als je wordt gevraagd om inkomende verbindingen toe te staan, accepteer deze dan.";
 
-"TroubleshootingDescription" = "Als je Mac niet wordt weergegeven op je Android-apparaat of de overdracht is mislukt, probeer dan het volgende:
+"TroubleshootingDescription" = "Als je Mac niet zichtbaar is op je Android-apparaat of de overdracht is mislukt, probeer dan het volgende:
 
-1) Zorg ervoor dat beide apparaten zijn verbonden met hetzelfde WiFi-netwerk. 2) Start QuickDrop opnieuw door op het pictogram in de menubalk te klikken, de laatste invoer te kiezen en de app opnieuw te openen. 3) Start je Android-apparaat opnieuw op.
+1) Zorg ervoor dat beide apparaten met hetzelfde WiFi-netwerk zijn verbonden.
 
-Als je nog steeds problemen ondervindt, kunnen deze veroorzaakt worden door je WiFi-router. Sommige routers staan niet toe dat apparaten met elkaar communiceren. Zorg ervoor dat deze instelling correct is ingesteld in de instellingen van je router.";
+2) Open de Systeeminstellingen en ga naar \"Privacy en Beveiliging\" > \"Lokaal netwerk\". Zorg ervoor dat QuickDrop is ingeschakeld. Ga ook naar \"Netwerk\" > \"Firewall\" > \"Opties…\" en zorg ervoor dat QuickDrop inkomende verbindingen mag accepteren.
+
+3) Herstart QuickDrop door op het menubalkpictogram te klikken, de laatste optie te kiezen en de app opnieuw te openen. Herstart ook je Android-apparaat.
+
+Als het probleem zich blijft voordoen, kan dit worden veroorzaakt door je WiFi-router. Sommige routers voorkomen dat apparaten met elkaar communiceren. Controleer en pas de instellingen van je router aan indien nodig.";
 
 "plusview_title" = "Bedankt voor het gebruiken van QuickDrop!";
 "plusview_description" = "Ontgrendel QuickDrop+ om bestanden zonder limieten te blijven uitwisselen. QuickDrop+ is een eenmalige aankoop – geen abonnement vereist. Alle huidige en toekomstige functies zijn inbegrepen.";  

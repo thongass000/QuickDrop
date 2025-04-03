@@ -76,11 +76,15 @@ Pour envoyer des fichiers depuis votre appareil Android vers votre Mac, appuyez 
 
 Important : votre appareil Android et votre Mac doivent être connectés au même réseau WiFi pour transférer des fichiers. Si une demande d'autorisation de connexions entrantes apparaît, veuillez l'accepter.";
 
-"TroubleshootingDescription" = "Si votre Mac n’apparaît pas sur votre appareil Android ou si la transmission a échoué, essayez les étapes suivantes :
+"TroubleshootingDescription" = "Si votre Mac n'apparaît pas sur votre appareil Android ou si la transmission a échoué, essayez les solutions suivantes :
 
-1) Assurez-vous que les deux appareils sont connectés au même réseau WiFi. 2) Redémarrez QuickDrop en cliquant sur l’icône de la barre de menu, sélectionnez la dernière entrée et ouvrez à nouveau l’application. 3) Redémarrez votre appareil Android.
+1) Assurez-vous que les deux appareils sont connectés au même réseau WiFi.
 
-Si vous rencontrez toujours des problèmes, ceux-ci peuvent être causés par votre routeur WiFi. Certains routeurs ne permettent pas aux appareils de communiquer entre eux. Assurez-vous que ce paramètre est correctement configuré dans les paramètres de votre routeur.";
+2) Ouvrez les Réglages Système et accédez à « Confidentialité et sécurité » > « Réseau local ». Assurez-vous que QuickDrop est activé. Dans les Réglages Système, allez également à « Réseau » > « Pare-feu » > « Options… ». Assurez-vous que QuickDrop est autorisé à accepter les connexions entrantes.
+
+3) Redémarrez QuickDrop en cliquant sur l'icône de la barre de menu, en sélectionnant la dernière entrée, puis en rouvrant l'application. Redémarrez également votre appareil Android.
+
+Si le problème persiste, il pourrait être causé par votre routeur WiFi. Certains routeurs empêchent les appareils de communiquer entre eux. Vérifiez et ajustez les paramètres de votre routeur si nécessaire.";
 
 "plusview_title" = "Merci d'utiliser QuickDrop !";
 "plusview_description" = "Débloquez QuickDrop+ pour continuer à échanger des fichiers sans limites. QuickDrop+ est un achat unique – aucun abonnement requis. Toutes les fonctionnalités actuelles et futures sont incluses.";  

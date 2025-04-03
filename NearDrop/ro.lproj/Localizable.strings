@@ -76,11 +76,15 @@ Pentru a trimite fișiere de pe dispozitivul Android pe Mac, atinge pictograma d
 
 Important: Dispozitivul tău Android și Mac-ul trebuie să fie conectate la aceeași rețea WiFi pentru a transfera fișiere. Dacă ți se cere să permiți conexiuni de intrare, te rog să accepți.";
 
-"TroubleshootingDescription" = "Dacă Mac-ul tău nu apare pe dispozitivul tău Android sau transferul a eșuat, încearcă următoarele:
+"TroubleshootingDescription" = "Dacă Mac-ul tău nu apare pe dispozitivul Android sau transmiterea a eșuat, încearcă următoarele:
 
-1) Asigură-te că ambele dispozitive sunt conectate la aceeași rețea WiFi. 2) Repornește QuickDrop făcând clic pe iconița din bara de meniu, selectează ultima opțiune și deschide din nou aplicația. 3) Repornește dispozitivul tău Android.
+1) Asigură-te că ambele dispozitive sunt conectate la aceeași rețea WiFi.
 
-Dacă întâmpini în continuare probleme, acestea ar putea fi cauzate de routerul tău WiFi. Unele routere nu permit dispozitivelor să comunice între ele. Asigură-te că această setare este configurată corespunzător în setările routerului tău.";
+2) Deschide Configurațiile sistemului și mergi la \"Confidențialitate și securitate\" > \"Rețea locală\". Asigură-te că QuickDrop este activat. De asemenea, în Configurațiile sistemului, mergi la \"Rețea\" > \"Firewall\" > \"Opțiuni...\" și asigură-te că QuickDrop este autorizat să accepte conexiuni de intrare.
+
+3) Repornește QuickDrop făcând clic pe pictograma din bara de meniu, selectează ultima opțiune și redeschide aplicația. Repornește și dispozitivul tău Android.
+
+Dacă problema persistă, aceasta ar putea fi cauzată de routerul WiFi. Unele routere nu permit dispozitivelor să comunice între ele. Asigură-te că această setare este configurată corespunzător în setările routerului.";
 
 "plusview_title" = "Mulțumim că folosești QuickDrop!";
 "plusview_description" = "Deblochează QuickDrop+ pentru a continua schimbul de fișiere fără limite. QuickDrop+ este o achiziție unică – nu este necesar abonament. Toate funcțiile curente și viitoare sunt incluse.";  
