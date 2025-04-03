@@ -86,7 +86,7 @@ Ha továbbra is problémákat tapasztalsz, azok a WiFi-routeredből adódhatnak.
 "plusview_title" = "Köszönjük, hogy használod a QuickDropot!";
 "plusview_description" = "Oldd fel a QuickDrop+-t, hogy korlátlanul folytathasd a fájlcserét. A QuickDrop+ egy egyszeri vásárlás – előfizetés nem szükséges. Az összes jelenlegi és jövőbeli funkciót tartalmazza.";  
 "plusview_success_title" = "Köszönjük a vásárlást!";
-"plusview_success_description" = "Mostantól korlátozások nélkül fogadhatsz fájlokat.";
+"plusview_success_description" = "Mostantól korlátozások nélkül fogadhat fájlokat. Az összes fájl, amelyet korábban próbált elküldeni, már el lett mentve az eszközére.";
 "plusview_success_button" = "Értettem!";
 "plusview_unlock_label" = "Támogasd a QuickDropot";
 

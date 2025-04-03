@@ -85,7 +85,7 @@ Dacă întâmpini în continuare probleme, acestea ar putea fi cauzate de router
 "plusview_title" = "Mulțumim că folosești QuickDrop!";
 "plusview_description" = "Deblochează QuickDrop+ pentru a continua schimbul de fișiere fără limite. QuickDrop+ este o achiziție unică – nu este necesar abonament. Toate funcțiile curente și viitoare sunt incluse.";  
 "plusview_success_title" = "Mulțumim pentru achiziție!";
-"plusview_success_description" = "Acum poți continua să primești fișiere fără restricții.";
+"plusview_success_description" = "Acum puteți continua să primiți fișiere fără restricții. Toate fișierele pe care ați încercat să le trimiteți anterior au fost deja salvate pe dispozitivul dvs.";
 "plusview_success_button" = "Înțeles!";
 "plusview_unlock_label" = "Susține QuickDrop";
 

@@ -115,7 +115,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     @objc func openWelcomeScreen() {
         // Create the welcome screen SwiftUI view
         let welcomeView = WelcomeScreen {
-            self.openPlusScreen(continueTransfer: {})
+            self.openPlusScreen()
         }
         
         // Create an NSWindow to host the SwiftUI view
@@ -142,11 +142,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
     
     
-    @objc func openPlusScreen(continueTransfer: @escaping () -> Void) {
+    @objc func openPlusScreen() {
+        
         // Create the welcome screen SwiftUI view
         let plusView = GetPlusView(closeView: {
+            log("Closing plus screen")
             self.plusWindow?.close()
-            continueTransfer()
         })
         
         // Create an NSWindow to host the SwiftUI view
@@ -210,8 +211,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
     
     
-    public func continueTransmission(accept: Bool, transferID: String) {
-        NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: accept)
+    public func continueTransmission(accept: Bool, transferID: String, storeInTemp: Bool = false) {
+        NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: accept, storeInTemp: storeInTemp)
         
         if !accept {
             activeIncomingTransfers.removeValue(forKey: transferID)
@@ -284,10 +285,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     private func pressAcceptButton(transferID: String) {
-        if !isPlusVersion() && transmissionCount() > 0 {
-            self.openPlusScreen {
-                self.continueTransmission(accept: self.isPlusVersion(), transferID: transferID)
-            }
+        if false || (!isPlusVersion() && transmissionCount() > 0) {
+            
+            self.continueTransmission(accept: true, transferID: transferID, storeInTemp: true)
+            log("Showing plus screen...")
+            
+            self.openPlusScreen()
         }
         else {
             continueTransmission(accept: true, transferID: transferID)

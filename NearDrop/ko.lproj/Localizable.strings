@@ -85,7 +85,7 @@ Android 기기에서 Mac으로 파일을 보내려면 휴대폰에서 공유 아
 "plusview_title" = "QuickDrop을 사용해 주셔서 감사합니다!";
 "plusview_description" = "QuickDrop+를 잠금 해제하여 파일을 제한 없이 교환하세요. QuickDrop+는 일회성 구매이며, 구독이 필요하지 않습니다. 모든 현재 및 미래 기능이 포함됩니다.";  
 "plusview_success_title" = "구매해 주셔서 감사합니다!";
-"plusview_success_description" = "이제 제한 없이 파일을 받을 수 있습니다.";
+"plusview_success_description" = "이제 파일을 제한 없이 계속 받을 수 있습니다. 이전에 전송을 시도한 모든 파일이 이미 기기에 저장되었습니다.";
 "plusview_success_button" = "알겠습니다!";
 "plusview_unlock_label" = "QuickDrop 지원하기";
 

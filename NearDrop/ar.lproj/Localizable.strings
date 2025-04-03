@@ -80,7 +80,7 @@
 "plusview_title" = "شكرًا لاستخدامك QuickDrop!";
 "plusview_description" = "قم بفتح QuickDrop+ لمواصلة تبادل الملفات بلا حدود. QuickDrop+ هو شراء لمرة واحدة – لا حاجة للاشتراك. تشمل جميع الميزات الحالية والمستقبلية.";  
 "plusview_success_title" = "شكرًا لشرائك!";
-"plusview_success_description" = "يمكنك الآن متابعة استقبال الملفات بدون قيود.";
+"plusview_success_description" = "يمكنك الآن متابعة استلام الملفات بدون قيود. أي ملفات حاولت إرسالها سابقًا تم حفظها بالفعل على جهازك.";
 "plusview_success_button" = "حسنًا!";
 "plusview_unlock_label" = "ادعم QuickDrop";
 

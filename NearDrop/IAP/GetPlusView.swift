@@ -7,6 +7,7 @@
 
 import SwiftUI
 import StoreKit
+import NearbyShare
 
 let plusViewWidth: CGFloat = 440
 let plusViewHeight: CGFloat = 200
@@ -28,7 +29,14 @@ struct GetPlusView: View {
     @State var buying = false
     @State var errorText = ""
     
-    @State var boughtSuccessAlert = false
+    @State var boughtSuccessAlert = false {
+        didSet {
+            if boughtSuccessAlert {
+                log("User bought plus version. Moving pending files...")
+                SaveFilesManager.shared.movePendingFilesToTarget()
+            }
+        }
+    }
     
     
     var body: some View {

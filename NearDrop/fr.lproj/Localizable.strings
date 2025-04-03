@@ -85,7 +85,7 @@ Si vous rencontrez toujours des problèmes, ceux-ci peuvent être causés par vo
 "plusview_title" = "Merci d'utiliser QuickDrop !";
 "plusview_description" = "Débloquez QuickDrop+ pour continuer à échanger des fichiers sans limites. QuickDrop+ est un achat unique – aucun abonnement requis. Toutes les fonctionnalités actuelles et futures sont incluses.";  
 "plusview_success_title" = "Merci pour votre achat !";
-"plusview_success_description" = "Vous pouvez maintenant continuer à recevoir des fichiers sans restrictions.";
+"plusview_success_description" = "Vous pouvez maintenant continuer à recevoir des fichiers sans restrictions. Tous les fichiers que vous avez essayé d'envoyer précédemment ont déjà été enregistrés sur votre appareil.";
 "plusview_success_button" = "D'accord !";
 "plusview_unlock_label" = "Soutenir QuickDrop";
 

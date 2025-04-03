@@ -85,7 +85,7 @@
 "plusview_title" = "感谢使用 QuickDrop!";
 "plusview_description" = "解锁 QuickDrop+ 以无限制地交换文件。QuickDrop+ 是一次性购买 – 无需订阅。所有当前和未来的功能均包含在内。";  
 "plusview_success_title" = "感谢您的购买!";
-"plusview_success_description" = "您现在可以无限制地接收文件了。";
+"plusview_success_description" = "您现在可以继续无限制地接收文件。您之前尝试发送的所有文件已保存到您的设备上。";
 "plusview_success_button" = "知道了!";
 "plusview_unlock_label" = "支持 QuickDrop";
 

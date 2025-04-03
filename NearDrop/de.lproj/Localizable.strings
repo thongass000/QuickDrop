@@ -88,7 +88,7 @@ Wenn du weiterhin Probleme hast, könnten diese durch deinen WLAN-Router verursa
 "plusview_title" = "Danke, dass du QuickDrop benutzt!";
 "plusview_description" = "Schalte QuickDrop+ frei, um weiterhin Dateien unbegrenzt auszutauschen. QuickDrop+ ist ein Einmalkauf - ein Abonnement ist nicht erforderlich. Alle aktuellen und zukünftigen Funktionen sind enthalten.";
 "plusview_success_title" = "Danke für deinen Kauf!";
-"plusview_success_description" = "Du kannst nun weiterhin Dateien ohne Einschränkungen empfangen.";
+"plusview_success_description" = "Du kannst nun weiterhin Dateien ohne Einschränkungen empfangen. Alle Dateien, welche gerade gesendet wurden, wurden bereits gespeichert.";
 "plusview_success_button" = "Alles klar!";
 "plusview_unlock_label" = "Unterstütze QuickDrop";
 

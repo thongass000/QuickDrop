@@ -228,9 +228,9 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 		activeConnections.removeValue(forKey: connection.id)
 	}
 	
-	public func submitUserConsent(transferID:String, accept:Bool){
+    public func submitUserConsent(transferID:String, accept:Bool, storeInTemp: Bool = false){
 		guard let conn=activeConnections[transferID] else {return}
-		conn.submitUserConsent(accepted: accept)
+        conn.submitUserConsent(accepted: accept, storeInTemp: storeInTemp)
 	}
 	
 	public func startDeviceDiscovery(){

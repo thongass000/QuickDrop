@@ -85,7 +85,7 @@ Se il problema persiste, potrebbe essere causato dal tuo router WiFi. Alcuni rou
 "plusview_title" = "Grazie per aver usato QuickDrop!";
 "plusview_description" = "Sblocca QuickDrop+ per continuare a scambiare file senza limiti. QuickDrop+ è un acquisto unico – nessun abbonamento richiesto. Tutte le funzionalità attuali e future sono incluse.";  
 "plusview_success_title" = "Grazie per il tuo acquisto!";
-"plusview_success_description" = "Ora puoi continuare a ricevere file senza restrizioni.";
+"plusview_success_description" = "Ora puoi continuare a ricevere file senza restrizioni. Tutti i file che hai provato a inviare in precedenza sono già stati salvati sul tuo dispositivo.";
 "plusview_success_button" = "Capito!";
 "plusview_unlock_label" = "Supporta QuickDrop";
 

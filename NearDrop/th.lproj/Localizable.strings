@@ -82,7 +82,7 @@
 "plusview_title" = "ขอบคุณที่ใช้ QuickDrop!";
 "plusview_description" = "ปลดล็อก QuickDrop+ เพื่อแลกเปลี่ยนไฟล์ได้อย่างไม่จำกัด QuickDrop+ เป็นการซื้อครั้งเดียว – ไม่ต้องสมัครสมาชิก ฟีเจอร์ทั้งหมดทั้งปัจจุบันและอนาคตรวมอยู่ในนี้แล้ว";  
 "plusview_success_title" = "ขอบคุณสำหรับการซื้อ!";
-"plusview_success_description" = "คุณสามารถรับไฟล์ได้ต่อไปโดยไม่มีข้อจำกัดแล้ว";
+"plusview_success_description" = "คุณสามารถรับไฟล์ต่อไปได้โดยไม่มีข้อจำกัด ไฟล์ทั้งหมดที่คุณพยายามส่งก่อนหน้านี้ถูกบันทึกไว้ในอุปกรณ์ของคุณแล้ว";
 "plusview_success_button" = "รับทราบ!";
 "plusview_unlock_label" = "สนับสนุน QuickDrop";
 
