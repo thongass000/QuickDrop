@@ -188,6 +188,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
     
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        
+        openWelcomeScreen()
         statusItem?.isVisible=true
         return true
     }
