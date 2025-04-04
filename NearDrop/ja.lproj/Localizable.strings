@@ -43,6 +43,7 @@
 "RecommendedApps" = "おすすめアプリ";
 "GetSupport" = "サポート";
 "PrivacyPolicy" = "プライバシーポリシー";
+"ReadyToReceive" = "受信準備完了";
 "SendClipboard" = "クリップボードを送信";
 "Clipboard" = "クリップボード";
 "DeviceCurrentlySendingFiles" = "%1$@ が %2$@ を送信中";

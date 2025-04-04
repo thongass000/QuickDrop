@@ -43,6 +43,7 @@
 "RecommendedApps" = "التطبيقات الموصى بها";
 "GetSupport" = "الدعم";
 "PrivacyPolicy" = "سياسة الخصوصية";
+"ReadyToReceive" = "جاهز للاستلام";
 "SendClipboard" = "إرسال الحافظة";
 "Clipboard" = "الحافظة";
 "DeviceCurrentlySendingFiles" = "%1$@ يرسل لك %2$@";

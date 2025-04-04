@@ -35,6 +35,7 @@
 		69DCF49D2AB8C9A500CBE2CC /* libNearbyShare.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DCF4812AB70D0600CBE2CC /* libNearbyShare.dylib */; };
 		69DCF49E2AB8C9A500CBE2CC /* libNearbyShare.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 69DCF4812AB70D0600CBE2CC /* libNearbyShare.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		EB2F9BFB2DA04B69004010A2 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9BFA2DA04B67004010A2 /* Helpers.swift */; };
+		EB2F9BFE2DA05F48004010A2 /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = EB2F9BFD2DA05F48004010A2 /* BezelNotification */; };
 		EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36435F2D73A29F009CDFF8 /* AudioManager.swift */; };
 		EB3643622D73A2CA009CDFF8 /* timeIsNow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB3643612D73A2CA009CDFF8 /* timeIsNow.mp3 */; };
 		EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */; };
@@ -235,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB2F9BFE2DA05F48004010A2 /* BezelNotification in Frameworks */,
 				69DCF4942AB8BF7B00CBE2CC /* libNearbyShare.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +403,7 @@
 			);
 			name = QuickDrop;
 			packageProductDependencies = (
+				EB2F9BFD2DA05F48004010A2 /* BezelNotification */,
 			);
 			productName = NearDrop;
 			productReference = 69DA9A0E29E0BF5100A442DA /* QuickDrop.app */;
@@ -477,6 +480,7 @@
 			packageReferences = (
 				69DA9A2429E189EF00A442DA /* XCRemoteSwiftPackageReference "swift-protobuf" */,
 				69DA9A3429E1994C00A442DA /* XCRemoteSwiftPackageReference "SwiftECC" */,
+				EB2F9BFC2DA05F48004010A2 /* XCRemoteSwiftPackageReference "BezelNotification" */,
 			);
 			productRefGroup = 69DA9A0F29E0BF5100A442DA /* Products */;
 			projectDirPath = "";
@@ -1012,6 +1016,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		EB2F9BFC2DA05F48004010A2 /* XCRemoteSwiftPackageReference "BezelNotification" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BlueHuskyStudios/BezelNotification.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1024,6 +1036,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 69DA9A3429E1994C00A442DA /* XCRemoteSwiftPackageReference "SwiftECC" */;
 			productName = SwiftECC;
+		};
+		EB2F9BFD2DA05F48004010A2 /* BezelNotification */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB2F9BFC2DA05F48004010A2 /* XCRemoteSwiftPackageReference "BezelNotification" */;
+			productName = BezelNotification;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

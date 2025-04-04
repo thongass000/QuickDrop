@@ -1,5 +1,5 @@
 {
-  "originHash" : "5bbb4a57a61db67d6ce8adc203fbc456a84ce246fff6c01807617c5de6a47adc",
+  "originHash" : "6548f1bdc1af3a6da1ec955a8aaefefc7a98eef65eb9fe111ae0426a26893d3f",
   "pins" : [
     {
       "identity" : "asn1",
@@ -11,12 +11,39 @@
       }
     },
     {
+      "identity" : "bezelnotification",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/BlueHuskyStudios/BezelNotification.git",
+      "state" : {
+        "revision" : "dcdd70b3abb50007d49a8ce23c14e07079d8b0f2",
+        "version" : "2.1.0"
+      }
+    },
+    {
       "identity" : "bigint",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/leif-ibsen/BigInt",
       "state" : {
         "revision" : "afb70a0038bfbba845271b60fa9a58d5840f8017",
         "version" : "1.21.0"
+      }
+    },
+    {
+      "identity" : "swift-cross-kit-types",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RougeWare/Swift-Cross-Kit-Types.git",
+      "state" : {
+        "revision" : "d64faa8d5e988352dff45e03a13da4f90c3a70e5",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "swift-function-tools",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RougeWare/Swift-Function-Tools.git",
+      "state" : {
+        "revision" : "a854f4ed89b7e404019b5a09d24e067acc15432d",
+        "version" : "1.2.4"
       }
     },
     {

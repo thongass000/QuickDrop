@@ -50,6 +50,7 @@
 
 "GetSupport" = "Support";
 
+"ReadyToReceive" = "Ready to receive";
 "PrivacyPolicy" = "Privacy Policy";
 "SendClipboard" = "Send Clipboard";
 "Clipboard" = "Clipboard";

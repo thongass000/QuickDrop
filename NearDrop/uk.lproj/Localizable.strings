@@ -43,6 +43,7 @@
 "RecommendedApps" = "Рекомендовані додатки";
 "GetSupport" = "Підтримка";
 "PrivacyPolicy" = "Політика конфіденційності";
+"ReadyToReceive" = "Готовий до отримання";
 "SendClipboard" = "Надіслати буфер обміну";
 "Clipboard" = "Буфер обміну";
 "DeviceCurrentlySendingFiles" = "%1$@ надсилає вам %2$@";

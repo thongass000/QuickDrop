@@ -43,6 +43,7 @@
 "RecommendedApps" = "Aplicații recomandate";
 "GetSupport" = "Suport";
 "PrivacyPolicy" = "Politica de confidențialitate";
+"ReadyToReceive" = "Pregătit să primești";
 "SendClipboard" = "Trimite Clipboard-ul";
 "Clipboard" = "Clipboard";
 "DeviceCurrentlySendingFiles" = "%1$@ îți trimite %2$@";

@@ -43,6 +43,7 @@
 "RecommendedApps" = "Ajánlott alkalmazások";
 "GetSupport" = "Támogatás";
 "PrivacyPolicy" = "Adatvédelmi irányelvek";
+"ReadyToReceive" = "Kész a fogadásra";
 "SendClipboard" = "Vágólap küldése";
 "Clipboard" = "Vágólap";
 "DeviceCurrentlySendingFiles" = "%1$@ éppen küldi neked: %2$@";

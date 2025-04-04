@@ -43,6 +43,7 @@
 "RecommendedApps" = "Applications recommandées";
 "GetSupport" = "Support";
 "PrivacyPolicy" = "Politique de confidentialité";
+"ReadyToReceive" = "Prêt à recevoir";
 "SendClipboard" = "Envoyer le Presse-papiers";
 "Clipboard" = "Presse-papiers";
 "DeviceCurrentlySendingFiles" = "%1$@ vous envoie %2$@";

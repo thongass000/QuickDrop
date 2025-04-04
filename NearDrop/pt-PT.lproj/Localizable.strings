@@ -43,6 +43,7 @@
 "RecommendedApps" = "Aplicativos recomendados";
 "GetSupport" = "Suporte";
 "PrivacyPolicy" = "Política de privacidade";
+"ReadyToReceive" = "Pronto para receber";
 "SendClipboard" = "Enviar Área de Transferência";
 "Clipboard" = "Área de Transferência";
 "DeviceCurrentlySendingFiles" = "%1$@ está a enviar-te %2$@";

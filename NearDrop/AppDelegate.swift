@@ -11,6 +11,7 @@ import NearbyShare
 import SwiftUI
 import StoreKit
 import AudioToolbox
+import BezelNotification
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, MainAppDelegate{
@@ -75,6 +76,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                     log("New user - plus version cannot be granted")
                 }
             }
+            
+            BezelNotification.show(messageText: "ReadyToReceive".localized(), icon: .receiveIcon)
         }
         
         UNUserNotificationCenter.current().delegate=self
