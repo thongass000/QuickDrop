@@ -18,4 +18,5 @@ public enum UserDefaultsKeys: String, CaseIterable {
     case transmissionCount = "reviewRequestCountKey"
     case automaticallyAcceptFiles = "automaticallyAcceptFiles"
     case saveFolderBookmark = "saveFolderBookmark"
+    case endpointID = "endpointID"
 }

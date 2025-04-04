@@ -189,14 +189,28 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 		tcpListener.start(queue: .global(qos: .utility))
 	}
 	
-	private static func generateEndpointID()->[UInt8]{
-		var id:[UInt8]=[]
-		let alphabet="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".compactMap {UInt8($0.asciiValue!)}
-		for _ in 0...3{
-			id.append(alphabet[Int.random(in: 0..<alphabet.count)])
-		}
-		return id
-	}
+    private static func generateEndpointID() -> [UInt8] {
+        let userDefaultsKey = UserDefaultsKeys.endpointID.rawValue
+        
+        // Try to retrieve from UserDefaults
+        if let savedString = UserDefaults.standard.string(forKey: userDefaultsKey),
+           let savedData = savedString.data(using: .utf8) {
+            return [UInt8](savedData)
+        }
+        
+        // Generate a new random ID
+        var id: [UInt8] = []
+        let alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".compactMap { UInt8($0.asciiValue!) }
+        for _ in 0..<4 { // use 0..<4 instead of 0...3 for clarity
+            id.append(alphabet[Int.random(in: 0..<alphabet.count)])
+        }
+
+        // Save to UserDefaults as String
+        let idString = String(bytes: id, encoding: .utf8) ?? ""
+        UserDefaults.standard.set(idString, forKey: userDefaultsKey)
+        
+        return id
+    }
 	
 	private func initMDNS(){
 		let nameBytes:[UInt8]=[
