@@ -471,23 +471,11 @@ public class SaveFilesManager {
             for file in files {
                 
                 let fileName = file.lastPathComponent
-                var destinationURL = target.appendingPathComponent(fileName)
+                let destinationURL = target.appendingPathComponent(fileName)
                 
                 if !filesFinishedDownloading.contains(destinationURL) {
                     log("File \(file) not finished downloading, skipping")
-                    log("Pending files: \(filesFinishedDownloading)")
                     continue
-                }
-                
-                var counter = 1
-                let fileExtension = destinationURL.pathExtension
-                let baseName = destinationURL.deletingPathExtension().lastPathComponent
-                
-                while fileManager.fileExists(atPath: destinationURL.path) {
-                    let newFileName = "\(baseName)-\(counter)"
-                    let newFileNameWithExtension = fileExtension.isEmpty ? newFileName : "\(newFileName).\(fileExtension)"
-                    destinationURL = target.appendingPathComponent(newFileNameWithExtension)
-                    counter += 1
                 }
 
                 log("Moving file: \(file.lastPathComponent) to \(destinationURL.lastPathComponent)")

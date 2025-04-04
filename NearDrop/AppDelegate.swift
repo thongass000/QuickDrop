@@ -282,7 +282,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     private func pressAcceptButton(transferID: String) {
-        if true || (!isPlusVersion() && transmissionCount() > 0) {
+        if false || (!isPlusVersion() && transmissionCount() > 0) {
             
             self.continueTransmission(accept: true, transferID: transferID, storeInTemp: true)
             log("Showing plus screen...")
