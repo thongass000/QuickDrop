@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AppKit
+import NearbyShare
 
 struct SettingsView: View {
     @AppStorage(UserDefaultsKeys.automaticallyAcceptFiles.rawValue) private var automaticallyAcceptFiles = false

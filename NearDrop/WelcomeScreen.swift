@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NearbyShare
 
 struct WelcomeScreen: View {
     

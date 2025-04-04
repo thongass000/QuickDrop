@@ -1,13 +1,17 @@
 //
-//  UserDefaultKeys.swift
+//  Helpers.swift
 //  QuickDrop
 //
-//  Created by Leon Böttger on 26.02.25.
+//  Created by Leon Böttger on 04.04.25.
 //
 
 import Foundation
 
-enum UserDefaultsKeys: String, CaseIterable {
+public func isPlusVersion() -> Bool {
+    return UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
+}
+
+public enum UserDefaultsKeys: String, CaseIterable {
     case isEligibleForIap = "isEligibleForIap"
     case appLaunchedBefore = "ShowedWelcomeScreen"
     case plusVersion = "isPlusVersion"

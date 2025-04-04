@@ -168,12 +168,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         plusWindow?.makeKeyAndOrderFront(nil)
         plusWindow?.level = .normal
     }
-    
-    
-    func isPlusVersion() -> Bool {
-        return UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
-    }
-    
+
     
     func transmissionCount() -> Int {
         return UserDefaults.standard.integer(forKey: UserDefaultsKeys.transmissionCount.rawValue)
@@ -287,7 +282,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     private func pressAcceptButton(transferID: String) {
-        if false || (!isPlusVersion() && transmissionCount() > 0) {
+        if true || (!isPlusVersion() && transmissionCount() > 0) {
             
             self.continueTransmission(accept: true, transferID: transferID, storeInTemp: true)
             log("Showing plus screen...")

@@ -43,6 +43,7 @@ class InboundNearbyConnection: NearbyConnection{
         DispatchQueue.main.async {
             self.delegate?.connectionWasTerminated(connection: self, error: self.lastError)
             
+            SaveFilesManager.shared.movePendingFilesToTarget()
             SaveFilesManager.shared.stopAccessingSecurityScopedResource()
         }
     }
@@ -113,6 +114,8 @@ class InboundNearbyConnection: NearbyConnection{
             try fileInfo.fileHandle?.close()
             transferredFiles[id]!.fileHandle=nil
             fileInfo.progress?.unpublish()
+            SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
+            
             transferredFiles.removeValue(forKey: id)
             if transferredFiles.isEmpty{
                 try sendDisconnectionAndDisconnect()
@@ -135,6 +138,7 @@ class InboundNearbyConnection: NearbyConnection{
             transferredFiles[id]!.fileHandle=nil
             fileInfo.progress?.unpublish()
             transferredFiles.removeValue(forKey: id)
+            SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
             try sendDisconnectionAndDisconnect()
             return true
         }
@@ -442,7 +446,19 @@ public class SaveFilesManager {
     internal let tempDirectory: URL = FileManager.default.temporaryDirectory.appendingPathComponent("Pending")
     private var securityScopeUrl: URL?
     
+    private var filesFinishedDownloading = [URL]()
+    
+    
+    public func registerFileFinishedDownloading(_ fileURL: URL) {
+        filesFinishedDownloading.append(fileURL)
+    }
+    
+    
     public func movePendingFilesToTarget() {
+        
+        if !isPlusVersion() {
+            return
+        }
         
         log("Moving pending files to target directory")
         
@@ -453,8 +469,15 @@ public class SaveFilesManager {
             let target = getSaveDirectory()
             
             for file in files {
+                
                 let fileName = file.lastPathComponent
                 var destinationURL = target.appendingPathComponent(fileName)
+                
+                if !filesFinishedDownloading.contains(destinationURL) {
+                    log("File \(file) not finished downloading, skipping")
+                    log("Pending files: \(filesFinishedDownloading)")
+                    continue
+                }
                 
                 var counter = 1
                 let fileExtension = destinationURL.pathExtension
@@ -469,9 +492,21 @@ public class SaveFilesManager {
 
                 log("Moving file: \(file.lastPathComponent) to \(destinationURL.lastPathComponent)")
                 try fileManager.copyItem(at: file, to: destinationURL)
+                
+                let progress = Progress()
+                progress.fileURL = destinationURL
+                progress.totalUnitCount = 10
+                progress.kind = .file
+                progress.isPausable = false
+                progress.publish()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    progress.completedUnitCount = 10
+                    progress.unpublish()
+                }
+                
+                try fileManager.removeItem(at: file)
             }
-            
-            try fileManager.removeItem(at: tempDirectory)
             
             stopAccessingSecurityScopedResource()
             
