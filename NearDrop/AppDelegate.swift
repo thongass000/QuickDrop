@@ -55,7 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         // app did not lauch before
         if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.appLaunchedBefore.rawValue){
             
-            log("Opening welcome screen")
+            log("Opening Welcome Screen")
             // open welcome screen
             openWelcomeScreen()
             UserDefaults.standard.set(true, forKey: UserDefaultsKeys.appLaunchedBefore.rawValue)
@@ -68,12 +68,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             
             // user installed the app before the IAP was implemented, grant the plus version
             if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.isEligibleForIap.rawValue) {
-                log("Granting plus version for old user")
+                log("Granting QuickDrop+ for old user")
                 UserDefaults.standard.set(true, forKey: UserDefaultsKeys.plusVersion.rawValue)
             }
             else {
                 if !isPlusVersion() {
-                    log("New user - plus version cannot be granted")
+                    log("New user - QuickDrop+ not available")
                 }
             }
             
@@ -96,11 +96,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     func saveClipboardToTempFile() -> URL? {
         let pasteboard = NSPasteboard.general
-        
-        guard let clipboardString = pasteboard.string(forType: .string) else {
-            log("No text found in clipboard.")
-            return nil
-        }
+        let clipboardString = pasteboard.string(forType: .string) ?? ""
         
         let tempDirectory = FileManager.default.temporaryDirectory
         let fileURL = tempDirectory.appendingPathComponent("Clipboard".localized() + ".txt")
