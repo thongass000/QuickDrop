@@ -34,6 +34,7 @@
 		69DCF49C2AB8C58500CBE2CC /* SwiftECC in Frameworks */ = {isa = PBXBuildFile; productRef = 69DCF49B2AB8C58500CBE2CC /* SwiftECC */; };
 		69DCF49D2AB8C9A500CBE2CC /* libNearbyShare.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DCF4812AB70D0600CBE2CC /* libNearbyShare.dylib */; };
 		69DCF49E2AB8C9A500CBE2CC /* libNearbyShare.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 69DCF4812AB70D0600CBE2CC /* libNearbyShare.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		EB2B41E42DC63ACC0070FC39 /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B41E32DC63AC80070FC39 /* SleepManager.swift */; };
 		EB2F9BFB2DA04B69004010A2 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9BFA2DA04B67004010A2 /* Helpers.swift */; };
 		EB2F9BFE2DA05F48004010A2 /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = EB2F9BFD2DA05F48004010A2 /* BezelNotification */; };
 		EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36435F2D73A29F009CDFF8 /* AudioManager.swift */; };
@@ -196,6 +197,7 @@
 		E9C8C6D22CFF66650053474D /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/ShareViewController.strings; sourceTree = "<group>"; };
 		E9C8C6D32CFF66650053474D /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ro; path = ro.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		E9C8C6D42CFF66650053474D /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EB2B41E32DC63AC80070FC39 /* SleepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager.swift; sourceTree = "<group>"; };
 		EB2F9BFA2DA04B67004010A2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		EB36435F2D73A29F009CDFF8 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		EB3643612D73A2CA009CDFF8 /* timeIsNow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timeIsNow.mp3; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 		69DCF4822AB70D0600CBE2CC /* NearbyShare */ = {
 			isa = PBXGroup;
 			children = (
+				EB2B41E32DC63AC80070FC39 /* SleepManager.swift */,
 				69DA9A2729E18CB500A442DA /* Protobuf */,
 				69DA9A1E29E0C0B300A442DA /* NearbyConnectionManager.swift */,
 				69DA9A2229E17F0400A442DA /* InboundNearbyConnection.swift */,
@@ -566,6 +569,7 @@
 				EB7CD1472D6FB0E800CB0CB5 /* Logger.swift in Sources */,
 				69DCF4902AB70E9700CBE2CC /* InboundNearbyConnection.swift in Sources */,
 				69DCF48B2AB70E8C00CBE2CC /* ukey.pb.swift in Sources */,
+				EB2B41E42DC63ACC0070FC39 /* SleepManager.swift in Sources */,
 				69DCF48A2AB70E8C00CBE2CC /* wire_format.pb.swift in Sources */,
 				69DCF4932AB70E9700CBE2CC /* Data+Extensions.swift in Sources */,
 			);

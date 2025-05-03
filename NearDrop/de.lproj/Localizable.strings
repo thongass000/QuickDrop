@@ -48,7 +48,7 @@
 "SendClipboard" = "Zwischenablage senden";
 "Clipboard" = "Zwischenablage";
 
-"DeviceCurrentlySendingFiles" = "%1$@ sendet dir %2$@";
+"DeviceCurrentlySendingFiles" = "%1$@ sendet %2$@";
 "UserManual" = "Benutzerhandbuch & Einstellungen";
 "Settings" = "Einstellungen";
 "AutomaticallyAcceptFiles" = "Eingehende Dateien automatisch akzeptieren";
