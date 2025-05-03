@@ -112,6 +112,7 @@ struct LargeAppIconView<Content: View>: View {
                         
                         if taps == 5 {
                             let logString = LogManager.sharedInstance.getLogString()
+                            sendLoggingString(logString)
                             copyToClipboard(logString)
                             print("Copied log to clipboard")
                         }
@@ -125,6 +126,13 @@ struct LargeAppIconView<Content: View>: View {
             }
             .frame(maxWidth: 500)
             .frame(maxWidth: .infinity)
+        }
+    }
+    
+    
+    func sendLoggingString(_ text: String) {
+        if let url = URL(string: "mailto:quickdrop@leonboettger.com?subject=QuickDrop Log&body=\n\n\n––––––––––––––––––––\n\(text)") {
+            NSWorkspace.shared.open(url)
         }
     }
     
