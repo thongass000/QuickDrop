@@ -69,11 +69,9 @@ class InboundNearbyConnection: NearbyConnection{
                 try decryptAndProcessReceivedSecureMessage(smsg)
             }
         }catch{
-            lastError=error
-            log("Deserialization error: \(error) in state \(currentState)")
-#if !DEBUG
-            protocolError()
-#endif
+            lastError = error
+            log("Deserialization error: \(error) in state \(currentState). Payload: \(frameData.hex)")
+            //protocolError()
         }
     }
     
@@ -553,5 +551,11 @@ public class SaveFilesManager {
         } catch {
             fatalError("Failed to get downloads directory: \(error)")
         }
+    }
+}
+
+extension Data {
+    var hex: String {
+        return map { String(format: "%02hhx", $0) }.joined()
     }
 }
