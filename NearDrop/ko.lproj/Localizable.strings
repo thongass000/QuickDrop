@@ -61,9 +61,9 @@
 "DeviceNotShown" = "장치가 표시되지 않음?";
 "Troubleshooting" = "문제 해결";
 "AndroidApp" = "Android 앱 (베타)";
-"AndroidAppDescription" = "QuickDrop이 이제 Android 기기용 독립 앱으로도 제공됩니다! Android용 QuickDrop은 파일 전송을 더욱 쉽고 빠르게 만듭니다. Android 앱을 사용하면 집의 Wi-Fi 네트워크에 연결되어 있지 않아도 Mac을 Android의 핫스팟에 연결하여 파일을 전송할 수 있습니다. Android 앱은 파일 전송 시 종단 간 암호화를 사용합니다.
+"AndroidAppDescription" = "QuickDrop이 이제 Android 기기용 별도 앱으로도 제공됩니다! Android 앱 없이도 QuickDrop을 사용할 수 있지만, Android용 QuickDrop은 파일 전송을 더욱 쉽고 빠르게 해줍니다. Android 앱을 사용하면, 집의 Wi-Fi에 연결되어 있지 않아도 Android 핫스팟에 Mac을 연결해 파일을 전송할 수 있습니다. Android 앱은 파일 전송 시 동일한 종단 간 암호화를 제공합니다.
 
-Android용 QuickDrop은 현재 베타 버전입니다. 베타에 등록하려면 quickdrop-beta@leonboettger.com으로 이메일을 보내거나 아래 버튼을 사용하세요. 관심 가져주셔서 감사합니다!";
+Android용 QuickDrop은 현재 베타 버전입니다. 베타에 등록하려면 quickdrop-beta@leonboettger.com 으로 이메일을 보내거나 아래 버튼을 사용하세요. 관심 가져주셔서 감사합니다!";
 "JoinBeta" = "Android용 QuickDrop 베타 참여하기";
 "BetaEmailBottom" = "안녕하세요,
 

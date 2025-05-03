@@ -61,9 +61,9 @@
 "DeviceNotShown" = "Az eszköz nem látható?";
 "Troubleshooting" = "Hibaelhárítás";
 "AndroidApp" = "Android Alkalmazás (Béta)";
-"AndroidAppDescription" = "A QuickDrop mostantól külön alkalmazásként is elérhető Android eszközödön! A QuickDrop Androidra még egyszerűbbé és gyorsabbá teszi a fájlátvitelt. Az Android alkalmazással akkor is átvihetsz fájlokat, amikor nem vagy csatlakozva otthoni Wi-Fi hálózatodhoz, ha a Mac-et az Androidod hotspotjához csatlakoztatod. Az Android alkalmazás végponttól végpontig terjedő titkosítást is használ a fájlok átvitelénél.
+"AndroidAppDescription" = "A QuickDrop mostantól külön alkalmazásként is elérhető Android-eszközödre! Bár a QuickDrop alkalmazás nélkül is használható Androidon, az Androidos QuickDrop még egyszerűbbé és gyorsabbá teszi a fájlátvitelt. Az Android alkalmazással akkor is átvihetsz fájlokat, ha nem vagy csatlakozva az otthoni Wi-Fi hálózatra, csak csatlakoztasd a Mac-et az Android hotspotjához. Az alkalmazás ugyanúgy végponttól végpontig tartó titkosítást használ fájlátvitelkor.
 
-A QuickDrop Androidra jelenleg béta verzióban érhető el. A béta verzióra való regisztrációhoz kérlek, küldj egy e-mailt a quickdrop-beta@leonboettger.com címre, vagy használd az alábbi gombot. Köszönjük érdeklődésed!";
+A QuickDrop Androidra jelenleg béta verzióban érhető el. A béta verzióra való regisztráláshoz küldj e-mailt a quickdrop-beta@leonboettger.com címre, vagy használd az alábbi gombot. Köszönjük az érdeklődést!";
 "JoinBeta" = "Csatlakozás a QuickDrop Android Béta verziójához";
 "BetaEmailBottom" = "Szia,
 

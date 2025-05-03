@@ -61,9 +61,9 @@
 "DeviceNotShown" = "设备未显示？";
 "Troubleshooting" = "故障排除";
 "AndroidApp" = "Android 应用程序（测试版）";
-"AndroidAppDescription" = "QuickDrop 现在也作为您 Android 设备的独立应用程序提供！QuickDrop for Android 使文件传输更加简单快捷。使用 Android 应用程序，即使在未连接家庭 Wi-Fi 网络的情况下，也可以通过将 Mac 连接到 Android 的热点来传输文件。Android 应用程序在传输文件时还使用端到端加密。
+"AndroidAppDescription" = "QuickDrop 现在也作为适用于 Android 设备的独立应用提供！虽然无需 Android 应用也能使用 QuickDrop，但 QuickDrop for Android 让文件传输更加简单快捷。使用 Android 应用，即使你未连接家庭 Wi-Fi 网络，也可以通过将 Mac 连接到 Android 热点来传输文件。Android 应用在传输文件时仍然提供端到端加密。
 
-QuickDrop for Android 目前处于测试阶段。要注册测试版，请发送电子邮件至 quickdrop-beta@leonboettger.com 或使用下面的按钮。感谢您的关注！";
+QuickDrop for Android 当前处于测试阶段。要注册测试版，请发送电子邮件至 quickdrop-beta@leonboettger.com，或点击下面的按钮。感谢你的关注！";
 "JoinBeta" = "加入 QuickDrop for Android 测试版";
 "BetaEmailBottom" = "您好，
 

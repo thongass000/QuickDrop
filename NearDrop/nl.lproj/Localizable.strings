@@ -62,9 +62,9 @@
 "DeviceNotShown" = "Apparaat niet weergegeven?";
 "Troubleshooting" = "Probleemoplossing";
 "AndroidApp" = "Android-app (Bèta)";
-"AndroidAppDescription" = "QuickDrop is nu ook beschikbaar als een aparte app voor je Android-apparaat! QuickDrop voor Android maakt het overzetten van bestanden nog eenvoudiger en sneller. Met de Android-app kun je zelfs bestanden overzetten wanneer je niet verbonden bent met het wifi-netwerk van je huis, door de Mac te verbinden met de hotspot van je Android. De Android-app gebruikt ook end-to-end-encryptie bij het overzetten van bestanden.
+"AndroidAppDescription" = "QuickDrop is nu ook beschikbaar als een aparte app voor je Android-apparaat! Hoewel QuickDrop ook zonder Android-app kan worden gebruikt, maakt QuickDrop voor Android het overzetten van bestanden nog gemakkelijker en sneller. Met de Android-app kun je zelfs bestanden overzetten wanneer je niet verbonden bent met je thuisnetwerk, door je Mac te verbinden met de hotspot van je Android. De Android-app gebruikt nog steeds end-to-end encryptie tijdens bestandsoverdracht.
 
-QuickDrop voor Android bevindt zich momenteel in de bètafase. Om je aan te melden voor de bèta, stuur een e-mail naar quickdrop-beta@leonboettger.com of gebruik de onderstaande knop. Bedankt voor je interesse!";
+QuickDrop voor Android bevindt zich momenteel in de bètafase. Om je aan te melden voor de bèta, stuur een e-mail naar quickdrop-beta@leonboettger.com of gebruik de knop hieronder. Bedankt voor je interesse!";
 "JoinBeta" = "Deelnemen aan QuickDrop voor Android Bèta";
 "BetaEmailBottom" = "Hallo,
 

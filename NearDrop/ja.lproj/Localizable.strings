@@ -61,9 +61,9 @@
 "DeviceNotShown" = "デバイスが表示されない？";
 "Troubleshooting" = "トラブルシューティング";
 "AndroidApp" = "Androidアプリ（ベータ版）";
-"AndroidAppDescription" = "QuickDropが、Androidデバイス用の独立したアプリとしても利用可能になりました！Android用QuickDropは、ファイル転送をさらに簡単かつ迅速にします。Androidアプリを使用すると、自宅のWi-Fiネットワークに接続していない場合でも、MacをAndroidのホットスポットに接続することでファイルを転送できます。Androidアプリは、ファイル転送時にエンドツーエンドの暗号化も使用します。
+"AndroidAppDescription" = "QuickDropは、Androidデバイス用の独立したアプリとしても利用できるようになりました！AndroidアプリがなくてもQuickDropは使用できますが、Android用QuickDropを使えばファイル転送がさらに簡単かつ迅速になります。Androidアプリを使用すれば、自宅のWi-Fiに接続していなくても、MacをAndroidのホットスポットに接続してファイルを転送することができます。ファイル転送時には、Androidアプリもエンドツーエンドの暗号化を提供します。
 
-Android用QuickDropは現在ベータ版です。ベータ版に登録するには、quickdrop-beta@leonboettger.comにメールを送信するか、以下のボタンを使用してください。ご関心をお寄せいただきありがとうございます！";
+QuickDrop for Androidは現在ベータ版です。ベータ版に登録するには、quickdrop-beta@leonboettger.com にメールを送るか、下のボタンを使用してください。ご関心ありがとうございます！";
 "JoinBeta" = "Android用QuickDropベータ版に参加する";
 "BetaEmailBottom" = "こんにちは、
 

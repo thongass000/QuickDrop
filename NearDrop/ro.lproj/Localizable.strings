@@ -61,9 +61,9 @@
 "DeviceNotShown" = "Dispozitivul nu este afișat?";
 "Troubleshooting" = "Depanare";
 "AndroidApp" = "Aplicație Android (Beta)";
-"AndroidAppDescription" = "QuickDrop este acum disponibil și ca aplicație separată pentru dispozitivul tău Android! QuickDrop pentru Android face transferul de fișiere și mai simplu și mai rapid. Cu aplicația Android, poți chiar să transferi fișiere atunci când nu ești conectat la rețeaua Wi-Fi de acasă, conectând Mac-ul la hotspot-ul Android-ului tău. Aplicația Android folosește de asemenea criptare end-to-end pentru transferul fișierelor.
+"AndroidAppDescription" = "QuickDrop este acum disponibil și ca aplicație separată pentru dispozitivul tău Android! Deși QuickDrop poate fi utilizat și fără aplicația Android, QuickDrop pentru Android face transferul de fișiere și mai simplu și mai rapid. Cu aplicația Android, poți transfera fișiere chiar și atunci când nu ești conectat la rețeaua Wi-Fi de acasă, conectând Mac-ul la hotspot-ul Android. Aplicația Android oferă în continuare aceeași criptare end-to-end la transferul fișierelor.
 
-QuickDrop pentru Android este momentan în faza beta. Pentru a te înregistra în versiunea beta, trimite un e-mail la quickdrop-beta@leonboettger.com sau folosește butonul de mai jos. Îți mulțumim pentru interes!";
+QuickDrop pentru Android este în prezent în versiune beta. Pentru a te înregistra în versiunea beta, trimite un e-mail la quickdrop-beta@leonboettger.com sau folosește butonul de mai jos. Îți mulțumim pentru interes!";
 "JoinBeta" = "Participă la versiunea beta QuickDrop pentru Android";
 "BetaEmailBottom" = "Bună,
 
