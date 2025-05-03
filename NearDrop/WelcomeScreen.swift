@@ -21,7 +21,7 @@ struct WelcomeScreen: View {
         
         HStack(spacing: 0) {
             List(selection: $selection) {
-                ForEach(Tabs.allCases.filter({$0 != .settings}), id: \.self) { tab in
+                ForEach(Tabs.allCases.filter({$0 != .settings && $0 != .app}), id: \.self) { tab in
                     Label(tab.title, systemImage: tab.systemImage)
                       //  .font(.system(size: 13))
                         .tag(tab)
@@ -68,6 +68,10 @@ struct WelcomeScreen: View {
                 Label(Tabs.settings.title, systemImage: Tabs.settings.systemImage)
                     .tag(Tabs.settings)
                     .frame(height: 30)
+                
+                Label(Tabs.app.title, systemImage: Tabs.app.systemImage)
+                    .tag(Tabs.app)
+                    .frame(height: 30)
             }
             .frame(width: 220)
             .listStyle(SidebarListStyle())
@@ -88,6 +92,9 @@ struct WelcomeScreen: View {
                     
                 case .troubleshooting:
                     TutorialView(title: "Troubleshooting", text: "TroubleshootingDescription", showsLicense: false, openIAP: openIAP)
+                    
+                case .app:
+                    TutorialView(title: "AndroidApp", text: "AndroidAppDescription", showsLicense: false, showsBetaJoinButton: true, openIAP: openIAP)
                     
                 default:
                     SettingsView()
@@ -115,6 +122,7 @@ enum Tabs: CaseIterable {
     case receive
     case send
     case troubleshooting
+    case app
     case settings
     
     var title: String {
@@ -125,6 +133,8 @@ enum Tabs: CaseIterable {
             return "SendFiles".localized()
         case .troubleshooting:
             return "DeviceNotShown".localized()
+        case .app:
+            return "AndroidApp".localized()
         case .settings:
             return "Settings".localized()
         }
@@ -140,6 +150,8 @@ enum Tabs: CaseIterable {
             return "exclamationmark.triangle"
         case .settings:
             return "gear"
+        case .app:
+            return "smartphone"
         }
     }
 }

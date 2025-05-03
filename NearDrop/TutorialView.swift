@@ -13,6 +13,7 @@ struct TutorialView: View {
     let title: String
     let text: String
     let showsLicense: Bool
+    var showsBetaJoinButton: Bool = false
     
     let openIAP: () -> Void
     
@@ -29,6 +30,20 @@ struct TutorialView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .padding()
                     .frame(width: 550)
+                
+                
+                if showsBetaJoinButton {
+                    Button {
+                        
+                        let betaTextBottom = "BetaEmailBottom".localized()
+                        
+                        if let url = URL(string: "mailto:quickdrop-beta@leonboettger.com?subject=QuickDrop for Android Beta&body=\(betaTextBottom)") {
+                            NSWorkspace.shared.open(url)
+                        }
+                    } label: {
+                        Text("JoinBeta")
+                    }
+                }
                 
                 if showsLicense {
                     HStack(spacing: 30) {

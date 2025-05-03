@@ -60,6 +60,22 @@
 "ReceiveFiles" = "接收文件";
 "DeviceNotShown" = "设备未显示？";
 "Troubleshooting" = "故障排除";
+"AndroidApp" = "Android 应用程序（测试版）";
+"AndroidAppDescription" = "QuickDrop 现在也作为您 Android 设备的独立应用程序提供！QuickDrop for Android 使文件传输更加简单快捷。使用 Android 应用程序，即使在未连接家庭 Wi-Fi 网络的情况下，也可以通过将 Mac 连接到 Android 的热点来传输文件。Android 应用程序在传输文件时还使用端到端加密。
+
+QuickDrop for Android 目前处于测试阶段。要注册测试版，请发送电子邮件至 quickdrop-beta@leonboettger.com 或使用下面的按钮。感谢您的关注！";
+"JoinBeta" = "加入 QuickDrop for Android 测试版";
+"BetaEmailBottom" = "您好，
+
+请将我添加到 QuickDrop for Android 测试版中。
+
+–––––––––––––––
+
+请在下方提供您的 Google 帐户的电子邮件地址，以便您可以被邀请加入测试版。之后，您将收到一封电子邮件，其中包含从 Google Play 商店下载该应用程序的链接。
+
+您的电子邮件地址仅用于此目的，不会被存储或共享。
+
+您的电子邮件地址：";
 "SendFilesDescription" = "要将文件发送到您的 Android 设备，请点击共享图标或右键点击文件并选择“共享”。然后，从应用列表中选择“QuickDrop”，并按照说明进行操作。
 
 如果列表中没有 QuickDrop，请点击“编辑扩展”，向下滚动并启用 QuickDrop。
@@ -85,7 +101,7 @@
 
 3) 重新启动 QuickDrop，点击菜单栏图标，选择最后一项，然后重新打开应用程序。同时重启您的 Android 设备。
 
-如果问题仍然存在，可能是由于您的 WiFi 路由器设置导致的。某些路由器会阻止设备之间的通信，请检查您的路由器设置并进行适当调整。";
+如果问题仍然存在，可能是由于您的 WiFi 路由器设置导致的。某些路由器会阻止设备之间的通信，请检查您的路由器设置并进行适当调整。您也可以尝试使用独立的 QuickDrop Android 应用程序。有关更多信息，请查看左侧的“Android 应用程序”部分。";
 
 "plusview_title" = "感谢使用 QuickDrop!";
 "plusview_description" = "解锁 QuickDrop+ 以无限制地交换文件。QuickDrop+ 是一次性购买 – 无需订阅。所有当前和未来的功能均包含在内。";  

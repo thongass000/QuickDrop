@@ -60,6 +60,22 @@
 "ReceiveFiles" = "Receber ficheiros";
 "DeviceNotShown" = "Dispositivo não mostrado?";
 "Troubleshooting" = "Resolução de problemas";
+"AndroidApp" = "Aplicação Android (Beta)";
+"AndroidAppDescription" = "O QuickDrop está agora também disponível como uma aplicação separada para o seu dispositivo Android! O QuickDrop para Android torna a transferência de ficheiros ainda mais fácil e rápida. Com a aplicação Android, pode até transferir ficheiros quando não está ligado à rede Wi-Fi de casa, ligando o Mac ao hotspot do seu Android. A aplicação Android também utiliza encriptação de ponta a ponta ao transferir ficheiros.
+
+O QuickDrop para Android está atualmente em beta. Para se registar na versão beta, por favor envie um email para quickdrop-beta@leonboettger.com ou utilize o botão abaixo. Obrigado pelo seu interesse!";
+"JoinBeta" = "Participar na Beta do QuickDrop para Android";
+"BetaEmailBottom" = "Olá,
+
+por favor, adicione-me à versão beta do QuickDrop para Android.
+
+–––––––––––––––
+
+Por favor, forneça abaixo o endereço de email da sua Conta Google, para que possa ser convidado para a versão beta. Depois, receberá um email com um link para descarregar a aplicação da Google Play Store.
+
+O seu endereço de email será utilizado apenas para este fim e não será armazenado ou partilhado.
+
+O seu endereço de email: ";
 "SendFilesDescription" = "Para enviar um ficheiro para o seu dispositivo Android, clique no ícone de Partilhar ou clique com o botão direito no ficheiro e selecione \"Partilhar\". Depois, selecione \"QuickDrop\" na lista de aplicações e siga as instruções.
 
 Se não encontrar o QuickDrop na lista, clique em \"Editar Extensões\", desloque-se para baixo e ative a opção para QuickDrop.
@@ -85,7 +101,7 @@ Importante: O seu dispositivo Android e o seu Mac precisam de estar na mesma red
 
 3) Reinicie o QuickDrop clicando no ícone da barra de menu, selecione a última opção e abra a aplicação novamente. Reinicie também o seu dispositivo Android.
 
-Se o problema persistir, pode ser causado pelo seu router Wi-Fi. Alguns routers impedem que os dispositivos comuniquem entre si. Verifique as definições do seu router e ajuste-as conforme necessário.";
+Se o problema persistir, pode ser causado pelo seu router Wi-Fi. Alguns routers impedem que os dispositivos comuniquem entre si. Verifique as definições do seu router e ajuste-as conforme necessário. Também pode experimentar usar a aplicação QuickDrop separada para Android. Para mais informações, consulte a secção \"Aplicação Android\" à esquerda.";
 
 "plusview_title" = "Obrigado por usar o QuickDrop!";
 "plusview_description" = "Desbloqueia o QuickDrop+ para continuar a trocar ficheiros sem limites. QuickDrop+ é uma compra única – não é necessária subscrição. Todas as funcionalidades atuais e futuras estão incluídas.";  
