@@ -71,7 +71,20 @@ class InboundNearbyConnection: NearbyConnection{
         }catch{
             lastError = error
             log("Deserialization error: \(error) in state \(currentState). Payload: \(frameData.hex)")
-            //protocolError()
+            
+            let lastState = currentState
+            log("Waiting for 5 seconds to check if connection is still alive")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                
+                if self.currentState == lastState {
+                    log("Still in state \(self.currentState), last state was \(lastState)")
+                    self.protocolError()
+                }
+                else {
+                    log("State changed to \(self.currentState), not closing connection")
+                }
+            }
         }
     }
     
