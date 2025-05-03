@@ -130,7 +130,9 @@ QuickDrop لنظام Android في المرحلة التجريبية حاليًا
 "QrCodeInstructions" = "امسح رمز QR ضوئيًا باستخدام جهاز Android الخاص بك لتوصيله بجهاز Mac. تأكد من أن هاتفك متصل بنفس الشبكة.\n\nبدلاً من ذلك، قم بتثبيت وفتح تطبيق 'Files by Google' ثم اضغط على 'استقبال' في الزاوية السفلية اليمنى.";  
 "TypeNotSupported" = "نوع غير مدعوم";
 "TypeNotSupportedDescription" = "نوع الملف المحدد غير مدعوم. إذا كنت ترغب في مشاركته على أي حال، انقر بزر الفأرة الأيمن على الملف، واختر \"ضغط\" ثم أرسل الملف المضغوط.";
-"TypeNotSupportedButton" = "حسنًا";  
+"TypeNotSupportedButton" = "حسنًا";
+"CloseAlert" = "إغلاق";
+"InformDeveloper" = "إرسال تقرير عن خلل";
 "TimeoutTitle" = "حدث خطأ ما";
 "TimeoutDescription" = "تعذر على QuickDrop الاتصال بهاتفك. يرجى فتح إعدادات جهاز Android والبحث عن 'Quick Share'. قم بتغيير الإعداد 'من يمكنه المشاركة معك' إلى 'الجميع' ثم حاول مرة أخرى.";
 "TimeoutButton" = "موافق";  

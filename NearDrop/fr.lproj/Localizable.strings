@@ -132,7 +132,9 @@ Vous pouvez également essayer d'utiliser l'application QuickDrop distincte pour
 "QrCodeInstructions" = "Scannez le code QR avec votre appareil Android pour le connecter à votre Mac. Assurez-vous que votre téléphone est connecté au même réseau.\n\nSinon, installez et ouvrez l'application 'Files by Google' et appuyez sur 'Recevoir' en bas à droite.";  
 "TypeNotSupported" = "Type non pris en charge";
 "TypeNotSupportedDescription" = "Le type de fichier sélectionné n'est pas pris en charge. Si vous souhaitez tout de même le partager, faites un clic droit sur le fichier, sélectionnez \"Compresser\" puis envoyez le fichier compressé.";
-"TypeNotSupportedButton" = "D'accord";  
+"TypeNotSupportedButton" = "D'accord";
+"CloseAlert" = "Fermer";
+"InformDeveloper" = "Envoyer un rapport de bug";
 "TimeoutTitle" = "Un problème est survenu";
 "TimeoutDescription" = "QuickDrop n’a pas pu se connecter à votre téléphone. Ouvrez les paramètres de votre appareil Android et recherchez 'Quick Share'. Modifiez le paramètre 'Qui peut partager avec vous' sur 'Tout le monde', puis réessayez.";
 "TimeoutButton" = "D'accord";  

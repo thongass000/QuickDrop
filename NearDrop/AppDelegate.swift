@@ -322,9 +322,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
             alert.messageText = String(format: NSLocalizedString("TransferError", value: "Failed to receive files from %@", comment: ""), arguments: [transfer.device.name])
             alert.informativeText = description
-            alert.addButton(withTitle: "TypeNotSupportedButton".localized())
             
-            let _ = alert.runModal()
+            alert.addButton(withTitle: "InformDeveloper".localized())
+            alert.addButton(withTitle: "CloseAlert".localized())
+            
+            log("Showing alert with message: \(alert.messageText) and description: \(alert.informativeText)")
+            
+            let result = alert.runModal()
+            
+            if result == .alertFirstButtonReturn {
+                sendLoggingString()
+            }
         }
         else {
             let currentCount = transmissionCount()

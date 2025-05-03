@@ -132,7 +132,9 @@ Android 기기에서 Mac으로 파일을 보내려면 휴대폰에서 공유 아
 "QrCodeInstructions" = "QR 코드를 스캔하여 Android 기기를 Mac에 연결하세요. 휴대폰이 동일한 네트워크에 연결되어 있는지 확인하세요.\n\n또는 'Files by Google' 앱을 설치하고 실행한 후, 오른쪽 하단의 '받기'를 탭하세요.";  
 "TypeNotSupported" = "지원되지 않는 유형";
 "TypeNotSupportedDescription" = "선택한 파일 형식은 지원되지 않습니다. 그래도 공유하려면 파일을 오른쪽 클릭하여 '압축'을 선택한 후 압축된 파일을 보내세요.";
-"TypeNotSupportedButton" = "확인";  
+"TypeNotSupportedButton" = "확인";
+"CloseAlert" = "닫기";
+"InformDeveloper" = "버그 보고 보내기";
 "TimeoutTitle" = "문제가 발생했습니다";
 "TimeoutDescription" = "QuickDrop이 휴대전화에 연결할 수 없습니다. Android 설정을 열고 '퀵 공유'를 검색하세요. '누가 나와 공유할 수 있나요?' 설정을 '모두'로 변경하고 다시 시도하세요.";
 "TimeoutButton" = "확인";  

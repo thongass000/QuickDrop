@@ -43,6 +43,7 @@ struct TutorialView: View {
                     } label: {
                         Text("JoinBeta")
                     }
+                    .keyboardShortcut(.defaultAction)
                 }
                 
                 if showsLicense {
@@ -111,9 +112,7 @@ struct LargeAppIconView<Content: View>: View {
                         print("Tapped \(taps) times")
                         
                         if taps == 5 {
-                            let logString = LogManager.sharedInstance.getLogString()
-                            sendLoggingString(logString)
-                            copyToClipboard(logString)
+                            sendLoggingString()
                             print("Copied log to clipboard")
                         }
                     }
@@ -128,20 +127,24 @@ struct LargeAppIconView<Content: View>: View {
             .frame(maxWidth: .infinity)
         }
     }
+}
+
+func sendLoggingString() {
     
+    let logString = LogManager.sharedInstance.getLogString()
     
-    func sendLoggingString(_ text: String) {
-        if let url = URL(string: "mailto:quickdrop@leonboettger.com?subject=QuickDrop Log&body=\n\n\n––––––––––––––––––––\n\(text)") {
-            NSWorkspace.shared.open(url)
-        }
+    if let url = URL(string: "mailto:quickdrop@leonboettger.com?subject=QuickDrop Log&body=\n\n\n––––––––––––––––––––\n\(logString)") {
+        NSWorkspace.shared.open(url)
     }
     
-    
-    func copyToClipboard(_ text: String) {
-        let pasteboard = NSPasteboard.general
-        pasteboard.clearContents()
-        pasteboard.setString(text, forType: .string)
-    }
+    copyToClipboard(logString)
+}
+
+
+func copyToClipboard(_ text: String) {
+    let pasteboard = NSPasteboard.general
+    pasteboard.clearContents()
+    pasteboard.setString(text, forType: .string)
 }
 
 

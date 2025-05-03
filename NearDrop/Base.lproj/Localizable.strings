@@ -141,6 +141,8 @@ Also, you can try to use the separate QuickDrop app for Android. For more inform
 "TypeNotSupported" = "Type not supported";
 "TypeNotSupportedDescription" = "The selected file type is not supported. If you want to share it anyway, right-click the file, select \"Compress\" and then send the compressed file.";
 "TypeNotSupportedButton" = "Okay";
+"CloseAlert" = "Close";
+"InformDeveloper" = "Send Bug Report";
 
 "TimeoutTitle" = "Something went wrong";
 "TimeoutDescription" = "QuickDrop could not connect to your phone. Please open the settings of your Android device and search for 'Quick Share'. Change the setting 'Who can share with you' to 'Everyone', and try again.";
