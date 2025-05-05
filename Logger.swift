@@ -84,7 +84,7 @@ final class LogManager {
             let fileURL = URL(fileURLWithPath: logFileURL.path)
             do {
                 let content = try String(contentsOf: fileURL, encoding: .utf8)
-                return String(content.suffix(10000))
+                return String(content)
                 
             } catch {
                 log("[LUI] Error reading file: \(error.localizedDescription)")

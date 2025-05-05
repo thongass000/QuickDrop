@@ -44,6 +44,7 @@ struct TutorialView: View {
                         Text("JoinBeta")
                     }
                     .keyboardShortcut(.defaultAction)
+                    .padding(.top)
                 }
                 
                 if showsLicense {

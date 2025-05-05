@@ -49,6 +49,9 @@ class InboundNearbyConnection: NearbyConnection{
     }
     
     override internal func processReceivedFrame(frameData:Data){
+        
+        log("Received frame in state \(currentState)...")
+        
         do{
             switch currentState {
             case .initial:
