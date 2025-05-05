@@ -52,7 +52,7 @@ class InboundNearbyConnection: NearbyConnection{
         
         log("Received frame in state \(currentState)...")
         
-        do{
+        do {
             switch currentState {
             case .initial:
                 let frame=try Location_Nearby_Connections_OfflineFrame(serializedBytes: frameData)
@@ -68,26 +68,47 @@ class InboundNearbyConnection: NearbyConnection{
                 let frame=try Location_Nearby_Connections_OfflineFrame(serializedBytes: frameData)
                 try processConnectionResponseFrame(frame)
             default:
-                let smsg=try Securemessage_SecureMessage(serializedBytes: frameData)
+                
+                var smsg: Securemessage_SecureMessage
+                
+                do {
+                    smsg = try Securemessage_SecureMessage(serializedBytes: frameData)
+                }
+                catch {
+                    log("Error deserializing secure message. Trying again....")
+                    
+                    // last 32 bytes = HMAC key
+                    // change 2 bytes before to 0x12 0x20 for Protobuf to succeed
+                    
+                    if frameData.count < 34 {
+                        throw NearbyError.protocolError("Frame too short")
+                    }
+                    
+                    var newData = frameData
+                    let count = newData.count
+                    newData[count - 34] = 0x12
+                    newData[count - 33] = 0x20
+                    
+                    smsg = try Securemessage_SecureMessage(serializedBytes: newData)
+                    
+                    log("Secure message deserialized successfully after fixing Protobuf message")
+                }
                 try decryptAndProcessReceivedSecureMessage(smsg)
             }
-        }catch{
+        } catch {
             lastError = error
             log("Deserialization error: \(error) in state \(currentState). Payload: \(frameData.hex)")
             
-            let lastState = currentState
-            log("Waiting for 5 seconds to check if connection is still alive")
+            //log("Public Key: \(publicKey?.pem ?? "nil")")
+            //log("Private Key: \(privateKey?.pem ?? "nil")")
+            //log("Ukey Client Init Msg: \(ukeyClientInitMsgData?.hex ?? "nil")")
+            //log("Ukey Server Init Msg: \(ukeyServerInitMsgData?.hex ?? "nil")")
+            log("S1: \(decryptKey?.map { String(format: "%02x", $0) }.joined() ?? "nil")")
+            //log("Encrypt Key: \(encryptKey?.map { String(format: "%02x", $0) }.joined() ?? "nil")")
+            log("Received HMAC/Signature Key: \(recvHmacKey?.withUnsafeBytes { Data(Array($0)) }.map { String(format: "%02x", $0) }.joined() ?? "nil")")
+            log("Sent HMAC/Signature Key: \(sendHmacKey?.withUnsafeBytes { Data(Array($0)) }.map { String(format: "%02x", $0) }.joined() ?? "nil")")
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                
-                if self.currentState == lastState {
-                    log("Still in state \(self.currentState), last state was \(lastState)")
-                    self.protocolError()
-                }
-                else {
-                    log("State changed to \(self.currentState), not closing connection")
-                }
-            }
+            self.protocolError()
         }
     }
     
@@ -573,5 +594,23 @@ public class SaveFilesManager {
 extension Data {
     var hex: String {
         return map { String(format: "%02hhx", $0) }.joined()
+    }
+}
+
+extension String {
+    var dataFromHex: Data {
+        var data = Data(capacity: count / 2)
+        var index = startIndex
+        while index < endIndex {
+            let nextIndex = self.index(index, offsetBy: 2)
+            if nextIndex <= endIndex,
+               let byte = UInt8(self[index..<nextIndex], radix: 16) {
+                data.append(byte)
+            } else {
+                break // or handle invalid hex gracefully
+            }
+            index = nextIndex
+        }
+        return data
     }
 }

@@ -201,6 +201,12 @@
 		EB2F9BFA2DA04B67004010A2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		EB36435F2D73A29F009CDFF8 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		EB3643612D73A2CA009CDFF8 /* timeIsNow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timeIsNow.mp3; sourceTree = "<group>"; };
+		EB3B73F32DC8FF3A00369951 /* device_to_device_messages.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = device_to_device_messages.proto; sourceTree = "<group>"; };
+		EB3B73F42DC8FF3A00369951 /* offline_wire_formats.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = offline_wire_formats.proto; sourceTree = "<group>"; };
+		EB3B73F52DC8FF3A00369951 /* securegcm.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = securegcm.proto; sourceTree = "<group>"; };
+		EB3B73F62DC8FF3A00369951 /* securemessage.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = securemessage.proto; sourceTree = "<group>"; };
+		EB3B73F72DC8FF3A00369951 /* ukey.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = ukey.proto; sourceTree = "<group>"; };
+		EB3B73F82DC8FF3A00369951 /* wire_format.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = wire_format.proto; sourceTree = "<group>"; };
 		EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		EB7F540F2D78E6DD00989564 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -341,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				EB2B41E32DC63AC80070FC39 /* SleepManager.swift */,
+				EB3B73F92DC8FF3A00369951 /* ProtobufSource */,
 				69DA9A2729E18CB500A442DA /* Protobuf */,
 				69DA9A1E29E0C0B300A442DA /* NearbyConnectionManager.swift */,
 				69DA9A2229E17F0400A442DA /* InboundNearbyConnection.swift */,
@@ -350,6 +357,19 @@
 				69DA9A2029E0CC4E00A442DA /* Data+Extensions.swift */,
 			);
 			path = NearbyShare;
+			sourceTree = "<group>";
+		};
+		EB3B73F92DC8FF3A00369951 /* ProtobufSource */ = {
+			isa = PBXGroup;
+			children = (
+				EB3B73F32DC8FF3A00369951 /* device_to_device_messages.proto */,
+				EB3B73F42DC8FF3A00369951 /* offline_wire_formats.proto */,
+				EB3B73F52DC8FF3A00369951 /* securegcm.proto */,
+				EB3B73F62DC8FF3A00369951 /* securemessage.proto */,
+				EB3B73F72DC8FF3A00369951 /* ukey.proto */,
+				EB3B73F82DC8FF3A00369951 /* wire_format.proto */,
+			);
+			path = ProtobufSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -789,7 +809,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 31;
+				SHARED_BUILD = 32;
 				SHARED_VERSION = 1.7.3;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -848,7 +868,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 31;
+				SHARED_BUILD = 32;
 				SHARED_VERSION = 1.7.3;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";

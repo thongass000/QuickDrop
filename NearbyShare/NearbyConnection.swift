@@ -233,8 +233,12 @@ class NearbyConnection{
     
     internal func decryptAndProcessReceivedSecureMessage(_ smsg:Securemessage_SecureMessage) throws{
         guard smsg.hasSignature, smsg.hasHeaderAndBody else { throw NearbyError.requiredFieldMissing("secureMessage.signature|headerAndBody") }
-        let hmac=Data(HMAC<SHA256>.authenticationCode(for: smsg.headerAndBody, using: recvHmacKey!))
-        guard hmac==smsg.signature else { throw NearbyError.protocolError("hmac!=signature") }
+        
+        if NearbyConnectionManager.shared.checkSignature {
+            let hmac = Data(HMAC<SHA256>.authenticationCode(for: smsg.headerAndBody, using: recvHmacKey!))
+            guard hmac == smsg.signature else { throw NearbyError.protocolError("hmac!=signature: Expected \(hmac), got \(smsg.signature)") }
+        }
+        
         let headerAndBody=try Securemessage_HeaderAndBody(serializedBytes: smsg.headerAndBody)
         var decryptedData=Data(count: headerAndBody.body.count)
         
