@@ -110,11 +110,13 @@ struct LargeAppIconView<Content: View>: View {
                     .padding(.top, 50)
                     .onTapGesture {
                         taps += 1
-                        print("Tapped \(taps) times")
+                        print("Clicked \(taps) times")
                         
                         if taps == 5 {
                             sendLoggingString()
                             print("Copied log to clipboard")
+                            
+                            taps = 0
                         }
                     }
                 
@@ -132,13 +134,25 @@ struct LargeAppIconView<Content: View>: View {
 
 func sendLoggingString() {
     
-    let logString = LogManager.sharedInstance.getLogString()
-    
-    if let url = URL(string: "mailto:quickdrop@leonboettger.com?subject=QuickDrop Log&body=\n\n\n––––––––––––––––––––\n\(logString)") {
-        NSWorkspace.shared.open(url)
+    if let url = LogManager.sharedInstance.logFileURL {
+        sendEmailWithAttachment(fileURL: url, recipients: ["quickdrop@leonboettger.com"], subject: "QuickDrop Log")
     }
     
+    let logString = LogManager.sharedInstance.getLogString()
+    
     copyToClipboard(logString)
+}
+
+
+func sendEmailWithAttachment(fileURL: URL, recipients: [String], subject: String) {
+    guard let emailService = NSSharingService(named: .composeEmail) else {
+        print("No email service available")
+        return
+    }
+    
+    emailService.recipients = recipients
+    emailService.subject = subject
+    emailService.perform(withItems: [fileURL])
 }
 
 
