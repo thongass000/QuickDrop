@@ -160,15 +160,17 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
     
 	private var tcpListener:NWListener;
 	public let endpointID:[UInt8]=generateEndpointID()
-	private var mdnsService:NetService?
+    private var mdnsServices: [NetService] = []
 	private var activeConnections:[String:InboundNearbyConnection]=[:]
 	private var foundServices:[String:FoundServiceInfo]=[:]
 	private var shareExtensionDelegates:[ShareExtensionDelegate]=[]
 	private var outgoingTransfers:[String:OutgoingTransferInfo]=[:]
 	public var mainAppDelegate:(any MainAppDelegate)?
 	private var discoveryRefCount=0
+    
+    let serviceTypes = ["_FC9F5ED42C8A._tcp."]
 	
-	private var browser:NWBrowser?
+    private var browsers: [NWBrowser] = []
 	
 	public static let shared=NearbyConnectionManager()
 	
@@ -219,25 +221,29 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
         
         return id
     }
-	
-	private func initMDNS(){
-		let nameBytes:[UInt8]=[
-			0x23, // PCP
-			endpointID[0], endpointID[1], endpointID[2], endpointID[3],
-			0xFC, 0x9F, 0x5E, // Service ID hash
-			0, 0
-		]
-		let name=Data(nameBytes).urlSafeBase64EncodedString()
-		let endpointInfo=EndpointInfo(name: Host.current().localizedName!, deviceType: .computer)
-		
-		let port:Int32=Int32(tcpListener.port!.rawValue)
-		mdnsService=NetService(domain: "", type: "_FC9F5ED42C8A._tcp.", name: name, port: port)
-		mdnsService?.delegate=self
-		mdnsService?.setTXTRecord(NetService.data(fromTXTRecord: [
-			"n": endpointInfo.serialize().urlSafeBase64EncodedString().data(using: .utf8)!
-		]))
-		mdnsService?.publish()
-	}
+    
+    private func initMDNS() {
+        let nameBytes: [UInt8] = [
+            0x23, // PCP
+            endpointID[0], endpointID[1], endpointID[2], endpointID[3],
+            0xFC, 0x9F, 0x5E, // Service ID hash
+            0, 0
+        ]
+        let name = Data(nameBytes).urlSafeBase64EncodedString()
+        let endpointInfo = EndpointInfo(name: Host.current().localizedName!, deviceType: .computer)
+        
+        let port: Int32 = Int32(tcpListener.port!.rawValue)
+        
+        mdnsServices = serviceTypes.map { serviceType in
+            let service = NetService(domain: "", type: serviceType, name: name, port: port)
+            service.delegate = self
+            service.setTXTRecord(NetService.data(fromTXTRecord: [
+                "n": endpointInfo.serialize().urlSafeBase64EncodedString().data(using: .utf8)!
+            ]))
+            service.publish()
+            return service
+        }
+    }
 	
 	func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo, connection: InboundNearbyConnection) {
 		guard let delegate=mainAppDelegate else {return}
@@ -254,36 +260,56 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 		guard let conn=activeConnections[transferID] else {return}
         conn.submitUserConsent(accepted: accept, storeInTemp: storeInTemp)
 	}
-	
-	public func startDeviceDiscovery(){
-		if discoveryRefCount==0{
-			foundServices.removeAll()
-			if browser==nil{
-				browser=NWBrowser(for: .bonjourWithTXTRecord(type: "_FC9F5ED42C8A._tcp.", domain: nil), using: .tcp)
-				browser?.browseResultsChangedHandler={newResults, changes in
-					for change in changes{
-						switch change{
-						case let .added(res):
-							self.maybeAddFoundDevice(service: res)
-						case let .removed(res):
-							self.maybeRemoveFoundDevice(service: res)
-						default:
-							break
-						}
-					}
-				}
-			}
-			browser?.start(queue: .main)
-		}
-		discoveryRefCount+=1
-	}
+    
+    
+    public func startDeviceDiscovery() {
+        
+        log("Device discovery requested.")
+        
+        if discoveryRefCount == 0 {
+            foundServices.removeAll()
+
+            log("Starting device discovery")
+            
+            if browsers.isEmpty {
+                for type in serviceTypes {
+                    
+                    log("Starting browser for type \(type)")
+                    
+                    let browser = NWBrowser(for: .bonjourWithTXTRecord(type: type, domain: nil), using: .tcp)
+                    browser.browseResultsChangedHandler = { newResults, changes in
+                        for change in changes {
+                            switch change {
+                            case let .added(res):
+                                self.maybeAddFoundDevice(service: res)
+                            case let .removed(res):
+                                self.maybeRemoveFoundDevice(service: res)
+                            default:
+                                log("Ignoring change \(change)")
+                                break
+                            }
+                        }
+                    }
+                    browser.start(queue: .main)
+                    browsers.append(browser)
+                }
+            }
+        }
+
+        discoveryRefCount += 1
+    }
+    
 	
 	public func stopDeviceDiscovery(){
-		discoveryRefCount-=1
-		assert(discoveryRefCount>=0)
-		if discoveryRefCount==0{
-			browser?.cancel()
-			browser=nil
+		discoveryRefCount -= 1
+		assert(discoveryRefCount >= 0)
+		
+        if discoveryRefCount == 0 {
+            for browser in browsers {
+                browser.cancel()
+            }
+            
+            browsers.removeAll()
 		}
 	}
 	
