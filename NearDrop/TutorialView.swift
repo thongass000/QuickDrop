@@ -114,8 +114,6 @@ struct LargeAppIconView<Content: View>: View {
                         
                         if taps == 5 {
                             
-                            NearbyConnectionManager.shared.checkSignature = false
-                            
                             sendLoggingString()
                             print("Copied log to clipboard")
                             

@@ -69,11 +69,11 @@
 "ReceiveFiles" = "Receive Files";
 "DeviceNotShown" = "Device Not Shown?";
 "Troubleshooting" = "Troubleshooting";
-"AndroidApp" = "Android App (Beta)";
-"AndroidAppDescription" = "QuickDrop is now also available as a separate app for your Android device! Even though QuickDrop can also be used without an Android app, QuickDrop for Android makes file transfer even easier and quicker. With the Android app, you can even transfer files when you are not connected to your home's Wi-Fi network, by connecting the Mac to your Android's hotspot. The Android app still provides the same end-to-end encryption when transferring files.
+"AndroidApp" = "Mobile App (Beta)";
+"AndroidAppDescription" = "QuickDrop is now also available as a separate app for your smartphone! Even though QuickDrop can also be used without a separate smartphone app, the app makes file transfer even easier and quicker. With it, you can even transfer files when you are not connected to your home's Wi-Fi network, by connecting the Mac to your smartphone's hotspot. The app still provides the same end-to-end encryption when transferring files.
 
-QuickDrop for Android is currently in beta. To register for the beta, please send an email to quickdrop-beta@leonboettger.com or use the button below. Thanks for your interest!";
-"JoinBeta" = "Join QuickDrop for Android Beta";
+The mobile app is currently in beta. To register for the beta, please send an email to quickdrop-beta@leonboettger.com or use the button below. Thanks for your interest!";
+"JoinBeta" = "Join the Beta";
 "BetaEmailBottom" = "Hi there,
 
 please add me to the QuickDrop for Android beta.
