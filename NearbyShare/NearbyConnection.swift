@@ -298,9 +298,7 @@ class NearbyConnection{
                 try processFileChunk(frame: payloadTransfer)
             }
         }else if offlineFrame.hasV1 && offlineFrame.v1.hasType, case .keepAlive = offlineFrame.v1.type{
-#if DEBUG
             log("Sent keep-alive")
-#endif
             sendKeepAlive(ack: true)
         }else{
             log("Unhandled offline frame encrypted: \(offlineFrame)")

@@ -79,9 +79,7 @@ class OutboundNearbyConnection:NearbyConnection{
 	
 	override func processReceivedFrame(frameData: Data) {
 		do{
-			#if DEBUG
 			log("received \(frameData), state is \(currentState)")
-			#endif
 			switch currentState {
 			case .initial:
 				protocolError()
@@ -223,9 +221,7 @@ class OutboundNearbyConnection:NearbyConnection{
 	}
 	
 	private func processConnectionResponse(frame:Location_Nearby_Connections_OfflineFrame) throws{
-		#if DEBUG
 		log("connection response: \(frame)")
-		#endif
 		guard frame.version == .v1 else {throw NearbyError.protocolError("Unexpected offline frame version \(frame.version)")}
 		guard frame.v1.type == .connectionResponse else {throw NearbyError.protocolError("Unexpected frame type \(frame.v1.type)")}
 		guard frame.v1.connectionResponse.response == .accept else {throw NearbyError.protocolError("Connection was rejected by recipient")}
@@ -305,9 +301,7 @@ class OutboundNearbyConnection:NearbyConnection{
 				totalBytesToSend+=meta.size
 			}
 		}
-		#if DEBUG
 		log("sent introduction: \(introduction)")
-		#endif
 		try sendTransferSetupFrame(introduction)
 		
 		currentState = .sentIntroduction
@@ -354,9 +348,7 @@ class OutboundNearbyConnection:NearbyConnection{
 				try currentTransfer?.handle?.close()
 			}
 			if queue.isEmpty{
-				#if DEBUG
 				log("Disconnecting because all files have been transferred")
-				#endif
 				try sendDisconnectionAndDisconnect()
 				delegate?.outboundConnectionTransferFinished(connection: self)
 				return
@@ -398,9 +390,7 @@ class OutboundNearbyConnection:NearbyConnection{
 				self.protocolError()
 			}
 		})
-		#if DEBUG
 		log("sent file chunk, current transfer: \(String(describing: currentTransfer))")
-		#endif
 		totalBytesSent+=Int64(fileBuffer.count)
 		delegate?.outboundConnection(connection: self, transferProgress: Double(totalBytesSent)/Double(totalBytesToSend))
 		
@@ -421,9 +411,7 @@ class OutboundNearbyConnection:NearbyConnection{
 			wrapper.v1.type = .payloadTransfer
 			wrapper.v1.payloadTransfer=transfer
 			try encryptAndSendOfflineFrame(wrapper)
-			#if DEBUG
 			log("sent EOF, current transfer: \(String(describing: currentTransfer))")
-			#endif
 		}
 	}
 	

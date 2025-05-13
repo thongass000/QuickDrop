@@ -317,21 +317,15 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 	}
 	
 	private func maybeAddFoundDevice(service:NWBrowser.Result){
-		#if DEBUG
         log("found service \(service)")
-		#endif
 		for interface in service.interfaces{
 			if case .loopback=interface.type{
-				#if DEBUG
                 log("ignoring localhost service")
-				#endif
 				return
 			}
 		}
 		guard let endpointID=endpointID(for: service) else {return}
-		#if DEBUG
         log("service name is valid, endpoint ID \(endpointID)")
-		#endif
 		var foundService=FoundServiceInfo(service: service)
 		
 		guard case let NWBrowser.Result.Metadata.bonjour(txtRecord)=service.metadata else {return}
