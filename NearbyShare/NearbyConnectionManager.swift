@@ -281,9 +281,9 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
                         for change in changes {
                             switch change {
                             case let .added(res):
-                                self.maybeAddFoundDevice(service: res)
+                                self.addFoundDevice(service: res)
                             case let .removed(res):
-                                self.maybeRemoveFoundDevice(service: res)
+                                self.removeFoundDevice(service: res)
                             default:
                                 log("Ignoring change \(change)")
                                 break
@@ -342,7 +342,7 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 		return endpointID
 	}
 	
-	private func maybeAddFoundDevice(service:NWBrowser.Result){
+	private func addFoundDevice(service:NWBrowser.Result){
         log("found service \(service)")
 		for interface in service.interfaces{
 			if case .loopback=interface.type{
@@ -371,7 +371,7 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 		}
 	}
 	
-	private func maybeRemoveFoundDevice(service:NWBrowser.Result){
+	private func removeFoundDevice(service:NWBrowser.Result){
 		guard let endpointID=endpointID(for: service) else {return}
 		guard let _=foundServices.removeValue(forKey: endpointID) else {return}
 		for delegate in shareExtensionDelegates {
