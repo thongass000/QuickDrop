@@ -15,6 +15,7 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "خطأ في الاتصال";
+"Error.PacketFilter" = "قد يحتوي جهاز Mac الخاص بك على مرشح حزم معطّل. افتح تفضيلات النظام > الشبكة > VPN & التصفية، وقم بتعطيل مرشح المحتوى لاستخدام QuickDrop.";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d ملفات";

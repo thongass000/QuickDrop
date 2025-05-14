@@ -305,11 +305,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 case .inputOutput:
                     description = "I/O Error";
                 case .protocolError(_):
-                    description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "")
+                    description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "") + "(\(ne.localizedDescription))"
+                case .packetFilterError:
+                    description = NSLocalizedString("Error.PacketFilter", value: "Communication error", comment: "")
                 case .requiredFieldMissing:
-                    description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "")
+                    description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "") + "(\(ne.localizedDescription))"
                 case .ukey2:
-                    description = NSLocalizedString("Error.Crypto", value: "Encryption error", comment: "")
+                    description = NSLocalizedString("Error.Crypto", value: "Encryption error", comment: "") + "(\(ne.localizedDescription))"
                 case .canceled(reason: _):
                     break; // can't happen for incoming transfers
                 }
@@ -328,7 +330,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             
             if let plusWindow = plusWindow {
                 log("Closing plus screen because of error")
-                self.plusWindow?.close()
+                plusWindow.close()
             }
             
             log("Showing alert with message: \"\(alert.messageText)\" and description: \"\(alert.informativeText)\"")

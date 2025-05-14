@@ -15,6 +15,7 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "การสื่อสารผิดพลาด";
+"Error.PacketFilter" = "Mac ของคุณอาจเปิดใช้ตัวกรองแพ็กเกจที่มีปัญหาอยู่ เปิดการตั้งค่าระบบ > เครือข่าย > VPN และตัวกรอง แล้วปิดตัวกรองเนื้อหาเพื่อใช้งาน QuickDrop";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d ไฟล์";

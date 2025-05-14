@@ -15,6 +15,7 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "通信出错";
+"Error.PacketFilter" = "你的 Mac 可能启用了有故障的数据包过滤器。请打开系统设置 > 网络 > VPN 与过滤器，并禁用内容过滤器以使用 QuickDrop。";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d files";

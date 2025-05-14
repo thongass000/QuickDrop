@@ -15,6 +15,7 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "Fehler bei der Datenübertragung";
+"Error.PacketFilter" = "Auf deinem Mac ist möglicherweise ein fehlerhafter Paketfilter aktiviert. Öffne Systemeinstellungen > Netzwerk > VPN & Filter und deaktiviere den Inhaltsfilter, um QuickDrop zu verwenden.";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d Dateien";

@@ -15,6 +15,7 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "Ошибка протокола";
+"Error.PacketFilter" = "На вашем Mac может быть включен неисправный фильтр пакетов. Откройте Системные настройки > Сеть > VPN и фильтры и отключите фильтр содержимого, чтобы использовать QuickDrop.";
 
 /* No comment provided by engineer. */
 /*"NFiles" = "%d файлов";*/

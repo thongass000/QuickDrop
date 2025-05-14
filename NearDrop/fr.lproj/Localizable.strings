@@ -15,6 +15,7 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "Erreur de communication";
+"Error.PacketFilter" = "Votre Mac peut avoir un filtre de paquets défectueux activé. Ouvrez Réglages système > Réseau > VPN et filtre, puis désactivez le filtre de contenu pour utiliser QuickDrop.";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d fichiers";

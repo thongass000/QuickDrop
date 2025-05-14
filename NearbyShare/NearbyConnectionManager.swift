@@ -52,6 +52,7 @@ public enum NearbyError: Error {
     case protocolError(_ message: String)
     case requiredFieldMissing(_ message: String)
     case ukey2
+    case packetFilterError
     case inputOutput
     case canceled(reason: CancellationReason)
 

@@ -15,6 +15,7 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "Помилка протоколу";
+"Error.PacketFilter" = "На вашому Mac може бути ввімкнено несправний фільтр пакетів. Відкрийте Системні налаштування > Мережа > VPN і фільтр та вимкніть фільтр вмісту, щоб скористатися QuickDrop.";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d files";

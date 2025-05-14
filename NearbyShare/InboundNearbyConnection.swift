@@ -67,30 +67,16 @@ class InboundNearbyConnection: NearbyConnection {
                 let frame = try Location_Nearby_Connections_OfflineFrame(serializedBytes: frameData)
                 try processConnectionResponseFrame(frame)
             default:
-                var smsg: Securemessage_SecureMessage
 
                 do {
-                    smsg = try Securemessage_SecureMessage(serializedBytes: frameData)
+                    let smsg = try Securemessage_SecureMessage(serializedBytes: frameData)
+                    try decryptAndProcessReceivedSecureMessage(smsg)
                 } catch {
-                    log("Error deserializing secure message. Trying again....")
-
-                    // last 32 bytes = HMAC key
-                    // change 2 bytes before to 0x12 0x20 for Protobuf to succeed
-
-                    if frameData.count < 34 {
-                        throw NearbyError.protocolError("Frame too short")
-                    }
-
-                    var newData = frameData
-                    let count = newData.count
-                    newData[count - 34] = 0x12
-                    newData[count - 33] = 0x20
-
-                    smsg = try Securemessage_SecureMessage(serializedBytes: newData)
-
-                    log("Secure message deserialized successfully after fixing Protobuf message")
+                    
+                    log("Error deserializing secure message (probably due to packet filter)")
+                    lastError = NearbyError.packetFilterError
+                    protocolError()
                 }
-                try decryptAndProcessReceivedSecureMessage(smsg)
             }
         } catch {
             lastError = error

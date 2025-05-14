@@ -15,6 +15,7 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "통신 오류";
+"Error.PacketFilter" = "Mac에서 오류가 있는 패킷 필터가 활성화되어 있을 수 있습니다. 시스템 설정 > 네트워크 > VPN 및 필터로 이동하여 콘텐츠 필터를 비활성화하면 QuickDrop을 사용할 수 있습니다.";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d개의 파일";

@@ -15,6 +15,7 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "Kommunikációs hiba";
+"Error.PacketFilter" = "Lehet, hogy a Mac-ed hibás csomagszűrőt használ. Nyisd meg a Rendszerbeállítások > Hálózat > VPN és szűrő menüt, és kapcsold ki a tartalomszűrőt a QuickDrop használatához.";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d fájl";

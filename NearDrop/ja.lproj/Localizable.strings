@@ -15,6 +15,7 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "通信エラー";
+"Error.PacketFilter" = "お使いのMacで不具合のあるパケットフィルターが有効になっている可能性があります。システム設定 > ネットワーク > VPNとフィルターを開き、コンテンツフィルターを無効にしてQuickDropを使用してください。";
 
 /* No comment provided by engineer. */
 "NFiles" = "%dつのファイル";
