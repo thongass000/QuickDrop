@@ -96,7 +96,7 @@ You also can send the current content of your Mac's clipboard to your Android de
             
 To send files from your Android device to your Mac, tap on the share icon on your phone, and select \"Quick Share\". Your Mac will be listed as an available device. Files will be saved in your Downloads folder.
 
-Important: Your Android device and your Mac need to be on the same WiFi network to transfer files. If you are promted to allow incoming connections, please allow them.";
+Important: Your Android device and your Mac need to be on the same WiFi network to transfer files.";
 
 "TroubleshootingDescription" = "If your Mac does not show up on your Android device or the transmission failed, try the following:
 

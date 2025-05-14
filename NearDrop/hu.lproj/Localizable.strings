@@ -92,7 +92,7 @@ A Mac vágólapjának aktuális tartalmát is elküldheted az Android-eszközöd
 
 Ha fájlokat szeretnél küldeni Android-eszközödről Mac-re, érintsd meg a megosztás ikont a telefonodon, majd válaszd a \"Quick Share\" lehetőséget. A Mac-ed megjelenik az elérhető eszközök listájában. A fájlok a Letöltések mappába kerülnek.
 
-Fontos: Az Android-eszközödnek és a Mac-ednek ugyanazon a WiFi hálózaton kell lennie a fájlátvitelhez. Ha engedélyezési kérés jelenik meg a bejövő kapcsolatokhoz, fogadd el.";
+Fontos: Az Android-eszközödnek és a Mac-ednek ugyanazon a WiFi hálózaton kell lennie a fájlátvitelhez.";
 
 "TroubleshootingDescription" = "Ha a Mac-ed nem jelenik meg az Android eszközödön, vagy az átvitel sikertelen volt, próbáld ki a következőket:
 

@@ -91,7 +91,7 @@ Android용 QuickDrop 베타에 저를 추가해 주세요.
 
 Android 기기에서 Mac으로 파일을 보내려면 휴대폰에서 공유 아이콘을 누른 후 \"Quick Share\"를 선택하세요. Mac이 사용 가능한 장치 목록에 표시됩니다. 파일은 다운로드 폴더에 저장됩니다.
 
-중요: Android 기기와 Mac이 동일한 WiFi 네트워크에 있어야 파일을 전송할 수 있습니다. 수신 연결을 허용하라는 메시지가 표시되면 허용하세요.";
+중요: Android 기기와 Mac이 동일한 WiFi 네트워크에 있어야 파일을 전송할 수 있습니다.";
 
 "TroubleshootingDescription" = "Mac이 Android 기기에 표시되지 않거나 전송이 실패한 경우 다음을 시도하세요:
 

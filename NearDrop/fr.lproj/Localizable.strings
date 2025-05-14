@@ -91,7 +91,7 @@ Vous pouvez également envoyer le contenu actuel du presse-papiers de votre Mac 
 
 Pour envoyer des fichiers depuis votre appareil Android vers votre Mac, appuyez sur l'icône de partage sur votre téléphone et sélectionnez \"Quick Share\". Votre Mac apparaîtra comme un appareil disponible. Les fichiers seront enregistrés dans votre dossier Téléchargements.
 
-Important : votre appareil Android et votre Mac doivent être connectés au même réseau WiFi pour transférer des fichiers. Si une demande d'autorisation de connexions entrantes apparaît, veuillez l'accepter.";
+Important : votre appareil Android et votre Mac doivent être connectés au même réseau WiFi pour transférer des fichiers.";
 
 "TroubleshootingDescription" = "Si votre Mac n'apparaît pas sur votre appareil Android ou si la transmission a échoué, essayez les solutions suivantes :
 
