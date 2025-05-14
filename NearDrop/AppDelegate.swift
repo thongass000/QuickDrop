@@ -326,6 +326,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             alert.addButton(withTitle: "InformDeveloper".localized())
             alert.addButton(withTitle: "CloseAlert".localized())
             
+            if let plusWindow = plusWindow {
+                log("Closing plus screen because of error")
+                self.plusWindow?.close()
+            }
+            
             log("Showing alert with message: \"\(alert.messageText)\" and description: \"\(alert.informativeText)\"")
             
             let result = alert.runModal()
