@@ -20,7 +20,9 @@ struct IssueView: View {
     let description: String
     
     var actionLabel: String? = nil
-    var action: (() -> Void)? = nil
+    var action: (() async -> Void)? = nil
+    
+    @State var isLoading = false
     
     var body: some View {
         
@@ -67,8 +69,25 @@ struct IssueView: View {
       
             if let actionLabel = actionLabel, let action = action {
                 Button(actionLabel) {
-                    action()
+                    
+                    withAnimation {
+                        isLoading = true
+                    }
+                    
+                    Task {
+                        await action()
+                        
+                        withAnimation {
+                            isLoading = false
+                        }
+                    }
                 }
+                .opacity(isLoading ? 0 : 1)
+                .overlay(
+                    ProgressView()
+                        .opacity(isLoading ? 1 : 0)
+                        .scaleEffect(0.7)
+                    )
                 .padding(.bottom, 30)
             }
         }

@@ -17,27 +17,33 @@ struct ApIsolationIssueView: View {
     var body: some View {
         
         IssueView(image: .router, header: "ApIsolationHeader".localized(), description: "ApIsolationDescription".localized(), actionLabel: "ApIsolationAction".localized()) {
-            openRouterSettingsPage()
+            await openRouterSettingsPage()
         }
     }
 }
 
+fileprivate let routerCheckQueue = DispatchQueue(label: "routerCheckQueue")
 
-func openRouterSettingsPage() {
-    guard let routerIP = getDefaultGatewayIP() else {
-        
+
+func openRouterSettingsPage() async {
+    let routerIP: String? = await withCheckedContinuation { continuation in
+        DispatchQueue.global(qos: .userInitiated).async {
+            let ip = getDefaultGatewayIP()
+            continuation.resume(returning: ip)
+        }
+    }
+
+    guard let routerIP else {
         DispatchQueue.main.async {
             let alert = NSAlert()
             alert.alertStyle = .critical
-            
+
             alert.messageText = "ApIsolationFindRouterFailedHeader".localized()
             alert.informativeText = "ApIsolationFindRouterFailedDescription".localized()
-            
             alert.addButton(withTitle: "CloseAlert".localized())
 
-            let _ = alert.runModal()
+            alert.runModal()
         }
-
         return
     }
 

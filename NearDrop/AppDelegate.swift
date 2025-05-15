@@ -205,16 +205,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     func openAlert(type: AlertType) {
-        
-        // Create an NSWindow to host the SwiftUI view
-        let alertWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: issueViewWidth, height: issueViewHeight),
-            styleMask: [.titled, .closable],
-            backing: .buffered,
-            defer: false
-        )
-        
-        switch type {
+        DispatchQueue.main.async { [self] in
+            
+            // Create an NSWindow to host the SwiftUI view
+            let alertWindow = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: issueViewWidth, height: issueViewHeight),
+                styleMask: [.titled, .closable],
+                backing: .buffered,
+                defer: false
+            )
+            
+            switch type {
             case .ApIsolation:
                 apIsolationAlertWindow = alertWindow
                 alertWindow.contentView = NSHostingView(rootView: ApIsolationIssueView())
@@ -224,16 +225,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             case .Firewall:
                 firewallAlertWindow = alertWindow
                 alertWindow.contentView = NSHostingView(rootView: FirewallIssueView())
+            }
+            
+            alertWindow.title = "QuickDrop"
+            alertWindow.center()
+            alertWindow.isReleasedWhenClosed = false
+            alertWindow.setFrameAutosaveName(type.rawValue)
+            
+            NSApp.activate(ignoringOtherApps: true)
+            alertWindow.makeKeyAndOrderFront(nil)
+            alertWindow.level = .normal
         }
-    
-        alertWindow.title = "QuickDrop"
-        alertWindow.center()
-        alertWindow.isReleasedWhenClosed = false
-        alertWindow.setFrameAutosaveName(type.rawValue)
-        
-        NSApp.activate(ignoringOtherApps: true)
-        alertWindow.makeKeyAndOrderFront(nil)
-        alertWindow.level = .normal
     }
 
     
