@@ -138,3 +138,42 @@ Je kunt ook proberen de aparte QuickDrop-app voor Android te gebruiken. Voor mee
 "TimeoutTitle" = "Er is iets misgegaan";
 "TimeoutDescription" = "QuickDrop kon geen verbinding maken met je telefoon. Open de instellingen van je Android-apparaat en zoek naar 'Quick Share'. Wijzig de instelling 'Wie kan met je delen' naar 'Iedereen' en probeer het opnieuw.";
 "TimeoutButton" = "Oké";  
+
+"ApIsolationHeader" = "Je router staat mogelijk geen communicatie tussen apparaten toe";
+"ApIsolationDescription" = "QuickDrop heeft vastgesteld dat je Wi-Fi-router mogelijk communicatie tussen apparaten blokkeert. Om bestanden over te zetten tussen je telefoon en je Mac, moet je clientisolatie uitschakelen (ook wel AP-isolatie of Wi-Fi-isolatie genoemd).
+
+Zo schakel je het uit:
+
+1. Log in op je router: Open een webbrowser en voer het IP-adres van je router in (meestal 192.168.0.1 of 192.168.1.1), of gebruik de knop onderaan deze pagina. Log in met je beheerder gebruikersnaam en wachtwoord. (Controleer het etiket op je router of de handleiding als je het niet zeker weet.)
+
+2. Zoek de instelling: Kijk in secties zoals \"Draadloze instellingen\", \"Geavanceerde instellingen\" of \"Beveiliging\". Zoek naar opties zoals \"AP-isolatie\", \"Clientisolatie\", \"Draadloze isolatie\" of \"Intra-BSS-blokkering\".
+
+3. Schakel het uit: Zorg ervoor dat deze instelling is uitgeschakeld. Sla de wijzigingen op en herstart de router indien nodig.
+
+Zodra dit is uitgeschakeld, kunnen apparaten op je Wi-Fi-netwerk (zoals je telefoon en Mac) elkaar vinden en verbinden.";
+"ApIsolationAction" = "Routerinstellingen openen";
+
+"ApIsolationFindRouterFailedHeader" = "Kon router-IP niet vinden";
+"ApIsolationFindRouterFailedDescription" = "QuickDrop kon het adres van je router niet bepalen. Raadpleeg de gebruikershandleiding van je Wi-Fi-router om het adres te vinden.";
+
+
+"FirewallHeader" = "Een firewall kan inkomende bestandsoverdrachten blokkeren";
+"FirewallDescription" = "QuickDrop heeft vastgesteld dat een firewall mogelijk verhindert dat je Android-apparaat verbinding maakt met je Mac. Firewalls worden standaard gebruikt om inkomende verbindingen te blokkeren. Om bestanden te ontvangen, moeten inkomende verbindingen worden toegestaan, omdat je telefoon probeert verbinding te maken met je Mac – wat een inkomende verbinding creëert.
+
+Je gebruikt waarschijnlijk een antivirusprogramma op je Mac. Je hebt twee opties:
+
+1. Sta inkomende verbindingen toe voor QuickDrop in je firewallinstellingen. Deze procedure varieert per programma, dus je moet mogelijk de fabrikant van je firewall-/antivirussoftware raadplegen over hoe dit moet worden gedaan.
+
+2. Schakel de firewall van je antivirussoftware uit en gebruik in plaats daarvan de ingebouwde firewall van de Mac. De firewall van Apple is geoptimaliseerd voor QuickDrop.
+
+Zo schakel je de firewall van je antivirusprogramma uit: Open Systeeminstellingen op je Mac, navigeer naar Netwerk > VPN en Filter, en schakel het inhoudsfilter uit. Ga vervolgens naar Netwerk > Firewall en schakel de firewall van de Mac in.
+
+Zodra dit is gedaan, kan je telefoon verbinding maken met je Mac.";
+
+
+"NetworkFilterHeader" = "Een pakketfilter kan bestandoverdracht verhinderen";
+"NetworkFilterDescription" = "QuickDrop heeft vastgesteld dat een programma op je Mac het netwerkverkeer wijzigt. Hierdoor kon het bestand dat je probeerde te verzenden vanaf je Android-apparaat niet worden ontsleuteld.
+
+Je Mac heeft mogelijk een defect pakketfilter ingeschakeld, mogelijk geïnstalleerd door antivirussoftware (zoals ESET). Ga naar Systeeminstellingen > Netwerk > VPN en Filter en schakel het inhoudsfilter uit.
+
+Daarna zou je bestanden succesvol moeten kunnen overdragen.";

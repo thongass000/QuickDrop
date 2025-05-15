@@ -137,3 +137,42 @@ De asemenea, poți încerca să folosești aplicația QuickDrop separată pentru
 "TimeoutTitle" = "Ceva nu a mers bine";
 "TimeoutDescription" = "QuickDrop nu a reușit să se conecteze la telefonul tău. Deschide setările dispozitivului Android și caută 'Quick Share'. Schimbă setarea 'Cine poate partaja cu tine' pe 'Toată lumea' și încearcă din nou.";
 "TimeoutButton" = "OK";  
+
+"ApIsolationHeader" = "Este posibil ca routerul tău să nu permită comunicarea între dispozitive";
+"ApIsolationDescription" = "QuickDrop a detectat că routerul tău Wi-Fi ar putea bloca comunicarea între dispozitive. Pentru a transfera fișiere între telefon și Mac, va trebui să dezactivezi izolarea clienților (cunoscută și ca izolare AP sau izolare Wi-Fi).
+
+Iată cum o poți dezactiva:
+
+1. Conectează-te la router: Deschide un browser web și introdu adresa IP a routerului (de obicei 192.168.0.1 sau 192.168.1.1), sau folosește butonul din partea de jos a paginii. Autentifică-te cu numele de utilizator și parola de administrator. (Verifică eticheta routerului sau manualul dacă nu ești sigur.)
+
+2. Găsește setarea: Caută în secțiuni precum \"Setări wireless\", \"Setări avansate\" sau \"Securitate\". Caută opțiuni precum \"Izolare AP\", \"Izolare client\", \"Izolare wireless\" sau \"Blocare Intra-BSS\".
+
+3. Dezactivează: Asigură-te că această setare este dezactivată. Salvează modificările și repornește routerul dacă este necesar.
+
+După dezactivare, dispozitivele din rețeaua Wi-Fi (precum telefonul și Mac-ul) se vor putea detecta și conecta între ele.";
+"ApIsolationAction" = "Deschide setările routerului";
+
+"ApIsolationFindRouterFailedHeader" = "Nu s-a putut găsi IP-ul routerului";
+"ApIsolationFindRouterFailedDescription" = "QuickDrop nu a putut determina adresa routerului tău. Te rugăm să consulți manualul de utilizare al routerului Wi-Fi pentru a obține această adresă.";
+
+
+"FirewallHeader" = "Un firewall poate bloca transferurile de fișiere primite";
+"FirewallDescription" = "QuickDrop a detectat că un firewall poate împiedica dispozitivul Android să se conecteze la Mac-ul dvs. Firewall-urile sunt utilizate pentru a bloca implicit conexiunile de intrare. Pentru a primi fișiere, trebuie să permiteți conexiunile de intrare, deoarece telefonul dvs. încearcă să se conecteze la Mac – creând o conexiune de intrare.
+
+Este probabil să utilizați un program antivirus pe Mac. Aveți două opțiuni:
+
+1. Permiteți conexiunile de intrare pentru QuickDrop în setările firewall-ului dvs. Procedura variază în funcție de program, așa că poate fi necesar să contactați producătorul software-ului de firewall/antivirus pentru instrucțiuni.
+
+2. Dezactivați firewall-ul din software-ul antivirus și utilizați firewall-ul integrat din macOS. Firewall-ul Apple este optimizat pentru QuickDrop.
+
+Iată cum puteți dezactiva firewall-ul programului antivirus: Deschideți Setările Sistemului pe Mac, mergeți la Rețea > VPN și Filtrare, apoi dezactivați filtrul de conținut. Apoi mergeți la Rețea > Firewall și activați firewall-ul de pe Mac.
+
+După ce faceți acest lucru, telefonul dvs. va putea să se conecteze la Mac.";
+
+
+"NetworkFilterHeader" = "Un filtru de pachete ar putea împiedica transferul de fișiere";
+"NetworkFilterDescription" = "QuickDrop a detectat că un program instalat pe Mac-ul tău modifică traficul de rețea. Din această cauză, fișierul pe care ai încercat să-l trimiți de pe dispozitivul Android nu a putut fi decriptat.
+
+Este posibil ca Mac-ul tău să aibă activat un filtru de pachete defect, instalat de un program antivirus (de exemplu, ESET). Deschide Preferințe Sistem > Rețea > VPN și Filtru și dezactivează filtrul de conținut.
+
+După ce faci acest lucru, ar trebui să poți transfera fișiere cu succes.";

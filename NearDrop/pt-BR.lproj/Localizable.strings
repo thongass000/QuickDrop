@@ -138,3 +138,43 @@ Você também pode tentar usar o aplicativo QuickDrop separado para Android. Par
 "TimeoutTitle" = "Algo deu errado";
 "TimeoutDescription" = "O QuickDrop não conseguiu se conectar ao seu telefone. Abra as configurações do seu dispositivo Android e procure por 'Quick Share'. Altere a configuração 'Quem pode compartilhar com você' para 'Todos' e tente novamente.";
 "TimeoutButton" = "Ok";  
+
+"ApIsolationHeader" = "Seu roteador pode não permitir comunicação entre dispositivos";
+"ApIsolationDescription" = "O QuickDrop detectou que seu roteador Wi-Fi pode estar bloqueando a comunicação entre dispositivos. Para transferir arquivos entre seu telefone e seu Mac, será necessário desativar o isolamento de clientes (também conhecido como isolamento AP ou isolamento Wi-Fi).
+
+Veja como desativá-lo:
+
+1. Acesse seu roteador: Abra um navegador da web e digite o endereço IP do seu roteador (geralmente 192.168.0.1 ou 192.168.1.1), ou utilize o botão na parte inferior desta página. Faça login com seu nome de usuário e senha de administrador. (Consulte a etiqueta ou o manual do roteador se não tiver certeza.)
+
+2. Encontre a configuração: Procure em seções como Configurações sem fio, Configurações avançadas ou Segurança. Procure por opções chamadas “Isolamento AP”, “Isolamento de Clientes”, “Isolamento Sem Fio” ou “Bloqueio Intra-BSS”.
+
+3. Desative-a: Certifique-se de que essa configuração esteja desativada. Salve as alterações e reinicie o roteador, se necessário.
+
+Uma vez desativado, os dispositivos na sua rede Wi-Fi (como seu telefone e Mac) poderão se descobrir e se conectar entre si.";
+"ApIsolationAction" = "Abrir configurações do roteador";
+
+"ApIsolationFindRouterFailedHeader" = "Não foi possível encontrar o IP do roteador";
+"ApIsolationFindRouterFailedDescription" = "O QuickDrop não conseguiu determinar o endereço do seu roteador. Consulte o manual do usuário do seu roteador Wi-Fi para obter o endereço.";
+
+
+"FirewallHeader" = "Um firewall pode bloquear transferências de arquivos recebidos";
+"FirewallDescription" = "O QuickDrop detectou que um firewall pode impedir que seu dispositivo Android se conecte ao seu Mac. Firewalls são usados para bloquear conexões de entrada por padrão. Para receber arquivos, é necessário permitir conexões de entrada, pois seu telefone tenta se conectar ao seu Mac – criando uma conexão de entrada.
+
+É provável que você esteja usando um programa antivírus no seu Mac. Você tem duas opções:
+
+1. Permitir conexões de entrada para o QuickDrop nas configurações do seu firewall. Esse procedimento varia de acordo com o programa, portanto, você pode precisar consultar o fabricante do seu software de firewall/antivírus sobre como fazer isso.
+
+2. Desativar o firewall do seu software antivírus e usar o firewall integrado do Mac. O firewall da Apple é otimizado para o QuickDrop.
+
+Veja como desativar o firewall do seu programa antivírus: Abra as Configurações do Sistema no seu Mac, vá para Rede > VPN e Filtro, e desative o filtro de conteúdo. Em seguida, vá para Rede > Firewall e ative o firewall do Mac.
+
+Depois de feito isso, seu telefone poderá se conectar ao seu Mac.";
+
+
+"NetworkFilterHeader" = "Um filtro de pacotes pode impedir a transferência de arquivos";
+"NetworkFilterDescription" = "O QuickDrop detectou que um programa instalado no seu Mac está modificando o tráfego de rede. Como resultado, o arquivo que você tentou enviar do seu dispositivo Android não pôde ser descriptografado.
+
+Pode haver um filtro de pacotes com defeito ativado no seu Mac, possivelmente instalado por um antivírus (por exemplo, ESET). Abra Preferências do Sistema > Rede > VPN e Filtro e desative o filtro de conteúdo.
+
+Depois disso, você deve conseguir transferir arquivos com sucesso.";
+

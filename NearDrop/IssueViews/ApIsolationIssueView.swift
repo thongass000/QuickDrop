@@ -16,19 +16,7 @@ struct ApIsolationIssueView: View {
     
     var body: some View {
         
-        IssueView(image: .router, header: "Your router might not allow device-to-device communication", description: """
-QuickDrop has detected that your Wi-Fi router might block devices from talking to each other. To transfer files between your phone and your Mac, you’ll need to disable client isolation (also known as AP isolation or Wi-Fi isolation).
-
-Here’s how to disable it:
-
-1.    Log into your router: Open a web browser and enter your router’s IP address (usually 192.168.0.1 or 192.168.1.1), or use the button on the bottom of this page. Log in with your admin username and password. (Check your router label or manual if you’re unsure.)
-
-2.    Find the setting: Look under sections like Wireless Settings, Advanced Settings, or Security. Look for options named “AP Isolation”, “Client Isolation”, “Wireless Isolation”, or “Intra-BSS Blocking”.
-
-3.    Disable it: Make sure this setting is turned off. Save your changes and reboot the router if necessary.
-
-Once disabled, devices on your Wi-Fi (like your phone and Mac) will be able to discover and connect to each other.
-""", actionLabel: "Open Router Settings") {
+        IssueView(image: .router, header: "ApIsolationHeader".localized(), description: "ApIsolationDescription".localized(), actionLabel: "ApIsolationAction".localized()) {
             openRouterSettingsPage()
         }
     }
@@ -42,8 +30,8 @@ func openRouterSettingsPage() {
             let alert = NSAlert()
             alert.alertStyle = .critical
             
-            alert.messageText = "Could not find router IP"
-            alert.informativeText = "QuickDrop was not able to determine the address of your router. Please refer to the user manual of your Wi-Fi router to obtain its address."
+            alert.messageText = "ApIsolationFindRouterFailedHeader".localized()
+            alert.informativeText = "ApIsolationFindRouterFailedDescription".localized()
             
             alert.addButton(withTitle: "CloseAlert".localized())
 
@@ -70,7 +58,7 @@ func getDefaultGatewayIP() -> String? {
             if isHostReachable(gateway) {
                 return gateway
             } else {
-                print("Gateway \(gateway) not reachable.")
+                log("Gateway \(gateway) not reachable.")
                 return nil
             }
         }

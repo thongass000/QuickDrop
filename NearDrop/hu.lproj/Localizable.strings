@@ -139,3 +139,42 @@ Emellett kipróbálhatod az Androidra készült különálló QuickDrop alkalmaz
 "TimeoutTitle" = "Valami hiba történt";
 "TimeoutDescription" = "A QuickDrop nem tudott csatlakozni a telefonodhoz. Nyisd meg az Android beállításait, és keresd meg a 'Quick Share' beállítást. Állítsd át a 'Ki oszthat meg veled' opciót 'Mindenki'-re, majd próbáld újra.";
 "TimeoutButton" = "Rendben";  
+
+"ApIsolationHeader" = "Lehet, hogy a routered nem engedélyezi az eszközök közötti kommunikációt";
+"ApIsolationDescription" = "A QuickDrop észlelte, hogy a Wi-Fi routered blokkolhatja az eszközök közötti kommunikációt. Ahhoz, hogy fájlokat tudj átküldeni a telefonod és a Mac-ed között, ki kell kapcsolnod a kliens izolációt (más néven AP izoláció vagy Wi-Fi izoláció).
+
+Így tudod kikapcsolni:
+
+1. Jelentkezz be a routeredbe: Nyiss meg egy böngészőt, és írd be a routered IP-címét (általában 192.168.0.1 vagy 192.168.1.1), vagy használd az oldal alján található gombot. Jelentkezz be az adminisztrátori felhasználónévvel és jelszóval. (Ha nem vagy biztos benne, nézd meg a router címkéjét vagy kézikönyvét.)
+
+2. Keresd meg a beállítást: Nézd meg a Vezeték nélküli beállítások, Haladó beállítások vagy Biztonság szekciókat. Keresd az „AP izoláció”, „Kliens izoláció”, „Vezeték nélküli izoláció” vagy „Intra-BSS blokkolás” nevű opciókat.
+
+3. Kapcsold ki: Győződj meg róla, hogy ez a beállítás ki van kapcsolva. Mentsd el a módosításokat, és indítsd újra a routert, ha szükséges.
+
+Miután kikapcsoltad, a Wi-Fi hálózatodon lévő eszközök (például a telefonod és a Mac-ed) képesek lesznek felfedezni és csatlakozni egymáshoz.";
+"ApIsolationAction" = "Router beállításainak megnyitása";
+
+"ApIsolationFindRouterFailedHeader" = "Nem sikerült megtalálni a router IP-címét";
+"ApIsolationFindRouterFailedDescription" = "A QuickDrop nem tudta meghatározni a routered címét. Kérlek, nézd meg a Wi-Fi routered felhasználói kézikönyvét a cím megtudásához.";
+
+
+"FirewallHeader" = "A tűzfal blokkolhatja a bejövő fájlátvitelek fogadását";
+"FirewallDescription" = "A QuickDrop észlelte, hogy egy tűzfal megakadályozhatja, hogy Android-eszköze csatlakozzon a Mac számítógépéhez. A tűzfalak alapértelmezés szerint blokkolják a bejövő kapcsolatokat. A fájlok fogadásához engedélyezni kell a bejövő kapcsolatokat, mivel a telefonja megpróbál csatlakozni a Mac-hez – vagyis bejövő kapcsolatot kezdeményez.
+
+Valószínűleg vírusvédelmi programot használ a Mac-en. Két lehetősége van:
+
+1. Engedélyezze a bejövő kapcsolatokat a QuickDrop számára a tűzfal beállításaiban. Ez az eljárás programonként eltérhet, ezért szükség lehet arra, hogy kapcsolatba lépjen a tűzfalat vagy vírusirtót gyártó céggel a pontos útmutatásért.
+
+2. Tiltsa le a vírusirtó szoftver tűzfalát, és használja a macOS beépített tűzfalát. Az Apple tűzfala optimalizálva van a QuickDrop használatához.
+
+Így kapcsolhatja ki a vírusirtó tűzfalát: Nyissa meg a Rendszerbeállításokat a Mac-en, menjen a Hálózat > VPN és Szűrés menüpontra, és kapcsolja ki a tartalomszűrőt. Ezután menjen a Hálózat > Tűzfal részhez, és kapcsolja be a Mac tűzfalát.
+
+Ezek után a telefonja csatlakozni tud majd a Mac-hez.";
+
+
+"NetworkFilterHeader" = "Egy csomagszűrő megakadályozhatja a fájlátvitelt";
+"NetworkFilterDescription" = "A QuickDrop észlelte, hogy egy, a Mac gépére telepített program módosítja a hálózati forgalmat. Ennek következtében az Android-eszközről küldött fájl nem volt dekódolható.
+
+Lehet, hogy a Mac gépén egy hibás csomagszűrő van engedélyezve, amelyet egy antivírus program (pl. ESET) telepített. Nyissa meg a Rendszerbeállítások > Hálózat > VPN és Szűrés menüpontot, és kapcsolja ki a tartalomszűrőt.
+
+Ezután a fájlátvitelnek sikeresnek kell lennie.";

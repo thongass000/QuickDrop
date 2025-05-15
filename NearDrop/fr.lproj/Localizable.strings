@@ -138,3 +138,42 @@ Vous pouvez également essayer d'utiliser l'application QuickDrop distincte pour
 "TimeoutTitle" = "Un problème est survenu";
 "TimeoutDescription" = "QuickDrop n’a pas pu se connecter à votre téléphone. Ouvrez les paramètres de votre appareil Android et recherchez 'Quick Share'. Modifiez le paramètre 'Qui peut partager avec vous' sur 'Tout le monde', puis réessayez.";
 "TimeoutButton" = "D'accord";  
+
+"ApIsolationHeader" = "Votre routeur pourrait ne pas autoriser la communication entre appareils";
+"ApIsolationDescription" = "QuickDrop a détecté que votre routeur Wi-Fi pourrait empêcher les appareils de communiquer entre eux. Pour transférer des fichiers entre votre téléphone et votre Mac, vous devez désactiver l’isolation client (également appelée isolation AP ou isolation Wi-Fi).
+
+Voici comment la désactiver :
+
+1. Connectez-vous à votre routeur : Ouvrez un navigateur web et entrez l’adresse IP de votre routeur (généralement 192.168.0.1 ou 192.168.1.1), ou utilisez le bouton en bas de cette page. Connectez-vous avec votre nom d’utilisateur et mot de passe administrateur. (Consultez l’étiquette ou le manuel du routeur si vous ne les connaissez pas.)
+
+2. Trouvez le paramètre : Recherchez dans les sections \"Paramètres sans fil\", \"Paramètres avancés\" ou \"Sécurité\". Recherchez des options comme \"Isolation AP\", \"Isolation client\", \"Isolation sans fil\" ou \"Blocage Intra-BSS\".
+
+3. Désactivez-le : Assurez-vous que ce paramètre est désactivé. Sauvegardez les modifications et redémarrez le routeur si nécessaire.
+
+Une fois désactivée, les appareils de votre réseau Wi-Fi (comme votre téléphone et votre Mac) pourront se détecter et se connecter entre eux.";
+"ApIsolationAction" = "Ouvrir les paramètres du routeur";
+
+"ApIsolationFindRouterFailedHeader" = "Impossible de trouver l’adresse IP du routeur";
+"ApIsolationFindRouterFailedDescription" = "QuickDrop n’a pas pu déterminer l’adresse de votre routeur. Veuillez consulter le manuel d’utilisation de votre routeur Wi-Fi pour l’obtenir.";
+
+
+"FirewallHeader" = "Un pare-feu peut bloquer les transferts de fichiers entrants";
+"FirewallDescription" = "QuickDrop a détecté qu'un pare-feu pourrait empêcher votre appareil Android de se connecter à votre Mac. Les pare-feu bloquent par défaut les connexions entrantes. Pour recevoir des fichiers, vous devez autoriser les connexions entrantes, car votre téléphone tente de se connecter à votre Mac – créant ainsi une connexion entrante.
+
+Il est probable que vous utilisiez un programme antivirus sur votre Mac. Vous avez deux options :
+
+1. Autoriser les connexions entrantes pour QuickDrop dans les paramètres de votre pare-feu. Cette procédure varie selon le programme, vous devrez donc peut-être contacter le fabricant de votre logiciel de pare-feu/antivirus pour savoir comment procéder.
+
+2. Désactiver le pare-feu de votre logiciel antivirus et utiliser le pare-feu intégré du Mac. Le pare-feu d'Apple est optimisé pour QuickDrop.
+
+Voici comment désactiver le pare-feu de votre programme antivirus : Ouvrez les Réglages Système sur votre Mac, allez dans Réseau > VPN et Filtrage, puis désactivez le filtre de contenu. Ensuite, allez dans Réseau > Pare-feu et activez le pare-feu du Mac.
+
+Une fois cela fait, votre téléphone pourra se connecter à votre Mac.";
+
+
+"NetworkFilterHeader" = "Un filtre de paquets peut empêcher le transfert de fichiers";
+"NetworkFilterDescription" = "QuickDrop a détecté qu’un programme installé sur votre Mac modifie le trafic réseau. En conséquence, le fichier que vous avez essayé d’envoyer depuis votre appareil Android n’a pas pu être déchiffré.
+
+Votre Mac pourrait avoir un filtre de paquets défectueux activé, installé par exemple par un antivirus (comme ESET). Ouvrez Réglages Système > Réseau > VPN et Filtrage, puis désactivez le filtre de contenu.
+
+Une fois cela fait, vous devriez pouvoir transférer des fichiers sans problème.";

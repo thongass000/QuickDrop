@@ -147,3 +147,42 @@ Also, you can try to use the separate QuickDrop app for Android. For more inform
 "TimeoutTitle" = "Something went wrong";
 "TimeoutDescription" = "QuickDrop could not connect to your phone. Please open the settings of your Android device and search for 'Quick Share'. Change the setting 'Who can share with you' to 'Everyone', and try again.";
 "TimeoutButton" = "Okay";
+
+"ApIsolationHeader" = "Your router might not allow device-to-device communication";
+"ApIsolationDescription" = "QuickDrop has detected that your Wi-Fi router might block devices from talking to each other. To transfer files between your phone and your Mac, you’ll need to disable client isolation (also known as AP isolation or Wi-Fi isolation).
+
+Here’s how to disable it:
+
+1.    Log into your router: Open a web browser and enter your router’s IP address (usually 192.168.0.1 or 192.168.1.1), or use the button on the bottom of this page. Log in with your admin username and password. (Check your router label or manual if you’re unsure.)
+
+2.    Find the setting: Look under sections like Wireless Settings, Advanced Settings, or Security. Look for options named “AP Isolation”, “Client Isolation”, “Wireless Isolation”, or “Intra-BSS Blocking”.
+
+3.    Disable it: Make sure this setting is turned off. Save your changes and reboot the router if necessary.
+
+Once disabled, devices on your Wi-Fi (like your phone and Mac) will be able to discover and connect to each other.";
+"ApIsolationAction" = "Open Router Settings";
+
+"ApIsolationFindRouterFailedHeader" = "Could not find router IP";
+"ApIsolationFindRouterFailedDescription" = "QuickDrop was not able to determine the address of your router. Please refer to the user manual of your Wi-Fi router to obtain its address.";
+
+
+"FirewallHeader" = "A firewall might block incoming file transfers";
+"FirewallDescription" = "QuickDrop has detected that a firewall might prevent that your Android device can connect to your Mac. Firewalls are used to block incoming connections per default. For receiving files, it is required that incoming connections are allowed. This is because your phone tries to connect to your Mac – creating an incoming connection.
+
+You most likely use an antivirus program on your Mac. You have two options:
+
+1.    Allow incoming connections for QuickDrop in your firewall settings. This procedure varies with every program, so you may have to ask the manufacturer of your firewall/antivirus software how this can be done.
+
+2.    Disable the firewall of your antivirus software, and use the Mac's inbuilt firewall instead. Apple's firewall is optimized for QuickDrop.
+
+Here’s how to disable the firewall of your antivirus program: Open System Settings on your Mac, navigate to Network > VPN & Filter, and disable the content filter. Then, navigate to Network > Firewall and click the toggle to enable the Mac's firewall.
+
+Once this is done, your phone will be able to connect to your Mac.";
+
+
+"NetworkFilterHeader" = "A packet filter might prevent file transfer";
+"NetworkFilterDescription" = "QuickDrop has detected that a program installed on your Mac modifies network traffic. As a result of that, the file you tried to send from your Android device could not be decrypted.
+
+Your Mac may have a faulty packet filter enabled, which might be installed by your antivirus program (e.g., ESET). Open System Preferences > Network > VPN & Filter and disable the content filter.
+
+Once this is done, you should be able to transfer files successfully.";

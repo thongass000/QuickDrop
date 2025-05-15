@@ -58,6 +58,7 @@ struct IssueView: View {
             Text(header)
                 .font(.title2)
                 .fontWeight(.bold)
+                .multilineTextAlignment(.center)
             
             Text(description)
                 .fixedSize(horizontal: false, vertical: true)

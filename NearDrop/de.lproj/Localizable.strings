@@ -140,3 +140,42 @@ Du kannst auch versuchen, die separate QuickDrop-App für Android zu verwenden. 
 "TimeoutTitle" = "Etwas ist schiefgelaufen";
 "TimeoutDescription" = "QuickDrop konnte keine Verbindung zu deinem Telefon herstellen. Öffne die Einstellungen deines Android-Geräts und suche nach 'Quick Share'. Ändere die Einstellung 'Wer kann mit dir teilen' auf 'Jeder' und versuche es erneut.";
 "TimeoutButton" = "OK";
+
+"ApIsolationHeader" = "Dein Router erlaubt möglicherweise keine Kommunikation zwischen Geräten";
+"ApIsolationDescription" = "QuickDrop hat erkannt, dass dein WLAN-Router möglicherweise verhindert, dass Geräte miteinander kommunizieren. Um Dateien zwischen deinem Telefon und deinem Mac zu übertragen, musst du die Client-Isolierung (auch bekannt als AP-Isolation oder WLAN-Isolation) deaktivieren.
+
+So deaktivierst du sie:
+
+1. Melde dich bei deinem Router an: Öffne einen Webbrowser und gib die IP-Adresse deines Routers ein (normalerweise 192.168.0.1 oder 192.168.1.1), oder verwende die Schaltfläche unten auf dieser Seite. Melde dich mit deinem Admin-Benutzernamen und Passwort an. (Sieh auf dem Etikett deines Routers oder im Handbuch nach, wenn du unsicher bist.)
+
+2. Finde die Einstellung: Suche in Abschnitten wie WLAN-Einstellungen, Erweiterte Einstellungen oder Sicherheit. Suche nach Optionen mit den Namen „AP-Isolation“, „Client-Isolation“, „WLAN-Isolation“ oder „Intra-BSS-Blocking“. Bei einer Fritz!Box muss die Einstellung „Die angezeigten WLAN-Geräte dürfen untereinander kommunizieren“ unter „WLAN“ > „Funknetz“ aktiviert werden.
+
+3. Deaktivieren: Stelle sicher, dass diese Einstellung deaktiviert (oder bei der Fritz!Box aktiviert) ist. Speichere die Änderungen und starte den Router bei Bedarf neu.
+
+Anschließend können sich Geräte in deinem WLAN (wie dein Telefon und Mac) gegenseitig erkennen und verbinden.";
+"ApIsolationAction" = "Router-Einstellungen öffnen";
+
+"ApIsolationFindRouterFailedHeader" = "Router-IP konnte nicht gefunden werden";
+"ApIsolationFindRouterFailedDescription" = "QuickDrop konnte die Adresse deines Routers nicht ermitteln. Bitte schaue im Benutzerhandbuch deines WLAN-Routers nach, um die Adresse zu erfahren.";
+
+
+"FirewallHeader" = "Eine Firewall könnte eingehende Dateiübertragungen blockieren";
+"FirewallDescription" = "QuickDrop hat festgestellt, dass eine Firewall möglicherweise verhindert, dass sich dein Android-Gerät mit deinem Mac verbinden kann. Firewalls blockieren standardmäßig eingehende Verbindungen. Um Dateien zu empfangen, müssen eingehende Verbindungen erlaubt sein, da dein Telefon versucht, eine Verbindung zu deinem Mac herzustellen – was eine eingehende Verbindung darstellt.
+
+Wahrscheinlich verwendest du ein Antivirenprogramm auf deinem Mac. Du hast zwei Optionen:
+
+1. Erlaube eingehende Verbindungen für QuickDrop in deinen Firewall-Einstellungen. Dieses Verfahren variiert je nach Programm, daher solltest du den Hersteller deiner Firewall-/Antivirensoftware kontaktieren, um zu erfahren, wie dies durchgeführt werden kann.
+
+2. Deaktiviere die Firewall deiner Antivirensoftware und verwende stattdessen die integrierte Firewall des Mac. Die Firewall von Apple ist für QuickDrop optimiert.
+
+So deaktivierst du die Firewall deiner Antivirensoftware: Öffne die Systemeinstellungen auf deinem Mac, navigiere zu Netzwerk > VPN & Filter und deaktiviere den Inhaltsfilter. Gehe dann zu Netzwerk > Firewall und aktiviere die Firewall des Mac.
+
+Sobald dies erledigt ist, kann sich dein Telefon mit deinem Mac verbinden.";
+
+
+"NetworkFilterHeader" = "Ein Paketfilter könnte die Dateiübertragung verhindern";
+"NetworkFilterDescription" = "QuickDrop hat festgestellt, dass ein auf deinem Mac installiertes Programm den Netzwerkverkehr verändert. Dadurch konnte die Datei, die du von deinem Android-Gerät senden wolltest, nicht entschlüsselt werden.
+
+Möglicherweise ist auf deinem Mac ein fehlerhafter Paketfilter aktiviert, der z. B. von einem Antivirenprogramm (z. B. ESET) stammt. Öffne Systemeinstellungen > Netzwerk > VPN & Filter und deaktiviere den Inhaltsfilter.
+
+Danach solltest du Dateien erfolgreich übertragen können.";
