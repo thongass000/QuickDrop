@@ -16,6 +16,9 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "Communication error";
 "Error.PacketFilter" = "Your Mac may have a faulty packet filter enabled. Open System Preferences > Network > VPN & Filter and disable the content filter to use QuickDrop.";
+"FirewallDetected" = "Connection failed";
+"FirewallDetectedDescription" = "Your phone could not connect because a firewall is likely blocking incoming connections. Please allow QuickDrop in your firewall (or antivirus program) and try again.";
+"AlertLearnMore" = "Learn more";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d files";

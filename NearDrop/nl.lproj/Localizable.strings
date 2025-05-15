@@ -16,6 +16,9 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "Communicatiefout";
 "Error.PacketFilter" = "Je Mac heeft mogelijk een defect pakketfilter ingeschakeld. Open Systeemvoorkeuren > Netwerk > VPN & Filter en schakel het inhoudsfilter uit om QuickDrop te gebruiken.";
+"FirewallDetected" = "Verbinding mislukt";
+"FirewallDetectedDescription" = "Je telefoon kon waarschijnlijk geen verbinding maken omdat een firewall inkomende verbindingen blokkeert. Sta QuickDrop toe in je firewall (of antivirusprogramma) en probeer het opnieuw.";
+"AlertLearnMore" = "Meer informatie";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d bestanden";

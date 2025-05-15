@@ -136,6 +136,7 @@ struct EndpointInfo {
 public protocol MainAppDelegate {
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo)
     func incomingTransfer(id: String, didFinishWith error: Error?)
+    func showFirewallAlert()
 }
 
 public protocol ShareExtensionDelegate: AnyObject {

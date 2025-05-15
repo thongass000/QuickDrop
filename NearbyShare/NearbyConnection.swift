@@ -58,6 +58,11 @@ class NearbyConnection {
             } else if case let .failed(err) = state {
                 self.lastError = err
                 log("Error opening socket: \(err)")
+                
+                ConnectionFailureTracker.shared.recordFailure {
+                    NearbyConnectionManager.shared.mainAppDelegate?.showFirewallAlert()
+                }
+                
                 self.handleConnectionClosure()
             }
         }

@@ -16,6 +16,9 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "Erro de comunicação";
 "Error.PacketFilter" = "O seu Mac pode ter um filtro de pacotes com defeito ativado. Abra Preferências do Sistema > Rede > VPN e Filtro e desative o filtro de conteúdo para usar o QuickDrop.";
+"FirewallDetected" = "Falha na ligação";
+"FirewallDetectedDescription" = "O seu telemóvel não conseguiu ligar-se porque um firewall poderá estar a bloquear ligações recebidas. Permita o QuickDrop no firewall (ou no programa antivírus) e tente novamente.";
+"AlertLearnMore" = "Saber mais";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d ficheiros";

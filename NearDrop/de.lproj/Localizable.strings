@@ -16,6 +16,9 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "Fehler bei der Datenübertragung";
 "Error.PacketFilter" = "Auf deinem Mac ist möglicherweise ein fehlerhafter Paketfilter aktiviert. Öffne Systemeinstellungen > Netzwerk > VPN & Filter und deaktiviere den Inhaltsfilter, um QuickDrop zu verwenden.";
+"FirewallDetected" = "Verbindung fehlgeschlagen";
+"FirewallDetectedDescription" = "Dein Telefon konnte sich nicht verbinden, da vermutlich eine Firewall eingehende Verbindungen blockiert. Bitte erlaube QuickDrop in deiner Firewall (oder im Antivirenprogramm) und versuche es erneut.";
+"AlertLearnMore" = "Mehr erfahren";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d Dateien";

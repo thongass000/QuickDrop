@@ -12,15 +12,19 @@ import SwiftUI
 import StoreKit
 import AudioToolbox
 import BezelNotification
+import Network
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, MainAppDelegate{
+class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, MainAppDelegate {
+    
     private var statusItem: NSStatusItem?
     private var activeIncomingTransfers: [String : TransferInfo] = [:]
     
     var welcomeWindow: NSWindow?
     var plusWindow: NSWindow?
     private var iapManager: IAPManager?
+    
+    var showsFirewallAlert = false
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
@@ -294,6 +298,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
     
     
+    func showFirewallAlert() {
+        
+        if !showsFirewallAlert {
+            showsFirewallAlert = true
+            
+            DispatchQueue.main.async {
+                let alert = NSAlert()
+                alert.alertStyle = .critical
+                
+                alert.messageText = "FirewallDetected".localized()
+                alert.informativeText = "FirewallDetectedDescription".localized()
+                
+                alert.addButton(withTitle: "CloseAlert".localized())
+                
+                log("Showing alert with message: \"\(alert.messageText)\" and description: \"\(alert.informativeText)\"")
+                
+                let _ = alert.runModal()
+                
+                self.showsFirewallAlert = false
+            }
+        }
+    }
+    
+    
     func incomingTransfer(id: String, didFinishWith error: Error?) {
         guard let transfer = self.activeIncomingTransfers[id] else { return }
         if let error = error {
@@ -313,7 +341,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 case .ukey2:
                     description = NSLocalizedString("Error.Crypto", value: "Encryption error", comment: "") + "(\(ne.localizedDescription))"
                 case .canceled(reason: _):
-                    break; // can't happen for incoming transfers
+                    break // can't happen for incoming transfers
                 }
             } else {
                 description = error.localizedDescription

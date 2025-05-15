@@ -16,6 +16,9 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "통신 오류";
 "Error.PacketFilter" = "Mac에서 오류가 있는 패킷 필터가 활성화되어 있을 수 있습니다. 시스템 설정 > 네트워크 > VPN 및 필터로 이동하여 콘텐츠 필터를 비활성화하면 QuickDrop을 사용할 수 있습니다.";
+"FirewallDetected" = "연결 실패";
+"FirewallDetectedDescription" = "방화벽이 수신 연결을 차단하고 있어 휴대전화가 연결되지 않은 것 같습니다. 방화벽(또는 백신 프로그램)에서 QuickDrop을 허용한 후 다시 시도해 주세요.";
+"AlertLearnMore" = "자세히 알아보기";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d개의 파일";

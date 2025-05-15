@@ -53,7 +53,6 @@ class SelfTestManager {
         let port: UInt16 = 43210
         let packetCount = 10  // 32K packets
         let packetSize = 512 * 1024        // Each packet = UInt32
-        let totalSize = packetCount * packetSize
 
         let server = TCPSelfTestServer()
         let client = TCPSelfTestClient()

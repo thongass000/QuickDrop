@@ -39,6 +39,7 @@
 		EB2F9BFE2DA05F48004010A2 /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = EB2F9BFD2DA05F48004010A2 /* BezelNotification */; };
 		EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36435F2D73A29F009CDFF8 /* AudioManager.swift */; };
 		EB3643622D73A2CA009CDFF8 /* timeIsNow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB3643612D73A2CA009CDFF8 /* timeIsNow.mp3 */; };
+		EB6E743E2DD5C77700331466 /* ConnectionFailureTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */; };
 		EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */; };
 		EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7CD1462D6FB0E800CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
@@ -207,6 +208,7 @@
 		EB3B73F62DC8FF3A00369951 /* securemessage.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = securemessage.proto; sourceTree = "<group>"; };
 		EB3B73F72DC8FF3A00369951 /* ukey.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = ukey.proto; sourceTree = "<group>"; };
 		EB3B73F82DC8FF3A00369951 /* wire_format.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = wire_format.proto; sourceTree = "<group>"; };
+		EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionFailureTracker.swift; sourceTree = "<group>"; };
 		EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		EB7F540F2D78E6DD00989564 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				691F53BD2ABF03820089FD92 /* OutboundNearbyConnection.swift */,
 				EB2F9BFA2DA04B67004010A2 /* Helpers.swift */,
 				698DFAE529E2F91A0064F247 /* NearbyConnection.swift */,
+				EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */,
 				69DA9A2029E0CC4E00A442DA /* Data+Extensions.swift */,
 			);
 			path = NearbyShare;
@@ -585,6 +588,7 @@
 				EB2F9BFB2DA04B69004010A2 /* Helpers.swift in Sources */,
 				69DCF48F2AB70E8C00CBE2CC /* securemessage.pb.swift in Sources */,
 				69DCF4912AB70E9700CBE2CC /* NearbyConnection.swift in Sources */,
+				EB6E743E2DD5C77700331466 /* ConnectionFailureTracker.swift in Sources */,
 				69DCF4922AB70E9700CBE2CC /* NearbyConnectionManager.swift in Sources */,
 				69DCF48E2AB70E8C00CBE2CC /* securegcm.pb.swift in Sources */,
 				691F53BE2ABF03820089FD92 /* OutboundNearbyConnection.swift in Sources */,
