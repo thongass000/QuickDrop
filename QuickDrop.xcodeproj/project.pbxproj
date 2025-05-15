@@ -228,6 +228,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		EB1A7E422DD4D8BD00A6D5A3 /* SelfTest */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SelfTest; sourceTree = "<group>"; };
 		EB7CD13B2D6F8B6500CB0CB5 /* IAP */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = IAP; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -315,6 +316,7 @@
 				69DA9A1129E0BF5100A442DA /* AppDelegate.swift */,
 				EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */,
 				EB7F54112D78E95C00989564 /* TutorialView.swift */,
+				EB1A7E422DD4D8BD00A6D5A3 /* SelfTest */,
 				EB7F54132D78E9E400989564 /* LicenseWindow.swift */,
 				EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */,
 				EB36435F2D73A29F009CDFF8 /* AudioManager.swift */,
@@ -422,6 +424,7 @@
 				69DCF4972AB8BF7B00CBE2CC /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				EB1A7E422DD4D8BD00A6D5A3 /* SelfTest */,
 				EB7CD13B2D6F8B6500CB0CB5 /* IAP */,
 			);
 			name = QuickDrop;
