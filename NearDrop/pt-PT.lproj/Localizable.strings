@@ -150,7 +150,7 @@ Veja como desativá-lo:
 
 3. Desative-a: Certifique-se de que esta opção está desativada. Guarde as alterações e reinicie o router, se necessário.
 
-Depois de desativado, os dispositivos na sua rede Wi-Fi (como o seu telemóvel e o Mac) poderão encontrar-se e comunicar entre si.";
+Depois de desativado, os dispositivos na sua rede Wi-Fi (como o seu telemóvel e o Mac) poderão encontrar-se e comunicar entre si. Nota: Se estiver numa rede de convidados, esta definição pode não estar disponível. Nesse caso, utilize uma rede diferente.";
 "ApIsolationAction" = "Abrir definições do router";
 
 "ApIsolationFindRouterFailedHeader" = "Não foi possível encontrar o IP do router";

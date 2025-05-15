@@ -159,7 +159,7 @@ Here’s how to disable it:
 
 3.    Disable it: Make sure this setting is turned off. Save your changes and reboot the router if necessary.
 
-Once disabled, devices on your Wi-Fi (like your phone and Mac) will be able to discover and connect to each other.";
+Once disabled, devices on your Wi-Fi (like your phone and Mac) will be able to discover and connect to each other. Please note: If you are on a guest network, this setting might not be available. In that case, use a different network.";
 "ApIsolationAction" = "Open Router Settings";
 
 "ApIsolationFindRouterFailedHeader" = "Could not find router IP";

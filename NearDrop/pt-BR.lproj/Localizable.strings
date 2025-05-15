@@ -150,7 +150,7 @@ Veja como desativá-lo:
 
 3. Desative-a: Certifique-se de que essa configuração esteja desativada. Salve as alterações e reinicie o roteador, se necessário.
 
-Uma vez desativado, os dispositivos na sua rede Wi-Fi (como seu telefone e Mac) poderão se descobrir e se conectar entre si.";
+Uma vez desativado, os dispositivos na sua rede Wi-Fi (como seu telefone e Mac) poderão se descobrir e se conectar entre si. Atenção: Se você estiver em uma rede de convidados, essa configuração pode não estar disponível. Nesse caso, use outra rede.";
 "ApIsolationAction" = "Abrir configurações do roteador";
 
 "ApIsolationFindRouterFailedHeader" = "Não foi possível encontrar o IP do roteador";

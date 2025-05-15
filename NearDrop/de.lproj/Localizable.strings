@@ -152,7 +152,7 @@ So deaktivierst du sie:
 
 3. Deaktivieren: Stelle sicher, dass diese Einstellung deaktiviert (oder bei der Fritz!Box aktiviert) ist. Speichere die Änderungen und starte den Router bei Bedarf neu.
 
-Anschließend können sich Geräte in deinem WLAN (wie dein Telefon und Mac) gegenseitig erkennen und verbinden.";
+Anschließend können sich Geräte in deinem WLAN (wie dein Telefon und Mac) gegenseitig erkennen und verbinden. Bitte beachten: Wenn du mit einem Gastnetzwerk verbunden bist, ist diese Einstellung möglicherweise nicht verfügbar. Verwende in diesem Fall ein anderes Netzwerk.";
 "ApIsolationAction" = "Router-Einstellungen öffnen";
 
 "ApIsolationFindRouterFailedHeader" = "Router-IP konnte nicht gefunden werden";

@@ -151,7 +151,7 @@ Emellett kipróbálhatod az Androidra készült különálló QuickDrop alkalmaz
 
 3. Kapcsold ki: Győződj meg róla, hogy ez a beállítás ki van kapcsolva. Mentsd el a módosításokat, és indítsd újra a routert, ha szükséges.
 
-Miután kikapcsoltad, a Wi-Fi hálózatodon lévő eszközök (például a telefonod és a Mac-ed) képesek lesznek felfedezni és csatlakozni egymáshoz.";
+Miután kikapcsoltad, a Wi-Fi hálózatodon lévő eszközök (például a telefonod és a Mac-ed) képesek lesznek felfedezni és csatlakozni egymáshoz. Figyelem: Ha vendéghálózaton van, ez a beállítás lehet, hogy nem érhető el. Ebben az esetben használjon másik hálózatot.";
 "ApIsolationAction" = "Router beállításainak megnyitása";
 
 "ApIsolationFindRouterFailedHeader" = "Nem sikerült megtalálni a router IP-címét";

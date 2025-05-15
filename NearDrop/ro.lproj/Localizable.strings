@@ -149,7 +149,7 @@ Iată cum o poți dezactiva:
 
 3. Dezactivează: Asigură-te că această setare este dezactivată. Salvează modificările și repornește routerul dacă este necesar.
 
-După dezactivare, dispozitivele din rețeaua Wi-Fi (precum telefonul și Mac-ul) se vor putea detecta și conecta între ele.";
+După dezactivare, dispozitivele din rețeaua Wi-Fi (precum telefonul și Mac-ul) se vor putea detecta și conecta între ele. Notă: Dacă ești conectat la o rețea de oaspeți, această setare s-ar putea să nu fie disponibilă. În acest caz, folosește o altă rețea.";
 "ApIsolationAction" = "Deschide setările routerului";
 
 "ApIsolationFindRouterFailedHeader" = "Nu s-a putut găsi IP-ul routerului";

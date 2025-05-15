@@ -150,7 +150,7 @@ Voici comment la désactiver :
 
 3. Désactivez-le : Assurez-vous que ce paramètre est désactivé. Sauvegardez les modifications et redémarrez le routeur si nécessaire.
 
-Une fois désactivée, les appareils de votre réseau Wi-Fi (comme votre téléphone et votre Mac) pourront se détecter et se connecter entre eux.";
+Une fois désactivée, les appareils de votre réseau Wi-Fi (comme votre téléphone et votre Mac) pourront se détecter et se connecter entre eux. Remarque : si vous êtes sur un réseau invité, ce paramètre peut ne pas être disponible. Dans ce cas, utilisez un autre réseau.";
 "ApIsolationAction" = "Ouvrir les paramètres du routeur";
 
 "ApIsolationFindRouterFailedHeader" = "Impossible de trouver l’adresse IP du routeur";

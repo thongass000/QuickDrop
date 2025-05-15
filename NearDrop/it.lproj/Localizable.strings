@@ -150,7 +150,7 @@ Ecco come disabilitarlo:
 
 3. Disabilitalo: Assicurati che questa impostazione sia disattivata. Salva le modifiche e riavvia il router se necessario.
 
-Una volta disabilitato, i dispositivi sulla tua rete Wi-Fi (come il tuo telefono e Mac) saranno in grado di scoprirsi e connettersi tra loro.";
+Una volta disabilitato, i dispositivi sulla tua rete Wi-Fi (come il tuo telefono e Mac) saranno in grado di scoprirsi e connettersi tra loro. Nota: Se sei connesso a una rete ospite, questa impostazione potrebbe non essere disponibile. In tal caso, utilizza una rete diversa.";
 "ApIsolationAction" = "Apri le impostazioni del router";
 
 "ApIsolationFindRouterFailedHeader" = "Impossibile trovare l'IP del router";

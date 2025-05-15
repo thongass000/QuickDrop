@@ -150,7 +150,7 @@ Zo schakel je het uit:
 
 3. Schakel het uit: Zorg ervoor dat deze instelling is uitgeschakeld. Sla de wijzigingen op en herstart de router indien nodig.
 
-Zodra dit is uitgeschakeld, kunnen apparaten op je Wi-Fi-netwerk (zoals je telefoon en Mac) elkaar vinden en verbinden.";
+Zodra dit is uitgeschakeld, kunnen apparaten op je Wi-Fi-netwerk (zoals je telefoon en Mac) elkaar vinden en verbinden. Let op: Als je met een gastnetwerk verbonden bent, is deze instelling mogelijk niet beschikbaar. Gebruik in dat geval een ander netwerk.";
 "ApIsolationAction" = "Routerinstellingen openen";
 
 "ApIsolationFindRouterFailedHeader" = "Kon router-IP niet vinden";
