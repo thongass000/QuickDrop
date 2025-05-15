@@ -14,7 +14,7 @@ struct NetworkFilterIssueView: View {
     
     var body: some View {
         
-        IssueView(image: .filter, header: "A packet filter prevents file transfer", description: """
+        IssueView(image: .filter, header: "A packet filter might prevent file transfer", description: """
 QuickDrop has detected that a program installed on your Mac modifies network traffic. As a result of that, the file you tried to send from your Android device could not be decrypted.
 
 Your Mac may have a faulty packet filter enabled, which might be installed by your antivirus program (e.g., ESET). Open System Preferences > Network > VPN & Filter and disable the content filter.

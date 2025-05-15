@@ -15,10 +15,6 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "通信エラー";
-"Error.PacketFilter" = "お使いのMacで不具合のあるパケットフィルターが有効になっている可能性があります。システム設定 > ネットワーク > VPNとフィルターを開き、コンテンツフィルターを無効にしてQuickDropを使用してください。";
-"FirewallDetected" = "接続に失敗しました";
-"FirewallDetectedDescription" = "ファイアウォールが着信接続をブロックしている可能性があるため、スマートフォンが接続できませんでした。ファイアウォール（またはウイルス対策ソフト）で QuickDrop を許可して、もう一度お試しください。";
-"AlertLearnMore" = "詳しく見る";
 
 /* No comment provided by engineer. */
 "NFiles" = "%dつのファイル";

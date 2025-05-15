@@ -15,10 +15,6 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "خطأ في الاتصال";
-"Error.PacketFilter" = "قد يحتوي جهاز Mac الخاص بك على مرشح حزم معطّل. افتح تفضيلات النظام > الشبكة > VPN & التصفية، وقم بتعطيل مرشح المحتوى لاستخدام QuickDrop.";
-"FirewallDetected" = "فشل الاتصال";
-"FirewallDetectedDescription" = "تعذر على هاتفك الاتصال، ومن المحتمل أن يكون جدار الحماية يحظر الاتصالات الواردة. يُرجى السماح لـ QuickDrop في جدار الحماية (أو برنامج مكافحة الفيروسات) ثم المحاولة مرة أخرى.";
-"AlertLearnMore" = "اعرف المزيد";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d ملفات";

@@ -15,10 +15,6 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "通信出错";
-"Error.PacketFilter" = "你的 Mac 可能启用了有故障的数据包过滤器。请打开系统设置 > 网络 > VPN 与过滤器，并禁用内容过滤器以使用 QuickDrop。";
-"FirewallDetected" = "连接失败";
-"FirewallDetectedDescription" = "您的手机无法连接，可能是由于防火墙阻止了传入连接。请在防火墙（或杀毒软件）中允许 QuickDrop 然后重试。";
-"AlertLearnMore" = "了解更多";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d files";

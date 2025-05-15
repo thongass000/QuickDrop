@@ -14,7 +14,7 @@ struct FirewallIssueView: View {
     
     var body: some View {
         
-        IssueView(image: .firewall, header: "A firewall blocks incoming file transfers", description: """
+        IssueView(image: .firewall, header: "A firewall might block incoming file transfers", description: """
 QuickDrop has detected that a firewall prevents that your Android device can connect to your Mac. Firewalls are used to block incoming connections per default. For receiving files, it is required that incoming connections are allowed. This is because your phone tries to connect to your Mac – creating an incoming connection.
 
 You most likely use an antivirus program on your Mac. You have two options:

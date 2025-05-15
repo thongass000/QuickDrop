@@ -22,7 +22,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     var welcomeWindow: NSWindow?
     var plusWindow: NSWindow?
-    var alertWindow: NSWindow?
+    var firewallAlertWindow: NSWindow?
+    var apIsolationAlertWindow: NSWindow?
+    var networkFilterAlertWindow: NSWindow?
     private var iapManager: IAPManager?
     
     var showsFirewallAlert = false
@@ -86,8 +88,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
         
         UNUserNotificationCenter.current().delegate=self
-        
-        //openFirewallAlert()
     }
     
     
@@ -175,29 +175,43 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         plusWindow?.level = .normal
     }
     
+    enum AlertType: String {
+        case ApIsolation
+        case NetworkFilter
+        case Firewall
+    }
     
     
-    func openFirewallAlert() {
-        
-        // Create the welcome screen SwiftUI view
-        let firewallAlertView = FirewallIssueView()
+    func openAlert(type: AlertType) {
         
         // Create an NSWindow to host the SwiftUI view
-        alertWindow = NSWindow(
+        let alertWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: issueViewWidth, height: issueViewHeight),
             styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false
         )
         
-        alertWindow?.center()
-        alertWindow?.isReleasedWhenClosed = false
-        alertWindow?.setFrameAutosaveName("FirewallAlert")
-        alertWindow?.contentView = NSHostingView(rootView: firewallAlertView)
+        switch type {
+            case .ApIsolation:
+                apIsolationAlertWindow = alertWindow
+                alertWindow.contentView = NSHostingView(rootView: ApIsolationIssueView())
+            case .NetworkFilter:
+                networkFilterAlertWindow = alertWindow
+                alertWindow.contentView = NSHostingView(rootView: NetworkFilterIssueView())
+            case .Firewall:
+                firewallAlertWindow = alertWindow
+                alertWindow.contentView = NSHostingView(rootView: FirewallIssueView())
+        }
+    
+        alertWindow.title = "QuickDrop"
+        alertWindow.center()
+        alertWindow.isReleasedWhenClosed = false
+        alertWindow.setFrameAutosaveName(type.rawValue)
         
         NSApp.activate(ignoringOtherApps: true)
-        alertWindow?.makeKeyAndOrderFront(nil)
-        alertWindow?.level = .normal
+        alertWindow.makeKeyAndOrderFront(nil)
+        alertWindow.level = .normal
     }
 
     
@@ -327,26 +341,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     func showFirewallAlert() {
-        
-        if !showsFirewallAlert {
-            showsFirewallAlert = true
-            
-            DispatchQueue.main.async {
-                let alert = NSAlert()
-                alert.alertStyle = .critical
-                
-                alert.messageText = "FirewallDetected".localized()
-                alert.informativeText = "FirewallDetectedDescription".localized()
-                
-                alert.addButton(withTitle: "CloseAlert".localized())
-                
-                log("Showing alert with message: \"\(alert.messageText)\" and description: \"\(alert.informativeText)\"")
-                
-                let _ = alert.runModal()
-                
-                self.showsFirewallAlert = false
-            }
-        }
+        openAlert(type: .Firewall)
     }
     
     
@@ -363,7 +358,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 case .protocolError(_):
                     description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "") + "(\(ne.localizedDescription))"
                 case .packetFilterError:
-                    description = NSLocalizedString("Error.PacketFilter", value: "Communication error", comment: "")
+                    openAlert(type: .NetworkFilter)
+                    plusWindow?.close()
+                    return
                 case .requiredFieldMissing:
                     description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "") + "(\(ne.localizedDescription))"
                 case .ukey2:

@@ -15,10 +15,6 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "Kommunikációs hiba";
-"Error.PacketFilter" = "Lehet, hogy a Mac-ed hibás csomagszűrőt használ. Nyisd meg a Rendszerbeállítások > Hálózat > VPN és szűrő menüt, és kapcsold ki a tartalomszűrőt a QuickDrop használatához.";
-"FirewallDetected" = "Sikertelen csatlakozás";
-"FirewallDetectedDescription" = "A telefon nem tudott csatlakozni, mert valószínűleg egy tűzfal blokkolja a bejövő kapcsolatokat. Engedélyezd a QuickDrop-ot a tűzfalban (vagy az antivírus programban), majd próbáld újra.";
-"AlertLearnMore" = "További információ";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d fájl";

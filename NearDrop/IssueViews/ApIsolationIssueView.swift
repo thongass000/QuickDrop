@@ -16,7 +16,7 @@ struct ApIsolationIssueView: View {
     
     var body: some View {
         
-        IssueView(image: .router, header: "Your router doesn't allow device-to-device communication", description: """
+        IssueView(image: .router, header: "Your router might not allow device-to-device communication", description: """
 QuickDrop has detected that your Wi-Fi router might block devices from talking to each other. To transfer files between your phone and your Mac, you’ll need to disable client isolation (also known as AP isolation or Wi-Fi isolation).
 
 Here’s how to disable it:

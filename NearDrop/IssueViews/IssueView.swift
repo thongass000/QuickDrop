@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 let issueViewWidth = 600.0
-let issueViewHeight = 300.0
+let issueViewHeight = 400.0
 
 struct IssueView: View {
     

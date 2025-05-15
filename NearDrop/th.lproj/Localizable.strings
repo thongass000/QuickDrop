@@ -15,10 +15,6 @@
 
 /* No comment provided by engineer. */
 "Error.Protocol" = "การสื่อสารผิดพลาด";
-"Error.PacketFilter" = "Mac ของคุณอาจเปิดใช้ตัวกรองแพ็กเกจที่มีปัญหาอยู่ เปิดการตั้งค่าระบบ > เครือข่าย > VPN และตัวกรอง แล้วปิดตัวกรองเนื้อหาเพื่อใช้งาน QuickDrop";
-"FirewallDetected" = "การเชื่อมต่อล้มเหลว";
-"FirewallDetectedDescription" = "โทรศัพท์ของคุณไม่สามารถเชื่อมต่อได้ เนื่องจากไฟร์วอลล์อาจบล็อกการเชื่อมต่อขาเข้า โปรดอนุญาต QuickDrop ในไฟร์วอลล์ (หรือโปรแกรมป้องกันไวรัส) แล้วลองอีกครั้ง";
-"AlertLearnMore" = "เรียนรู้เพิ่มเติม";
 
 /* No comment provided by engineer. */
 "NFiles" = "%d ไฟล์";
