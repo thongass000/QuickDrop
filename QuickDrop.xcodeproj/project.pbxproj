@@ -231,6 +231,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		EB1A7E422DD4D8BD00A6D5A3 /* SelfTest */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SelfTest; sourceTree = "<group>"; };
+		EB6E743F2DD5CBFB00331466 /* IssueViews */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = IssueViews; sourceTree = "<group>"; };
 		EB7CD13B2D6F8B6500CB0CB5 /* IAP */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = IAP; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -322,6 +323,7 @@
 				EB7F54132D78E9E400989564 /* LicenseWindow.swift */,
 				EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */,
 				EB36435F2D73A29F009CDFF8 /* AudioManager.swift */,
+				EB6E743F2DD5CBFB00331466 /* IssueViews */,
 				EB96ED8E2D7F8103004B3FF1 /* Localized.swift */,
 				EB7F540F2D78E6DD00989564 /* Sidebar.swift */,
 				EB7CD13B2D6F8B6500CB0CB5 /* IAP */,
@@ -428,6 +430,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				EB1A7E422DD4D8BD00A6D5A3 /* SelfTest */,
+				EB6E743F2DD5CBFB00331466 /* IssueViews */,
 				EB7CD13B2D6F8B6500CB0CB5 /* IAP */,
 			);
 			name = QuickDrop;
