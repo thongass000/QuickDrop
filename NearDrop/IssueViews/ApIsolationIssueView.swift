@@ -128,6 +128,6 @@ func isHostReachable(_ host: String) -> Bool {
 
 #Preview {
     ApIsolationIssueView()
-        .frame(width: 600, height: 400)
+        .frame(width: issueViewWidth, height: issueViewHeight)
 }
 

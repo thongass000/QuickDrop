@@ -8,6 +8,9 @@
 import SwiftUI
 import Foundation
 
+let issueViewWidth = 600.0
+let issueViewHeight = 300.0
+
 struct IssueView: View {
     
     @Environment(\.colorScheme) var colorScheme

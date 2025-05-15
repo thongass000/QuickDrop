@@ -33,6 +33,6 @@ Once this is done, your phone will be able to connect to your Mac.
 
 #Preview {
     FirewallIssueView()
-        .frame(width: 600, height: 400)
+        .frame(width: issueViewWidth, height: issueViewHeight)
 }
 

@@ -27,6 +27,6 @@ Once this is done, you should be able to transfer files successfully.
 
 #Preview {
     NetworkFilterIssueView()
-        .frame(width: 600, height: 400)
+        .frame(width: issueViewWidth, height: issueViewHeight)
 }
 

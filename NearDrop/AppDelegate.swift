@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     var welcomeWindow: NSWindow?
     var plusWindow: NSWindow?
+    var alertWindow: NSWindow?
     private var iapManager: IAPManager?
     
     var showsFirewallAlert = false
@@ -85,6 +86,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
         
         UNUserNotificationCenter.current().delegate=self
+        
+        //openFirewallAlert()
     }
     
     
@@ -170,6 +173,31 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         NSApp.activate(ignoringOtherApps: true) // Brings the whole app to the front
         plusWindow?.makeKeyAndOrderFront(nil)
         plusWindow?.level = .normal
+    }
+    
+    
+    
+    func openFirewallAlert() {
+        
+        // Create the welcome screen SwiftUI view
+        let firewallAlertView = FirewallIssueView()
+        
+        // Create an NSWindow to host the SwiftUI view
+        alertWindow = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: issueViewWidth, height: issueViewHeight),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+        
+        alertWindow?.center()
+        alertWindow?.isReleasedWhenClosed = false
+        alertWindow?.setFrameAutosaveName("FirewallAlert")
+        alertWindow?.contentView = NSHostingView(rootView: firewallAlertView)
+        
+        NSApp.activate(ignoringOtherApps: true)
+        alertWindow?.makeKeyAndOrderFront(nil)
+        alertWindow?.level = .normal
     }
 
     
