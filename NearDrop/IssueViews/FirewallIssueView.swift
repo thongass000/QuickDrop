@@ -23,7 +23,7 @@ You most likely use an antivirus program on your Mac. You have two options:
 
 2.    Disable the firewall of your antivirus software, and use the Mac's inbuilt firewall instead. Apple's firewall is optimized for QuickDrop. 
 
-Here’s how to disable the firewall of your antivirus program: Open System Settings on your Mac, and navigate to Network > VPN & Filter and disable the content filter. Then, navigate to Network > Firewall and click the toggle to enable the Mac's firewall.
+Here’s how to disable the firewall of your antivirus program: Open System Settings on your Mac, navigate to Network > VPN & Filter, and disable the content filter. Then, navigate to Network > Firewall and click the toggle to enable the Mac's firewall.
 
 Once this is done, your phone will be able to connect to your Mac.
 """)
