@@ -13,7 +13,8 @@ struct WelcomeScreen: View {
     @AppStorage(UserDefaultsKeys.plusVersion.rawValue) var isPlusVersion = false
     @Environment(\.colorScheme) var colorScheme
     
-    let openIAP: () -> Void
+    let openPlusScreen: () -> Void
+    let checkForNetworkIssues: () -> Void
     
     @State private var selection: Tabs? = Tabs.receive
     
@@ -85,16 +86,19 @@ struct WelcomeScreen: View {
                 
                 switch selection {
                 case .receive:
-                    TutorialView(title: "WelcomeToQuickDrop", text: "UserManualDescription", showsLicense: true, openIAP: openIAP)
+                    TutorialView(title: "WelcomeToQuickDrop", text: "UserManualDescription", showsLicense: true, openIAP: openPlusScreen)
                     
                 case .send:
-                    TutorialView(title: "SendFiles", text: "SendFilesDescription", showsLicense: false, openIAP: openIAP)
+                    TutorialView(title: "SendFiles", text: "SendFilesDescription", showsLicense: false, openIAP: openPlusScreen)
                     
                 case .troubleshooting:
-                    TutorialView(title: "Troubleshooting", text: "TroubleshootingDescription", showsLicense: false, openIAP: openIAP)
+                    TutorialView(title: "Troubleshooting", text: "TroubleshootingDescription", showsLicense: false, openIAP: openPlusScreen)
+                        .onAppear {
+                            checkForNetworkIssues()
+                        }
                     
                 case .app:
-                    TutorialView(title: "AndroidApp", text: "AndroidAppDescription", showsLicense: false, showsBetaJoinButton: true, openIAP: openIAP)
+                    TutorialView(title: "AndroidApp", text: "AndroidAppDescription", showsLicense: false, showsBetaJoinButton: true, openIAP: openPlusScreen)
                     
                 default:
                     SettingsView()
@@ -158,5 +162,5 @@ enum Tabs: CaseIterable {
 
 
 #Preview {
-    WelcomeScreen(openIAP: {})
+    WelcomeScreen(openPlusScreen: {}, checkForNetworkIssues: {})
 }

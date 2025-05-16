@@ -160,9 +160,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     @objc func openWelcomeScreen() {
         // Create the welcome screen SwiftUI view
-        let welcomeView = WelcomeScreen {
-            self.openPlusScreen()
-        }
+        let welcomeView = WelcomeScreen(openPlusScreen: openPlusScreen, checkForNetworkIssues: performDeviceToDeviceCheck)
         
         // Create an NSWindow to host the SwiftUI view
         welcomeWindow = NSWindow(
