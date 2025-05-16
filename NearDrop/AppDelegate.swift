@@ -89,26 +89,35 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         
         UNUserNotificationCenter.current().delegate=self
         
-        let scanner = DeviceToDeviceHeuristicScanner()
-        scanner.scan { allowed in
-            if allowed {
-                log("✅ Device-to-device likely allowed (peer responded on LAN).")
-            } else {
-                
-                let scanner2 = IPv6DeviceScanner()
-                scanner2.scan(interface: "en0") { devices in
-                    if devices.isEmpty {
-                        log("❌ No local devices responded — peer-to-peer may be blocked.")
-                        
-                        self.openAlert(type: .ApIsolation)
-                    } else {
-                        log("✅ Found IPv6 devices (excluding router):")
-                        for ip in devices {
-                            print("  • \(ip)")
+        
+        let hasConnection = isConnectedToNetwork()
+        log("Currently used interface: \(getActiveNetworkInterface())")
+        
+        if hasConnection {
+            let scanner = DeviceToDeviceHeuristicScanner()
+            scanner.scan { allowed in
+                if allowed {
+                    log("✅ Device-to-device likely allowed (peer responded on LAN).")
+                } else {
+                    
+                    let scanner2 = IPv6DeviceScanner()
+                    scanner2.scan() { devices in
+                        if devices.isEmpty {
+                            log("❌ No local devices responded — peer-to-peer may be blocked.")
+                            
+                            self.openAlert(type: .ApIsolation)
+                        } else {
+                            log("✅ Found IPv6 devices (excluding router):")
+                            for ip in devices {
+                                print("  • \(ip)")
+                            }
                         }
                     }
                 }
             }
+        }
+        else {
+            log("❌ Network unavailable, skipping device-to-device check.")
         }
     }
     

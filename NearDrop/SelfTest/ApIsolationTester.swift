@@ -22,7 +22,7 @@ class DeviceToDeviceHeuristicScanner {
     func scan(subnet baseSubnet: String? = nil, port: UInt16 = 80, completion: @escaping (Bool) -> Void) {
         self.completion = completion
         let subnet = baseSubnet ?? Self.getLocalSubnetPrefix() ?? "192.168.1"
-        let ipsToScan = (2...20).map { "\(subnet).\($0)" }
+        let ipsToScan = (2...254).map { "\(subnet).\($0)" }
         totalToScan = ipsToScan.count
         
         for ip in ipsToScan {
@@ -80,14 +80,19 @@ class DeviceToDeviceHeuristicScanner {
                 let addrFamily = interface.ifa_addr.pointee.sa_family
                 if addrFamily == UInt8(AF_INET),
                    let name = String(validatingUTF8: interface.ifa_name),
-                   name == "en0" || name == "en1" || name.contains("wlan") {
+                      name == getActiveNetworkInterface() {
                     var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
                     getnameinfo(interface.ifa_addr, socklen_t(interface.ifa_addr.pointee.sa_len),
                                 &hostname, socklen_t(hostname.count), nil, 0, NI_NUMERICHOST)
                     if let ip = String(validatingUTF8: hostname),
                        let lastDot = ip.lastIndex(of: ".") {
                         freeifaddrs(ifaddr)
-                        return String(ip[..<lastDot])
+                        
+                        let result = String(ip[..<lastDot])
+                        
+                        log("[LUI] Found local subnet prefix: \(result) for interface \(name)")
+                        
+                        return result
                     }
                 }
             }
