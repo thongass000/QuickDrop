@@ -12,7 +12,7 @@ class AudioManager {
     
     static func playSound() {
         guard let soundURL = Bundle.main.url(forResource: "timeIsNow", withExtension: "mp3") else {
-            print("Sound file not found")
+            log("Sound file not found")
             return
         }
         
@@ -20,7 +20,7 @@ class AudioManager {
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
             audioPlayer?.play()
         } catch {
-            print("Error playing sound: \(error.localizedDescription)")
+            log("Error playing sound: \(error.localizedDescription)")
         }
     }
 }

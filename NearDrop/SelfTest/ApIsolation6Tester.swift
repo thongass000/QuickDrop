@@ -49,7 +49,7 @@ class IPv6DeviceScanner {
         do {
             try process.run()
         } catch {
-            print("Failed to run ping6: \(error)")
+            log("Failed to run ping6: \(error)")
             completion([])
         }
     }

@@ -48,7 +48,7 @@ struct SettingsView: View {
                 let url = try URL(resolvingBookmarkData: saveFolderPath, options: [], relativeTo: nil, bookmarkDataIsStale: &isStale)
                 return url.lastPathComponent  // Returns the folder path as a string
             } catch {
-                print("Failed to resolve bookmark: \(error)")
+                log("Failed to resolve bookmark: \(error)")
             }
         }
         return nil  // No saved folder
@@ -63,15 +63,13 @@ struct SettingsView: View {
         
         if panel.runModal() == .OK, let url = panel.urls.first {
             do {
-                print("Selected folder: \(url)")
+                log("Selected folder: \(url)")
                 
                 let bookmarkData = try url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
                 
-                print(bookmarkData)
-                
                 UserDefaults.standard.set(bookmarkData, forKey: UserDefaultsKeys.saveFolderBookmark.rawValue)
             } catch {
-                print("Failed to save security-scoped bookmark: \(error)")
+                log("Failed to save security-scoped bookmark: \(error)")
             }
         }
     }

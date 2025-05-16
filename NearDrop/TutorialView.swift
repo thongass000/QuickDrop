@@ -110,12 +110,12 @@ struct LargeAppIconView<Content: View>: View {
                     .padding(.top, 50)
                     .onTapGesture {
                         taps += 1
-                        print("Clicked \(taps) times")
+                        log("Clicked \(taps) times")
                         
                         if taps == 5 {
                             
                             sendLoggingString()
-                            print("Copied log to clipboard")
+                            log("Copied log to clipboard")
                             
                             taps = 0
                         }
@@ -147,7 +147,7 @@ func sendLoggingString() {
 
 func sendEmailWithAttachment(fileURL: URL, recipients: [String], subject: String) {
     guard let emailService = NSSharingService(named: .composeEmail) else {
-        print("No email service available")
+        log("No email service available")
         return
     }
     

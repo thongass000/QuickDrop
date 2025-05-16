@@ -20,7 +20,7 @@ func getActiveNetworkInterface() -> String? {
     do {
         try process.run()
     } catch {
-        print("Failed to run process: \(error)")
+        log("Failed to run process: \(error)")
         return nil
     }
 

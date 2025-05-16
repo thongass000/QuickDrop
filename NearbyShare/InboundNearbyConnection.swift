@@ -533,11 +533,11 @@ public class SaveFilesManager {
                         return url
                     }
                 } else {
-                    print("Bookmark is stale, using default downloads folder.")
+                    log("Bookmark is stale, using default downloads folder.")
                 }
 
             } catch {
-                print("Failed to resolve bookmark: \(error), using default downloads folder.")
+                log("Failed to resolve bookmark: \(error), using default downloads folder.")
             }
         }
 
