@@ -33,11 +33,8 @@ class InboundNearbyConnection: NearbyConnection {
     override func handleConnectionClosure() {
         super.handleConnectionClosure()
         currentState = .disconnected
-        do {
-            try deletePartiallyReceivedFiles()
-        } catch {
-            log("Error deleting partially received files: \(error)")
-        }
+        deletePartiallyReceivedFiles()
+  
         DispatchQueue.main.async {
             self.delegate?.connectionWasTerminated(connection: self, error: self.lastError)
 
@@ -80,17 +77,7 @@ class InboundNearbyConnection: NearbyConnection {
             }
         } catch {
             lastError = error
-            log("Deserialization error: \(error) in state \(currentState). Payload: \(frameData.hex)")
-
-            // log("Public Key: \(publicKey?.pem ?? "nil")")
-            // log("Private Key: \(privateKey?.pem ?? "nil")")
-            // log("Ukey Client Init Msg: \(ukeyClientInitMsgData?.hex ?? "nil")")
-            // log("Ukey Server Init Msg: \(ukeyServerInitMsgData?.hex ?? "nil")")
-            log("S1: \(decryptKey?.map { String(format: "%02x", $0) }.joined() ?? "nil")")
-            // log("Encrypt Key: \(encryptKey?.map { String(format: "%02x", $0) }.joined() ?? "nil")")
-            log("Received HMAC/Signature Key: \(recvHmacKey?.withUnsafeBytes { Data(Array($0)) }.map { String(format: "%02x", $0) }.joined() ?? "nil")")
-            log("Sent HMAC/Signature Key: \(sendHmacKey?.withUnsafeBytes { Data(Array($0)) }.map { String(format: "%02x", $0) }.joined() ?? "nil")")
-
+            log("Deserialization error: \(error) in state \(currentState).")
             protocolError()
         }
     }
@@ -435,10 +422,15 @@ class InboundNearbyConnection: NearbyConnection {
         }
     }
 
-    private func deletePartiallyReceivedFiles() throws {
+    private func deletePartiallyReceivedFiles() {
         for (_, file) in transferredFiles {
             guard file.created else { continue }
-            try FileManager.default.removeItem(at: file.destinationURL)
+            do {
+                try FileManager.default.removeItem(at: file.destinationURL)
+            }
+            catch {
+                // if it fails, we don't care. Could be because file was not created yet
+            }
         }
     }
 }

@@ -17,7 +17,7 @@ import SwiftECC
 class NearbyConnection {
     static let SANE_FRAME_LENGTH = 5 * 1024 * 1024
     private static let dispatchQueue = DispatchQueue(label: "com.leonboettger.quickdrop.queue", qos: .utility) // FIFO (non-concurrent) queue to avoid those exciting concurrency bugs
-
+    
     let connection: NWConnection
     var remoteDeviceInfo: RemoteDeviceInfo?
     private var payloadBuffers: [Int64: NSMutableData] = [:]
@@ -26,30 +26,30 @@ class NearbyConnection {
     public let id: String
     var lastError: Error?
     private var connectionClosed: Bool = false
-
+    
     // UKEY2-related state
     var publicKey: ECPublicKey?
     var privateKey: ECPrivateKey?
     var ukeyClientInitMsgData: Data?
     var ukeyServerInitMsgData: Data?
-
+    
     // SecureMessage encryption keys
     var decryptKey: [UInt8]?
     var encryptKey: [UInt8]?
     var recvHmacKey: SymmetricKey?
     var sendHmacKey: SymmetricKey?
-
+    
     // SecureMessage sequence numbers
     private var serverSeq: Int32 = 0
     private var clientSeq: Int32 = 0
-
+    
     private(set) var pinCode: String?
-
+    
     init(connection: NWConnection, id: String) {
         self.connection = connection
         self.id = id
     }
-
+    
     func start() {
         connection.stateUpdateHandler = { state in
             if case .ready = state {
@@ -59,8 +59,10 @@ class NearbyConnection {
                 self.lastError = err
                 log("Error opening socket: \(err)")
                 
-                ConnectionFailureTracker.shared.recordFailure {
-                    NearbyConnectionManager.shared.mainAppDelegate?.showFirewallAlert()
+                if err == .posix(.ENOTCONN) {
+                    ConnectionFailureTracker.shared.recordFailure {
+                        NearbyConnectionManager.shared.mainAppDelegate?.showFirewallAlert()
+                    }
                 }
                 
                 self.handleConnectionClosure()
@@ -69,37 +71,37 @@ class NearbyConnection {
         // connection.start(queue: .global(qos: .utility))
         connection.start(queue: NearbyConnection.dispatchQueue)
     }
-
+    
     func connectionReady() {}
-
+    
     func handleConnectionClosure() {
         log("Connection closed")
     }
-
+    
     func protocolError() {
         disconnect()
     }
-
+    
     func processReceivedFrame(frameData _: Data) {
         fatalError()
     }
-
+    
     func processTransferSetupFrame(_: Sharing_Nearby_Frame) throws {
         fatalError()
     }
-
+    
     func isServer() -> Bool {
         fatalError()
     }
-
+    
     func processFileChunk(frame _: Location_Nearby_Connections_PayloadTransferFrame) throws {
         protocolError()
     }
-
+    
     func processBytesPayload(payload _: Data, id _: Int64) throws -> Bool {
         return false
     }
-
+    
     private func receiveFrameAsync() {
         connection.receive(minimumIncompleteLength: 4, maximumLength: 4) { content, _, isComplete, error in
             if self.connectionClosed {
@@ -127,7 +129,7 @@ class NearbyConnection {
             self.receiveFrameAsync(length: frameLength)
         }
     }
-
+    
     private func receiveFrameAsync(length: UInt32) {
         connection.receive(minimumIncompleteLength: Int(length), maximumLength: Int(length)) { content, _, isComplete, _ in
             if self.connectionClosed {
@@ -145,7 +147,7 @@ class NearbyConnection {
             self.receiveFrameAsync()
         }
     }
-
+    
     func sendFrameAsync(_ frame: Data, completion: (() -> Void)? = nil) {
         if connectionClosed {
             return
@@ -165,13 +167,13 @@ class NearbyConnection {
             }
         })
     }
-
+    
     func encryptAndSendOfflineFrame(_ frame: Location_Nearby_Connections_OfflineFrame, completion: (() -> Void)? = nil) throws {
         var d2dMsg = Securegcm_DeviceToDeviceMessage()
         serverSeq += 1
         d2dMsg.sequenceNumber = serverSeq
         d2dMsg.message = try frame.serializedData()
-
+        
         let serializedMsg = try [UInt8](d2dMsg.serializedData())
         let iv = Data.randomData(length: 16)
         var encryptedData = Data(count: serializedMsg.count + 16)
@@ -189,7 +191,7 @@ class NearbyConnection {
             )
             guard status == kCCSuccess else { fatalError("CCCrypt error: \(status)") }
         }
-
+        
         var hb = Securemessage_HeaderAndBody()
         hb.body = encryptedData.prefix(encryptedLength)
         hb.header = Securemessage_Header()
@@ -200,17 +202,17 @@ class NearbyConnection {
         md.type = .deviceToDeviceMessage
         md.version = 1
         hb.header.publicMetadata = try md.serializedData()
-
+        
         var smsg = Securemessage_SecureMessage()
         smsg.headerAndBody = try hb.serializedData()
         smsg.signature = Data(HMAC<SHA256>.authenticationCode(for: smsg.headerAndBody, using: sendHmacKey!))
         try sendFrameAsync(smsg.serializedData(), completion: completion)
     }
-
+    
     func sendTransferSetupFrame(_ frame: Sharing_Nearby_Frame) throws {
         try sendBytesPayload(data: frame.serializedData(), id: Int64.random(in: Int64.min ... Int64.max))
     }
-
+    
     func sendBytesPayload(data: Data, id: Int64) throws {
         var transfer = Location_Nearby_Connections_PayloadTransferFrame()
         transfer.packetType = .data
@@ -221,32 +223,32 @@ class NearbyConnection {
         transfer.payloadHeader.type = .bytes
         transfer.payloadHeader.totalSize = Int64(transfer.payloadChunk.body.count)
         transfer.payloadHeader.isSensitive = false
-
+        
         var wrapper = Location_Nearby_Connections_OfflineFrame()
         wrapper.version = .v1
         wrapper.v1 = Location_Nearby_Connections_V1Frame()
         wrapper.v1.type = .payloadTransfer
         wrapper.v1.payloadTransfer = transfer
         try encryptAndSendOfflineFrame(wrapper)
-
+        
         transfer.payloadChunk.flags = 1 // .lastChunk
         transfer.payloadChunk.offset = Int64(transfer.payloadChunk.body.count)
         transfer.payloadChunk.clearBody()
         wrapper.v1.payloadTransfer = transfer
         try encryptAndSendOfflineFrame(wrapper)
     }
-
+    
     func decryptAndProcessReceivedSecureMessage(_ smsg: Securemessage_SecureMessage) throws {
         guard smsg.hasSignature, smsg.hasHeaderAndBody else { throw NearbyError.requiredFieldMissing("secureMessage.signature|headerAndBody") }
-
+        
         if NearbyConnectionManager.shared.checkSignature {
             let hmac = Data(HMAC<SHA256>.authenticationCode(for: smsg.headerAndBody, using: recvHmacKey!))
             guard hmac == smsg.signature else { throw NearbyError.protocolError("hmac!=signature: Expected \(hmac), got \(smsg.signature)") }
         }
-
+        
         let headerAndBody = try Securemessage_HeaderAndBody(serializedBytes: smsg.headerAndBody)
         var decryptedData = Data(count: headerAndBody.body.count)
-
+        
         var decryptedLength = 0
         decryptedData.withUnsafeMutableBytes {
             let status = CCCrypt(
@@ -267,7 +269,7 @@ class NearbyConnection {
         clientSeq += 1
         guard d2dMsg.sequenceNumber == clientSeq else { throw NearbyError.protocolError("Wrong sequence number. Expected \(clientSeq), got \(d2dMsg.sequenceNumber)") }
         let offlineFrame = try Location_Nearby_Connections_OfflineFrame(serializedBytes: d2dMsg.message)
-
+        
         if offlineFrame.hasV1, offlineFrame.v1.hasType, case .payloadTransfer = offlineFrame.v1.type {
             guard offlineFrame.v1.hasPayloadTransfer else { throw NearbyError.requiredFieldMissing("offlineFrame.v1.payloadTransfer") }
             let payloadTransfer = offlineFrame.v1.payloadTransfer
@@ -309,27 +311,27 @@ class NearbyConnection {
             log("Unhandled offline frame encrypted: \(offlineFrame)")
         }
     }
-
+    
     static func pinCodeFromAuthKey(_ key: SymmetricKey) -> String {
         var hash = 0
         var multiplier = 1
         let keyBytes: [UInt8] = key.withUnsafeBytes {
             [UInt8]($0)
         }
-
+        
         for _byte in keyBytes {
             let byte = Int(Int8(bitPattern: _byte))
             hash = (hash + byte * multiplier) % 9973
             multiplier = (multiplier * 31) % 9973
         }
-
+        
         return String(format: "%04d", abs(hash))
     }
-
+    
     static func hkdfExtract(salt: Data, ikm: Data) -> Data {
         return HMAC<SHA256>.authenticationCode(for: ikm, using: SymmetricKey(data: salt)).withUnsafeBytes { Data(bytes: $0.baseAddress!, count: $0.count) }
     }
-
+    
     static func hkdfExpand(prk: Data, info: Data, length: Int) -> Data {
         var okm = Data()
         var t = Data()
@@ -342,7 +344,7 @@ class NearbyConnection {
         }
         return okm.subdata(in: 0 ..< length)
     }
-
+    
     static func hkdf(inputKeyMaterial: SymmetricKey, salt: Data, info: Data, outputByteCount: Int) -> SymmetricKey {
         if #available(macOS 11.0, *) {
             return HKDF<SHA256>.deriveKey(inputKeyMaterial: inputKeyMaterial, salt: salt, info: info, outputByteCount: outputByteCount)
@@ -350,10 +352,10 @@ class NearbyConnection {
             return SymmetricKey(data: hkdfExpand(prk: hkdfExtract(salt: salt, ikm: inputKeyMaterial.withUnsafeBytes { Data(bytes: $0.baseAddress!, count: $0.count) }), info: info, length: outputByteCount))
         }
     }
-
+    
     func finalizeKeyExchange(peerKey: Securemessage_GenericPublicKey) throws {
         guard peerKey.hasEcP256PublicKey else { throw NearbyError.requiredFieldMissing("peerKey.ecP256PublicKey") }
-
+        
         let domain = Domain.instance(curve: .EC256r1)
         var clientX = peerKey.ecP256PublicKey.x
         var clientY = peerKey.ecP256PublicKey.y
@@ -364,36 +366,36 @@ class NearbyConnection {
             clientY = clientY.suffix(32)
         }
         let key = try ECPublicKey(domain: domain, w: Point(BInt(magnitude: [UInt8](clientX)), BInt(magnitude: [UInt8](clientY))))
-
+        
         let dhs = try (privateKey?.domain.multiplyPoint(key.w, privateKey!.s).x.asMagnitudeBytes())!
         var sha = SHA256()
         sha.update(data: dhs)
         let derivedSecretKey = Data(sha.finalize())
-
+        
         var ukeyInfo = Data()
         ukeyInfo.append(ukeyClientInitMsgData!)
         ukeyInfo.append(ukeyServerInitMsgData!)
         let authString = NearbyConnection.hkdf(inputKeyMaterial: SymmetricKey(data: derivedSecretKey), salt: "UKEY2 v1 auth".data(using: .utf8)!, info: ukeyInfo, outputByteCount: 32)
         let nextSecret = NearbyConnection.hkdf(inputKeyMaterial: SymmetricKey(data: derivedSecretKey), salt: "UKEY2 v1 next".data(using: .utf8)!, info: ukeyInfo, outputByteCount: 32)
-
+        
         pinCode = NearbyConnection.pinCodeFromAuthKey(authString)
-
+        
         let salt = Data([0x82, 0xAA, 0x55, 0xA0, 0xD3, 0x97, 0xF8, 0x83, 0x46, 0xCA, 0x1C,
                          0xEE, 0x8D, 0x39, 0x09, 0xB9, 0x5F, 0x13, 0xFA, 0x7D, 0xEB, 0x1D,
                          0x4A, 0xB3, 0x83, 0x76, 0xB8, 0x25, 0x6D, 0xA8, 0x55, 0x10])
-
+        
         let d2dClientKey = NearbyConnection.hkdf(inputKeyMaterial: nextSecret, salt: salt, info: "client".data(using: .utf8)!, outputByteCount: 32)
         let d2dServerKey = NearbyConnection.hkdf(inputKeyMaterial: nextSecret, salt: salt, info: "server".data(using: .utf8)!, outputByteCount: 32)
-
+        
         sha = SHA256()
         sha.update(data: "SecureMessage".data(using: .utf8)!)
         let smsgSalt = Data(sha.finalize())
-
+        
         let clientKey = NearbyConnection.hkdf(inputKeyMaterial: d2dClientKey, salt: smsgSalt, info: "ENC:2".data(using: .utf8)!, outputByteCount: 32).withUnsafeBytes { [UInt8]($0) }
         let clientHmacKey = NearbyConnection.hkdf(inputKeyMaterial: d2dClientKey, salt: smsgSalt, info: "SIG:1".data(using: .utf8)!, outputByteCount: 32)
         let serverKey = NearbyConnection.hkdf(inputKeyMaterial: d2dServerKey, salt: smsgSalt, info: "ENC:2".data(using: .utf8)!, outputByteCount: 32).withUnsafeBytes { [UInt8]($0) }
         let serverHmacKey = NearbyConnection.hkdf(inputKeyMaterial: d2dServerKey, salt: smsgSalt, info: "SIG:1".data(using: .utf8)!, outputByteCount: 32)
-
+        
         if isServer() {
             decryptKey = clientKey
             recvHmacKey = clientHmacKey
@@ -406,20 +408,20 @@ class NearbyConnection {
             sendHmacKey = clientHmacKey
         }
     }
-
+    
     func disconnect() {
         connection.send(content: nil, isComplete: true, completion: .contentProcessed { _ in
             self.handleConnectionClosure()
         })
         connectionClosed = true
     }
-
+    
     func sendDisconnectionAndDisconnect() throws {
         var offlineFrame = Location_Nearby_Connections_OfflineFrame()
         offlineFrame.version = .v1
         offlineFrame.v1.type = .disconnection
         offlineFrame.v1.disconnection = Location_Nearby_Connections_DisconnectionFrame()
-
+        
         if encryptionDone {
             try encryptAndSendOfflineFrame(offlineFrame)
         } else {
@@ -427,7 +429,7 @@ class NearbyConnection {
         }
         disconnect()
     }
-
+    
     func sendUkey2Alert(type: Securegcm_Ukey2Alert.AlertType) {
         var alert = Securegcm_Ukey2Alert()
         alert.type = type
@@ -437,13 +439,13 @@ class NearbyConnection {
         sendFrameAsync(try! msg.serializedData())
         disconnect()
     }
-
+    
     func sendKeepAlive(ack: Bool) {
         var offlineFrame = Location_Nearby_Connections_OfflineFrame()
         offlineFrame.version = .v1
         offlineFrame.v1.type = .keepAlive
         offlineFrame.v1.keepAlive.ack = ack
-
+        
         do {
             if encryptionDone {
                 try encryptAndSendOfflineFrame(offlineFrame)
