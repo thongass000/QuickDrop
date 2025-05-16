@@ -94,17 +94,15 @@ Ha fájlokat szeretnél küldeni Android-eszközödről Mac-re, érintsd meg a m
 
 Fontos: Az Android-eszközödnek és a Mac-ednek ugyanazon a WiFi hálózaton kell lennie a fájlátvitelhez.";
 
-"TroubleshootingDescription" = "Ha a Mac-ed nem jelenik meg az Android eszközödön, vagy az átvitel sikertelen volt, próbáld ki a következőket:
+"TroubleshootingDescription" = "Ha a Mac-ed nem jelenik meg az Android eszközödön, vagy az átvitel sikertelen volt, próbáld meg a következőket:
 
-1) Győződj meg arról, hogy mindkét eszköz ugyanahhoz a WiFi hálózathoz csatlakozik.
+1) Győződj meg róla, hogy mindkét eszköz ugyanahhoz a Wi-Fi hálózathoz csatlakozik. Megjegyzés: a vendéghálózatok általában nem engedélyezik az eszközök közötti kommunikációt. Ha vendéghálózaton vagy, válts át az otthoni hálózatodra.
 
-2) Nyisd meg a Rendszerbeállításokat, és menj a \"Adatvédelem és biztonság\" > \"Helyi hálózat\" részhez. Győződj meg arról, hogy a QuickDrop engedélyezve van. Emellett a \"Hálózat\" > \"Tűzfal\" > \"Beállítások...\" menüben ellenőrizd, hogy a QuickDrop engedélyezve van-e a bejövő kapcsolatok fogadására.
+2) Nyisd meg a Rendszerbeállításokat, és menj a \"Adatvédelem és biztonság\" > \"Helyi hálózat\" részhez. Győződj meg róla, hogy a QuickDrop engedélyezve van. Ha harmadik féltől származó tűzfalat vagy antivírus programot használsz, ellenőrizd a program dokumentációját, hogy engedélyezze a bejövő kapcsolatok számára a QuickDrop-ot.
 
-3) Indítsd újra a QuickDropot a menüsor ikonjára kattintva, válaszd ki az utolsó opciót, majd nyisd meg újra az alkalmazást. Indítsd újra az Android eszközödet is.
+3) Indítsd újra a QuickDrop-ot a menüsor ikonjára kattintva, válaszd az utolsó bejegyzést, majd nyisd meg újra az alkalmazást. Indítsd újra az Android eszközödet is.
 
-Ha továbbra is problémák adódnak, azokat a WiFi routered beállításai okozhatják. Egyes routerek nem engedik az eszközök közötti kommunikációt. Ellenőrizd a router beállításait és módosítsd szükség szerint.
-
-Emellett kipróbálhatod az Androidra készült különálló QuickDrop alkalmazást is. További információkért nézd meg a bal oldalon található \"Android alkalmazás\" szekciót.";
+Ha továbbra is problémákat tapasztalsz, próbáld meg használni a különálló QuickDrop alkalmazást az okostelefonodhoz. További információkért nézd meg a bal oldali \"Android alkalmazás\" szekciót.";
 
 "plusview_title" = "Köszönjük, hogy használod a QuickDropot!";
 "plusview_description" = "Oldd fel a QuickDrop+-t, hogy korlátlanul folytathasd a fájlcserét. A QuickDrop+ egy egyszeri vásárlás – előfizetés nem szükséges. Az összes jelenlegi és jövőbeli funkciót tartalmazza.";  

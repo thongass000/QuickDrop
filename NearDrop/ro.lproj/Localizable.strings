@@ -95,15 +95,13 @@ Important: Dispozitivul tău Android și Mac-ul trebuie să fie conectate la ace
 
 "TroubleshootingDescription" = "Dacă Mac-ul tău nu apare pe dispozitivul Android sau transmiterea a eșuat, încearcă următoarele:
 
-1) Asigură-te că ambele dispozitive sunt conectate la aceeași rețea WiFi.
+1) Asigură-te că ambele dispozitive sunt conectate la aceeași rețea Wi-Fi. Notă: rețelele pentru oaspeți nu permit, de obicei, comunicarea între dispozitive. Dacă ești pe o rețea pentru oaspeți, te rugăm să treci la rețeaua ta de acasă.
 
-2) Deschide Configurațiile sistemului și mergi la \"Confidențialitate și securitate\" > \"Rețea locală\". Asigură-te că QuickDrop este activat. De asemenea, în Configurațiile sistemului, mergi la \"Rețea\" > \"Firewall\" > \"Opțiuni...\" și asigură-te că QuickDrop este autorizat să accepte conexiuni de intrare.
+2) Deschide Setările Sistemului și mergi la \"Confidențialitate și Securitate\" > \"Rețea Locală\". Asigură-te că QuickDrop este activat. Dacă folosești un firewall terț sau un program antivirus, consultă documentația acestuia pentru a permite conexiunile de intrare pentru QuickDrop.
 
-3) Repornește QuickDrop făcând clic pe pictograma din bara de meniu, selectează ultima opțiune și redeschide aplicația. Repornește și dispozitivul tău Android.
+3) Repornește QuickDrop făcând clic pe pictograma din bara de meniu, alege ultima opțiune și redeschide aplicația. Repornește dispozitivul tău Android.
 
-Dacă problema persistă, aceasta ar putea fi cauzată de routerul WiFi. Unele routere nu permit dispozitivelor să comunice între ele. Asigură-te că această setare este configurată corespunzător în setările routerului.
-
-De asemenea, poți încerca să folosești aplicația QuickDrop separată pentru Android. Pentru mai multe informații, consultă secțiunea \"Aplicație Android\" din stânga.";
+Dacă întâmpini în continuare probleme, încearcă să folosești aplicația QuickDrop separată pentru smartphone-ul tău. Pentru mai multe informații, te rugăm să consulți secțiunea \"Aplicație Android\" din stânga.";
 
 "plusview_title" = "Mulțumim că folosești QuickDrop!";
 "plusview_description" = "Deblochează QuickDrop+ pentru a continua schimbul de fișiere fără limite. QuickDrop+ este o achiziție unică – nu este necesar abonament. Toate funcțiile curente și viitoare sunt incluse.";  

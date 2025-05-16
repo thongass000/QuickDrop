@@ -90,29 +90,29 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         
         UNUserNotificationCenter.current().delegate = self
 
-        let monitor = NWPathMonitor()
-        monitor.pathUpdateHandler = { path in
-            if path.status == .satisfied {
-                if path.supportsIPv4 && !path.supportsIPv6 {
-                    log("Detected IPv4-only network.")
-                    self.performDeviceToDeviceCheck()
-                } else if !path.supportsIPv4 && path.supportsIPv6 {
-                    log("IPv6-only network, likely iPhone hotspot. Skipping device-to-device check.")
-                } else if path.supportsIPv4 && path.supportsIPv6 {
-                    log("Detected Dual stack network.")
-                    self.performDeviceToDeviceCheck()
-                } else {
-                    log("Detected no IP support")
-                }
-            } else {
-                log("Network unavailable")
-            }
-            
-            monitor.cancel()
-        }
-
-        let queue = DispatchQueue(label: "NetworkMonitor")
-        monitor.start(queue: queue)
+//        let monitor = NWPathMonitor()
+//        monitor.pathUpdateHandler = { path in
+//            if path.status == .satisfied {
+//                if path.supportsIPv4 && !path.supportsIPv6 {
+//                    log("Detected IPv4-only network.")
+//                    self.performDeviceToDeviceCheck()
+//                } else if !path.supportsIPv4 && path.supportsIPv6 {
+//                    log("IPv6-only network, likely iPhone hotspot. Skipping device-to-device check.")
+//                } else if path.supportsIPv4 && path.supportsIPv6 {
+//                    log("Detected Dual stack network.")
+//                    self.performDeviceToDeviceCheck()
+//                } else {
+//                    log("Detected no IP support")
+//                }
+//            } else {
+//                log("Network unavailable")
+//            }
+//            
+//            monitor.cancel()
+//        }
+//
+//        let queue = DispatchQueue(label: "NetworkMonitor")
+//        monitor.start(queue: queue)
     }
     
     

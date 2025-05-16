@@ -96,15 +96,13 @@ Importante: Seu dispositivo Android e seu Mac precisam estar na mesma rede WiFi 
 
 "TroubleshootingDescription" = "Se o seu Mac não aparecer no seu dispositivo Android ou a transmissão falhar, tente o seguinte:
 
-1) Certifique-se de que ambos os dispositivos estão conectados à mesma rede Wi-Fi.
+1) Certifique-se de que ambos os dispositivos estão conectados à mesma rede Wi-Fi. Nota: redes de convidados geralmente não permitem que dispositivos se comuniquem entre si. Se você estiver em uma rede de convidados, mude para a sua rede doméstica.
 
-2) Abra as Configurações do Sistema e vá para \"Privacidade e Segurança\" > \"Rede Local\". Certifique-se de que o QuickDrop está ativado. Além disso, em Configurações do Sistema, vá para \"Rede\" > \"Firewall\" > \"Opções...\" e garanta que o QuickDrop está autorizado a aceitar conexões de entrada.
+2) Abra as Configurações do Sistema e vá para \"Privacidade e Segurança\" > \"Rede Local\". Certifique-se de que o QuickDrop está ativado. Se você usa um firewall de terceiros ou um programa antivírus, consulte a documentação desse programa para permitir conexões de entrada para o QuickDrop.
 
-3) Reinicie o QuickDrop clicando no ícone da barra de menus, selecione a última opção e abra o aplicativo novamente. Reinicie também o seu dispositivo Android.
+3) Reinicie o QuickDrop clicando no ícone da barra de menu, escolha a última entrada e abra o aplicativo novamente. Reinicie o seu dispositivo Android.
 
-Se o problema persistir, pode ser causado pelo seu roteador Wi-Fi. Alguns roteadores impedem que os dispositivos se comuniquem entre si. Verifique as configurações do seu roteador e ajuste conforme necessário.
-
-Você também pode tentar usar o aplicativo QuickDrop separado para Android. Para mais informações, confira a seção \"Aplicativo Android\" à esquerda.";
+Se ainda encontrar problemas, tente usar o aplicativo QuickDrop separado para o seu smartphone. Para mais informações, consulte a seção \"Aplicativo Android\" à esquerda.";
 
 "plusview_title" = "Obrigado por usar o QuickDrop!";
 "plusview_description" = "Desbloqueie o QuickDrop+ para continuar trocando arquivos sem limites. QuickDrop+ é uma compra única – sem necessidade de assinatura. Todos os recursos atuais e futuros estão incluídos.";  
