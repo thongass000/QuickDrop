@@ -5,6 +5,7 @@
 //  Created by Grishka on 08.04.2023.
 //
 
+import Network
 import Cocoa
 import UserNotifications
 import NearbyShare
@@ -89,35 +90,43 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         
         UNUserNotificationCenter.current().delegate=self
         
-        
-        let hasConnection = isConnectedToNetwork()
-        log("Currently used interface: \(getActiveNetworkInterface())")
-        
-        if hasConnection {
-            let scanner = DeviceToDeviceHeuristicScanner()
-            scanner.scan { allowed in
-                if allowed {
-                    log("✅ Device-to-device likely allowed (peer responded on LAN).")
+        log("Currently used interface: \(getActiveNetworkInterface() ?? "Unknown")")
+
+        let monitor = NWPathMonitor()
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                if path.supportsIPv4 && !path.supportsIPv6 {
+                    log("Detected IPv4-only network.")
+                    self.performDeviceToDeviceCheck()
+                } else if !path.supportsIPv4 && path.supportsIPv6 {
+                    log("IPv6-only network, likely iPhone hotspot. Skipping device-to-device check.")
+                } else if path.supportsIPv4 && path.supportsIPv6 {
+                    log("Detected Dual stack network.")
+                    self.performDeviceToDeviceCheck()
                 } else {
-                    
-                    let scanner2 = IPv6DeviceScanner()
-                    scanner2.scan() { devices in
-                        if devices.isEmpty {
-                            log("❌ No local devices responded — peer-to-peer may be blocked.")
-                            
-                            self.openAlert(type: .ApIsolation)
-                        } else {
-                            log("✅ Found IPv6 devices (excluding router):")
-                            for ip in devices {
-                                print("  • \(ip)")
-                            }
-                        }
-                    }
+                    log("Detected no IP support")
                 }
+            } else {
+                log("Network unavailable")
             }
+            
+            monitor.cancel()
         }
-        else {
-            log("❌ Network unavailable, skipping device-to-device check.")
+
+        let queue = DispatchQueue(label: "NetworkMonitor")
+        monitor.start(queue: queue)
+    }
+    
+    
+    func performDeviceToDeviceCheck() {
+        let scanner = DeviceToDeviceHeuristicScanner()
+        scanner.scan { allowed in
+            if allowed {
+                log("✅ Device-to-device likely allowed (peer responded on LAN).")
+                self.apIsolationAlertWindow?.close()
+            } else {
+                self.openAlert(type: .ApIsolation)
+            }
         }
     }
     
@@ -214,6 +223,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     func openAlert(type: AlertType) {
+        
+        log("Opening Alert for \(type)")
+        
         DispatchQueue.main.async { [self] in
             
             // Create an NSWindow to host the SwiftUI view

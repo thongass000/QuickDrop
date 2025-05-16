@@ -15,6 +15,7 @@ class IPv6DeviceScanner {
     ///   - completion: Callback with a list of detected device IPs (excluding router).
     func scan(timeout: TimeInterval = 2.0, completion: @escaping ([String]) -> Void) {
         
+    
         let interface = getActiveNetworkInterface() ?? "en0"
         
         let process = Process()
