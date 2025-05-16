@@ -88,9 +88,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             BezelNotification.show(messageText: "ReadyToReceive".localized(), icon: .receiveIcon)
         }
         
-        UNUserNotificationCenter.current().delegate=self
-        
-        log("Currently used interface: \(getActiveNetworkInterface() ?? "Unknown")")
+        UNUserNotificationCenter.current().delegate = self
 
         let monitor = NWPathMonitor()
         monitor.pathUpdateHandler = { path in
