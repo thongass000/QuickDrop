@@ -479,7 +479,30 @@ protocol InboundNearbyConnectionDelegate {
 }
 
 public class SaveFilesManager {
-    private init() {}
+    
+    private init() {
+        // remove old temp directory
+        
+        let tempPath = FileManager.default.temporaryDirectory
+        let fileManager = FileManager.default
+
+         do {
+             let contents = try fileManager.contentsOfDirectory(at: tempPath, includingPropertiesForKeys: nil)
+             
+             var didSomething = false
+             
+             for item in contents {
+                 didSomething = true
+                 try fileManager.removeItem(at: item)
+             }
+             
+             if didSomething {
+                 log("Temporary directory cleared.")
+             }
+         } catch {
+             log("Failed to list contents of temp directory: \(error)")
+         }
+    }
 
     public static let shared = SaveFilesManager()
 
@@ -487,58 +510,77 @@ public class SaveFilesManager {
     private var securityScopeUrl: URL?
 
     private var filesFinishedDownloading = [URL]()
-
+    private var filesFinishedDownloadingSinceLastRun = [URL]()
+    
     public func registerFileFinishedDownloading(_ fileURL: URL) {
         filesFinishedDownloading.append(fileURL)
+        filesFinishedDownloadingSinceLastRun.append(fileURL)
     }
-
+    
     public func movePendingFilesToTarget() {
-        if !isPlusVersion() {
-            return
-        }
 
-        log("Moving pending files to target directory")
-
-        do {
-            let fileManager = FileManager.default
-            let files = try fileManager.contentsOfDirectory(at: tempDirectory, includingPropertiesForKeys: nil)
-
-            let target = getSaveDirectory()
-
-            for file in files {
-                let fileName = file.lastPathComponent
-                let destinationURL = target.appendingPathComponent(fileName)
-
-                if !filesFinishedDownloading.contains(destinationURL) {
-                    log("File \(file) not finished downloading, skipping")
-                    continue
+        if isPlusVersion() {
+            do {
+                let fileManager = FileManager.default
+                let files = try fileManager.contentsOfDirectory(at: tempDirectory, includingPropertiesForKeys: nil)
+                
+                let target = getSaveDirectory()
+                var loggedExecution = false
+                
+                for file in files {
+                    
+                    if !loggedExecution {
+                        log("Moving pending files to target directory")
+                        loggedExecution = true
+                    }
+                    
+                    let fileName = file.lastPathComponent
+                    let destinationURL = target.appendingPathComponent(fileName)
+                    
+                    if !filesFinishedDownloading.contains(destinationURL) {
+                        log("File \(file) not finished downloading, skipping")
+                        continue
+                    }
+                    
+                    log("Moving file: \(file.lastPathComponent) to \(destinationURL.lastPathComponent)")
+                    
+                    do {
+                        try fileManager.copyItem(at: file, to: destinationURL)
+                        
+                        let progress = Progress()
+                        progress.fileURL = destinationURL
+                        progress.totalUnitCount = 10
+                        progress.kind = .file
+                        progress.isPausable = false
+                        progress.publish()
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            progress.completedUnitCount = 10
+                            progress.unpublish()
+                        }
+                        
+                        try fileManager.removeItem(at: file)
+                    }
+                    catch {
+                        log("Error moving file: \(error)")
+                    }
                 }
-
-                log("Moving file: \(file.lastPathComponent) to \(destinationURL.lastPathComponent)")
-                try fileManager.copyItem(at: file, to: destinationURL)
-
-                let progress = Progress()
-                progress.fileURL = destinationURL
-                progress.totalUnitCount = 10
-                progress.kind = .file
-                progress.isPausable = false
-                progress.publish()
-
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    progress.completedUnitCount = 10
-                    progress.unpublish()
-                }
-
-                try fileManager.removeItem(at: file)
+                log("Moved all pending files to target directory")
             }
-
-            stopAccessingSecurityScopedResource()
-
-            log("Moved all pending files to target directory")
-
-        } catch {
-            log("Error moving pending files: \(error)")
+            catch {
+                // Pending directory doesn't exist or is empty
+            }
         }
+        
+        if !filesFinishedDownloadingSinceLastRun.isEmpty && !isFileTransferRestricted() {
+            log("Opening \(filesFinishedDownloadingSinceLastRun.count) file(s) in Finder.")
+            NSWorkspace.shared.activateFileViewerSelecting(filesFinishedDownloadingSinceLastRun)
+            
+            // Clear the list of finished files
+            filesFinishedDownloadingSinceLastRun.removeAll()
+        }
+
+        stopAccessingSecurityScopedResource()
     }
 
     public func stopAccessingSecurityScopedResource() {

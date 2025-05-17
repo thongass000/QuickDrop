@@ -229,10 +229,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
     }
 
-    func transmissionCount() -> Int {
-        return UserDefaults.standard.integer(forKey: UserDefaultsKeys.transmissionCount.rawValue)
-    }
-
     // Action for "Recommended Apps" menu item
     @objc func openRecommendedApps() {
         if let url = URL(string: "https://apps.apple.com/de/developer/leon-boettger/id1537384790") {
@@ -346,7 +342,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
 
     private func pressAcceptButton(transferID: String) {
-        if (!isPlusVersion() && transmissionCount() > 1) {
+        if isFileTransferRestricted() {
             continueTransmission(accept: true, transferID: transferID, storeInTemp: true)
             log("Showing plus screen...")
 

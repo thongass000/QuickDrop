@@ -11,6 +11,14 @@ public func isPlusVersion() -> Bool {
     return UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
 }
 
+public func isFileTransferRestricted() -> Bool {
+    (!isPlusVersion() && transmissionCount() > 1)
+}
+
+public func transmissionCount() -> Int {
+    return UserDefaults.standard.integer(forKey: UserDefaultsKeys.transmissionCount.rawValue)
+}
+
 public enum UserDefaultsKeys: String, CaseIterable {
     case isEligibleForIap = "isEligibleForIap"
     case appLaunchedBefore = "ShowedWelcomeScreen"
