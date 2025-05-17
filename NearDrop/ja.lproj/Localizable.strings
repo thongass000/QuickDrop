@@ -9,6 +9,13 @@
 
 /* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@が%2$@を送信しています";
+"DeviceCurrentlySendingText" = "%1$@ が \"%2$@\" をクリップボードに挿入しました。";
+"DeviceSendingText" = "%1$@ が \"%2$@\" をあなたの Mac のクリップボードに挿入しようとしています。";
+
+"DeviceCurrentlySendingUrl" = "%1$@ が \"%2$@\" を開きました。";
+"DeviceSendingUrl" = "%1$@ があなたの Mac で \"%2$@\" を開こうとしています。";
+
+"InsertedIntoClipboard" = "挿入されました";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "暗号化エラー";

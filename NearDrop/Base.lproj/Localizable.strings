@@ -9,6 +9,13 @@
 
 /* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ is sending you %2$@";
+"DeviceCurrentlySendingText" = "%1$@ inserted \"%2$@\" to your clipboard.";
+"DeviceSendingText" = "%1$@ wants to insert \"%2$@\" to your Mac's clipboard.";
+
+"DeviceCurrentlySendingUrl" = "%1$@ opened \"%2$@\".";
+"DeviceSendingUrl" = "%1$@ wants to open \"%2$@\" on your Mac.";
+
+"InsertedIntoClipboard" = "Inserted";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Encryption error";

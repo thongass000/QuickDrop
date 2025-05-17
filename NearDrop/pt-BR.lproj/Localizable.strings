@@ -9,6 +9,13 @@
 
 /* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ está te enviando %2$@";
+"DeviceCurrentlySendingText" = "%1$@ inseriu \"%2$@\" na sua área de transferência.";
+"DeviceSendingText" = "%1$@ deseja inserir \"%2$@\" na área de transferência do seu Mac.";
+
+"DeviceCurrentlySendingUrl" = "%1$@ abriu \"%2$@\".";
+"DeviceSendingUrl" = "%1$@ deseja abrir \"%2$@\" no seu Mac.";
+
+"InsertedIntoClipboard" = "Inserido";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Erro de encriptação";

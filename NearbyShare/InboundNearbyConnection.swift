@@ -21,6 +21,7 @@ class InboundNearbyConnection: NearbyConnection {
     private var cipherCommitment: Data?
 
     private var textPayloadID: Int64 = 0
+    private var isPlainTextTransfer = false
 
     enum State {
         case initial, receivedConnectionRequest, sentUkeyServerInit, receivedUkeyClientFinish, sentConnectionResponse, sentPairedKeyResult, receivedPairedKeyResult, waitingForUserConsent, receivingFiles, disconnected
@@ -130,9 +131,21 @@ class InboundNearbyConnection: NearbyConnection {
 
     override func processBytesPayload(payload: Data, id: Int64) throws -> Bool {
         if id == textPayloadID {
-            if let urlStr = String(data: payload, encoding: .utf8), let url = URL(string: urlStr) {
-                NSWorkspace.shared.open(url)
+            if let urlStr = String(data: payload, encoding: .utf8) {
+                
+                if isPlainTextTransfer {
+                    // paste to clipboard
+                    let pasteboard = NSPasteboard.general
+                    pasteboard.clearContents()
+                    pasteboard.setString(urlStr, forType: .string)
+                    
+                    NearbyConnectionManager.shared.mainAppDelegate?.showCopiedToClipboardAlert()
+                }
+                else if let url = URL(string: urlStr) {
+                    NSWorkspace.shared.open(url)
+                }
             }
+
             try sendDisconnectionAndDisconnect()
             return true
         } else if let fileInfo = transferredFiles[id] {
@@ -151,14 +164,23 @@ class InboundNearbyConnection: NearbyConnection {
     }
 
     private func processConnectionRequestFrame(_ frame: Location_Nearby_Connections_OfflineFrame) throws {
+        
         guard frame.hasV1 && frame.v1.hasConnectionRequest && frame.v1.connectionRequest.hasEndpointInfo else { throw NearbyError.requiredFieldMissing("connectionRequest.endpointInfo") }
+        
         guard case .connectionRequest = frame.v1.type else { throw NearbyError.protocolError("Unexpected frame type \(frame.v1.type)") }
+        
         let endpointInfo = frame.v1.connectionRequest.endpointInfo
+        
         guard endpointInfo.count > 17 else { throw NearbyError.protocolError("Endpoint info too short") }
+        
         let deviceNameLength = Int(endpointInfo[17])
+        
         guard endpointInfo.count >= deviceNameLength + 18 else { throw NearbyError.protocolError("Endpoint info too short to contain the device name") }
+        
         guard let deviceName = String(data: endpointInfo[18 ..< (18 + deviceNameLength)], encoding: .utf8) else { throw NearbyError.protocolError("Device name is not valid UTF-8") }
+        
         let rawDeviceType = Int(endpointInfo[0] & 7) >> 1
+        
         remoteDeviceInfo = RemoteDeviceInfo(name: deviceName, type: RemoteDeviceInfo.DeviceType.fromRawValue(value: rawDeviceType))
         currentState = .receivedConnectionRequest
     }
@@ -329,32 +351,29 @@ class InboundNearbyConnection: NearbyConnection {
             DispatchQueue.main.async {
                 self.delegate?.obtainUserConsent(for: metadata, from: self.remoteDeviceInfo!, connection: self)
             }
-        } else if frame.v1.introduction.textMetadata.count == 1 {
-            let meta = frame.v1.introduction.textMetadata[0]
-            if case .url = meta.type {
-                let metadata = TransferMetadata(files: [], id: id, pinCode: pinCode, textDescription: meta.textTitle)
-                textPayloadID = meta.payloadID
+        } else if let textMetadata = frame.v1.introduction.textMetadata.first {
+            
+            if textMetadata.type == .url || textMetadata.type == .text {
+                
+                let isClipboardText = textMetadata.type == .text
+                
+                let metadata = TransferMetadata(files: [], id: id, pinCode: pinCode, textDescription: textMetadata.textTitle, transferType: isClipboardText ? .text : .url)
+                textPayloadID = textMetadata.payloadID
+                
+                if isClipboardText{
+                    isPlainTextTransfer = true
+                }
+                
                 DispatchQueue.main.async {
                     self.delegate?.obtainUserConsent(for: metadata, from: self.remoteDeviceInfo!, connection: self)
                 }
-            } else if case .text = meta.type {
-                let saveDirectory = SaveFilesManager.shared.getSaveDirectory()
-
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd HH.mm.ss"
-                let dest = makeFileDestinationURL(saveDirectory.appendingPathComponent("\(dateFormatter.string(from: Date())).txt"))
-                let info = InternalFileInfo(meta: FileMetadata(name: dest.lastPathComponent, size: meta.size, mimeType: "text/plain"),
-                                            payloadID: meta.payloadID,
-                                            destinationURL: dest)
-                transferredFiles[meta.payloadID] = info
-                DispatchQueue.main.async {
-                    self.delegate?.obtainUserConsent(for: TransferMetadata(files: [info.meta], id: self.id, pinCode: self.pinCode), from: self.remoteDeviceInfo!, connection: self)
-                }
-            } else {
+            }
+            else {
                 rejectTransfer(with: .unsupportedAttachmentType)
             }
         } else {
             rejectTransfer(with: .unsupportedAttachmentType)
+            
         }
     }
 
@@ -409,6 +428,9 @@ class InboundNearbyConnection: NearbyConnection {
     }
 
     private func rejectTransfer(with reason: Sharing_Nearby_ConnectionResponseFrame.Status = .reject) {
+        
+        log("Rejecting transfer because of \( reason)")
+        
         var frame = Sharing_Nearby_Frame()
         frame.version = .v1
         frame.v1.type = .response

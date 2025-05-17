@@ -16,6 +16,7 @@ import UserNotifications
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, MainAppDelegate {
+    
     private var statusItem: NSStatusItem?
     private var activeIncomingTransfers: [String: TransferInfo] = [:]
 
@@ -284,7 +285,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             fileStr = String.localizedStringWithFormat(NSLocalizedString("NFiles", value: "%d files", comment: ""), transfer.files.count)
         }
 
-        let mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingFiles" : "DeviceSendingFiles").localized(), arguments: [device.name, fileStr])
+        
+        let mainMessage: String
+        
+        switch transfer.type {
+            case .file:
+                mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingFiles" : "DeviceSendingFiles").localized(), arguments: [device.name, fileStr])
+            
+            case .text:
+                mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingText" : "DeviceSendingText").localized(), arguments: [device.name, fileStr])
+            
+            case .url:
+                mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingUrl" : "DeviceSendingUrl").localized(), arguments: [device.name, fileStr])
+        }
+        
+       
         let pinCodeMessage = String(format: NSLocalizedString("PinCode", value: "PIN: %@", comment: ""), arguments: [transfer.pinCode ?? "?"])
         let transferID = transfer.id
 
@@ -341,6 +356,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
     func showFirewallAlert() {
         openAlert(type: .Firewall)
+    }
+    
+    func showCopiedToClipboardAlert() {
+        DispatchQueue.main.async {
+            BezelNotification.show(messageText: "InsertedIntoClipboard".localized(), icon: .clipboard)
+        }
     }
 
     func incomingTransfer(id: String, didFinishWith error: Error?) {

@@ -9,6 +9,13 @@
 
 /* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ vous envoie %2$@";
+"DeviceCurrentlySendingText" = "%1$@ a inséré \"%2$@\" dans votre presse-papiers.";
+"DeviceSendingText" = "%1$@ souhaite insérer \"%2$@\" dans le presse-papiers de votre Mac.";
+
+"DeviceCurrentlySendingUrl" = "%1$@ a ouvert \"%2$@\".";
+"DeviceSendingUrl" = "%1$@ souhaite ouvrir \"%2$@\" sur votre Mac.";
+
+"InsertedIntoClipboard" = "Inséré";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Erreur de cryptage";

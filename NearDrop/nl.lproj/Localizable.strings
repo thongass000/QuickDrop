@@ -9,6 +9,13 @@
 
 /* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ stuurt je %2$@";
+"DeviceCurrentlySendingText" = "%1$@ heeft \"%2$@\" in je klembord geplaatst.";
+"DeviceSendingText" = "%1$@ wil \"%2$@\" in het klembord van je Mac plaatsen.";
+
+"DeviceCurrentlySendingUrl" = "%1$@ heeft \"%2$@\" geopend.";
+"DeviceSendingUrl" = "%1$@ wil \"%2$@\" openen op je Mac.";
+
+"InsertedIntoClipboard" = "Ingevoerd";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Fout bij codering";

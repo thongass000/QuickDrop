@@ -9,6 +9,13 @@
 
 /* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ vă trimite %2$@";
+"DeviceCurrentlySendingText" = "%1$@ a introdus \"%2$@\" în clipboard-ul tău.";
+"DeviceSendingText" = "%1$@ dorește să introducă \"%2$@\" în clipboard-ul Mac-ului tău.";
+
+"DeviceCurrentlySendingUrl" = "%1$@ a deschis \"%2$@\".";
+"DeviceSendingUrl" = "%1$@ dorește să deschidă \"%2$@\" pe Mac-ul tău.";
+
+"InsertedIntoClipboard" = "Inserat";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Eroare de criptare";

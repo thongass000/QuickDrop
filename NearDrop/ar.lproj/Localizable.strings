@@ -9,6 +9,13 @@
 
 /* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ يرسل لك %2$@";
+"DeviceCurrentlySendingText" = "قام %1$@ بإدراج \"%2$@\" في الحافظة الخاصة بك.";
+"DeviceSendingText" = "يرغب %1$@ في إدراج \"%2$@\" في حافظة جهاز Mac الخاص بك.";
+
+"DeviceCurrentlySendingUrl" = "قام %1$@ بفتح \"%2$@\".";
+"DeviceSendingUrl" = "يرغب %1$@ في فتح \"%2$@\" على جهاز Mac الخاص بك.";
+
+"InsertedIntoClipboard" = "تم الإدراج";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "خطأ في التشفير";

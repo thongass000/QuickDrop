@@ -9,6 +9,13 @@
 
 /* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ 正向你发送 %2$@";
+"DeviceCurrentlySendingText" = "%1$@ 已将 \"%2$@\" 插入到你的剪贴板。";
+"DeviceSendingText" = "%1$@ 想要将 \"%2$@\" 插入到你的 Mac 剪贴板。";
+
+"DeviceCurrentlySendingUrl" = "%1$@ 已打开 \"%2$@\"。";
+"DeviceSendingUrl" = "%1$@ 想要在你的 Mac 上打开 \"%2$@\"。";
+
+"InsertedIntoClipboard" = "已插入";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "加密出错";

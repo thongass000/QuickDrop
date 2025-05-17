@@ -9,6 +9,13 @@
 
 /* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ a következőt küldi: %2$@";
+"DeviceCurrentlySendingText" = "%1$@ beillesztette a(z) \"%2$@\" szöveget a vágólapodra.";
+"DeviceSendingText" = "%1$@ be szeretné illeszteni a(z) \"%2$@\" szöveget a Mac-ed vágólapjára.";
+
+"DeviceCurrentlySendingUrl" = "%1$@ megnyitotta a(z) \"%2$@\" hivatkozást.";
+"DeviceSendingUrl" = "%1$@ meg szeretné nyitni a(z) \"%2$@\" hivatkozást a Mac-eden.";
+
+"InsertedIntoClipboard" = "Beillesztve";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Titkosítási hiba";

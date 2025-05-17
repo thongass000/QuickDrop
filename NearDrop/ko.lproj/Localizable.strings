@@ -9,6 +9,13 @@
 
 /* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@에서 %2$@을(를) 공유하려고 합니다.";
+"DeviceCurrentlySendingText" = "%1$@이(가) \"%2$@\"을(를) 클립보드에 삽입했습니다.";
+"DeviceSendingText" = "%1$@이(가) \"%2$@\"을(를) Mac의 클립보드에 삽입하려고 합니다.";
+
+"DeviceCurrentlySendingUrl" = "%1$@이(가) \"%2$@\"을(를) 열었습니다.";
+"DeviceSendingUrl" = "%1$@이(가) Mac에서 \"%2$@\"을(를) 열려고 합니다.";
+
+"InsertedIntoClipboard" = "삽입됨";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "암호화 오류";

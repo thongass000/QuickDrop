@@ -66,12 +66,20 @@ public struct TransferMetadata {
     public let id: String
     public let pinCode: String?
     public let textDescription: String?
+    public let type: TransferType
 
-    init(files: [FileMetadata], id: String, pinCode: String?, textDescription: String? = nil) {
+    init(files: [FileMetadata], id: String, pinCode: String?, textDescription: String? = nil, transferType: TransferType = .file) {
         self.files = files
         self.id = id
         self.pinCode = pinCode
         self.textDescription = textDescription
+        self.type = transferType
+    }
+    
+    public enum TransferType {
+        case file
+        case text
+        case url
     }
 }
 
@@ -137,6 +145,7 @@ public protocol MainAppDelegate {
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo)
     func incomingTransfer(id: String, didFinishWith error: Error?)
     func showFirewallAlert()
+    func showCopiedToClipboardAlert()
 }
 
 public protocol ShareExtensionDelegate: AnyObject {

@@ -9,6 +9,13 @@
 
 /* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ möchte dir %2$@ senden";
+"DeviceCurrentlySendingText" = "%1$@ hat \"%2$@\" in deine Zwischenablage eingefügt.";
+"DeviceSendingText" = "%1$@ möchte \"%2$@\" in die Zwischenablage deines Macs einfügen.";
+
+"DeviceCurrentlySendingUrl" = "%1$@ hat \"%2$@\" geöffnet.";
+"DeviceSendingUrl" = "%1$@ möchte \"%2$@\" auf deinem Mac öffnen.";
+
+"InsertedIntoClipboard" = "Eingefügt";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Verschlüsselungsfehler";

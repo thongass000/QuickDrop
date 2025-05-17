@@ -9,6 +9,13 @@
 
 /* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ ti sta mandando %2$@";
+"DeviceCurrentlySendingText" = "%1$@ ha inserito \"%2$@\" negli appunti.";
+"DeviceSendingText" = "%1$@ vuole inserire \"%2$@\" negli appunti del tuo Mac.";
+
+"DeviceCurrentlySendingUrl" = "%1$@ ha aperto \"%2$@\".";
+"DeviceSendingUrl" = "%1$@ vuole aprire \"%2$@\" sul tuo Mac.";
+
+"InsertedIntoClipboard" = "Inserito";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Errore di crittografia";

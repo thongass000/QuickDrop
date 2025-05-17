@@ -9,6 +9,13 @@
 
 /* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ відправляє Вам %2$@";
+"DeviceCurrentlySendingText" = "%1$@ вставив \"%2$@\" до вашого буфера обміну.";
+"DeviceSendingText" = "%1$@ хоче вставити \"%2$@\" до буфера обміну вашого Mac.";
+
+"DeviceCurrentlySendingUrl" = "%1$@ відкрив \"%2$@\".";
+"DeviceSendingUrl" = "%1$@ хоче відкрити \"%2$@\" на вашому Mac.";
+
+"InsertedIntoClipboard" = "Вставлено";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Помилка шифрування";
