@@ -34,8 +34,6 @@
 		69DCF49C2AB8C58500CBE2CC /* SwiftECC in Frameworks */ = {isa = PBXBuildFile; productRef = 69DCF49B2AB8C58500CBE2CC /* SwiftECC */; };
 		69DCF49D2AB8C9A500CBE2CC /* libNearbyShare.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DCF4812AB70D0600CBE2CC /* libNearbyShare.dylib */; };
 		69DCF49E2AB8C9A500CBE2CC /* libNearbyShare.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 69DCF4812AB70D0600CBE2CC /* libNearbyShare.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		EB1358012DD87D9200B10B63 /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1357FF2DD87D6E00B10B63 /* ClipboardManager.swift */; };
-		EB1358022DD87DE300B10B63 /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1357FF2DD87D6E00B10B63 /* ClipboardManager.swift */; };
 		EB2B41E42DC63ACC0070FC39 /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B41E32DC63AC80070FC39 /* SleepManager.swift */; };
 		EB2F9BFB2DA04B69004010A2 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9BFA2DA04B67004010A2 /* Helpers.swift */; };
 		EB2F9BFE2DA05F48004010A2 /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = EB2F9BFD2DA05F48004010A2 /* BezelNotification */; };
@@ -200,7 +198,6 @@
 		E9C8C6D22CFF66650053474D /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/ShareViewController.strings; sourceTree = "<group>"; };
 		E9C8C6D32CFF66650053474D /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ro; path = ro.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		E9C8C6D42CFF66650053474D /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EB1357FF2DD87D6E00B10B63 /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
 		EB2B41E32DC63AC80070FC39 /* SleepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager.swift; sourceTree = "<group>"; };
 		EB2F9BFA2DA04B67004010A2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		EB36435F2D73A29F009CDFF8 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
@@ -281,7 +278,6 @@
 			isa = PBXGroup;
 			children = (
 				699DEBA52AB0573200115D22 /* ShareViewController.swift */,
-				EB1357FF2DD87D6E00B10B63 /* ClipboardManager.swift */,
 				EBCC27F82D80C9F70079C478 /* Zip.swift */,
 				EB96ED8A2D7F7CF4004B3FF1 /* QrCodeView.swift */,
 				691F53B92ABB70840089FD92 /* DeviceListCell.swift */,
@@ -567,7 +563,6 @@
 				EBCC27F92D80C9F90079C478 /* Zip.swift in Sources */,
 				EB7CD1462D6FB0E800CB0CB5 /* Logger.swift in Sources */,
 				691F53BB2ABB70840089FD92 /* DeviceListCell.swift in Sources */,
-				EB1358022DD87DE300B10B63 /* ClipboardManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,7 +577,6 @@
 				69DA9A1229E0BF5100A442DA /* AppDelegate.swift in Sources */,
 				EB7F54102D78E6DF00989564 /* Sidebar.swift in Sources */,
 				EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */,
-				EB1358012DD87D9200B10B63 /* ClipboardManager.swift in Sources */,
 				EB7F54122D78E96000989564 /* TutorialView.swift in Sources */,
 				EB96ED8F2D7F8105004B3FF1 /* Localized.swift in Sources */,
 				EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */,
