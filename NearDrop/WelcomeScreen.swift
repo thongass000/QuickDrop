@@ -93,9 +93,6 @@ struct WelcomeScreen: View {
                     
                 case .troubleshooting:
                     TutorialView(title: "Troubleshooting", text: "TroubleshootingDescription", showsLicense: false, openIAP: openPlusScreen)
-                        .onAppear {
-                            checkForNetworkIssues()
-                        }
                     
                 case .app:
                     TutorialView(title: "AndroidApp", text: "AndroidAppDescription", showsLicense: false, showsBetaJoinButton: true, openIAP: openPlusScreen)

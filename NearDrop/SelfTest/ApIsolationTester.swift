@@ -11,7 +11,6 @@ import Network
 class DeviceToDeviceHeuristicScanner {
     private let scanQueue = DispatchQueue(label: "DeviceToDeviceScanQueue")
     private var reachableIPs = [String]()
-    private var scannedCount = 0
     private var totalToScan = 0
     private var completion: ((Bool) -> Void)?
     
@@ -30,10 +29,8 @@ class DeviceToDeviceHeuristicScanner {
         }
 
         // Timeout fallback
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
-            if self.scannedCount < self.totalToScan {
-                self.finish()
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+            self.finish()
         }
     }
     
@@ -45,11 +42,10 @@ class DeviceToDeviceHeuristicScanner {
             switch state {
             case .ready:
                 self.reachableIPs.append(ip)
+                self.finish()
                 connection.cancel()
-                self.hostFinished()
             case .failed, .cancelled:
                 connection.cancel()
-                self.hostFinished()
             default:
                 break
             }
@@ -58,15 +54,9 @@ class DeviceToDeviceHeuristicScanner {
         connection.start(queue: scanQueue)
     }
 
-    private func hostFinished() {
-        scannedCount += 1
-        if scannedCount == totalToScan {
-            finish()
-        }
-    }
-
     private func finish() {
         completion?(reachableIPs.count > 0)
+        completion = nil
     }
 
     /// Attempts to detect the local subnet prefix (e.g., "192.168.0")

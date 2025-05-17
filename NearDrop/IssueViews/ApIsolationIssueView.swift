@@ -13,11 +13,37 @@ import Network
 struct ApIsolationIssueView: View {
     
     @Environment(\.colorScheme) var colorScheme
+    let closeView : () -> Void
+    
+    let scanner = DeviceToDeviceHeuristicScanner()
     
     var body: some View {
         
         IssueView(image: .router, header: "ApIsolationHeader".localized(), description: "ApIsolationDescription".localized(), actionLabel: "ApIsolationAction".localized()) {
             await openRouterSettingsPage()
+        }
+        .onAppear {
+            checkIfApIsolationStillEnabled()
+        }
+    }
+    
+    func checkIfApIsolationStillEnabled() {
+        scanner.scan { isConnectionAllowed in
+            if isConnectionAllowed {
+                
+                log("AP Isolation is no longer enabled. Exiting...")
+                
+                DispatchQueue.main.async {
+                    closeView()
+                }
+            }
+            else {
+                log("AP Isolation is still enabled. Checking again in 10 seconds...")
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                    checkIfApIsolationStillEnabled()
+                }
+            }
         }
     }
 }
@@ -121,7 +147,7 @@ func isHostReachable(_ host: String) -> Bool {
 
 
 #Preview {
-    ApIsolationIssueView()
+    ApIsolationIssueView(closeView: {})
         .frame(width: issueViewWidth, height: issueViewHeight)
 }
 
