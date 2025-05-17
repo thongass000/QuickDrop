@@ -5,68 +5,66 @@
 //  Created by Grishka on 12.09.2023.
 //
 
-import Foundation
 import Cocoa
-import SwiftUI
+import Foundation
 import NearbyShare
+import SwiftUI
 
-class ShareViewController: NSViewController, ShareExtensionDelegate{
-    
-    private var urls:[URL]=[]
-    private var foundDevices:[RemoteDeviceInfo]=[]
-    private var chosenDevice:RemoteDeviceInfo?
-    private var lastError:Error?
-    
+class ShareViewController: NSViewController, ShareExtensionDelegate {
+    private var urls: [URL] = []
+    private var foundDevices: [RemoteDeviceInfo] = []
+    private var chosenDevice: RemoteDeviceInfo?
+    private var lastError: Error?
+
     private var connectionEstablished = false
     private var timeoutDispatchWorkItem: DispatchWorkItem? = nil
-    
-    @IBOutlet var filesIcon:NSImageView?
-    @IBOutlet var filesLabel:NSTextField?
-    @IBOutlet var loadingOverlay:NSStackView?
-    @IBOutlet var largeProgress:NSProgressIndicator?
-    @IBOutlet var listView:NSCollectionView?
-    @IBOutlet var listViewWrapper:NSView?
-    @IBOutlet var contentWrap:NSView?
-    @IBOutlet var progressView:NSView?
-    @IBOutlet var progressDeviceIcon:NSImageView?
-    @IBOutlet var progressDeviceName:NSTextField?
-    @IBOutlet var progressProgressBar:NSProgressIndicator?
-    @IBOutlet var progressState:NSTextField?
-    @IBOutlet var progressDeviceIconWrap:NSView?
-    @IBOutlet var progressDeviceSecondaryIcon:NSImageView?
+
+    @IBOutlet var filesIcon: NSImageView?
+    @IBOutlet var filesLabel: NSTextField?
+    @IBOutlet var loadingOverlay: NSStackView?
+    @IBOutlet var largeProgress: NSProgressIndicator?
+    @IBOutlet var listView: NSCollectionView?
+    @IBOutlet var listViewWrapper: NSView?
+    @IBOutlet var contentWrap: NSView?
+    @IBOutlet var progressView: NSView?
+    @IBOutlet var progressDeviceIcon: NSImageView?
+    @IBOutlet var progressDeviceName: NSTextField?
+    @IBOutlet var progressProgressBar: NSProgressIndicator?
+    @IBOutlet var progressState: NSTextField?
+    @IBOutlet var progressDeviceIconWrap: NSView?
+    @IBOutlet var progressDeviceSecondaryIcon: NSImageView?
     @IBOutlet var dontSeeDeviceButton: NSButton?
-    
+
     private var qrCodeSheetView: NSPanel? = nil
     private var sheetAttachedWindow: NSWindow? = nil
-    
+
     override var nibName: NSNib.Name? {
         return NSNib.Name("ShareViewController")
     }
-    
+
     override func loadView() {
         super.loadView()
-        
-        let item = self.extensionContext!.inputItems[0] as! NSExtensionItem
+
+        let item = extensionContext!.inputItems[0] as! NSExtensionItem
         if let attachments = item.attachments {
-            
             if let text = item.attributedContentText?.string, attachments.isEmpty, let tempUrl = ClipboardManager.saveTextToTempFile(text: text) {
-                self.urls.append(tempUrl)
-                
+                urls.append(tempUrl)
+
                 DispatchQueue.main.async {
                     self.urlsReady()
                 }
-            }
-            else {
+            } else {
                 for attachment in attachments {
                     if attachment.hasItemConformingToTypeIdentifier(kUTTypeURL as String) {
-                        attachment.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil) { data, err in
+                        attachment.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil) { data, _ in
                             if let urlData = data as? Data,
-                               let url = URL(dataRepresentation: urlData, relativeTo: nil, isAbsolute: false) {
+                               let url = URL(dataRepresentation: urlData, relativeTo: nil, isAbsolute: false)
+                            {
                                 self.urls.append(url)
                             } else if let url = data as? NSURL {
                                 self.urls.append(url as URL)
                             }
-                            
+
                             if self.urls.count == attachments.count {
                                 DispatchQueue.main.async {
                                     self.urlsReady()
@@ -76,336 +74,301 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
                     }
                 }
             }
-        }
-        else {
+        } else {
             let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
-            self.extensionContext!.cancelRequest(withError: cancelError)
+            extensionContext!.cancelRequest(withError: cancelError)
             return
         }
-        
+
         contentWrap!.addSubview(listViewWrapper!)
         contentWrap!.addSubview(loadingOverlay!)
         contentWrap!.addSubview(progressView!)
-        progressView!.isHidden=true
-        
-        listViewWrapper!.translatesAutoresizingMaskIntoConstraints=false
-        loadingOverlay!.translatesAutoresizingMaskIntoConstraints=false
-        progressView!.translatesAutoresizingMaskIntoConstraints=false
-        
+        progressView!.isHidden = true
+
+        listViewWrapper!.translatesAutoresizingMaskIntoConstraints = false
+        loadingOverlay!.translatesAutoresizingMaskIntoConstraints = false
+        progressView!.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
             NSLayoutConstraint(item: listViewWrapper!, attribute: .width, relatedBy: .equal, toItem: contentWrap, attribute: .width, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: listViewWrapper!, attribute: .height, relatedBy: .equal, toItem: contentWrap, attribute: .height, multiplier: 1, constant: 0),
-            
+
             NSLayoutConstraint(item: loadingOverlay!, attribute: .width, relatedBy: .equal, toItem: contentWrap, attribute: .width, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: loadingOverlay!, attribute: .centerY, relatedBy: .equal, toItem: contentWrap, attribute: .centerY, multiplier: 1, constant: 0),
-            
+
             NSLayoutConstraint(item: progressView!, attribute: .width, relatedBy: .equal, toItem: contentWrap, attribute: .width, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: progressView!, attribute: .centerY, relatedBy: .equal, toItem: contentWrap, attribute: .centerY, multiplier: 1, constant: 0)
+            NSLayoutConstraint(item: progressView!, attribute: .centerY, relatedBy: .equal, toItem: contentWrap, attribute: .centerY, multiplier: 1, constant: 0),
         ])
-        
+
         largeProgress!.startAnimation(nil)
-        
+
         let flowLayout = NSCollectionViewFlowLayout()
-        flowLayout.itemSize=NSSize(width: 75, height: 90)
-        flowLayout.sectionInset=NSEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        flowLayout.minimumInteritemSpacing=10
-        flowLayout.minimumLineSpacing=10
-        listView!.collectionViewLayout=flowLayout
-        listView!.dataSource=self
-        
-        progressDeviceIconWrap!.wantsLayer=true
-        progressDeviceIconWrap!.layer!.masksToBounds=false
+        flowLayout.itemSize = NSSize(width: 75, height: 90)
+        flowLayout.sectionInset = NSEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.minimumLineSpacing = 10
+        listView!.collectionViewLayout = flowLayout
+        listView!.dataSource = self
+
+        progressDeviceIconWrap!.wantsLayer = true
+        progressDeviceIconWrap!.layer!.masksToBounds = false
     }
-    
-    
-    override func viewDidLoad(){
+
+    override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         dicoverDevices()
         NearbyConnectionManager.shared.addShareExtensionDelegate(self)
     }
-    
-    
+
     override func viewWillDisappear() {
-        
         log("ShareViewController: viewWillDisappear")
-        
+
         timeoutDispatchWorkItem?.cancel()
-        
-        if chosenDevice==nil{
+
+        if chosenDevice == nil {
             NearbyConnectionManager.shared.stopDeviceDiscovery()
         }
         NearbyConnectionManager.shared.removeShareExtensionDelegate(self)
     }
-    
-    
-    @IBAction func cancel(_ sender: AnyObject?) {
-        
-        if let device=chosenDevice{
+
+    @IBAction func cancel(_: AnyObject?) {
+        if let device = chosenDevice {
             NearbyConnectionManager.shared.cancelOutgoingTransfer(id: device.id!)
         }
         let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
-        self.extensionContext!.cancelRequest(withError: cancelError)
+        extensionContext!.cancelRequest(withError: cancelError)
     }
-    
-    
-    @IBAction func dontSeeDeviceButton(_ sender: AnyObject?) {
+
+    @IBAction func dontSeeDeviceButton(_: AnyObject?) {
         openQrCodeView()
     }
-    
-    
+
     private func openQrCodeView() {
         if qrCodeSheetView == nil {
             let contentView = QrCodeView {
                 self.closeQrCodeView()
             }
-            
+
             let hostingView = NSHostingView(rootView: contentView)
-            
+
             let panel = NSPanel(contentRect: NSRect(x: 0, y: 0, width: qrCodeViewSize.width, height: qrCodeViewSize.height),
                                 styleMask: [.titled, .closable, .utilityWindow],
                                 backing: .buffered,
                                 defer: false)
-            
+
             panel.contentView = hostingView
-            
-            self.qrCodeSheetView = panel
-            
+
+            qrCodeSheetView = panel
+
             if let mainWindow = NSApp.mainWindow {
-                
-                self.sheetAttachedWindow = mainWindow
+                sheetAttachedWindow = mainWindow
                 mainWindow.beginSheet(panel) { _ in }
             }
         }
     }
-    
-    
+
     private func closeQrCodeView() {
-        if let mainWindow = sheetAttachedWindow, let qrCodeView = self.qrCodeSheetView {
+        if let mainWindow = sheetAttachedWindow, let qrCodeView = qrCodeSheetView {
             mainWindow.endSheet(qrCodeView)
-            
-            self.qrCodeSheetView = nil
-            self.sheetAttachedWindow = nil
+
+            qrCodeSheetView = nil
+            sheetAttachedWindow = nil
         }
     }
-    
-    
+
     private func urlsReady() {
         for url in urls {
             if url.isFileURL {
                 let isDirectory = UnsafeMutablePointer<ObjCBool>.allocate(capacity: 1)
                 if FileManager.default.fileExists(atPath: url.path, isDirectory: isDirectory) && isDirectory.pointee.boolValue {
-                    
                     do {
                         let zipUrl = try createZipAtTmp(zipFilename: url.lastPathComponent, fromDirectory: url)
-                        
+
                         let index = urls.firstIndex(of: url)
                         urls[index!] = zipUrl
-                    }
-                    catch {
+                    } catch {
                         log("Error creating zip file: \(error)")
-                        
+
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             log("Canceling share request because URL \(url) is a directory")
-                            
+
                             let alert = NSAlert()
                             alert.alertStyle = .critical
-                            
+
                             alert.messageText = "TypeNotSupported".localized()
                             alert.informativeText = "TypeNotSupportedDescription".localized()
                             alert.addButton(withTitle: "TypeNotSupportedButton".localized())
-                            
-                            alert.beginSheetModal(for: self.view.window!) { resp in
+
+                            alert.beginSheetModal(for: self.view.window!) { _ in
                                 let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
                                 self.extensionContext!.cancelRequest(withError: cancelError)
                             }
                         }
-                        
+
                         return
                     }
                 }
             }
         }
-        
+
         if urls.count == 1 {
             if urls[0].isFileURL {
                 filesLabel!.stringValue = urls[0].lastPathComponent
                 filesIcon!.image = NSWorkspace.shared.icon(forFile: urls[0].path)
-            }
-            else if urls[0].scheme == "http" || urls[0].scheme == "https" {
-                
+            } else if urls[0].scheme == "http" || urls[0].scheme == "https" {
                 filesLabel!.stringValue = urls[0].absoluteString
                 filesIcon!.image = NSImage(named: NSImage.networkName)
             }
-        }
-        else {
+        } else {
             filesLabel!.stringValue = String.localizedStringWithFormat(NSLocalizedString("NFiles", value: "%d files", comment: ""), urls.count)
             filesIcon!.image = NSImage(named: NSImage.multipleDocumentsName)
         }
     }
-    
-    
+
     func addDevice(device: RemoteDeviceInfo) {
         if foundDevices.isEmpty {
             loadingOverlay?.animator().isHidden = true
         }
         foundDevices.append(device)
-        listView?.animator().insertItems(at: [[0, foundDevices.count-1]])
-        
+        listView?.animator().insertItems(at: [[0, foundDevices.count - 1]])
+
         closeQrCodeView()
     }
-    
-    
+
     func removeDevice(id: String) {
         if chosenDevice != nil {
             return
         }
         for i in foundDevices.indices {
-            if foundDevices[i].id==id {
+            if foundDevices[i].id == id {
                 foundDevices.remove(at: i)
                 listView?.animator().deleteItems(at: [[0, i]])
                 break
             }
         }
         if foundDevices.isEmpty {
-            loadingOverlay?.animator().isHidden=false
+            loadingOverlay?.animator().isHidden = false
         }
     }
-    
-    
+
     func connectionWasEstablished(pinCode: String) {
-        
         connectionEstablished = true
-        
-        progressState?.stringValue=String(format:NSLocalizedString("PinCode", value: "PIN: %@", comment: ""), arguments: [pinCode])
+
+        progressState?.stringValue = String(format: NSLocalizedString("PinCode", value: "PIN: %@", comment: ""), arguments: [pinCode])
         progressProgressBar?.isIndeterminate = false
         progressProgressBar?.maxValue = 1000
         progressProgressBar?.doubleValue = 0
     }
-    
-    
+
     func connectionFailed(with error: Error) {
-        
         progressProgressBar?.isIndeterminate = false
         progressProgressBar?.maxValue = 1000
         progressProgressBar?.doubleValue = 0
         lastError = error
-        
-        if let ne = (error as? NearbyError), case let .canceled(reason) = ne{
+
+        if let ne = (error as? NearbyError), case let .canceled(reason) = ne {
             switch reason {
             case .userRejected:
-                progressState?.stringValue=NSLocalizedString("TransferDeclined", value: "Declined", comment: "")
+                progressState?.stringValue = NSLocalizedString("TransferDeclined", value: "Declined", comment: "")
             case .userCanceled:
-                progressState?.stringValue=NSLocalizedString("TransferCanceled", value: "Canceled", comment: "")
+                progressState?.stringValue = NSLocalizedString("TransferCanceled", value: "Canceled", comment: "")
             case .notEnoughSpace:
-                progressState?.stringValue=NSLocalizedString("NotEnoughSpace", value: "Not enough disk space", comment: "")
+                progressState?.stringValue = NSLocalizedString("NotEnoughSpace", value: "Not enough disk space", comment: "")
             case .unsupportedType:
-                progressState?.stringValue=NSLocalizedString("UnsupportedType", value: "Attachment type not supported", comment: "")
+                progressState?.stringValue = NSLocalizedString("UnsupportedType", value: "Attachment type not supported", comment: "")
             case .timedOut:
-                progressState?.stringValue=NSLocalizedString("TransferTimedOut", value: "Timed out", comment: "")
+                progressState?.stringValue = NSLocalizedString("TransferTimedOut", value: "Timed out", comment: "")
             }
-            progressDeviceSecondaryIcon?.isHidden=false
+            progressDeviceSecondaryIcon?.isHidden = false
             dismissDelayed()
         } else {
-            
             let alert = NSAlert(error: error)
-            
-            alert.beginSheetModal(for: view.window!) { resp in
+
+            alert.beginSheetModal(for: view.window!) { _ in
                 self.extensionContext!.cancelRequest(withError: error)
             }
         }
     }
-    
-    
+
     func transferAccepted() {
-        progressState?.stringValue=NSLocalizedString("Sending", value: "Sending...", comment: "")
+        progressState?.stringValue = NSLocalizedString("Sending", value: "Sending...", comment: "")
     }
-    
-    
+
     func transferProgress(progress: Double) {
-        progressProgressBar!.doubleValue=progress*progressProgressBar!.maxValue
+        progressProgressBar!.doubleValue = progress * progressProgressBar!.maxValue
     }
-    
-    
+
     func transferFinished() {
-        progressState?.stringValue=NSLocalizedString("TransferFinished", value: "Transfer finished", comment: "")
+        progressState?.stringValue = NSLocalizedString("TransferFinished", value: "Transfer finished", comment: "")
         dismissDelayed()
     }
-    
-    
-    func selectDevice(device:RemoteDeviceInfo){
-        
+
+    func selectDevice(device: RemoteDeviceInfo) {
         NearbyConnectionManager.shared.stopDeviceDiscovery()
-        
-        listViewWrapper?.animator().isHidden=true
-        dontSeeDeviceButton?.animator().isHidden=true
-        progressView?.animator().isHidden=false
-        progressDeviceName?.stringValue=getDeviceName(device: device)
-        progressDeviceIcon?.image=imageForDeviceType(type: device.type)
+
+        listViewWrapper?.animator().isHidden = true
+        dontSeeDeviceButton?.animator().isHidden = true
+        progressView?.animator().isHidden = false
+        progressDeviceName?.stringValue = getDeviceName(device: device)
+        progressDeviceIcon?.image = imageForDeviceType(type: device.type)
         progressProgressBar?.startAnimation(nil)
-        progressState?.stringValue=NSLocalizedString("Connecting", value: "Connecting...", comment: "")
-        chosenDevice=device
+        progressState?.stringValue = NSLocalizedString("Connecting", value: "Connecting...", comment: "")
+        chosenDevice = device
         NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: urls)
-        
+
         let timeoutAlert = DispatchWorkItem {
             if !self.connectionEstablished {
-                
                 let alert = NSAlert()
                 alert.alertStyle = .critical
-                
+
                 alert.messageText = "TimeoutTitle".localized()
                 alert.informativeText = "TimeoutDescription".localized()
                 alert.addButton(withTitle: "TimeoutButton".localized())
-                
+
                 alert.beginSheetModal(for: self.view.window!) { _ in }
             }
         }
-        
-        self.timeoutDispatchWorkItem = timeoutAlert
+
+        timeoutDispatchWorkItem = timeoutAlert
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: timeoutAlert)
     }
-    
-    
-    private func dismissDelayed(){
+
+    private func dismissDelayed() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            
-            if let error=self.lastError {
+            if let error = self.lastError {
                 self.extensionContext!.cancelRequest(withError: error)
-            }
-            else {
+            } else {
                 self.extensionContext!.completeRequest(returningItems: nil, completionHandler: nil)
             }
         }
     }
-    
-    
+
     private func dicoverDevices() {
         let bundleIdentifier = "com.leonboettger.neardrop"
         let runningApps = NSWorkspace.shared.runningApplications
-        
+
         // Check if the app is already running
         let isRunning = runningApps.contains { $0.bundleIdentifier == bundleIdentifier }
-        
+
         if !isRunning {
             log("Launching main app")
             NSWorkspace.shared.launchApplication(withBundleIdentifier: bundleIdentifier,
                                                  options: [.default],
                                                  additionalEventParamDescriptor: nil,
                                                  launchIdentifier: nil)
-            
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 NearbyConnectionManager.shared.startDeviceDiscovery()
                 self.scheduleAutomaticQrCodeView()
             }
-        }
-        else {
+        } else {
             log("Main app is already running")
             NearbyConnectionManager.shared.startDeviceDiscovery()
-            self.scheduleAutomaticQrCodeView()
+            scheduleAutomaticQrCodeView()
         }
     }
-    
-    
+
     private func scheduleAutomaticQrCodeView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             if self.foundDevices.isEmpty {
@@ -415,48 +378,44 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
     }
 }
 
-
-fileprivate func imageForDeviceType(type:RemoteDeviceInfo.DeviceType)->NSImage{
-    let imageName:String
-    switch type{
+private func imageForDeviceType(type: RemoteDeviceInfo.DeviceType) -> NSImage {
+    let imageName: String
+    switch type {
     case .tablet:
-        imageName="com.apple.ipad"
+        imageName = "com.apple.ipad"
     case .computer:
-        imageName="com.apple.macbookpro-13-unibody"
+        imageName = "com.apple.macbookpro-13-unibody"
     default: // also .phone
-        imageName="com.apple.iphone"
+        imageName = "com.apple.iphone"
     }
     return NSImage(contentsOfFile: "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/\(imageName).icns")!
 }
 
-
-extension ShareViewController:NSCollectionViewDataSource {
-    
-    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+extension ShareViewController: NSCollectionViewDataSource {
+    func numberOfSections(in _: NSCollectionView) -> Int {
         return 1
     }
-    
-    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+
+    func collectionView(_: NSCollectionView, numberOfItemsInSection _: Int) -> Int {
         return foundDevices.count
     }
-    
+
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DeviceListCell"), for: indexPath)
-        
+
         guard let collectionViewItem = item as? DeviceListCell else { return item }
-        
+
         let device = foundDevices[indexPath[1]]
-        
+
         collectionViewItem.textField?.stringValue = getDeviceName(device: device)
         collectionViewItem.imageView?.image = imageForDeviceType(type: device.type)
         collectionViewItem.clickHandler = {
             self.selectDevice(device: device)
         }
-        
+
         return collectionViewItem
     }
-    
+
     func getDeviceName(device: RemoteDeviceInfo) -> String {
         if device.name.count <= 1 {
             return "Android"
