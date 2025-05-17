@@ -16,6 +16,7 @@
 "DeviceSendingUrl" = "%1$@이(가) Mac에서 \"%2$@\"을(를) 열려고 합니다.";
 
 "InsertedIntoClipboard" = "삽입됨";
+"UnsupportedFileType" = "보내려는 파일은 현재 지원되지 않습니다. 오류 보고서를 보내주세요.";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "암호화 오류";

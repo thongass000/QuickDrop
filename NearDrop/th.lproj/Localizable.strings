@@ -16,6 +16,7 @@
 "DeviceSendingUrl" = "%1$@ ต้องการเปิด \"%2$@\" บน Mac ของคุณ";
 
 "InsertedIntoClipboard" = "แทรกแล้ว";
+"UnsupportedFileType" = "ไฟล์ที่คุณพยายามส่งยังไม่รองรับในขณะนี้ โปรดส่งรายงานข้อผิดพลาด";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "การเข้ารหัสผิดพลาด";

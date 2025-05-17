@@ -369,11 +369,19 @@ class InboundNearbyConnection: NearbyConnection {
                 }
             }
             else {
-                rejectTransfer(with: .unsupportedAttachmentType)
+                rejectDueToUnsupportedFileType(frame)
             }
         } else {
-            rejectTransfer(with: .unsupportedAttachmentType)
+            rejectDueToUnsupportedFileType(frame)
         }
+    }
+    
+    func rejectDueToUnsupportedFileType(_ frame: Sharing_Nearby_Frame) {
+        
+        log("Rejecting transfer due to unsupported file type. Frame is \(frame.debugDescription)")
+        
+        NearbyConnectionManager.shared.mainAppDelegate?.showUnsupportedFileAlert(for: remoteDeviceInfo)
+        rejectTransfer(with: .unsupportedAttachmentType)
     }
 
     func submitUserConsent(accepted: Bool, storeInTemp: Bool = false) {

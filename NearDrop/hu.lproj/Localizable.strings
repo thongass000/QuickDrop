@@ -16,6 +16,7 @@
 "DeviceSendingUrl" = "%1$@ meg szeretné nyitni a(z) \"%2$@\" hivatkozást a Mac-eden.";
 
 "InsertedIntoClipboard" = "Beillesztve";
+"UnsupportedFileType" = "A fájl, amelyet megpróbáltál küldeni, jelenleg nem támogatott. Kérjük, küldj hibajelentést.";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Titkosítási hiba";

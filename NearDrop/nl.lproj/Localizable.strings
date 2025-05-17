@@ -16,6 +16,7 @@
 "DeviceSendingUrl" = "%1$@ wil \"%2$@\" openen op je Mac.";
 
 "InsertedIntoClipboard" = "Ingevoerd";
+"UnsupportedFileType" = "Het bestand dat je probeerde te verzenden, wordt momenteel niet ondersteund. Stuur een foutrapport.";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Fout bij codering";

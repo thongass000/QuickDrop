@@ -146,6 +146,7 @@ public protocol MainAppDelegate {
     func incomingTransfer(id: String, didFinishWith error: Error?)
     func showFirewallAlert()
     func showCopiedToClipboardAlert()
+    func showUnsupportedFileAlert(for: RemoteDeviceInfo?)
 }
 
 public protocol ShareExtensionDelegate: AnyObject {

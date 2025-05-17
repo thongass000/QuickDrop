@@ -16,6 +16,7 @@
 "DeviceSendingUrl" = "%1$@ dorește să deschidă \"%2$@\" pe Mac-ul tău.";
 
 "InsertedIntoClipboard" = "Inserat";
+"UnsupportedFileType" = "Fișierul pe care ai încercat să-l trimiți nu este momentan acceptat. Te rugăm să trimiți un raport de eroare.";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Eroare de criptare";

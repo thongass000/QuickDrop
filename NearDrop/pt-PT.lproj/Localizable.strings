@@ -16,6 +16,7 @@
 "DeviceSendingUrl" = "%1$@ pretende abrir \"%2$@\" no seu Mac.";
 
 "InsertedIntoClipboard" = "Inserido";
+"UnsupportedFileType" = "O ficheiro que tentou enviar não é atualmente suportado. Por favor, envie um relatório de erro.";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Erro de encriptação";

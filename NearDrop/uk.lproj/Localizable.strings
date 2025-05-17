@@ -16,6 +16,7 @@
 "DeviceSendingUrl" = "%1$@ хоче відкрити \"%2$@\" на вашому Mac.";
 
 "InsertedIntoClipboard" = "Вставлено";
+"UnsupportedFileType" = "Файл, який ви намагалися надіслати, наразі не підтримується. Будь ласка, надішліть звіт про помилку.";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "Помилка шифрування";

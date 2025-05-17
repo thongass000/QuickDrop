@@ -16,6 +16,7 @@
 "DeviceSendingUrl" = "%1$@ 想要在你的 Mac 上打开 \"%2$@\"。";
 
 "InsertedIntoClipboard" = "已插入";
+"UnsupportedFileType" = "您尝试发送的文件当前不受支持。请发送错误报告。";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "加密出错";

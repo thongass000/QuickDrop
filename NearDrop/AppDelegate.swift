@@ -344,7 +344,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
 
     private func pressAcceptButton(transferID: String) {
-        if false || (!isPlusVersion() && transmissionCount() > 1) {
+        if (!isPlusVersion() && transmissionCount() > 1) {
             continueTransmission(accept: true, transferID: transferID, storeInTemp: true)
             log("Showing plus screen...")
 
@@ -363,9 +363,27 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             BezelNotification.show(messageText: "InsertedIntoClipboard".localized(), icon: .clipboard)
         }
     }
+    
+    func showUnsupportedFileAlert(for device: RemoteDeviceInfo?) {
+        DispatchQueue.main.async {
+            
+            let alert = NSAlert()
+            alert.alertStyle = .critical
+            
+            alert.messageText = String(format: NSLocalizedString("TransferError", value: "Failed to receive files from %@", comment: ""), arguments: [device?.name ?? "??"])
+            alert.informativeText = "UnsupportedFileType".localized()
+            
+            alert.addButton(withTitle: "InformDeveloper".localized())
+            alert.addButton(withTitle: "CloseAlert".localized())
+            
+            let _ = alert.runModal()
+        }
+    }
 
     func incomingTransfer(id: String, didFinishWith error: Error?) {
+        
         guard let transfer = activeIncomingTransfers[id] else { return }
+        
         if let error = error {
             var description = ""
 

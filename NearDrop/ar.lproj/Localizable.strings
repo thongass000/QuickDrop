@@ -16,6 +16,7 @@
 "DeviceSendingUrl" = "يرغب %1$@ في فتح \"%2$@\" على جهاز Mac الخاص بك.";
 
 "InsertedIntoClipboard" = "تم الإدراج";
+"UnsupportedFileType" = "الملف الذي حاولت إرساله غير مدعوم حالياً. يُرجى إرسال تقرير بالخطأ.";
 
 /* No comment provided by engineer. */
 "Error.Crypto" = "خطأ في التشفير";
