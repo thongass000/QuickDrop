@@ -373,7 +373,6 @@ class InboundNearbyConnection: NearbyConnection {
             }
         } else {
             rejectTransfer(with: .unsupportedAttachmentType)
-            
         }
     }
 
