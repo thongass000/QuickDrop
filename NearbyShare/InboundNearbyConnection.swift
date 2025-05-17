@@ -360,7 +360,8 @@ class InboundNearbyConnection: NearbyConnection {
             DispatchQueue.main.async {
                 self.delegate?.obtainUserConsent(for: metadata, from: self.remoteDeviceInfo!, connection: self)
             }
-        } else if let textMetadata = frame.v1.introduction.textMetadata.first {
+        }
+        else if let textMetadata = frame.v1.introduction.textMetadata.first {
             
             if textMetadata.type == .url || textMetadata.type == .text {
                 
