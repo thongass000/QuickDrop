@@ -66,17 +66,18 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
                             } else if let url = data as? NSURL {
                                 self.urls.append(url as URL)
                             }
-                        }
-                    }
-                    
-                    if self.urls.count == attachments.count {
-                        DispatchQueue.main.async {
-                            self.urlsReady()
+                            
+                            if self.urls.count == attachments.count {
+                                DispatchQueue.main.async {
+                                    self.urlsReady()
+                                }
+                            }
                         }
                     }
                 }
             }
-        } else {
+        }
+        else {
             let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
             self.extensionContext!.cancelRequest(withError: cancelError)
             return
@@ -90,6 +91,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         listViewWrapper!.translatesAutoresizingMaskIntoConstraints=false
         loadingOverlay!.translatesAutoresizingMaskIntoConstraints=false
         progressView!.translatesAutoresizingMaskIntoConstraints=false
+        
         NSLayoutConstraint.activate([
             NSLayoutConstraint(item: listViewWrapper!, attribute: .width, relatedBy: .equal, toItem: contentWrap, attribute: .width, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: listViewWrapper!, attribute: .height, relatedBy: .equal, toItem: contentWrap, attribute: .height, multiplier: 1, constant: 0),
@@ -102,7 +104,8 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
         ])
         
         largeProgress!.startAnimation(nil)
-        let flowLayout=NSCollectionViewFlowLayout()
+        
+        let flowLayout = NSCollectionViewFlowLayout()
         flowLayout.itemSize=NSSize(width: 75, height: 90)
         flowLayout.sectionInset=NSEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         flowLayout.minimumInteritemSpacing=10
