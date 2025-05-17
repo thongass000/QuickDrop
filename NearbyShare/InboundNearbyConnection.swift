@@ -107,22 +107,30 @@ class InboundNearbyConnection: NearbyConnection {
     }
 
     override func processFileChunk(frame: Location_Nearby_Connections_PayloadTransferFrame) throws {
+        
         let id = frame.payloadHeader.id
+        
         guard let fileInfo = transferredFiles[id] else { throw NearbyError.protocolError("File payload ID \(id) is not known") }
+        
         let currentOffset = fileInfo.bytesTransferred
+        
         guard frame.payloadChunk.offset == currentOffset else { throw NearbyError.protocolError("Invalid offset into file \(frame.payloadChunk.offset), expected \(currentOffset)") }
+        
         guard currentOffset + Int64(frame.payloadChunk.body.count) <= fileInfo.meta.size else { throw NearbyError.protocolError("Transferred file size exceeds previously specified value") }
+        
         if frame.payloadChunk.body.count > 0 {
             fileInfo.fileHandle?.write(frame.payloadChunk.body)
             transferredFiles[id]!.bytesTransferred += Int64(frame.payloadChunk.body.count)
             fileInfo.progress?.completedUnitCount = transferredFiles[id]!.bytesTransferred
-        } else if (frame.payloadChunk.flags & 1) == 1 {
+        }
+        else if (frame.payloadChunk.flags & 1) == 1 {
             try fileInfo.fileHandle?.close()
             transferredFiles[id]!.fileHandle = nil
             fileInfo.progress?.unpublish()
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
 
             transferredFiles.removeValue(forKey: id)
+            
             if transferredFiles.isEmpty {
                 try sendDisconnectionAndDisconnect()
             }
@@ -148,7 +156,8 @@ class InboundNearbyConnection: NearbyConnection {
 
             try sendDisconnectionAndDisconnect()
             return true
-        } else if let fileInfo = transferredFiles[id] {
+        }
+        else if let fileInfo = transferredFiles[id] {
             fileInfo.fileHandle?.write(payload)
             transferredFiles[id]!.bytesTransferred += Int64(payload.count)
             fileInfo.progress?.completedUnitCount = transferredFiles[id]!.bytesTransferred
