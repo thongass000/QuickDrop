@@ -267,6 +267,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
 
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo) {
+        
+        NSApp.activate(ignoringOtherApps: true)
+        
         activeIncomingTransfers[transfer.id] = TransferInfo(device: device, transfer: transfer)
 
         AudioManager.playSound()
@@ -363,7 +366,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
     
     func showUnsupportedFileAlert(for device: RemoteDeviceInfo?) {
+        
         DispatchQueue.main.async {
+            
+            NSApp.activate(ignoringOtherApps: true)
             
             let alert = NSAlert()
             alert.alertStyle = .critical
@@ -383,6 +389,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         guard let transfer = activeIncomingTransfers[id] else { return }
         
         if let error = error {
+            
+            NSApp.activate(ignoringOtherApps: true)
+            
             var description = ""
 
             if let ne = (error as? NearbyError) {
