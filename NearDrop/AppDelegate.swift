@@ -200,6 +200,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             defer: false
         )
         
+        plusWindow?.styleMask.insert(.fullSizeContentView)
+        plusWindow?.titleVisibility = .hidden
+        plusWindow?.titlebarAppearsTransparent = true
+        
         plusWindow?.center()
         plusWindow?.isReleasedWhenClosed = false
         plusWindow?.setFrameAutosaveName("PlusScreen")
