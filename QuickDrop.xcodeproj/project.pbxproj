@@ -292,7 +292,7 @@
 		69DA9A0529E0BF5100A442DA = {
 			isa = PBXGroup;
 			children = (
-				69DA9A1029E0BF5100A442DA /* NearDrop */,
+				69DA9A1029E0BF5100A442DA /* QuickDrop */,
 				699DEBA22AB0573200115D22 /* ShareExtension */,
 				69DCF4822AB70D0600CBE2CC /* NearbyShare */,
 				698DFAEC29E353220064F247 /* Frameworks */,
@@ -312,7 +312,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		69DA9A1029E0BF5100A442DA /* NearDrop */ = {
+		69DA9A1029E0BF5100A442DA /* QuickDrop */ = {
 			isa = PBXGroup;
 			children = (
 				EBD2A2182D28619200BCB8E2 /* Info.plist */,
@@ -333,7 +333,7 @@
 				69DA9A1829E0BF5200A442DA /* NearDrop.entitlements */,
 				69D2C32E29E7898C00EC7E30 /* MainMenu.xib */,
 			);
-			path = NearDrop;
+			path = QuickDrop;
 			sourceTree = "<group>";
 		};
 		69DA9A2729E18CB500A442DA /* Protobuf */ = {
