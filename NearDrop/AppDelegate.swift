@@ -123,10 +123,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
 
     @objc func sendClipboard() {
-        if let fileURL = ClipboardManager.saveClipboardToTempFile() {
-            let sharingService = NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension"))
-            sharingService?.perform(withItems: [fileURL])
-        }
+       
+        let pasteboard = NSPasteboard.general
+        let clipboardString = pasteboard.string(forType: .string) ?? ""
+        
+        let sharingService = NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension"))
+        sharingService?.perform(withItems: [clipboardString])
     }
 
     @objc func openWelcomeScreen() {

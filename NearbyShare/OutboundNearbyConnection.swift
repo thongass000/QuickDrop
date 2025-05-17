@@ -15,26 +15,33 @@ import UniformTypeIdentifiers
 import BigInt
 import SwiftECC
 
+
 class OutboundNearbyConnection: NearbyConnection {
     private var currentState: State = .initial
     private let urlsToSend: [URL]
+    private let textToSend: String?
     private var ukeyClientFinishMsgData: Data?
     private var queue: [OutgoingFileTransfer] = []
     private var currentTransfer: OutgoingFileTransfer?
-    public var delegate: OutboundNearbyConnectionDelegate?
     private var totalBytesToSend: Int64 = 0
     private var totalBytesSent: Int64 = 0
     private var cancelled: Bool = false
     private var textPayloadID: Int64 = 0
+    
+    public var delegate: OutboundNearbyConnectionDelegate?
 
     enum State {
         case initial, sentUkeyClientInit, sentUkeyClientFinish, sentPairedKeyEncryption, sentPairedKeyResult, sentIntroduction, sendingFiles
     }
 
-    init(connection: NWConnection, id: String, urlsToSend: [URL]) {
+    init(connection: NWConnection, id: String, urlsToSend: [URL], textToSend: String?) {
+        
         self.urlsToSend = urlsToSend
+        self.textToSend = textToSend
+        
         super.init(connection: connection, id: id)
-        if urlsToSend.count == 1 && !urlsToSend[0].isFileURL {
+        
+        if hasURL() || textToSend != nil {
             textPayloadID = Int64.random(in: Int64.min ... Int64.max)
         }
     }
@@ -93,7 +100,9 @@ class OutboundNearbyConnection: NearbyConnection {
             }
         } catch {
             if case NearbyError.ukey2 = error {
-            } else if currentState == .sentUkeyClientInit {
+                // do nothing
+            }
+            else if currentState == .sentUkeyClientInit {
                 sendUkey2Alert(type: .badMessage)
             }
             lastError = error
@@ -256,7 +265,16 @@ class OutboundNearbyConnection: NearbyConnection {
         var introduction = Sharing_Nearby_Frame()
         introduction.version = .v1
         introduction.v1.type = .introduction
-        if urlsToSend.count == 1 && !urlsToSend[0].isFileURL {
+        
+        if let textToSend = textToSend {
+            var meta = Sharing_Nearby_TextMetadata()
+            meta.type = .text
+            meta.textTitle = textToSend
+            meta.size = Int64(textToSend.utf8.count)
+            meta.payloadID = textPayloadID
+            introduction.v1.introduction.textMetadata.append(meta)
+            
+        } else if hasURL() {
             var meta = Sharing_Nearby_TextMetadata()
             meta.type = .url
             meta.textTitle = urlsToSend[0].host ?? "URL"
@@ -313,7 +331,11 @@ class OutboundNearbyConnection: NearbyConnection {
         case .accept:
             currentState = .sendingFiles
             delegate?.outboundConnectionTransferAccepted(connection: self)
-            if urlsToSend.count == 1 && !urlsToSend[0].isFileURL {
+            
+            if let textToSend = textToSend {
+                try sendText(text: textToSend)
+            }
+            if hasURL() {
                 try sendURL()
             } else {
                 try sendNextFileChunk()
@@ -332,9 +354,17 @@ class OutboundNearbyConnection: NearbyConnection {
             try sendDisconnectionAndDisconnect()
         }
     }
+    
+    private func hasURL() -> Bool {
+        urlsToSend.count == 1 && !urlsToSend[0].isFileURL
+    }
 
     private func sendURL() throws {
-        try sendBytesPayload(data: Data(urlsToSend[0].absoluteString.utf8), id: textPayloadID)
+        try sendText(text: urlsToSend[0].absoluteString)
+    }
+    
+    private func sendText(text: String) throws {
+        try sendBytesPayload(data: Data(text.utf8), id: textPayloadID)
         delegate?.outboundConnectionTransferFinished(connection: self)
         try sendDisconnectionAndDisconnect()
     }

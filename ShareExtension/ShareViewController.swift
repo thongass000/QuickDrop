@@ -12,6 +12,7 @@ import SwiftUI
 
 class ShareViewController: NSViewController, ShareExtensionDelegate {
     private var urls: [URL] = []
+    private var textToSend: String? = nil
     private var foundDevices: [RemoteDeviceInfo] = []
     private var chosenDevice: RemoteDeviceInfo?
     private var lastError: Error?
@@ -47,11 +48,11 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
 
         let item = extensionContext!.inputItems[0] as! NSExtensionItem
         if let attachments = item.attachments {
-            if let text = item.attributedContentText?.string, attachments.isEmpty, let tempUrl = ClipboardManager.saveTextToTempFile(text: text) {
-                urls.append(tempUrl)
+            if let text = item.attributedContentText?.string, attachments.isEmpty {
+                textToSend = text
 
                 DispatchQueue.main.async {
-                    self.urlsReady()
+                    self.zipFolderAndSetUpIcon()
                 }
             } else {
                 for attachment in attachments {
@@ -67,7 +68,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
 
                             if self.urls.count == attachments.count {
                                 DispatchQueue.main.async {
-                                    self.urlsReady()
+                                    self.zipFolderAndSetUpIcon()
                                 }
                             }
                         }
@@ -177,7 +178,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         }
     }
 
-    private func urlsReady() {
+    private func zipFolderAndSetUpIcon() {
         for url in urls {
             if url.isFileURL {
                 let isDirectory = UnsafeMutablePointer<ObjCBool>.allocate(capacity: 1)
@@ -212,7 +213,20 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
             }
         }
 
-        if urls.count == 1 {
+        if let textToSend = textToSend {
+            let maxLength = 50
+            let cleanedText = textToSend.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "")
+
+            if cleanedText.count > maxLength {
+                let index = cleanedText.index(cleanedText.startIndex, offsetBy: maxLength)
+                filesLabel!.stringValue = String(cleanedText[..<index]) + "..."
+            } else {
+                filesLabel!.stringValue = cleanedText
+            }
+            
+            filesIcon!.image = NSImage(named: NSImage.multipleDocumentsName)
+        }
+        else if urls.count == 1 {
             if urls[0].isFileURL {
                 filesLabel!.stringValue = urls[0].lastPathComponent
                 filesIcon!.image = NSWorkspace.shared.icon(forFile: urls[0].path)
@@ -315,7 +329,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         progressProgressBar?.startAnimation(nil)
         progressState?.stringValue = NSLocalizedString("Connecting", value: "Connecting...", comment: "")
         chosenDevice = device
-        NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: urls)
+        NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: urls, textToSend: textToSend)
 
         let timeoutAlert = DispatchWorkItem {
             if !self.connectionEstablished {

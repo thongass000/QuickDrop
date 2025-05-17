@@ -385,12 +385,12 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
     }
 
-    public func startOutgoingTransfer(deviceID: String, delegate: ShareExtensionDelegate, urls: [URL]) {
+    public func startOutgoingTransfer(deviceID: String, delegate: ShareExtensionDelegate, urls: [URL], textToSend: String?) {
         guard let info = foundServices[deviceID] else { return }
         let tcp = NWProtocolTCP.Options()
         tcp.noDelay = true
         let nwconn = NWConnection(to: info.service.endpoint, using: NWParameters(tls: .none, tcp: tcp))
-        let conn = OutboundNearbyConnection(connection: nwconn, id: deviceID, urlsToSend: urls)
+        let conn = OutboundNearbyConnection(connection: nwconn, id: deviceID, urlsToSend: urls, textToSend: textToSend)
         conn.delegate = self
         let transfer = OutgoingTransferInfo(service: info.service, device: info.device!, connection: conn, delegate: delegate)
         outgoingTransfers[deviceID] = transfer
