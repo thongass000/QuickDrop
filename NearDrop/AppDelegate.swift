@@ -130,28 +130,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     @objc func sendClipboard() {
-        if let fileURL = saveClipboardToTempFile() {
+        if let fileURL = ClipboardManager.saveClipboardToTempFile() {
             
             let sharingService = NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension"))
-            
             sharingService?.perform(withItems: [fileURL])
-        }
-    }
-    
-    
-    func saveClipboardToTempFile() -> URL? {
-        let pasteboard = NSPasteboard.general
-        let clipboardString = pasteboard.string(forType: .string) ?? ""
-        
-        let tempDirectory = FileManager.default.temporaryDirectory
-        let fileURL = tempDirectory.appendingPathComponent("Clipboard".localized() + ".txt")
-        
-        do {
-            try clipboardString.write(to: fileURL, atomically: true, encoding: .utf8)
-            return fileURL
-        } catch {
-            log("Failed to write file: \(error)")
-            return nil
         }
     }
     

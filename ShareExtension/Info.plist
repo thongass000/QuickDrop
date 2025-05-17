@@ -13,9 +13,12 @@
     SUBQUERY (
         $extensionItem.attachments,
         $attachment,
-        ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.file-url"
-        OR ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.url"
-        AND NOT (ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.folder")
+        (
+            ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.file-url&quot;
+            OR ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.url&quot;
+            OR ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.text&quot;
+        )
+        AND NOT (ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.folder&quot;)
     ).@count == $extensionItem.attachments.@count
 ).@count &gt; 0</string>
 		</dict>

@@ -46,27 +46,32 @@ class ShareViewController: NSViewController, ShareExtensionDelegate{
     override func loadView() {
         super.loadView()
         
-        // Insert code here to customize the view
         let item = self.extensionContext!.inputItems[0] as! NSExtensionItem
         if let attachments = item.attachments {
-            for attachment in attachments as NSArray{
-                let provider=attachment as! NSItemProvider
-                provider.loadItem(forTypeIdentifier: kUTTypeURL as String) { data, err in
-                    if let urlData=data as? Data{
-                        if let url=URL(dataRepresentation: urlData, relativeTo: nil, isAbsolute: false){
-                            self.urls.append(url)
-                            if self.urls.count==attachments.count{
-                                DispatchQueue.main.async {
-                                    self.urlsReady()
-                                }
+            
+            if let text = item.attributedContentText?.string, attachments.isEmpty, let tempUrl = ClipboardManager.saveTextToTempFile(text: text) {
+                self.urls.append(tempUrl)
+                
+                DispatchQueue.main.async {
+                    self.urlsReady()
+                }
+            }
+            else {
+                for attachment in attachments {
+                    if attachment.hasItemConformingToTypeIdentifier(kUTTypeURL as String) {
+                        attachment.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil) { data, err in
+                            if let urlData = data as? Data,
+                               let url = URL(dataRepresentation: urlData, relativeTo: nil, isAbsolute: false) {
+                                self.urls.append(url)
+                            } else if let url = data as? NSURL {
+                                self.urls.append(url as URL)
                             }
                         }
-                    }else if let url=data as? NSURL{
-                        self.urls.append(url as URL)
-                        if self.urls.count==attachments.count{
-                            DispatchQueue.main.async {
-                                self.urlsReady()
-                            }
+                    }
+                    
+                    if self.urls.count == attachments.count {
+                        DispatchQueue.main.async {
+                            self.urlsReady()
                         }
                     }
                 }
