@@ -93,30 +93,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
 
         UNUserNotificationCenter.current().delegate = self
-
-        let monitor = NWPathMonitor()
-        monitor.pathUpdateHandler = { path in
-            if path.status == .satisfied {
-                if path.supportsIPv4 && !path.supportsIPv6 {
-                    log("Detected IPv4-only network.")
-                    self.performDeviceToDeviceCheck()
-                } else if !path.supportsIPv4 && path.supportsIPv6 {
-                    log("IPv6-only network, likely iPhone hotspot. Skipping device-to-device check.")
-                } else if path.supportsIPv4 && path.supportsIPv6 {
-                    log("Detected Dual stack network.")
-                    self.performDeviceToDeviceCheck()
-                } else {
-                    log("Detected no IP support")
-                }
-            } else {
-                log("Network unavailable")
-            }
-
-            monitor.cancel()
-        }
-
-        let queue = DispatchQueue(label: "NetworkMonitor")
-        monitor.start(queue: queue)
         
         hasConnectionMonitor.pathUpdateHandler = { path in
             DispatchQueue.main.async {
@@ -141,20 +117,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 log("✅ Device-to-device likely allowed (peer responded on LAN).")
                 self.apIsolationAlertWindow?.close()
             } else {
-                
-                log("❌ First check failed. Retrying in 10 seconds...")
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                    scanner.scan { allowed in
-                        if allowed {
-                            log("✅ Device-to-device likely allowed (peer responded on LAN).")
-                            self.apIsolationAlertWindow?.close()
-                        } else {
-                            log("❌ Second check failed. Informing user...")
-                            self.openAlert(type: .ApIsolation)
-                        }
-                    }
-                }
+                log("❌ Device-to-device check failed. Informing user...")
+                self.openAlert(type: .ApIsolation)
             }
         }
     }
