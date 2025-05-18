@@ -47,6 +47,7 @@
 
 /* No comment provided by engineer. */
 "VisibleToEveryone" = "Zichtbaar voor iedereen";
+"NoNetworkConnection" = "Geen netwerkverbinding";
 
 "RecommendedApps" = "Aanbevolen apps";
 "GetSupport" = "Ondersteuning";

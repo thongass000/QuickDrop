@@ -47,6 +47,7 @@
 
 /* No comment provided by engineer. */
 "VisibleToEveryone" = "모든 사용자에게 공개";
+"NoNetworkConnection" = "네트워크에 연결되어 있지 않습니다";
 
 "RecommendedApps" = "추천 앱";
 "GetSupport" = "지원";

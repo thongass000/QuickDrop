@@ -28,11 +28,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     private var iapManager: IAPManager?
 
     var showsFirewallAlert = false
+    var visibleItem: NSMenuItem? = nil
+    let hasConnectionMonitor = NWPathMonitor()
 
     func applicationDidFinishLaunching(_: Notification) {
         let menu = NSMenu()
 
-        menu.addItem(withTitle: NSLocalizedString("VisibleToEveryone", value: "Visible to everyone", comment: ""), action: nil, keyEquivalent: "")
+        let visibleItem = NSMenuItem(
+            title: "VisibleToEveryone".localized(),
+            action: nil,
+            keyEquivalent: ""
+        )
+        self.visibleItem = visibleItem
+        menu.addItem(visibleItem)
+        
         menu.addItem(withTitle: String(format: NSLocalizedString("DeviceName", value: "Device name: %@", comment: ""), arguments: [Host.current().localizedName ?? "Mac"]), action: nil, keyEquivalent: "")
 
         menu.addItem(NSMenuItem.separator())
@@ -108,6 +117,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         let queue = DispatchQueue(label: "NetworkMonitor")
         monitor.start(queue: queue)
+        
+        hasConnectionMonitor.pathUpdateHandler = { path in
+            DispatchQueue.main.async {
+                if path.status == .satisfied {
+                    self.statusItem?.button?.image = NSImage(named: "MenuBarIcon")
+                    self.visibleItem?.title = "VisibleToEveryone".localized()
+                } else {
+                    self.statusItem?.button?.image = NSImage(named: "MenuBarIconSlash")
+                    self.visibleItem?.title = "NoNetworkConnection".localized()
+                }
+            }
+        }
+
+        let queue2 = DispatchQueue(label: "NetworkConnectionMonitor")
+        hasConnectionMonitor.start(queue: queue2)
     }
 
     func performDeviceToDeviceCheck() {

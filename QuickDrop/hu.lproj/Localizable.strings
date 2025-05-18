@@ -47,6 +47,7 @@
 
 /* No comment provided by engineer. */
 "VisibleToEveryone" = "Mindenki számára felfedezhető";
+"NoNetworkConnection" = "Nincs hálózati kapcsolat";
 
 "RecommendedApps" = "Ajánlott alkalmazások";
 "GetSupport" = "Támogatás";

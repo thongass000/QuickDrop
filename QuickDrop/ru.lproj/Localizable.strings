@@ -38,6 +38,7 @@
 
 /* No comment provided by engineer. */
 "VisibleToEveryone" = "Видимость: все";
+"NoNetworkConnection" = "Нет сетевого подключения";
 
 /* No comment provided by engineer. */
 "NotificationsDenied.Message" = "QuickDrop необходима возможность показывать уведомления о входящих файлах. Пожалуйста, разрешите уведомления в Системных настройках.";

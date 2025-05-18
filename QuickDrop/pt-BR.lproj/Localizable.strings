@@ -47,6 +47,7 @@
 
 /* No comment provided by engineer. */
 "VisibleToEveryone" = "Visível para todos";
+"NoNetworkConnection" = "Sem conexão com a rede";
 
 "RecommendedApps" = "Apps recomendados";
 "GetSupport" = "Suporte";

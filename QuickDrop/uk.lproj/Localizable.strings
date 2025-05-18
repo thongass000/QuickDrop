@@ -47,6 +47,7 @@
 
 /* No comment provided by engineer. */
 "VisibleToEveryone" = "Видимість: для всіх";
+"NoNetworkConnection" = "Немає мережевого підключення";
 
 "RecommendedApps" = "Рекомендовані додатки";
 "GetSupport" = "Підтримка";

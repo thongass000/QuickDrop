@@ -47,6 +47,7 @@
 
 /* No comment provided by engineer. */
 "VisibleToEveryone" = "مرئي للجميع";
+"NoNetworkConnection" = "لا يوجد اتصال بالشبكة";
 
 "RecommendedApps" = "التطبيقات الموصى بها";
 "GetSupport" = "الدعم";

@@ -47,6 +47,7 @@
 
 /* No comment provided by engineer. */
 "VisibleToEveryone" = "Vizibil pentru toată lumea";
+"NoNetworkConnection" = "Nicio conexiune la rețea";
 
 "RecommendedApps" = "Aplicații recomandate";
 "GetSupport" = "Suport";

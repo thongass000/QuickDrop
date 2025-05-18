@@ -47,6 +47,7 @@
 
 /* No comment provided by engineer. */
 "VisibleToEveryone" = "对所有人可见";
+"NoNetworkConnection" = "无网络连接";
 
 "RecommendedApps" = "推荐应用";
 "GetSupport" = "支持";

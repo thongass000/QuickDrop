@@ -47,6 +47,7 @@
 
 /* No comment provided by engineer. */
 "VisibleToEveryone" = "เปิดเผยต่อทุกคน";
+"NoNetworkConnection" = "ไม่มีการเชื่อมต่อเครือข่าย";
 
 "RecommendedApps" = "แอปแนะนำ";
 "GetSupport" = "การสนับสนุน";

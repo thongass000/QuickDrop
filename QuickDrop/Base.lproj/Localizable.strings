@@ -47,6 +47,7 @@
 
 /* No comment provided by engineer. */
 "VisibleToEveryone" = "Visible to everyone";
+"NoNetworkConnection" = "No Network Connection";
 
 "WelcomeToQuickDrop" = "Welcome to QuickDrop";
 

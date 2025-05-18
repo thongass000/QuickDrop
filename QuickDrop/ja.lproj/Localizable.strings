@@ -47,6 +47,7 @@
 
 /* No comment provided by engineer. */
 "VisibleToEveryone" = "すべてのユーザーに公開";
+"NoNetworkConnection" = "ネットワークに接続されていません";
 
 "RecommendedApps" = "おすすめアプリ";
 "GetSupport" = "サポート";
