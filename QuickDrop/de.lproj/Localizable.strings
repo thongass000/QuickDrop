@@ -66,6 +66,7 @@
 "SaveFilesTo" = "Eingehende Dateien speichern in:";
 "SaveFilesLocation" = "Speicherort der eingehenden Dateien";
 "SaveFilesToButton" = "Auswählen…";
+"OpenFinderAfterReceiving" = "Dateien nach Empfang im Finder anzeigen";
 "DownloadsFolder" = "Downloads";
 
 "SendFiles" = "Dateien senden";

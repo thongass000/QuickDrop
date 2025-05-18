@@ -64,6 +64,7 @@
 "SaveFilesTo" = "Salvează fișierele primite în:";
 "SaveFilesLocation" = "Locația fișierelor primite";
 "SaveFilesToButton" = "Selectează…";
+"OpenFinderAfterReceiving" = "Afișează fișierele în Finder după primire";
 "DownloadsFolder" = "Descărcări";
 "SendFiles" = "Trimite fișiere";
 "ReceiveFiles" = "Primește fișiere";

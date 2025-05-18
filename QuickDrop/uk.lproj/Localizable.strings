@@ -64,6 +64,7 @@
 "SaveFilesTo" = "Зберігати вхідні файли у:";
 "SaveFilesLocation" = "Розташування вхідних файлів";
 "SaveFilesToButton" = "Вибрати…";
+"OpenFinderAfterReceiving" = "Показати файли у Finder після отримання";
 "DownloadsFolder" = "Завантаження";
 "SendFiles" = "Надіслати файли";
 "ReceiveFiles" = "Отримати файли";

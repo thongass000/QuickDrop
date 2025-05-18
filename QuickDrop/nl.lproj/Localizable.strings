@@ -65,6 +65,7 @@
 "SaveFilesTo" = "Opslaan inkomende bestanden in:";
 "SaveFilesLocation" = "Locatie van inkomende bestanden";
 "SaveFilesToButton" = "Selecteren…";
+"OpenFinderAfterReceiving" = "Toon bestanden in Finder na ontvangst";
 "DownloadsFolder" = "Downloads";
 "SendFiles" = "Bestanden verzenden";
 "ReceiveFiles" = "Bestanden ontvangen";

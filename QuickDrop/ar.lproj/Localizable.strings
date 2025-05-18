@@ -64,6 +64,7 @@
 "SaveFilesTo" = "حفظ الملفات الواردة في:";
 "SaveFilesLocation" = "موقع الملفات الواردة";
 "SaveFilesToButton" = "تحديد…";
+"OpenFinderAfterReceiving" = "عرض الملفات في Finder بعد الاستلام";
 "DownloadsFolder" = "التنزيلات";
 "SendFiles" = "إرسال الملفات";
 "ReceiveFiles" = "استقبال الملفات";

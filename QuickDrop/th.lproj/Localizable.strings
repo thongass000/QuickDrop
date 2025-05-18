@@ -64,6 +64,7 @@
 "SaveFilesTo" = "บันทึกไฟล์ขาเข้าไปที่:";
 "SaveFilesLocation" = "ตำแหน่งไฟล์ขาเข้า";
 "SaveFilesToButton" = "เลือก…";
+"OpenFinderAfterReceiving" = "แสดงไฟล์ใน Finder หลังจากรับแล้ว";
 "DownloadsFolder" = "ดาวน์โหลด";
 "SendFiles" = "ส่งไฟล์";
 "ReceiveFiles" = "รับไฟล์";

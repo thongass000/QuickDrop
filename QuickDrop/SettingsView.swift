@@ -11,6 +11,7 @@ import NearbyShare
 
 struct SettingsView: View {
     @AppStorage(UserDefaultsKeys.automaticallyAcceptFiles.rawValue) private var automaticallyAcceptFiles = false
+    @AppStorage(UserDefaultsKeys.openFinderAfterReceiving.rawValue) private var openFinderAfterReceiving = false
     @AppStorage(UserDefaultsKeys.saveFolderBookmark.rawValue) private var saveFolderPath: Data = Data()
     
     var body: some View {
@@ -37,6 +38,13 @@ struct SettingsView: View {
                         selectFolder()
                     }
                 }
+                
+                Divider()
+                    .padding(.vertical, 10)
+                
+                Toggle("OpenFinderAfterReceiving", isOn: $openFinderAfterReceiving)
+                    .padding(.top, 5)
+                
             }
         }
     }

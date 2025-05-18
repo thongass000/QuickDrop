@@ -64,6 +64,7 @@
 "SaveFilesTo" = "Bejövő fájlok mentése ide:";
 "SaveFilesLocation" = "Bejövő fájlok helye";
 "SaveFilesToButton" = "Kiválasztás…";
+"OpenFinderAfterReceiving" = "Fájlok megjelenítése a Finderben fogadás után";
 "DownloadsFolder" = "Letöltések";
 "SendFiles" = "Fájlok küldése";
 "ReceiveFiles" = "Fájlok fogadása";

@@ -64,6 +64,7 @@
 "SaveFilesTo" = "受信ファイルの保存先:";
 "SaveFilesLocation" = "受信ファイルの保存場所";
 "SaveFilesToButton" = "選択…";
+"OpenFinderAfterReceiving" = "受信後にFinderでファイルを表示";
 "DownloadsFolder" = "ダウンロード";
 "SendFiles" = "ファイルを送信";
 "ReceiveFiles" = "ファイルを受信";

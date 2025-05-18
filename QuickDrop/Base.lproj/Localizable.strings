@@ -73,6 +73,7 @@
 "SaveFilesLocation" = "Incomping Files Location";
 "SaveFilesToButton" = "Select…";
 "DownloadsFolder" = "Downloads";
+"OpenFinderAfterReceiving" = "Show Files in Finder After Receiving";
 
 "SendFiles" = "Send Files";
 "ReceiveFiles" = "Receive Files";

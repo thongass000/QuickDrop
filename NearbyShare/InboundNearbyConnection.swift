@@ -574,8 +574,11 @@ public class SaveFilesManager {
         }
         
         if !filesFinishedDownloadingSinceLastRun.isEmpty && !isFileTransferRestricted() {
-            log("Opening \(filesFinishedDownloadingSinceLastRun.count) file(s) in Finder.")
-            NSWorkspace.shared.activateFileViewerSelecting(filesFinishedDownloadingSinceLastRun)
+            
+            if UserDefaults.standard.bool(forKey: UserDefaultsKeys.openFinderAfterReceiving.rawValue) {
+                log("Opening \(filesFinishedDownloadingSinceLastRun.count) file(s) in Finder.")
+                NSWorkspace.shared.activateFileViewerSelecting(filesFinishedDownloadingSinceLastRun)
+            }
             
             // Clear the list of finished files
             filesFinishedDownloadingSinceLastRun.removeAll()

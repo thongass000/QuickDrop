@@ -64,6 +64,7 @@
 "SaveFilesTo" = "保存传入文件到：";
 "SaveFilesLocation" = "传入文件位置";
 "SaveFilesToButton" = "选择…";
+"OpenFinderAfterReceiving" = "接收后在访达中显示文件";
 "DownloadsFolder" = "下载";
 "SendFiles" = "发送文件";
 "ReceiveFiles" = "接收文件";
