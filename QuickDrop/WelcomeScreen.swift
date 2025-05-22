@@ -115,7 +115,7 @@ struct WelcomeScreen: View {
     }
     
     func openPrivacyPolicy() {
-        if let url = URL(string: "http://leonboettger.com/privacy") {
+        if let url = URL(string: "https://leonboettger.com/quickdrop-privacy") {
             NSWorkspace.shared.open(url)
         }
     }

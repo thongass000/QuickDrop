@@ -431,6 +431,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             }
 
             log("Showing alert with message: \"\(alert.messageText)\" and description: \"\(alert.informativeText)\"")
+            log("Already successful transmissions: \(transmissionCount())")
 
             let result = alert.runModal()
 
@@ -447,6 +448,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             }
 
             UserDefaults.standard.set(currentCount + 1, forKey: UserDefaultsKeys.transmissionCount.rawValue)
+            log("Successful transmission. Current count: \(currentCount)")
         }
 
         activeIncomingTransfers.removeValue(forKey: id)
