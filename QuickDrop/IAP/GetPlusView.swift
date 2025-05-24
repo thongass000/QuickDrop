@@ -9,8 +9,8 @@ import SwiftUI
 import StoreKit
 import NearbyShare
 
-let plusViewWidth: CGFloat = 600
-let plusViewHeight: CGFloat = 460
+let plusViewWidth: CGFloat = 440
+let plusViewHeight: CGFloat = 200
 
 struct GetPlusView: View {
     
@@ -41,120 +41,63 @@ struct GetPlusView: View {
     
     var body: some View {
         
-        let validPrice = price != ""
-        
         ZStack {
-            ZStack {
-                if colorScheme == .dark {
-                    Color.black.opacity(0.2)
-                    
-                }
-                else {
-                    Color.white
-                }
-            }
-            .ignoresSafeArea()
+            Color.defaultBackground
+                .edgesIgnoringSafeArea(.all)
             
-            VStack() {
-                // Top Image
-                let topHeight = 170.0
+            let validPrice = price != ""
+            
+            VStack(spacing: 12) {
+                Text("plusview_title")
+                    .font(.title)
+                    .bold()
                 
-                ZStack {
-                    
-                    Color.gray.opacity(colorScheme == .light ? 0.1 : 0.12)
-                    
-                    Image(.plain)
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.top, topHeight * 0.23)
-                        .padding(.bottom, topHeight * 0.07)
-                }
-                .edgesIgnoringSafeArea(.top)
-                .frame(height: topHeight)
-               
+                Text("plusview_description")
+                    .multilineTextAlignment(.center)
+                    .padding()
+                    .padding(.top, -10)
+                    .alert(isPresented: $boughtSuccessAlert, content: {
+                        Alert(title: Text("plusview_success_title"), message: Text("plusview_success_description"), dismissButton: .default(Text("plusview_success_button"), action: {
+                            closeView()
+                        }))
+                    })
                 
-                Spacer()
-                
-                VStack {
-                    // Headline Text
-                    Text("plusview_title")
-                        .font(.system(size: 32))
-                        .fontWeight(.semibold)
-                        .multilineTextAlignment(.center)
-                        .minimumScaleFactor(0.5)
-                        .lineLimit(1)
-                    
-
-                    // Subheadline
-                    Text("plusview_description")
-                        .font(.system(size: 15))
-                        .lineSpacing(5)
-                        .multilineTextAlignment(.center)
-                        .padding(.top)
-                        .alert(isPresented: $boughtSuccessAlert, content: {
-                            Alert(title: Text("plusview_success_title"), message: Text("plusview_success_description"), dismissButton: .default(Text("plusview_success_button"), action: {
-                                closeView()
-                            }))
-                        })
-                        .minimumScaleFactor(0.5)
-                        .opacity(0.8)
-                }
-                .padding(.horizontal, 40)
-                Spacer()
-                
-                
-                Divider()
-                
-                // Buttons
-                HStack {
+                HStack(spacing: 10) {
                     Button("plusview_restorepurchase") {
                         restorePurchases()
                     }
-                    .foregroundColor(.gray)
-                    .buttonStyle(.borderless)
-                    .opacity(restoring ? 0 : 1)
-                    .overlay(
-                        ProgressView()
-                            .scaleEffect(0.6)
-                            .opacity(restoring ? 1 : 0)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    )
                     .alert(isPresented: $showRestoreError, content: {
                         Alert(title: Text("plusview_restorefailed"), message: Text(restoreError), dismissButton: .default(Text("plusview_restorefailed_proceed")))
                     })
-                    
-                    Spacer()
+                    .opacity(restoring ? 0 : 1)
+                    .overlay(
+                        ProgressView()
+                            .scaleEffect(0.5)
+                            .opacity(restoring ? 1 : 0)
+                    )
                     
                     let priceString = validPrice ? " (\(price))" : ""
                     
                     Button("plusview_unlock_label".localized() + priceString) {
                         buttonAction()
                     }
-                    .buttonStyle(.bordered)
-                    .controlSize(.large)
                     .keyboardShortcut(.defaultAction)
-                    .opacity(buying ? 0 : 1)
-                    .overlay(
-                        ProgressView()
-                            .scaleEffect(0.6)
-                            .opacity(buying ? 1 : 0)
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                    )
-                    .padding(.horizontal)
-                    .padding(.vertical, 10)
                     .alert(isPresented: $warning, content: {
                         Alert(title: Text("plusview_purchasefailed"), message: Text("plusview_purchasefaileddescription".localized() + (errorText != "" ? " Error: " : "") + errorText), dismissButton: .default(Text("plusview_restorefailed_proceed")))
                     })
-                    
                 }
-                .padding(.horizontal)
-                .padding(.bottom, 10)
+                .opacity(buying || restoring ? 0 : 1)
+                .overlay(
+                    ProgressView()
+                        .scaleEffect(0.5)
+                        .opacity(buying || restoring ? 1 : 0)
+                )
             }
-            
             .onAppear {
                 loadProducts(shouldBuy: false)
             }
             .animation(.default, value: validPrice)
+            .padding()
         }
         .frame(width: plusViewWidth, height: plusViewHeight)
     }
