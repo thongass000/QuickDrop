@@ -112,9 +112,7 @@ Wichtig: Dein Android-Gerät und dein Mac müssen sich im selben Netzwerk befind
 
 2) Öffne die Systemeinstellungen und gehe zu \"Datenschutz & Sicherheit\" > \"Lokales Netzwerk\". Stelle sicher, dass QuickDrop aktiviert ist. Wenn du eine Firewall eines Drittanbieters oder ein Antivirenprogramm verwendest, überprüfe die Dokumentation dieses Programms, um eingehende Verbindungen für QuickDrop zuzulassen.
 
-3) Starte QuickDrop neu, indem du auf das Symbol in der Menüleiste klickst, den letzten Eintrag auswählst und die App erneut öffnest. Starte dein Android-Gerät neu.
-
-Wenn weiterhin Probleme auftreten, versuche, die separate QuickDrop-App für dein Smartphone zu verwenden. Weitere Informationen findest du im Abschnitt \"Android-App\" auf der linken Seite.";
+3) Starte QuickDrop neu, indem du auf das Symbol in der Menüleiste klickst, den letzten Eintrag auswählst und die App erneut öffnest. Starte dein Android-Gerät neu.";
 
 "plusview_title" = "Danke, dass du QuickDrop benutzt!";
 "plusview_description" = "Schalte QuickDrop+ frei, um weiterhin Dateien unbegrenzt auszutauschen. QuickDrop+ ist ein Einmalkauf - ein Abonnement ist nicht erforderlich. Alle aktuellen und zukünftigen Funktionen sind enthalten.";

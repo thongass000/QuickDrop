@@ -109,9 +109,7 @@ Importante: O seu dispositivo Android e o seu Mac precisam de estar na mesma red
 
 2) Abra as Definições do Sistema e vá a \"Privacidade e Segurança\" > \"Rede Local\". Certifique-se de que o QuickDrop está ativado. Se utilizar um firewall de terceiros ou um programa antivírus, consulte a documentação desse programa para permitir ligações de entrada para o QuickDrop.
 
-3) Reinicie o QuickDrop clicando no ícone da barra de menus, escolha a última entrada e abra novamente a aplicação. Reinicie o seu dispositivo Android.
-
-Se continuar a ter problemas, tente usar a aplicação QuickDrop separada para o seu smartphone. Para mais informações, consulte a secção \"Aplicação Android\" à esquerda.";
+3) Reinicie o QuickDrop clicando no ícone da barra de menus, escolha a última entrada e abra novamente a aplicação. Reinicie o seu dispositivo Android.";
 
 "plusview_title" = "Obrigado por usar o QuickDrop!";
 "plusview_description" = "Desbloqueia o QuickDrop+ para continuar a trocar ficheiros sem limites. QuickDrop+ é uma compra única – não é necessária subscrição. Todas as funcionalidades atuais e futuras estão incluídas.";  
