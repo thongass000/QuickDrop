@@ -70,7 +70,7 @@
 "ReceiveFiles" = "Ricevi file";
 "DeviceNotShown" = "Dispositivo non mostrato?";
 "Troubleshooting" = "Risoluzione dei problemi";
-"AndroidApp" = "App Android (Beta)";
+"AndroidApp" = "App Android";
 "AndroidAppDescription" = "QuickDrop è ora disponibile anche come app separata per il tuo dispositivo Android! Anche se QuickDrop può essere utilizzato senza un'app Android, QuickDrop per Android rende il trasferimento dei file ancora più semplice e veloce. Con l'app Android, puoi persino trasferire file quando non sei connesso alla rete Wi-Fi di casa, collegando il Mac all'hotspot del tuo Android. L'app Android garantisce comunque la stessa crittografia end-to-end durante il trasferimento dei file.
 
 QuickDrop per Android è attualmente in versione beta. Per registrarti alla beta, invia un'email a quickdrop-beta@leonboettger.com o utilizza il pulsante qui sotto. Grazie per il tuo interesse!";
@@ -103,13 +103,13 @@ Per inviare file dal tuo dispositivo Android al Mac, tocca l'icona di condivisio
 
 Importante: il tuo dispositivo Android e il tuo Mac devono essere sulla stessa rete WiFi per trasferire i file.";
 
-"TroubleshootingDescription" = "Se il tuo Mac non appare sul tuo dispositivo Android o la trasmissione è fallita, prova quanto segue:
+"TroubleshootingDescription" = "Se il tuo Mac non viene visualizzato sul dispositivo Android, anche se entrambi sono connessi alla stessa rete Wi-Fi, oppure se la trasmissione è fallita, prova quanto segue:
 
-1) Assicurati che entrambi i dispositivi siano connessi alla stessa rete Wi-Fi. Nota: le reti ospiti di solito non consentono ai dispositivi di comunicare tra loro. Se sei su una rete ospite, passa alla tua rete domestica.
+1) Apri le Impostazioni di Sistema e vai su \"Privacy e Sicurezza\" > \"Rete Locale\". Assicurati che QuickDrop sia abilitato. Se utilizzi un firewall o un programma antivirus di terze parti, consulta la documentazione per consentire le connessioni in entrata per QuickDrop.
 
-2) Apri Impostazioni di Sistema e vai su \"Privacy e Sicurezza\" > \"Rete Locale\". Assicurati che QuickDrop sia abilitato. Se utilizzi un firewall di terze parti o un programma antivirus, consulta la documentazione di tale programma per consentire le connessioni in entrata per QuickDrop.
+2) Riavvia QuickDrop cliccando sull'icona nella barra dei menu, seleziona l'ultima voce e riapri l'app. Riavvia anche il tuo dispositivo Android.
 
-3) Riavvia QuickDrop facendo clic sull'icona nella barra dei menu, scegli l'ultima voce e riapri l'app. Riavvia il tuo dispositivo Android.";
+Nota: alcune reti non permettono ai dispositivi di comunicare tra loro. In tal caso, scarica l'app QuickDrop sul telefono e collega il Mac all'hotspot del telefono per trasferire i file. Il link per l'app si trova nella barra laterale a sinistra.";
 
 "plusview_title" = "Grazie per aver usato QuickDrop!";
 "plusview_description" = "Sblocca QuickDrop+ per continuare a scambiare file senza limiti. QuickDrop+ è un acquisto unico – nessun abbonamento richiesto. Tutte le funzionalità attuali e future sono incluse.";  
@@ -135,7 +135,11 @@ Importante: il tuo dispositivo Android e il tuo Mac devono essere sulla stessa r
 "TransferFinished" = "Trasferimento completato";
 "TransferTimedOut" = "Tempo scaduto";
 "UnsupportedType" = "Tipo di allegato non supportato";  
-"QrCodeInstructions" = "Scansiona il codice QR con il tuo dispositivo Android per collegarlo al tuo Mac. Assicurati che il telefono sia connesso alla stessa rete.\n\nIn alternativa, installa e apri l'app 'Files by Google' e tocca 'Ricevi' in basso a destra.";  
+"QrCodeInstructions" = "Scansiona il codice QR con il tuo dispositivo Android per collegarlo al tuo Mac. Assicurati che il telefono sia connesso alla stessa rete.\n\nIn alternativa, installa e apri l'app 'Files by Google' e tocca 'Ricevi' in basso a destra.";
+"ConnectWithQuickDropApp" = "Connetti con l'app QuickDrop";
+"ConnectWithoutApp" = "Connetti senza app";
+"QrCodeInstructionsApp" = "Per collegare il tuo Mac al dispositivo Android, apri l'app QuickDrop sul tuo dispositivo Android. Assicurati che il telefono sia connesso alla stessa rete.\n\nPer installare QuickDrop sul tuo telefono, scansiona il codice QR o cerca 'QuickDrop' sul Google Play Store.";
+"QuickDropAndroidAppAdvertisement" = "QuickDrop è ora disponibile anche come app separata per il tuo smartphone! L'app offre funzionalità aggiuntive, come la possibilità di trasferire file quando non sei connesso alla rete Wi-Fi di casa, collegando il Mac all'hotspot del tuo smartphone.\n\nPer installare QuickDrop sul tuo telefono, scansiona il codice QR o cerca 'QuickDrop' sul Google Play Store.";
 "TypeNotSupported" = "Tipo non supportato";
 "TypeNotSupportedDescription" = "Il tipo di file selezionato non è supportato. Se desideri comunque condividerlo, fai clic con il tasto destro sul file, seleziona \"Comprimi\" e poi invia il file compresso.";
 "TypeNotSupportedButton" = "Ok";

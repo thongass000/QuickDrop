@@ -79,7 +79,7 @@
 "ReceiveFiles" = "Receive Files";
 "DeviceNotShown" = "Device Not Shown?";
 "Troubleshooting" = "Troubleshooting";
-"AndroidApp" = "Mobile App (Beta)";
+"AndroidApp" = "Mobile App";
 "AndroidAppDescription" = "QuickDrop is now also available as a separate app for your smartphone! Even though QuickDrop can also be used without a separate smartphone app, the app makes file transfer even easier and quicker. With it, you can even transfer files when you are not connected to your home's Wi-Fi network, by connecting the Mac to your smartphone's hotspot. The app still provides the same end-to-end encryption when transferring files.
 
 The mobile app is currently in beta. To register for the beta, please send an email to quickdrop-beta@leonboettger.com or use the button below. Thanks for your interest!";
@@ -108,13 +108,13 @@ To send files from your Android device to your Mac, tap on the share icon on you
 
 Important: Your Android device and your Mac need to be on the same WiFi network to transfer files.";
 
-"TroubleshootingDescription" = "If your Mac does not show up on your Android device or the transmission failed, try the following:
+"TroubleshootingDescription" = "If your Mac does not show up on your Android device even though both devices are connected to the same Wi-Fi network, or the transmission failed, try the following:
 
-1) Make sure that both devices are connected to the same WiFi network. Note: Guest networks usually do not allow devices to communicate with each other. If you are on a guest network, please switch to your home network.
+1) Open System Settings, and go to \"Privacy & Security\" > \"Local Network\". Make sure that QuickDrop is enabled. If you use a third-party firewall or an antivirus program, please check the documentation of this program to allow incoming connections for QuickDrop.
 
-2) Open System Settings, and go to \"Privacy & Security\" > \"Local Network\". Make sure that QuickDrop is enabled. If you use a third-party firewall or an antivirus program, please check the documentation of this program to allow incoming connections for QuickDrop.
+2) Restart QuickDrop by clicking the menu bar icon, choose the last entry, and open the app again. Restart your Android device.
 
-3) Restart QuickDrop by clicking the menu bar icon, choose the last entry, and open the app again. Restart your Android device.";
+Note: Some networks do not allow devices to communicate with each other. In this case, you need to download the QuickDrop app for your phone, and connect your Mac to your phone's hotspot to transfer files. The link to the app can be found in the sidebar on the left.";
 
 
 "plusview_title" = "Thanks for using QuickDrop!";
@@ -144,6 +144,10 @@ Important: Your Android device and your Mac need to be on the same WiFi network 
 "TransferTimedOut" = "Timed out";
 "UnsupportedType" = "Attachment type not supported";
 "QrCodeInstructions" = "Scan the QR Code with your Android device to connect it to your Mac. Make sure your phone is connected to the same network.\n\nAlternatively, install and open the 'Files by Google' app and tap 'Receive' at the bottom right.";
+"ConnectWithQuickDropApp" = "Connect with QuickDrop App";
+"ConnectWithoutApp" = "Connect without App";
+"QrCodeInstructionsApp" = "To connect your Mac to your Android device, open the QuickDrop app on your Android device. Make sure your phone is connected to the same network.\n\nTo install QuickDrop on your phone, scan the QR code or search for 'QuickDrop' on the Google Play Store.";
+"QuickDropAndroidAppAdvertisement" = "QuickDrop is now also available as a separate app for your smartphone! The app provides additional features, such as the ability to transfer files when you are not connected to your home's Wi-Fi network, by connecting the Mac to your smartphone's hotspot.\n\nTo install QuickDrop on your phone, scan the QR code or search for 'QuickDrop' on the Google Play Store.";
 "TypeNotSupported" = "Type not supported";
 "TypeNotSupportedDescription" = "The selected file type is not supported. If you want to share it anyway, right-click the file, select \"Compress\" and then send the compressed file.";
 "TypeNotSupportedButton" = "Okay";

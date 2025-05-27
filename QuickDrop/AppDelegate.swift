@@ -22,6 +22,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
     var welcomeWindow: NSWindow?
     var plusWindow: NSWindow?
+    
+    private var qrCodeSheetView: NSPanel? = nil
+    private var sheetAttachedWindow: NSWindow? = nil
+    
     var firewallAlertWindow: NSWindow?
     var apIsolationAlertWindow: NSWindow?
     var networkFilterAlertWindow: NSWindow?
@@ -134,7 +138,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
     @objc func openWelcomeScreen() {
         // Create the welcome screen SwiftUI view
-        let welcomeView = WelcomeScreen(openPlusScreen: openPlusScreen, checkForNetworkIssues: performDeviceToDeviceCheck)
+        let welcomeView = WelcomeScreen(openPlusScreen: openPlusScreen, openAppAdvertisementView: openQrCodeView, checkForNetworkIssues: performDeviceToDeviceCheck)
 
         // Create an NSWindow to host the SwiftUI view
         welcomeWindow = NSWindow(
@@ -157,6 +161,39 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         NSApp.activate(ignoringOtherApps: true) // Brings the whole app to the front
         welcomeWindow?.makeKeyAndOrderFront(nil)
         welcomeWindow?.level = .normal
+    }
+    
+    private func openQrCodeView() {
+        if qrCodeSheetView == nil {
+            let contentView = QrCodeView(advertisesApp: true) {
+                self.closeQrCodeView()
+            }
+
+            let hostingView = NSHostingView(rootView: contentView)
+
+            let panel = NSPanel(contentRect: NSRect(x: 0, y: 0, width: qrCodeViewSize.width, height: qrCodeViewSize.height),
+                                styleMask: [.titled, .closable, .utilityWindow],
+                                backing: .buffered,
+                                defer: false)
+
+            panel.contentView = hostingView
+
+            qrCodeSheetView = panel
+
+            if let mainWindow = NSApp.mainWindow {
+                sheetAttachedWindow = mainWindow
+                mainWindow.beginSheet(panel) { _ in }
+            }
+        }
+    }
+
+    private func closeQrCodeView() {
+        if let mainWindow = sheetAttachedWindow, let qrCodeView = qrCodeSheetView {
+            mainWindow.endSheet(qrCodeView)
+
+            qrCodeSheetView = nil
+            sheetAttachedWindow = nil
+        }
     }
 
     @objc func openPlusScreen() {

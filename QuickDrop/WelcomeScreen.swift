@@ -14,6 +14,7 @@ struct WelcomeScreen: View {
     @Environment(\.colorScheme) var colorScheme
     
     let openPlusScreen: () -> Void
+    let openAppAdvertisementView: () -> Void
     let checkForNetworkIssues: () -> Void
     
     @State private var selection: Tabs? = Tabs.receive
@@ -22,8 +23,7 @@ struct WelcomeScreen: View {
         
         HStack(spacing: 0) {
             List(selection: $selection) {
-                ForEach(Tabs.allCases.filter({$0 != .settings }), id: \.self) { tab in
-                    // && $0 != .app
+                ForEach(Tabs.allCases.filter({$0 != .settings && $0 != .app }), id: \.self) { tab in
                     Label(tab.title, systemImage: tab.systemImage)
                       //  .font(.system(size: 13))
                         .tag(tab)
@@ -43,9 +43,10 @@ struct WelcomeScreen: View {
                         Image(systemName: "arrow.up.right")
                             .opacity(0.3)
                     }
+                    .frame(height: 32)
+                    .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
-                    .frame(height: 30)
                 
                 
                 Button {
@@ -61,9 +62,28 @@ struct WelcomeScreen: View {
                         Image(systemName: "arrow.up.right")
                             .opacity(0.3)
                     }
+                    .frame(height: 32)
+                    .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
-                .frame(height: 30)
+                
+                
+                Button {
+                    openAppAdvertisementView()
+                } label: {
+                    
+                    HStack {
+                        Label(Tabs.app.title, systemImage: Tabs.app.systemImage)
+                        
+                        Spacer()
+                        
+                        Image(systemName: "arrow.up.right")
+                            .opacity(0.3)
+                    }
+                    .frame(height: 32)
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
                 
                 Divider()
                 
@@ -127,7 +147,7 @@ enum Tabs: CaseIterable {
     case receive
     case send
     case troubleshooting
-    //case app
+    case app
     case settings
     
     var title: String {
@@ -138,8 +158,8 @@ enum Tabs: CaseIterable {
             return "SendFiles".localized()
         case .troubleshooting:
             return "DeviceNotShown".localized()
-//        case .app:
-//            return "AndroidApp".localized()
+        case .app:
+            return "AndroidApp".localized()
         case .settings:
             return "Settings".localized()
         }
@@ -155,13 +175,13 @@ enum Tabs: CaseIterable {
             return "exclamationmark.triangle"
         case .settings:
             return "gear"
-//        case .app:
-//            return "smartphone"
+        case .app:
+            return "smartphone"
         }
     }
 }
 
 
 #Preview {
-    WelcomeScreen(openPlusScreen: {}, checkForNetworkIssues: {})
+    WelcomeScreen(openPlusScreen: {}, openAppAdvertisementView: {}, checkForNetworkIssues: {})
 }

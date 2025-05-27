@@ -165,5 +165,5 @@ func copyToClipboard(_ text: String) {
 
 
 #Preview {
-    WelcomeScreen(openPlusScreen: {}, checkForNetworkIssues: {})
+    WelcomeScreen(openPlusScreen: {}, openAppAdvertisementView: {}, checkForNetworkIssues: {})
 }

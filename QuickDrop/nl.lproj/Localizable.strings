@@ -71,7 +71,7 @@
 "ReceiveFiles" = "Bestanden ontvangen";
 "DeviceNotShown" = "Apparaat niet weergegeven?";
 "Troubleshooting" = "Probleemoplossing";
-"AndroidApp" = "Android-app (Bèta)";
+"AndroidApp" = "Android-app";
 "AndroidAppDescription" = "QuickDrop is nu ook beschikbaar als een aparte app voor je Android-apparaat! Hoewel QuickDrop ook zonder Android-app kan worden gebruikt, maakt QuickDrop voor Android het overzetten van bestanden nog gemakkelijker en sneller. Met de Android-app kun je zelfs bestanden overzetten wanneer je niet verbonden bent met je thuisnetwerk, door je Mac te verbinden met de hotspot van je Android. De Android-app gebruikt nog steeds end-to-end encryptie tijdens bestandsoverdracht.
 
 QuickDrop voor Android bevindt zich momenteel in de bètafase. Om je aan te melden voor de bèta, stuur een e-mail naar quickdrop-beta@leonboettger.com of gebruik de knop hieronder. Bedankt voor je interesse!";
@@ -104,13 +104,13 @@ Om bestanden van je Android-apparaat naar je Mac te sturen, tik op het deel-icoo
 
 Belangrijk: Je Android-apparaat en Mac moeten op hetzelfde WiFi-netwerk zitten om bestanden over te dragen.";
 
-"TroubleshootingDescription" = "Als je Mac niet wordt weergegeven op je Android-apparaat of de overdracht is mislukt, probeer dan het volgende:
+"TroubleshootingDescription" = "Als je Mac niet verschijnt op je Android-apparaat, zelfs als beide apparaten met hetzelfde Wi-Fi-netwerk zijn verbonden, of als de overdracht is mislukt, probeer dan het volgende:
 
-1) Zorg ervoor dat beide apparaten zijn verbonden met hetzelfde Wi-Fi-netwerk. Opmerking: gastnetwerken staan meestal niet toe dat apparaten met elkaar communiceren. Als je op een gastnetwerk zit, schakel dan over naar je thuisnetwerk.
+1) Open Systeeminstellingen en ga naar \"Privacy en beveiliging\" > \"Lokaal netwerk\". Zorg ervoor dat QuickDrop is ingeschakeld. Als je een firewall of antivirusprogramma van derden gebruikt, raadpleeg dan de documentatie van dat programma om inkomende verbindingen voor QuickDrop toe te staan.
 
-2) Open Systeeminstellingen en ga naar \"Privacy en Beveiliging\" > \"Lokaal Netwerk\". Zorg ervoor dat QuickDrop is ingeschakeld. Als je een firewall van derden of een antivirusprogramma gebruikt, raadpleeg dan de documentatie van dat programma om inkomende verbindingen voor QuickDrop toe te staan.
+2) Herstart QuickDrop door op het menubalkpictogram te klikken, kies de laatste optie en open de app opnieuw. Herstart ook je Android-apparaat.
 
-3) Herstart QuickDrop door op het menubalkpictogram te klikken, kies de laatste optie en open de app opnieuw. Herstart je Android-apparaat.";
+Opmerking: Sommige netwerken staan niet toe dat apparaten met elkaar communiceren. In dat geval moet je de QuickDrop-app op je telefoon downloaden en je Mac verbinden met de hotspot van je telefoon om bestanden over te dragen. De link naar de app is te vinden in de zijbalk aan de linkerkant.";
 
 "plusview_title" = "Bedankt voor het gebruiken van QuickDrop!";
 "plusview_description" = "Ontgrendel QuickDrop+ om bestanden zonder limieten te blijven uitwisselen. QuickDrop+ is een eenmalige aankoop – geen abonnement vereist. Alle huidige en toekomstige functies zijn inbegrepen.";  
@@ -135,7 +135,11 @@ Belangrijk: Je Android-apparaat en Mac moeten op hetzelfde WiFi-netwerk zitten o
 "TransferFinished" = "Overdracht voltooid";
 "TransferTimedOut" = "Time-out";
 "UnsupportedType" = "Bijlagetype niet ondersteund";  
-"QrCodeInstructions" = "Scan de QR-code met je Android-apparaat om het met je Mac te verbinden. Zorg ervoor dat je telefoon met hetzelfde netwerk is verbonden.\n\nJe kunt ook de app 'Files by Google' installeren en openen en op 'Ontvangen' tikken rechtsonder.";  
+"QrCodeInstructions" = "Scan de QR-code met je Android-apparaat om het met je Mac te verbinden. Zorg ervoor dat je telefoon met hetzelfde netwerk is verbonden.\n\nJe kunt ook de app 'Files by Google' installeren en openen en op 'Ontvangen' tikken rechtsonder.";
+"ConnectWithQuickDropApp" = "Verbind met de QuickDrop-app";
+"ConnectWithoutApp" = "Verbind zonder app";
+"QrCodeInstructionsApp" = "Om je Mac met je Android-apparaat te verbinden, open je de QuickDrop-app op je Android-apparaat. Zorg ervoor dat je telefoon is verbonden met hetzelfde netwerk.\n\nOm QuickDrop op je telefoon te installeren, scan de QR-code of zoek naar 'QuickDrop' in de Google Play Store.";
+"QuickDropAndroidAppAdvertisement" = "QuickDrop is nu ook beschikbaar als een aparte app voor je smartphone! De app biedt extra functies, zoals de mogelijkheid om bestanden over te zetten wanneer je niet bent verbonden met je thuis-Wi-Fi-netwerk, door je Mac te verbinden met de hotspot van je smartphone.\n\nOm QuickDrop op je telefoon te installeren, scan de QR-code of zoek naar 'QuickDrop' in de Google Play Store.";
 "TypeNotSupported" = "Type niet ondersteund";
 "TypeNotSupportedDescription" = "Het geselecteerde bestandstype wordt niet ondersteund. Als je het toch wilt delen, klik met de rechtermuisknop op het bestand, selecteer \"Comprimeren\" en stuur vervolgens het gecomprimeerde bestand.";
 "TypeNotSupportedButton" = "Oké";
