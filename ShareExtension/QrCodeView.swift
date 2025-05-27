@@ -11,7 +11,7 @@ let qrCodeViewSize = CGSize(width: 530.0, height: 270.0)
 
 struct QrCodeView: View {
     @State private var qrCode: String = ""
-    var advertisesApp = true
+    var advertisesApp = false
     let closeView: () -> Void
     
     @Environment(\.colorScheme) var colorScheme
