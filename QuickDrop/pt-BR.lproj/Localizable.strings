@@ -160,7 +160,7 @@ Veja como desativá-lo:
 
 3. Desative-a: Certifique-se de que essa configuração esteja desativada. Salve as alterações e reinicie o roteador, se necessário.
 
-Uma vez desativado, os dispositivos na sua rede Wi-Fi (como seu telefone e Mac) poderão se descobrir e se conectar entre si. Atenção: Se você estiver em uma rede de convidados, essa configuração pode não estar disponível. Nesse caso, use outra rede.";
+Uma vez desativado, os dispositivos na sua rede Wi-Fi (como seu telefone e Mac) poderão se descobrir e se conectar entre si. Observe: se você estiver em uma rede de convidados, essa configuração pode não estar disponível. Nesse caso, use uma rede diferente ou baixe o aplicativo QuickDrop no seu telefone e conecte seu Mac ao ponto de acesso do telefone para transferir arquivos. Procure por “QuickDrop” no Google Play para baixar o aplicativo.";
 "ApIsolationAction" = "Abrir configurações do roteador";
 
 "ApIsolationFindRouterFailedHeader" = "Não foi possível encontrar o IP do roteador";

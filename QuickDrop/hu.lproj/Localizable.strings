@@ -161,7 +161,7 @@ Megjegyzés: Egyes hálózatok nem engedélyezik az eszközök közötti kommuni
 
 3. Kapcsold ki: Győződj meg róla, hogy ez a beállítás ki van kapcsolva. Mentsd el a módosításokat, és indítsd újra a routert, ha szükséges.
 
-Miután kikapcsoltad, a Wi-Fi hálózatodon lévő eszközök (például a telefonod és a Mac-ed) képesek lesznek felfedezni és csatlakozni egymáshoz. Figyelem: Ha vendéghálózaton van, ez a beállítás lehet, hogy nem érhető el. Ebben az esetben használjon másik hálózatot.";
+Miután kikapcsoltad, a Wi-Fi hálózatodon lévő eszközök (például a telefonod és a Mac-ed) képesek lesznek felfedezni és csatlakozni egymáshoz. Kérjük, vegye figyelembe: ha vendéghálózaton van, ez a beállítás nem biztos, hogy elérhető. Ebben az esetben használjon másik hálózatot, vagy töltse le a QuickDrop alkalmazást a telefonjára, és csatlakoztassa a Mac-et a telefon hotspotjához a fájlok átviteléhez. Keresse meg a „QuickDrop” alkalmazást a Google Play Áruházban a letöltéshez.";
 "ApIsolationAction" = "Router beállításainak megnyitása";
 
 "ApIsolationFindRouterFailedHeader" = "Nem sikerült megtalálni a router IP-címét";

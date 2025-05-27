@@ -162,7 +162,7 @@ So deaktivierst du sie:
 
 3. Deaktivieren: Stelle sicher, dass diese Einstellung deaktiviert (oder bei der Fritz!Box aktiviert) ist. Speichere die Änderungen und starte den Router bei Bedarf neu.
 
-Anschließend können sich Geräte in deinem WLAN (wie dein Telefon und Mac) gegenseitig erkennen und verbinden. Bitte beachten: Wenn du mit einem Gastnetzwerk verbunden bist, ist diese Einstellung möglicherweise nicht verfügbar. Verwende in diesem Fall ein anderes Netzwerk.";
+Anschließend können sich Geräte in deinem WLAN (wie dein Telefon und Mac) gegenseitig erkennen und verbinden. Bitte beachte: Wenn du dich in einem Gastnetzwerk befindest, ist diese Einstellung möglicherweise nicht verfügbar. In diesem Fall verwende bitte ein anderes Netzwerk oder lade die QuickDrop-App auf dein Handy herunter und verbinde deinen Mac mit dem Hotspot deines Handys, um Dateien zu übertragen. Suche im Google Play Store nach „QuickDrop“, um die App herunterzuladen.";
 "ApIsolationAction" = "Router-Einstellungen öffnen";
 
 "ApIsolationFindRouterFailedHeader" = "Router-IP konnte nicht gefunden werden";

@@ -160,7 +160,7 @@ Zo schakel je het uit:
 
 3. Schakel het uit: Zorg ervoor dat deze instelling is uitgeschakeld. Sla de wijzigingen op en herstart de router indien nodig.
 
-Zodra dit is uitgeschakeld, kunnen apparaten op je Wi-Fi-netwerk (zoals je telefoon en Mac) elkaar vinden en verbinden. Let op: Als je met een gastnetwerk verbonden bent, is deze instelling mogelijk niet beschikbaar. Gebruik in dat geval een ander netwerk.";
+Zodra dit is uitgeschakeld, kunnen apparaten op je Wi-Fi-netwerk (zoals je telefoon en Mac) elkaar vinden en verbinden. Let op: als u zich op een gastnetwerk bevindt, is deze instelling mogelijk niet beschikbaar. Gebruik in dat geval een ander netwerk of download de QuickDrop-app op uw telefoon en verbind uw Mac met de hotspot van uw telefoon om bestanden over te dragen. Zoek naar “QuickDrop” in de Google Play Store om de app te downloaden.";
 "ApIsolationAction" = "Routerinstellingen openen";
 
 "ApIsolationFindRouterFailedHeader" = "Kon router-IP niet vinden";

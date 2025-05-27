@@ -159,7 +159,7 @@ Iată cum o poți dezactiva:
 
 3. Dezactivează: Asigură-te că această setare este dezactivată. Salvează modificările și repornește routerul dacă este necesar.
 
-După dezactivare, dispozitivele din rețeaua Wi-Fi (precum telefonul și Mac-ul) se vor putea detecta și conecta între ele. Notă: Dacă ești conectat la o rețea de oaspeți, această setare s-ar putea să nu fie disponibilă. În acest caz, folosește o altă rețea.";
+După dezactivare, dispozitivele din rețeaua Wi-Fi (precum telefonul și Mac-ul) se vor putea detecta și conecta între ele. Vă rugăm să rețineți: dacă sunteți conectat la o rețea pentru oaspeți, această setare ar putea să nu fie disponibilă. În acest caz, folosiți o altă rețea sau descărcați aplicația QuickDrop pe telefonul dvs. și conectați-vă Mac-ul la hotspotul telefonului pentru a transfera fișiere. Căutați “QuickDrop” pe Google Play pentru a descărca aplicația.";
 "ApIsolationAction" = "Deschide setările routerului";
 
 "ApIsolationFindRouterFailedHeader" = "Nu s-a putut găsi IP-ul routerului";

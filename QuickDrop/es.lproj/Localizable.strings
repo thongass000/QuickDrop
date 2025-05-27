@@ -160,7 +160,7 @@ Así es como puedes desactivarlo:
 
 3. Desactívala: Asegúrate de que esta configuración esté desactivada. Guarda los cambios y reinicia el router si es necesario.
 
-Una vez desactivado, los dispositivos en tu red Wi-Fi (como tu teléfono y Mac) podrán descubrirse y conectarse entre sí. Ten en cuenta: Si estás en una red de invitados, esta configuración podría no estar disponible. En ese caso, utiliza una red diferente.";
+Una vez desactivado, los dispositivos en tu red Wi-Fi (como tu teléfono y Mac) podrán descubrirse y conectarse entre sí. Tenga en cuenta: si está en una red de invitados, es posible que esta configuración no esté disponible. En ese caso, utilice una red diferente o descargue la aplicación QuickDrop en su teléfono y conecte su Mac al punto de acceso de su teléfono para transferir archivos. Busque “QuickDrop” en Google Play para descargar la aplicación.";
 "ApIsolationAction" = "Abrir configuración del router";
 
 "ApIsolationFindRouterFailedHeader" = "No se pudo encontrar la IP del router";

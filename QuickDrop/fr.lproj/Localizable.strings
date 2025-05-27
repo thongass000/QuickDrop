@@ -160,7 +160,7 @@ Voici comment la désactiver :
 
 3. Désactivez-le : Assurez-vous que ce paramètre est désactivé. Sauvegardez les modifications et redémarrez le routeur si nécessaire.
 
-Une fois désactivée, les appareils de votre réseau Wi-Fi (comme votre téléphone et votre Mac) pourront se détecter et se connecter entre eux. Remarque : si vous êtes sur un réseau invité, ce paramètre peut ne pas être disponible. Dans ce cas, utilisez un autre réseau.";
+Une fois désactivée, les appareils de votre réseau Wi-Fi (comme votre téléphone et votre Mac) pourront se détecter et se connecter entre eux. Veuillez noter : si vous êtes sur un réseau invité, ce paramètre peut ne pas être disponible. Dans ce cas, utilisez un autre réseau ou téléchargez l’application QuickDrop sur votre téléphone, puis connectez votre Mac au point d’accès de votre téléphone pour transférer des fichiers. Recherchez “QuickDrop” sur Google Play pour télécharger l’application.";
 "ApIsolationAction" = "Ouvrir les paramètres du routeur";
 
 "ApIsolationFindRouterFailedHeader" = "Impossible de trouver l’adresse IP du routeur";
