@@ -84,6 +84,7 @@ class NearbyConnection {
             self.lastError = err
             log("Connection Error: \(err)")
             
+            // If the error is a connection reset, it could be due to firewall issues.
             if err == .posix(.ENOTCONN) {
                 ConnectionFailureTracker.shared.recordFailure {
                     NearbyConnectionManager.shared.mainAppDelegate?.showFirewallAlert()
