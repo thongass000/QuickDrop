@@ -269,6 +269,8 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
 
     public func submitUserConsent(transferID: String, accept: Bool, storeInTemp: Bool = false) {
         guard let conn = activeConnections[transferID] else { return }
+        
+        log("Submitting user consent for transfer, accepted: \(accept), store in temp: \(storeInTemp)")
         conn.submitUserConsent(accepted: accept, storeInTemp: storeInTemp)
     }
 

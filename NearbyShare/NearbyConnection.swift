@@ -79,6 +79,7 @@ class NearbyConnection {
     }
     
     func protocolError() {
+        log("Protocol error: \(String(describing: lastError))")
         disconnect()
     }
     
@@ -108,6 +109,7 @@ class NearbyConnection {
                 return
             }
             if isComplete {
+                log("Connection closed by peer during receiveFrameAsync")
                 self.handleConnectionClosure()
                 return
             }
@@ -136,6 +138,7 @@ class NearbyConnection {
                 return
             }
             if isComplete {
+                log("Connection closed by peer during receiveFrameAsync")
                 self.handleConnectionClosure()
                 return
             }
@@ -410,11 +413,15 @@ class NearbyConnection {
     }
     
     func disconnect() {
+        log("Disconnecting from connection.")
+        
+        connection.stateUpdateHandler = nil
+        connectionClosed = true
+        
+        self.handleConnectionClosure()
+        
         connection.send(content: nil, isComplete: true, completion: .contentProcessed { _ in
         })
-        self.handleConnectionClosure()
-        connectionClosed = true
-        connection.stateUpdateHandler = nil
     }
     
     func sendDisconnectionAndDisconnect() throws {
@@ -428,6 +435,8 @@ class NearbyConnection {
         } else {
             try sendFrameAsync(offlineFrame.serializedData())
         }
+        
+        log("Sent disconnection frame during sendDisconnectionAndDisconnect")
         disconnect()
     }
     
@@ -438,6 +447,8 @@ class NearbyConnection {
         msg.messageType = .alert
         msg.messageData = try! alert.serializedData()
         sendFrameAsync(try! msg.serializedData())
+        
+        log("Sent UKEY2 alert: \(type)")
         disconnect()
     }
     

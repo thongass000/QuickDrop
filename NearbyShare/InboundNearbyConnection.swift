@@ -45,10 +45,8 @@ class InboundNearbyConnection: NearbyConnection {
     }
 
     override func processReceivedFrame(frameData: Data) {
-        if currentState != .receivingFiles {
-            log("Received frame in state \(currentState)...")
-        }
-
+        log("Received frame in state \(currentState)...")
+        
         do {
             switch currentState {
             case .initial:
@@ -132,6 +130,7 @@ class InboundNearbyConnection: NearbyConnection {
             transferredFiles.removeValue(forKey: id)
             
             if transferredFiles.isEmpty {
+                log("All files received, sending disconnection frame and disconnecting.")
                 try sendDisconnectionAndDisconnect()
             }
         }
@@ -154,6 +153,7 @@ class InboundNearbyConnection: NearbyConnection {
                 }
             }
 
+            log("Received text payload. Disconnecting...")
             try sendDisconnectionAndDisconnect()
             return true
         }
@@ -166,6 +166,8 @@ class InboundNearbyConnection: NearbyConnection {
             fileInfo.progress?.unpublish()
             transferredFiles.removeValue(forKey: id)
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
+            
+            log("Received file payload. Disconnecting...")
             try sendDisconnectionAndDisconnect()
             return true
         }
