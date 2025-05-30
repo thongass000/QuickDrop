@@ -57,16 +57,20 @@ class NearbyConnection {
                     self.connectionReady()
                     self.receiveFrameAsync()
                 } else if case let .failed(err) = state {
-                    self.lastError = err
-                    log("Error opening socket: \(err)")
-                    
-                    if err == .posix(.ENOTCONN) {
-                        ConnectionFailureTracker.shared.recordFailure {
-                            NearbyConnectionManager.shared.mainAppDelegate?.showFirewallAlert()
+
+                    // If connection reset by peer, it could still be a valid file transfer that has not been processed yet. => Wait
+                    if err == .posix(.ECONNRESET) {
+                        NearbyConnection.dispatchQueue.asyncAfter(deadline: .now() + 0.5) {
+                            
+                            // If already closed, ignore the error, as file transfer has been processed
+                            if !self.connectionClosed {
+                                recordErrorAndDisconnect(err: err)
+                            }
                         }
                     }
-                    
-                    self.handleConnectionClosure()
+                    else {
+                        recordErrorAndDisconnect(err: err)
+                    }
                 }
             }
             else {
@@ -75,6 +79,19 @@ class NearbyConnection {
         }
         // connection.start(queue: .global(qos: .utility))
         connection.start(queue: NearbyConnection.dispatchQueue)
+        
+        func recordErrorAndDisconnect(err: NWError) {
+            self.lastError = err
+            log("Connection Error: \(err)")
+            
+            if err == .posix(.ENOTCONN) {
+                ConnectionFailureTracker.shared.recordFailure {
+                    NearbyConnectionManager.shared.mainAppDelegate?.showFirewallAlert()
+                }
+            }
+            
+            self.handleConnectionClosure()
+        }
     }
     
     func connectionReady() {}
