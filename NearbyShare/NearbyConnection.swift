@@ -411,9 +411,10 @@ class NearbyConnection {
     
     func disconnect() {
         connection.send(content: nil, isComplete: true, completion: .contentProcessed { _ in
-            self.handleConnectionClosure()
         })
+        self.handleConnectionClosure()
         connectionClosed = true
+        connection.stateUpdateHandler = nil
     }
     
     func sendDisconnectionAndDisconnect() throws {
