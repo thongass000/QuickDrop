@@ -52,20 +52,25 @@ class NearbyConnection {
     
     func start() {
         connection.stateUpdateHandler = { state in
-            if case .ready = state {
-                self.connectionReady()
-                self.receiveFrameAsync()
-            } else if case let .failed(err) = state {
-                self.lastError = err
-                log("Error opening socket: \(err)")
-                
-                if err == .posix(.ENOTCONN) {
-                    ConnectionFailureTracker.shared.recordFailure {
-                        NearbyConnectionManager.shared.mainAppDelegate?.showFirewallAlert()
+            if !self.connectionClosed {
+                if case .ready = state {
+                    self.connectionReady()
+                    self.receiveFrameAsync()
+                } else if case let .failed(err) = state {
+                    self.lastError = err
+                    log("Error opening socket: \(err)")
+                    
+                    if err == .posix(.ENOTCONN) {
+                        ConnectionFailureTracker.shared.recordFailure {
+                            NearbyConnectionManager.shared.mainAppDelegate?.showFirewallAlert()
+                        }
                     }
+                    
+                    self.handleConnectionClosure()
                 }
-                
-                self.handleConnectionClosure()
+            }
+            else {
+                log("Connection already closed, ignoring state update: \(state)")
             }
         }
         // connection.start(queue: .global(qos: .utility))
