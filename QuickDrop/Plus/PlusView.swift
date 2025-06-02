@@ -1,5 +1,5 @@
 //
-//  GetPlusView.swift
+//  PlusView.swift
 //  QuickDrop
 //
 //  Created by Leon Böttger on 23.02.25.
@@ -12,7 +12,7 @@ import NearbyShare
 let plusViewWidth: CGFloat = 440
 let plusViewHeight: CGFloat = 200
 
-struct GetPlusView: View {
+struct PlusView: View {
     
     @AppStorage(UserDefaultsKeys.plusVersion.rawValue) var isPlusVersion = false
     @ObservedObject private var iaphelper = IAPManager.sharedInstance
@@ -253,5 +253,5 @@ extension SKProduct {
 
 
 #Preview {
-    GetPlusView(closeView: {})
+    PlusView(closeView: {})
 }

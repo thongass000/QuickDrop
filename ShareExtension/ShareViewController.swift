@@ -147,13 +147,13 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     
     private func openQrCodeView() {
         if qrCodeSheetView == nil {
-            let contentView = QrCodeView {
+            let contentView = SmallSheetView(type: .sendToDeviceQrCode) {
                 self.closeQrCodeView()
             }
             
             let hostingView = NSHostingView(rootView: contentView)
             
-            let panel = NSPanel(contentRect: NSRect(x: 0, y: 0, width: qrCodeViewSize.width, height: qrCodeViewSize.height),
+            let panel = NSPanel(contentRect: NSRect(x: 0, y: 0, width: smallSheetViewSize.width, height: smallSheetViewSize.height),
                                 styleMask: [.titled, .closable, .utilityWindow],
                                 backing: .buffered,
                                 defer: false)

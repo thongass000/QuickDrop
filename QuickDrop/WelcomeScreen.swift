@@ -15,6 +15,7 @@ struct WelcomeScreen: View {
     
     let openPlusScreen: () -> Void
     let openAppAdvertisementView: () -> Void
+    let openCableTransmissionView: () -> Void
     let checkForNetworkIssues: () -> Void
     
     @State private var selection: Tabs? = Tabs.receive
@@ -23,78 +24,37 @@ struct WelcomeScreen: View {
         
         HStack(spacing: 0) {
             List(selection: $selection) {
-                ForEach(Tabs.allCases.filter({$0 != .settings && $0 != .app }), id: \.self) { tab in
+                ForEach(Tabs.allCases.filter({$0 != .settings }), id: \.self) { tab in
                     Label(tab.title, systemImage: tab.systemImage)
-                      //  .font(.system(size: 13))
                         .tag(tab)
                         .frame(height: 30)
                 }
                 
                 Divider()
                 
-                Button {
+                ExternalLinkLabel(label: "GetSupport", icon: "questionmark.circle") {
                     getSupport()
-                } label: {
-                    HStack {
-                        Label("GetSupport", systemImage: "questionmark.circle")
-                        
-                        Spacer()
-                        
-                        Image(systemName: "arrow.up.right")
-                            .opacity(0.3)
-                    }
-                    .frame(height: 32)
-                    .contentShape(Rectangle())
                 }
-                .buttonStyle(.plain)
                 
-                
-                Button {
+                ExternalLinkLabel(label: "PrivacyPolicy", icon: "hand.raised") {
                     openPrivacyPolicy()
-                
-                } label: {
-                    
-                    HStack {
-                        Label("PrivacyPolicy", systemImage: "hand.raised")
-                        
-                        Spacer()
-                        
-                        Image(systemName: "arrow.up.right")
-                            .opacity(0.3)
-                    }
-                    .frame(height: 32)
-                    .contentShape(Rectangle())
                 }
-                .buttonStyle(.plain)
                 
-                
-                Button {
+                ExternalLinkLabel(label: "AndroidApp", icon: "smartphone") {
                     openAppAdvertisementView()
-                } label: {
-                    
-                    HStack {
-                        Label(Tabs.app.title, systemImage: Tabs.app.systemImage)
-                        
-                        Spacer()
-                        
-                        Image(systemName: "arrow.up.right")
-                            .opacity(0.3)
-                    }
-                    .frame(height: 32)
-                    .contentShape(Rectangle())
                 }
-                .buttonStyle(.plain)
+                
+                ExternalLinkLabel(label: "TransmitUsingCable", icon: "cable.connector") {
+                    openCableTransmissionView()
+                }
                 
                 Divider()
                 
                 Label(Tabs.settings.title, systemImage: Tabs.settings.systemImage)
                     .tag(Tabs.settings)
                     .frame(height: 30)
-                
-//                Label(Tabs.app.title, systemImage: Tabs.app.systemImage)
-//                    .tag(Tabs.app)
-//                    .frame(height: 30)
             }
+            .minimumScaleFactor(0.5)
             .frame(width: 220)
             .listStyle(SidebarListStyle())
             
@@ -107,20 +67,16 @@ struct WelcomeScreen: View {
                 
                 switch selection {
                 case .receive:
-                    TutorialView(title: "WelcomeToQuickDrop", text: "UserManualDescription", showsLicense: true, openIAP: openPlusScreen)
+                    TutorialView(title: "WelcomeToQuickDrop", text: "UserManualDescription", showsLicense: true, openPlus: openPlusScreen)
                     
                 case .send:
-                    TutorialView(title: "SendFiles", text: "SendFilesDescription", showsLicense: false, openIAP: openPlusScreen)
+                    TutorialView(title: "SendFiles", text: "SendFilesDescription", showsLicense: false, openPlus: openPlusScreen)
                     
                 case .troubleshooting:
-                    TutorialView(title: "Troubleshooting", text: "TroubleshootingDescription", showsLicense: false, openIAP: openPlusScreen)
+                    TutorialView(title: "Troubleshooting", text: "TroubleshootingDescription", showsLicense: false, openPlus: openPlusScreen)
                         .onAppear {
                             checkForNetworkIssues()
                         }
-                    
-//                case .app:
-//                    TutorialView(title: "AndroidApp", text: "AndroidAppDescription", showsLicense: false, showsBetaJoinButton: true, openIAP: openPlusScreen)
-                    
                 default:
                     SettingsView()
                 }
@@ -143,11 +99,36 @@ struct WelcomeScreen: View {
 }
 
 
+struct ExternalLinkLabel: View {
+    
+    let label: String
+    let icon: String
+    let action: () -> Void
+    
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            HStack {
+                Label(label.localized(), systemImage: icon)
+                
+                Spacer()
+                
+                Image(systemName: "arrow.up.right")
+                    .opacity(0.3)
+            }
+            .frame(height: 32)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+    }
+}
+
+
 enum Tabs: CaseIterable {
     case receive
     case send
     case troubleshooting
-    case app
     case settings
     
     var title: String {
@@ -158,8 +139,6 @@ enum Tabs: CaseIterable {
             return "SendFiles".localized()
         case .troubleshooting:
             return "DeviceNotShown".localized()
-        case .app:
-            return "AndroidApp".localized()
         case .settings:
             return "Settings".localized()
         }
@@ -175,13 +154,11 @@ enum Tabs: CaseIterable {
             return "exclamationmark.triangle"
         case .settings:
             return "gear"
-        case .app:
-            return "smartphone"
         }
     }
 }
 
 
 #Preview {
-    WelcomeScreen(openPlusScreen: {}, openAppAdvertisementView: {}, checkForNetworkIssues: {})
+    WelcomeScreen(openPlusScreen: {}, openAppAdvertisementView: {}, openCableTransmissionView: {}, checkForNetworkIssues: {})
 }

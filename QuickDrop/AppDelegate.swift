@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     var welcomeWindow: NSWindow?
     var plusWindow: NSWindow?
     
-    private var qrCodeSheetView: NSPanel? = nil
+    private var sheetView: NSPanel? = nil
     private var sheetAttachedWindow: NSWindow? = nil
     
     var firewallAlertWindow: NSWindow?
@@ -35,6 +35,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     var visibleItem: NSMenuItem? = nil
     let hasConnectionMonitor = NWPathMonitor()
 
+    
+    // MARK: NSApplicationDelegate functions
+    
     func applicationDidFinishLaunching(_: Notification) {
         let menu = NSMenu()
 
@@ -113,20 +116,35 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         let queue2 = DispatchQueue(label: "NetworkConnectionMonitor")
         hasConnectionMonitor.start(queue: queue2)
     }
+    
+    
+    func applicationShouldHandleReopen(_: NSApplication, hasVisibleWindows _: Bool) -> Bool {
+        openWelcomeScreen()
+        statusItem?.isVisible = true
+        return true
+    }
+    
 
-    func performDeviceToDeviceCheck() {
-        let scanner = DeviceToDeviceHeuristicScanner()
-        scanner.scan { allowed in
-            if allowed {
-                log("✅ Device-to-device likely allowed (peer responded on LAN).")
-                self.apIsolationAlertWindow?.close()
-            } else {
-                log("❌ Device-to-device check failed. Informing user...")
-                self.openAlert(type: .ApIsolation)
-            }
-        }
+    public func userNotificationCenter(_: UNUserNotificationCenter,
+                                       willPresent _: UNNotification,
+                                       withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.sound, .banner])
+    }
+    
+
+    func applicationWillTerminate(_: Notification) {
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        iapManager?.stopObserving()
     }
 
+    
+    func applicationSupportsSecureRestorableState(_: NSApplication) -> Bool {
+        return true
+    }
+
+    
+    // MARK: - Button Actions
+    
     @objc func sendClipboard() {
        
         let pasteboard = NSPasteboard.general
@@ -136,11 +154,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         sharingService?.perform(withItems: [clipboardString])
     }
 
+    
     @objc func openWelcomeScreen() {
-        // Create the welcome screen SwiftUI view
-        let welcomeView = WelcomeScreen(openPlusScreen: openPlusScreen, openAppAdvertisementView: openQrCodeView, checkForNetworkIssues: performDeviceToDeviceCheck)
+        let welcomeView = WelcomeScreen(openPlusScreen: openPlusScreen,
+                                        openAppAdvertisementView: { self.openSheetView(type: .downloadAndroidApp) },
+                                        openCableTransmissionView: { self.openSheetView(type: .downloadCableConnectionApp) },
+                                        checkForNetworkIssues: performDeviceToDeviceCheck)
 
-        // Create an NSWindow to host the SwiftUI view
+        
         welcomeWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 400, height: 280),
             styleMask: [.titled, .closable],
@@ -162,43 +183,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         welcomeWindow?.makeKeyAndOrderFront(nil)
         welcomeWindow?.level = .normal
     }
+
     
-    private func openQrCodeView() {
-        if qrCodeSheetView == nil {
-            let contentView = QrCodeView(advertisesApp: true) {
-                self.closeQrCodeView()
-            }
-
-            let hostingView = NSHostingView(rootView: contentView)
-
-            let panel = NSPanel(contentRect: NSRect(x: 0, y: 0, width: qrCodeViewSize.width, height: qrCodeViewSize.height),
-                                styleMask: [.titled, .closable, .utilityWindow],
-                                backing: .buffered,
-                                defer: false)
-
-            panel.contentView = hostingView
-
-            qrCodeSheetView = panel
-
-            if let mainWindow = NSApp.mainWindow {
-                sheetAttachedWindow = mainWindow
-                mainWindow.beginSheet(panel) { _ in }
-            }
-        }
-    }
-
-    private func closeQrCodeView() {
-        if let mainWindow = sheetAttachedWindow, let qrCodeView = qrCodeSheetView {
-            mainWindow.endSheet(qrCodeView)
-
-            qrCodeSheetView = nil
-            sheetAttachedWindow = nil
-        }
-    }
-
     @objc func openPlusScreen() {
         // Create the welcome screen SwiftUI view
-        let plusView = GetPlusView(closeView: {
+        let plusView = PlusView(closeView: {
             log("Closing plus screen")
             self.plusWindow?.close()
         })
@@ -225,12 +214,51 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         plusWindow?.makeKeyAndOrderFront(nil)
         plusWindow?.level = .normal
     }
+    
+    
+    private func openSheetView(type: SheetViewType) {
+        if sheetView == nil {
+            let contentView = SmallSheetView(type: type) {
+                self.closeSheetView()
+            }
 
+            let hostingView = NSHostingView(rootView: contentView)
+
+            let panel = NSPanel(contentRect: NSRect(x: 0, y: 0, width: smallSheetViewSize.width, height: smallSheetViewSize.height),
+                                styleMask: [.titled, .closable, .utilityWindow],
+                                backing: .buffered,
+                                defer: false)
+
+            panel.contentView = hostingView
+
+            sheetView = panel
+
+            if let mainWindow = NSApp.mainWindow {
+                sheetAttachedWindow = mainWindow
+                mainWindow.beginSheet(panel) { _ in }
+            }
+        }
+    }
+    
+
+    private func closeSheetView() {
+        if let mainWindow = sheetAttachedWindow, let sheetView = sheetView {
+            mainWindow.endSheet(sheetView)
+
+            self.sheetView = nil
+            self.sheetAttachedWindow = nil
+        }
+    }
+    
+    
+    // MARK: - Alerts and Notifications
+    
     enum AlertType: String {
         case ApIsolation
         case NetworkFilter
         case Firewall
     }
+    
 
     func openAlert(type: AlertType) {
         log("Opening Alert for \(type)")
@@ -266,36 +294,42 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             alertWindow.level = .normal
         }
     }
-
-    // Action for "Recommended Apps" menu item
-    @objc func openRecommendedApps() {
-        if let url = URL(string: "https://apps.apple.com/de/developer/leon-boettger/id1537384790") {
-            NSWorkspace.shared.open(url)
+    
+    
+    func showFirewallAlert() {
+        openAlert(type: .Firewall)
+    }
+    
+    
+    func showCopiedToClipboardAlert() {
+        DispatchQueue.main.async {
+            BezelNotification.show(messageText: "InsertedIntoClipboard".localized(), icon: .clipboard)
+        }
+    }
+    
+    
+    func showUnsupportedFileAlert(for device: RemoteDeviceInfo?) {
+        
+        DispatchQueue.main.async {
+            
+            NSApp.activate(ignoringOtherApps: true)
+            
+            let alert = NSAlert()
+            alert.alertStyle = .critical
+            
+            alert.messageText = String(format: NSLocalizedString("TransferError", value: "Failed to receive files from %@", comment: ""), arguments: [device?.name ?? "??"])
+            alert.informativeText = "UnsupportedFileType".localized()
+            
+            alert.addButton(withTitle: "InformDeveloper".localized())
+            alert.addButton(withTitle: "CloseAlert".localized())
+            
+            let _ = alert.runModal()
         }
     }
 
-    func applicationShouldHandleReopen(_: NSApplication, hasVisibleWindows _: Bool) -> Bool {
-        openWelcomeScreen()
-        statusItem?.isVisible = true
-        return true
-    }
-
-    public func userNotificationCenter(_: UNUserNotificationCenter,
-                                       willPresent _: UNNotification,
-                                       withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
-    {
-        completionHandler([.sound, .banner])
-    }
-
-    func applicationWillTerminate(_: Notification) {
-        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-        iapManager?.stopObserving()
-    }
-
-    func applicationSupportsSecureRestorableState(_: NSApplication) -> Bool {
-        return true
-    }
-
+    
+    // MARK: - Transfer Handling
+    
     public func continueTransmission(accept: Bool, transferID: String, storeInTemp: Bool = false) {
         NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: accept, storeInTemp: storeInTemp)
 
@@ -303,6 +337,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             activeIncomingTransfers.removeValue(forKey: transferID)
         }
     }
+    
 
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo) {
         
@@ -382,6 +417,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
     }
 
+    
     private func pressAcceptButton(transferID: String) {
         if isFileTransferRestricted() {
             continueTransmission(accept: true, transferID: transferID, storeInTemp: true)
@@ -392,35 +428,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             continueTransmission(accept: true, transferID: transferID)
         }
     }
-
-    func showFirewallAlert() {
-        openAlert(type: .Firewall)
-    }
     
-    func showCopiedToClipboardAlert() {
-        DispatchQueue.main.async {
-            BezelNotification.show(messageText: "InsertedIntoClipboard".localized(), icon: .clipboard)
-        }
-    }
-    
-    func showUnsupportedFileAlert(for device: RemoteDeviceInfo?) {
-        
-        DispatchQueue.main.async {
-            
-            NSApp.activate(ignoringOtherApps: true)
-            
-            let alert = NSAlert()
-            alert.alertStyle = .critical
-            
-            alert.messageText = String(format: NSLocalizedString("TransferError", value: "Failed to receive files from %@", comment: ""), arguments: [device?.name ?? "??"])
-            alert.informativeText = "UnsupportedFileType".localized()
-            
-            alert.addButton(withTitle: "InformDeveloper".localized())
-            alert.addButton(withTitle: "CloseAlert".localized())
-            
-            let _ = alert.runModal()
-        }
-    }
 
     func incomingTransfer(id: String, didFinishWith error: Error?) {
         
@@ -489,6 +497,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
 
         activeIncomingTransfers.removeValue(forKey: id)
+    }
+    
+    
+    // MARK: - Helper Functions
+    
+    private func performDeviceToDeviceCheck() {
+        let scanner = DeviceToDeviceHeuristicScanner()
+        scanner.scan { allowed in
+            if allowed {
+                log("✅ Device-to-device likely allowed (peer responded on LAN).")
+                self.apIsolationAlertWindow?.close()
+            } else {
+                log("❌ Device-to-device check failed. Informing user...")
+                self.openAlert(type: .ApIsolation)
+            }
+        }
     }
 }
 

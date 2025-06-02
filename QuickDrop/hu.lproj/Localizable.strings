@@ -188,3 +188,7 @@ Ezek után a telefonja csatlakozni tud majd a Mac-hez.";
 Lehet, hogy a Mac gépén egy hibás csomagszűrő van engedélyezve, amelyet egy antivírus program (pl. ESET) telepített. Nyissa meg a Rendszerbeállítások > Hálózat > VPN és Szűrés menüpontot, és kapcsolja ki a tartalomszűrőt.
 
 Ezután a fájlátvitelnek sikeresnek kell lennie.";
+
+"TransmitUsingCable" = "Átvitel kábellel";
+"DownloadCableConnectionApp" = "iDroid letöltése";
+"DownloadCableConnectionAppDescription" = "Ha fájlokat szeretnél áthelyezni és böngészni Android-eszközöd tárhelyét USB-n keresztül, most megteheted az új iDroid alkalmazással.\n\niDroid támogatja a fájlok és teljes mappák letöltését és feltöltését húzással és ejtéssel. Az iDroid korlátozott ideig ingyenes!";

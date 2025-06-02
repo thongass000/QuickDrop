@@ -188,3 +188,6 @@ Pode haver um filtro de pacotes com defeito ativado no seu Mac, possivelmente in
 
 Depois disso, você deve conseguir transferir arquivos com sucesso.";
 
+"TransmitUsingCable" = "Transferir com Cabo";
+"DownloadCableConnectionApp" = "Baixar iDroid";
+"DownloadCableConnectionAppDescription" = "Se você deseja transferir arquivos e navegar no armazenamento do seu dispositivo Android via USB, agora pode fazer isso com o novo app iDroid.\n\niDroid suporta download e upload de arquivos e pastas inteiras usando Arrastar e Soltar. iDroid é gratuito por tempo limitado!";

@@ -196,3 +196,7 @@ Once this is done, your phone will be able to connect to your Mac.";
 Your Mac may have a faulty packet filter enabled, which might be installed by your antivirus program (e.g., ESET). Open System Preferences > Network > VPN & Filter and disable the content filter.
 
 Once this is done, you should be able to transfer files successfully.";
+
+"TransmitUsingCable" = "Transfer With Cable";
+"DownloadCableConnectionApp" = "Download iDroid";
+"DownloadCableConnectionAppDescription" = "If you want to transfer files and browse the storage of your Android device via USB, you can now do so with the new iDroid app.\n\niDroid supports downloading and uploading files and whole folders using Drag & Drop. iDroid is free for a limited time!";

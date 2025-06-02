@@ -44,13 +44,13 @@
 		EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7CD1462D6FB0E800CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7CD1472D6FB0E800CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
-		EB7F54102D78E6DF00989564 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F540F2D78E6DD00989564 /* Sidebar.swift */; };
 		EB7F54122D78E96000989564 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54112D78E95C00989564 /* TutorialView.swift */; };
 		EB7F54142D78E9E700989564 /* LicenseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54132D78E9E400989564 /* LicenseWindow.swift */; };
+		EB91F0EB2DEDC741006C1867 /* CableConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91F0EA2DEDC73D006C1867 /* CableConnectionView.swift */; };
 		EB9237C42D7CDF8B00CA3A42 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69D2C32B29E77F2200EC7E30 /* Localizable.strings */; };
 		EB9237C52D7CDF9000CA3A42 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 69D2C33629E78DF400EC7E30 /* Localizable.stringsdict */; };
-		EB96ED8B2D7F7CF7004B3FF1 /* QrCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* QrCodeView.swift */; };
-		EB96ED8C2D7F7E7B004B3FF1 /* QrCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* QrCodeView.swift */; };
+		EB96ED8B2D7F7CF7004B3FF1 /* SmallSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */; };
+		EB96ED8C2D7F7E7B004B3FF1 /* SmallSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */; };
 		EB96ED8D2D7F7EA3004B3FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
 		EB96ED8F2D7F8105004B3FF1 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
 		EB96ED902D7F8114004B3FF1 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
@@ -211,9 +211,9 @@
 		EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionFailureTracker.swift; sourceTree = "<group>"; };
 		EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		EB7F540F2D78E6DD00989564 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		EB7F54112D78E95C00989564 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		EB7F54132D78E9E400989564 /* LicenseWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWindow.swift; sourceTree = "<group>"; };
+		EB91F0EA2DEDC73D006C1867 /* CableConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CableConnectionView.swift; sourceTree = "<group>"; };
 		EB9237B52D7CDCE700CA3A42 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ShareViewController.strings; sourceTree = "<group>"; };
 		EB9237B72D7CDD7200CA3A42 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ShareViewController.strings; sourceTree = "<group>"; };
 		EB9237B92D7CDE3B00CA3A42 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ShareViewController.strings; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		EB9237BF2D7CDE3E00CA3A42 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/ShareViewController.strings"; sourceTree = "<group>"; };
 		EB9237C12D7CDE4000CA3A42 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ShareViewController.strings; sourceTree = "<group>"; };
 		EB9237C32D7CDE4100CA3A42 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/ShareViewController.strings; sourceTree = "<group>"; };
-		EB96ED8A2D7F7CF4004B3FF1 /* QrCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeView.swift; sourceTree = "<group>"; };
+		EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSheetView.swift; sourceTree = "<group>"; };
 		EB96ED8E2D7F8103004B3FF1 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		EBCC27F82D80C9F70079C478 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
 		EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		EB1A7E422DD4D8BD00A6D5A3 /* SelfTest */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SelfTest; sourceTree = "<group>"; };
 		EB6E743F2DD5CBFB00331466 /* IssueViews */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = IssueViews; sourceTree = "<group>"; };
-		EB7CD13B2D6F8B6500CB0CB5 /* IAP */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = IAP; sourceTree = "<group>"; };
+		EB7CD13B2D6F8B6500CB0CB5 /* Plus */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Plus; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,7 +279,7 @@
 			children = (
 				699DEBA52AB0573200115D22 /* ShareViewController.swift */,
 				EBCC27F82D80C9F70079C478 /* Zip.swift */,
-				EB96ED8A2D7F7CF4004B3FF1 /* QrCodeView.swift */,
+				EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */,
 				691F53B92ABB70840089FD92 /* DeviceListCell.swift */,
 				691F53BA2ABB70840089FD92 /* DeviceListCell.xib */,
 				699DEBA72AB0573200115D22 /* ShareViewController.xib */,
@@ -321,12 +321,12 @@
 				EB7F54112D78E95C00989564 /* TutorialView.swift */,
 				EB1A7E422DD4D8BD00A6D5A3 /* SelfTest */,
 				EB7F54132D78E9E400989564 /* LicenseWindow.swift */,
+				EB91F0EA2DEDC73D006C1867 /* CableConnectionView.swift */,
 				EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */,
 				EB36435F2D73A29F009CDFF8 /* AudioManager.swift */,
 				EB6E743F2DD5CBFB00331466 /* IssueViews */,
 				EB96ED8E2D7F8103004B3FF1 /* Localized.swift */,
-				EB7F540F2D78E6DD00989564 /* Sidebar.swift */,
-				EB7CD13B2D6F8B6500CB0CB5 /* IAP */,
+				EB7CD13B2D6F8B6500CB0CB5 /* Plus */,
 				69DA9A1329E0BF5200A442DA /* Assets.xcassets */,
 				69D2C33629E78DF400EC7E30 /* Localizable.stringsdict */,
 				69D2C32B29E77F2200EC7E30 /* Localizable.strings */,
@@ -431,7 +431,7 @@
 			fileSystemSynchronizedGroups = (
 				EB1A7E422DD4D8BD00A6D5A3 /* SelfTest */,
 				EB6E743F2DD5CBFB00331466 /* IssueViews */,
-				EB7CD13B2D6F8B6500CB0CB5 /* IAP */,
+				EB7CD13B2D6F8B6500CB0CB5 /* Plus */,
 			);
 			name = QuickDrop;
 			packageProductDependencies = (
@@ -559,7 +559,7 @@
 			files = (
 				EB96ED902D7F8114004B3FF1 /* Localized.swift in Sources */,
 				699DEBA62AB0573200115D22 /* ShareViewController.swift in Sources */,
-				EB96ED8B2D7F7CF7004B3FF1 /* QrCodeView.swift in Sources */,
+				EB96ED8B2D7F7CF7004B3FF1 /* SmallSheetView.swift in Sources */,
 				EBCC27F92D80C9F90079C478 /* Zip.swift in Sources */,
 				EB7CD1462D6FB0E800CB0CB5 /* Logger.swift in Sources */,
 				691F53BB2ABB70840089FD92 /* DeviceListCell.swift in Sources */,
@@ -572,10 +572,10 @@
 			files = (
 				EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */,
 				EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */,
-				EB96ED8C2D7F7E7B004B3FF1 /* QrCodeView.swift in Sources */,
+				EB91F0EB2DEDC741006C1867 /* CableConnectionView.swift in Sources */,
+				EB96ED8C2D7F7E7B004B3FF1 /* SmallSheetView.swift in Sources */,
 				EB7F54142D78E9E700989564 /* LicenseWindow.swift in Sources */,
 				69DA9A1229E0BF5100A442DA /* AppDelegate.swift in Sources */,
-				EB7F54102D78E6DF00989564 /* Sidebar.swift in Sources */,
 				EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */,
 				EB7F54122D78E96000989564 /* TutorialView.swift in Sources */,
 				EB96ED8F2D7F8105004B3FF1 /* Localized.swift in Sources */,
@@ -825,8 +825,8 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 41;
-				SHARED_VERSION = 1.9.2;
+				SHARED_BUILD = 42;
+				SHARED_VERSION = 1.9.3;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -884,8 +884,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 41;
-				SHARED_VERSION = 1.9.2;
+				SHARED_BUILD = 42;
+				SHARED_VERSION = 1.9.3;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};

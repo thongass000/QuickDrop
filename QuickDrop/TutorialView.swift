@@ -15,7 +15,7 @@ struct TutorialView: View {
     let showsLicense: Bool
     var showsBetaJoinButton: Bool = false
     
-    let openIAP: () -> Void
+    let openPlus: () -> Void
     
     @State private var licenseWindow: NSWindow?
     @State var taps = 0
@@ -62,7 +62,7 @@ struct TutorialView: View {
                         
                         if !isPlusVersion {
                             Button {
-                                openIAP()
+                                openPlus()
                             } label: {
                                 Text("SupportQuickDrop")
                                     .underline()
@@ -165,5 +165,5 @@ func copyToClipboard(_ text: String) {
 
 
 #Preview {
-    WelcomeScreen(openPlusScreen: {}, openAppAdvertisementView: {}, checkForNetworkIssues: {})
+    WelcomeScreen(openPlusScreen: {}, openAppAdvertisementView: {}, openCableTransmissionView: {}, checkForNetworkIssues: {})
 }

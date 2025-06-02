@@ -188,3 +188,6 @@ Es posible que tu Mac tenga habilitado un filtro de paquetes defectuoso, instala
 
 Una vez hecho esto, deberías poder transferir archivos correctamente.";
 
+"TransmitUsingCable" = "Transferir con Cable";
+"DownloadCableConnectionApp" = "Descargar iDroid";
+"DownloadCableConnectionAppDescription" = "Si deseas transferir archivos y explorar el almacenamiento de tu dispositivo Android mediante USB, ahora puedes hacerlo con la nueva aplicación iDroid.\n\niDroid admite la descarga y carga de archivos y carpetas completas mediante arrastrar y soltar. ¡iDroid es gratuita por tiempo limitado!";

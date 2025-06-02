@@ -187,3 +187,7 @@ Zodra dit is gedaan, kan je telefoon verbinding maken met je Mac.";
 Je Mac heeft mogelijk een defect pakketfilter ingeschakeld, mogelijk geïnstalleerd door antivirussoftware (zoals ESET). Ga naar Systeeminstellingen > Netwerk > VPN en Filter en schakel het inhoudsfilter uit.
 
 Daarna zou je bestanden succesvol moeten kunnen overdragen.";
+
+"TransmitUsingCable" = "Overdragen met Kabel";
+"DownloadCableConnectionApp" = "Download iDroid";
+"DownloadCableConnectionAppDescription" = "Als je bestanden wilt overzetten en de opslag van je Android-apparaat via USB wilt verkennen, kan dat nu met de nieuwe iDroid-app.\n\niDroid ondersteunt het downloaden en uploaden van bestanden en volledige mappen via slepen en neerzetten. iDroid is tijdelijk gratis!";
