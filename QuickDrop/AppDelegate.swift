@@ -15,7 +15,7 @@ import SwiftUI
 import UserNotifications
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, MainAppDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSWindowDelegate, MainAppDelegate {
     
     private var statusItem: NSStatusItem?
     private var activeIncomingTransfers: [String: TransferInfo] = [:]
@@ -118,6 +118,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
     
     
+    func windowWillClose(_ notification: Notification) {
+          if let window = notification.object as? NSWindow, window == welcomeWindow {
+              log("Welcome window closed")
+              welcomeWindow = nil
+              NSApp.setActivationPolicy(.accessory)
+          }
+      }
+    
+    
     func applicationShouldHandleReopen(_: NSApplication, hasVisibleWindows _: Bool) -> Bool {
         openWelcomeScreen()
         statusItem?.isVisible = true
@@ -156,12 +165,25 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
     
     @objc func openWelcomeScreen() {
-        let welcomeView = WelcomeScreen(openPlusScreen: openPlusScreen,
-                                        openAppAdvertisementView: { self.openSheetView(type: .downloadAndroidApp) },
-                                        openCableTransmissionView: { self.openSheetView(type: .downloadCableConnectionApp) },
-                                        checkForNetworkIssues: performDeviceToDeviceCheck)
-
         
+        NSApp.setActivationPolicy(.regular)
+        
+        if let window = welcomeWindow {
+            if window.isMiniaturized {
+                window.deminiaturize(nil)
+            }
+            NSApp.activate(ignoringOtherApps: true)
+            window.makeKeyAndOrderFront(nil)
+            return
+        }
+
+        let welcomeView = WelcomeScreen(
+            openPlusScreen: openPlusScreen,
+            openAppAdvertisementView: { self.openSheetView(type: .downloadAndroidApp) },
+            openCableTransmissionView: { self.openSheetView(type: .downloadCableConnectionApp) },
+            checkForNetworkIssues: performDeviceToDeviceCheck
+        )
+
         welcomeWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 400, height: 280),
             styleMask: [.titled, .closable],
@@ -177,9 +199,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         welcomeWindow?.isReleasedWhenClosed = false
         welcomeWindow?.setFrameAutosaveName("WelcomeScreen")
         welcomeWindow?.contentView = NSHostingView(rootView: welcomeView)
+        welcomeWindow?.delegate = self
 
-        // Ensure the window is always on top
-        NSApp.activate(ignoringOtherApps: true) // Brings the whole app to the front
+        NSApp.activate(ignoringOtherApps: true)
         welcomeWindow?.makeKeyAndOrderFront(nil)
         welcomeWindow?.level = .normal
     }
