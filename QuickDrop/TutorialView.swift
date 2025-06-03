@@ -136,7 +136,10 @@ struct LargeAppIconView<Content: View>: View {
 func sendLoggingString() {
     
     if let url = LogManager.sharedInstance.logFileURL {
-        sendEmailWithAttachment(fileURL: url, recipients: ["quickdrop@leonboettger.com"], subject: "QuickDrop Log")
+        
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+        
+        sendEmailWithAttachment(fileURL: url, recipients: ["quickdrop@leonboettger.com"], subject: "QuickDrop \(appVersion) Log")
     }
     
     let logString = LogManager.sharedInstance.getLogString()
