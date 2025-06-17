@@ -190,4 +190,4 @@ Depois disso, deverá conseguir transferir ficheiros com sucesso.";
 
 "TransmitUsingCable" = "Transferir com Cabo";
 "DownloadCableConnectionApp" = "Descarregar iDroid";
-"DownloadCableConnectionAppDescription" = "Se pretendes transferir ficheiros e explorar o armazenamento do teu dispositivo Android via USB, agora podes fazê-lo com a nova aplicação iDroid.\n\niDroid suporta transferência e envio de ficheiros e pastas inteiras através de arrastar e largar. O iDroid é gratuito por tempo limitado!";
+"DownloadCableConnectionAppDescription" = "Se pretendes transferir ficheiros e explorar o armazenamento do teu dispositivo Android via USB, agora podes fazê-lo com a nova aplicação iDroid.\n\niDroid suporta transferência e envio de ficheiros e pastas inteiras através de arrastar e largar.";

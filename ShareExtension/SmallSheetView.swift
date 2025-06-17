@@ -16,7 +16,7 @@ struct SmallSheetView: View {
     let closeView: () -> Void
     
     @Environment(\.colorScheme) var colorScheme
-    @AppStorage("connectWithApp") var connectWithApp = true
+    @AppStorage("connectWithApp") var connectWithApp = false
     
     var body: some View {
   
