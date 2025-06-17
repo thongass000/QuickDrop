@@ -1,14 +1,14 @@
 /* No comment provided by engineer. */
-"Accept" = "Acceptar";
+"Accept" = "Aceptar";
 
 /* No comment provided by engineer. */
 "Decline" = "Rechazar";
 
 /* No comment provided by engineer. */
-"DeviceName" = "Nombre del Dispositivo: %@";
+"DeviceName" = "Nombre del dispositivo: %@";
 
 /* No comment provided by engineer. */
-"DeviceSendingFiles" = "%1$@ te quiere mandar %2$@";
+"DeviceSendingFiles" = "%1$@ te quiere enviar %2$@";
 "DeviceCurrentlySendingText" = "%1$@ ha insertado \"%2$@\" en tu portapapeles.";
 "DeviceSendingText" = "%1$@ quiere insertar \"%2$@\" en el portapapeles de tu Mac.";
 
@@ -25,7 +25,7 @@
 "Error.Protocol" = "Error de comunicación";
 
 /* No comment provided by engineer. */
-//"NFiles" = "%d files";
+//"NFiles" = "%d archivos";
 
 /* No comment provided by engineer. */
 "NotificationsDenied.Message" = "QuickDrop necesita poder mostrar notificaciones para las transferencias de archivos entrantes. Permite las notificaciones en la configuración del sistema.";
@@ -49,14 +49,14 @@
 "VisibleToEveryone" = "Visible para todos";
 "NoNetworkConnection" = "Sin conexión de red";
 
-"RecommendedApps" = "Apps recomendadas";
+"RecommendedApps" = "Aplicaciones recomendadas";
 "GetSupport" = "Soporte";
 "PrivacyPolicy" = "Política de privacidad";
 "ReadyToReceive" = "Listo para recibir";
-"SendClipboard" = "Enviar Portapapeles";
+"SendClipboard" = "Enviar contenido del portapapeles";
 "Clipboard" = "Portapapeles";
 "DeviceCurrentlySendingFiles" = "%1$@ te está enviando %2$@";
-"UserManual" = "Manual de usuario y Configuración";
+"UserManual" = "Manual de usuario y configuración";
 "Settings" = "Configuración";
 "AutomaticallyAcceptFiles" = "Aceptar automáticamente archivos entrantes";
 "AutomaticallyAcceptFilesFooter" = "Se recomienda habilitar esta opción solo en su red privada. Cualquier persona en la misma red puede enviar archivos a su dispositivo sin su consentimiento.";
@@ -68,10 +68,10 @@
 "DownloadsFolder" = "Descargas";
 "SendFiles" = "Enviar archivos";
 "ReceiveFiles" = "Recibir archivos";
-"DeviceNotShown" = "¿Dispositivo no mostrado?";
+"DeviceNotShown" = "¿El dispositivo no está visible?";
 "Troubleshooting" = "Solución de problemas";
-"AndroidApp" = "Aplicación Android";
-"AndroidAppDescription" = "¡QuickDrop ahora también está disponible como una aplicación independiente para tu dispositivo Android! Aunque QuickDrop también puede usarse sin una app de Android, QuickDrop para Android hace que la transferencia de archivos sea aún más fácil y rápida. Con la app de Android, incluso puedes transferir archivos cuando no estás conectado a la red Wi-Fi de tu hogar, conectando el Mac al hotspot de tu Android. La app Android sigue proporcionando el mismo cifrado de extremo a extremo al transferir archivos.
+"AndroidApp" = "Aplicación para Android";
+"AndroidAppDescription" = "¡QuickDrop ahora también está disponible como una aplicación independiente para tu dispositivo Android! Aunque QuickDrop también puede usarse sin una aplicación de Android, QuickDrop para Android hace que la transferencia de archivos sea aún más fácil y rápida. Con la aplicación de Android, incluso puedes transferir archivos cuando no estás conectado a la red wifi de tu hogar, conectando el Mac al hotspot de tu Android. La aplicación Android sigue proporcionando el mismo cifrado de extremo a extremo al transferir archivos.
 
 QuickDrop para Android está actualmente en versión beta. Para registrarte en la beta, envía un correo a quickdrop-beta@leonboettger.com o utiliza el botón de abajo. ¡Gracias por tu interés!";
 "JoinBeta" = "Unirse a la Beta de QuickDrop para Android";
@@ -91,7 +91,7 @@ Tu dirección de correo electrónico: ";
 
 Si no ves QuickDrop en la lista, haz clic en \"Editar extensiones\", desplázate hacia abajo y habilita la opción para QuickDrop.
 
-También puedes enviar el contenido actual del portapapeles de tu Mac a tu dispositivo Android haciendo clic en el icono de QuickDrop en la barra de menú y seleccionando \"Enviar Portapapeles\".";
+También puedes enviar el contenido actual del portapapeles de tu Mac a tu dispositivo Android haciendo clic en el icono de QuickDrop en la barra de menú y seleccionando \"Enviar contenido del portapapeles\".";
 
 "WelcomeToQuickDrop" = "Bienvenido a QuickDrop";
 
@@ -102,15 +102,15 @@ También puedes enviar el contenido actual del portapapeles de tu Mac a tu dispo
 
 Para enviar archivos desde tu dispositivo Android a tu Mac, toca el icono de compartir en tu teléfono y selecciona \"Quick Share\". Tu Mac aparecerá en la lista de dispositivos disponibles. Los archivos se guardarán en la carpeta Descargas.
 
-Importante: tu dispositivo Android y tu Mac deben estar en la misma red WiFi para transferir archivos.";
+Importante: tu dispositivo Android y tu Mac deben estar en la misma red wifi para transferir archivos.";
 
-"TroubleshootingDescription" = "Si tu Mac no aparece en tu dispositivo Android, aunque ambos estén conectados a la misma red Wi-Fi, o si la transmisión falló, prueba lo siguiente:
+"TroubleshootingDescription" = "Si tu Mac no aparece en tu dispositivo Android, aunque ambos estén conectados a la misma red wifi, o si la transmisión falló, prueba lo siguiente:
 
-1) Abre Configuración del Sistema y ve a \"Privacidad y seguridad\" > \"Red local\". Asegúrate de que QuickDrop esté habilitado. Si usas un firewall o antivirus de terceros, consulta su documentación para permitir conexiones entrantes para QuickDrop.
+1) Abre Configuración del sistema y ve a \"Privacidad y seguridad\" > \"Red local\". Asegúrate de que QuickDrop esté habilitado. Si usas un firewall o antivirus de terceros, consulta su documentación para permitir conexiones entrantes para QuickDrop.
 
-2) Reinicia QuickDrop haciendo clic en el icono de la barra de menús, elige la última opción y abre la app nuevamente. Reinicia tu dispositivo Android.
+2) Reinicia QuickDrop haciendo clic en el icono de la barra de menús, elige la última opción y abre la aplicación nuevamente. Reinicia tu dispositivo Android.
 
-Nota: Algunas redes no permiten la comunicación entre dispositivos. En ese caso, descarga la app de QuickDrop en tu teléfono y conecta tu Mac al punto de acceso de tu teléfono para transferir archivos. El enlace a la app se encuentra en la barra lateral izquierda.";
+Nota: Algunas redes no permiten la comunicación entre dispositivos. En ese caso, descarga la aplicación de QuickDrop en tu teléfono y conecta tu Mac al punto de acceso de tu teléfono para transferir archivos. El enlace a la aplicación se encuentra en la barra lateral izquierda.";
 
 "plusview_title" = "¡Gracias por usar QuickDrop!";
 "plusview_description" = "Desbloquea QuickDrop+ para seguir intercambiando archivos sin límites. QuickDrop+ es una compra única – no se requiere suscripción. Todas las funciones actuales y futuras están incluidas.";  
@@ -123,7 +123,7 @@ Nota: Algunas redes no permiten la comunicación entre dispositivos. En ese caso
 "plusview_restorefailed" = "Hubo un problema al restaurar tu compra";
 "plusview_restorefailed_proceed" = "Aceptar";
 "plusview_purchasefailed" = "La compra ha fallado";
-"plusview_purchasefaileddescription" = "Si este mensaje apareció inesperadamente, asegúrate de estar conectado a Internet y que las compras dentro de la aplicación estén habilitadas en tu dispositivo, luego intenta nuevamente.";
+"plusview_purchasefaileddescription" = "Si este mensaje apareció inesperadamente, asegúrate de estar conectado a internet y que las compras dentro de la aplicación estén habilitadas en tu dispositivo, luego intenta nuevamente.";
 "plusview_nothingtorestore" = "¡No hay nada que restaurar!";
 "plusview_productRequestFailed" = "No se pueden recuperar las compras dentro de la aplicación en este momento.";
 
@@ -135,11 +135,11 @@ Nota: Algunas redes no permiten la comunicación entre dispositivos. En ese caso
 "TransferFinished" = "Transferencia finalizada";
 "TransferTimedOut" = "Tiempo de espera agotado";
 "UnsupportedType" = "Tipo de archivo adjunto no compatible";  
-"QrCodeInstructions" = "Escanea el código QR con tu dispositivo Android para conectarlo a tu Mac. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nAlternativamente, instala y abre la aplicación 'Files by Google' y toca 'Recibir' en la parte inferior derecha.";
+"QrCodeInstructions" = "Escanea el código QR con tu dispositivo Android para conectarlo a tu Mac. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nAlternativamente, instala y abre la aplicación 'Files de Google' y toca 'Recibir' en la parte inferior derecha.";
 "ConnectWithQuickDropApp" = "Conectar con la aplicación QuickDrop";
 "ConnectWithoutApp" = "Conectar sin aplicación";
 "QrCodeInstructionsApp" = "Para conectar tu Mac a tu dispositivo Android, abre la aplicación QuickDrop en tu dispositivo Android. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nPara instalar QuickDrop en tu teléfono, escanea el código QR o busca 'QuickDrop' en Google Play Store.";
-"QuickDropAndroidAppAdvertisement" = "¡QuickDrop ahora también está disponible como una aplicación independiente para tu smartphone! La aplicación ofrece funciones adicionales, como la capacidad de transferir archivos cuando no estás conectado a la red Wi-Fi de tu hogar, conectando el Mac al punto de acceso de tu smartphone.\n\nPara instalar QuickDrop en tu teléfono, escanea el código QR o busca 'QuickDrop' en Google Play Store.";
+"QuickDropAndroidAppAdvertisement" = "¡QuickDrop ahora también está disponible como una aplicación independiente para tu smartphone! La aplicación ofrece funciones adicionales, como la capacidad de transferir archivos cuando no estás conectado a la red wifi de tu hogar, conectando el Mac al punto de acceso de tu smartphone.\n\nPara instalar QuickDrop en tu teléfono, escanea el código QR o busca 'QuickDrop' en Google Play Store.";
 "TypeNotSupported" = "Tipo no soportado";
 "TypeNotSupportedDescription" = "El tipo de archivo seleccionado no es compatible. Si aún deseas compartirlo, haz clic derecho en el archivo, selecciona \"Comprimir\" y luego envía el archivo comprimido.";
 "TypeNotSupportedButton" = "Vale";
@@ -150,21 +150,21 @@ Nota: Algunas redes no permiten la comunicación entre dispositivos. En ese caso
 "TimeoutButton" = "Aceptar";  
 
 "ApIsolationHeader" = "Tu router podría no permitir la comunicación entre dispositivos";
-"ApIsolationDescription" = "QuickDrop ha detectado que tu router Wi-Fi podría bloquear la comunicación entre dispositivos. Para transferir archivos entre tu teléfono y tu Mac, necesitarás desactivar el aislamiento de clientes (también conocido como aislamiento AP o aislamiento Wi-Fi).
+"ApIsolationDescription" = "QuickDrop ha detectado que tu router wifi podría bloquear la comunicación entre dispositivos. Para transferir archivos entre tu teléfono y tu Mac, necesitarás desactivar el aislamiento de clientes (también conocido como aislamiento de AP o aislamiento wifi).
 
 Así es como puedes desactivarlo:
 
 1. Inicia sesión en tu router: Abre un navegador web e ingresa la dirección IP de tu router (normalmente 192.168.0.1 o 192.168.1.1), o utiliza el botón en la parte inferior de esta página. Inicia sesión con tu nombre de usuario y contraseña de administrador. (Consulta la etiqueta o el manual de tu router si no estás seguro.)
 
-2. Encuentra la configuración: Busca en secciones como Configuración inalámbrica, Configuración avanzada o Seguridad. Busca opciones llamadas “Aislamiento AP”, “Aislamiento de clientes”, “Aislamiento inalámbrico” o “Bloqueo Intra-BSS”.
+2. Encuentra la configuración: Busca en secciones como Configuración inalámbrica, Configuración avanzada o Seguridad. Busca opciones llamadas “Aislamiento de AP”, “Aislamiento de clientes”, “Aislamiento inalámbrico” o “Bloqueo Intra-BSS”.
 
 3. Desactívala: Asegúrate de que esta configuración esté desactivada. Guarda los cambios y reinicia el router si es necesario.
 
-Una vez desactivado, los dispositivos en tu red Wi-Fi (como tu teléfono y Mac) podrán descubrirse y conectarse entre sí. Tenga en cuenta: si está en una red de invitados, es posible que esta configuración no esté disponible. En ese caso, utilice una red diferente o descargue la aplicación QuickDrop en su teléfono y conecte su Mac al punto de acceso de su teléfono para transferir archivos. Busque “QuickDrop” en Google Play para descargar la aplicación.";
+Una vez desactivado, los dispositivos en tu red wifi (como tu teléfono y Mac) podrán descubrirse y conectarse entre sí. Tenga en cuenta: si está en una red de invitados, es posible que esta configuración no esté disponible. En ese caso, utilice una red diferente o descargue la aplicación QuickDrop en su teléfono y conecte su Mac al punto de acceso de su teléfono para transferir archivos. Busque “QuickDrop” en Google Play para descargar la aplicación.";
 "ApIsolationAction" = "Abrir configuración del router";
 
 "ApIsolationFindRouterFailedHeader" = "No se pudo encontrar la IP del router";
-"ApIsolationFindRouterFailedDescription" = "QuickDrop no pudo determinar la dirección de tu router. Por favor, consulta el manual de usuario de tu router Wi-Fi para obtener su dirección.";
+"ApIsolationFindRouterFailedDescription" = "QuickDrop no pudo determinar la dirección de tu router. Por favor, consulta el manual de usuario de tu router wifi para obtener su dirección.";
 
 
 "FirewallHeader" = "Un firewall podría bloquear las transferencias de archivos entrantes";
