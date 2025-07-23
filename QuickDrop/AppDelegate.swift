@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     var welcomeWindow: NSWindow?
     var plusWindow: NSWindow?
     
+    private var isAlertShown = false
     private var sheetView: NSPanel? = nil
     private var sheetAttachedWindow: NSWindow? = nil
     
@@ -453,13 +454,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
 
     func incomingTransfer(id: String, didFinishWith error: Error?) {
-        
         guard let transfer = activeIncomingTransfers[id] else { return }
-        
+
         if let error = error {
-            
             NSApp.activate(ignoringOtherApps: true)
-            
+
             var description = ""
 
             if let ne = (error as? NearbyError) {
@@ -485,10 +484,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
             let alert = NSAlert()
             alert.alertStyle = .critical
-
             alert.messageText = String(format: NSLocalizedString("TransferError", value: "Failed to receive files from %@", comment: ""), arguments: [transfer.device.name])
             alert.informativeText = description
-
             alert.addButton(withTitle: "InformDeveloper".localized())
             alert.addButton(withTitle: "CloseAlert".localized())
 
@@ -496,18 +493,26 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 log("Closing plus screen because of error")
                 plusWindow.close()
             }
+            
+            // Prevent multiple alerts at the same time
+            if self.isAlertShown {
+                log("Skipping alert for error \(error.localizedDescription) because one is already shown")
+                return
+            }
+            else {
+                self.isAlertShown = true
+                log("Showing alert with message: \"\(alert.messageText)\" and description: \"\(alert.informativeText)\"")
+                log("Already successful transmissions: \(transmissionCount())")
 
-            log("Showing alert with message: \"\(alert.messageText)\" and description: \"\(alert.informativeText)\"")
-            log("Already successful transmissions: \(transmissionCount())")
+                let result = alert.runModal()
+                self.isAlertShown = false
 
-            let result = alert.runModal()
-
-            if result == .alertFirstButtonReturn {
-                sendLoggingString()
+                if result == .alertFirstButtonReturn {
+                    sendLoggingString()
+                }
             }
         } else {
             let currentCount = transmissionCount()
-
             if currentCount % 20 == 0 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     SKStoreReviewController.requestReview()
