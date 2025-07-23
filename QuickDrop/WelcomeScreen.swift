@@ -33,7 +33,7 @@ struct WelcomeScreen: View {
                 Divider()
                 
                 ExternalLinkLabel(label: "GetSupport", icon: "questionmark.circle") {
-                    getSupport()
+                    sendLoggingString()
                 }
                 
                 ExternalLinkLabel(label: "PrivacyPolicy", icon: "hand.raised") {
@@ -83,12 +83,6 @@ struct WelcomeScreen: View {
             }
         }
         .frame(width: 1000, height: 600)
-    }
-    
-    func getSupport() {
-        if let url = URL(string: "mailto:quickdrop@leonboettger.com?subject=QuickDrop") {
-            NSWorkspace.shared.open(url)
-        }
     }
     
     func openPrivacyPolicy() {

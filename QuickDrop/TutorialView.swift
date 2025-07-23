@@ -98,7 +98,6 @@ struct LargeAppIconView<Content: View>: View {
     
     let title: String
     let bottomView: () -> Content
-    @State var taps = 0
     
     var body: some View {
         ScrollView {
@@ -108,18 +107,6 @@ struct LargeAppIconView<Content: View>: View {
                     .resizable()
                     .frame(width: 150, height: 150)
                     .padding(.top, 50)
-                    .onTapGesture {
-                        taps += 1
-                        log("Clicked \(taps) times")
-                        
-                        if taps == 5 {
-                            
-                            sendLoggingString()
-                            log("Copied log to clipboard")
-                            
-                            taps = 0
-                        }
-                    }
                 
                 Text(title.localized())
                     .font(.largeTitle)
@@ -139,12 +126,26 @@ func sendLoggingString() {
         
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
         
-        sendEmailWithAttachment(fileURL: url, recipients: ["quickdrop@leonboettger.com"], subject: "QuickDrop \(appVersion) Log")
+        sendEmailWithAttachment(fileURL: url, recipients: ["quickdrop@leonboettger.com"], subject: "QuickDrop \(appVersion) - \(getDeviceAndSystem())")
     }
+}
+
+
+fileprivate func getDeviceAndSystem() -> String {
+    // Get Mac model identifier
+    var size: Int = 0
+    sysctlbyname("hw.model", nil, &size, nil, 0)
     
-    let logString = LogManager.sharedInstance.getLogString()
+    var modelBuffer = [CChar](repeating: 0, count: size)
+    sysctlbyname("hw.model", &modelBuffer, &size, nil, 0)
     
-    copyToClipboard(logString)
+    let model = String(cString: modelBuffer)
+    
+    // Get macOS version
+    let version = ProcessInfo.processInfo.operatingSystemVersion
+    let versionString = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
+    
+    return "\(model) - \(versionString)"
 }
 
 

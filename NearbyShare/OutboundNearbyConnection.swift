@@ -420,8 +420,8 @@ class OutboundNearbyConnection: NearbyConnection {
                 self.protocolError()
             }
         })
-        log("sent file chunk, current transfer: \(String(describing: currentTransfer))")
         totalBytesSent += Int64(fileBuffer.count)
+        log("sent file chunk \(totalBytesSent)")
         delegate?.outboundConnection(connection: self, transferProgress: Double(totalBytesSent) / Double(totalBytesToSend))
 
         if currentTransfer!.currentOffset == currentTransfer!.totalBytes {
