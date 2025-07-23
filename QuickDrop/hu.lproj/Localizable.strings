@@ -136,7 +136,7 @@ Megjegyzés: Egyes hálózatok nem engedélyezik az eszközök közötti kommuni
 "TransferFinished" = "Átvitel befejezve";
 "TransferTimedOut" = "Időtúllépés";
 "UnsupportedType" = "Nem támogatott csatolmánytípus";  
-"QrCodeInstructions" = "Olvasd be a QR-kódot Android-eszközöddel, hogy csatlakoztasd a Mac-hez. Győződj meg róla, hogy a telefon ugyanahhoz a hálózathoz csatlakozik.\n\nAlternatív megoldásként telepítsd és nyisd meg a 'Files by Google' alkalmazást, majd koppints a 'Fogadás' gombra a jobb alsó sarokban.";
+"QrCodeInstructions" = "Olvasd be a QR-kódot Android-eszközöddel a Mac-hez való csatlakozáshoz. Győződj meg róla, hogy a telefonod ugyanahhoz a hálózathoz csatlakozik.\n\nHa nem szeretnéd minden fájlátvitel előtt beolvasni a QR-kódot, telepítsd a QuickDrop alkalmazást (lásd fentebb).";
 "ConnectWithQuickDropApp" = "Csatlakozás a QuickDrop alkalmazással";
 "ConnectWithoutApp" = "Csatlakozás alkalmazás nélkül";
 "QrCodeInstructionsApp" = "A Mac és az Android eszköz összekapcsolásához nyisd meg a QuickDrop alkalmazást az Android eszközödön. Győződj meg róla, hogy a telefonod ugyanahhoz a hálózathoz csatlakozik.\n\nA QuickDrop telepítéséhez a telefonodra olvasd be a QR-kódot, vagy keresd meg a 'QuickDrop' alkalmazást a Google Play Áruházban.";

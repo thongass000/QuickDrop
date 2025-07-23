@@ -133,7 +133,7 @@ QuickDrop لنظام Android في المرحلة التجريبية حاليًا
 "TransferFinished" = "اكتمل النقل";
 "TransferTimedOut" = "انتهت المهلة";
 "UnsupportedType" = "نوع المرفق غير مدعوم";  
-"QrCodeInstructions" = "امسح رمز QR ضوئيًا باستخدام جهاز Android الخاص بك لتوصيله بجهاز Mac. تأكد من أن هاتفك متصل بنفس الشبكة.\n\nبدلاً من ذلك، قم بتثبيت وفتح تطبيق 'Files by Google' ثم اضغط على 'استقبال' في الزاوية السفلية اليمنى.";
+"QrCodeInstructions" = "امسح رمز الاستجابة السريعة (QR) باستخدام جهاز Android الخاص بك لتوصيله بجهاز Mac. تأكد من أن هاتفك متصل بنفس الشبكة.\n\nإذا كنت لا ترغب في مسح رمز الاستجابة السريعة في كل مرة تقوم فيها بنقل ملف، فقم بتثبيت تطبيق QuickDrop (انظر أعلاه).";
 "ConnectWithQuickDropApp" = "الاتصال بتطبيق QuickDrop";
 "ConnectWithoutApp" = "الاتصال بدون تطبيق";
 "QrCodeInstructionsApp" = "لربط جهاز Mac بجهاز Android الخاص بك، افتح تطبيق QuickDrop على جهاز Android. تأكد من أن هاتفك متصل بالشبكة نفسها.\n\nلتثبيت QuickDrop على هاتفك، امسح رمز QR ضوئيًا أو ابحث عن 'QuickDrop' في متجر Google Play.";

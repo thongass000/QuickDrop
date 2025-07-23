@@ -137,7 +137,7 @@ Hinweis: Einige Netzwerke erlauben keine Kommunikation zwischen Geräten. In die
 "TransferFinished" = "Übertragung abgeschlossen";
 "TransferTimedOut" = "Zeitüberschreitung";
 "UnsupportedType" = "Typ nicht unterstützt";
-"QrCodeInstructions" = "Scanne den QR-Code mit deinem Android-Gerät, um es mit deinem Mac zu verbinden. Stelle sicher, dass dein Telefon mit demselben Netzwerk verbunden ist.\n\nAlternativ kannst du die App 'Files by Google' installieren und öffnen und unten rechts auf 'Empfangen' tippen.";
+"QrCodeInstructions" = "Scanne den QR-Code mit deinem Android-Gerät, um es mit deinem Mac zu verbinden. Stelle sicher, dass dein Handy mit demselben Netzwerk verbunden ist.\n\nWenn du nicht bei jeder Dateiübertragung den QR-Code scannen willst, installiere die QuickDrop-App (siehe oben).";
 "ConnectWithQuickDropApp" = "Mit QuickDrop-App verbinden";
 "ConnectWithoutApp" = "Ohne App verbinden";
 "QrCodeInstructionsApp" = "Um deinen Mac mit deinem Android-Gerät zu verbinden, öffne die QuickDrop-App auf deinem Android-Gerät. Stelle sicher, dass dein Telefon mit demselben Netzwerk verbunden ist.\n\nUm QuickDrop auf deinem Telefon zu installieren, scanne den QR-Code oder suche nach 'QuickDrop' im Google Play Store.";

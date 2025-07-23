@@ -135,7 +135,7 @@ Observação: Algumas redes não permitem que os dispositivos se comuniquem entr
 "TransferFinished" = "Transferência concluída";
 "TransferTimedOut" = "Tempo esgotado";
 "UnsupportedType" = "Tipo de anexo não suportado";  
-"QrCodeInstructions" = "Escaneie o código QR com seu dispositivo Android para conectá-lo ao seu Mac. Certifique-se de que seu telefone está conectado à mesma rede.\n\nComo alternativa, instale e abra o aplicativo 'Files by Google' e toque em 'Receber' no canto inferior direito.";
+"QrCodeInstructions" = "Escaneie o código QR com seu dispositivo Android para conectá-lo ao seu Mac. Certifique-se de que o telefone esteja conectado à mesma rede.\n\nSe não quiser escanear o QR Code em toda transferência, instale o aplicativo QuickDrop (veja acima).";
 "ConnectWithQuickDropApp" = "Conectar com o aplicativo QuickDrop";
 "ConnectWithoutApp" = "Conectar sem aplicativo";
 "QrCodeInstructionsApp" = "Para conectar seu Mac ao dispositivo Android, abra o aplicativo QuickDrop no seu dispositivo Android. Certifique-se de que seu telefone esteja conectado à mesma rede.\n\nPara instalar o QuickDrop no seu telefone, escaneie o código QR ou procure por 'QuickDrop' na Google Play Store.";

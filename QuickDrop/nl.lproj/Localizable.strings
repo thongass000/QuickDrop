@@ -135,7 +135,7 @@ Opmerking: Sommige netwerken staan niet toe dat apparaten met elkaar communicere
 "TransferFinished" = "Overdracht voltooid";
 "TransferTimedOut" = "Time-out";
 "UnsupportedType" = "Bijlagetype niet ondersteund";  
-"QrCodeInstructions" = "Scan de QR-code met je Android-apparaat om het met je Mac te verbinden. Zorg ervoor dat je telefoon met hetzelfde netwerk is verbonden.\n\nJe kunt ook de app 'Files by Google' installeren en openen en op 'Ontvangen' tikken rechtsonder.";
+"QrCodeInstructions" = "Scan de QR-code met je Android-apparaat om het met je Mac te verbinden. Zorg ervoor dat je telefoon met hetzelfde netwerk is verbonden.\n\nAls je niet bij elke bestandsoverdracht de QR-code wilt scannen, installeer dan de QuickDrop-app (zie hierboven).";
 "ConnectWithQuickDropApp" = "Verbind met de QuickDrop-app";
 "ConnectWithoutApp" = "Verbind zonder app";
 "QrCodeInstructionsApp" = "Om je Mac met je Android-apparaat te verbinden, open je de QuickDrop-app op je Android-apparaat. Zorg ervoor dat je telefoon is verbonden met hetzelfde netwerk.\n\nOm QuickDrop op je telefoon te installeren, scan de QR-code of zoek naar 'QuickDrop' in de Google Play Store.";
