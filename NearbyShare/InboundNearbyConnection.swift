@@ -64,19 +64,23 @@ class InboundNearbyConnection: NearbyConnection {
                 try processConnectionResponseFrame(frame)
             default:
 
+                var smsg: Securemessage_SecureMessage? = nil
+                
                 do {
-                    let smsg = try Securemessage_SecureMessage(serializedBytes: frameData)
-                    try decryptAndProcessReceivedSecureMessage(smsg)
+                    smsg = try Securemessage_SecureMessage(serializedBytes: frameData)
                 } catch {
-                    
                     log("Error deserializing secure message (probably due to packet filter)")
                     lastError = NearbyError.packetFilterError
                     protocolError()
                 }
+                
+                if let smsg = smsg {
+                    try decryptAndProcessReceivedSecureMessage(smsg)
+                }
             }
         } catch {
             lastError = error
-            log("Deserialization error: \(error) in state \(currentState).")
+            log("Error receiving frame: \(error) in state \(currentState).")
             protocolError()
         }
     }
@@ -117,9 +121,15 @@ class InboundNearbyConnection: NearbyConnection {
         guard currentOffset + Int64(frame.payloadChunk.body.count) <= fileInfo.meta.size else { throw NearbyError.protocolError("Transferred file size exceeds previously specified value") }
         
         if frame.payloadChunk.body.count > 0 {
-            fileInfo.fileHandle?.write(frame.payloadChunk.body)
-            transferredFiles[id]!.bytesTransferred += Int64(frame.payloadChunk.body.count)
-            fileInfo.progress?.completedUnitCount = transferredFiles[id]!.bytesTransferred
+            do {
+                try fileInfo.fileHandle?.write(contentsOf: frame.payloadChunk.body)
+                transferredFiles[id]!.bytesTransferred += Int64(frame.payloadChunk.body.count)
+                fileInfo.progress?.completedUnitCount = transferredFiles[id]!.bytesTransferred
+            } catch {
+                log("Error occurred during writing file: \(error.localizedDescription)")
+                
+                throw NearbyError.protocolError(error.localizedDescription)
+            }
         }
         else if (frame.payloadChunk.flags & 1) == 1 {
             try fileInfo.fileHandle?.close()

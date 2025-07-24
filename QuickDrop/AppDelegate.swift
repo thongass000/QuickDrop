@@ -465,14 +465,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 switch ne {
                 case .inputOutput:
                     description = "I/O Error"
-                case .protocolError:
-                    description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "") + "(\(ne.localizedDescription))"
+                case .protocolError(errorMessage: let errorMessage):
+                    log("Protocol error ")
+                    description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "") + " (\(errorMessage))"
                 case .packetFilterError:
                     openAlert(type: .NetworkFilter)
                     plusWindow?.close()
                     return
-                case .requiredFieldMissing:
-                    description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "") + "(\(ne.localizedDescription))"
+                case .requiredFieldMissing(errorMessage: let errorMessage):
+                    description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "") + "(\(errorMessage))"
                 case .ukey2:
                     description = NSLocalizedString("Error.Crypto", value: "Encryption error", comment: "") + "(\(ne.localizedDescription))"
                 case .canceled(reason: _):
