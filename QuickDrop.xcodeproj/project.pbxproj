@@ -38,7 +38,6 @@
 		EB2F9BFB2DA04B69004010A2 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9BFA2DA04B67004010A2 /* Helpers.swift */; };
 		EB2F9BFE2DA05F48004010A2 /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = EB2F9BFD2DA05F48004010A2 /* BezelNotification */; };
 		EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36435F2D73A29F009CDFF8 /* AudioManager.swift */; };
-		EB3643622D73A2CA009CDFF8 /* timeIsNow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB3643612D73A2CA009CDFF8 /* timeIsNow.mp3 */; };
 		EB6E743E2DD5C77700331466 /* ConnectionFailureTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */; };
 		EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */; };
 		EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
@@ -201,7 +200,6 @@
 		EB2B41E32DC63AC80070FC39 /* SleepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager.swift; sourceTree = "<group>"; };
 		EB2F9BFA2DA04B67004010A2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		EB36435F2D73A29F009CDFF8 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
-		EB3643612D73A2CA009CDFF8 /* timeIsNow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timeIsNow.mp3; sourceTree = "<group>"; };
 		EB3B73F32DC8FF3A00369951 /* device_to_device_messages.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = device_to_device_messages.proto; sourceTree = "<group>"; };
 		EB3B73F42DC8FF3A00369951 /* offline_wire_formats.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = offline_wire_formats.proto; sourceTree = "<group>"; };
 		EB3B73F52DC8FF3A00369951 /* securegcm.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = securegcm.proto; sourceTree = "<group>"; };
@@ -233,6 +231,7 @@
 		EB1A7E422DD4D8BD00A6D5A3 /* SelfTest */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SelfTest; sourceTree = "<group>"; };
 		EB6E743F2DD5CBFB00331466 /* IssueViews */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = IssueViews; sourceTree = "<group>"; };
 		EB7CD13B2D6F8B6500CB0CB5 /* Plus */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Plus; sourceTree = "<group>"; };
+		EBC05C582E32A21000EECC18 /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,8 +296,7 @@
 				69DCF4822AB70D0600CBE2CC /* NearbyShare */,
 				698DFAEC29E353220064F247 /* Frameworks */,
 				69DA9A0F29E0BF5100A442DA /* Products */,
-				EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */,
-				EB3643612D73A2CA009CDFF8 /* timeIsNow.mp3 */,
+				EBC05C582E32A21000EECC18 /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -353,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				EB2B41E32DC63AC80070FC39 /* SleepManager.swift */,
+				EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */,
 				EB3B73F92DC8FF3A00369951 /* ProtobufSource */,
 				69DA9A2729E18CB500A442DA /* Protobuf */,
 				69DA9A1E29E0C0B300A442DA /* NearbyConnectionManager.swift */,
@@ -432,6 +431,7 @@
 				EB1A7E422DD4D8BD00A6D5A3 /* SelfTest */,
 				EB6E743F2DD5CBFB00331466 /* IssueViews */,
 				EB7CD13B2D6F8B6500CB0CB5 /* Plus */,
+				EBC05C582E32A21000EECC18 /* Resources */,
 			);
 			name = QuickDrop;
 			packageProductDependencies = (
@@ -546,7 +546,6 @@
 				69D2C33829E78DF400EC7E30 /* Localizable.stringsdict in Resources */,
 				69D2C32D29E77F2200EC7E30 /* Localizable.strings in Resources */,
 				69D2C32F29E7898C00EC7E30 /* MainMenu.xib in Resources */,
-				EB3643622D73A2CA009CDFF8 /* timeIsNow.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,8 +826,8 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 49;
-				SHARED_VERSION = 1.10.1;
+				SHARED_BUILD = 50;
+				SHARED_VERSION = 1.10.2;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -886,8 +885,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 49;
-				SHARED_VERSION = 1.10.1;
+				SHARED_BUILD = 50;
+				SHARED_VERSION = 1.10.2;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
