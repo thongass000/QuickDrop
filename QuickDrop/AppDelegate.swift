@@ -436,7 +436,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             ErrorAlertHandler.shared.showErrorAlert(for: transfer.device.name, error: error)
         } else {
             let currentCount = transmissionCount()
-            if currentCount % 20 == 0 {
+            if currentCount == 0 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     SKStoreReviewController.requestReview()
                 }
