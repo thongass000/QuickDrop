@@ -99,13 +99,13 @@ Notă: Unele rețele nu permit dispozitivelor să comunice între ele. În acest
 "plusview_productRequestFailed" = "Momentan, nu se pot obține informații despre achizițiile în aplicație.";
 
 "Connecting" = "Se conectează...";
-"NotEnoughSpace" = "Spațiu insuficient pe disc";
+"NotEnoughSpace" = "Spațiu insuficient pe disc. Eliberează spațiu și încearcă din nou.";
 "Sending" = "Se trimite...";
-"TransferCanceled" = "Anulat";
-"TransferDeclined" = "Refuzat";
+"TransferCanceled" = "Transferul a fost anulat.";
+"TransferDeclined" = "Celălalt dispozitiv a refuzat transferul. Vă rugăm să încercați din nou.";
 "TransferFinished" = "Transfer finalizat";
-"TransferTimedOut" = "Timpul a expirat";
-"UnsupportedType" = "Tip de atașament neacceptat";  
+"TransferTimedOut" = "Celălalt dispozitiv nu a răspuns la timp. Vă rugăm să încercați din nou.";
+"UnsupportedType" = "Tipul de fișier atașat nu este acceptat. Încercați să trimiteți acest fișier ca arhivă .zip.";
 "QrCodeInstructions" = "Scanează codul QR cu dispozitivul tău Android pentru a-l conecta la Mac. Asigură-te că telefonul este conectat la aceeași rețea.\n\nDacă nu dorești să scanezi codul QR de fiecare dată când transferi fișiere, instalează aplicația QuickDrop (vezi mai sus).";
 "ConnectWithQuickDropApp" = "Conectează-te cu aplicația QuickDrop";
 "ConnectWithoutApp" = "Conectează-te fără aplicație";

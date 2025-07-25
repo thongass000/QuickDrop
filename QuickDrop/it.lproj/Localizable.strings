@@ -100,13 +100,13 @@ Nota: alcune reti non permettono ai dispositivi di comunicare tra loro. In tal c
 
 
 "Connecting" = "Connessione in corso...";
-"NotEnoughSpace" = "Spazio su disco insufficiente";
+"NotEnoughSpace" = "Spazio su disco insufficiente. Libera spazio e riprova.";
 "Sending" = "Invio in corso...";
-"TransferCanceled" = "Annullato";
-"TransferDeclined" = "Rifiutato";
+"TransferCanceled" = "Il trasferimento è stato annullato.";
+"TransferDeclined" = "L'altro dispositivo ha rifiutato il trasferimento. Riprova.";
 "TransferFinished" = "Trasferimento completato";
-"TransferTimedOut" = "Tempo scaduto";
-"UnsupportedType" = "Tipo di allegato non supportato";  
+"TransferTimedOut" = "L'altro dispositivo non ha risposto in tempo. Riprova.";
+"UnsupportedType" = "Il tipo di allegato non è supportato. Prova a inviare questo file come archivio compresso .zip.";
 "QrCodeInstructions" = "Scansiona il codice QR con il tuo dispositivo Android per collegarlo al tuo Mac. Assicurati che il telefono sia connesso alla stessa rete.\n\nSe non vuoi scansionare il codice QR per ogni trasferimento di file, installa l'app QuickDrop (vedi sopra).";
 "ConnectWithQuickDropApp" = "Connetti con l'app QuickDrop";
 "ConnectWithoutApp" = "Connetti senza app";

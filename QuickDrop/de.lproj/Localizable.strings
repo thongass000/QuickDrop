@@ -100,13 +100,13 @@ Hinweis: Einige Netzwerke erlauben keine Kommunikation zwischen Geräten. In die
 "plusview_productRequestFailed" = "In-App-Käufe können momentan nicht abgerufen werden.";
 
 "Connecting" = "Verbinden...";
-"NotEnoughSpace" = "Nicht genügend Speicherplatz";
+"NotEnoughSpace" = "Nicht genug Speicherplatz. Bitte gib etwas Speicherplatz frei und versuch es erneut.";
 "Sending" = "Senden...";
-"TransferCanceled" = "Abgebrochen";
-"TransferDeclined" = "Abgelehnt";
+"TransferCanceled" = "Die Übertragung wurde abgebrochen.";
+"TransferDeclined" = "Das andere Gerät hat die Übertragung abgelehnt. Bitte versuche es erneut.";
 "TransferFinished" = "Übertragung abgeschlossen";
-"TransferTimedOut" = "Zeitüberschreitung";
-"UnsupportedType" = "Typ nicht unterstützt";
+"TransferTimedOut" = "Das andere Gerät hat nicht rechtzeitig geantwortet. Bitte versuche es erneut.";
+"UnsupportedType" = "Der Anhangstyp wird nicht unterstützt. Versuche stattdessen, die Datei als .zip-Archiv zu senden.";
 "QrCodeInstructions" = "Scanne den QR-Code mit deinem Android-Gerät, um es mit deinem Mac zu verbinden. Stelle sicher, dass dein Handy mit demselben Netzwerk verbunden ist.\n\nWenn du nicht bei jeder Dateiübertragung den QR-Code scannen willst, installiere die QuickDrop-App (siehe oben).";
 "ConnectWithQuickDropApp" = "Mit QuickDrop-App verbinden";
 "ConnectWithoutApp" = "Ohne App verbinden";

@@ -98,13 +98,13 @@ QuickDrop لنظام Android في المرحلة التجريبية حاليًا
 "plusview_productRequestFailed" = "تعذر جلب عمليات الشراء داخل التطبيق في الوقت الحالي.";
 
 "Connecting" = "جارٍ الاتصال...";
-"NotEnoughSpace" = "مساحة القرص غير كافية";
+"NotEnoughSpace" = "لا توجد مساحة كافية على القرص. يرجى تحرير بعض المساحة والمحاولة مرة أخرى.";
 "Sending" = "جارٍ الإرسال...";
-"TransferCanceled" = "تم الإلغاء";
-"TransferDeclined" = "تم الرفض";
+"TransferCanceled" = "تم إلغاء النقل.";
+"TransferDeclined" = "رفض الجهاز الآخر عملية النقل. الرجاء المحاولة مرة أخرى.";
 "TransferFinished" = "اكتمل النقل";
-"TransferTimedOut" = "انتهت المهلة";
-"UnsupportedType" = "نوع المرفق غير مدعوم";  
+"TransferTimedOut" = "لم يستجب الجهاز الآخر في الوقت المناسب. الرجاء المحاولة مرة أخرى.";
+"UnsupportedType" = "نوع المرفق غير مدعوم. يرجى محاولة إرسال هذا الملف كملف .zip مضغوط.";
 "QrCodeInstructions" = "امسح رمز الاستجابة السريعة (QR) باستخدام جهاز Android الخاص بك لتوصيله بجهاز Mac. تأكد من أن هاتفك متصل بنفس الشبكة.\n\nإذا كنت لا ترغب في مسح رمز الاستجابة السريعة في كل مرة تقوم فيها بنقل ملف، فقم بتثبيت تطبيق QuickDrop (انظر أعلاه).";
 "ConnectWithQuickDropApp" = "الاتصال بتطبيق QuickDrop";
 "ConnectWithoutApp" = "الاتصال بدون تطبيق";

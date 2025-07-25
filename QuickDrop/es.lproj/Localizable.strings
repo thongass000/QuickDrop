@@ -99,13 +99,13 @@ Nota: Algunas redes no permiten la comunicación entre dispositivos. En ese caso
 "plusview_productRequestFailed" = "No se pueden recuperar las compras dentro de la aplicación en este momento.";
 
 "Connecting" = "Conectando...";
-"NotEnoughSpace" = "Espacio en disco insuficiente";
+"NotEnoughSpace" = "No hay suficiente espacio en disco. Libera espacio e inténtalo de nuevo.";
 "Sending" = "Enviando...";
-"TransferCanceled" = "Cancelado";
-"TransferDeclined" = "Rechazado";
+"TransferCanceled" = "La transferencia fue cancelada.";
+"TransferDeclined" = "El otro dispositivo rechazó la transferencia. Por favor, inténtalo de nuevo.";
 "TransferFinished" = "Transferencia finalizada";
-"TransferTimedOut" = "Tiempo de espera agotado";
-"UnsupportedType" = "Tipo de archivo adjunto no compatible";  
+"TransferTimedOut" = "El otro dispositivo no respondió a tiempo. Inténtalo de nuevo.";
+"UnsupportedType" = "El tipo de archivo no es compatible. Intenta enviar el archivo como un archivo .zip comprimido.";
 "QrCodeInstructions" = "Escanea el código QR con tu dispositivo Android para conectarlo a tu Mac. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nSi no deseas escanear el código QR en cada transferencia de archivos, instala la aplicación QuickDrop (ver arriba).";
 "ConnectWithQuickDropApp" = "Conectar con la aplicación QuickDrop";
 "ConnectWithoutApp" = "Conectar sin aplicación";

@@ -70,6 +70,7 @@ class ErrorAlertHandler {
             self.isAlertShown = false
             
             if result == .alertFirstButtonReturn {
+                log("Sending logging string")
                 sendLoggingString()
             }
         }
@@ -123,12 +124,26 @@ class ErrorAlertHandler {
 
 
 func sendLoggingString() {
+    // If we're in an extension, redirect to the main app
+    if Bundle.main.bundlePath.hasSuffix(".appex") {
+        log("sendLoggingString: in extension, redirecting to main app")
+        
+        if let url = URL(string: "quickdrop://sendLog") {
+            NSWorkspace.shared.open(url)
+        }
+        return
+    }
     
+    // We're in the main app – do the actual sending
     if let url = LogManager.sharedInstance.logFileURL {
-        
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+        log("Sending logging string with file URL: \(url)")
         
-        sendEmailWithAttachment(fileURL: url, recipients: ["quickdrop@leonboettger.com"], subject: "QuickDrop \(appVersion) - \(getDeviceAndSystem())")
+        sendEmailWithAttachment(
+            fileURL: url,
+            recipients: ["quickdrop@leonboettger.com"],
+            subject: "QuickDrop \(appVersion) - \(getDeviceAndSystem())"
+        )
     }
 }
 
@@ -160,6 +175,8 @@ func sendEmailWithAttachment(fileURL: URL, recipients: [String], subject: String
     emailService.recipients = recipients
     emailService.subject = subject
     emailService.perform(withItems: [fileURL])
+    
+    log("Email service opened with recipients: \(recipients) and subject: \(subject)")
 }
 
 

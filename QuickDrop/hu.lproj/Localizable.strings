@@ -101,13 +101,13 @@ Megjegyzés: Egyes hálózatok nem engedélyezik az eszközök közötti kommuni
 
 
 "Connecting" = "Csatlakozás...";
-"NotEnoughSpace" = "Nincs elég lemezterület";
+"NotEnoughSpace" = "Nincs elég lemezterület. Szabadíts fel némi helyet, majd próbáld újra.";
 "Sending" = "Küldés...";
-"TransferCanceled" = "Megszakítva";
-"TransferDeclined" = "Elutasítva";
+"TransferCanceled" = "Az átvitel megszakadt.";
+"TransferDeclined" = "A másik eszköz elutasította az átvitelt. Kérlek, próbáld újra.";
 "TransferFinished" = "Átvitel befejezve";
-"TransferTimedOut" = "Időtúllépés";
-"UnsupportedType" = "Nem támogatott csatolmánytípus";  
+"TransferTimedOut" = "A másik eszköz nem válaszolt időben. Próbáld újra.";
+"UnsupportedType" = "Ez a csatolmánytípus nem támogatott. Próbáld meg tömörített .zip fájlként elküldeni.";
 "QrCodeInstructions" = "Olvasd be a QR-kódot Android-eszközöddel a Mac-hez való csatlakozáshoz. Győződj meg róla, hogy a telefonod ugyanahhoz a hálózathoz csatlakozik.\n\nHa nem szeretnéd minden fájlátvitel előtt beolvasni a QR-kódot, telepítsd a QuickDrop alkalmazást (lásd fentebb).";
 "ConnectWithQuickDropApp" = "Csatlakozás a QuickDrop alkalmazással";
 "ConnectWithoutApp" = "Csatlakozás alkalmazás nélkül";

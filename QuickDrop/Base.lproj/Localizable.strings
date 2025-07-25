@@ -103,13 +103,13 @@ Note: Some networks do not allow devices to communicate with each other. In this
 
 /* Share Extension */
 "Connecting" = "Connecting...";
-"NotEnoughSpace" = "Not enough disk space";
+"NotEnoughSpace" = "Not enough disk space. Please free up some space and try again.";
 "Sending" = "Sending...";
-"TransferCanceled" = "Canceled";
-"TransferDeclined" = "Declined";
+"TransferCanceled" = "The transfer was cancelled.";
+"TransferDeclined" = "The other device declined the transfer. Please try again.";
 "TransferFinished" = "Transfer finished";
-"TransferTimedOut" = "Timed out";
-"UnsupportedType" = "Attachment type not supported";
+"TransferTimedOut" = "The other device did not respond in time. Please try again.";
+"UnsupportedType" = "The attachment type is not supported. Please try to send this file as a compressed .zip file instead.";
 "QrCodeInstructions" = "Scan the QR Code with your Android device to connect it to your Mac. Make sure your phone is connected to the same network.\n\nIf you do not want to scan the QR code for every file transfer, install the QuickDrop app (see above).";
 "ConnectWithQuickDropApp" = "Connect with QuickDrop App";
 "ConnectWithoutApp" = "Connect without App";

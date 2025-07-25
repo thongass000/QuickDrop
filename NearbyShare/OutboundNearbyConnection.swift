@@ -109,6 +109,9 @@ class OutboundNearbyConnection: NearbyConnection {
                 try decryptAndProcessReceivedSecureMessage(smsg)
             }
         } catch {
+            
+            log("Error occured while processing frame with data \(frameData.hex): \(error)")
+            
             if case NearbyError.ukey2 = error {
                 // do nothing
             }
@@ -431,7 +434,6 @@ class OutboundNearbyConnection: NearbyConnection {
             }
         })
         totalBytesSent += Int64(fileBuffer.count)
-        log("sent file chunk \(totalBytesSent)")
         startInactivityTimer()
         delegate?.outboundConnection(connection: self, transferProgress: Double(totalBytesSent) / Double(totalBytesToSend))
 

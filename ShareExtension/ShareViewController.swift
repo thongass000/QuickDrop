@@ -295,15 +295,8 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         progressProgressBar?.doubleValue = 0
         lastError = error
         
-        if let ne = (error as? NearbyError), case let .canceled(reason) = ne {
-            progressState?.stringValue = reason.localizedDescription()
-            progressDeviceSecondaryIcon?.isHidden = false
-            dismissDelayed()
-        }
-        else {
-            ErrorAlertHandler.shared.showErrorAlert(for: chosenDevice?.name ?? "", error: error)
-            self.extensionContext!.cancelRequest(withError: error)
-        }
+        ErrorAlertHandler.shared.showErrorAlert(for: chosenDevice?.name ?? "", error: error)
+        self.extensionContext!.cancelRequest(withError: error)
     }
     
     

@@ -99,13 +99,13 @@ Opmerking: Sommige netwerken staan niet toe dat apparaten met elkaar communicere
 "plusview_productRequestFailed" = "In-app aankopen kunnen momenteel niet worden opgehaald.";
 
 "Connecting" = "Verbinden...";
-"NotEnoughSpace" = "Onvoldoende schijfruimte";
+"NotEnoughSpace" = "Onvoldoende schijfruimte. Maak wat ruimte vrij en probeer het opnieuw.";
 "Sending" = "Bezig met verzenden...";
-"TransferCanceled" = "Geannuleerd";
-"TransferDeclined" = "Geweigerd";
+"TransferCanceled" = "De overdracht is geannuleerd.";
+"TransferDeclined" = "Het andere apparaat heeft de overdracht geweigerd. Probeer het opnieuw.";
 "TransferFinished" = "Overdracht voltooid";
-"TransferTimedOut" = "Time-out";
-"UnsupportedType" = "Bijlagetype niet ondersteund";  
+"TransferTimedOut" = "Het andere apparaat reageerde niet op tijd. Probeer het opnieuw.";
+"UnsupportedType" = "Het type bijlage wordt niet ondersteund. Probeer het bestand als een gecomprimeerd .zip-bestand te verzenden.";
 "QrCodeInstructions" = "Scan de QR-code met je Android-apparaat om het met je Mac te verbinden. Zorg ervoor dat je telefoon met hetzelfde netwerk is verbonden.\n\nAls je niet bij elke bestandsoverdracht de QR-code wilt scannen, installeer dan de QuickDrop-app (zie hierboven).";
 "ConnectWithQuickDropApp" = "Verbind met de QuickDrop-app";
 "ConnectWithoutApp" = "Verbind zonder app";

@@ -143,6 +143,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         iapManager?.stopObserving()
     }
+    
+    
+    func application(_ application: NSApplication, open urls: [URL]) {
+        for url in urls {
+            if url.scheme == "quickdrop", url.host == "sendLog" {
+                sendLoggingString() // this time it runs in the main app
+            }
+            
+            
+            if url.scheme == "quickdrop", url.host == "openLog", let url = LogManager.sharedInstance.logFileURL {
+                log("Opening log file: \(url)")
+                // open folder containing the log file
+                NSWorkspace.shared.activateFileViewerSelecting([url])
+            }
+        }
+    }
 
     
     func applicationSupportsSecureRestorableState(_: NSApplication) -> Bool {
