@@ -22,9 +22,6 @@ class InboundNearbyConnection: NearbyConnection {
 
     private var textPayloadID: Int64 = 0
     private var isPlainTextTransfer = false
-    
-    private var inactivityTimer: DispatchSourceTimer?
-    private let timeoutInterval: TimeInterval = 7
 
     enum State {
         case initial, receivedConnectionRequest, sentUkeyServerInit, receivedUkeyClientFinish, sentConnectionResponse, sentPairedKeyResult, receivedPairedKeyResult, waitingForUserConsent, receivingFiles, disconnected
