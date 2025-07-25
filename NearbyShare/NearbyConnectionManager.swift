@@ -187,13 +187,6 @@ public protocol ShareExtensionDelegate: AnyObject {
 
 
 public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearbyConnectionDelegate, OutboundNearbyConnectionDelegate {
-    public var checkSignature = true {
-        didSet {
-            if !checkSignature {
-                log("WARNING: Signature checking is disabled. Resume with caution.")
-            }
-        }
-    }
 
     private var tcpListener: NWListener
     public let endpointID: [UInt8] = generateEndpointID()

@@ -282,10 +282,8 @@ class NearbyConnection {
     func decryptAndProcessReceivedSecureMessage(_ smsg: Securemessage_SecureMessage) throws {
         guard smsg.hasSignature, smsg.hasHeaderAndBody else { throw NearbyError.requiredFieldMissing("secureMessage.signature|headerAndBody") }
         
-        if NearbyConnectionManager.shared.checkSignature {
-            let hmac = Data(HMAC<SHA256>.authenticationCode(for: smsg.headerAndBody, using: recvHmacKey!))
-            guard hmac == smsg.signature else { throw NearbyError.protocolError("hmac!=signature: Expected \(hmac), got \(smsg.signature)") }
-        }
+        let hmac = Data(HMAC<SHA256>.authenticationCode(for: smsg.headerAndBody, using: recvHmacKey!))
+        guard hmac == smsg.signature else { throw NearbyError.protocolError("hmac!=signature: Expected \(hmac), got \(smsg.signature)") }
         
         let headerAndBody = try Securemessage_HeaderAndBody(serializedBytes: smsg.headerAndBody)
         var decryptedData = Data(count: headerAndBody.body.count)
@@ -304,37 +302,53 @@ class NearbyConnection {
             )
             guard status == kCCSuccess else { fatalError("CCCrypt error: \(status)") }
         }
+        
         decryptedData = decryptedData.prefix(decryptedLength)
         let d2dMsg = try Securegcm_DeviceToDeviceMessage(serializedBytes: decryptedData)
+        
         guard d2dMsg.hasMessage, d2dMsg.hasSequenceNumber else { throw NearbyError.requiredFieldMissing("d2dMessage.message|sequenceNumber") }
         clientSeq += 1
+        
         guard d2dMsg.sequenceNumber == clientSeq else { throw NearbyError.protocolError("Wrong sequence number. Expected \(clientSeq), got \(d2dMsg.sequenceNumber)") }
         let offlineFrame = try Location_Nearby_Connections_OfflineFrame(serializedBytes: d2dMsg.message)
         
         if offlineFrame.hasV1, offlineFrame.v1.hasType, case .payloadTransfer = offlineFrame.v1.type {
+            
             guard offlineFrame.v1.hasPayloadTransfer else { throw NearbyError.requiredFieldMissing("offlineFrame.v1.payloadTransfer") }
+            
             let payloadTransfer = offlineFrame.v1.payloadTransfer
             let header = payloadTransfer.payloadHeader
             let chunk = payloadTransfer.payloadChunk
+            
             guard header.hasType, header.hasID else { throw NearbyError.requiredFieldMissing("payloadHeader.type|id") }
             guard payloadTransfer.hasPayloadChunk, chunk.hasOffset, chunk.hasFlags else { throw NearbyError.requiredFieldMissing("payloadTransfer.payloadChunk|offset|flags") }
+            
             if case .bytes = header.type {
+                
                 let payloadID = header.id
+                
                 if header.totalSize > InboundNearbyConnection.SANE_FRAME_LENGTH {
+                    
                     payloadBuffers.removeValue(forKey: payloadID)
                     throw NearbyError.protocolError("Payload too large (\(header.totalSize) bytes)")
                 }
+                
                 if payloadBuffers[payloadID] == nil {
+                    
                     payloadBuffers[payloadID] = NSMutableData(capacity: Int(header.totalSize))
                 }
+                
                 let buffer = payloadBuffers[payloadID]!
+                
                 guard chunk.offset == buffer.count else {
                     payloadBuffers.removeValue(forKey: payloadID)
                     throw NearbyError.protocolError("Unexpected chunk offset \(chunk.offset), expected \(buffer.count)")
                 }
+                
                 if chunk.hasBody {
                     buffer.append(chunk.body)
                 }
+                
                 if (chunk.flags & 1) == 1 {
                     payloadBuffers.removeValue(forKey: payloadID)
                     if try !processBytesPayload(payload: Data(buffer), id: payloadID) {
@@ -342,13 +356,18 @@ class NearbyConnection {
                         try processTransferSetupFrame(innerFrame)
                     }
                 }
+                
             } else if case .file = header.type {
+                
                 try processFileChunk(frame: payloadTransfer)
             }
-        } else if offlineFrame.hasV1, offlineFrame.v1.hasType, case .keepAlive = offlineFrame.v1.type {
+        }
+        else if offlineFrame.hasV1, offlineFrame.v1.hasType, case .keepAlive = offlineFrame.v1.type {
+            
             log("Sent keep-alive, current transfer progress: \(transferredFiles.values.reduce(0) { $0 + $1.bytesTransferred }) bytes")
             sendKeepAlive(ack: true)
         } else {
+            
             log("Unhandled offline frame encrypted: \(offlineFrame)")
         }
     }
