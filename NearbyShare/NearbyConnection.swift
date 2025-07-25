@@ -18,13 +18,15 @@ class NearbyConnection {
     static let SANE_FRAME_LENGTH = 5 * 1024 * 1024
     private static let dispatchQueue = DispatchQueue(label: "com.leonboettger.quickdrop.queue", qos: .utility) // FIFO (non-concurrent) queue to avoid those exciting concurrency bugs
     
-    let connection: NWConnection
-    var remoteDeviceInfo: RemoteDeviceInfo?
-    private var payloadBuffers: [Int64: NSMutableData] = [:]
-    var encryptionDone: Bool = false
-    var transferredFiles: [Int64: InternalFileInfo] = [:]
     public let id: String
+    let connection: NWConnection
+    
+    var remoteDeviceInfo: RemoteDeviceInfo?
+    var encryptionDone: Bool = false
+    var filesToBeTransferred: [Int64: InternalFileInfo] = [:]
     var lastError: Error?
+    
+    private var payloadBuffers: [Int64: NSMutableData] = [:]
     private var connectionClosed: Bool = false
     
     private var inactivityTimer: DispatchSourceTimer?
@@ -321,7 +323,7 @@ class NearbyConnection {
             let chunk = payloadTransfer.payloadChunk
             
             guard header.hasType, header.hasID else { throw NearbyError.requiredFieldMissing("payloadHeader.type|id") }
-            guard payloadTransfer.hasPayloadChunk, chunk.hasOffset, chunk.hasFlags else { throw NearbyError.requiredFieldMissing("payloadTransfer.payloadChunk|offset|flags") }
+            guard payloadTransfer.hasPayloadChunk, chunk.hasOffset, chunk.hasFlags else { throw NearbyError.requiredFieldMissing("File transfer was likely canceled.") }
             
             if case .bytes = header.type {
                 
@@ -364,7 +366,7 @@ class NearbyConnection {
         }
         else if offlineFrame.hasV1, offlineFrame.v1.hasType, case .keepAlive = offlineFrame.v1.type {
             
-            log("Sent keep-alive, current transfer progress: \(transferredFiles.values.reduce(0) { $0 + $1.bytesTransferred }) bytes")
+            log("Sent keep-alive, current transfer progress: \(filesToBeTransferred.values.reduce(0) { $0 + $1.bytesTransferred }) bytes")
             sendKeepAlive(ack: true)
         } else {
             
@@ -544,7 +546,12 @@ class NearbyConnection {
     }
       
     private func deletePartiallyReceivedFiles() {
-        for (_, file) in transferredFiles {
+        for (_, file) in filesToBeTransferred {
+            
+            if let progress = file.progress {
+                progress.unpublish()
+            }
+            
             guard file.created else { continue }
             do {
                 try FileManager.default.removeItem(at: file.destinationURL)

@@ -114,7 +114,7 @@ class InboundNearbyConnection: NearbyConnection {
         
         let id = frame.payloadHeader.id
         
-        guard let fileInfo = transferredFiles[id] else { throw NearbyError.protocolError("File payload ID \(id) is not known") }
+        guard let fileInfo = filesToBeTransferred[id] else { throw NearbyError.protocolError("File payload ID \(id) is not known") }
         
         let currentOffset = fileInfo.bytesTransferred
         
@@ -125,8 +125,8 @@ class InboundNearbyConnection: NearbyConnection {
         if frame.payloadChunk.body.count > 0 {
             do {
                 try fileInfo.fileHandle?.write(contentsOf: frame.payloadChunk.body)
-                transferredFiles[id]!.bytesTransferred += Int64(frame.payloadChunk.body.count)
-                fileInfo.progress?.completedUnitCount = transferredFiles[id]!.bytesTransferred
+                filesToBeTransferred[id]!.bytesTransferred += Int64(frame.payloadChunk.body.count)
+                fileInfo.progress?.completedUnitCount = filesToBeTransferred[id]!.bytesTransferred
             } catch {
                 log("Error occurred during writing file: \(error.localizedDescription)")
                 
@@ -135,13 +135,13 @@ class InboundNearbyConnection: NearbyConnection {
         }
         else if (frame.payloadChunk.flags & 1) == 1 {
             try fileInfo.fileHandle?.close()
-            transferredFiles[id]!.fileHandle = nil
+            filesToBeTransferred[id]!.fileHandle = nil
             fileInfo.progress?.unpublish()
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
 
-            transferredFiles.removeValue(forKey: id)
+            filesToBeTransferred.removeValue(forKey: id)
             
-            if transferredFiles.isEmpty {
+            if filesToBeTransferred.isEmpty {
                 log("All files received, sending disconnection frame and disconnecting.")
                 try sendDisconnectionAndDisconnect()
             }
@@ -169,14 +169,14 @@ class InboundNearbyConnection: NearbyConnection {
             try sendDisconnectionAndDisconnect()
             return true
         }
-        else if let fileInfo = transferredFiles[id] {
+        else if let fileInfo = filesToBeTransferred[id] {
             fileInfo.fileHandle?.write(payload)
-            transferredFiles[id]!.bytesTransferred += Int64(payload.count)
-            fileInfo.progress?.completedUnitCount = transferredFiles[id]!.bytesTransferred
+            filesToBeTransferred[id]!.bytesTransferred += Int64(payload.count)
+            fileInfo.progress?.completedUnitCount = filesToBeTransferred[id]!.bytesTransferred
             try fileInfo.fileHandle?.close()
-            transferredFiles[id]!.fileHandle = nil
+            filesToBeTransferred[id]!.fileHandle = nil
             fileInfo.progress?.unpublish()
-            transferredFiles.removeValue(forKey: id)
+            filesToBeTransferred.removeValue(forKey: id)
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
             
             log("Received file payload. Disconnecting...")
@@ -368,9 +368,9 @@ class InboundNearbyConnection: NearbyConnection {
                 let info = InternalFileInfo(meta: FileMetadata(name: file.name, size: file.size, mimeType: file.mimeType),
                                             payloadID: file.payloadID,
                                             destinationURL: dest)
-                transferredFiles[file.payloadID] = info
+                filesToBeTransferred[file.payloadID] = info
             }
-            let metadata = TransferMetadata(files: transferredFiles.map { $0.value.meta }, id: id, pinCode: pinCode)
+            let metadata = TransferMetadata(files: filesToBeTransferred.map { $0.value.meta }, id: id, pinCode: pinCode)
             DispatchQueue.main.async {
                 self.delegate?.obtainUserConsent(for: metadata, from: self.remoteDeviceInfo!, connection: self)
             }
@@ -429,12 +429,12 @@ class InboundNearbyConnection: NearbyConnection {
                 try FileManager.default.createDirectory(at: SaveFilesManager.shared.tempDirectory, withIntermediateDirectories: true)
             }
 
-            for (id, file) in transferredFiles {
+            for (id, file) in filesToBeTransferred {
                 let targetURL = storeInTemp ? SaveFilesManager.shared.tempDirectory.appendingPathComponent(file.destinationURL.lastPathComponent) : file.destinationURL
 
                 FileManager.default.createFile(atPath: targetURL.path, contents: nil)
                 let handle = try FileHandle(forWritingTo: targetURL)
-                transferredFiles[id]!.fileHandle = handle
+                filesToBeTransferred[id]!.fileHandle = handle
 
                 let progress = Progress()
                 progress.fileURL = targetURL
@@ -442,8 +442,8 @@ class InboundNearbyConnection: NearbyConnection {
                 progress.kind = .file
                 progress.isPausable = false
                 progress.publish()
-                transferredFiles[id]!.progress = progress
-                transferredFiles[id]!.created = true
+                filesToBeTransferred[id]!.progress = progress
+                filesToBeTransferred[id]!.created = true
             }
 
             var frame = Sharing_Nearby_Frame()
