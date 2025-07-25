@@ -45,7 +45,10 @@ class InboundNearbyConnection: NearbyConnection {
     }
 
     override func processReceivedFrame(frameData: Data) {
-        log("Received frame in state \(currentState)...")
+        
+        if currentState != .receivingFiles {
+            log("Received frame in state \(currentState)...")
+        }
         
         do {
             switch currentState {
