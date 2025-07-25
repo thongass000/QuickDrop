@@ -323,7 +323,10 @@ class NearbyConnection {
             let chunk = payloadTransfer.payloadChunk
             
             guard header.hasType, header.hasID else { throw NearbyError.requiredFieldMissing("payloadHeader.type|id") }
-            guard payloadTransfer.hasPayloadChunk, chunk.hasOffset, chunk.hasFlags else { throw NearbyError.requiredFieldMissing("File transfer was likely canceled.") }
+            guard payloadTransfer.hasPayloadChunk, chunk.hasOffset, chunk.hasFlags else {
+                log("Payload transfer chunk is missing offset or flags, likely canceled.")
+                throw NearbyError.canceled(reason: .userCanceled)
+            }
             
             if case .bytes = header.type {
                 
