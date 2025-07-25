@@ -53,6 +53,7 @@
 		EB96ED8D2D7F7EA3004B3FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
 		EB96ED8F2D7F8105004B3FF1 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
 		EB96ED902D7F8114004B3FF1 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
+		EBC05C592E32C22200EECC18 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
 		EBCC27F92D80C9F90079C478 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC27F82D80C9F70079C478 /* Zip.swift */; };
 		EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */; };
 /* End PBXBuildFile section */
@@ -587,6 +588,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69DCF48D2AB70E8C00CBE2CC /* offline_wire_formats.pb.swift in Sources */,
+				EBC05C592E32C22200EECC18 /* Localized.swift in Sources */,
 				EB2F9BFB2DA04B69004010A2 /* Helpers.swift in Sources */,
 				69DCF48F2AB70E8C00CBE2CC /* securemessage.pb.swift in Sources */,
 				69DCF4912AB70E9700CBE2CC /* NearbyConnection.swift in Sources */,

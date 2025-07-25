@@ -24,6 +24,10 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "通信エラー";
 
+"Error.ClosedByPeer" = "接続が切断されました。これが繰り返し発生する場合は、スマートフォンを再起動してください。";
+
+"Error.NetworkDown" = "Wi‑Fi 接続が中断されました。Wi‑Fi 接続を確認してから、もう一度お試しください。";
+
 /* No comment provided by engineer. */
 "NFiles" = "%dつのファイル";
 

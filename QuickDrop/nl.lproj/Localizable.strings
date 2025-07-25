@@ -24,6 +24,10 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "Communicatiefout";
 
+"Error.ClosedByPeer" = "De verbinding is verbroken. Als dit herhaaldelijk gebeurt, start dan je telefoon opnieuw op.";
+
+"Error.NetworkDown" = "De Wi‑Fi‑verbinding is onderbroken. Controleer je Wi‑Fi‑verbinding en probeer het opnieuw.";
+
 /* No comment provided by engineer. */
 "NFiles" = "%d bestanden";
 

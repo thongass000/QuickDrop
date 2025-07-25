@@ -24,6 +24,10 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "Communication error";
 
+"Error.ClosedByPeer" = "The connection was closed. If this happens repeatedly, please restart your phone.";
+
+"Error.NetworkDown" = "The Wi-Fi connection was interrupted. Please check your Wi-Fi connection and try again.";
+
 /* No comment provided by engineer. */
 "NFiles" = "%d files";
 

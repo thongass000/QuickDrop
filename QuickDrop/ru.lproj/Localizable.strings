@@ -24,6 +24,10 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "Ошибка протокола";
 
+"Error.ClosedByPeer" = "Соединение было закрыто. Если это происходит неоднократно, перезагрузите телефон.";
+
+"Error.NetworkDown" = "Соединение по Wi‑Fi было прервано. Пожалуйста, проверьте соединение Wi‑Fi и попробуйте снова.";
+
 /* No comment provided by engineer. */
 /*"NFiles" = "%d файлов";*/
 

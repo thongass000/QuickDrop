@@ -24,6 +24,10 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "통신 오류";
 
+"Error.ClosedByPeer" = "연결이 종료되었습니다. 이러한 문제가 반복되면 휴대전화를 재시작하세요.";
+
+"Error.NetworkDown" = "Wi‑Fi 연결이 끊어졌습니다. Wi‑Fi 연결 상태를 확인하고 다시 시도하세요.";
+
 /* No comment provided by engineer. */
 "NFiles" = "%d개의 파일";
 

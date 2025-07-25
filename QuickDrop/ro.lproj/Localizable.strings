@@ -24,6 +24,10 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "Eroare de comunicare";
 
+"Error.ClosedByPeer" = "Conexiunea a fost închisă. Dacă se întâmplă în mod repetat, repornește telefonul.";
+
+"Error.NetworkDown" = "Conexiunea Wi‑Fi a fost întreruptă. Verifică conexiunea Wi‑Fi și încearcă din nou.";
+
 /* No comment provided by engineer. */
 "NFiles" = "%d fișiere";
 

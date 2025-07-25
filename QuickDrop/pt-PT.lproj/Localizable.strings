@@ -24,6 +24,10 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "Erro de comunicação";
 
+"Error.ClosedByPeer" = "A ligação foi encerrada. Se isto acontecer repetidamente, reinicia o teu telemóvel.";
+
+"Error.NetworkDown" = "A ligação Wi‑Fi foi interrompida. Verifica a tua ligação Wi‑Fi e tenta novamente.";
+
 /* No comment provided by engineer. */
 "NFiles" = "%d ficheiros";
 

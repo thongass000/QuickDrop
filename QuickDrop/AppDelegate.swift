@@ -476,8 +476,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                     description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "") + "(\(errorMessage))"
                 case .ukey2:
                     description = NSLocalizedString("Error.Crypto", value: "Encryption error", comment: "") + "(\(ne.localizedDescription))"
-                case .canceled(reason: _):
-                    break // can't happen for incoming transfers
+                case .canceled(reason: let reason):
+                    description = "Error.Protocol".localized() + " (\(reason))"
                 }
             } else {
                 description = error.localizedDescription

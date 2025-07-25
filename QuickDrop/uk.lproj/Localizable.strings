@@ -24,6 +24,10 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "Помилка протоколу";
 
+"Error.ClosedByPeer" = "З'єднання було закрито. Якщо це трапляється постійно, перезавантажте телефон.";
+
+"Error.NetworkDown" = "З’єднання Wi‑Fi було перервано. Будь ласка, перевірте своє Wi‑Fi з’єднання та спробуйте ще раз.";
+
 /* No comment provided by engineer. */
 "NFiles" = "%d files";
 

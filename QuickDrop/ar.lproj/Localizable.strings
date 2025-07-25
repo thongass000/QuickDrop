@@ -24,6 +24,10 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "خطأ في الاتصال";
 
+"Error.ClosedByPeer" = "تم إغلاق الاتصال. إذا تكرر هذا الأمر، يرجى إعادة تشغيل هاتفك.";
+
+"Error.NetworkDown" = "تم قطع اتصال Wi‑Fi. يرجى التحقق من اتصال Wi‑Fi الخاص بك والمحاولة مرة أخرى.";
+
 /* No comment provided by engineer. */
 "NFiles" = "%d ملفات";
 

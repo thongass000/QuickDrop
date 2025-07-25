@@ -24,6 +24,10 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "通信出错";
 
+"Error.ClosedByPeer" = "连接已关闭。如果这种情况反复发生，请重启手机。";
+
+"Error.NetworkDown" = "Wi‑Fi 连接中断。请检查您的 Wi‑Fi 连接并重试。";
+
 /* No comment provided by engineer. */
 "NFiles" = "%d files";
 

@@ -24,6 +24,10 @@
 /* No comment provided by engineer. */
 "Error.Protocol" = "Kommunikációs hiba";
 
+"Error.ClosedByPeer" = "A kapcsolat megszakadt. Ha ez többször előfordul, indítsd újra a telefonodat.";
+
+"Error.NetworkDown" = "Megszakadt a Wi‑Fi kapcsolat. Kérlek, ellenőrizd a Wi‑Fi kapcsolatodat, majd próbáld újra.";
+
 /* No comment provided by engineer. */
 "NFiles" = "%d fájl";
 

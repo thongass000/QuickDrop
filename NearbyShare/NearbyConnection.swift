@@ -52,6 +52,7 @@ class NearbyConnection {
     
     func start() {
         connection.stateUpdateHandler = { state in
+            
             if !self.connectionClosed {
                 if case .ready = state {
                     self.connectionReady()
@@ -89,6 +90,10 @@ class NearbyConnection {
                 ConnectionFailureTracker.shared.recordFailure {
                     NearbyConnectionManager.shared.mainAppDelegate?.showFirewallAlert()
                 }
+            }
+            
+            if err == .posix(.ENETDOWN) {
+                self.lastError = NearbyError.protocolError("Error.NetworkDown")
             }
             
             self.handleConnectionClosure()
@@ -133,6 +138,7 @@ class NearbyConnection {
             }
             if isComplete {
                 log("Connection closed by peer during receiveFrameAsync")
+                self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
                 self.handleConnectionClosure()
                 return
             }
@@ -162,6 +168,7 @@ class NearbyConnection {
             }
             if isComplete {
                 log("Connection closed by peer during receiveFrameAsync")
+                self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
                 self.handleConnectionClosure()
                 return
             }
