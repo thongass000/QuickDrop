@@ -235,7 +235,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
                 filesIcon!.image = NSImage(named: NSImage.networkName)
             }
         } else {
-            filesLabel!.stringValue = String.localizedStringWithFormat(NSLocalizedString("NFiles", value: "%d files", comment: ""), urls.count)
+            filesLabel!.stringValue = String.localizedStringWithFormat("NFiles".localized(), urls.count)
             filesIcon!.image = NSImage(named: NSImage.multipleDocumentsName)
         }
     }
@@ -269,7 +269,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     func connectionWasEstablished(pinCode: String) {
         connectionEstablished = true
         
-        progressState?.stringValue = String(format: NSLocalizedString("PinCode", value: "PIN: %@", comment: ""), arguments: [pinCode])
+        progressState?.stringValue = String(format: "PinCode".localized(), arguments: [pinCode])
         progressProgressBar?.isIndeterminate = false
         progressProgressBar?.maxValue = 1000
         progressProgressBar?.doubleValue = 0
@@ -284,15 +284,15 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         if let ne = (error as? NearbyError), case let .canceled(reason) = ne {
             switch reason {
             case .userRejected:
-                progressState?.stringValue = NSLocalizedString("TransferDeclined", value: "Declined", comment: "")
+                progressState?.stringValue = "TransferDeclined".localized()
             case .userCanceled:
-                progressState?.stringValue = NSLocalizedString("TransferCanceled", value: "Canceled", comment: "")
+                progressState?.stringValue = "TransferCanceled".localized()
             case .notEnoughSpace:
-                progressState?.stringValue = NSLocalizedString("NotEnoughSpace", value: "Not enough disk space", comment: "")
+                progressState?.stringValue = "NotEnoughSpace".localized()
             case .unsupportedType:
-                progressState?.stringValue = NSLocalizedString("UnsupportedType", value: "Attachment type not supported", comment: "")
+                progressState?.stringValue = "UnsupportedType".localized()
             case .timedOut:
-                progressState?.stringValue = NSLocalizedString("TransferTimedOut", value: "Timed out", comment: "")
+                progressState?.stringValue = "TransferTimedOut".localized()
             }
             progressDeviceSecondaryIcon?.isHidden = false
             dismissDelayed()
@@ -306,7 +306,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     }
     
     func transferAccepted() {
-        progressState?.stringValue = NSLocalizedString("Sending", value: "Sending...", comment: "")
+        progressState?.stringValue = "Sending".localized()
     }
     
     func transferProgress(progress: Double) {
@@ -314,7 +314,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     }
     
     func transferFinished() {
-        progressState?.stringValue = NSLocalizedString("TransferFinished", value: "Transfer finished", comment: "")
+        progressState?.stringValue = "TransferFinished".localized()
         dismissDelayed()
     }
     
@@ -327,7 +327,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         progressDeviceName?.stringValue = getDeviceName(device: device)
         progressDeviceIcon?.image = imageForDeviceType(type: device.type)
         progressProgressBar?.startAnimation(nil)
-        progressState?.stringValue = NSLocalizedString("Connecting", value: "Connecting...", comment: "")
+        progressState?.stringValue = "Connecting".localized()
         chosenDevice = device
         NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: urls, textToSend: textToSend)
         

@@ -1,61 +1,27 @@
-/* No comment provided by engineer. */
 "Accept" = "Принять";
-
-/* No comment provided by engineer. */
 "Decline" = "Отклонить";
-
-/* No comment provided by engineer. */
 "DeviceName" = "Имя устройства: %@";
-
-/* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ отправляет Вам %2$@";
 "DeviceCurrentlySendingText" = "%1$@ вставил \"%2$@\" в ваш буфер обмена.";
 "DeviceSendingText" = "%1$@ хочет вставить \"%2$@\" в буфер обмена вашего Mac.";
-
 "DeviceCurrentlySendingUrl" = "%1$@ открыл \"%2$@\".";
 "DeviceSendingUrl" = "%1$@ хочет открыть \"%2$@\" на вашем Mac.";
-
 "InsertedIntoClipboard" = "Вставлено";
 "UnsupportedFileType" = "Файл, который вы пытались отправить, в настоящее время не поддерживается. Пожалуйста, отправьте отчет об ошибке.";
-
-/* No comment provided by engineer. */
 "Error.Crypto" = "Ошибка шифрования";
-
-/* No comment provided by engineer. */
 "Error.Protocol" = "Ошибка протокола";
-
 "Error.ClosedByPeer" = "Соединение было закрыто. Если это происходит неоднократно, перезагрузите телефон.";
-
 "Error.NetworkDown" = "Соединение по Wi‑Fi было прервано. Пожалуйста, проверьте соединение Wi‑Fi и попробуйте снова.";
-
-/* No comment provided by engineer. */
-/*"NFiles" = "%d файлов";*/
-
-/* No comment provided by engineer. */
 "PinCode" = "PIN: %@";
-
-/* No comment provided by engineer. */
 "Quit" = "Завершить QuickDrop";
-
-/* No comment provided by engineer. */
 "TransferError" = "Не удалость принять файлы от %@";
-
-/* No comment provided by engineer. */
 "VisibleToEveryone" = "Видимость: все";
 "NoNetworkConnection" = "Нет сетевого подключения";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Message" = "QuickDrop необходима возможность показывать уведомления о входящих файлах. Пожалуйста, разрешите уведомления в Системных настройках.";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Открыть настройки";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Title" = "Требуется доступ к уведомлениям";
-
 "RecommendedApps" = "Рекомендуемые приложения";
 "GetSupport" = "Поддержка";
-
 "PrivacyPolicy" = "Политика конфиденциальности";
 "ReadyToReceive" = "Готов к получению";
 "SendClipboard" = "Отправить буфер обмена";

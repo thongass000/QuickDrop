@@ -50,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         self.visibleItem = visibleItem
         menu.addItem(visibleItem)
         
-        menu.addItem(withTitle: String(format: NSLocalizedString("DeviceName", value: "Device name: %@", comment: ""), arguments: [Host.current().localizedName ?? "Mac"]), action: nil, keyEquivalent: "")
+        menu.addItem(withTitle: String(format: "DeviceName".localized(), arguments: [Host.current().localizedName ?? "Mac"]), action: nil, keyEquivalent: "")
 
         menu.addItem(NSMenuItem.separator())
 
@@ -59,10 +59,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         menu.addItem(NSMenuItem.separator())
 
-        let userManualItem = NSMenuItem(title: NSLocalizedString("UserManual", value: "User Manual", comment: ""), action: #selector(openWelcomeScreen), keyEquivalent: "")
+        let userManualItem = NSMenuItem(title: "UserManual".localized(), action: #selector(openWelcomeScreen), keyEquivalent: "")
         menu.addItem(userManualItem)
 
-        menu.addItem(withTitle: NSLocalizedString("Quit", value: "Quit QuickDrop", comment: ""), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "")
+        menu.addItem(withTitle: "Quit".localized(), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "")
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem?.button?.image = NSImage(named: "MenuBarIcon")
@@ -340,7 +340,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             let alert = NSAlert()
             alert.alertStyle = .critical
             
-            alert.messageText = String(format: NSLocalizedString("TransferError", value: "Failed to receive files from %@", comment: ""), arguments: [device?.name ?? "??"])
+            alert.messageText = String(format: "TransferError".localized(), arguments: [device?.name ?? "??"])
             alert.informativeText = "UnsupportedFileType".localized()
             
             alert.addButton(withTitle: "InformDeveloper".localized())
@@ -379,7 +379,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         } else if transfer.files.count == 1 {
             fileStr = transfer.files[0].name
         } else {
-            fileStr = String.localizedStringWithFormat(NSLocalizedString("NFiles", value: "%d files", comment: ""), transfer.files.count)
+            fileStr = String.localizedStringWithFormat("NFiles".localized(), transfer.files.count)
         }
 
         
@@ -397,7 +397,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
         
        
-        let pinCodeMessage = String(format: NSLocalizedString("PinCode", value: "PIN: %@", comment: ""), arguments: [transfer.pinCode ?? "?"])
+        let pinCodeMessage = String(format: "PinCode".localized(), arguments: [transfer.pinCode ?? "?"])
         let transferID = transfer.id
 
         if acceptAutomatically {
@@ -427,8 +427,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
             alert.messageText = "QuickDrop - \(pinCodeMessage)"
             alert.informativeText = mainMessage
-            alert.addButton(withTitle: NSLocalizedString("Accept", comment: ""))
-            alert.addButton(withTitle: NSLocalizedString("Decline", comment: ""))
+            alert.addButton(withTitle: "Accept".localized())
+            alert.addButton(withTitle: "Decline".localized())
 
             let result = alert.runModal()
 
@@ -466,18 +466,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 case .inputOutput:
                     description = "I/O Error"
                 case .protocolError(errorMessage: let errorMessage):
-                    log("Protocol error ")
-                    description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "") + " (\(errorMessage))"
+                    description = "Error.Protocol".localized() + ": \(errorMessage)"
                 case .packetFilterError:
                     openAlert(type: .NetworkFilter)
                     plusWindow?.close()
                     return
                 case .requiredFieldMissing(errorMessage: let errorMessage):
-                    description = NSLocalizedString("Error.Protocol", value: "Communication error", comment: "") + "(\(errorMessage))"
+                    description = "Error.Protocol".localized() + ": \(errorMessage)"
                 case .ukey2:
-                    description = NSLocalizedString("Error.Crypto", value: "Encryption error", comment: "") + "(\(ne.localizedDescription))"
+                    description = "Error.Crypto".localized() + ": \(ne.localizedDescription)"
                 case .canceled(reason: let reason):
-                    description = "Error.Protocol".localized() + " (\(reason))"
+                    description = "Error.Protocol".localized() + ": \(reason)"
                 }
             } else {
                 description = error.localizedDescription
@@ -485,7 +484,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
             let alert = NSAlert()
             alert.alertStyle = .critical
-            alert.messageText = String(format: NSLocalizedString("TransferError", value: "Failed to receive files from %@", comment: ""), arguments: [transfer.device.name])
+            alert.messageText = String(format: "TransferError".localized(), arguments: [transfer.device.name])
             alert.informativeText = description
             alert.addButton(withTitle: "InformDeveloper".localized())
             alert.addButton(withTitle: "CloseAlert".localized())

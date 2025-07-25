@@ -1,68 +1,31 @@
-/* No comment provided by engineer. */
 "Accept" = "Accept";
-
-/* No comment provided by engineer. */
 "Decline" = "Decline";
-
-/* No comment provided by engineer. */
 "DeviceName" = "Device name: %@";
-
-/* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ is sending you %2$@";
 "DeviceCurrentlySendingText" = "%1$@ inserted \"%2$@\" to your clipboard.";
 "DeviceSendingText" = "%1$@ wants to insert \"%2$@\" to your Mac's clipboard.";
-
 "DeviceCurrentlySendingUrl" = "%1$@ opened \"%2$@\".";
 "DeviceSendingUrl" = "%1$@ wants to open \"%2$@\" on your Mac.";
-
 "InsertedIntoClipboard" = "Inserted";
 "UnsupportedFileType" = "The file you tried to send is currently not supported. Please send an error report.";
-
-/* No comment provided by engineer. */
 "Error.Crypto" = "Encryption error";
-
-/* No comment provided by engineer. */
 "Error.Protocol" = "Communication error";
-
 "Error.ClosedByPeer" = "The connection was closed. If this happens repeatedly, please restart your phone.";
-
 "Error.NetworkDown" = "The Wi-Fi connection was interrupted. Please check your Wi-Fi connection and try again.";
-
-/* No comment provided by engineer. */
 "NFiles" = "%d files";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Message" = "QuickDrop needs to be able to display notifications for incoming file transfers. Please allow notifications in System Settings.";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Open settings";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Title" = "Notification Permission Required";
-
-/* No comment provided by engineer. */
 "PinCode" = "PIN: %@";
-
-/* No comment provided by engineer. */
 "Quit" = "Close QuickDrop";
-
-/* No comment provided by engineer. */
 "TransferError" = "Failed to receive files from %@";
-
-/* No comment provided by engineer. */
 "VisibleToEveryone" = "Visible to everyone";
 "NoNetworkConnection" = "No Network Connection";
-
 "WelcomeToQuickDrop" = "Welcome to QuickDrop";
-
 "Acknowledgements" = "Acknowledgements";
-
 "SupportQuickDrop" = "Support QuickDrop";
-
 "RecommendedApps" = "Recommended Apps";
-
 "GetSupport" = "Support";
-
 "ReadyToReceive" = "Ready to receive";
 "PrivacyPolicy" = "Privacy Policy";
 "SendClipboard" = "Send Clipboard";

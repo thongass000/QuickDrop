@@ -1,58 +1,25 @@
-/* No comment provided by engineer. */
 "Accept" = "Aceptar";
-
-/* No comment provided by engineer. */
 "Decline" = "Rechazar";
-
-/* No comment provided by engineer. */
 "DeviceName" = "Nombre del dispositivo: %@";
-
-/* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ te quiere enviar %2$@";
 "DeviceCurrentlySendingText" = "%1$@ ha insertado \"%2$@\" en tu portapapeles.";
 "DeviceSendingText" = "%1$@ quiere insertar \"%2$@\" en el portapapeles de tu Mac.";
-
 "DeviceCurrentlySendingUrl" = "%1$@ ha abierto \"%2$@\".";
 "DeviceSendingUrl" = "%1$@ quiere abrir \"%2$@\" en tu Mac.";
-
 "InsertedIntoClipboard" = "Insertado";
 "UnsupportedFileType" = "El archivo que intentaste enviar no es compatible actualmente. Por favor, envía un informe de error.";
-
-/* No comment provided by engineer. */
 "Error.Crypto" = " Error de encriptación";
-
-/* No comment provided by engineer. */
 "Error.Protocol" = "Error de comunicación";
-
 "Error.ClosedByPeer" = "La conexión se cerró. Si esto ocurre repetidamente, reinicia tu teléfono.";
-
 "Error.NetworkDown" = "La conexión Wi‑Fi se interrumpió. Por favor, verifica tu conexión Wi‑Fi e inténtalo de nuevo.";
-
-/* No comment provided by engineer. */
-//"NFiles" = "%d archivos";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Message" = "QuickDrop necesita poder mostrar notificaciones para las transferencias de archivos entrantes. Permite las notificaciones en la configuración del sistema.";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Abrir la configuración del sistema";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Title" = "Permiso de notificaciones necesario";
-
-/* No comment provided by engineer. */
 "PinCode" = "PIN: %@";
-
-/* No comment provided by engineer. */
 "Quit" = "Salir de QuickDrop";
-
-/* No comment provided by engineer. */
 "TransferError" = "Error al recibir archivos de %@";
-
-/* No comment provided by engineer. */
 "VisibleToEveryone" = "Visible para todos";
 "NoNetworkConnection" = "Sin conexión de red";
-
 "RecommendedApps" = "Aplicaciones recomendadas";
 "GetSupport" = "Soporte";
 "PrivacyPolicy" = "Política de privacidad";

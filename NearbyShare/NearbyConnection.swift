@@ -93,7 +93,7 @@ class NearbyConnection {
             }
             
             if err == .posix(.ENETDOWN) {
-                self.lastError = NearbyError.protocolError("Error.NetworkDown")
+                self.lastError = NearbyError.protocolError("Error.NetworkDown".localized())
             }
             
             self.handleConnectionClosure()

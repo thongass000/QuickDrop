@@ -364,7 +364,7 @@ func openLicenseWindow() -> NSWindow {
     )
     window.center()
     window.isReleasedWhenClosed = false
-    window.title = NSLocalizedString("Acknowledgements", value: "Acknowledgements", comment: "")
+    window.title = "Acknowledgements".localized()
     window.contentView = NSHostingView(rootView: LicensePage())
     
     // Ensure the window is always on top

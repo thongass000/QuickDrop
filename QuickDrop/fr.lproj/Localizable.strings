@@ -1,58 +1,26 @@
-/* No comment provided by engineer. */
 "Accept" = "Accepter";
-
-/* No comment provided by engineer. */
 "Decline" = "Refuser";
-
-/* No comment provided by engineer. */
 "DeviceName" = "Nom de l'appareil : %@";
-
-/* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ vous envoie %2$@";
 "DeviceCurrentlySendingText" = "%1$@ a inséré \"%2$@\" dans votre presse-papiers.";
 "DeviceSendingText" = "%1$@ souhaite insérer \"%2$@\" dans le presse-papiers de votre Mac.";
-
 "DeviceCurrentlySendingUrl" = "%1$@ a ouvert \"%2$@\".";
 "DeviceSendingUrl" = "%1$@ souhaite ouvrir \"%2$@\" sur votre Mac.";
-
 "InsertedIntoClipboard" = "Inséré";
 "UnsupportedFileType" = "Le fichier que vous avez essayé d'envoyer n'est pas pris en charge actuellement. Veuillez envoyer un rapport d'erreur.";
-
-/* No comment provided by engineer. */
 "Error.Crypto" = "Erreur de cryptage";
-
-/* No comment provided by engineer. */
 "Error.Protocol" = "Erreur de communication";
-
 "Error.ClosedByPeer" = "La connexion a été fermée. Si cela se produit à plusieurs reprises, redémarrez votre téléphone.";
-
 "Error.NetworkDown" = "La connexion Wi‑Fi a été interrompue. Veuillez vérifier votre connexion Wi‑Fi et réessayer.";
-
-/* No comment provided by engineer. */
 "NFiles" = "%d fichiers";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Message" = "QuickDrop doit pouvoir afficher des notifications pour les transferts de fichiers entrants. Veuillez autoriser les notifications dans les paramètres système.";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Ouvrir les paramètres";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Title" = "Autorisation de notification requise";
-
-/* No comment provided by engineer. */
 "PinCode" = "CODE PIN : %@";
-
-/* No comment provided by engineer. */
 "Quit" = "Quitter QuickDrop";
-
-/* No comment provided by engineer. */
 "TransferError" = "Échec de la réception des fichiers de %@";
-
-/* No comment provided by engineer. */
 "VisibleToEveryone" = "Visible par tout le monde";
 "NoNetworkConnection" = "Pas de connexion réseau";
-
 "RecommendedApps" = "Applications recommandées";
 "GetSupport" = "Support";
 "PrivacyPolicy" = "Politique de confidentialité";

@@ -1,58 +1,26 @@
-/* No comment provided by engineer. */
 "Accept" = "قبول";
-
-/* No comment provided by engineer. */
 "Decline" = "رفض";
-
-/* No comment provided by engineer. */
 "DeviceName" = "اسم الجهاز: %@";
-
-/* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ يرسل لك %2$@";
 "DeviceCurrentlySendingText" = "قام %1$@ بإدراج \"%2$@\" في الحافظة الخاصة بك.";
 "DeviceSendingText" = "يرغب %1$@ في إدراج \"%2$@\" في حافظة جهاز Mac الخاص بك.";
-
 "DeviceCurrentlySendingUrl" = "قام %1$@ بفتح \"%2$@\".";
 "DeviceSendingUrl" = "يرغب %1$@ في فتح \"%2$@\" على جهاز Mac الخاص بك.";
-
 "InsertedIntoClipboard" = "تم الإدراج";
 "UnsupportedFileType" = "الملف الذي حاولت إرساله غير مدعوم حالياً. يُرجى إرسال تقرير بالخطأ.";
-
-/* No comment provided by engineer. */
 "Error.Crypto" = "خطأ في التشفير";
-
-/* No comment provided by engineer. */
 "Error.Protocol" = "خطأ في الاتصال";
-
 "Error.ClosedByPeer" = "تم إغلاق الاتصال. إذا تكرر هذا الأمر، يرجى إعادة تشغيل هاتفك.";
-
 "Error.NetworkDown" = "تم قطع اتصال Wi‑Fi. يرجى التحقق من اتصال Wi‑Fi الخاص بك والمحاولة مرة أخرى.";
-
-/* No comment provided by engineer. */
 "NFiles" = "%d ملفات";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Message" = "يحتاج QuickDrop إلى القدرة على عرض الإشعارات لنقل الملفات الواردة. يرجى السماح بالإشعارات في إعدادات النظام.";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "افتح الإعدادات";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Title" = "مطلوب إذن الإشعارات";
-
-/* No comment provided by engineer. */
 "PinCode" = "الرمز السري: %@";
-
-/* No comment provided by engineer. */
 "Quit" = "إنهاء QuickDrop";
-
-/* No comment provided by engineer. */
 "TransferError" = "فشل في استقبال الملفات من %@";
-
-/* No comment provided by engineer. */
 "VisibleToEveryone" = "مرئي للجميع";
 "NoNetworkConnection" = "لا يوجد اتصال بالشبكة";
-
 "RecommendedApps" = "التطبيقات الموصى بها";
 "GetSupport" = "الدعم";
 "PrivacyPolicy" = "سياسة الخصوصية";

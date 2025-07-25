@@ -1,58 +1,26 @@
-/* No comment provided by engineer. */
 "Accept" = "Acceptă";
-
-/* No comment provided by engineer. */
 "Decline" = "Refuză";
-
-/* No comment provided by engineer. */
 "DeviceName" = "Nume dispozitiv : %@";
-
-/* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ vă trimite %2$@";
 "DeviceCurrentlySendingText" = "%1$@ a introdus \"%2$@\" în clipboard-ul tău.";
 "DeviceSendingText" = "%1$@ dorește să introducă \"%2$@\" în clipboard-ul Mac-ului tău.";
-
 "DeviceCurrentlySendingUrl" = "%1$@ a deschis \"%2$@\".";
 "DeviceSendingUrl" = "%1$@ dorește să deschidă \"%2$@\" pe Mac-ul tău.";
-
 "InsertedIntoClipboard" = "Inserat";
 "UnsupportedFileType" = "Fișierul pe care ai încercat să-l trimiți nu este momentan acceptat. Te rugăm să trimiți un raport de eroare.";
-
-/* No comment provided by engineer. */
 "Error.Crypto" = "Eroare de criptare";
-
-/* No comment provided by engineer. */
 "Error.Protocol" = "Eroare de comunicare";
-
 "Error.ClosedByPeer" = "Conexiunea a fost închisă. Dacă se întâmplă în mod repetat, repornește telefonul.";
-
 "Error.NetworkDown" = "Conexiunea Wi‑Fi a fost întreruptă. Verifică conexiunea Wi‑Fi și încearcă din nou.";
-
-/* No comment provided by engineer. */
 "NFiles" = "%d fișiere";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Message" = "QuickDrop trebuie să poată afișa notificări pentru transferurile de fișiere primite. Vă rugăm să permiteți notificările în Setările Sistemului.";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Deschide setările";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Title" = "Permisiunea pentru notificări este necesară";
-
-/* No comment provided by engineer. */
 "PinCode" = "COD PIN : %@";
-
-/* No comment provided by engineer. */
 "Quit" = "Închide QuickDrop";
-
-/* No comment provided by engineer. */
 "TransferError" = "Recepționarea fișierelor de la %@ a eșuat";
-
-/* No comment provided by engineer. */
 "VisibleToEveryone" = "Vizibil pentru toată lumea";
 "NoNetworkConnection" = "Nicio conexiune la rețea";
-
 "RecommendedApps" = "Aplicații recomandate";
 "GetSupport" = "Suport";
 "PrivacyPolicy" = "Politica de confidențialitate";

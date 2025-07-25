@@ -1,58 +1,26 @@
-/* No comment provided by engineer. */
 "Accept" = "Прийняти";
-
-/* No comment provided by engineer. */
 "Decline" = "Відхилити";
-
-/* No comment provided by engineer. */
 "DeviceName" = "Імʼя пристрою: %@";
-
-/* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ відправляє Вам %2$@";
 "DeviceCurrentlySendingText" = "%1$@ вставив \"%2$@\" до вашого буфера обміну.";
 "DeviceSendingText" = "%1$@ хоче вставити \"%2$@\" до буфера обміну вашого Mac.";
-
 "DeviceCurrentlySendingUrl" = "%1$@ відкрив \"%2$@\".";
 "DeviceSendingUrl" = "%1$@ хоче відкрити \"%2$@\" на вашому Mac.";
-
 "InsertedIntoClipboard" = "Вставлено";
 "UnsupportedFileType" = "Файл, який ви намагалися надіслати, наразі не підтримується. Будь ласка, надішліть звіт про помилку.";
-
-/* No comment provided by engineer. */
 "Error.Crypto" = "Помилка шифрування";
-
-/* No comment provided by engineer. */
 "Error.Protocol" = "Помилка протоколу";
-
 "Error.ClosedByPeer" = "З'єднання було закрито. Якщо це трапляється постійно, перезавантажте телефон.";
-
 "Error.NetworkDown" = "З’єднання Wi‑Fi було перервано. Будь ласка, перевірте своє Wi‑Fi з’єднання та спробуйте ще раз.";
-
-/* No comment provided by engineer. */
 "NFiles" = "%d files";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Message" = "QuickDrop потрібна можливість показувати сповіщення про вхідні файли. Будь ласка, дозвольте сповіщення у Системних налаштуваннях.";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Відкрити налаштування";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Title" = "Потрібен доступ до сповіщень";
-
-/* No comment provided by engineer. */
 "PinCode" = "PIN: %@";
-
-/* No comment provided by engineer. */
 "Quit" = "Завершити QuickDrop";
-
-/* No comment provided by engineer. */
 "TransferError" = "Не вдалося отримати файли від %@";
-
-/* No comment provided by engineer. */
 "VisibleToEveryone" = "Видимість: для всіх";
 "NoNetworkConnection" = "Немає мережевого підключення";
-
 "RecommendedApps" = "Рекомендовані додатки";
 "GetSupport" = "Підтримка";
 "PrivacyPolicy" = "Політика конфіденційності";

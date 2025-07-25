@@ -1,58 +1,26 @@
-/* No comment provided by engineer. */
 "Accept" = "ยอมรับ";
-
-/* No comment provided by engineer. */
 "Decline" = "ปฏิเสธ";
-
-/* No comment provided by engineer. */
 "DeviceName" = "ชื่ออุปกรณ์: %@";
-
-/* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ กำลังส่งไฟล์ให้คุณ %2$@";
 "DeviceCurrentlySendingText" = "%1$@ ได้แทรก \"%2$@\" ไปยังคลิปบอร์ดของคุณแล้ว";
 "DeviceSendingText" = "%1$@ ต้องการแทรก \"%2$@\" ไปยังคลิปบอร์ดของ Mac ของคุณ";
-
 "DeviceCurrentlySendingUrl" = "%1$@ ได้เปิด \"%2$@\" แล้ว";
 "DeviceSendingUrl" = "%1$@ ต้องการเปิด \"%2$@\" บน Mac ของคุณ";
-
 "InsertedIntoClipboard" = "แทรกแล้ว";
 "UnsupportedFileType" = "ไฟล์ที่คุณพยายามส่งยังไม่รองรับในขณะนี้ โปรดส่งรายงานข้อผิดพลาด";
-
-/* No comment provided by engineer. */
 "Error.Crypto" = "การเข้ารหัสผิดพลาด";
-
-/* No comment provided by engineer. */
 "Error.Protocol" = "การสื่อสารผิดพลาด";
-
 "Error.ClosedByPeer" = "การเชื่อมต่อถูกปิด หากเกิดขึ้นซ้ำหลายครั้ง โปรดรีสตาร์ทโทรศัพท์ของคุณ";
-
 "Error.NetworkDown" = "การเชื่อมต่อ Wi‑Fi ถูกขัดจังหวะ โปรดตรวจสอบการเชื่อมต่อ Wi‑Fi ของคุณแล้วลองอีกครั้ง";
-
-/* No comment provided by engineer. */
 "NFiles" = "%d ไฟล์";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Message" = "QuickDrop ไม่สามารถแสดงการแจ้งเตือนไฟล์ที่เข้ามาได้ โปรดให้สิทธิ์การแจ้งเตือน ในการตั้งค่าระบบ";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "การตั้งค่า";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Title" = "จำเป็นต้องใช้สิทธิ์การแจ้งเตือน";
-
-/* No comment provided by engineer. */
 "PinCode" = "PIN: %@";
-
-/* No comment provided by engineer. */
 "Quit" = "ออก QuickDrop";
-
-/* No comment provided by engineer. */
 "TransferError" = "เกิดข้อผิดพลาดในการรับไฟล์จาก %@";
-
-/* No comment provided by engineer. */
 "VisibleToEveryone" = "เปิดเผยต่อทุกคน";
 "NoNetworkConnection" = "ไม่มีการเชื่อมต่อเครือข่าย";
-
 "RecommendedApps" = "แอปแนะนำ";
 "GetSupport" = "การสนับสนุน";
 "PrivacyPolicy" = "นโยบายความเป็นส่วนตัว";

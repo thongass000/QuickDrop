@@ -1,58 +1,26 @@
-/* No comment provided by engineer. */
 "Accept" = "Accetta";
-
-/* No comment provided by engineer. */
 "Decline" = "Rifiuta";
-
-/* No comment provided by engineer. */
 "DeviceName" = "Nome del dispositivo: %@";
-
-/* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ ti sta mandando %2$@";
 "DeviceCurrentlySendingText" = "%1$@ ha inserito \"%2$@\" negli appunti.";
 "DeviceSendingText" = "%1$@ vuole inserire \"%2$@\" negli appunti del tuo Mac.";
-
 "DeviceCurrentlySendingUrl" = "%1$@ ha aperto \"%2$@\".";
 "DeviceSendingUrl" = "%1$@ vuole aprire \"%2$@\" sul tuo Mac.";
-
 "InsertedIntoClipboard" = "Inserito";
 "UnsupportedFileType" = "Il file che hai provato a inviare non è attualmente supportato. Invia un rapporto di errore.";
-
-/* No comment provided by engineer. */
 "Error.Crypto" = "Errore di crittografia";
-
-/* No comment provided by engineer. */
 "Error.Protocol" = "Errore di comunicazione";
-
 "Error.ClosedByPeer" = "La connessione è stata chiusa. Se ciò accade ripetutamente, riavvia il telefono.";
-
 "Error.NetworkDown" = "La connessione Wi‑Fi è stata interrotta. Controlla la tua connessione Wi‑Fi e riprova.";
-
-/* No comment provided by engineer. */
 "NFiles" = "%d files";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Message" = "QuickDrop deve essere in grado di visualizzare le notifiche per i trasferimenti di file in entrata. Consenti le notifiche nelle Impostazioni di sistema.";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Apri le impostazioni";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Title" = "Autorizzazione di notifica richiesta";
-
-/* No comment provided by engineer. */
 "PinCode" = "PIN: %@";
-
-/* No comment provided by engineer. */
 "Quit" = "Esci da QuickDrop";
-
-/* No comment provided by engineer. */
 "TransferError" = "Impossibile ricevere i file da %@";
-
-/* No comment provided by engineer. */
 "VisibleToEveryone" = "Visibile a tutti";
 "NoNetworkConnection" = "Nessuna connessione di rete";
-
 "RecommendedApps" = "App consigliate";
 "GetSupport" = "Supporto";
 "ReadyToReceive" = "Pronto a ricevere";

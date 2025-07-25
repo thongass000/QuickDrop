@@ -1,58 +1,26 @@
-/* No comment provided by engineer. */
 "Accept" = "接受";
-
-/* No comment provided by engineer. */
 "Decline" = "拒绝";
-
-/* No comment provided by engineer. */
 "DeviceName" = "设备名称: %@";
-
-/* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ 正向你发送 %2$@";
 "DeviceCurrentlySendingText" = "%1$@ 已将 \"%2$@\" 插入到你的剪贴板。";
 "DeviceSendingText" = "%1$@ 想要将 \"%2$@\" 插入到你的 Mac 剪贴板。";
-
 "DeviceCurrentlySendingUrl" = "%1$@ 已打开 \"%2$@\"。";
 "DeviceSendingUrl" = "%1$@ 想要在你的 Mac 上打开 \"%2$@\"。";
-
 "InsertedIntoClipboard" = "已插入";
 "UnsupportedFileType" = "您尝试发送的文件当前不受支持。请发送错误报告。";
-
-/* No comment provided by engineer. */
 "Error.Crypto" = "加密出错";
-
-/* No comment provided by engineer. */
 "Error.Protocol" = "通信出错";
-
 "Error.ClosedByPeer" = "连接已关闭。如果这种情况反复发生，请重启手机。";
-
 "Error.NetworkDown" = "Wi‑Fi 连接中断。请检查您的 Wi‑Fi 连接并重试。";
-
-/* No comment provided by engineer. */
 "NFiles" = "%d files";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Message" = "QuickDrop 需显示是否接收文件传输的通知。请在 系统设置 中允许通知。";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "打开设置";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Title" = "需要通知权限";
-
-/* No comment provided by engineer. */
 "PinCode" = "PIN: %@";
-
-/* No comment provided by engineer. */
 "Quit" = "退出 QuickDrop";
-
-/* No comment provided by engineer. */
 "TransferError" = "无法从 %@ 接收文件";
-
-/* No comment provided by engineer. */
 "VisibleToEveryone" = "对所有人可见";
 "NoNetworkConnection" = "无网络连接";
-
 "RecommendedApps" = "推荐应用";
 "GetSupport" = "支持";
 "PrivacyPolicy" = "隐私政策";

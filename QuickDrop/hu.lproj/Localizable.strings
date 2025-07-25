@@ -1,58 +1,26 @@
-/* No comment provided by engineer. */
 "Accept" = "Elfogad";
-
-/* No comment provided by engineer. */
 "Decline" = "Elutasít";
-
-/* No comment provided by engineer. */
 "DeviceName" = "Készülék neve: %@";
-
-/* No comment provided by engineer. */
 "DeviceSendingFiles" = "%1$@ a következőt küldi: %2$@";
 "DeviceCurrentlySendingText" = "%1$@ beillesztette a(z) \"%2$@\" szöveget a vágólapodra.";
 "DeviceSendingText" = "%1$@ be szeretné illeszteni a(z) \"%2$@\" szöveget a Mac-ed vágólapjára.";
-
 "DeviceCurrentlySendingUrl" = "%1$@ megnyitotta a(z) \"%2$@\" hivatkozást.";
 "DeviceSendingUrl" = "%1$@ meg szeretné nyitni a(z) \"%2$@\" hivatkozást a Mac-eden.";
-
 "InsertedIntoClipboard" = "Beillesztve";
 "UnsupportedFileType" = "A fájl, amelyet megpróbáltál küldeni, jelenleg nem támogatott. Kérjük, küldj hibajelentést.";
-
-/* No comment provided by engineer. */
 "Error.Crypto" = "Titkosítási hiba";
-
-/* No comment provided by engineer. */
 "Error.Protocol" = "Kommunikációs hiba";
-
 "Error.ClosedByPeer" = "A kapcsolat megszakadt. Ha ez többször előfordul, indítsd újra a telefonodat.";
-
 "Error.NetworkDown" = "Megszakadt a Wi‑Fi kapcsolat. Kérlek, ellenőrizd a Wi‑Fi kapcsolatodat, majd próbáld újra.";
-
-/* No comment provided by engineer. */
 "NFiles" = "%d fájl";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Message" = "A QuickDrop-nak szüksége van értesítéseket küldeni a bejövő fájlok fogadásához. Kérlek engedélyezd az értesítésekhez való hozzáférést a Rendszerbeállításokban.";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.OpenSettings" = "Beállítások megnyitása";
-
-/* No comment provided by engineer. */
 "NotificationsDenied.Title" = "Szükséges az értesítésekhez való hozzáférés";
-
-/* No comment provided by engineer. */
 "PinCode" = "JELKÓD: %@";
-
-/* No comment provided by engineer. */
 "Quit" = "QuickDrop bezárása";
-
-/* No comment provided by engineer. */
 "TransferError" = "Nem sikerült %@-tól/től fájlokat fogadni";
-
-/* No comment provided by engineer. */
 "VisibleToEveryone" = "Mindenki számára felfedezhető";
 "NoNetworkConnection" = "Nincs hálózati kapcsolat";
-
 "RecommendedApps" = "Ajánlott alkalmazások";
 "GetSupport" = "Támogatás";
 "PrivacyPolicy" = "Adatvédelmi irányelvek";
