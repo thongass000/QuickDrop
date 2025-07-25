@@ -147,11 +147,13 @@ struct SmallSheetView: View {
     }
 }
 
+
 enum SheetViewType {
     case sendToDeviceQrCode
     case downloadAndroidApp
     case downloadCableConnectionApp
 }
+
 
 #Preview {
     SmallSheetView(type: .downloadCableConnectionApp, closeView: {})

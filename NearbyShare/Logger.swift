@@ -21,6 +21,7 @@ final class LogManager {
     
     @Published var loggingEnabled = true
 
+    
     /// Private initializer
     private init() {
         // Use the App Group container
@@ -35,6 +36,7 @@ final class LogManager {
         // Full path in app group container
         self.logFileURL = directory?.appendingPathComponent(fileName)
     }
+    
     
     /// Writes a specified string to the log file.
     func writeToFile(string: String) {
@@ -70,6 +72,7 @@ final class LogManager {
         }
     }
     
+    
     /// Gets the contents of the log file.
     func getLogString() -> String {
         guard let logFileURL = logFileURL else { return "" }
@@ -80,7 +83,8 @@ final class LogManager {
             return ""
         }
     }
-
+    
+    
     /// Deletes all log files in the shared container.
     func deleteLogs() {
         log("[LUI] Deleting all logs...")
@@ -104,6 +108,7 @@ final class LogManager {
     }
 }
 
+
 /// Logs a specified string
 public func log(_ text: String) {
     let logger = LogManager.sharedInstance
@@ -119,6 +124,7 @@ public func log(_ text: String) {
         }
     }
 }
+
 
 /// Returns the shared App Group directory
 fileprivate func getAppGroupDirectory() -> URL? {

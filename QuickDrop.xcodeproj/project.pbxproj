@@ -45,7 +45,6 @@
 		EB7CD1472D6FB0E800CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7F54122D78E96000989564 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54112D78E95C00989564 /* TutorialView.swift */; };
 		EB7F54142D78E9E700989564 /* LicenseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54132D78E9E400989564 /* LicenseWindow.swift */; };
-		EB91F0EB2DEDC741006C1867 /* CableConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB91F0EA2DEDC73D006C1867 /* CableConnectionView.swift */; };
 		EB9237C42D7CDF8B00CA3A42 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69D2C32B29E77F2200EC7E30 /* Localizable.strings */; };
 		EB9237C52D7CDF9000CA3A42 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 69D2C33629E78DF400EC7E30 /* Localizable.stringsdict */; };
 		EB96ED8B2D7F7CF7004B3FF1 /* SmallSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */; };
@@ -214,7 +213,6 @@
 		EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		EB7F54112D78E95C00989564 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		EB7F54132D78E9E400989564 /* LicenseWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWindow.swift; sourceTree = "<group>"; };
-		EB91F0EA2DEDC73D006C1867 /* CableConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CableConnectionView.swift; sourceTree = "<group>"; };
 		EB9237B52D7CDCE700CA3A42 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ShareViewController.strings; sourceTree = "<group>"; };
 		EB9237B72D7CDD7200CA3A42 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ShareViewController.strings; sourceTree = "<group>"; };
 		EB9237B92D7CDE3B00CA3A42 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ShareViewController.strings; sourceTree = "<group>"; };
@@ -345,7 +343,6 @@
 				EB7F54112D78E95C00989564 /* TutorialView.swift */,
 				EB1A7E422DD4D8BD00A6D5A3 /* SelfTest */,
 				EB7F54132D78E9E400989564 /* LicenseWindow.swift */,
-				EB91F0EA2DEDC73D006C1867 /* CableConnectionView.swift */,
 				EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */,
 				EB36435F2D73A29F009CDFF8 /* AudioManager.swift */,
 				EB6E743F2DD5CBFB00331466 /* IssueViews */,
@@ -598,7 +595,6 @@
 			files = (
 				EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */,
 				EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */,
-				EB91F0EB2DEDC741006C1867 /* CableConnectionView.swift in Sources */,
 				EBC05C5B2E33937200EECC18 /* ErrorAlertHandler.swift in Sources */,
 				EB96ED8C2D7F7E7B004B3FF1 /* SmallSheetView.swift in Sources */,
 				EB7F54142D78E9E700989564 /* LicenseWindow.swift in Sources */,

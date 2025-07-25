@@ -10,6 +10,7 @@ import AppKit
 import NearbyShare
 
 struct SettingsView: View {
+    
     @AppStorage(UserDefaultsKeys.automaticallyAcceptFiles.rawValue) private var automaticallyAcceptFiles = false
     @AppStorage(UserDefaultsKeys.openFinderAfterReceiving.rawValue) private var openFinderAfterReceiving = false
     @AppStorage(UserDefaultsKeys.saveFolderBookmark.rawValue) private var saveFolderPath: Data = Data()
@@ -49,6 +50,7 @@ struct SettingsView: View {
         }
     }
     
+    
     private func getSavedFolderPath() -> String? {
         if !saveFolderPath.isEmpty {
             var isStale = false
@@ -61,6 +63,7 @@ struct SettingsView: View {
         }
         return nil  // No saved folder
     }
+    
     
     private func selectFolder() {
         let panel = NSOpenPanel()

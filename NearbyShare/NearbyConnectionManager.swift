@@ -25,6 +25,7 @@ public struct RemoteDeviceInfo {
         type = info.deviceType
     }
 
+    
     public enum DeviceType: Int32 {
         case unknown = 0
         case phone
@@ -47,6 +48,7 @@ public struct RemoteDeviceInfo {
         }
     }
 }
+
 
 public enum NearbyError: Error {
     case protocolError(_ message: String)
@@ -76,6 +78,7 @@ public enum NearbyError: Error {
     }
 }
 
+
 public struct TransferMetadata {
     public let files: [FileMetadata]
     public let id: String
@@ -98,16 +101,19 @@ public struct TransferMetadata {
     }
 }
 
+
 public struct FileMetadata {
     public let name: String
     public let size: Int64
     public let mimeType: String
 }
 
+
 struct FoundServiceInfo {
     let service: NWBrowser.Result
     var device: RemoteDeviceInfo?
 }
+
 
 struct OutgoingTransferInfo {
     let service: NWBrowser.Result
@@ -116,15 +122,18 @@ struct OutgoingTransferInfo {
     let delegate: ShareExtensionDelegate
 }
 
+
 struct EndpointInfo {
     let name: String
     let deviceType: RemoteDeviceInfo.DeviceType
 
+    
     init(name: String, deviceType: RemoteDeviceInfo.DeviceType) {
         self.name = name
         self.deviceType = deviceType
     }
 
+    
     init?(data: Data) {
         guard data.count > 17 else { return nil }
         let deviceNameLength = Int(data[17])
@@ -135,6 +144,7 @@ struct EndpointInfo {
         deviceType = RemoteDeviceInfo.DeviceType.fromRawValue(value: rawDeviceType)
     }
 
+    
     func serialize() -> Data {
         // 1 byte: Version(3 bits)|Visibility(1 bit)|Device Type(3 bits)|Reserved(1 bits)
         // Device types: unknown=0, phone=1, tablet=2, laptop=3
@@ -156,6 +166,7 @@ struct EndpointInfo {
     }
 }
 
+
 public protocol MainAppDelegate {
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo)
     func incomingTransfer(id: String, didFinishWith error: Error?)
@@ -173,6 +184,7 @@ public protocol ShareExtensionDelegate: AnyObject {
     func transferProgress(progress: Double)
     func transferFinished()
 }
+
 
 public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearbyConnectionDelegate, OutboundNearbyConnectionDelegate {
     public var checkSignature = true {
@@ -199,14 +211,17 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
 
     public static let shared = NearbyConnectionManager()
 
+    
     override init() {
         tcpListener = try! NWListener(using: NWParameters(tls: .none))
         super.init()
     }
-
+    
+    
     public func becomeVisible() {
         startTCPListener()
     }
+    
 
     private func startTCPListener() {
         tcpListener.stateUpdateHandler = { (state: NWListener.State) in
@@ -224,6 +239,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         tcpListener.start(queue: .global(qos: .utility))
     }
 
+    
     private static func generateEndpointID() -> [UInt8] {
         let userDefaultsKey = UserDefaultsKeys.endpointID.rawValue
 
@@ -248,6 +264,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         return id
     }
 
+    
     private func initMDNS() {
         let nameBytes: [UInt8] = [
             0x23, // PCP
@@ -271,17 +288,20 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
     }
 
+    
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo, connection _: InboundNearbyConnection) {
         guard let delegate = mainAppDelegate else { return }
         delegate.obtainUserConsent(for: transfer, from: device)
     }
-
+    
+    
     func connectionWasTerminated(connection: InboundNearbyConnection, error: Error?) {
         guard let delegate = mainAppDelegate else { return }
         delegate.incomingTransfer(id: connection.id, didFinishWith: error)
         activeConnections.removeValue(forKey: connection.id)
     }
 
+    
     public func submitUserConsent(transferID: String, accept: Bool, storeInTemp: Bool = false) {
         guard let conn = activeConnections[transferID] else { return }
         
@@ -289,6 +309,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         conn.submitUserConsent(accepted: accept, storeInTemp: storeInTemp)
     }
 
+    
     public func startDeviceDiscovery() {
         log("Device discovery requested.")
 
@@ -323,6 +344,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         discoveryRefCount += 1
     }
 
+    
     public func stopDeviceDiscovery() {
         discoveryRefCount -= 1
         assert(discoveryRefCount >= 0)
@@ -336,6 +358,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
     }
 
+    
     public func addShareExtensionDelegate(_ delegate: ShareExtensionDelegate) {
         shareExtensionDelegates.append(delegate)
         for service in foundServices.values {
@@ -344,15 +367,18 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
     }
 
+    
     public func removeShareExtensionDelegate(_ delegate: ShareExtensionDelegate) {
         shareExtensionDelegates.removeAll(where: { $0 === delegate })
     }
 
+    
     public func cancelOutgoingTransfer(id: String) {
         guard let transfer = outgoingTransfers[id] else { return }
         transfer.connection.cancel()
     }
 
+    
     private func endpointID(for service: NWBrowser.Result) -> String? {
         guard case let NWEndpoint.service(name: serviceName, type: _, domain: _, interface: _) = service.endpoint else { return nil }
         guard let nameData = Data.dataFromUrlSafeBase64(serviceName) else { return nil }
@@ -365,6 +391,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         return endpointID
     }
 
+    
     private func addFoundDevice(service: NWBrowser.Result) {
         log("found service \(service)")
         for interface in service.interfaces {
@@ -394,6 +421,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
     }
 
+    
     private func removeFoundDevice(service: NWBrowser.Result) {
         guard let endpointID = endpointID(for: service) else { return }
         guard let _ = foundServices.removeValue(forKey: endpointID) else { return }
@@ -402,6 +430,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
     }
 
+    
     public func startOutgoingTransfer(deviceID: String, delegate: ShareExtensionDelegate, urls: [URL], textToSend: String?) {
         guard let info = foundServices[deviceID] else { return }
         let tcp = NWProtocolTCP.Options()
@@ -414,12 +443,14 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         conn.start()
     }
 
+    
     func outboundConnectionWasEstablished(connection: OutboundNearbyConnection) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
         DispatchQueue.main.async {
             transfer.delegate.connectionWasEstablished(pinCode: connection.pinCode!)
         }
     }
+    
 
     func outboundConnectionTransferAccepted(connection: OutboundNearbyConnection) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
@@ -428,6 +459,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
     }
 
+    
     func outboundConnection(connection: OutboundNearbyConnection, transferProgress: Double) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
         DispatchQueue.main.async {
@@ -435,6 +467,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
     }
 
+    
     func outboundConnection(connection: OutboundNearbyConnection, failedWithError: Error) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
         DispatchQueue.main.async {
@@ -442,6 +475,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
         outgoingTransfers.removeValue(forKey: connection.id)
     }
+    
 
     func outboundConnectionTransferFinished(connection: OutboundNearbyConnection) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
@@ -451,6 +485,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         outgoingTransfers.removeValue(forKey: connection.id)
     }
 
+    
     public func getActiveConnectionsCount() -> Int {
         return activeConnections.count
     }

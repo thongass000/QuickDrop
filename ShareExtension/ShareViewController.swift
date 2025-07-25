@@ -40,9 +40,11 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     private var qrCodeSheetView: NSPanel? = nil
     private var sheetAttachedWindow: NSWindow? = nil
     
+    
     override var nibName: NSNib.Name? {
         return NSNib.Name("ShareViewController")
     }
+    
     
     override func loadView() {
         super.loadView()
@@ -116,12 +118,14 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         progressDeviceIconWrap!.layer!.masksToBounds = false
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dicoverDevices()
         NearbyConnectionManager.shared.addShareExtensionDelegate(self)
     }
+    
     
     override func viewWillDisappear() {
         log("ShareViewController: viewWillDisappear")
@@ -134,6 +138,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         NearbyConnectionManager.shared.removeShareExtensionDelegate(self)
     }
     
+    
     @IBAction func cancel(_: AnyObject?) {
         if let device = chosenDevice {
             NearbyConnectionManager.shared.cancelOutgoingTransfer(id: device.id!)
@@ -142,9 +147,11 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         extensionContext!.cancelRequest(withError: cancelError)
     }
     
+    
     @IBAction func dontSeeDeviceButton(_: AnyObject?) {
         openQrCodeView()
     }
+    
     
     private func openQrCodeView() {
         if qrCodeSheetView == nil {
@@ -170,6 +177,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         }
     }
     
+    
     private func closeQrCodeView() {
         if let mainWindow = sheetAttachedWindow, let qrCodeView = qrCodeSheetView {
             mainWindow.endSheet(qrCodeView)
@@ -178,6 +186,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
             sheetAttachedWindow = nil
         }
     }
+    
     
     private func zipFolderAndSetUpIcon() {
         for url in urls {
@@ -241,6 +250,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         }
     }
     
+    
     func addDevice(device: RemoteDeviceInfo) {
         if foundDevices.isEmpty {
             loadingOverlay?.animator().isHidden = true
@@ -250,6 +260,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         
         closeQrCodeView()
     }
+    
     
     func removeDevice(id: String) {
         if chosenDevice != nil {
@@ -267,6 +278,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         }
     }
     
+    
     func connectionWasEstablished(pinCode: String) {
         connectionEstablished = true
         
@@ -275,6 +287,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         progressProgressBar?.maxValue = 1000
         progressProgressBar?.doubleValue = 0
     }
+    
     
     func connectionFailed(with error: Error) {
         progressProgressBar?.isIndeterminate = false
@@ -293,18 +306,22 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         }
     }
     
+    
     func transferAccepted() {
         progressState?.stringValue = "Sending".localized()
     }
+    
     
     func transferProgress(progress: Double) {
         progressProgressBar!.doubleValue = progress * progressProgressBar!.maxValue
     }
     
+    
     func transferFinished() {
         progressState?.stringValue = "TransferFinished".localized()
         dismissDelayed()
     }
+    
     
     func selectDevice(device: RemoteDeviceInfo) {
         NearbyConnectionManager.shared.stopDeviceDiscovery()
@@ -336,6 +353,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: timeoutAlert)
     }
     
+    
     private func dismissDelayed() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             if let error = self.lastError {
@@ -345,6 +363,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
             }
         }
     }
+    
     
     private func dicoverDevices() {
         let bundleIdentifier = "com.leonboettger.neardrop"
@@ -379,6 +398,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         }
     }
     
+    
     private func scheduleAutomaticQrCodeView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             if self.foundDevices.isEmpty {
@@ -387,6 +407,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         }
     }
 }
+
 
 private func imageForDeviceType(type: RemoteDeviceInfo.DeviceType) -> NSImage {
     let imageName: String
@@ -401,14 +422,18 @@ private func imageForDeviceType(type: RemoteDeviceInfo.DeviceType) -> NSImage {
     return NSImage(contentsOfFile: "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/\(imageName).icns")!
 }
 
+
 extension ShareViewController: NSCollectionViewDataSource {
+    
     func numberOfSections(in _: NSCollectionView) -> Int {
         return 1
     }
     
+    
     func collectionView(_: NSCollectionView, numberOfItemsInSection _: Int) -> Int {
         return foundDevices.count
     }
+    
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DeviceListCell"), for: indexPath)
@@ -425,6 +450,7 @@ extension ShareViewController: NSCollectionViewDataSource {
         
         return collectionViewItem
     }
+    
     
     func getDeviceName(device: RemoteDeviceInfo) -> String {
         if device.name.count <= 1 {

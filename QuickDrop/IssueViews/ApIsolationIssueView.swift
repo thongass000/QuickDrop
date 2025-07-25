@@ -10,6 +10,8 @@ import Foundation
 import AppKit
 import Network
 
+fileprivate let routerCheckQueue = DispatchQueue(label: "routerCheckQueue")
+
 struct ApIsolationIssueView: View {
     
     @Environment(\.colorScheme) var colorScheme
@@ -26,6 +28,7 @@ struct ApIsolationIssueView: View {
             checkIfApIsolationStillEnabled()
         }
     }
+    
     
     func checkIfApIsolationStillEnabled() {
         scanner.scan { isConnectionAllowed in
@@ -47,8 +50,6 @@ struct ApIsolationIssueView: View {
         }
     }
 }
-
-fileprivate let routerCheckQueue = DispatchQueue(label: "routerCheckQueue")
 
 
 func openRouterSettingsPage() async {
@@ -77,6 +78,8 @@ func openRouterSettingsPage() async {
         NSWorkspace.shared.open(url)
     }
 }
+
+
 /// Attempts to get the default gateway IP address (e.g., 192.168.1.1)
 /// and ensures it's reachable. Returns nil if unreachable or not found.
 func getDefaultGatewayIP() -> String? {
@@ -98,6 +101,7 @@ func getDefaultGatewayIP() -> String? {
     return nil
 }
 
+
 /// Executes a shell command and returns the output
 @discardableResult
 func shell(_ command: String) -> String {
@@ -113,6 +117,7 @@ func shell(_ command: String) -> String {
     let data = pipe.fileHandleForReading.readDataToEndOfFile()
     return String(data: data, encoding: .utf8) ?? ""
 }
+
 
 /// Checks if a host (IP address or hostname) is reachable on port 80
 func isHostReachable(_ host: String) -> Bool {
@@ -143,7 +148,6 @@ func isHostReachable(_ host: String) -> Bool {
 
     return reachable
 }
-
 
 
 #Preview {
