@@ -56,6 +56,16 @@ class OutboundNearbyConnection: NearbyConnection {
             }
         }
     }
+    
+    override func handleConnectionClosure() {
+        super.handleConnectionClosure()
+  
+        if let error = lastError {
+            DispatchQueue.main.async {
+                self.delegate?.outboundConnection(connection: self, failedWithError: error)
+            }
+        }
+    }
 
     public func cancel() {
         cancelled = true
@@ -422,6 +432,7 @@ class OutboundNearbyConnection: NearbyConnection {
         })
         totalBytesSent += Int64(fileBuffer.count)
         log("sent file chunk \(totalBytesSent)")
+        startInactivityTimer()
         delegate?.outboundConnection(connection: self, transferProgress: Double(totalBytesSent) / Double(totalBytesToSend))
 
         if currentTransfer!.currentOffset == currentTransfer!.totalBytes {

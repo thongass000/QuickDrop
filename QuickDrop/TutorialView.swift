@@ -120,53 +120,6 @@ struct LargeAppIconView<Content: View>: View {
     }
 }
 
-func sendLoggingString() {
-    
-    if let url = LogManager.sharedInstance.logFileURL {
-        
-        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
-        
-        sendEmailWithAttachment(fileURL: url, recipients: ["quickdrop@leonboettger.com"], subject: "QuickDrop \(appVersion) - \(getDeviceAndSystem())")
-    }
-}
-
-
-fileprivate func getDeviceAndSystem() -> String {
-    // Get Mac model identifier
-    var size: Int = 0
-    sysctlbyname("hw.model", nil, &size, nil, 0)
-    
-    var modelBuffer = [CChar](repeating: 0, count: size)
-    sysctlbyname("hw.model", &modelBuffer, &size, nil, 0)
-    
-    let model = String(cString: modelBuffer)
-    
-    // Get macOS version
-    let version = ProcessInfo.processInfo.operatingSystemVersion
-    let versionString = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
-    
-    return "\(model) - \(versionString)"
-}
-
-
-func sendEmailWithAttachment(fileURL: URL, recipients: [String], subject: String) {
-    guard let emailService = NSSharingService(named: .composeEmail) else {
-        log("No email service available")
-        return
-    }
-    
-    emailService.recipients = recipients
-    emailService.subject = subject
-    emailService.perform(withItems: [fileURL])
-}
-
-
-func copyToClipboard(_ text: String) {
-    let pasteboard = NSPasteboard.general
-    pasteboard.clearContents()
-    pasteboard.setString(text, forType: .string)
-}
-
 
 #Preview {
     WelcomeScreen(openPlusScreen: {}, openAppAdvertisementView: {}, openCableTransmissionView: {}, checkForNetworkIssues: {})

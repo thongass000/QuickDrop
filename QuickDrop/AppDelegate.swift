@@ -23,13 +23,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     var welcomeWindow: NSWindow?
     var plusWindow: NSWindow?
     
-    private var isAlertShown = false
     private var sheetView: NSPanel? = nil
     private var sheetAttachedWindow: NSWindow? = nil
-    
-    var firewallAlertWindow: NSWindow?
-    var apIsolationAlertWindow: NSWindow?
-    var networkFilterAlertWindow: NSWindow?
+    private var errorAlertHandler = ErrorAlertHandler.shared
+
     private var iapManager: IAPManager?
 
     var showsFirewallAlert = false
@@ -275,52 +272,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     // MARK: - Alerts and Notifications
-    
-    enum AlertType: String {
-        case ApIsolation
-        case NetworkFilter
-        case Firewall
-    }
-    
 
-    func openAlert(type: AlertType) {
-        log("Opening Alert for \(type)")
-
-        DispatchQueue.main.async { [self] in
-            // Create an NSWindow to host the SwiftUI view
-            let alertWindow = NSWindow(
-                contentRect: NSRect(x: 0, y: 0, width: issueViewWidth, height: issueViewHeight),
-                styleMask: [.titled, .closable],
-                backing: .buffered,
-                defer: false
-            )
-
-            switch type {
-            case .ApIsolation:
-                apIsolationAlertWindow = alertWindow
-                alertWindow.contentView = NSHostingView(rootView: ApIsolationIssueView(closeView: { self.apIsolationAlertWindow?.close() }))
-            case .NetworkFilter:
-                networkFilterAlertWindow = alertWindow
-                alertWindow.contentView = NSHostingView(rootView: NetworkFilterIssueView())
-            case .Firewall:
-                firewallAlertWindow = alertWindow
-                alertWindow.contentView = NSHostingView(rootView: FirewallIssueView())
-            }
-
-            alertWindow.title = "QuickDrop"
-            alertWindow.center()
-            alertWindow.isReleasedWhenClosed = false
-            alertWindow.setFrameAutosaveName(type.rawValue)
-
-            NSApp.activate(ignoringOtherApps: true)
-            alertWindow.makeKeyAndOrderFront(nil)
-            alertWindow.level = .normal
-        }
-    }
-    
-    
     func showFirewallAlert() {
-        openAlert(type: .Firewall)
+        ErrorAlertHandler.shared.openAlert(type: .Firewall)
     }
     
     
@@ -457,60 +411,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         guard let transfer = activeIncomingTransfers[id] else { return }
 
         if let error = error {
-            NSApp.activate(ignoringOtherApps: true)
-
-            var description = ""
-
-            if let ne = (error as? NearbyError) {
-                switch ne {
-                case .inputOutput:
-                    description = "I/O Error"
-                case .protocolError(errorMessage: let errorMessage):
-                    description = "Error.Protocol".localized() + ": \(errorMessage)"
-                case .packetFilterError:
-                    openAlert(type: .NetworkFilter)
-                    plusWindow?.close()
-                    return
-                case .requiredFieldMissing(errorMessage: let errorMessage):
-                    description = "Error.Protocol".localized() + ": \(errorMessage)"
-                case .ukey2:
-                    description = "Error.Crypto".localized() + ": \(ne.localizedDescription)"
-                case .canceled(reason: let reason):
-                    description = "Error.Protocol".localized() + ": \(reason)"
-                }
-            } else {
-                description = error.localizedDescription
-            }
-
-            let alert = NSAlert()
-            alert.alertStyle = .critical
-            alert.messageText = String(format: "TransferError".localized(), arguments: [transfer.device.name])
-            alert.informativeText = description
-            alert.addButton(withTitle: "InformDeveloper".localized())
-            alert.addButton(withTitle: "CloseAlert".localized())
-
+            
             if let plusWindow = plusWindow {
                 log("Closing plus screen because of error")
                 plusWindow.close()
             }
             
-            // Prevent multiple alerts at the same time
-            if self.isAlertShown {
-                log("Skipping alert for error \(error.localizedDescription) because one is already shown")
-                return
-            }
-            else {
-                self.isAlertShown = true
-                log("Showing alert with message: \"\(alert.messageText)\" and description: \"\(alert.informativeText)\"")
-                log("Already successful transmissions: \(transmissionCount())")
-
-                let result = alert.runModal()
-                self.isAlertShown = false
-
-                if result == .alertFirstButtonReturn {
-                    sendLoggingString()
-                }
-            }
+            ErrorAlertHandler.shared.showErrorAlert(for: transfer.device.name, error: error)
         } else {
             let currentCount = transmissionCount()
             if currentCount % 20 == 0 {
@@ -534,10 +441,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         scanner.scan { allowed in
             if allowed {
                 log("✅ Device-to-device likely allowed (peer responded on LAN).")
-                self.apIsolationAlertWindow?.close()
+                ErrorAlertHandler.shared.closeApIsolationAlert()
             } else {
                 log("❌ Device-to-device check failed. Informing user...")
-                self.openAlert(type: .ApIsolation)
+                ErrorAlertHandler.shared.openAlert(type: .ApIsolation)
             }
         }
     }

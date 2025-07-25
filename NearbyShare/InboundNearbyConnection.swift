@@ -22,6 +22,9 @@ class InboundNearbyConnection: NearbyConnection {
 
     private var textPayloadID: Int64 = 0
     private var isPlainTextTransfer = false
+    
+    private var inactivityTimer: DispatchSourceTimer?
+    private let timeoutInterval: TimeInterval = 7
 
     enum State {
         case initial, receivedConnectionRequest, sentUkeyServerInit, receivedUkeyClientFinish, sentConnectionResponse, sentPairedKeyResult, receivedPairedKeyResult, waitingForUserConsent, receivingFiles, disconnected
@@ -34,7 +37,6 @@ class InboundNearbyConnection: NearbyConnection {
     override func handleConnectionClosure() {
         super.handleConnectionClosure()
         currentState = .disconnected
-        deletePartiallyReceivedFiles()
   
         DispatchQueue.main.async {
             self.delegate?.connectionWasTerminated(connection: self, error: self.lastError)
@@ -473,18 +475,6 @@ class InboundNearbyConnection: NearbyConnection {
         } catch {
             log("Error \(error)")
             protocolError()
-        }
-    }
-
-    private func deletePartiallyReceivedFiles() {
-        for (_, file) in transferredFiles {
-            guard file.created else { continue }
-            do {
-                try FileManager.default.removeItem(at: file.destinationURL)
-            }
-            catch {
-                // if it fails, we don't care. Could be because file was not created yet
-            }
         }
     }
 }

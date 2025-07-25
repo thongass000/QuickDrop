@@ -16,6 +16,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     private var foundDevices: [RemoteDeviceInfo] = []
     private var chosenDevice: RemoteDeviceInfo?
     private var lastError: Error?
+    private var errorAlertHandler = ErrorAlertHandler.shared
     
     private var connectionEstablished = false
     private var timeoutDispatchWorkItem: DispatchWorkItem? = nil
@@ -282,26 +283,13 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         lastError = error
         
         if let ne = (error as? NearbyError), case let .canceled(reason) = ne {
-            switch reason {
-            case .userRejected:
-                progressState?.stringValue = "TransferDeclined".localized()
-            case .userCanceled:
-                progressState?.stringValue = "TransferCanceled".localized()
-            case .notEnoughSpace:
-                progressState?.stringValue = "NotEnoughSpace".localized()
-            case .unsupportedType:
-                progressState?.stringValue = "UnsupportedType".localized()
-            case .timedOut:
-                progressState?.stringValue = "TransferTimedOut".localized()
-            }
+            progressState?.stringValue = reason.localizedDescription()
             progressDeviceSecondaryIcon?.isHidden = false
             dismissDelayed()
-        } else {
-            let alert = NSAlert(error: error)
-            
-            alert.beginSheetModal(for: view.window!) { _ in
-                self.extensionContext!.cancelRequest(withError: error)
-            }
+        }
+        else {
+            ErrorAlertHandler.shared.showErrorAlert(for: chosenDevice?.name ?? "", error: error)
+            self.extensionContext!.cancelRequest(withError: error)
         }
     }
     

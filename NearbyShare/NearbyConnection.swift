@@ -27,6 +27,9 @@ class NearbyConnection {
     var lastError: Error?
     private var connectionClosed: Bool = false
     
+    private var inactivityTimer: DispatchSourceTimer?
+    private let timeoutInterval: TimeInterval = 7
+    
     // UKEY2-related state
     var publicKey: ECPublicKey?
     var privateKey: ECPrivateKey?
@@ -96,7 +99,7 @@ class NearbyConnection {
                 self.lastError = NearbyError.protocolError("Error.NetworkDown".localized())
             }
             
-            self.handleConnectionClosure()
+            self.disconnect()
         }
     }
     
@@ -104,6 +107,7 @@ class NearbyConnection {
     
     func handleConnectionClosure() {
         log("Connection closed")
+        deletePartiallyReceivedFiles()
     }
     
     func protocolError() {
@@ -139,7 +143,7 @@ class NearbyConnection {
             if isComplete {
                 log("Connection closed by peer during receiveFrameAsync")
                 self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
-                self.handleConnectionClosure()
+                self.disconnect()
                 return
             }
             if !(error == nil) {
@@ -157,6 +161,8 @@ class NearbyConnection {
                 self.protocolError()
                 return
             }
+            
+            self.startInactivityTimer()
             self.receiveFrameAsync(length: frameLength)
         }
     }
@@ -169,13 +175,15 @@ class NearbyConnection {
             if isComplete {
                 log("Connection closed by peer during receiveFrameAsync")
                 self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
-                self.handleConnectionClosure()
+                self.disconnect()
                 return
             }
             guard let content = content else {
                 self.protocolError()
                 return
             }
+            
+            self.startInactivityTimer()
             self.processReceivedFrame(frameData: content)
             self.receiveFrameAsync()
         }
@@ -446,6 +454,8 @@ class NearbyConnection {
         log("Disconnecting from connection.")
         
         connection.stateUpdateHandler = nil
+        inactivityTimer?.cancel()
+        inactivityTimer = nil
         connectionClosed = true
         
         self.handleConnectionClosure()
@@ -496,6 +506,33 @@ class NearbyConnection {
             }
         } catch {
             log("Error sending KEEP_ALIVE: \(error)")
+        }
+    }
+    
+    func startInactivityTimer() {
+        inactivityTimer?.cancel()  // Cancel previous timer if any
+        inactivityTimer = DispatchSource.makeTimerSource(queue: NearbyConnection.dispatchQueue)
+        inactivityTimer?.schedule(deadline: .now() + timeoutInterval)
+        inactivityTimer?.setEventHandler { [weak self] in
+            guard let self = self else { return }
+            if !self.connectionClosed {
+                log("Connection timeout: No message received in \(self.timeoutInterval) seconds")
+                self.lastError = NearbyError.canceled(reason: .timedOut)
+                self.disconnect()
+            }
+        }
+        inactivityTimer?.resume()
+    }
+      
+    private func deletePartiallyReceivedFiles() {
+        for (_, file) in transferredFiles {
+            guard file.created else { continue }
+            do {
+                try FileManager.default.removeItem(at: file.destinationURL)
+            }
+            catch {
+                // if it fails, we don't care. Could be because file was not created yet
+            }
         }
     }
 }

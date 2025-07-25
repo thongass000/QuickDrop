@@ -58,6 +58,21 @@ public enum NearbyError: Error {
 
     public enum CancellationReason {
         case userRejected, userCanceled, notEnoughSpace, unsupportedType, timedOut
+        
+        public func localizedDescription() -> String {
+            switch self {
+                case .userRejected:
+                    "TransferDeclined".localized()
+                case .userCanceled:
+                    "TransferCanceled".localized()
+                case .notEnoughSpace:
+                    "NotEnoughSpace".localized()
+                case .unsupportedType:
+                    "UnsupportedType".localized()
+                case .timedOut:
+                    "TransferTimedOut".localized()
+                }
+        }
     }
 }
 
