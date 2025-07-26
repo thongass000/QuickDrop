@@ -13,9 +13,6 @@
 "Error.ClosedByPeer" = "تم إغلاق الاتصال. إذا تكرر هذا الأمر، يرجى إعادة تشغيل هاتفك.";
 "Error.NetworkDown" = "تم قطع اتصال Wi‑Fi. يرجى التحقق من اتصال Wi‑Fi الخاص بك والمحاولة مرة أخرى.";
 "NFiles" = "%d ملفات";
-"NotificationsDenied.Message" = "يحتاج QuickDrop إلى القدرة على عرض الإشعارات لنقل الملفات الواردة. يرجى السماح بالإشعارات في إعدادات النظام.";
-"NotificationsDenied.OpenSettings" = "افتح الإعدادات";
-"NotificationsDenied.Title" = "مطلوب إذن الإشعارات";
 "PinCode" = "الرمز السري: %@";
 "Quit" = "إنهاء QuickDrop";
 "TransferError" = "فشل في استقبال الملفات من %@";

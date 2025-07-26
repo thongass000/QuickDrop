@@ -13,9 +13,6 @@
 "Error.ClosedByPeer" = "Conexiunea a fost închisă. Dacă se întâmplă în mod repetat, repornește telefonul.";
 "Error.NetworkDown" = "Conexiunea Wi‑Fi a fost întreruptă. Verifică conexiunea Wi‑Fi și încearcă din nou.";
 "NFiles" = "%d fișiere";
-"NotificationsDenied.Message" = "QuickDrop trebuie să poată afișa notificări pentru transferurile de fișiere primite. Vă rugăm să permiteți notificările în Setările Sistemului.";
-"NotificationsDenied.OpenSettings" = "Deschide setările";
-"NotificationsDenied.Title" = "Permisiunea pentru notificări este necesară";
 "PinCode" = "COD PIN : %@";
 "Quit" = "Închide QuickDrop";
 "TransferError" = "Recepționarea fișierelor de la %@ a eșuat";

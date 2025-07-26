@@ -13,9 +13,6 @@
 "Error.ClosedByPeer" = "La connexion a été fermée. Si cela se produit à plusieurs reprises, redémarrez votre téléphone.";
 "Error.NetworkDown" = "La connexion Wi‑Fi a été interrompue. Veuillez vérifier votre connexion Wi‑Fi et réessayer.";
 "NFiles" = "%d fichiers";
-"NotificationsDenied.Message" = "QuickDrop doit pouvoir afficher des notifications pour les transferts de fichiers entrants. Veuillez autoriser les notifications dans les paramètres système.";
-"NotificationsDenied.OpenSettings" = "Ouvrir les paramètres";
-"NotificationsDenied.Title" = "Autorisation de notification requise";
 "PinCode" = "CODE PIN : %@";
 "Quit" = "Quitter QuickDrop";
 "TransferError" = "Échec de la réception des fichiers de %@";

@@ -18,9 +18,6 @@
 "TransferError" = "Не удалость принять файлы от %@";
 "VisibleToEveryone" = "Видимость: все";
 "NoNetworkConnection" = "Нет сетевого подключения";
-"NotificationsDenied.Message" = "QuickDrop необходима возможность показывать уведомления о входящих файлах. Пожалуйста, разрешите уведомления в Системных настройках.";
-"NotificationsDenied.OpenSettings" = "Открыть настройки";
-"NotificationsDenied.Title" = "Требуется доступ к уведомлениям";
 "RecommendedApps" = "Рекомендуемые приложения";
 "GetSupport" = "Поддержка";
 "PrivacyPolicy" = "Политика конфиденциальности";

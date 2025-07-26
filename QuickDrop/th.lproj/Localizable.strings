@@ -13,9 +13,6 @@
 "Error.ClosedByPeer" = "การเชื่อมต่อถูกปิด หากเกิดขึ้นซ้ำหลายครั้ง โปรดรีสตาร์ทโทรศัพท์ของคุณ";
 "Error.NetworkDown" = "การเชื่อมต่อ Wi‑Fi ถูกขัดจังหวะ โปรดตรวจสอบการเชื่อมต่อ Wi‑Fi ของคุณแล้วลองอีกครั้ง";
 "NFiles" = "%d ไฟล์";
-"NotificationsDenied.Message" = "QuickDrop ไม่สามารถแสดงการแจ้งเตือนไฟล์ที่เข้ามาได้ โปรดให้สิทธิ์การแจ้งเตือน ในการตั้งค่าระบบ";
-"NotificationsDenied.OpenSettings" = "การตั้งค่า";
-"NotificationsDenied.Title" = "จำเป็นต้องใช้สิทธิ์การแจ้งเตือน";
 "PinCode" = "PIN: %@";
 "Quit" = "ออก QuickDrop";
 "TransferError" = "เกิดข้อผิดพลาดในการรับไฟล์จาก %@";

@@ -13,9 +13,6 @@
 "Error.ClosedByPeer" = "З'єднання було закрито. Якщо це трапляється постійно, перезавантажте телефон.";
 "Error.NetworkDown" = "З’єднання Wi‑Fi було перервано. Будь ласка, перевірте своє Wi‑Fi з’єднання та спробуйте ще раз.";
 "NFiles" = "%d files";
-"NotificationsDenied.Message" = "QuickDrop потрібна можливість показувати сповіщення про вхідні файли. Будь ласка, дозвольте сповіщення у Системних налаштуваннях.";
-"NotificationsDenied.OpenSettings" = "Відкрити налаштування";
-"NotificationsDenied.Title" = "Потрібен доступ до сповіщень";
 "PinCode" = "PIN: %@";
 "Quit" = "Завершити QuickDrop";
 "TransferError" = "Не вдалося отримати файли від %@";

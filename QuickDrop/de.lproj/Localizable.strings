@@ -13,9 +13,6 @@
 "Error.ClosedByPeer" = "Die Verbindung wurde geschlossen. Wenn das wiederholt passiert, starte bitte dein Handy neu.";
 "Error.NetworkDown" = "Die WLAN‑Verbindung wurde unterbrochen. Bitte überprüfe deine WLAN‑Verbindung und versuche es erneut.";
 "NFiles" = "%d Dateien";
-"NotificationsDenied.Message" = "QuickDrop benötigt die Erlaubnis, Mitteilungen für eingehende Übertragungen anzuzeigen. Bitte erlaube Mitteilungen in den Systemeinstellungen.";
-"NotificationsDenied.OpenSettings" = "Einstellungen öffnen";
-"NotificationsDenied.Title" = "Mitteilungsberechtigungen notwendig";
 "PinCode" = "PIN: %@";
 "Quit" = "QuickDrop beenden";
 "TransferError" = "Die Daten von %@ konnten nicht empfangen werden";

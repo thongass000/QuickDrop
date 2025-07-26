@@ -13,9 +13,6 @@
 "Error.ClosedByPeer" = "A kapcsolat megszakadt. Ha ez többször előfordul, indítsd újra a telefonodat.";
 "Error.NetworkDown" = "Megszakadt a Wi‑Fi kapcsolat. Kérlek, ellenőrizd a Wi‑Fi kapcsolatodat, majd próbáld újra.";
 "NFiles" = "%d fájl";
-"NotificationsDenied.Message" = "A QuickDrop-nak szüksége van értesítéseket küldeni a bejövő fájlok fogadásához. Kérlek engedélyezd az értesítésekhez való hozzáférést a Rendszerbeállításokban.";
-"NotificationsDenied.OpenSettings" = "Beállítások megnyitása";
-"NotificationsDenied.Title" = "Szükséges az értesítésekhez való hozzáférés";
 "PinCode" = "JELKÓD: %@";
 "Quit" = "QuickDrop bezárása";
 "TransferError" = "Nem sikerült %@-tól/től fájlokat fogadni";

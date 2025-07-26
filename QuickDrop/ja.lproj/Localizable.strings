@@ -13,9 +13,6 @@
 "Error.ClosedByPeer" = "接続が切断されました。これが繰り返し発生する場合は、スマートフォンを再起動してください。";
 "Error.NetworkDown" = "Wi‑Fi 接続が中断されました。Wi‑Fi 接続を確認してから、もう一度お試しください。";
 "NFiles" = "%dつのファイル";
-"NotificationsDenied.Message" = "QuickDropでファイル受信の通知を表示できる必要があります。システム設定で通知を許可してください。";
-"NotificationsDenied.OpenSettings" = "設定を開く";
-"NotificationsDenied.Title" = "通知権限が必要です。";
 "PinCode" = "PIN: %@";
 "Quit" = "QuickDropを終了";
 "TransferError" = "%@からのファイル受信に失敗しました。";

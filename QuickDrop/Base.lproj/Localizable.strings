@@ -13,9 +13,6 @@
 "Error.ClosedByPeer" = "The connection was closed. If this happens repeatedly, please restart your phone.";
 "Error.NetworkDown" = "The Wi-Fi connection was interrupted. Please check your Wi-Fi connection and try again.";
 "NFiles" = "%d files";
-"NotificationsDenied.Message" = "QuickDrop needs to be able to display notifications for incoming file transfers. Please allow notifications in System Settings.";
-"NotificationsDenied.OpenSettings" = "Open settings";
-"NotificationsDenied.Title" = "Notification Permission Required";
 "PinCode" = "PIN: %@";
 "Quit" = "Close QuickDrop";
 "TransferError" = "Failed to receive files from %@";

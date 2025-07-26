@@ -13,9 +13,6 @@
 "Error.ClosedByPeer" = "连接已关闭。如果这种情况反复发生，请重启手机。";
 "Error.NetworkDown" = "Wi‑Fi 连接中断。请检查您的 Wi‑Fi 连接并重试。";
 "NFiles" = "%d files";
-"NotificationsDenied.Message" = "QuickDrop 需显示是否接收文件传输的通知。请在 系统设置 中允许通知。";
-"NotificationsDenied.OpenSettings" = "打开设置";
-"NotificationsDenied.Title" = "需要通知权限";
 "PinCode" = "PIN: %@";
 "Quit" = "退出 QuickDrop";
 "TransferError" = "无法从 %@ 接收文件";
