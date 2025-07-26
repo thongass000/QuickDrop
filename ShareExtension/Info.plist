@@ -7,20 +7,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>NSExtensionActivationRule</key>
-			<string>SUBQUERY (
-    extensionItems,
-    $extensionItem,
-    SUBQUERY (
-        $extensionItem.attachments,
-        $attachment,
-        (
-            ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.file-url&quot;
-            OR ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.url&quot;
-            OR ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.text&quot;
-        )
-        AND NOT (ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.folder&quot;)
-    ).@count == $extensionItem.attachments.@count
-).@count &gt; 0</string>
+			<string>SUBQUERY(extensionItems, $extensionItem, TRUEPREDICATE).@count &gt; 0</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.share-services</string>
