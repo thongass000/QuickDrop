@@ -499,9 +499,3 @@ class InboundNearbyConnection: NearbyConnection {
         }
     }
 }
-
-
-protocol InboundNearbyConnectionDelegate {
-    func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo, connection: InboundNearbyConnection)
-    func connectionWasTerminated(connection: InboundNearbyConnection, error: Error?)
-}

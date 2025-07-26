@@ -40,6 +40,7 @@
 		EB5C36E42E34EC0E0052EFD7 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
 		EB5C36E52E34EC0E0052EFD7 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
 		EB5C36E72E3544FF0052EFD7 /* SaveFilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */; };
+		EB5C36E92E3546120052EFD7 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C36E82E3546100052EFD7 /* DataModel.swift */; };
 		EB6E743E2DD5C77700331466 /* ConnectionFailureTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */; };
 		EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */; };
 		EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
@@ -185,6 +186,7 @@
 		EB5C36952E34EBBD0052EFD7 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/ShareViewController.xcstrings; sourceTree = "<group>"; };
 		EB5C36E32E34EC0E0052EFD7 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFilesManager.swift; sourceTree = "<group>"; };
+		EB5C36E82E3546100052EFD7 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionFailureTracker.swift; sourceTree = "<group>"; };
 		EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				69DA9A2729E18CB500A442DA /* Protobuf */,
 				69DA9A1E29E0C0B300A442DA /* NearbyConnectionManager.swift */,
 				69DA9A2229E17F0400A442DA /* InboundNearbyConnection.swift */,
+				EB5C36E82E3546100052EFD7 /* DataModel.swift */,
 				691F53BD2ABF03820089FD92 /* OutboundNearbyConnection.swift */,
 				EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */,
 				EB2F9BFA2DA04B67004010A2 /* Helpers.swift */,
@@ -640,6 +643,7 @@
 				69DCF4902AB70E9700CBE2CC /* InboundNearbyConnection.swift in Sources */,
 				69DCF48B2AB70E8C00CBE2CC /* ukey.pb.swift in Sources */,
 				EB2B41E42DC63ACC0070FC39 /* SleepManager.swift in Sources */,
+				EB5C36E92E3546120052EFD7 /* DataModel.swift in Sources */,
 				EB5C36E72E3544FF0052EFD7 /* SaveFilesManager.swift in Sources */,
 				69DCF48A2AB70E8C00CBE2CC /* wire_format.pb.swift in Sources */,
 			);

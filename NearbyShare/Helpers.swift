@@ -73,6 +73,18 @@ extension String {
 }
 
 
+public enum UserDefaultsKeys: String, CaseIterable {
+    case isEligibleForIap = "isEligibleForIap"
+    case appLaunchedBefore = "ShowedWelcomeScreen"
+    case plusVersion = "isPlusVersion"
+    case transmissionCount = "reviewRequestCountKey"
+    case automaticallyAcceptFiles = "automaticallyAcceptFiles"
+    case saveFolderBookmark = "saveFolderBookmark"
+    case openFinderAfterReceiving = "openFinderAfterReceiving"
+    case endpointID = "endpointID"
+}
+
+
 public func isPlusVersion() -> Bool {
     return UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
 }
@@ -85,16 +97,4 @@ public func isFileTransferRestricted() -> Bool {
 
 public func transmissionCount() -> Int {
     return UserDefaults.standard.integer(forKey: UserDefaultsKeys.transmissionCount.rawValue)
-}
-
-
-public enum UserDefaultsKeys: String, CaseIterable {
-    case isEligibleForIap = "isEligibleForIap"
-    case appLaunchedBefore = "ShowedWelcomeScreen"
-    case plusVersion = "isPlusVersion"
-    case transmissionCount = "reviewRequestCountKey"
-    case automaticallyAcceptFiles = "automaticallyAcceptFiles"
-    case saveFolderBookmark = "saveFolderBookmark"
-    case openFinderAfterReceiving = "openFinderAfterReceiving"
-    case endpointID = "endpointID"
 }

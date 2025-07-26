@@ -593,14 +593,17 @@ class NearbyConnection {
             }
         }
     }
-}
-
-struct InternalFileInfo {
-    let meta: FileMetadata
-    let payloadID: Int64
-    let destinationURL: URL
-    var bytesTransferred: Int64 = 0
-    var fileHandle: FileHandle?
-    var progress: Progress?
-    var created: Bool = false
+    
+    
+    // -- MARK: - Internal Data Model
+    
+    struct InternalFileInfo {
+        let meta: FileMetadata
+        let payloadID: Int64
+        let destinationURL: URL
+        var bytesTransferred: Int64 = 0
+        var fileHandle: FileHandle?
+        var progress: Progress?
+        var created: Bool = false
+    }
 }

@@ -470,22 +470,15 @@ class OutboundNearbyConnection: NearbyConnection {
     private static func sanitizeFileName(name: String) -> String {
         return name.replacingOccurrences(of: "[\\/\\\\?%\\*:\\|\"<>=]", with: "_", options: .regularExpression)
     }
-}
-
-
-private struct OutgoingFileTransfer {
-    let url: URL
-    let payloadID: Int64
-    let handle: FileHandle?
-    let totalBytes: Int64
-    var currentOffset: Int64
-}
-
-
-protocol OutboundNearbyConnectionDelegate {
-    func outboundConnectionWasEstablished(connection: OutboundNearbyConnection)
-    func outboundConnection(connection: OutboundNearbyConnection, transferProgress: Double)
-    func outboundConnectionTransferAccepted(connection: OutboundNearbyConnection)
-    func outboundConnection(connection: OutboundNearbyConnection, failedWithError: Error)
-    func outboundConnectionTransferFinished(connection: OutboundNearbyConnection)
+    
+    
+    // -- MARK: - Internal Data Model
+    
+    private struct OutgoingFileTransfer {
+        let url: URL
+        let payloadID: Int64
+        let handle: FileHandle?
+        let totalBytes: Int64
+        var currentOffset: Int64
+    }
 }
