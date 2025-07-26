@@ -415,11 +415,7 @@ class NearbyConnection {
     }
     
     static func hkdf(inputKeyMaterial: SymmetricKey, salt: Data, info: Data, outputByteCount: Int) -> SymmetricKey {
-        if #available(macOS 11.0, *) {
-            return HKDF<SHA256>.deriveKey(inputKeyMaterial: inputKeyMaterial, salt: salt, info: info, outputByteCount: outputByteCount)
-        } else {
-            return SymmetricKey(data: hkdfExpand(prk: hkdfExtract(salt: salt, ikm: inputKeyMaterial.withUnsafeBytes { Data(bytes: $0.baseAddress!, count: $0.count) }), info: info, length: outputByteCount))
-        }
+        return HKDF<SHA256>.deriveKey(inputKeyMaterial: inputKeyMaterial, salt: salt, info: info, outputByteCount: outputByteCount)
     }
     
     func finalizeKeyExchange(peerKey: Securemessage_GenericPublicKey) throws {

@@ -304,15 +304,9 @@ class OutboundNearbyConnection: NearbyConnection {
                 let typeID = try? url.resourceValues(forKeys: [.typeIdentifierKey]).typeIdentifier
                 meta.mimeType = "application/octet-stream"
                 if let typeID = typeID {
-                    if #available(macOS 11.0, *) {
-                        let type = UTType(typeID)
-                        if let type = type, let mimeType = type.preferredMIMEType {
-                            meta.mimeType = mimeType
-                        }
-                    } else {
-                        if let mimeType = UTTypeCopyPreferredTagWithClass(typeID as CFString, kUTTagClassMIMEType) {
-                            meta.mimeType = (mimeType.takeRetainedValue() as NSString) as String
-                        }
+                    let type = UTType(typeID)
+                    if let type = type, let mimeType = type.preferredMIMEType {
+                        meta.mimeType = mimeType
                     }
                 }
                 if meta.mimeType.starts(with: "image/") {
@@ -400,14 +394,10 @@ class OutboundNearbyConnection: NearbyConnection {
         }
 
         let fileBuffer: Data
-        if #available(macOS 10.15.4, *) {
-            guard let _fileBuffer = try currentTransfer!.handle!.read(upToCount: 512 * 1024) else {
-                throw NearbyError.inputOutput
-            }
-            fileBuffer = _fileBuffer
-        } else {
-            fileBuffer = currentTransfer!.handle!.readData(ofLength: 512 * 1024)
+        guard let _fileBuffer = try currentTransfer!.handle!.read(upToCount: 512 * 1024) else {
+            throw NearbyError.inputOutput
         }
+        fileBuffer = _fileBuffer
 
         var transfer = Location_Nearby_Connections_PayloadTransferFrame()
         transfer.packetType = .data

@@ -40,11 +40,11 @@ struct WelcomeScreen: View {
                     openPrivacyPolicy()
                 }
                 
-                ExternalLinkLabel(label: "AndroidApp", icon: "smartphone") {
+                ExternalLinkLabel(label: "AndroidApp", icon: getPhoneIcon()) {
                     openAppAdvertisementView()
                 }
                 
-                ExternalLinkLabel(label: "TransmitUsingCable", icon: "cable.connector") {
+                ExternalLinkLabel(label: "TransmitUsingCable", icon: getCableIcon()) {
                     openCableTransmissionView()
                 }
                 
@@ -89,6 +89,20 @@ struct WelcomeScreen: View {
         if let url = URL(string: "https://leonboettger.com/quickdrop-privacy") {
             NSWorkspace.shared.open(url)
         }
+    }
+    
+    func getPhoneIcon() -> String {
+        if #available(macOS 14.0, *) {
+            return "smartphone"
+        }
+        return "iphone.rear.camera"
+    }
+    
+    func getCableIcon() -> String {
+        if #available(macOS 12.0, *) {
+            return "cable.connector"
+        }
+        return "externaldrive.connected.to.line.below.fill"
     }
 }
 
