@@ -15,10 +15,11 @@ import BigInt
 import SwiftECC
 
 class NearbyConnection {
-    static let SANE_FRAME_LENGTH = 5 * 1024 * 1024
-    private static let dispatchQueue = DispatchQueue(label: "com.leonboettger.quickdrop.queue", qos: .utility) // FIFO (non-concurrent) queue to avoid those exciting concurrency bugs
     
-    public let id: String
+    private let maxFrameLength = 5 * 1024 * 1024
+    private static let dispatchQueue = DispatchQueue(label: "com.leonboettger.quickdrop.queue", qos: .utility)
+    
+    let id: String
     let connection: NWConnection
     
     var remoteDeviceInfo: RemoteDeviceInfo?
@@ -30,7 +31,7 @@ class NearbyConnection {
     private var connectionClosed: Bool = false
     
     private var inactivityTimer: DispatchSourceTimer?
-    private let timeoutInterval: TimeInterval = 100
+    private let timeoutInterval: TimeInterval = 50
     
     // UKEY2-related state
     var publicKey: ECPublicKey?
@@ -50,10 +51,12 @@ class NearbyConnection {
     
     private(set) var pinCode: String?
     
+    
     init(connection: NWConnection, id: String) {
         self.connection = connection
         self.id = id
     }
+    
     
     func start() {
         connection.stateUpdateHandler = { state in
@@ -83,7 +86,7 @@ class NearbyConnection {
                 log("Connection already closed, ignoring state update: \(state)")
             }
         }
-        // connection.start(queue: .global(qos: .utility))
+
         connection.start(queue: NearbyConnection.dispatchQueue)
         
         func recordErrorAndDisconnect(err: NWError) {
@@ -105,37 +108,46 @@ class NearbyConnection {
         }
     }
     
+    
     func connectionReady() {}
+    
     
     func handleConnectionClosure() {
         log("Connection closed")
         deletePartiallyReceivedFiles()
     }
     
+    
     func protocolError() {
         log("Protocol error: \(String(describing: lastError))")
         disconnect()
     }
     
+    
     func processReceivedFrame(frameData _: Data) {
         fatalError()
     }
+    
     
     func processTransferSetupFrame(_: Sharing_Nearby_Frame) throws {
         fatalError()
     }
     
+    
     func isServer() -> Bool {
         fatalError()
     }
+    
     
     func processFileChunk(frame _: Location_Nearby_Connections_PayloadTransferFrame) throws {
         protocolError()
     }
     
+    
     func processBytesPayload(payload _: Data, id _: Int64) throws -> Bool {
         return false
     }
+    
     
     private func receiveFrameAsync() {
         connection.receive(minimumIncompleteLength: 4, maximumLength: 4) { content, _, isComplete, error in
@@ -158,7 +170,7 @@ class NearbyConnection {
                 return
             }
             let frameLength = UInt32(content[0]) << 24 | UInt32(content[1]) << 16 | UInt32(content[2]) << 8 | UInt32(content[3])
-            guard frameLength < NearbyConnection.SANE_FRAME_LENGTH else {
+            guard frameLength < self.maxFrameLength else {
                 self.lastError = NearbyError.protocolError("Unexpected packet length")
                 self.protocolError()
                 return
@@ -168,6 +180,7 @@ class NearbyConnection {
             self.receiveFrameAsync(length: frameLength)
         }
     }
+    
     
     private func receiveFrameAsync(length: UInt32) {
         connection.receive(minimumIncompleteLength: Int(length), maximumLength: Int(length)) { content, _, isComplete, _ in
@@ -191,6 +204,7 @@ class NearbyConnection {
         }
     }
     
+    
     func sendFrameAsync(_ frame: Data, completion: (() -> Void)? = nil) {
         if connectionClosed {
             return
@@ -210,6 +224,7 @@ class NearbyConnection {
             }
         })
     }
+    
     
     func encryptAndSendOfflineFrame(_ frame: Location_Nearby_Connections_OfflineFrame, completion: (() -> Void)? = nil) throws {
         var d2dMsg = Securegcm_DeviceToDeviceMessage()
@@ -252,10 +267,12 @@ class NearbyConnection {
         try sendFrameAsync(smsg.serializedData(), completion: completion)
     }
     
+    
     func sendTransferSetupFrame(_ frame: Sharing_Nearby_Frame) throws {
         log("Sending transfer setup frame.")
         try sendBytesPayload(data: frame.serializedData(), id: Int64.random(in: Int64.min ... Int64.max))
     }
+    
     
     func sendBytesPayload(data: Data, id: Int64) throws {
         
@@ -284,6 +301,7 @@ class NearbyConnection {
         wrapper.v1.payloadTransfer = transfer
         try encryptAndSendOfflineFrame(wrapper)
     }
+    
     
     func decryptAndProcessReceivedSecureMessage(_ smsg: Securemessage_SecureMessage) throws {
         guard smsg.hasSignature, smsg.hasHeaderAndBody else { throw NearbyError.requiredFieldMissing("secureMessage.signature|headerAndBody") }
@@ -336,7 +354,7 @@ class NearbyConnection {
                 
                 let payloadID = header.id
                 
-                if header.totalSize > InboundNearbyConnection.SANE_FRAME_LENGTH {
+                if header.totalSize > maxFrameLength {
                     
                     payloadBuffers.removeValue(forKey: payloadID)
                     throw NearbyError.protocolError("Payload too large (\(header.totalSize) bytes)")
@@ -381,6 +399,7 @@ class NearbyConnection {
         }
     }
     
+    
     static func pinCodeFromAuthKey(_ key: SymmetricKey) -> String {
         var hash = 0
         var multiplier = 1
@@ -397,9 +416,11 @@ class NearbyConnection {
         return String(format: "%04d", abs(hash))
     }
     
+    
     static func hkdfExtract(salt: Data, ikm: Data) -> Data {
         return HMAC<SHA256>.authenticationCode(for: ikm, using: SymmetricKey(data: salt)).withUnsafeBytes { Data(bytes: $0.baseAddress!, count: $0.count) }
     }
+    
     
     static func hkdfExpand(prk: Data, info: Data, length: Int) -> Data {
         var okm = Data()
@@ -414,9 +435,11 @@ class NearbyConnection {
         return okm.subdata(in: 0 ..< length)
     }
     
+    
     static func hkdf(inputKeyMaterial: SymmetricKey, salt: Data, info: Data, outputByteCount: Int) -> SymmetricKey {
         return HKDF<SHA256>.deriveKey(inputKeyMaterial: inputKeyMaterial, salt: salt, info: info, outputByteCount: outputByteCount)
     }
+    
     
     func finalizeKeyExchange(peerKey: Securemessage_GenericPublicKey) throws {
         guard peerKey.hasEcP256PublicKey else { throw NearbyError.requiredFieldMissing("peerKey.ecP256PublicKey") }
@@ -474,6 +497,7 @@ class NearbyConnection {
         }
     }
     
+    
     func disconnect() {
         log("Disconnecting from connection.")
         
@@ -487,6 +511,7 @@ class NearbyConnection {
         connection.send(content: nil, isComplete: true, completion: .contentProcessed { _ in
         })
     }
+    
     
     func sendDisconnectionAndDisconnect() throws {
         var offlineFrame = Location_Nearby_Connections_OfflineFrame()
@@ -504,6 +529,7 @@ class NearbyConnection {
         disconnect()
     }
     
+    
     func sendUkey2Alert(type: Securegcm_Ukey2Alert.AlertType) {
         var alert = Securegcm_Ukey2Alert()
         alert.type = type
@@ -515,6 +541,7 @@ class NearbyConnection {
         log("Sent UKEY2 alert: \(type)")
         disconnect()
     }
+    
     
     func sendKeepAlive(ack: Bool) {
         var offlineFrame = Location_Nearby_Connections_OfflineFrame()
@@ -533,21 +560,29 @@ class NearbyConnection {
         }
     }
     
+    
     func startInactivityTimer() {
-        inactivityTimer?.cancel()  // Cancel previous timer if any
+        
+        // Cancel previous timer if any
+        inactivityTimer?.cancel()
+        
         inactivityTimer = DispatchSource.makeTimerSource(queue: NearbyConnection.dispatchQueue)
         inactivityTimer?.schedule(deadline: .now() + timeoutInterval)
         inactivityTimer?.setEventHandler { [weak self] in
+            
             guard let self = self else { return }
+            
             if !self.connectionClosed {
                 log("Connection timeout: No message received in \(self.timeoutInterval) seconds")
                 self.lastError = NearbyError.canceled(reason: .timedOut)
                 self.disconnect()
             }
         }
+        
         inactivityTimer?.resume()
     }
       
+    
     private func deletePartiallyReceivedFiles() {
         for (_, file) in filesToBeTransferred {
             
