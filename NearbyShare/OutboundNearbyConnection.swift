@@ -11,7 +11,6 @@ import Foundation
 import Network
 import System
 import UniformTypeIdentifiers
-
 import BigInt
 import SwiftECC
 
@@ -46,6 +45,7 @@ class OutboundNearbyConnection: NearbyConnection {
         }
     }
 
+    
     deinit {
         if let transfer = currentTransfer, let handle = transfer.handle {
             try? handle.close()
@@ -57,8 +57,9 @@ class OutboundNearbyConnection: NearbyConnection {
         }
     }
     
-    override func handleConnectionClosure() {
-        super.handleConnectionClosure()
+    
+    override func disconnect() {
+        super.disconnect()
   
         if let error = lastError {
             DispatchQueue.main.async {
@@ -67,6 +68,7 @@ class OutboundNearbyConnection: NearbyConnection {
         }
     }
 
+    
     public func cancel() {
         cancelled = true
         if encryptionDone {
@@ -78,6 +80,7 @@ class OutboundNearbyConnection: NearbyConnection {
         }
         try? sendDisconnectionAndDisconnect()
     }
+    
 
     override func connectionReady() {
         super.connectionReady()
@@ -89,11 +92,13 @@ class OutboundNearbyConnection: NearbyConnection {
             protocolError()
         }
     }
+    
 
     override func isServer() -> Bool {
         return false
     }
 
+    
     override func processReceivedFrame(frameData: Data) {
         do {
             log("received \(frameData), state is \(currentState)")
@@ -123,6 +128,7 @@ class OutboundNearbyConnection: NearbyConnection {
         }
     }
 
+    
     override func processTransferSetupFrame(_ frame: Sharing_Nearby_Frame) throws {
         if frame.hasV1 && frame.v1.hasType, case .cancel = frame.v1.type {
             log("Transfer canceled")
@@ -144,12 +150,14 @@ class OutboundNearbyConnection: NearbyConnection {
             assertionFailure("Unexpected state \(currentState)")
         }
     }
+    
 
     override func protocolError() {
         super.protocolError()
         delegate?.outboundConnection(connection: self, failedWithError: lastError!)
     }
 
+    
     private func sendConnectionRequest() throws {
         var frame = Location_Nearby_Connections_OfflineFrame()
         frame.version = .v1
@@ -164,6 +172,7 @@ class OutboundNearbyConnection: NearbyConnection {
         try sendFrameAsync(frame.serializedData())
     }
 
+    
     private func sendUkey2ClientInit() throws {
         let domain = Domain.instance(curve: .EC256r1)
         let (pubKey, privKey) = domain.makeKeyPair()
@@ -201,6 +210,7 @@ class OutboundNearbyConnection: NearbyConnection {
         sendFrameAsync(ukeyClientInitMsgData!)
         currentState = .sentUkeyClientInit
     }
+    
 
     private func processUkey2ServerInit(frame: Securegcm_Ukey2Message, raw: Data) throws {
         ukeyServerInitMsgData = raw
@@ -242,6 +252,7 @@ class OutboundNearbyConnection: NearbyConnection {
         delegate?.outboundConnectionWasEstablished(connection: self)
     }
 
+    
     private func processConnectionResponse(frame: Location_Nearby_Connections_OfflineFrame) throws {
         log("connection response: \(frame)")
         guard frame.version == .v1 else { throw NearbyError.protocolError("Unexpected offline frame version \(frame.version)") }
@@ -260,6 +271,7 @@ class OutboundNearbyConnection: NearbyConnection {
         currentState = .sentPairedKeyEncryption
     }
 
+    
     private func processPairedKeyEncryption(frame: Sharing_Nearby_Frame) throws {
         guard frame.hasV1, frame.v1.hasPairedKeyEncryption else { throw NearbyError.requiredFieldMissing("sharingNearbyFrame.v1.pairedKeyEncryption") }
         var pairedResult = Sharing_Nearby_Frame()
@@ -272,6 +284,7 @@ class OutboundNearbyConnection: NearbyConnection {
         currentState = .sentPairedKeyResult
     }
 
+    
     private func processPairedKeyResult(frame: Sharing_Nearby_Frame) throws {
         guard frame.hasV1, frame.v1.hasPairedKeyResult else { throw NearbyError.requiredFieldMissing("sharingNearbyFrame.v1.pairedKeyResult") }
 
@@ -331,6 +344,7 @@ class OutboundNearbyConnection: NearbyConnection {
 
         currentState = .sentIntroduction
     }
+    
 
     private func processConsent(frame: Sharing_Nearby_Frame) throws {
         guard frame.version == .v1, frame.v1.type == .response else { throw NearbyError.requiredFieldMissing("sharingNearbyFrame.v1.type==response") }
@@ -362,19 +376,23 @@ class OutboundNearbyConnection: NearbyConnection {
         }
     }
     
+    
     private func hasURL() -> Bool {
         urlsToSend.count == 1 && !urlsToSend[0].isFileURL
     }
 
+    
     private func sendURL() throws {
         try sendText(text: urlsToSend[0].absoluteString)
     }
+    
     
     private func sendText(text: String) throws {
         try sendBytesPayload(data: Data(text.utf8), id: textPayloadID)
         delegate?.outboundConnectionTransferFinished(connection: self)
         try sendDisconnectionAndDisconnect()
     }
+    
 
     private func sendNextFileChunk() throws {
         if cancelled {
@@ -448,10 +466,12 @@ class OutboundNearbyConnection: NearbyConnection {
         }
     }
 
+    
     private static func sanitizeFileName(name: String) -> String {
         return name.replacingOccurrences(of: "[\\/\\\\?%\\*:\\|\"<>=]", with: "_", options: .regularExpression)
     }
 }
+
 
 private struct OutgoingFileTransfer {
     let url: URL
@@ -460,6 +480,7 @@ private struct OutgoingFileTransfer {
     let totalBytes: Int64
     var currentOffset: Int64
 }
+
 
 protocol OutboundNearbyConnectionDelegate {
     func outboundConnectionWasEstablished(connection: OutboundNearbyConnection)

@@ -112,12 +112,6 @@ class NearbyConnection {
     func connectionReady() {}
     
     
-    func handleConnectionClosure() {
-        log("Connection closed")
-        deletePartiallyReceivedFiles()
-    }
-    
-    
     func protocolError() {
         log("Protocol error: \(String(describing: lastError))")
         disconnect()
@@ -506,7 +500,7 @@ class NearbyConnection {
         inactivityTimer = nil
         connectionClosed = true
         
-        self.handleConnectionClosure()
+        deletePartiallyReceivedFiles()
         
         connection.send(content: nil, isComplete: true, completion: .contentProcessed { _ in
         })

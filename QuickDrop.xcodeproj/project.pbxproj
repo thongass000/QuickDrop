@@ -25,7 +25,6 @@
 		69DCF4902AB70E9700CBE2CC /* InboundNearbyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2229E17F0400A442DA /* InboundNearbyConnection.swift */; };
 		69DCF4912AB70E9700CBE2CC /* NearbyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698DFAE529E2F91A0064F247 /* NearbyConnection.swift */; };
 		69DCF4922AB70E9700CBE2CC /* NearbyConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A1E29E0C0B300A442DA /* NearbyConnectionManager.swift */; };
-		69DCF4932AB70E9700CBE2CC /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2029E0CC4E00A442DA /* Data+Extensions.swift */; };
 		69DCF4942AB8BF7B00CBE2CC /* libNearbyShare.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DCF4812AB70D0600CBE2CC /* libNearbyShare.dylib */; };
 		69DCF4952AB8BF7B00CBE2CC /* libNearbyShare.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 69DCF4812AB70D0600CBE2CC /* libNearbyShare.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		69DCF49A2AB8C58500CBE2CC /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 69DCF4992AB8C58500CBE2CC /* SwiftProtobuf */; };
@@ -40,6 +39,7 @@
 		EB5C36942E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
 		EB5C36E42E34EC0E0052EFD7 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
 		EB5C36E52E34EC0E0052EFD7 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
+		EB5C36E72E3544FF0052EFD7 /* SaveFilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */; };
 		EB6E743E2DD5C77700331466 /* ConnectionFailureTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */; };
 		EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */; };
 		EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
@@ -164,7 +164,6 @@
 		69DA9A1329E0BF5200A442DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69DA9A1829E0BF5200A442DA /* QuickDrop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickDrop.entitlements; sourceTree = "<group>"; };
 		69DA9A1E29E0C0B300A442DA /* NearbyConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyConnectionManager.swift; sourceTree = "<group>"; };
-		69DA9A2029E0CC4E00A442DA /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 		69DA9A2229E17F0400A442DA /* InboundNearbyConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboundNearbyConnection.swift; sourceTree = "<group>"; };
 		69DA9A2829E18CB500A442DA /* ukey.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ukey.pb.swift; sourceTree = "<group>"; };
 		69DA9A2929E18CB500A442DA /* wire_format.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wire_format.pb.swift; sourceTree = "<group>"; };
@@ -185,6 +184,7 @@
 		EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB5C36952E34EBBD0052EFD7 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/ShareViewController.xcstrings; sourceTree = "<group>"; };
 		EB5C36E32E34EC0E0052EFD7 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
+		EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFilesManager.swift; sourceTree = "<group>"; };
 		EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionFailureTracker.swift; sourceTree = "<group>"; };
 		EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -323,10 +323,10 @@
 				69DA9A1E29E0C0B300A442DA /* NearbyConnectionManager.swift */,
 				69DA9A2229E17F0400A442DA /* InboundNearbyConnection.swift */,
 				691F53BD2ABF03820089FD92 /* OutboundNearbyConnection.swift */,
+				EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */,
 				EB2F9BFA2DA04B67004010A2 /* Helpers.swift */,
 				698DFAE529E2F91A0064F247 /* NearbyConnection.swift */,
 				EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */,
-				69DA9A2029E0CC4E00A442DA /* Data+Extensions.swift */,
 			);
 			path = NearbyShare;
 			sourceTree = "<group>";
@@ -640,8 +640,8 @@
 				69DCF4902AB70E9700CBE2CC /* InboundNearbyConnection.swift in Sources */,
 				69DCF48B2AB70E8C00CBE2CC /* ukey.pb.swift in Sources */,
 				EB2B41E42DC63ACC0070FC39 /* SleepManager.swift in Sources */,
+				EB5C36E72E3544FF0052EFD7 /* SaveFilesManager.swift in Sources */,
 				69DCF48A2AB70E8C00CBE2CC /* wire_format.pb.swift in Sources */,
-				69DCF4932AB70E9700CBE2CC /* Data+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

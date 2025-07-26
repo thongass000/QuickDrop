@@ -11,11 +11,11 @@ import CryptoKit
 import Foundation
 import Network
 import System
-import ImageIO
 import BigInt
 import SwiftECC
 
 class InboundNearbyConnection: NearbyConnection {
+    
     private var currentState: State = .initial
     private var wasRejected = false
     public var delegate: InboundNearbyConnectionDelegate?
@@ -27,13 +27,15 @@ class InboundNearbyConnection: NearbyConnection {
     enum State {
         case initial, receivedConnectionRequest, sentUkeyServerInit, receivedUkeyClientFinish, sentConnectionResponse, sentPairedKeyResult, receivedPairedKeyResult, waitingForUserConsent, receivingFiles, disconnected
     }
+    
 
     override init(connection: NWConnection, id: String) {
         super.init(connection: connection, id: id)
     }
+    
 
-    override func handleConnectionClosure() {
-        super.handleConnectionClosure()
+    override func disconnect() {
+        super.disconnect()
         currentState = .disconnected
   
         if !self.wasRejected {
@@ -45,6 +47,7 @@ class InboundNearbyConnection: NearbyConnection {
             }
         }
     }
+    
 
     override func processReceivedFrame(frameData: Data) {
         
@@ -89,6 +92,7 @@ class InboundNearbyConnection: NearbyConnection {
             protocolError()
         }
     }
+    
 
     override func processTransferSetupFrame(_ frame: Sharing_Nearby_Frame) throws {
         if frame.hasV1 && frame.v1.hasType, case .cancel = frame.v1.type {
@@ -109,9 +113,11 @@ class InboundNearbyConnection: NearbyConnection {
         }
     }
 
+    
     override func isServer() -> Bool {
         return true
     }
+    
 
     override func processFileChunk(frame: Location_Nearby_Connections_PayloadTransferFrame) throws {
         
@@ -151,6 +157,7 @@ class InboundNearbyConnection: NearbyConnection {
         }
     }
 
+    
     override func processBytesPayload(payload: Data, id: Int64) throws -> Bool {
         if id == textPayloadID {
             if let urlStr = String(data: payload, encoding: .utf8) {
@@ -188,6 +195,7 @@ class InboundNearbyConnection: NearbyConnection {
         }
         return false
     }
+    
 
     private func processConnectionRequestFrame(_ frame: Location_Nearby_Connections_OfflineFrame) throws {
         
@@ -210,6 +218,7 @@ class InboundNearbyConnection: NearbyConnection {
         remoteDeviceInfo = RemoteDeviceInfo(name: deviceName, type: RemoteDeviceInfo.DeviceType.fromRawValue(value: rawDeviceType))
         currentState = .receivedConnectionRequest
     }
+    
 
     private func processUkey2ClientInit(_ msg: Securegcm_Ukey2Message) throws {
         guard msg.hasMessageType, msg.hasMessageData else { throw NearbyError.requiredFieldMissing("clientInit ukey2message.type|data") }
@@ -275,6 +284,7 @@ class InboundNearbyConnection: NearbyConnection {
         currentState = .sentUkeyServerInit
     }
 
+    
     private func processUkey2ClientFinish(_ msg: Securegcm_Ukey2Message, raw: Data) throws {
         guard msg.hasMessageType, msg.hasMessageData else { throw NearbyError.requiredFieldMissing("clientFinish ukey2message.type|data") }
         guard case .clientFinish = msg.messageType else { throw NearbyError.ukey2 }
@@ -291,6 +301,7 @@ class InboundNearbyConnection: NearbyConnection {
 
         currentState = .receivedUkeyClientFinish
     }
+    
 
     private func processConnectionResponseFrame(_ frame: Location_Nearby_Connections_OfflineFrame) throws {
         guard frame.hasV1, frame.v1.hasType else { throw NearbyError.requiredFieldMissing("offlineFrame.v1.type") }
@@ -323,6 +334,7 @@ class InboundNearbyConnection: NearbyConnection {
         }
     }
 
+    
     private func processPairedKeyEncryptionFrame(_ frame: Sharing_Nearby_Frame) throws {
         guard frame.hasV1, frame.v1.hasPairedKeyEncryption else { throw NearbyError.requiredFieldMissing("shareNearbyFrame.v1.pairedKeyEncryption") }
         var pairedResult = Sharing_Nearby_Frame()
@@ -335,10 +347,12 @@ class InboundNearbyConnection: NearbyConnection {
         currentState = .sentPairedKeyResult
     }
 
+    
     private func processPairedKeyResultFrame(_ frame: Sharing_Nearby_Frame) throws {
         guard frame.hasV1, frame.v1.hasPairedKeyResult else { throw NearbyError.requiredFieldMissing("shareNearbyFrame.v1.pairedKeyResult") }
         currentState = .receivedPairedKeyResult
     }
+    
 
     private func makeFileDestinationURL(_ initialDest: URL) -> URL {
         var dest = initialDest
@@ -358,6 +372,7 @@ class InboundNearbyConnection: NearbyConnection {
         }
         return dest
     }
+    
 
     private func processIntroductionFrame(_ frame: Sharing_Nearby_Frame) throws {
         guard frame.hasV1, frame.v1.hasIntroduction else { throw NearbyError.requiredFieldMissing("shareNearbyFrame.v1.introduction") }
@@ -403,6 +418,7 @@ class InboundNearbyConnection: NearbyConnection {
         }
     }
     
+    
     func rejectDueToUnsupportedFileType(_ frame: Sharing_Nearby_Frame) {
         
         log("Rejecting transfer due to unsupported file type. Frame is \(frame.debugDescription)")
@@ -410,6 +426,7 @@ class InboundNearbyConnection: NearbyConnection {
         NearbyConnectionManager.shared.mainAppDelegate?.showUnsupportedFileAlert(for: remoteDeviceInfo)
         rejectTransfer(with: .unsupportedAttachmentType)
     }
+    
 
     func submitUserConsent(accepted: Bool, storeInTemp: Bool = false) {
         DispatchQueue.global(qos: .utility).async {
@@ -421,6 +438,7 @@ class InboundNearbyConnection: NearbyConnection {
         }
     }
 
+    
     private func acceptTransfer(storeInTemp: Bool) {
         if currentState == .disconnected {
             log("Detected timeout, not accepting transfer")
@@ -461,6 +479,7 @@ class InboundNearbyConnection: NearbyConnection {
         }
     }
 
+    
     private func rejectTransfer(with reason: Sharing_Nearby_ConnectionResponseFrame.Status = .reject) {
         
         self.wasRejected = true
@@ -481,236 +500,8 @@ class InboundNearbyConnection: NearbyConnection {
     }
 }
 
+
 protocol InboundNearbyConnectionDelegate {
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo, connection: InboundNearbyConnection)
     func connectionWasTerminated(connection: InboundNearbyConnection, error: Error?)
-}
-
-public class SaveFilesManager {
-    
-    private init() {
-        // remove old temp directory
-        
-        let tempPath = FileManager.default.temporaryDirectory
-        let fileManager = FileManager.default
-
-         do {
-             let contents = try fileManager.contentsOfDirectory(at: tempPath, includingPropertiesForKeys: nil)
-             
-             var didSomething = false
-             
-             for item in contents {
-                 didSomething = true
-                 try fileManager.removeItem(at: item)
-             }
-             
-             if didSomething {
-                 log("Temporary directory cleared.")
-             }
-         } catch {
-             log("Failed to list contents of temp directory: \(error)")
-         }
-    }
-
-    public static let shared = SaveFilesManager()
-
-    let tempDirectory: URL = FileManager.default.temporaryDirectory.appendingPathComponent("Pending")
-    private var securityScopeUrl: URL?
-
-    private var filesFinishedDownloading = [URL]()
-    private var filesFinishedDownloadingSinceLastRun = [URL]()
-    
-    public func registerFileFinishedDownloading(_ fileURL: URL) {
-        filesFinishedDownloading.append(fileURL)
-        filesFinishedDownloadingSinceLastRun.append(fileURL)
-        
-        // read out EXIF timestamp and manually set file creation date to it
-        applyEXIFTimestamps(at: fileURL)
-    }
-    
-    public func movePendingFilesToTarget() {
-
-        if isPlusVersion() {
-            do {
-                let fileManager = FileManager.default
-                let files = try fileManager.contentsOfDirectory(at: tempDirectory, includingPropertiesForKeys: nil)
-                
-                let target = getSaveDirectory()
-                var loggedExecution = false
-                
-                for file in files {
-                    
-                    if !loggedExecution {
-                        log("Moving pending files to target directory")
-                        loggedExecution = true
-                    }
-                    
-                    let fileName = file.lastPathComponent
-                    let destinationURL = target.appendingPathComponent(fileName)
-                    
-                    if !filesFinishedDownloading.contains(destinationURL) {
-                        log("File \(file) not finished downloading, skipping")
-                        continue
-                    }
-                    
-                    log("Moving file: \(file.lastPathComponent) to \(destinationURL.lastPathComponent)")
-                    
-                    do {
-                        try fileManager.copyItem(at: file, to: destinationURL)
-                        
-                        let progress = Progress()
-                        progress.fileURL = destinationURL
-                        progress.totalUnitCount = 10
-                        progress.kind = .file
-                        progress.isPausable = false
-                        progress.publish()
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            progress.completedUnitCount = 10
-                            progress.unpublish()
-                        }
-                        
-                        try fileManager.removeItem(at: file)
-                    }
-                    catch {
-                        log("Error moving file: \(error)")
-                    }
-                }
-                log("Moved all pending files to target directory")
-            }
-            catch {
-                // Pending directory doesn't exist or is empty
-            }
-        }
-        
-        if !filesFinishedDownloadingSinceLastRun.isEmpty && !isFileTransferRestricted() {
-            
-            if UserDefaults.standard.bool(forKey: UserDefaultsKeys.openFinderAfterReceiving.rawValue) {
-                log("Opening \(filesFinishedDownloadingSinceLastRun.count) file(s) in Finder.")
-                NSWorkspace.shared.activateFileViewerSelecting(filesFinishedDownloadingSinceLastRun)
-            }
-            
-            // Clear the list of finished files
-            filesFinishedDownloadingSinceLastRun.removeAll()
-        }
-
-        stopAccessingSecurityScopedResource()
-    }
-
-    public func stopAccessingSecurityScopedResource() {
-        guard let url = securityScopeUrl else {
-            return
-        }
-
-        log("Stopping access to security scoped resource: \(url)")
-        url.stopAccessingSecurityScopedResource()
-        securityScopeUrl = nil
-    }
-
-    public func getSaveDirectory() -> URL {
-        if let securityScopeUrl = securityScopeUrl {
-            log("Using existing security scope URL: \(securityScopeUrl)")
-            return securityScopeUrl
-        }
-
-        if let bookmarkData = UserDefaults.standard.data(forKey: UserDefaultsKeys.saveFolderBookmark.rawValue) {
-            var isStale = false
-
-            do {
-                let url = try URL(resolvingBookmarkData: bookmarkData, options: .withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &isStale)
-
-                if !isStale {
-                    if url.startAccessingSecurityScopedResource() {
-                        log("Successfully accessed security scoped resource: \(url)")
-
-                        securityScopeUrl = url
-                        return url
-                    }
-                } else {
-                    log("Bookmark is stale, using default downloads folder.")
-                }
-
-            } catch {
-                log("Failed to resolve bookmark: \(error), using default downloads folder.")
-            }
-        }
-
-        do {
-            return try FileManager.default.url(for: .downloadsDirectory, in: .userDomainMask, appropriateFor: nil, create: true).resolvingSymlinksInPath()
-        } catch {
-            fatalError("Failed to get downloads directory: \(error)")
-        }
-    }
-    
-    /// Returns the EXIF original date of an image file, adjusted to the current time zone.
-    private func exifOriginalDate(from url: URL) -> Date? {
-        guard let imageSource = CGImageSourceCreateWithURL(url as CFURL, nil),
-              let properties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as? [CFString: Any],
-              let exif = properties[kCGImagePropertyExifDictionary] as? [CFString: Any],
-              let dateString = exif[kCGImagePropertyExifDateTimeOriginal] as? String
-        else {
-            return nil
-        }
-
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy:MM:dd HH:mm:ss"
-        formatter.timeZone = TimeZone.current  // Use the current device time zone
-        return formatter.date(from: dateString)
-    }
-
-    
-    /// Applies EXIF timestamps to a given file or directory.
-    private func applyEXIFTimestamps(at url: URL) {
-        let fm = FileManager.default
-        var isDir: ObjCBool = false
-        guard fm.fileExists(atPath: url.path, isDirectory: &isDir) else { return }
-        
-        if isDir.boolValue {
-            // It's a directory — enumerate files
-            if let enumerator = fm.enumerator(at: url, includingPropertiesForKeys: [.isRegularFileKey]) {
-                for case let fileURL as URL in enumerator {
-                    guard (try? fileURL.resourceValues(forKeys: [.isRegularFileKey]))?.isRegularFile == true else { continue }
-                    applyEXIFTimestamp(to: fileURL)
-                }
-            }
-        } else {
-            // It's a single file
-            applyEXIFTimestamp(to: url)
-        }
-    }
-    
-    /// Applies EXIF timestamp (if available) to a single file
-    private func applyEXIFTimestamp(to fileURL: URL) {
-        guard let exifDate = exifOriginalDate(from: fileURL) else {
-            return
-        }
-
-        // Set the "creation date"
-        try? FileManager.default.setAttributes([.creationDate: exifDate], ofItemAtPath: fileURL.path)
-    }
-}
-
-extension Data {
-    var hex: String {
-        return map { String(format: "%02hhx", $0) }.joined()
-    }
-}
-
-extension String {
-    var dataFromHex: Data {
-        var data = Data(capacity: count / 2)
-        var index = startIndex
-        while index < endIndex {
-            let nextIndex = self.index(index, offsetBy: 2)
-            if nextIndex <= endIndex,
-               let byte = UInt8(self[index ..< nextIndex], radix: 16)
-            {
-                data.append(byte)
-            } else {
-                break // or handle invalid hex gracefully
-            }
-            index = nextIndex
-        }
-        return data
-    }
 }
