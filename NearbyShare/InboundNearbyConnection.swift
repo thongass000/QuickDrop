@@ -17,6 +17,7 @@ import SwiftECC
 
 class InboundNearbyConnection: NearbyConnection {
     private var currentState: State = .initial
+    private var wasRejected = false
     public var delegate: InboundNearbyConnectionDelegate?
     private var cipherCommitment: Data?
 
@@ -35,11 +36,13 @@ class InboundNearbyConnection: NearbyConnection {
         super.handleConnectionClosure()
         currentState = .disconnected
   
-        DispatchQueue.main.async {
-            self.delegate?.connectionWasTerminated(connection: self, error: self.lastError)
-
-            SaveFilesManager.shared.movePendingFilesToTarget()
-            SaveFilesManager.shared.stopAccessingSecurityScopedResource()
+        if !self.wasRejected {
+            DispatchQueue.main.async {
+                self.delegate?.connectionWasTerminated(connection: self, error: self.lastError)
+                
+                SaveFilesManager.shared.movePendingFilesToTarget()
+                SaveFilesManager.shared.stopAccessingSecurityScopedResource()
+            }
         }
     }
 
@@ -459,6 +462,8 @@ class InboundNearbyConnection: NearbyConnection {
     }
 
     private func rejectTransfer(with reason: Sharing_Nearby_ConnectionResponseFrame.Status = .reject) {
+        
+        self.wasRejected = true
         
         log("Rejecting transfer because of \( reason)")
         
