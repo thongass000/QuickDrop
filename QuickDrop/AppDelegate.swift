@@ -424,7 +424,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
 
     func incomingTransfer(id: String, didFinishWith error: Error?) {
-        guard let transfer = activeIncomingTransfers[id] else { return }
 
         if let error = error {
             
@@ -433,7 +432,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 plusWindow.close()
             }
             
-            ErrorAlertHandler.shared.showErrorAlert(for: transfer.device.name, error: error)
+            ErrorAlertHandler.shared.showErrorAlert(for: activeIncomingTransfers[id]?.device.name ?? "Android", error: error)
         } else {
             let currentCount = transmissionCount()
             if currentCount == 0 {
