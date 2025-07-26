@@ -30,7 +30,7 @@ class NearbyConnection {
     private var connectionClosed: Bool = false
     
     private var inactivityTimer: DispatchSourceTimer?
-    private let timeoutInterval: TimeInterval = 7
+    private let timeoutInterval: TimeInterval = 100 // seconds
     
     // UKEY2-related state
     var publicKey: ECPublicKey?
@@ -253,10 +253,14 @@ class NearbyConnection {
     }
     
     func sendTransferSetupFrame(_ frame: Sharing_Nearby_Frame) throws {
+        log("Sending transfer setup frame.")
         try sendBytesPayload(data: frame.serializedData(), id: Int64.random(in: Int64.min ... Int64.max))
     }
     
     func sendBytesPayload(data: Data, id: Int64) throws {
+        
+        log("Sending bytes payload with ID \(id) of length \(data.count)")
+        
         var transfer = Location_Nearby_Connections_PayloadTransferFrame()
         transfer.packetType = .data
         transfer.payloadChunk.offset = 0
