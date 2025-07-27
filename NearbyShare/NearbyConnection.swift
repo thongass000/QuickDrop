@@ -25,6 +25,7 @@ class NearbyConnection {
     var remoteDeviceInfo: RemoteDeviceInfo?
     var encryptionDone: Bool = false
     var lastError: Error?
+    var bytesTransferred: Int64 = 0
     
     private var payloadBuffers: [Int64: NSMutableData] = [:]
     private var connectionClosed: Bool = false
@@ -382,7 +383,7 @@ class NearbyConnection {
         }
         else if offlineFrame.hasV1, offlineFrame.v1.hasType, case .keepAlive = offlineFrame.v1.type {
             
-            log("[NearbyConnection] Sent keep-alive")
+            log("[NearbyConnection] Sent keep-alive, \(self.bytesTransferred) bytes sent")
             sendKeepAlive(ack: true)
         } else {
             

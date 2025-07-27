@@ -136,6 +136,9 @@ class InboundNearbyConnection: NearbyConnection {
                 try fileInfo.fileHandle?.write(contentsOf: frame.payloadChunk.body)
                 filesToBeReceived[id]!.bytesTransferred += Int64(frame.payloadChunk.body.count)
                 fileInfo.progress?.completedUnitCount = filesToBeReceived[id]!.bytesTransferred
+                
+                // only for logging
+                self.bytesTransferred += Int64(frame.payloadChunk.body.count)
             } catch {
                 log("[InboundNearbyConnection] Error occurred during writing file: \(error.localizedDescription)")
                 
@@ -224,6 +227,7 @@ class InboundNearbyConnection: NearbyConnection {
         guard msg.hasMessageType, msg.hasMessageData else { throw NearbyError.requiredFieldMissing("clientInit ukey2message.type|data") }
         guard case .clientInit = msg.messageType else {
             sendUkey2Alert(type: .badMessageType)
+            log("[InboundNearbyConnection] Unsupported message type: \(msg.messageType)")
             throw NearbyError.ukey2
         }
         let clientInit: Securegcm_Ukey2ClientInit
@@ -231,14 +235,17 @@ class InboundNearbyConnection: NearbyConnection {
             clientInit = try Securegcm_Ukey2ClientInit(serializedBytes: msg.messageData)
         } catch {
             sendUkey2Alert(type: .badMessageData)
+            log("[InboundNearbyConnection] Failed to parse clientInit: \(error)")
             throw NearbyError.ukey2
         }
         guard clientInit.version == 1 else {
             sendUkey2Alert(type: .badVersion)
+            log("[InboundNearbyConnection] Unsupported clientInit version: \(clientInit.version)")
             throw NearbyError.ukey2
         }
         guard clientInit.random.count == 32 else {
             sendUkey2Alert(type: .badRandom)
+            log("[InboundNearbyConnection] Unsupported clientInit random: \(clientInit.random.count)")
             throw NearbyError.ukey2
         }
         var found = false
@@ -251,10 +258,12 @@ class InboundNearbyConnection: NearbyConnection {
         }
         guard found else {
             sendUkey2Alert(type: .badHandshakeCipher)
+            log("[InboundNearbyConnection] Unsupported clientInit handshakeCipher: \(clientInit.cipherCommitments)")
             throw NearbyError.ukey2
         }
         guard clientInit.nextProtocol == "AES_256_CBC-HMAC_SHA256" else {
             sendUkey2Alert(type: .badNextProtocol)
+            log("[InboundNearbyConnection] Unsupported clientInit nextProtocol: \(clientInit.nextProtocol)")
             throw NearbyError.ukey2
         }
 
@@ -287,11 +296,17 @@ class InboundNearbyConnection: NearbyConnection {
     
     private func processUkey2ClientFinish(_ msg: Securegcm_Ukey2Message, raw: Data) throws {
         guard msg.hasMessageType, msg.hasMessageData else { throw NearbyError.requiredFieldMissing("clientFinish ukey2message.type|data") }
-        guard case .clientFinish = msg.messageType else { throw NearbyError.ukey2 }
+        guard case .clientFinish = msg.messageType else {
+            log("[InboundNearbyConnection] Unexpected message type \(msg.messageType)")
+            throw NearbyError.ukey2
+        }
 
         var sha = SHA512()
         sha.update(data: raw)
-        guard cipherCommitment == Data(sha.finalize()) else { throw NearbyError.ukey2 }
+        guard cipherCommitment == Data(sha.finalize()) else {
+            log("[InboundNearbyConnection] Invalid cipherCommitment in clientFinish")
+            throw NearbyError.ukey2
+        }
 
         let clientFinish = try Securegcm_Ukey2ClientFinished(serializedBytes: msg.messageData)
         guard clientFinish.hasPublicKey else { throw NearbyError.requiredFieldMissing("ukey2clientFinish.publicKey") }

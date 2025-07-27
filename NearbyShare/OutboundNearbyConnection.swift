@@ -222,19 +222,23 @@ class OutboundNearbyConnection: NearbyConnection {
         ukeyServerInitMsgData = raw
         guard frame.messageType == .serverInit else {
             sendUkey2Alert(type: .badMessageType)
+            log("[OutboundNearbyConnection] Invalid message type: \(frame.messageType)")
             throw NearbyError.ukey2
         }
         let serverInit = try Securegcm_Ukey2ServerInit(serializedBytes: frame.messageData)
         guard serverInit.version == 1 else {
             sendUkey2Alert(type: .badVersion)
+            log("[OutboundNearbyConnection] Invalid version: \(serverInit.version)")
             throw NearbyError.ukey2
         }
         guard serverInit.random.count == 32 else {
             sendUkey2Alert(type: .badRandom)
+            log("[OutboundNearbyConnection] Invalid random: \(serverInit.random.count)")
             throw NearbyError.ukey2
         }
         guard serverInit.handshakeCipher == .p256Sha512 else {
             sendUkey2Alert(type: .badHandshakeCipher)
+            log("[OutboundNearbyConnection] Invalid handshake cipher: \(serverInit.handshakeCipher)")
             throw NearbyError.ukey2
         }
 
@@ -447,6 +451,10 @@ class OutboundNearbyConnection: NearbyConnection {
             }
         })
         totalBytesSent += Int64(fileBuffer.count)
+        
+        // only for logging
+        self.bytesTransferred += Int64(fileBuffer.count)
+        
         startInactivityTimer()
         delegate?.outboundConnection(connection: self, transferProgress: Double(totalBytesSent) / Double(totalBytesToSend))
 
