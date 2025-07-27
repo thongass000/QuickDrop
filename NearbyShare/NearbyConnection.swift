@@ -24,7 +24,6 @@ class NearbyConnection {
     
     var remoteDeviceInfo: RemoteDeviceInfo?
     var encryptionDone: Bool = false
-    var filesToBeTransferred: [Int64: InternalFileInfo] = [:]
     var lastError: Error?
     
     private var payloadBuffers: [Int64: NSMutableData] = [:]
@@ -385,7 +384,7 @@ class NearbyConnection {
         }
         else if offlineFrame.hasV1, offlineFrame.v1.hasType, case .keepAlive = offlineFrame.v1.type {
             
-            log("Sent keep-alive, current transfer progress: \(filesToBeTransferred.values.reduce(0) { $0 + $1.bytesTransferred }) bytes")
+            log("Sent keep-alive")
             sendKeepAlive(ack: true)
         } else {
             
@@ -499,11 +498,7 @@ class NearbyConnection {
         inactivityTimer?.cancel()
         inactivityTimer = nil
         connectionClosed = true
-        
-        deletePartiallyReceivedFiles()
-        
-        connection.send(content: nil, isComplete: true, completion: .contentProcessed { _ in
-        })
+        connection.send(content: nil, isComplete: true, completion: .contentProcessed { _ in })
     }
     
     
@@ -574,24 +569,6 @@ class NearbyConnection {
         }
         
         inactivityTimer?.resume()
-    }
-      
-    
-    private func deletePartiallyReceivedFiles() {
-        for (_, file) in filesToBeTransferred {
-            
-            if let progress = file.progress {
-                progress.unpublish()
-            }
-            
-            guard file.created else { continue }
-            do {
-                try FileManager.default.removeItem(at: file.destinationURL)
-            }
-            catch {
-                // if it fails, we don't care. Could be because file was not created yet
-            }
-        }
     }
     
     

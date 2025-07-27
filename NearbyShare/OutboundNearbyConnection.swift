@@ -100,8 +100,12 @@ class OutboundNearbyConnection: NearbyConnection {
 
     
     override func processReceivedFrame(frameData: Data) {
+        
+        if currentState != .sendingFiles {
+            log("Received frame in state \(currentState)...")
+        }
+        
         do {
-            log("received \(frameData), state is \(currentState)")
             switch currentState {
             case .initial:
                 protocolError()
@@ -130,13 +134,17 @@ class OutboundNearbyConnection: NearbyConnection {
 
     
     override func processTransferSetupFrame(_ frame: Sharing_Nearby_Frame) throws {
+        
         if frame.hasV1 && frame.v1.hasType, case .cancel = frame.v1.type {
+            
             log("Transfer canceled")
             try sendDisconnectionAndDisconnect()
             delegate?.outboundConnection(connection: self, failedWithError: NearbyError.canceled(reason: .userCanceled))
             return
         }
+        
         log(frame.debugDescription)
+        
         switch currentState {
         case .sentPairedKeyEncryption:
             try processPairedKeyEncryption(frame: frame)
