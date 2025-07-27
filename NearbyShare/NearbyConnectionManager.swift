@@ -12,20 +12,19 @@ import System
 
 public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearbyConnectionDelegate, OutboundNearbyConnectionDelegate {
 
+    private let sleepManager = SleepManager.shared
     private var tcpListener: NWListener
-    public let endpointID: [UInt8] = generateEndpointID()
     private var mdnsServices: [NetService] = []
-    private var activeConnections: [String: InboundNearbyConnection] = [:]
+    private var incomingConnections: [String: InboundNearbyConnection] = [:]
     private var foundServices: [String: FoundServiceInfo] = [:]
     private var shareExtensionDelegates: [ShareExtensionDelegate] = []
     private var outgoingTransfers: [String: OutgoingTransferInfo] = [:]
-    public var mainAppDelegate: (any MainAppDelegate)?
     private var discoveryRefCount = 0
+    private var browsers: [NWBrowser] = []    
+    private let serviceTypes = ["_FC9F5ED42C8A._tcp."]
 
-    let serviceTypes = ["_FC9F5ED42C8A._tcp."]
-
-    private var browsers: [NWBrowser] = []
-
+    public let endpointID: [UInt8] = generateEndpointID()
+    public var mainAppDelegate: (any MainAppDelegate)?
     public static let shared = NearbyConnectionManager()
 
     
@@ -49,7 +48,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         tcpListener.newConnectionHandler = { (connection: NWConnection) in
             let id = UUID().uuidString
             let conn = InboundNearbyConnection(connection: connection, id: id)
-            self.activeConnections[id] = conn
+            self.incomingConnections[id] = conn
             conn.delegate = self
             conn.start()
         }
@@ -70,7 +69,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         // Generate a new random ID
         var id: [UInt8] = []
         let alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".compactMap { UInt8($0.asciiValue!) }
-        for _ in 0 ..< 4 { // use 0..<4 instead of 0...3 for clarity
+        for _ in 0 ..< 4 {
             id.append(alphabet[Int.random(in: 0 ..< alphabet.count)])
         }
 
@@ -89,6 +88,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             0xFC, 0x9F, 0x5E, // Service ID hash
             0, 0,
         ]
+        
         let name = Data(nameBytes).urlSafeBase64EncodedString()
         let endpointInfo = EndpointInfo(name: Host.current().localizedName!, deviceType: .computer)
 
@@ -107,20 +107,21 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
 
     
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo, connection _: InboundNearbyConnection) {
-        guard let delegate = mainAppDelegate else { return }
-        delegate.obtainUserConsent(for: transfer, from: device)
+        mainAppDelegate?.obtainUserConsent(for: transfer, from: device)
     }
     
     
     func connectionWasTerminated(connection: InboundNearbyConnection, error: Error?) {
-        guard let delegate = mainAppDelegate else { return }
-        delegate.incomingTransfer(id: connection.id, didFinishWith: error)
-        activeConnections.removeValue(forKey: connection.id)
+        incomingConnections.removeValue(forKey: connection.id)
+        
+        if !connection.wasRejected {
+            mainAppDelegate?.incomingTransfer(id: connection.id, didFinishWith: error)
+        }
     }
 
     
     public func submitUserConsent(transferID: String, accept: Bool, storeInTemp: Bool = false) {
-        guard let conn = activeConnections[transferID] else { return }
+        guard let conn = incomingConnections[transferID] else { return }
         
         log("Submitting user consent for transfer, accepted: \(accept), store in temp: \(storeInTemp)")
         conn.submitUserConsent(accepted: accept, storeInTemp: storeInTemp)
@@ -304,7 +305,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
 
     
     public func getActiveConnectionsCount() -> Int {
-        return activeConnections.count
+        return incomingConnections.count + outgoingTransfers.count
     }
     
     

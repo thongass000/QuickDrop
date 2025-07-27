@@ -17,7 +17,7 @@ import SwiftECC
 class InboundNearbyConnection: NearbyConnection {
     
     private var currentState: State = .initial
-    private var wasRejected = false
+    public var wasRejected = false
     public var delegate: InboundNearbyConnectionDelegate?
     private var cipherCommitment: Data?
 
@@ -38,13 +38,11 @@ class InboundNearbyConnection: NearbyConnection {
         super.disconnect()
         currentState = .disconnected
   
-        if !self.wasRejected {
-            DispatchQueue.main.async {
-                self.delegate?.connectionWasTerminated(connection: self, error: self.lastError)
-                
-                SaveFilesManager.shared.movePendingFilesToTarget()
-                SaveFilesManager.shared.stopAccessingSecurityScopedResource()
-            }
+        DispatchQueue.main.async {
+            self.delegate?.connectionWasTerminated(connection: self, error: self.lastError)
+            
+            SaveFilesManager.shared.movePendingFilesToTarget()
+            SaveFilesManager.shared.stopAccessingSecurityScopedResource()
         }
     }
     
