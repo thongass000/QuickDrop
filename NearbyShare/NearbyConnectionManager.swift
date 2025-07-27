@@ -19,8 +19,8 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private var foundServices: [String: FoundServiceInfo] = [:]
     private var shareExtensionDelegates: [ShareExtensionDelegate] = []
     private var outgoingTransfers: [String: OutgoingTransferInfo] = [:]
-    private var discoveryRefCount = 0
-    private var browsers: [NWBrowser] = []    
+    private var startedDeviceDiscovery = false
+    private var browsers: [NWBrowser] = []
     private let serviceTypes = ["_FC9F5ED42C8A._tcp."]
 
     public let endpointID: [UInt8] = generateEndpointID()
@@ -129,9 +129,9 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
 
     
     public func startDeviceDiscovery() {
-        log("Device discovery requested.")
-
-        if discoveryRefCount == 0 {
+        
+        if !startedDeviceDiscovery {
+            startedDeviceDiscovery = true
             foundServices.removeAll()
 
             log("Starting device discovery")
@@ -158,16 +158,11 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
                 }
             }
         }
-
-        discoveryRefCount += 1
     }
 
     
     public func stopDeviceDiscovery() {
-        discoveryRefCount -= 1
-        assert(discoveryRefCount >= 0)
-
-        if discoveryRefCount == 0 {
+        if startedDeviceDiscovery {
             for browser in browsers {
                 browser.cancel()
             }
