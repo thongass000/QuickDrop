@@ -163,11 +163,15 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     public func stopDeviceDiscovery() {
         if startedDeviceDiscovery {
+            
+            log("Stopping device discovery")
+            
             for browser in browsers {
                 browser.cancel()
             }
 
             browsers.removeAll()
+            startedDeviceDiscovery = false
         }
     }
 
