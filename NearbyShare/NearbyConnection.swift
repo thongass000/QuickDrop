@@ -82,7 +82,7 @@ class NearbyConnection {
                 }
             }
             else {
-                log("Connection already closed, ignoring state update: \(state)")
+                log("[NearbyConnection] Connection already closed, ignoring state update: \(state)")
             }
         }
 
@@ -90,7 +90,7 @@ class NearbyConnection {
         
         func recordErrorAndDisconnect(err: NWError) {
             self.lastError = err
-            log("Connection Error: \(err)")
+            log("[NearbyConnection] Connection Error: \(err)")
             
             // If the error is a connection reset, it could be due to firewall issues.
             if err == .posix(.ENOTCONN) {
@@ -112,7 +112,7 @@ class NearbyConnection {
     
     
     func protocolError() {
-        log("Protocol error: \(String(describing: lastError))")
+        log("[NearbyConnection] Protocol error: \(String(describing: lastError))")
         disconnect()
     }
     
@@ -148,7 +148,7 @@ class NearbyConnection {
                 return
             }
             if isComplete {
-                log("Connection closed by peer during receiveFrameAsync")
+                log("[NearbyConnection] Connection closed by peer during receiveFrameAsync")
                 self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
                 self.disconnect()
                 return
@@ -181,7 +181,7 @@ class NearbyConnection {
                 return
             }
             if isComplete {
-                log("Connection closed by peer during receiveFrameAsync")
+                log("[NearbyConnection] Connection closed by peer during receiveFrameAsync")
                 self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
                 self.disconnect()
                 return
@@ -262,14 +262,12 @@ class NearbyConnection {
     
     
     func sendTransferSetupFrame(_ frame: Sharing_Nearby_Frame) throws {
-        log("Sending transfer setup frame.")
+        log("[NearbyConnection] Sending transfer setup frame.")
         try sendBytesPayload(data: frame.serializedData(), id: Int64.random(in: Int64.min ... Int64.max))
     }
     
     
     func sendBytesPayload(data: Data, id: Int64) throws {
-        
-        log("Sending bytes payload with ID \(id) of length \(data.count)")
         
         var transfer = Location_Nearby_Connections_PayloadTransferFrame()
         transfer.packetType = .data
@@ -339,7 +337,7 @@ class NearbyConnection {
             
             guard header.hasType, header.hasID else { throw NearbyError.requiredFieldMissing("payloadHeader.type|id") }
             guard payloadTransfer.hasPayloadChunk, chunk.hasOffset, chunk.hasFlags else {
-                log("Payload transfer chunk is missing offset or flags, likely canceled.")
+                log("[NearbyConnection] Payload transfer chunk is missing offset or flags, likely canceled.")
                 throw NearbyError.canceled(reason: .userCanceled)
             }
             
@@ -384,11 +382,11 @@ class NearbyConnection {
         }
         else if offlineFrame.hasV1, offlineFrame.v1.hasType, case .keepAlive = offlineFrame.v1.type {
             
-            log("Sent keep-alive")
+            log("[NearbyConnection] Sent keep-alive")
             sendKeepAlive(ack: true)
         } else {
             
-            log("Unhandled offline frame encrypted: \(offlineFrame)")
+            log("[NearbyConnection] Unhandled offline frame encrypted: \(offlineFrame)")
         }
     }
     
@@ -492,7 +490,7 @@ class NearbyConnection {
     
     
     func disconnect() {
-        log("Disconnecting from connection.")
+        log("[NearbyConnection] Disconnecting from connection.")
         
         connection.stateUpdateHandler = nil
         inactivityTimer?.cancel()
@@ -514,7 +512,7 @@ class NearbyConnection {
             try sendFrameAsync(offlineFrame.serializedData())
         }
         
-        log("Sent disconnection frame during sendDisconnectionAndDisconnect")
+        log("[NearbyConnection] Sent disconnection frame during sendDisconnectionAndDisconnect")
         disconnect()
     }
     
@@ -527,7 +525,7 @@ class NearbyConnection {
         msg.messageData = try! alert.serializedData()
         sendFrameAsync(try! msg.serializedData())
         
-        log("Sent UKEY2 alert: \(type)")
+        log("[NearbyConnection] Sent UKEY2 alert: \(type)")
         disconnect()
     }
     
@@ -545,7 +543,7 @@ class NearbyConnection {
                 try sendFrameAsync(offlineFrame.serializedData())
             }
         } catch {
-            log("Error sending KEEP_ALIVE: \(error)")
+            log("[NearbyConnection] Error sending KEEP_ALIVE: \(error)")
         }
     }
     
@@ -562,7 +560,7 @@ class NearbyConnection {
             guard let self = self else { return }
             
             if !self.connectionClosed {
-                log("Connection timeout: No message received in \(self.timeoutInterval) seconds")
+                log("[NearbyConnection] Connection timeout: No message received in \(self.timeoutInterval) seconds")
                 self.lastError = NearbyError.canceled(reason: .timedOut)
                 self.disconnect()
             }

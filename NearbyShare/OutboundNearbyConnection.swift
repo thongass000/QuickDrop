@@ -102,7 +102,7 @@ class OutboundNearbyConnection: NearbyConnection {
     override func processReceivedFrame(frameData: Data) {
         
         if currentState != .sendingFiles {
-            log("Received frame in state \(currentState)...")
+            log("[OutboundNearbyConnection] Received frame in state \(currentState)...")
         }
         
         do {
@@ -119,7 +119,7 @@ class OutboundNearbyConnection: NearbyConnection {
             }
         } catch {
             
-            log("Error occured while processing frame with data \(frameData.hex): \(error)")
+            log("[OutboundNearbyConnection] Error occured while processing frame with data \(frameData.hex): \(error)")
             
             if case NearbyError.ukey2 = error {
                 // do nothing
@@ -137,13 +137,11 @@ class OutboundNearbyConnection: NearbyConnection {
         
         if frame.hasV1 && frame.v1.hasType, case .cancel = frame.v1.type {
             
-            log("Transfer canceled")
+            log("[OutboundNearbyConnection] Transfer canceled")
             try sendDisconnectionAndDisconnect()
             delegate?.outboundConnection(connection: self, failedWithError: NearbyError.canceled(reason: .userCanceled))
             return
         }
-        
-        log(frame.debugDescription)
         
         switch currentState {
         case .sentPairedKeyEncryption:
@@ -155,7 +153,7 @@ class OutboundNearbyConnection: NearbyConnection {
         case .sendingFiles:
             break
         default:
-            assertionFailure("Unexpected state \(currentState)")
+            assertionFailure("[OutboundNearbyConnection] Unexpected state \(currentState)")
         }
     }
     
@@ -262,7 +260,6 @@ class OutboundNearbyConnection: NearbyConnection {
 
     
     private func processConnectionResponse(frame: Location_Nearby_Connections_OfflineFrame) throws {
-        log("connection response: \(frame)")
         guard frame.version == .v1 else { throw NearbyError.protocolError("Unexpected offline frame version \(frame.version)") }
         guard frame.v1.type == .connectionResponse else { throw NearbyError.protocolError("Unexpected frame type \(frame.v1.type)") }
         guard frame.v1.connectionResponse.response == .accept else { throw NearbyError.protocolError("Connection was rejected by recipient") }
@@ -347,7 +344,7 @@ class OutboundNearbyConnection: NearbyConnection {
                 totalBytesToSend += meta.size
             }
         }
-        log("sent introduction: \(introduction)")
+        log("[OutboundNearbyConnection] Sent introduction: \(introduction)")
         try sendTransferSetupFrame(introduction)
 
         currentState = .sentIntroduction
@@ -411,7 +408,7 @@ class OutboundNearbyConnection: NearbyConnection {
                 try currentTransfer?.handle?.close()
             }
             if queue.isEmpty {
-                log("Disconnecting because all files have been transferred")
+                log("[OutboundNearbyConnection] Disconnecting because all files have been transferred")
                 try sendDisconnectionAndDisconnect()
                 delegate?.outboundConnectionTransferFinished(connection: self)
                 return
@@ -470,7 +467,7 @@ class OutboundNearbyConnection: NearbyConnection {
             wrapper.v1.type = .payloadTransfer
             wrapper.v1.payloadTransfer = transfer
             try encryptAndSendOfflineFrame(wrapper)
-            log("sent EOF, current transfer: \(String(describing: currentTransfer))")
+            log("[OutboundNearbyConnection] Sent EOF, current transfer: \(String(describing: currentTransfer))")
         }
     }
 

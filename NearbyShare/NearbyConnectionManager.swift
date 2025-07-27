@@ -123,7 +123,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     public func submitUserConsent(transferID: String, accept: Bool, storeInTemp: Bool = false) {
         guard let conn = incomingConnections[transferID] else { return }
         
-        log("Submitting user consent for transfer, accepted: \(accept), store in temp: \(storeInTemp)")
+        log("[NearbyConnectionManager] Submitting user consent for transfer, accepted: \(accept), store in temp: \(storeInTemp)")
         conn.submitUserConsent(accepted: accept, storeInTemp: storeInTemp)
     }
 
@@ -134,11 +134,11 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             startedDeviceDiscovery = true
             foundServices.removeAll()
 
-            log("Starting device discovery")
+            log("[NearbyConnectionManager] Starting device discovery")
 
             if browsers.isEmpty {
                 for type in serviceTypes {
-                    log("Starting browser for type \(type)")
+                    log("[NearbyConnectionManager] Starting browser for type \(type)")
 
                     let browser = NWBrowser(for: .bonjourWithTXTRecord(type: type, domain: nil), using: .tcp)
                     browser.browseResultsChangedHandler = { _, changes in
@@ -149,7 +149,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
                             case let .removed(res):
                                 self.removeFoundDevice(service: res)
                             default:
-                                log("Ignoring change \(change)")
+                                log("[NearbyConnectionManager] Ignoring change \(change)")
                             }
                         }
                     }
@@ -206,15 +206,13 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
 
     
     private func addFoundDevice(service: NWBrowser.Result) {
-        log("found service \(service)")
+        log("[NearbyConnectionManager] Found Service \(service)")
         for interface in service.interfaces {
             if case .loopback = interface.type {
-                log("ignoring localhost service")
                 return
             }
         }
         guard let endpointID = endpointID(for: service) else { return }
-        log("service name is valid, endpoint ID \(endpointID)")
         var foundService = FoundServiceInfo(service: service)
 
         guard case let NWBrowser.Result.Metadata.bonjour(txtRecord) = service.metadata else { return }
