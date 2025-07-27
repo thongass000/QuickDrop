@@ -7,6 +7,7 @@
 
 import SwiftUI
 import NearbyShare
+import UniformTypeIdentifiers
 
 struct WelcomeScreen: View {
     
@@ -83,6 +84,10 @@ struct WelcomeScreen: View {
             }
         }
         .frame(width: 1000, height: 600)
+        .onDrop(of: [.fileURL], isTargeted: nil) { providers in
+            handleDrop(providers: providers)
+            return true
+        }
     }
     
     func openPrivacyPolicy() {
@@ -103,6 +108,43 @@ struct WelcomeScreen: View {
             return "cable.connector"
         }
         return "externaldrive.connected.to.line.below.fill"
+    }
+    
+    func handleDrop(providers: [NSItemProvider]) {
+        let dispatchGroup = DispatchGroup()
+        var urls: [URL] = []
+        let urlQueue = DispatchQueue(label: "DroppedURLsQueue")
+
+        for provider in providers {
+            if provider.hasItemConformingToTypeIdentifier(UTType.fileURL.identifier) {
+                dispatchGroup.enter()
+                provider.loadItem(forTypeIdentifier: UTType.fileURL.identifier, options: nil) { (item, error) in
+                    defer { dispatchGroup.leave() }
+                    if let data = item as? Data,
+                       let url = NSURL(absoluteURLWithDataRepresentation: data, relativeTo: nil) as URL? {
+                        urlQueue.sync {
+                            urls.append(url)
+                        }
+                    } else if let url = item as? URL {
+                        urlQueue.sync {
+                            urls.append(url)
+                        }
+                    }
+                }
+            }
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            if !urls.isEmpty {
+                sendToSharingService(items: urls)
+            }
+        }
+    }
+
+    func sendToSharingService(items: [Any]) {
+        if let sharingService = NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension")) {
+            sharingService.perform(withItems: items)
+        }
     }
 }
 
