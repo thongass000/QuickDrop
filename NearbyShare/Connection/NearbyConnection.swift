@@ -26,6 +26,7 @@ class NearbyConnection {
     var encryptionDone: Bool = false
     var lastError: Error?
     var bytesTransferred: Int64 = 0
+    var cancelled: Bool = false
     
     private var payloadBuffers: [Int64: NSMutableData] = [:]
     private var connectionClosed: Bool = false
@@ -299,7 +300,7 @@ class NearbyConnection {
         guard smsg.hasSignature, smsg.hasHeaderAndBody else { throw NearbyError.requiredFieldMissing("secureMessage.signature|headerAndBody") }
         
         let hmac = Data(HMAC<SHA256>.authenticationCode(for: smsg.headerAndBody, using: recvHmacKey!))
-        guard hmac == smsg.signature else { throw NearbyError.protocolError("hmac!=signature: Expected \(hmac), got \(smsg.signature)") }
+        guard hmac == smsg.signature else { throw NearbyError.protocolError("Error.Signature".localized()) }
         
         let headerAndBody = try Securemessage_HeaderAndBody(serializedBytes: smsg.headerAndBody)
         var decryptedData = Data(count: headerAndBody.body.count)
@@ -338,8 +339,14 @@ class NearbyConnection {
             
             guard header.hasType, header.hasID else { throw NearbyError.requiredFieldMissing("payloadHeader.type|id") }
             guard payloadTransfer.hasPayloadChunk, chunk.hasOffset, chunk.hasFlags else {
-                log("[NearbyConnection] Payload transfer chunk is missing offset or flags, likely canceled.")
-                throw NearbyError.canceled(reason: .userCanceled)
+                
+                if payloadTransfer.controlMessage.event == .payloadCanceled {
+                    log("[NearbyConnection] Cancel control frame received.")
+                    throw NearbyError.canceled(reason: .userCanceled)
+                }
+                
+                log("[NearbyConnection] Payload transfer chunk is missing offset or flags. Frame is \(payloadTransfer.debugDescription)")
+                throw NearbyError.requiredFieldMissing("payloadChunk.offset|flags")
             }
             
             if case .bytes = header.type {

@@ -3313,6 +3313,113 @@
         }
       }
     },
+    "Error.Signature" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "توقيع غير صالح. عادةً ما يعني هذا أن الرسالة تعرضت للتلف أثناء النقل. يرجى المحاولة مرة أخرى."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültige Signatur. Dies bedeutet normalerweise, dass eine Nachricht während der Übertragung beschädigt wurde. Bitte versuche es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid signature. This usually means that a message was damaged during transit. Please try again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma no válida. Esto usualmente significa que un mensaje fue dañado durante el tránsito. Por favor, inténtelo de nuevo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signature invalide. Cela signifie généralement qu'un message a été endommagé pendant le transit. Veuillez réessayer."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Érvénytelen aláírás. Ez általában azt jelenti, hogy egy üzenet sérült meg az átvitel során. Kérjük, próbálja újra."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Firma non valida. Questo di solito significa che un messaggio è stato danneggiato durante la trasmissione. Per favore riprova."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "署名が無効です。これは通常、メッセージが転送中に破損したことを意味します。もう一度試してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "잘못된 서명입니다. 보통은 전송 중 메시지가 손상된 것을 의미합니다. 다시 시도해 주세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ongeldige handtekening. Dit betekent meestal dat een bericht beschadigd is tijdens de overdracht. Probeer het opnieuw."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assinatura inválida. Isso geralmente significa que uma mensagem foi danificada durante a transmissão. Por favor, tente novamente."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assinatura inválida. Isso geralmente significa que uma mensagem foi danificada durante o trânsito. Por favor, tente novamente."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Semnătură nevalidă. De obicei, asta înseamnă că un mesaj a fost deteriorat în timpul transmiterii. Vă rugăm să încercați din nou."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Недействительная подпись. Обычно это означает, что сообщение было повреждено во время передачи. Пожалуйста, попробуйте еще раз."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ลายเซ็นไม่ถูกต้อง ซึ่งมักหมายถึงข้อความได้รับความเสียหายระหว่างการส่ง กรุณาลองใหม่อีกครั้ง"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Недійсний підпис. Зазвичай це означає, що повідомлення було пошкоджене під час передачі. Будь ласка, спробуйте ще раз."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "签名无效。这通常意味着消息在传输过程中损坏。请再试一次。"
+          }
+        }
+      }
+    },
     "FirewallDescription" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -6942,7 +7049,111 @@
       }
     },
     "Reset UD" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "SaveFilesLocation" : {
       "extractionState" : "manual",

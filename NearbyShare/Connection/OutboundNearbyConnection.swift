@@ -24,7 +24,6 @@ class OutboundNearbyConnection: NearbyConnection {
     private var currentTransfer: OutgoingFileTransfer?
     private var totalBytesToSend: Int64 = 0
     private var totalBytesSent: Int64 = 0
-    private var cancelled: Bool = false
     private var textPayloadID: Int64 = 0
     
     public var delegate: OutboundNearbyConnectionDelegate?
@@ -136,10 +135,11 @@ class OutboundNearbyConnection: NearbyConnection {
     override func processTransferSetupFrame(_ frame: Sharing_Nearby_Frame) throws {
         
         if frame.hasV1 && frame.v1.hasType, case .cancel = frame.v1.type {
-            
+            self.cancelled = true
+            self.lastError = NearbyError.canceled(reason: .userCanceled)
             log("[OutboundNearbyConnection] Transfer canceled")
             try sendDisconnectionAndDisconnect()
-            delegate?.outboundConnection(connection: self, failedWithError: NearbyError.canceled(reason: .userCanceled))
+            delegate?.outboundConnection(connection: self, failedWithError: self.lastError!)
             return
         }
         

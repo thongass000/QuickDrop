@@ -101,6 +101,8 @@ class InboundNearbyConnection: NearbyConnection {
 
     override func processTransferSetupFrame(_ frame: Sharing_Nearby_Frame) throws {
         if frame.hasV1 && frame.v1.hasType, case .cancel = frame.v1.type {
+            self.lastError = NearbyError.canceled(reason: .userCanceled)
+            self.cancelled = true
             log("[InboundNearbyConnection] Transfer canceled")
             try sendDisconnectionAndDisconnect()
             return
