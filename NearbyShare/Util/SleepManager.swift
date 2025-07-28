@@ -6,12 +6,21 @@
 //
 
 import Foundation
+
+#if os(macOS)
 import IOKit
 import IOKit.pwr_mgt
+#elseif os(iOS)
+import UIKit
+#endif
 
 class SleepManager {
     public static let shared = SleepManager()
+
+    #if os(macOS)
     private var assertionID: IOPMAssertionID = 0
+    #endif
+
     private var timer: Timer?
 
     private init() {
@@ -24,28 +33,35 @@ class SleepManager {
     }
 
     private func disableSleep() {
-        if assertionID != 0 {
-            return
-        }
+        #if os(macOS)
+        if assertionID != 0 { return }
 
         log("[SleepManager] Enabling Wakelock")
-        
+
         IOPMAssertionCreateWithName(
             kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString,
             IOPMAssertionLevel(kIOPMAssertionLevelOn),
             "QuickDrop Data Transfer" as CFString,
             &assertionID
         )
+        #elseif os(iOS)
+        log("[SleepManager] Keeping screen awake (iOS)")
+        UIApplication.shared.isIdleTimerDisabled = true
+        #endif
     }
 
     private func enableSleep() {
-        if assertionID == 0 {
-            return
-        }
+        #if os(macOS)
+        if assertionID == 0 { return }
 
         log("[SleepManager] Disabling Wakelock")
+
         IOPMAssertionRelease(assertionID)
         assertionID = 0
+        #elseif os(iOS)
+        log("[SleepManager] Allowing screen to sleep (iOS)")
+        UIApplication.shared.isIdleTimerDisabled = false
+        #endif
     }
 
     private func updateSleepState() {

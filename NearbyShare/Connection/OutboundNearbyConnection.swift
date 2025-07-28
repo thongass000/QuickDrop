@@ -165,14 +165,16 @@ class OutboundNearbyConnection: NearbyConnection {
 
     
     private func sendConnectionRequest() throws {
+        
+        let endpointInfo = NearbyConnectionManager.shared.getEndpointInfo()
+        
         var frame = Location_Nearby_Connections_OfflineFrame()
         frame.version = .v1
         frame.v1 = Location_Nearby_Connections_V1Frame()
         frame.v1.type = .connectionRequest
         frame.v1.connectionRequest = Location_Nearby_Connections_ConnectionRequestFrame()
         frame.v1.connectionRequest.endpointID = String(bytes: NearbyConnectionManager.shared.endpointID, encoding: .ascii)!
-        frame.v1.connectionRequest.endpointName = Host.current().localizedName!
-        let endpointInfo = EndpointInfo(name: Host.current().localizedName!, deviceType: .computer)
+        frame.v1.connectionRequest.endpointName = endpointInfo.name
         frame.v1.connectionRequest.endpointInfo = endpointInfo.serialize()
         frame.v1.connectionRequest.mediums = [.wifiLan]
         try sendFrameAsync(frame.serializedData())

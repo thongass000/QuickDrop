@@ -5,7 +5,6 @@
 //  Created by Grishka on 08.04.2023.
 //
 
-import AppKit
 import CommonCrypto
 import CryptoKit
 import Foundation
@@ -13,6 +12,12 @@ import Network
 import System
 import BigInt
 import SwiftECC
+
+#if os(macOS)
+import AppKit
+#else
+import UIKit
+#endif
 
 class InboundNearbyConnection: NearbyConnection {
     
@@ -148,7 +153,9 @@ class InboundNearbyConnection: NearbyConnection {
         else if (frame.payloadChunk.flags & 1) == 1 {
             try fileInfo.fileHandle?.close()
             filesToBeReceived[id]!.fileHandle = nil
+            #if os(macOS)
             fileInfo.progress?.unpublish()
+            #endif
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
 
             filesToBeReceived.removeValue(forKey: id)
@@ -166,15 +173,27 @@ class InboundNearbyConnection: NearbyConnection {
             if let urlStr = String(data: payload, encoding: .utf8) {
                 
                 if isPlainTextTransfer {
-                    // paste to clipboard
+                    #if os(macOS)
+                    // macOS clipboard
                     let pasteboard = NSPasteboard.general
                     pasteboard.clearContents()
                     pasteboard.setString(urlStr, forType: .string)
                     
                     NearbyConnectionManager.shared.mainAppDelegate?.showCopiedToClipboardAlert()
-                }
-                else if let url = URL(string: urlStr) {
+                    
+                    #elseif os(iOS)
+                    // iOS clipboard
+                    UIPasteboard.general.string = urlStr
+                    
+                    // Optionally show an alert (requires a way to present it)
+                    // For example, post a notification or use a delegate to show a toast or alert
+                    #endif
+                } else if let url = URL(string: urlStr) {
+                    #if os(macOS)
                     NSWorkspace.shared.open(url)
+                    #elseif os(iOS)
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    #endif
                 }
             }
 
@@ -188,7 +207,9 @@ class InboundNearbyConnection: NearbyConnection {
             fileInfo.progress?.completedUnitCount = filesToBeReceived[id]!.bytesTransferred
             try fileInfo.fileHandle?.close()
             filesToBeReceived[id]!.fileHandle = nil
+            #if os(macOS)
             fileInfo.progress?.unpublish()
+            #endif
             filesToBeReceived.removeValue(forKey: id)
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
             
@@ -477,7 +498,9 @@ class InboundNearbyConnection: NearbyConnection {
                 progress.totalUnitCount = file.meta.size
                 progress.kind = .file
                 progress.isPausable = false
+                #if os(macOS)
                 progress.publish()
+                #endif
                 filesToBeReceived[id]!.progress = progress
                 filesToBeReceived[id]!.created = true
             }
@@ -518,9 +541,11 @@ class InboundNearbyConnection: NearbyConnection {
     private func deletePartiallyReceivedFiles() {
         for (_, file) in filesToBeReceived {
             
+            #if os(macOS)
             if let progress = file.progress {
                 progress.unpublish()
             }
+            #endif
             
             guard file.created else { continue }
             do {
