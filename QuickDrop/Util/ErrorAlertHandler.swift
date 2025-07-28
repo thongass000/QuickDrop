@@ -8,7 +8,6 @@
 import AudioToolbox
 import BezelNotification
 import Cocoa
-import NearbyShare
 import Network
 import StoreKit
 import SwiftUI

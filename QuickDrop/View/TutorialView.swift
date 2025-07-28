@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import NearbyShare
 
 struct TutorialView: View {
     

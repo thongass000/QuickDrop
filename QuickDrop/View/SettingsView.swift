@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AppKit
-import NearbyShare
 
 struct SettingsView: View {
     

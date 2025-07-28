@@ -7,7 +7,6 @@
 
 import Cocoa
 import Foundation
-import NearbyShare
 import SwiftUI
 
 class ShareViewController: NSViewController, ShareExtensionDelegate {
