@@ -43,7 +43,12 @@ class ErrorAlertHandler {
             case .ukey2:
                 description = "Error.Crypto".localized() + ": \(ne.localizedDescription)" + fixInstructions
             case .canceled(reason: let reason):
-                description = reason.localizedDescription()
+                if reason == .timedOut {
+                    description = reason.localizedDescription() + fixInstructions
+                }
+                else {
+                    description = reason.localizedDescription()
+                }
             }
         } else {
             description = error.localizedDescription
