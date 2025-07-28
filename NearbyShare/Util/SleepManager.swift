@@ -19,6 +19,8 @@ class SleepManager {
 
     #if os(macOS)
     private var assertionID: IOPMAssertionID = 0
+    #else
+    private var assertionID: Int = 0
     #endif
 
     private var timer: Timer?
@@ -33,11 +35,12 @@ class SleepManager {
     }
 
     private func disableSleep() {
-        #if os(macOS)
+
         if assertionID != 0 { return }
 
         log("[SleepManager] Enabling Wakelock")
-
+        
+        #if os(macOS)
         IOPMAssertionCreateWithName(
             kIOPMAssertionTypePreventUserIdleDisplaySleep as CFString,
             IOPMAssertionLevel(kIOPMAssertionLevelOn),
@@ -45,23 +48,23 @@ class SleepManager {
             &assertionID
         )
         #elseif os(iOS)
-        log("[SleepManager] Keeping screen awake (iOS)")
         UIApplication.shared.isIdleTimerDisabled = true
+        assertionID = 1
         #endif
     }
 
     private func enableSleep() {
-        #if os(macOS)
         if assertionID == 0 { return }
 
         log("[SleepManager] Disabling Wakelock")
 
+        #if os(macOS)
         IOPMAssertionRelease(assertionID)
-        assertionID = 0
         #elseif os(iOS)
-        log("[SleepManager] Allowing screen to sleep (iOS)")
         UIApplication.shared.isIdleTimerDisabled = false
         #endif
+        
+        assertionID = 0
     }
 
     private func updateSleepState() {

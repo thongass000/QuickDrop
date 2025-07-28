@@ -44,7 +44,7 @@ public protocol ShareExtensionDelegate: AnyObject {
 }
 
 
-public struct RemoteDeviceInfo {
+public struct RemoteDeviceInfo: Identifiable, Equatable {
     public let name: String
     public let type: DeviceType
     public var id: String?
