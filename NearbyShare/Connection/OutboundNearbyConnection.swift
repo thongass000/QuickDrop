@@ -362,6 +362,7 @@ class OutboundNearbyConnection: NearbyConnection {
         switch frame.v1.connectionResponse.status {
         case .accept:
             currentState = .sendingFiles
+            isTransferring = true
             delegate?.outboundConnectionTransferAccepted(connection: self)
             
             if let textToSend = textToSend {
@@ -457,7 +458,7 @@ class OutboundNearbyConnection: NearbyConnection {
         // only for logging
         self.bytesTransferred += Int64(fileBuffer.count)
         
-        startInactivityTimer()
+        startAndResetHeartbeatTimer()
         delegate?.outboundConnection(connection: self, transferProgress: Double(totalBytesSent) / Double(totalBytesToSend))
 
         if currentTransfer!.currentOffset == currentTransfer!.totalBytes {

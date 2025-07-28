@@ -27,6 +27,12 @@ class NearbyConnection {
     var lastError: Error?
     var bytesTransferred: Int64 = 0
     var cancelled: Bool = false
+    var isTransferring: Bool = false {
+        didSet {
+            log("[NearbyConnection] Now transferring. Setting up data transfer inactivity timer.")
+            startDataTransferTimer(previousBytesTransferred: bytesTransferred)
+        }
+    }
     
     private var payloadBuffers: [Int64: NSMutableData] = [:]
     private var connectionClosed: Bool = false
@@ -171,7 +177,7 @@ class NearbyConnection {
                 return
             }
             
-            self.startInactivityTimer()
+            self.startAndResetHeartbeatTimer()
             self.receiveFrameAsync(length: frameLength)
         }
     }
@@ -193,7 +199,7 @@ class NearbyConnection {
                 return
             }
             
-            self.startInactivityTimer()
+            self.startAndResetHeartbeatTimer()
             self.processReceivedFrame(frameData: content)
             self.receiveFrameAsync()
         }
@@ -556,7 +562,7 @@ class NearbyConnection {
     }
     
     
-    func startInactivityTimer() {
+    func startAndResetHeartbeatTimer() {
         
         // Cancel previous timer if any
         inactivityTimer?.cancel()
@@ -575,6 +581,25 @@ class NearbyConnection {
         }
         
         inactivityTimer?.resume()
+    }
+    
+    
+    func startDataTransferTimer(previousBytesTransferred: Int64) {
+        NearbyConnection.dispatchQueue.asyncAfter(deadline: .now() + timeoutInterval) {
+            
+            if previousBytesTransferred < self.bytesTransferred {
+                // everything good, transferred more than last check, schedule next check
+                self.startDataTransferTimer(previousBytesTransferred: self.bytesTransferred)
+            }
+            else {
+                // connection stale, need to abort
+                if !self.connectionClosed {
+                    log("[NearbyConnection] Connection timeout: No more data received in \(self.timeoutInterval) seconds")
+                    self.lastError = NearbyError.canceled(reason: .timedOut)
+                    self.disconnect()
+                }
+            }
+        }
     }
     
     

@@ -512,6 +512,7 @@ class InboundNearbyConnection: NearbyConnection {
             frame.v1.type = .response
             frame.v1.connectionResponse.status = .accept
             currentState = .receivingFiles
+            isTransferring = true
             try sendTransferSetupFrame(frame)
         } catch {
             lastError = error
