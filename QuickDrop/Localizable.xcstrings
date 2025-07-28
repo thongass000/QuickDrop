@@ -2891,103 +2891,103 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تم إنهاء الاتصال بواسطة هاتفك. إذا حدث ذلك بشكل متكرر، يرجى إعادة تشغيل هاتفك."
+            "value" : "تم إيقاف الاتصال بواسطة هاتفك."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Die Verbindung wurde von deinem Telefon abgebrochen. Wenn dieses Problem wiederholt auftritt, starte bitte dein Telefon neu."
+            "value" : "Die Verbindung wurde von deinem Telefon abgebrochen."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The connection was aborted by your phone. If this happens repeatedly, please restart your phone."
+            "value" : "The connection was aborted by your phone."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La conexión fue interrumpida por tu teléfono. Si esto ocurre repetidamente, por favor reinicia tu teléfono."
+            "value" : "La conexión fue abortada por tu teléfono."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La connexion a été interrompue par votre téléphone. Si cela se produit plusieurs fois, veuillez redémarrer votre téléphone."
+            "value" : "La connexion a été interrompue par votre téléphone."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A kapcsolatot a telefonja szakította meg. Ha ez ismételten előfordul, kérjük, indítsa újra a telefonját."
+            "value" : "A kapcsolatot megszakította a telefonod."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La connessione è stata interrotta dal tuo telefono. Se questo accade ripetutamente, ti preghiamo di riavviare il telefono."
+            "value" : "La connessione è stata interrotta dal tuo telefono."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "接続が電話によって中断されました。これが繰り返し起こる場合は、電話を再起動してください。"
+            "value" : "接続はあなたの電話によって中断されました。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "연결이 휴대전화에 의해 중단되었습니다. 이 문제가 반복되면, 휴대전화를 재시작하세요."
+            "value" : "연결이 휴대폰에 의해 중단되었습니다."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "De verbinding is afgebroken door je telefoon. Als dit herhaaldelijk gebeurt, start dan je telefoon opnieuw op."
+            "value" : "De verbinding is door uw telefoon afgebroken."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A conexão foi abortada pelo seu telefone. Se isso acontecer repetidamente, por favor, reinicie seu telefone."
+            "value" : "A conexão foi interrompida pelo seu telefone."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A ligação foi interrompida pelo seu telemóvel. Se isto acontecer repetidamente, por favor reinicie o seu telemóvel."
+            "value" : "A ligação foi interrompida pelo seu telemóvel."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Conexiunea a fost întreruptă de telefonul dumneavoastră. Dacă acest lucru se întâmplă în mod repetat, vă rugăm să reporniți telefonul."
+            "value" : "Conexiunea a fost întreruptă de telefonul dumneavoastră."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Соединение было прервано вашим телефоном. Если это происходит повторно, пожалуйста, перезагрузите телефон."
+            "value" : "Соединение было прервано вашим телефоном."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "การเชื่อมต่อถูกยกเลิกโดยโทรศัพท์ของคุณ หากเกิดขึ้นบ่อย ๆ กรุณารีสตาร์ทโทรศัพท์ของคุณ"
+            "value" : "การเชื่อมต่อล้มเลิกโดยโทรศัพท์ของคุณ"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "З'єднання було перервано вашим телефоном. Якщо це повторюється, перезапустіть телефон."
+            "value" : "З'єднання було перервано вашим телефоном."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "连接被您的手机中断。如果此问题频繁出现，请重启您的手机。"
+            "value" : "连接被您的手机中断。"
           }
         }
       }
@@ -3099,6 +3099,113 @@
         }
       }
     },
+    "Error.FixInstructions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إذا حدث ذلك مرارًا، يرجى تعطيل وتمكين الواي فاي على هاتفك، أو إعادة تشغيل هاتفك."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn dies wiederholt passiert, deaktiviere bitte das WLAN auf deinem Telefon und aktiviere es erneut oder starte dein Telefon neu."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If this happens repeatedly, please disable and re-enable Wi-Fi on your phone, or restart your phone."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si esto ocurre repetidamente, desactiva y vuelve a activar el Wi-Fi en tu teléfono, o reinicia tu teléfono."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si cela se produit plusieurs fois, veuillez désactiver et réactiver le Wi-Fi sur votre téléphone ou redémarrez votre téléphone."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha ez ismétlődik, kapcsold ki majd be újra a Wi-Fi-t a telefonodon, vagy indítsd újra a telefonod."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se ciò accade ripetutamente, disattiva e riattiva il Wi-Fi sul tuo telefono o riavvia il tuo telefono."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "これが繰り返し起こる場合は、お使いの電話でWi-Fiを無効にして再度有効にするか、電話を再起動してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 문제가 반복되면 휴대폰에서 Wi-Fi를 비활성화하고 다시 활성화하거나 휴대폰을 재시작하세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Als dit herhaaldelijk gebeurt, schakel dan Wi-Fi op uw telefoon uit en weer in, of start uw telefoon opnieuw op."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se isso acontecer repetidamente, desative e reative o Wi-Fi no seu telefone, ou reinicie o seu telefone."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se isso acontecer repetidamente, por favor, desative e ative novamente o Wi-Fi do seu telemóvel ou reinicie o seu telemóvel."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dacă se întâmplă în mod repetat, vă rugăm să dezactivați și să reactivați Wi-Fi pe telefonul dvs. sau să reporniți telefonul."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Если это повторяется, пожалуйста, отключите и снова включите Wi-Fi на вашем телефоне или перезагрузите его."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ถ้าเกิดเหตุการณ์นี้บ่อย ๆ กรุณาปิดและเปิด Wi-Fi ในโทรศัพท์ของคุณใหม่ หรือรีสตาร์ทโทรศัพท์ของคุณ"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо це повторюється, будь ласка, вимкніть і знову увімкніть Wi-Fi на вашому телефоні або перезавантажте телефон."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果这种情况反复发生，请禁用并重新启用手机上的Wi-Fi，或重启手机。"
+          }
+        }
+      }
+    },
     "Error.NetworkDown" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3202,113 +3309,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wi‑Fi 连接中断。请检查您的 Wi‑Fi 连接并重试。"
-          }
-        }
-      }
-    },
-    "Error.Protocol" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "خطأ في الاتصال"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fehler bei der Datenübertragung"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Communication error"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error de comunicación"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erreur de communication"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kommunikációs hiba"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Errore di comunicazione"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "通信エラー"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "통신 오류"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Communicatiefout"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erro de comunicação"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erro de comunicação"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eroare de comunicare"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ошибка протокола"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "การสื่อสารผิดพลาด"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Помилка протоколу"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "通信出错"
           }
         }
       }
@@ -8870,103 +8870,103 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "الجهاز الآخر لم يستجب في الوقت المحدد. إذا حدثت هذه المشكلة بشكل متكرر، يرجى إعادة تشغيل جهاز الأندرويد الخاص بك."
+            "value" : "لم يستجب الجهاز الآخر في الوقت المناسب."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Das andere Gerät hat nicht rechtzeitig geantwortet. Wenn dieses Problem wiederholt auftritt, starte bitte dein Android-Gerät neu."
+            "value" : "Das andere Gerät hat nicht rechtzeitig geantwortet."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The other device did not respond in time. If this issue occurs repeatedly, please restart your Android device."
+            "value" : "The other device did not respond in time."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El otro dispositivo no respondió a tiempo. Si este problema ocurre repetidamente, reinicie su dispositivo Android."
+            "value" : "El otro dispositivo no respondió a tiempo."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'autre appareil n'a pas répondu à temps. Si ce problème se reproduit, redémarrez votre appareil Android."
+            "value" : "L'autre appareil n'a pas réagi à temps."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A másik eszköz nem válaszolt időben. Ha ez a probléma ismétlődik, kérjük, indítsa újra Android eszközét."
+            "value" : "A másik eszköz nem válaszolt időben."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'altro dispositivo non ha risposto in tempo. Se questo problema si ripete, riavvia il tuo dispositivo Android."
+            "value" : "L'altro dispositivo non ha risposto in tempo."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "他のデバイスが時間内に応答しませんでした。この問題が繰り返し発生する場合は、Androidデバイスを再起動してください。"
+            "value" : "他のデバイスが時間内に応答しませんでした。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "다른 기기가 시간 내에 응답하지 않았습니다. 이 문제가 반복되면 Android 기기를 다시 시작해 주세요."
+            "value" : "다른 기기가 시간 내에 응답하지 않았습니다."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Het andere apparaat heeft niet op tijd gereageerd. Als dit probleem zich herhaaldelijk voordoet, start dan uw Android-apparaat opnieuw op."
+            "value" : "Het andere apparaat reageerde niet op tijd."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O outro dispositivo não respondeu a tempo. Se esse problema ocorrer repetidamente, reinicie seu dispositivo Android."
+            "value" : "O outro dispositivo não respondeu a tempo."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O outro dispositivo não respondeu a tempo. Se este problema ocorrer repetidamente, reinicie o seu dispositivo Android."
+            "value" : "O outro dispositivo não respondeu a tempo."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cealaltă unitate nu a răspuns la timp. Dacă problema apare frecvent, reporniți dispozitivul Android."
+            "value" : "Celălalt dispozitiv nu a răspuns la timp."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Другое устройство не ответило вовремя. Если это повторяется, перезагрузите устройство Android."
+            "value" : "Другое устройство не ответило вовремя."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "อุปกรณ์อื่นไม่ตอบสนองในเวลาที่กำหนด ถ้าเกิดปัญหานี้ซ้ำๆ กรุณารีสตาร์ทอุปกรณ์ Android ของคุณ"
+            "value" : "อุปกรณ์อีกเครื่องไม่ตอบสนองทันเวลา"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Інший пристрій не встиг відповісти. Якщо проблема повторюється, перезапустіть ваш Android пристрій."
+            "value" : "Інший пристрій не відповів вчасно."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "其他设备未能及时回应。如果此问题重复出现，请重启您的安卓设备。"
+            "value" : "另一台设备未及时响应。"
           }
         }
       }

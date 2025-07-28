@@ -27,22 +27,23 @@ class ErrorAlertHandler {
         NSApp.activate(ignoringOtherApps: true)
         
         var description = ""
+        let fixInstructions = " " + "Error.FixInstructions".localized()
         
         if let ne = (error as? NearbyError) {
             switch ne {
             case .inputOutput:
-                description = "I/O Error"
+                description = "I/O Error." + fixInstructions
             case .protocolError(errorMessage: let errorMessage):
-                description = "Error.Protocol".localized() + ": \(errorMessage)"
+                description = errorMessage + fixInstructions
             case .packetFilterError:
                 openAlert(type: .NetworkFilter)
                 return
             case .requiredFieldMissing(errorMessage: let errorMessage):
-                description = "Error.Protocol".localized() + ": \(errorMessage)"
+                description = errorMessage + fixInstructions
             case .ukey2:
-                description = "Error.Crypto".localized() + ": \(ne.localizedDescription)"
+                description = "Error.Crypto".localized() + ": \(ne.localizedDescription)" + fixInstructions
             case .canceled(reason: let reason):
-                description = "Error.Protocol".localized() + ": \(reason.localizedDescription())"
+                description = reason.localizedDescription()
             }
         } else {
             description = error.localizedDescription
