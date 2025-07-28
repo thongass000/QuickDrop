@@ -38,7 +38,7 @@ class NearbyConnection {
     private var connectionClosed: Bool = false
     
     private var inactivityTimer: DispatchSourceTimer?
-    private let timeoutInterval: TimeInterval = 50
+    private let timeoutInterval: TimeInterval = 30
     
     // UKEY2-related state
     var publicKey: ECPublicKey?
