@@ -74,6 +74,14 @@
 		EB5C37FF2E377CE70052EFD7 /* wire_format.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2929E18CB500A442DA /* wire_format.pb.swift */; };
 		EB5C38002E377CE70052EFD7 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C36E82E3546100052EFD7 /* DataModel.swift */; };
 		EB5C38012E377DE60052EFD7 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
+		EB5C38392E38C1F60052EFD7 /* justMaybe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB5C38382E38C1F60052EFD7 /* justMaybe.mp3 */; };
+		EB5C383A2E38C1F60052EFD7 /* justMaybe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB5C38382E38C1F60052EFD7 /* justMaybe.mp3 */; };
+		EB5C383B2E38C1F60052EFD7 /* justMaybe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB5C38382E38C1F60052EFD7 /* justMaybe.mp3 */; };
+		EB5C383C2E38C2D90052EFD7 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36435F2D73A29F009CDFF8 /* AudioManager.swift */; };
+		EB5C383D2E38C2D90052EFD7 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36435F2D73A29F009CDFF8 /* AudioManager.swift */; };
+		EB5C383F2E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
+		EB5C38402E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
+		EB5C38412E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
 		EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */; };
 		EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7CD1462D6FB0E800CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
@@ -201,6 +209,8 @@
 		EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFilesManager.swift; sourceTree = "<group>"; };
 		EB5C36E82E3546100052EFD7 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		EB5C37E22E377C2E0052EFD7 /* QuickDropiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDropiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5C38382E38C1F60052EFD7 /* justMaybe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = justMaybe.mp3; sourceTree = "<group>"; };
+		EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
 		EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionFailureTracker.swift; sourceTree = "<group>"; };
 		EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -424,6 +434,7 @@
 		EBC05C6B2E33B57100EECC18 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */,
 				EB36435F2D73A29F009CDFF8 /* AudioManager.swift */,
 				EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */,
 			);
@@ -465,6 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				EB5C36E32E34EC0E0052EFD7 /* License.txt */,
+				EB5C38382E38C1F60052EFD7 /* justMaybe.mp3 */,
 				EBC05C8A2E33B59E00EECC18 /* timeIsNow.mp3 */,
 			);
 			path = Resources;
@@ -614,6 +626,7 @@
 				691F53BC2ABB70840089FD92 /* DeviceListCell.xib in Resources */,
 				699DEBA92AB0573200115D22 /* ShareViewController.xib in Resources */,
 				EB96ED8D2D7F7EA3004B3FF1 /* Assets.xcassets in Resources */,
+				EB5C383A2E38C1F60052EFD7 /* justMaybe.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,6 +639,7 @@
 				EB5C36932E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */,
 				EBC05C8C2E33B59E00EECC18 /* timeIsNow.mp3 in Resources */,
 				69D2C32F29E7898C00EC7E30 /* MainMenu.xib in Resources */,
+				EB5C38392E38C1F60052EFD7 /* justMaybe.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +647,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5C383B2E38C1F60052EFD7 /* justMaybe.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,12 +672,14 @@
 				EB5C37C72E377A780052EFD7 /* wire_format.pb.swift in Sources */,
 				EB5C37C82E377A780052EFD7 /* ukey.pb.swift in Sources */,
 				EB5C37C92E377A780052EFD7 /* device_to_device_messages.pb.swift in Sources */,
+				EB5C383C2E38C2D90052EFD7 /* AudioManager.swift in Sources */,
 				EB5C37CA2E377A780052EFD7 /* offline_wire_formats.pb.swift in Sources */,
 				EBC05C5C2E3394EF00EECC18 /* ErrorAlertHandler.swift in Sources */,
 				EBC05C7B2E33B58100EECC18 /* ActiveNetworkInterface.swift in Sources */,
 				EBC05C7C2E33B58100EECC18 /* ApIsolationTester.swift in Sources */,
 				691F53BB2ABB70840089FD92 /* DeviceListCell.swift in Sources */,
 				EB5C37BB2E377A700052EFD7 /* ConnectionFailureTracker.swift in Sources */,
+				EB5C383F2E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37BC2E377A700052EFD7 /* SleepManager.swift in Sources */,
 				EB5C37D02E377A7F0052EFD7 /* OutboundNearbyConnection.swift in Sources */,
 				EB5C37D12E377A7F0052EFD7 /* DataModel.swift in Sources */,
@@ -681,6 +698,7 @@
 				EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */,
 				EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */,
 				EB5C37B72E377A6F0052EFD7 /* ConnectionFailureTracker.swift in Sources */,
+				EB5C38412E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37B82E377A6F0052EFD7 /* SleepManager.swift in Sources */,
 				EB5C37B92E377A6F0052EFD7 /* SaveFilesManager.swift in Sources */,
 				EB5C37BA2E377A6F0052EFD7 /* Helpers.swift in Sources */,
@@ -735,6 +753,8 @@
 				EB5C37FC2E377CE70052EFD7 /* OutboundNearbyConnection.swift in Sources */,
 				EB5C37FD2E377CE70052EFD7 /* Logger.swift in Sources */,
 				EB5C37FE2E377CE70052EFD7 /* offline_wire_formats.pb.swift in Sources */,
+				EB5C383D2E38C2D90052EFD7 /* AudioManager.swift in Sources */,
+				EB5C38402E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37FF2E377CE70052EFD7 /* wire_format.pb.swift in Sources */,
 				EB5C38002E377CE70052EFD7 /* DataModel.swift in Sources */,
 			);

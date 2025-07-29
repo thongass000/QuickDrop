@@ -67,6 +67,7 @@ class ErrorAlertHandler {
             return
         }
         else {
+            AudioManager.playErrorSound()
             self.isAlertShown = true
             log("Showing alert with message: \"\(alert.messageText)\" and description: \"\(alert.informativeText)\"")
             log("Unsuccessful transmission. Already successful transmissions: \(transmissionCount())")

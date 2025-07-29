@@ -8,17 +8,32 @@
 import AVFoundation
 
 class AudioManager {
-    static var audioPlayer: AVAudioPlayer?
+    static private var incomingFileSoundPlayer: AVAudioPlayer?
+    static private var errorSoundPlayer: AVAudioPlayer?
     
-    static func playSound() {
+    static func playIncomingFileSound() {
         guard let soundURL = Bundle.main.url(forResource: "timeIsNow", withExtension: "mp3") else {
             log("Sound file not found")
             return
         }
         
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-            audioPlayer?.play()
+            incomingFileSoundPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            incomingFileSoundPlayer?.play()
+        } catch {
+            log("Error playing sound: \(error.localizedDescription)")
+        }
+    }
+    
+    static func playErrorSound() {
+        guard let soundURL = Bundle.main.url(forResource: "justMaybe", withExtension: "mp3") else {
+            log("Sound file not found")
+            return
+        }
+        
+        do {
+            errorSoundPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            errorSoundPlayer?.play()
         } catch {
             log("Error playing sound: \(error.localizedDescription)")
         }
