@@ -348,9 +348,10 @@ class OutboundNearbyConnection: NearbyConnection {
                 try queue.append(OutgoingFileTransfer(url: url, payloadID: meta.payloadID, handle: FileHandle(forReadingFrom: url), totalBytes: meta.size, currentOffset: 0))
                 introduction.v1.introduction.fileMetadata.append(meta)
                 totalBytesToSend += meta.size
+                
+                log("[OutboundNearbyConnection] Sending file with \(meta.size) bytes")
             }
         }
-        log("[OutboundNearbyConnection] Sent introduction: \(introduction)")
         try sendTransferSetupFrame(introduction)
 
         currentState = .sentIntroduction

@@ -505,6 +505,8 @@ class InboundNearbyConnection: NearbyConnection {
                 #endif
                 filesToBeReceived[id]!.progress = progress
                 filesToBeReceived[id]!.created = true
+                
+                log("[InboundNearbyConnection] Accepted file with size \(file.meta.size)")
             }
 
             var frame = Sharing_Nearby_Frame()
