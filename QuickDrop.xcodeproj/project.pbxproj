@@ -92,6 +92,9 @@
 		EB96ED8D2D7F7EA3004B3FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
 		EB96ED8F2D7F8105004B3FF1 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
 		EB96ED902D7F8114004B3FF1 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
+		EB9925802E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
+		EB9925812E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
+		EB9925822E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
 		EBC05C5B2E33937200EECC18 /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */; };
 		EBC05C5C2E3394EF00EECC18 /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */; };
 		EBC05C712E33B57D00EECC18 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C6D2E33B57D00EECC18 /* Converter.swift */; };
@@ -197,12 +200,6 @@
 		EB2B41E32DC63AC80070FC39 /* SleepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager.swift; sourceTree = "<group>"; };
 		EB2F9BFA2DA04B67004010A2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		EB36435F2D73A29F009CDFF8 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
-		EB3B73F32DC8FF3A00369951 /* device_to_device_messages.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = device_to_device_messages.proto; sourceTree = "<group>"; };
-		EB3B73F42DC8FF3A00369951 /* offline_wire_formats.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = offline_wire_formats.proto; sourceTree = "<group>"; };
-		EB3B73F52DC8FF3A00369951 /* securegcm.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = securegcm.proto; sourceTree = "<group>"; };
-		EB3B73F62DC8FF3A00369951 /* securemessage.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = securemessage.proto; sourceTree = "<group>"; };
-		EB3B73F72DC8FF3A00369951 /* ukey.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = ukey.proto; sourceTree = "<group>"; };
-		EB3B73F82DC8FF3A00369951 /* wire_format.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = wire_format.proto; sourceTree = "<group>"; };
 		EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB5C36952E34EBBD0052EFD7 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/ShareViewController.xcstrings; sourceTree = "<group>"; };
 		EB5C36E32E34EC0E0052EFD7 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
@@ -218,6 +215,7 @@
 		EB7F54132D78E9E400989564 /* LicenseWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWindow.swift; sourceTree = "<group>"; };
 		EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSheetView.swift; sourceTree = "<group>"; };
 		EB96ED8E2D7F8103004B3FF1 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharing_enums.pb.swift; sourceTree = "<group>"; };
 		EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertHandler.swift; sourceTree = "<group>"; };
 		EBC05C6D2E33B57D00EECC18 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		EBC05C6E2E33B57D00EECC18 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -336,6 +334,7 @@
 				69DA9A2929E18CB500A442DA /* wire_format.pb.swift */,
 				69DA9A2A29E18CB500A442DA /* device_to_device_messages.pb.swift */,
 				69DA9A2B29E18CB500A442DA /* offline_wire_formats.pb.swift */,
+				EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */,
 				69DA9A2C29E18CB500A442DA /* securegcm.pb.swift */,
 				69DA9A2D29E18CB500A442DA /* securemessage.pb.swift */,
 			);
@@ -350,19 +349,6 @@
 				EB5C371D2E3669150052EFD7 /* Connection */,
 			);
 			path = NearbyShare;
-			sourceTree = "<group>";
-		};
-		EB3B73F92DC8FF3A00369951 /* ProtobufSource */ = {
-			isa = PBXGroup;
-			children = (
-				EB3B73F32DC8FF3A00369951 /* device_to_device_messages.proto */,
-				EB3B73F42DC8FF3A00369951 /* offline_wire_formats.proto */,
-				EB3B73F52DC8FF3A00369951 /* securegcm.proto */,
-				EB3B73F62DC8FF3A00369951 /* securemessage.proto */,
-				EB3B73F72DC8FF3A00369951 /* ukey.proto */,
-				EB3B73F82DC8FF3A00369951 /* wire_format.proto */,
-			);
-			path = ProtobufSource;
 			sourceTree = "<group>";
 		};
 		EB5C371C2E3669010052EFD7 /* Util */ = {
@@ -411,7 +397,6 @@
 		EB5C37DD2E377B430052EFD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EB3B73F92DC8FF3A00369951 /* ProtobufSource */,
 				69DA9A2729E18CB500A442DA /* Protobuf */,
 				EB5C36E82E3546100052EFD7 /* DataModel.swift */,
 			);
@@ -688,6 +673,7 @@
 				EB5C37D42E377A7F0052EFD7 /* NearbyConnectionManager.swift in Sources */,
 				EB5C37BD2E377A700052EFD7 /* Helpers.swift in Sources */,
 				EB5C37BE2E377A700052EFD7 /* SaveFilesManager.swift in Sources */,
+				EB9925822E45D53E00357055 /* sharing_enums.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +711,7 @@
 				69DA9A1229E0BF5100A442DA /* AppDelegate.swift in Sources */,
 				EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */,
 				EB7F54122D78E96000989564 /* TutorialView.swift in Sources */,
+				EB9925812E45D53E00357055 /* sharing_enums.pb.swift in Sources */,
 				EB96ED8F2D7F8105004B3FF1 /* Localized.swift in Sources */,
 				EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */,
 				EBC05C822E33B58300EECC18 /* ApIsolationIssueView.swift in Sources */,
@@ -750,6 +737,7 @@
 				EB5C37F92E377CE70052EFD7 /* securegcm.pb.swift in Sources */,
 				EB5C37FA2E377CE70052EFD7 /* Helpers.swift in Sources */,
 				EB5C37FB2E377CE70052EFD7 /* InboundNearbyConnection.swift in Sources */,
+				EB9925802E45D53E00357055 /* sharing_enums.pb.swift in Sources */,
 				EB5C37FC2E377CE70052EFD7 /* OutboundNearbyConnection.swift in Sources */,
 				EB5C37FD2E377CE70052EFD7 /* Logger.swift in Sources */,
 				EB5C37FE2E377CE70052EFD7 /* offline_wire_formats.pb.swift in Sources */,
