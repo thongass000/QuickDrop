@@ -7263,6 +7263,7 @@
       }
     },
     "Reset UD" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
