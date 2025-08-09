@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import QRCode
 
 let smallSheetViewSize = CGSize(width: 530.0, height: 270.0)
 
@@ -13,6 +14,7 @@ struct SmallSheetView: View {
     @State private var qrCode: String = ""
     
     let type: SheetViewType
+    var dynamicQrCode: Image? = nil
     let closeView: () -> Void
     
     @Environment(\.colorScheme) var colorScheme
@@ -85,10 +87,18 @@ struct SmallSheetView: View {
             HStack {
                 Spacer()
                 
-                getImage()
-                    .resizable()
-                    .aspectRatio(1, contentMode: .fit)
-                    .frame(height: 160)
+                ZStack {
+                    if type == .sendToDeviceQrCode && dynamicQrCode != nil {
+                        Image(.qrBackground)
+                            .resizable()
+                            .aspectRatio(1, contentMode: .fit)
+                    }
+                    
+                    getImage()
+                        .resizable()
+                        .aspectRatio(1, contentMode: .fit)
+                }
+                .frame(height: 160)
                 
                 Spacer()
                
@@ -138,7 +148,7 @@ struct SmallSheetView: View {
     func getImage() -> Image {
         switch type {
         case .sendToDeviceQrCode:
-            return connectWithApp ? Image(.qrApp) : Image(.QR)
+            return connectWithApp ? Image(.qrApp) : (dynamicQrCode ?? Image(.QR))
         case .downloadAndroidApp:
             return Image(.qrApp)
         case .downloadCableConnectionApp:
@@ -156,5 +166,25 @@ enum SheetViewType {
 
 
 #Preview {
-    SmallSheetView(type: .downloadCableConnectionApp, closeView: {})
+    Preview()
+}
+
+
+private struct Preview: View {
+    var body: some View {
+        SmallSheetView(type: .sendToDeviceQrCode, dynamicQrCode: getImage(), closeView: {})
+    }
+    
+    func getImage() -> Image {
+        let qrCodeImage = try! QRCode.build
+                    .text("https://quickshare.google/qrcode#key=AAA")
+                    .backgroundColor(CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 0))
+                    .quietZonePixelCount(2)
+                    .onPixels.shape(.circle())
+                    .eye.shape(.squircle())
+                    .errorCorrection(.low)
+                    .generate.image(dimension: 1000)
+        
+        return Image(nsImage: NSImage(cgImage: qrCodeImage, size: qrCodeImage.size))
+    }
 }

@@ -57,6 +57,7 @@ class NearbyConnection {
     private var clientSeq: Int32 = 0
     
     private(set) var pinCode: String?
+    private(set) var authKey: SymmetricKey?
     
     
     init(connection: NWConnection, id: String) {
@@ -471,6 +472,7 @@ class NearbyConnection {
         let authString = NearbyConnection.hkdf(inputKeyMaterial: SymmetricKey(data: derivedSecretKey), salt: "UKEY2 v1 auth".data(using: .utf8)!, info: ukeyInfo, outputByteCount: 32)
         let nextSecret = NearbyConnection.hkdf(inputKeyMaterial: SymmetricKey(data: derivedSecretKey), salt: "UKEY2 v1 next".data(using: .utf8)!, info: ukeyInfo, outputByteCount: 32)
         
+        authKey = authString
         pinCode = NearbyConnection.pinCodeFromAuthKey(authString)
         
         let salt = Data([0x82, 0xAA, 0x55, 0xA0, 0xD3, 0x97, 0xF8, 0x83, 0x46, 0xCA, 0x1C,

@@ -95,6 +95,9 @@
 		EB9925802E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
 		EB9925812E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
 		EB9925822E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
+		EB9925852E45EF0900357055 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB9925842E45EF0900357055 /* QRCode */; };
+		EB9925872E45F12F00357055 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB9925862E45F12F00357055 /* QRCode */; };
+		EB9925892E45F13500357055 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB9925882E45F13500357055 /* QRCode */; };
 		EBC05C5B2E33937200EECC18 /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */; };
 		EBC05C5C2E3394EF00EECC18 /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */; };
 		EBC05C712E33B57D00EECC18 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C6D2E33B57D00EECC18 /* Converter.swift */; };
@@ -243,6 +246,7 @@
 			files = (
 				EB5C37D82E377ACF0052EFD7 /* SwiftECC in Frameworks */,
 				EB5C37D62E377ACF0052EFD7 /* SwiftProtobuf in Frameworks */,
+				EB9925852E45EF0900357055 /* QRCode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9925872E45F12F00357055 /* QRCode in Frameworks */,
 				EB2F9BFE2DA05F48004010A2 /* BezelNotification in Frameworks */,
 				EB5C37DC2E377AD60052EFD7 /* SwiftECC in Frameworks */,
 				EB5C37DA2E377AD60052EFD7 /* SwiftProtobuf in Frameworks */,
@@ -262,6 +267,7 @@
 			files = (
 				EB5C37F02E377C3F0052EFD7 /* SwiftECC in Frameworks */,
 				EB5C37EE2E377C3F0052EFD7 /* SwiftProtobuf in Frameworks */,
+				EB9925892E45F13500357055 /* QRCode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +515,7 @@
 				EB2F9BFD2DA05F48004010A2 /* BezelNotification */,
 				EB5C37D92E377AD60052EFD7 /* SwiftProtobuf */,
 				EB5C37DB2E377AD60052EFD7 /* SwiftECC */,
+				EB9925862E45F12F00357055 /* QRCode */,
 			);
 			productName = NearDrop;
 			productReference = 69DA9A0E29E0BF5100A442DA /* QuickDrop.app */;
@@ -533,6 +540,7 @@
 			packageProductDependencies = (
 				EB5C37ED2E377C3F0052EFD7 /* SwiftProtobuf */,
 				EB5C37EF2E377C3F0052EFD7 /* SwiftECC */,
+				EB9925882E45F13500357055 /* QRCode */,
 			);
 			productName = QuickDropiOS;
 			productReference = EB5C37E22E377C2E0052EFD7 /* QuickDropiOS.app */;
@@ -589,6 +597,7 @@
 				69DA9A2429E189EF00A442DA /* XCRemoteSwiftPackageReference "swift-protobuf" */,
 				69DA9A3429E1994C00A442DA /* XCRemoteSwiftPackageReference "SwiftECC" */,
 				EB2F9BFC2DA05F48004010A2 /* XCRemoteSwiftPackageReference "BezelNotification" */,
+				EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */,
 			);
 			productRefGroup = 69DA9A0F29E0BF5100A442DA /* Products */;
 			projectDirPath = "";
@@ -1183,6 +1192,14 @@
 				minimumVersion = 2.1.0;
 			};
 		};
+		EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dagronf/qrcode.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 26.10.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1220,6 +1237,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 69DA9A3429E1994C00A442DA /* XCRemoteSwiftPackageReference "SwiftECC" */;
 			productName = SwiftECC;
+		};
+		EB9925842E45EF0900357055 /* QRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */;
+			productName = QRCode;
+		};
+		EB9925862E45F12F00357055 /* QRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */;
+			productName = QRCode;
+		};
+		EB9925882E45F13500357055 /* QRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */;
+			productName = QRCode;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

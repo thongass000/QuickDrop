@@ -1,5 +1,5 @@
 {
-  "originHash" : "c998f2b1c34ecbb24a88c5711f17c1a351f48f3505ccd4cab4552e5760bd39a3",
+  "originHash" : "10744462d42c114b38e0002c6a341b37abcba576ba3203c8d951905fbbdf1f58",
   "pins" : [
     {
       "identity" : "asn1",
@@ -26,6 +26,15 @@
       "state" : {
         "revision" : "afb70a0038bfbba845271b60fa9a58d5840f8017",
         "version" : "1.21.0"
+      }
+    },
+    {
+      "identity" : "qrcode",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dagronf/qrcode.git",
+      "state" : {
+        "revision" : "177d4091f7fcce1efc22de2a5fcdb671bd103101",
+        "version" : "26.10.0"
       }
     },
     {
@@ -56,12 +65,30 @@
       }
     },
     {
+      "identity" : "swift-qrcode-generator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dagronf/swift-qrcode-generator",
+      "state" : {
+        "revision" : "2b1980b825f08a81ccc762b0c4d17fcde9d5e953",
+        "version" : "2.0.2"
+      }
+    },
+    {
       "identity" : "swiftecc",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/leif-ibsen/SwiftECC",
       "state" : {
         "revision" : "2b672501e3a9361316898aa2d5b0e684c992e01e",
         "version" : "3.9.0"
+      }
+    },
+    {
+      "identity" : "swiftimagereadwrite",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dagronf/SwiftImageReadWrite",
+      "state" : {
+        "revision" : "42ace2412279f18bc264bc306e96b51c36e12a33",
+        "version" : "1.9.2"
       }
     }
   ],

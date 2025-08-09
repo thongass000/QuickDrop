@@ -26,6 +26,7 @@ class OutboundNearbyConnection: NearbyConnection {
     private var totalBytesSent: Int64 = 0
     private var textPayloadID: Int64 = 0
     
+    public var qrCodePrivateKey: ECPrivateKey?
     public var delegate: OutboundNearbyConnectionDelegate?
 
     enum State {
@@ -174,7 +175,7 @@ class OutboundNearbyConnection: NearbyConnection {
         frame.v1.type = .connectionRequest
         frame.v1.connectionRequest = Location_Nearby_Connections_ConnectionRequestFrame()
         frame.v1.connectionRequest.endpointID = String(bytes: NearbyConnectionManager.shared.endpointID, encoding: .ascii)!
-        frame.v1.connectionRequest.endpointName = endpointInfo.name
+        frame.v1.connectionRequest.endpointName = endpointInfo.name ?? "QuickDrop"
         frame.v1.connectionRequest.endpointInfo = endpointInfo.serialize()
         frame.v1.connectionRequest.mediums = [.wifiLan]
         try sendFrameAsync(frame.serializedData())
@@ -277,6 +278,14 @@ class OutboundNearbyConnection: NearbyConnection {
         pairedEncryption.v1.pairedKeyEncryption = Sharing_Nearby_PairedKeyEncryptionFrame()
         pairedEncryption.v1.pairedKeyEncryption.secretIDHash = Data.randomData(length: 6)
         pairedEncryption.v1.pairedKeyEncryption.signedData = Data.randomData(length: 72)
+        
+        if let qrKey = qrCodePrivateKey, let authKey = authKey {
+            let signature = qrKey.sign(msg: authKey.data())
+            var serializedSignature = Data(signature.r)
+            serializedSignature.append(Data(signature.s))
+            pairedEncryption.v1.pairedKeyEncryption.qrCodeHandshakeData = serializedSignature
+        }
+        
         try sendTransferSetupFrame(pairedEncryption)
 
         currentState = .sentPairedKeyEncryption

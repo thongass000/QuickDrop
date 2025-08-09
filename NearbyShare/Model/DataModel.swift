@@ -7,6 +7,8 @@
 
 import Foundation
 import Network
+import CryptoKit
+import SwiftECC
 
 
 protocol InboundNearbyConnectionDelegate {
@@ -36,6 +38,7 @@ public protocol MainAppDelegate {
 public protocol ShareExtensionDelegate: AnyObject {
     func addDevice(device: RemoteDeviceInfo)
     func removeDevice(id: String)
+    func startTransferWithQrCode(device: RemoteDeviceInfo)
     func connectionWasEstablished(pinCode: String)
     func connectionFailed(with error: Error)
     func transferAccepted()
@@ -45,19 +48,23 @@ public protocol ShareExtensionDelegate: AnyObject {
 
 
 public struct RemoteDeviceInfo: Identifiable, Equatable {
-    public let name: String
+    public let name: String?
     public let type: DeviceType
+    public let qrCodeData:Data?
     public var id: String?
 
     init(name: String, type: DeviceType, id: String? = nil) {
         self.name = name
         self.type = type
         self.id = id
+        self.qrCodeData = nil
     }
 
-    init(info: EndpointInfo) {
-        name = info.name
-        type = info.deviceType
+    init(info: EndpointInfo, id: String? = nil) {
+        self.name = info.name
+        self.type = info.deviceType
+        self.qrCodeData = info.qrCodeData
+        self.id = id
     }
 
     
@@ -116,24 +123,63 @@ public struct FileMetadata {
 
 
 struct EndpointInfo {
-    let name: String
+    var name: String?
     let deviceType: RemoteDeviceInfo.DeviceType
+    let qrCodeData: Data?
 
     
     init(name: String, deviceType: RemoteDeviceInfo.DeviceType) {
         self.name = name
         self.deviceType = deviceType
+        self.qrCodeData = nil
     }
 
     
     init?(data: Data) {
         guard data.count > 17 else { return nil }
-        let deviceNameLength = Int(data[17])
-        guard data.count >= deviceNameLength + 18 else { return nil }
-        guard let deviceName = String(data: data[18 ..< (18 + deviceNameLength)], encoding: .utf8) else { return nil }
-        let rawDeviceType = Int(data[0] & 7) >> 1
-        name = deviceName
-        deviceType = RemoteDeviceInfo.DeviceType.fromRawValue(value: rawDeviceType)
+        
+        let hasName = (data[0] & 0x10) == 0
+        let deviceNameLength: Int
+        let deviceName: String?
+        
+        if hasName {
+            deviceNameLength = Int(data[17])
+            guard data.count >= deviceNameLength + 18 else { return nil }
+            guard let newDeviceName = String(data: data[18..<(18 + deviceNameLength)], encoding: .utf8) else { return nil }
+            deviceName = newDeviceName
+        }
+        else {
+            deviceNameLength = 0
+            deviceName = nil
+        }
+        
+        let rawDeviceType: Int = Int(data[0] & 7) >> 1
+        self.name = deviceName
+        self.deviceType = RemoteDeviceInfo.DeviceType.fromRawValue(value: rawDeviceType)
+        var offset = 1 + 16
+        
+        if hasName {
+            offset = offset + 1 + deviceNameLength
+        }
+        
+        var qrCodeData: Data? = nil
+        
+        // read TLV records, if any
+        while data.count - offset > 2 {
+            let type = data[offset]
+            let length = Int(data[offset+1])
+            offset = offset + 2
+            if data.count - offset >= length{
+                // QR code data
+                if type == 1 {
+                    qrCodeData = data.subdata(in: offset..<offset + length)
+                }
+                
+                offset = offset + length
+            }
+        }
+        
+        self.qrCodeData = qrCodeData
     }
 
     
@@ -146,7 +192,7 @@ struct EndpointInfo {
             endpointInfo.append(UInt8.random(in: 0 ... 255))
         }
         // Device name in UTF-8 prefixed with 1-byte length
-        var nameChars = [UInt8](name.utf8)
+        var nameChars = [UInt8]((name ?? "").utf8)
         if nameChars.count > 255 {
             nameChars = [UInt8](nameChars[0 ..< 255])
         }

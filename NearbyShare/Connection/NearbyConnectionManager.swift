@@ -5,13 +5,15 @@
 //  Created by Grishka on 08.04.2023.
 //
 
-import Foundation
-import Network
-import System
-
 #if os(iOS)
 import UIKit
 #endif
+
+import Foundation
+import Network
+import System
+import SwiftECC
+import CryptoKit
 
 public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearbyConnectionDelegate, OutboundNearbyConnectionDelegate {
 
@@ -25,6 +27,11 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private var startedDeviceDiscovery = false
     private var browsers: [NWBrowser] = []
     private let serviceTypes = ["_FC9F5ED42C8A._tcp."]
+    private var qrCodePublicKey: ECPublicKey?
+    private var qrCodePrivateKey: ECPrivateKey?
+    private var qrCodeAdvertisingToken: Data?
+    private var qrCodeNameEncryptionKey: SymmetricKey?
+    private var qrCodeData: Data?
 
     public let endpointID: [UInt8] = generateEndpointID()
     public var mainAppDelegate: (any MainAppDelegate)?
@@ -109,7 +116,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     func getEndpointInfo() -> EndpointInfo {
         #if os(macOS)
-        let endpointInfo = EndpointInfo(name: Host.current().localizedName!, deviceType: .computer)
+        let endpointInfo = EndpointInfo(name: Host.current().localizedName ?? "Mac", deviceType: .computer)
         #else
         let endpointInfo = EndpointInfo(name: UIDevice.current.name, deviceType: .phone)
         #endif
@@ -230,22 +237,56 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
         guard let endpointID = endpointID(for: service) else { return }
         var foundService = FoundServiceInfo(service: service)
-
+        
         guard case let NWBrowser.Result.Metadata.bonjour(txtRecord) = service.metadata else { return }
         guard let endpointInfoEncoded = txtRecord.dictionary["n"] else { return }
-        guard let endpointInfo = Data.dataFromUrlSafeBase64(endpointInfoEncoded) else { return }
-        guard endpointInfo.count >= 19 else { return }
-        let deviceType = RemoteDeviceInfo.DeviceType.fromRawValue(value: (Int(endpointInfo[0]) >> 1) & 7)
-        let deviceNameLength = Int(endpointInfo[17])
-        guard endpointInfo.count >= deviceNameLength + 17 else { return }
-        guard let deviceName = String(data: endpointInfo.subdata(in: 18 ..< (18 + deviceNameLength)), encoding: .utf8) else { return }
-
-        let deviceInfo = RemoteDeviceInfo(name: deviceName, type: deviceType, id: endpointID)
+        guard let endpointInfoData = Data.dataFromUrlSafeBase64(endpointInfoEncoded) else { return }
+        guard var endpointInfo = EndpointInfo(data: endpointInfoData) else { return }
+        var deviceInfo: RemoteDeviceInfo?
+        
+        if let _ = endpointInfo.name {
+            deviceInfo = addFoundDevice(foundService: &foundService, endpointInfo: endpointInfo, endpointID: endpointID)
+        }
+        
+        if let qrData = endpointInfo.qrCodeData, let qrCodeAdvertisingToken = qrCodeAdvertisingToken, let qrCodeNameEncryptionKey = qrCodeNameEncryptionKey {
+            
+            log("[NearbyConnectionManager] Device has QR data: \(qrData.base64EncodedString()), advertising token is \(qrCodeAdvertisingToken.base64EncodedString())")
+            
+            if qrData == qrCodeAdvertisingToken {
+                if let deviceInfo = deviceInfo {
+                    for delegate in shareExtensionDelegates {
+                        delegate.startTransferWithQrCode(device: deviceInfo)
+                    }
+                }
+            }
+            else if qrData.count > 28 {
+                do {
+                    let box = try AES.GCM.SealedBox(combined: qrData)
+                    let decryptedName = try AES.GCM.open(box, using: qrCodeNameEncryptionKey, authenticating: qrCodeAdvertisingToken)
+                    guard let name = String.init(data: decryptedName, encoding: .utf8) else { return }
+                    endpointInfo.name = name
+                    let deviceInfo = addFoundDevice(foundService: &foundService, endpointInfo: endpointInfo, endpointID: endpointID)
+                    for delegate in shareExtensionDelegates {
+                        delegate.startTransferWithQrCode(device: deviceInfo)
+                    }
+                } catch {
+                    log("[NearbyConnectionManager] Error decrypting QR code data of an invisible device: \(error)")
+                }
+            }
+        }
+    }
+    
+    
+    private func addFoundDevice(foundService: inout FoundServiceInfo, endpointInfo: EndpointInfo, endpointID: String) -> RemoteDeviceInfo {
+        let deviceInfo = RemoteDeviceInfo(info: endpointInfo, id: endpointID)
         foundService.device = deviceInfo
         foundServices[endpointID] = foundService
+        
         for delegate in shareExtensionDelegates {
             delegate.addDevice(device: deviceInfo)
         }
+        
+        return deviceInfo
     }
 
     
@@ -256,6 +297,35 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             delegate.removeDevice(id: endpointID)
         }
     }
+    
+    
+    public func generateQrCodeKey() -> String{
+        let domain = Domain.instance(curve: .EC256r1)
+        let (pubKey, privKey) = domain.makeKeyPair()
+        qrCodePublicKey = pubKey
+        qrCodePrivateKey = privKey
+        var keyData = Data()
+        keyData.append(contentsOf: [0, 0, 2])
+        let keyBytes = Data(pubKey.w.x.asSignedBytes())
+        // Sometimes, for some keys, there will be a leading zero byte. Strip that, Android really hates it (it breaks the endpoint info)
+        keyData.append(keyBytes.suffixOfAtMost(numBytes: 32))
+        
+        let ikm = SymmetricKey(data: keyData)
+        qrCodeAdvertisingToken = NearbyConnection.hkdf(inputKeyMaterial: ikm, salt: Data(), info: "advertisingContext".data(using: .utf8)!, outputByteCount: 16).data()
+        qrCodeNameEncryptionKey = NearbyConnection.hkdf(inputKeyMaterial: ikm, salt: Data(), info: "encryptionKey".data(using: .utf8)!, outputByteCount: 16)
+        qrCodeData = keyData
+        
+        return keyData.urlSafeBase64EncodedString()
+    }
+    
+    
+    public func clearQrCodeKey(){
+        qrCodePublicKey = nil
+        qrCodePrivateKey = nil
+        qrCodeAdvertisingToken = nil
+        qrCodeNameEncryptionKey = nil
+        qrCodeData = nil
+    }
 
     
     public func startOutgoingTransfer(deviceID: String, delegate: ShareExtensionDelegate, urls: [URL], textToSend: String?) {
@@ -265,6 +335,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         let nwconn = NWConnection(to: info.service.endpoint, using: NWParameters(tls: .none, tcp: tcp))
         let conn = OutboundNearbyConnection(connection: nwconn, id: deviceID, urlsToSend: urls, textToSend: textToSend)
         conn.delegate = self
+        conn.qrCodePrivateKey = qrCodePrivateKey
         let transfer = OutgoingTransferInfo(service: info.service, device: info.device!, connection: conn, delegate: delegate)
         outgoingTransfers[deviceID] = transfer
         conn.start()

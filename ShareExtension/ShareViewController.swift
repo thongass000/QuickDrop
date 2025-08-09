@@ -8,8 +8,10 @@
 import Cocoa
 import Foundation
 import SwiftUI
+import QRCode
 
 class ShareViewController: NSViewController, ShareExtensionDelegate {
+    
     private var urls: [URL] = []
     private var textToSend: String? = nil
     private var foundDevices: [RemoteDeviceInfo] = []
@@ -154,7 +156,27 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     
     private func openQrCodeView() {
         if qrCodeSheetView == nil {
-            let contentView = SmallSheetView(type: .sendToDeviceQrCode) {
+            
+            var image: Image? = nil
+            
+            do {
+                let qrKey = NearbyConnectionManager.shared.generateQrCodeKey()
+                let qrCodeImage = try QRCode.build
+                    .text("https://quickshare.google/qrcode#key=\(qrKey)")
+                    .backgroundColor(CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 0))
+                    .quietZonePixelCount(3)
+                    .onPixels.shape(.circle())
+                    .eye.shape(.squircle())
+                    .errorCorrection(.low)
+                    .generate.image(dimension: 1000)
+                
+                image = Image(nsImage: NSImage(cgImage: qrCodeImage, size: qrCodeImage.size))
+            }
+            catch {
+                log("Error generating QR code: \(error)")
+            }
+            
+            let contentView = SmallSheetView(type: .sendToDeviceQrCode, dynamicQrCode: image) {
                 self.closeQrCodeView()
             }
             
@@ -276,6 +298,12 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         if foundDevices.isEmpty {
             loadingOverlay?.animator().isHidden = false
         }
+    }
+    
+    
+    func startTransferWithQrCode(device: RemoteDeviceInfo) {
+        closeQrCodeView()
+        selectDevice(device: device)
     }
     
     
@@ -447,9 +475,10 @@ extension ShareViewController: NSCollectionViewDataSource {
     
     
     func getDeviceName(device: RemoteDeviceInfo) -> String {
-        if device.name.count <= 1 {
-            return "Android"
+        if let name = device.name, name.count > 1 {
+            return name
         }
-        return device.name
+        
+        return "Android"
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CryptoKit
 
 extension Data {
     func urlSafeBase64EncodedString() -> String {
@@ -20,7 +21,7 @@ extension Data {
         })
     }
     
-
+    
     static func randomData(length: Int) -> Data {
         var data = Data(count: length)
         data.withUnsafeMutableBytes {
@@ -29,7 +30,16 @@ extension Data {
         return data
     }
     
-
+    
+    func suffixOfAtMost(numBytes: Int) -> Data{
+        if count <= numBytes {
+            return self
+        }
+        
+        return subdata(in: count-numBytes..<count)
+    }
+    
+    
     static func dataFromUrlSafeBase64(_ str: String) -> Data? {
         var regularB64 = String(str.map {
             if $0 == "_" {
@@ -49,6 +59,13 @@ extension Data {
     
     var hex: String {
         return map { String(format: "%02hhx", $0) }.joined()
+    }
+}
+
+
+extension SymmetricKey{
+    func data() -> Data{
+        return withUnsafeBytes({return Data(bytes: $0.baseAddress!, count: $0.count)})
     }
 }
 
