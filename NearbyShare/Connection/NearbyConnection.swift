@@ -10,7 +10,6 @@ import CryptoKit
 import Foundation
 import Network
 import System
-
 import BigInt
 import SwiftECC
 
@@ -76,12 +75,10 @@ class NearbyConnection {
 
                     // If connection reset by peer, it could still be a valid file transfer that has not been processed yet. => Wait
                     if err == .posix(.ECONNRESET) {
-                        NearbyConnection.dispatchQueue.asyncAfter(deadline: .now() + 0.5) {
-                            
-                            // If already closed, ignore the error, as file transfer has been processed
-                            if !self.connectionClosed {
-                                recordErrorAndDisconnect(err: err)
-                            }
+                        
+                        log("[NearbyConnection] Network connection reset error detected.")
+                        self.connectionClosedByPeer {
+                            recordErrorAndDisconnect(err: err)
                         }
                     }
                     else {
@@ -102,16 +99,29 @@ class NearbyConnection {
             
             // If the error is a connection reset, it could be due to firewall issues.
             if err == .posix(.ENOTCONN) {
+                log("[NearbyConnection] Network not connected error detected.")
                 ConnectionFailureTracker.shared.recordFailure {
                     NearbyConnectionManager.shared.mainAppDelegate?.showFirewallAlert()
                 }
             }
             
             if err == .posix(.ENETDOWN) {
+                log("[NearbyConnection] Network down error detected.")
                 self.lastError = NearbyError.protocolError("Error.NetworkDown".localized())
             }
             
             self.disconnect()
+        }
+    }
+    
+    
+    func connectionClosedByPeer(onError: @escaping () -> Void) {
+        NearbyConnection.dispatchQueue.asyncAfter(deadline: .now() + 0.5) {
+            
+            // If already closed, ignore the error, as file transfer has been processed
+            if !self.connectionClosed {
+                onError()
+            }
         }
     }
     
@@ -156,17 +166,21 @@ class NearbyConnection {
                 return
             }
             if isComplete {
-                log("[NearbyConnection] Connection closed by peer during receiveFrameAsync")
-                self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
-                self.disconnect()
+                log("[NearbyConnection] Connection closed by peer during receiveFrameAsync()")
+                self.connectionClosedByPeer {
+                    self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
+                    self.disconnect()
+                }
                 return
             }
             if !(error == nil) {
+                log("[NearbyConnection] Error during receiveFrameAsync(): \(String(describing: error))")
                 self.lastError = error
                 self.protocolError()
                 return
             }
             guard let content = content else {
+                log("[NearbyConnection] Received nil content during receiveFrameAsync(). IsComplete: \(isComplete)")
                 assertionFailure()
                 return
             }
@@ -189,12 +203,25 @@ class NearbyConnection {
                 return
             }
             if isComplete {
-                log("[NearbyConnection] Connection closed by peer during receiveFrameAsync")
-                self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
-                self.disconnect()
+                log("[NearbyConnection] Connection closed by peer during receiveFrameAsync(length:)")
+                
+                if let content = content, !content.isEmpty {
+                    log("[NearbyConnection] Connection closed by peer during receiveFrameAsync(length:), but trying to process the frame anyway. Frame: \(content.hex)")
+                    self.processReceivedFrame(frameData: content)
+                }
+                else {
+                    log("[NearbyConnection] Connection closed by peer during receiveFrameAsync(length:), but no content received anymore (\(String(describing: content))).")
+                }
+                
+                self.connectionClosedByPeer {
+                    self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
+                    self.disconnect()
+                }
+                
                 return
             }
             guard let content = content else {
+                log("[NearbyConnection] Received nil content during receiveFrameAsync(length:). IsComplete: \(isComplete)")
                 self.protocolError()
                 return
             }
