@@ -206,7 +206,7 @@ class NearbyConnection {
                 log("[NearbyConnection] Connection closed by peer during receiveFrameAsync(length:)")
                 
                 if let content = content, !content.isEmpty {
-                    log("[NearbyConnection] Connection closed by peer during receiveFrameAsync(length:), but trying to process the frame anyway. Frame: \(content.hex)")
+                    log("[NearbyConnection] Connection closed by peer during receiveFrameAsync(length:), but trying to process the frame anyway. Frame length: \(content.count)")
                     self.processReceivedFrame(frameData: content)
                 }
                 else {
