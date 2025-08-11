@@ -38,6 +38,9 @@ class ErrorAlertHandler {
             case .packetFilterError:
                 openAlert(type: .NetworkFilter)
                 return
+            case .firewallError:
+                openAlert(type: .Firewall)
+                return
             case .requiredFieldMissing(errorMessage: let errorMessage):
                 description = errorMessage + fixInstructions
             case .ukey2:
@@ -85,6 +88,7 @@ class ErrorAlertHandler {
 
     func openAlert(type: AlertType) {
         log("Opening Alert for \(type)")
+        AudioManager.playErrorSound()
 
         DispatchQueue.main.async { [self] in
             // Create an NSWindow to host the SwiftUI view

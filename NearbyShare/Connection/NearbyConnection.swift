@@ -99,10 +99,8 @@ class NearbyConnection {
             
             // If the error is a connection reset, it could be due to firewall issues.
             if err == .posix(.ENOTCONN) {
-                log("[NearbyConnection \(self.id)] Network not connected error detected.")
-                ConnectionFailureTracker.shared.recordFailure {
-                    NearbyConnectionManager.shared.mainAppDelegate?.showFirewallAlert()
-                }
+                log("[NearbyConnection \(self.id)] Network not connected error detected (firewall likely).")
+                self.lastError = NearbyError.firewallError
             }
             
             if err == .posix(.ENETDOWN) {

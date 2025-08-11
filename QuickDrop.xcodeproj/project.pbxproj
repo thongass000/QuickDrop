@@ -21,11 +21,9 @@
 		EB5C36942E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
 		EB5C36E42E34EC0E0052EFD7 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
 		EB5C36E52E34EC0E0052EFD7 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
-		EB5C37B72E377A6F0052EFD7 /* ConnectionFailureTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */; };
 		EB5C37B82E377A6F0052EFD7 /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B41E32DC63AC80070FC39 /* SleepManager.swift */; };
 		EB5C37B92E377A6F0052EFD7 /* SaveFilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */; };
 		EB5C37BA2E377A6F0052EFD7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9BFA2DA04B67004010A2 /* Helpers.swift */; };
-		EB5C37BB2E377A700052EFD7 /* ConnectionFailureTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */; };
 		EB5C37BC2E377A700052EFD7 /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B41E32DC63AC80070FC39 /* SleepManager.swift */; };
 		EB5C37BD2E377A700052EFD7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9BFA2DA04B67004010A2 /* Helpers.swift */; };
 		EB5C37BE2E377A700052EFD7 /* SaveFilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */; };
@@ -63,7 +61,6 @@
 		EB5C37F42E377CE70052EFD7 /* NearbyConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A1E29E0C0B300A442DA /* NearbyConnectionManager.swift */; };
 		EB5C37F52E377CE70052EFD7 /* securemessage.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2D29E18CB500A442DA /* securemessage.pb.swift */; };
 		EB5C37F62E377CE70052EFD7 /* device_to_device_messages.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2A29E18CB500A442DA /* device_to_device_messages.pb.swift */; };
-		EB5C37F72E377CE70052EFD7 /* ConnectionFailureTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */; };
 		EB5C37F82E377CE70052EFD7 /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B41E32DC63AC80070FC39 /* SleepManager.swift */; };
 		EB5C37F92E377CE70052EFD7 /* securegcm.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2C29E18CB500A442DA /* securegcm.pb.swift */; };
 		EB5C37FA2E377CE70052EFD7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9BFA2DA04B67004010A2 /* Helpers.swift */; };
@@ -208,7 +205,6 @@
 		EB5C37E22E377C2E0052EFD7 /* QuickDropiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDropiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5C38382E38C1F60052EFD7 /* justMaybe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = justMaybe.mp3; sourceTree = "<group>"; };
 		EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
-		EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionFailureTracker.swift; sourceTree = "<group>"; };
 		EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		EB7F54112D78E95C00989564 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
@@ -359,7 +355,6 @@
 				EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */,
 				EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */,
 				EB2F9BFA2DA04B67004010A2 /* Helpers.swift */,
-				EB6E743D2DD5C76F00331466 /* ConnectionFailureTracker.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -663,7 +658,6 @@
 				EBC05C7B2E33B58100EECC18 /* ActiveNetworkInterface.swift in Sources */,
 				EBC05C7C2E33B58100EECC18 /* ApIsolationTester.swift in Sources */,
 				691F53BB2ABB70840089FD92 /* DeviceListCell.swift in Sources */,
-				EB5C37BB2E377A700052EFD7 /* ConnectionFailureTracker.swift in Sources */,
 				EB5C383F2E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37BC2E377A700052EFD7 /* SleepManager.swift in Sources */,
 				EB5C37D02E377A7F0052EFD7 /* OutboundNearbyConnection.swift in Sources */,
@@ -683,7 +677,6 @@
 			files = (
 				EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */,
 				EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */,
-				EB5C37B72E377A6F0052EFD7 /* ConnectionFailureTracker.swift in Sources */,
 				EB5C38412E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37B82E377A6F0052EFD7 /* SleepManager.swift in Sources */,
 				EB5C37B92E377A6F0052EFD7 /* SaveFilesManager.swift in Sources */,
@@ -731,7 +724,6 @@
 				EB5C37F42E377CE70052EFD7 /* NearbyConnectionManager.swift in Sources */,
 				EB5C37F52E377CE70052EFD7 /* securemessage.pb.swift in Sources */,
 				EB5C37F62E377CE70052EFD7 /* device_to_device_messages.pb.swift in Sources */,
-				EB5C37F72E377CE70052EFD7 /* ConnectionFailureTracker.swift in Sources */,
 				EB5C37F82E377CE70052EFD7 /* SleepManager.swift in Sources */,
 				EB5C38012E377DE60052EFD7 /* Localized.swift in Sources */,
 				EB5C37F92E377CE70052EFD7 /* securegcm.pb.swift in Sources */,
