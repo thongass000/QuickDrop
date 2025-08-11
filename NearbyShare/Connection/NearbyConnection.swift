@@ -10,7 +10,6 @@ import CryptoKit
 import Foundation
 import Network
 import System
-
 import BigInt
 import SwiftECC
 
@@ -26,12 +25,19 @@ class NearbyConnection {
     var encryptionDone: Bool = false
     var lastError: Error?
     var bytesTransferred: Int64 = 0
+    var cancelled: Bool = false
+    var isTransferring: Bool = false {
+        didSet {
+            log("[NearbyConnection \(self.id)] Now transferring. Setting up data transfer inactivity timer.")
+            startDataTransferTimer(previousBytesTransferred: bytesTransferred)
+        }
+    }
     
     private var payloadBuffers: [Int64: NSMutableData] = [:]
     private var connectionClosed: Bool = false
     
     private var inactivityTimer: DispatchSourceTimer?
-    private let timeoutInterval: TimeInterval = 50
+    private let timeoutInterval: TimeInterval = 30
     
     // UKEY2-related state
     var publicKey: ECPublicKey?
@@ -59,6 +65,9 @@ class NearbyConnection {
     
     
     func start() {
+        
+        log("[NearbyConnection \(self.id)] Starting connection.")
+        
         connection.stateUpdateHandler = { state in
             
             if !self.connectionClosed {
@@ -69,12 +78,10 @@ class NearbyConnection {
 
                     // If connection reset by peer, it could still be a valid file transfer that has not been processed yet. => Wait
                     if err == .posix(.ECONNRESET) {
-                        NearbyConnection.dispatchQueue.asyncAfter(deadline: .now() + 0.5) {
-                            
-                            // If already closed, ignore the error, as file transfer has been processed
-                            if !self.connectionClosed {
-                                recordErrorAndDisconnect(err: err)
-                            }
+                        
+                        log("[NearbyConnection \(self.id)] Network connection reset error detected.")
+                        self.connectionClosedByPeer {
+                            recordErrorAndDisconnect(err: err)
                         }
                     }
                     else {
@@ -83,7 +90,7 @@ class NearbyConnection {
                 }
             }
             else {
-                log("[NearbyConnection] Connection already closed, ignoring state update: \(state)")
+                log("[NearbyConnection \(self.id)] Connection already closed, ignoring state update: \(state)")
             }
         }
 
@@ -91,16 +98,16 @@ class NearbyConnection {
         
         func recordErrorAndDisconnect(err: NWError) {
             self.lastError = err
-            log("[NearbyConnection] Connection Error: \(err)")
+            log("[NearbyConnection \(self.id)] Connection Error: \(err)")
             
             // If the error is a connection reset, it could be due to firewall issues.
             if err == .posix(.ENOTCONN) {
-                ConnectionFailureTracker.shared.recordFailure {
-                    NearbyConnectionManager.shared.mainAppDelegate?.showFirewallAlert()
-                }
+                log("[NearbyConnection \(self.id)] Network not connected error detected (firewall likely).")
+                self.lastError = NearbyError.firewallError
             }
             
             if err == .posix(.ENETDOWN) {
+                log("[NearbyConnection \(self.id)] Network down error detected.")
                 self.lastError = NearbyError.protocolError("Error.NetworkDown".localized())
             }
             
@@ -109,11 +116,22 @@ class NearbyConnection {
     }
     
     
+    func connectionClosedByPeer(onError: @escaping () -> Void) {
+        NearbyConnection.dispatchQueue.asyncAfter(deadline: .now() + 0.5) {
+            
+            // If already closed, ignore the error, as file transfer has been processed
+            if !self.connectionClosed {
+                onError()
+            }
+        }
+    }
+    
+    
     func connectionReady() {}
     
     
     func protocolError() {
-        log("[NearbyConnection] Protocol error: \(String(describing: lastError))")
+        log("[NearbyConnection \(self.id)] Protocol error: \(String(describing: lastError))")
         disconnect()
     }
     
@@ -149,17 +167,21 @@ class NearbyConnection {
                 return
             }
             if isComplete {
-                log("[NearbyConnection] Connection closed by peer during receiveFrameAsync")
-                self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
-                self.disconnect()
+                log("[NearbyConnection \(self.id)] Connection closed by peer during receiveFrameAsync()")
+                self.connectionClosedByPeer {
+                    self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
+                    self.disconnect()
+                }
                 return
             }
             if !(error == nil) {
+                log("[NearbyConnection \(self.id)] Error during receiveFrameAsync(): \(String(describing: error))")
                 self.lastError = error
                 self.protocolError()
                 return
             }
             guard let content = content else {
+                log("[NearbyConnection \(self.id)] Received nil content during receiveFrameAsync(). IsComplete: \(isComplete)")
                 assertionFailure()
                 return
             }
@@ -170,29 +192,42 @@ class NearbyConnection {
                 return
             }
             
-            self.startInactivityTimer()
+            self.startAndResetHeartbeatTimer()
             self.receiveFrameAsync(length: frameLength)
         }
     }
     
     
     private func receiveFrameAsync(length: UInt32) {
-        connection.receive(minimumIncompleteLength: Int(length), maximumLength: Int(length)) { content, _, isComplete, _ in
+        connection.receive(minimumIncompleteLength: Int(length), maximumLength: Int(length)) { [self] content, _, isComplete, _ in
             if self.connectionClosed {
                 return
             }
             if isComplete {
-                log("[NearbyConnection] Connection closed by peer during receiveFrameAsync")
-                self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
-                self.disconnect()
+                log("[NearbyConnection \(self.id)] Connection closed by peer during receiveFrameAsync(length:)")
+                
+                if let content = content, !content.isEmpty {
+                    log("[NearbyConnection \(self.id)] Connection closed by peer during receiveFrameAsync(length:), but trying to process the frame anyway. Frame length: \(content.count)")
+                    self.processReceivedFrame(frameData: content)
+                }
+                else {
+                    log("[NearbyConnection \(self.id)] Connection closed by peer during receiveFrameAsync(length:), but no content received anymore (\(String(describing: content))).")
+                }
+                
+                self.connectionClosedByPeer {
+                    self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
+                    self.disconnect()
+                }
+                
                 return
             }
             guard let content = content else {
+                log("[NearbyConnection \(self.id)] Received nil content during receiveFrameAsync(length:). IsComplete: \(isComplete)")
                 self.protocolError()
                 return
             }
             
-            self.startInactivityTimer()
+            self.startAndResetHeartbeatTimer()
             self.processReceivedFrame(frameData: content)
             self.receiveFrameAsync()
         }
@@ -263,7 +298,7 @@ class NearbyConnection {
     
     
     func sendTransferSetupFrame(_ frame: Sharing_Nearby_Frame) throws {
-        log("[NearbyConnection] Sending transfer setup frame.")
+        log("[NearbyConnection \(self.id)] Sending transfer setup frame.")
         try sendBytesPayload(data: frame.serializedData(), id: Int64.random(in: Int64.min ... Int64.max))
     }
     
@@ -299,7 +334,7 @@ class NearbyConnection {
         guard smsg.hasSignature, smsg.hasHeaderAndBody else { throw NearbyError.requiredFieldMissing("secureMessage.signature|headerAndBody") }
         
         let hmac = Data(HMAC<SHA256>.authenticationCode(for: smsg.headerAndBody, using: recvHmacKey!))
-        guard hmac == smsg.signature else { throw NearbyError.protocolError("hmac!=signature: Expected \(hmac), got \(smsg.signature)") }
+        guard hmac == smsg.signature else { throw NearbyError.protocolError("Error.Signature".localized()) }
         
         let headerAndBody = try Securemessage_HeaderAndBody(serializedBytes: smsg.headerAndBody)
         var decryptedData = Data(count: headerAndBody.body.count)
@@ -338,8 +373,14 @@ class NearbyConnection {
             
             guard header.hasType, header.hasID else { throw NearbyError.requiredFieldMissing("payloadHeader.type|id") }
             guard payloadTransfer.hasPayloadChunk, chunk.hasOffset, chunk.hasFlags else {
-                log("[NearbyConnection] Payload transfer chunk is missing offset or flags, likely canceled.")
-                throw NearbyError.canceled(reason: .userCanceled)
+                
+                if payloadTransfer.controlMessage.event == .payloadCanceled {
+                    log("[NearbyConnection \(self.id)] Cancel control frame received.")
+                    throw NearbyError.canceled(reason: .userCanceled)
+                }
+                
+                log("[NearbyConnection \(self.id)] Payload transfer chunk is missing offset or flags. Frame is \(payloadTransfer.debugDescription)")
+                throw NearbyError.requiredFieldMissing("payloadChunk.offset|flags")
             }
             
             if case .bytes = header.type {
@@ -383,11 +424,16 @@ class NearbyConnection {
         }
         else if offlineFrame.hasV1, offlineFrame.v1.hasType, case .keepAlive = offlineFrame.v1.type {
             
-            log("[NearbyConnection] Sent keep-alive, \(self.bytesTransferred) bytes sent")
+            log("[NearbyConnection \(self.id)] Sent keep-alive, \(self.bytesTransferred) bytes sent")
             sendKeepAlive(ack: true)
         } else {
             
-            log("[NearbyConnection] Unhandled offline frame encrypted: \(offlineFrame)")
+            if offlineFrame.hasV1, offlineFrame.v1.hasType, offlineFrame.v1.type == .bandwidthUpgradeRetry {
+                // only supporting WiFi for now, ignore upgrade request to other mediums
+                return
+            }
+            
+            log("[NearbyConnection \(self.id)] Unhandled offline frame encrypted: \(offlineFrame)")
         }
     }
     
@@ -491,7 +537,7 @@ class NearbyConnection {
     
     
     func disconnect() {
-        log("[NearbyConnection] Disconnecting from connection.")
+        log("[NearbyConnection \(self.id)] Disconnecting from connection.")
         
         connection.stateUpdateHandler = nil
         inactivityTimer?.cancel()
@@ -513,7 +559,7 @@ class NearbyConnection {
             try sendFrameAsync(offlineFrame.serializedData())
         }
         
-        log("[NearbyConnection] Sent disconnection frame during sendDisconnectionAndDisconnect")
+        log("[NearbyConnection \(self.id)] Sent disconnection frame during sendDisconnectionAndDisconnect")
         disconnect()
     }
     
@@ -526,7 +572,7 @@ class NearbyConnection {
         msg.messageData = try! alert.serializedData()
         sendFrameAsync(try! msg.serializedData())
         
-        log("[NearbyConnection] Sent UKEY2 alert: \(type)")
+        log("[NearbyConnection \(self.id)] Sent UKEY2 alert: \(type)")
         disconnect()
     }
     
@@ -544,12 +590,12 @@ class NearbyConnection {
                 try sendFrameAsync(offlineFrame.serializedData())
             }
         } catch {
-            log("[NearbyConnection] Error sending KEEP_ALIVE: \(error)")
+            log("[NearbyConnection \(self.id)] Error sending KEEP_ALIVE: \(error)")
         }
     }
     
     
-    func startInactivityTimer() {
+    func startAndResetHeartbeatTimer() {
         
         // Cancel previous timer if any
         inactivityTimer?.cancel()
@@ -561,13 +607,32 @@ class NearbyConnection {
             guard let self = self else { return }
             
             if !self.connectionClosed {
-                log("[NearbyConnection] Connection timeout: No message received in \(self.timeoutInterval) seconds")
+                log("[NearbyConnection \(self.id)] Connection timeout: No message received in \(self.timeoutInterval) seconds")
                 self.lastError = NearbyError.canceled(reason: .timedOut)
                 self.disconnect()
             }
         }
         
         inactivityTimer?.resume()
+    }
+    
+    
+    func startDataTransferTimer(previousBytesTransferred: Int64) {
+        NearbyConnection.dispatchQueue.asyncAfter(deadline: .now() + timeoutInterval) {
+            
+            if previousBytesTransferred < self.bytesTransferred {
+                // everything good, transferred more than last check, schedule next check
+                self.startDataTransferTimer(previousBytesTransferred: self.bytesTransferred)
+            }
+            else {
+                // connection stale, need to abort
+                if !self.connectionClosed {
+                    log("[NearbyConnection \(self.id)] Connection timeout: No more data received in \(self.timeoutInterval) seconds")
+                    self.lastError = NearbyError.canceled(reason: .timedOut)
+                    self.disconnect()
+                }
+            }
+        }
     }
     
     

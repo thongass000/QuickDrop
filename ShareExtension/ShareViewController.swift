@@ -7,7 +7,6 @@
 
 import Cocoa
 import Foundation
-import NearbyShare
 import SwiftUI
 
 class ShareViewController: NSViewController, ShareExtensionDelegate {
@@ -204,6 +203,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             log("Canceling share request because URL \(url) is a directory")
                             
+                            AudioManager.playErrorSound()
                             let alert = NSAlert()
                             alert.alertStyle = .critical
                             
@@ -331,6 +331,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         
         let timeoutAlert = DispatchWorkItem {
             if !self.connectionEstablished {
+                AudioManager.playErrorSound()
                 let alert = NSAlert()
                 alert.alertStyle = .critical
                 

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import NearbyShare
 
 struct TutorialView: View {
     
@@ -87,7 +86,7 @@ struct LargeAppIconView<Content: View>: View {
                 Image("AppIconHighRes")
                     .resizable()
                     .frame(width: 150, height: 150)
-                    .padding(.top, 50)
+                    .padding(.top, 40)
                 
                 Text(title.localized())
                     .font(.largeTitle)

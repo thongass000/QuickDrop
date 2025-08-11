@@ -8,7 +8,6 @@
 import AudioToolbox
 import BezelNotification
 import Cocoa
-import NearbyShare
 import Network
 import StoreKit
 import SwiftUI
@@ -305,6 +304,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         
         DispatchQueue.main.async {
             
+            AudioManager.playErrorSound()
+            
             NSApp.activate(ignoringOtherApps: true)
             
             let alert = NSAlert()
@@ -338,7 +339,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         
         activeIncomingTransfers[transfer.id] = TransferInfo(device: device, transfer: transfer)
 
-        AudioManager.playSound()
+        AudioManager.playIncomingFileSound()
 
         let acceptAutomatically = UserDefaults.standard.bool(forKey: UserDefaultsKeys.automaticallyAcceptFiles.rawValue)
 

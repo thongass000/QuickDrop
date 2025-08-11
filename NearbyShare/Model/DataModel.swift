@@ -27,7 +27,6 @@ protocol OutboundNearbyConnectionDelegate {
 public protocol MainAppDelegate {
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo)
     func incomingTransfer(id: String, didFinishWith error: Error?)
-    func showFirewallAlert()
     func showCopiedToClipboardAlert()
     func showUnsupportedFileAlert(for: RemoteDeviceInfo?)
 }
@@ -44,7 +43,7 @@ public protocol ShareExtensionDelegate: AnyObject {
 }
 
 
-public struct RemoteDeviceInfo {
+public struct RemoteDeviceInfo: Identifiable, Equatable {
     public let name: String
     public let type: DeviceType
     public var id: String?
@@ -164,6 +163,7 @@ public enum NearbyError: Error {
     case requiredFieldMissing(_ message: String)
     case ukey2
     case packetFilterError
+    case firewallError
     case inputOutput
     case canceled(reason: CancellationReason)
 

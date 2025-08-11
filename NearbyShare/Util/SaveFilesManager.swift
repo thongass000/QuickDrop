@@ -6,8 +6,10 @@
 //
 
 import Foundation
-import AppKit
 import ImageIO
+#if os(macOS)
+import AppKit
+#endif
 
 public class SaveFilesManager {
     
@@ -88,11 +90,15 @@ public class SaveFilesManager {
                         progress.totalUnitCount = 10
                         progress.kind = .file
                         progress.isPausable = false
+                        #if os(macOS)
                         progress.publish()
+                        #endif
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             progress.completedUnitCount = 10
+                            #if os(macOS)
                             progress.unpublish()
+                            #endif
                         }
                         
                         try fileManager.removeItem(at: file)
@@ -110,10 +116,12 @@ public class SaveFilesManager {
         
         if !filesFinishedDownloadingSinceLastRun.isEmpty && !isFileTransferRestricted() {
             
+            #if os(macOS)
             if UserDefaults.standard.bool(forKey: UserDefaultsKeys.openFinderAfterReceiving.rawValue) {
                 log("Opening \(filesFinishedDownloadingSinceLastRun.count) file(s) in Finder.")
                 NSWorkspace.shared.activateFileViewerSelecting(filesFinishedDownloadingSinceLastRun)
             }
+            #endif
             
             // Clear the list of finished files
             filesFinishedDownloadingSinceLastRun.removeAll()
@@ -143,6 +151,8 @@ public class SaveFilesManager {
         if let bookmarkData = UserDefaults.standard.data(forKey: UserDefaultsKeys.saveFolderBookmark.rawValue) {
             var isStale = false
 
+            // Not supported on iOS
+            #if os(macOS)
             do {
                 let url = try URL(resolvingBookmarkData: bookmarkData, options: .withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &isStale)
 
@@ -160,6 +170,7 @@ public class SaveFilesManager {
             } catch {
                 log("Failed to resolve bookmark: \(error), using default downloads folder.")
             }
+            #endif
         }
 
         do {

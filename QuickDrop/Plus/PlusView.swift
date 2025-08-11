@@ -7,7 +7,6 @@
 
 import SwiftUI
 import StoreKit
-import NearbyShare
 
 let plusViewWidth: CGFloat = 440
 let plusViewHeight: CGFloat = 200

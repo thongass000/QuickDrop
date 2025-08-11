@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AppKit
-import NearbyShare
 
 struct SettingsView: View {
     
@@ -46,6 +45,21 @@ struct SettingsView: View {
                 Toggle("OpenFinderAfterReceiving", isOn: $openFinderAfterReceiving)
                     .padding(.top, 5)
                 
+                Text("OpenFinderAfterReceivingFooter")
+                    .font(.footnote)
+                    .padding(.top, 5)
+                
+                
+                if #available(macOS 13.0, *) {
+                    
+                    Divider()
+                        .padding(.vertical, 10)
+                    
+                    LaunchAtLogin.Toggle {
+                        Text("LaunchAtLogin")
+                    }
+                    .padding(.top, 5)
+                }
             }
         }
     }

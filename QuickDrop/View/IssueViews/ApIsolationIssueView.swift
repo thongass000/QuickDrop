@@ -62,6 +62,7 @@ func openRouterSettingsPage() async {
 
     guard let routerIP else {
         DispatchQueue.main.async {
+            AudioManager.playErrorSound()
             let alert = NSAlert()
             alert.alertStyle = .critical
 

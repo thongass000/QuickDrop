@@ -8,7 +8,6 @@
 import AudioToolbox
 import BezelNotification
 import Cocoa
-import NearbyShare
 import Network
 import StoreKit
 import SwiftUI
@@ -28,22 +27,31 @@ class ErrorAlertHandler {
         NSApp.activate(ignoringOtherApps: true)
         
         var description = ""
+        let fixInstructions = " " + "Error.FixInstructions".localized()
         
         if let ne = (error as? NearbyError) {
             switch ne {
             case .inputOutput:
-                description = "I/O Error"
+                description = "I/O Error." + fixInstructions
             case .protocolError(errorMessage: let errorMessage):
-                description = "Error.Protocol".localized() + ": \(errorMessage)"
+                description = errorMessage + fixInstructions
             case .packetFilterError:
                 openAlert(type: .NetworkFilter)
                 return
+            case .firewallError:
+                openAlert(type: .Firewall)
+                return
             case .requiredFieldMissing(errorMessage: let errorMessage):
-                description = "Error.Protocol".localized() + ": \(errorMessage)"
+                description = errorMessage + fixInstructions
             case .ukey2:
-                description = "Error.Crypto".localized() + ": \(ne.localizedDescription)"
+                description = "Error.Crypto".localized() + ": \(ne.localizedDescription)" + fixInstructions
             case .canceled(reason: let reason):
-                description = "Error.Protocol".localized() + ": \(reason.localizedDescription())"
+                if reason == .timedOut {
+                    description = reason.localizedDescription() + fixInstructions
+                }
+                else {
+                    description = reason.localizedDescription()
+                }
             }
         } else {
             description = error.localizedDescription
@@ -62,6 +70,7 @@ class ErrorAlertHandler {
             return
         }
         else {
+            AudioManager.playErrorSound()
             self.isAlertShown = true
             log("Showing alert with message: \"\(alert.messageText)\" and description: \"\(alert.informativeText)\"")
             log("Unsuccessful transmission. Already successful transmissions: \(transmissionCount())")
@@ -79,6 +88,7 @@ class ErrorAlertHandler {
 
     func openAlert(type: AlertType) {
         log("Opening Alert for \(type)")
+        AudioManager.playErrorSound()
 
         DispatchQueue.main.async { [self] in
             // Create an NSWindow to host the SwiftUI view

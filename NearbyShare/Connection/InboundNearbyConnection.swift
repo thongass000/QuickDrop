@@ -5,7 +5,6 @@
 //  Created by Grishka on 08.04.2023.
 //
 
-import AppKit
 import CommonCrypto
 import CryptoKit
 import Foundation
@@ -13,6 +12,12 @@ import Network
 import System
 import BigInt
 import SwiftECC
+
+#if os(macOS)
+import AppKit
+#else
+import UIKit
+#endif
 
 class InboundNearbyConnection: NearbyConnection {
     
@@ -52,7 +57,7 @@ class InboundNearbyConnection: NearbyConnection {
     override func processReceivedFrame(frameData: Data) {
         
         if currentState != .receivingFiles {
-            log("[InboundNearbyConnection] Received frame in state \(currentState)...")
+            log("[InboundNearbyConnection \(self.id)] Received frame in state \(currentState)...")
         }
         
         do {
@@ -77,7 +82,7 @@ class InboundNearbyConnection: NearbyConnection {
                 do {
                     smsg = try Securemessage_SecureMessage(serializedBytes: frameData)
                 } catch {
-                    log("[InboundNearbyConnection] Error deserializing secure message (probably due to packet filter)")
+                    log("[InboundNearbyConnection \(self.id)] Error deserializing secure message (probably due to packet filter)")
                     lastError = NearbyError.packetFilterError
                     protocolError()
                 }
@@ -88,7 +93,7 @@ class InboundNearbyConnection: NearbyConnection {
             }
         } catch {
             lastError = error
-            log("[InboundNearbyConnection] Error receiving frame: \(error) in state \(currentState).")
+            log("[InboundNearbyConnection \(self.id)] Error receiving frame: \(error) in state \(currentState).")
             protocolError()
         }
     }
@@ -96,7 +101,9 @@ class InboundNearbyConnection: NearbyConnection {
 
     override func processTransferSetupFrame(_ frame: Sharing_Nearby_Frame) throws {
         if frame.hasV1 && frame.v1.hasType, case .cancel = frame.v1.type {
-            log("[InboundNearbyConnection] Transfer canceled")
+            self.lastError = NearbyError.canceled(reason: .userCanceled)
+            self.cancelled = true
+            log("[InboundNearbyConnection \(self.id)] Transfer canceled")
             try sendDisconnectionAndDisconnect()
             return
         }
@@ -108,7 +115,15 @@ class InboundNearbyConnection: NearbyConnection {
         case .receivedPairedKeyResult:
             try processIntroductionFrame(frame)
         default:
-            log("[InboundNearbyConnection] Unexpected connection state in processTransferSetupFrame: \(currentState)")
+            if frame.hasV1, frame.v1.hasType, frame.v1.type == .progressUpdate {
+                // ignore progress updates
+                return
+            }
+            if frame.hasV1, frame.v1.hasType, frame.v1.type == .response, case .accept = frame.v1.connectionResponse.status {
+                // ignore accept response frame, it is inferred since the other device set up the connection
+                return
+            }
+            log("[InboundNearbyConnection \(self.id)] Unexpected connection state in processTransferSetupFrame: \(currentState)")
             log(frame.debugDescription)
         }
     }
@@ -140,7 +155,7 @@ class InboundNearbyConnection: NearbyConnection {
                 // only for logging
                 self.bytesTransferred += Int64(frame.payloadChunk.body.count)
             } catch {
-                log("[InboundNearbyConnection] Error occurred during writing file: \(error.localizedDescription)")
+                log("[InboundNearbyConnection \(self.id)] Error occurred during writing file: \(error.localizedDescription)")
                 
                 throw NearbyError.protocolError(error.localizedDescription)
             }
@@ -148,13 +163,15 @@ class InboundNearbyConnection: NearbyConnection {
         else if (frame.payloadChunk.flags & 1) == 1 {
             try fileInfo.fileHandle?.close()
             filesToBeReceived[id]!.fileHandle = nil
+            #if os(macOS)
             fileInfo.progress?.unpublish()
+            #endif
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
 
             filesToBeReceived.removeValue(forKey: id)
             
             if filesToBeReceived.isEmpty {
-                log("[InboundNearbyConnection] All files received, sending disconnection frame and disconnecting.")
+                log("[InboundNearbyConnection \(self.id)] All files received, sending disconnection frame and disconnecting.")
                 try sendDisconnectionAndDisconnect()
             }
         }
@@ -166,19 +183,31 @@ class InboundNearbyConnection: NearbyConnection {
             if let urlStr = String(data: payload, encoding: .utf8) {
                 
                 if isPlainTextTransfer {
-                    // paste to clipboard
+                    #if os(macOS)
+                    // macOS clipboard
                     let pasteboard = NSPasteboard.general
                     pasteboard.clearContents()
                     pasteboard.setString(urlStr, forType: .string)
                     
                     NearbyConnectionManager.shared.mainAppDelegate?.showCopiedToClipboardAlert()
-                }
-                else if let url = URL(string: urlStr) {
+                    
+                    #elseif os(iOS)
+                    // iOS clipboard
+                    UIPasteboard.general.string = urlStr
+                    
+                    // Optionally show an alert (requires a way to present it)
+                    // For example, post a notification or use a delegate to show a toast or alert
+                    #endif
+                } else if let url = URL(string: urlStr) {
+                    #if os(macOS)
                     NSWorkspace.shared.open(url)
+                    #elseif os(iOS)
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    #endif
                 }
             }
 
-            log("[InboundNearbyConnection] Received text payload. Disconnecting...")
+            log("[InboundNearbyConnection \(self.id)] Received text payload. Disconnecting...")
             try sendDisconnectionAndDisconnect()
             return true
         }
@@ -188,11 +217,13 @@ class InboundNearbyConnection: NearbyConnection {
             fileInfo.progress?.completedUnitCount = filesToBeReceived[id]!.bytesTransferred
             try fileInfo.fileHandle?.close()
             filesToBeReceived[id]!.fileHandle = nil
+            #if os(macOS)
             fileInfo.progress?.unpublish()
+            #endif
             filesToBeReceived.removeValue(forKey: id)
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
             
-            log("[InboundNearbyConnection] Received file payload. Disconnecting...")
+            log("[InboundNearbyConnection \(self.id)] Received file payload. Disconnecting...")
             try sendDisconnectionAndDisconnect()
             return true
         }
@@ -227,7 +258,7 @@ class InboundNearbyConnection: NearbyConnection {
         guard msg.hasMessageType, msg.hasMessageData else { throw NearbyError.requiredFieldMissing("clientInit ukey2message.type|data") }
         guard case .clientInit = msg.messageType else {
             sendUkey2Alert(type: .badMessageType)
-            log("[InboundNearbyConnection] Unsupported message type: \(msg.messageType)")
+            log("[InboundNearbyConnection \(self.id)] Unsupported message type: \(msg.messageType)")
             throw NearbyError.ukey2
         }
         let clientInit: Securegcm_Ukey2ClientInit
@@ -235,17 +266,17 @@ class InboundNearbyConnection: NearbyConnection {
             clientInit = try Securegcm_Ukey2ClientInit(serializedBytes: msg.messageData)
         } catch {
             sendUkey2Alert(type: .badMessageData)
-            log("[InboundNearbyConnection] Failed to parse clientInit: \(error)")
+            log("[InboundNearbyConnection \(self.id)] Failed to parse clientInit: \(error)")
             throw NearbyError.ukey2
         }
         guard clientInit.version == 1 else {
             sendUkey2Alert(type: .badVersion)
-            log("[InboundNearbyConnection] Unsupported clientInit version: \(clientInit.version)")
+            log("[InboundNearbyConnection \(self.id)] Unsupported clientInit version: \(clientInit.version)")
             throw NearbyError.ukey2
         }
         guard clientInit.random.count == 32 else {
             sendUkey2Alert(type: .badRandom)
-            log("[InboundNearbyConnection] Unsupported clientInit random: \(clientInit.random.count)")
+            log("[InboundNearbyConnection \(self.id)] Unsupported clientInit random: \(clientInit.random.count)")
             throw NearbyError.ukey2
         }
         var found = false
@@ -258,12 +289,12 @@ class InboundNearbyConnection: NearbyConnection {
         }
         guard found else {
             sendUkey2Alert(type: .badHandshakeCipher)
-            log("[InboundNearbyConnection] Unsupported clientInit handshakeCipher: \(clientInit.cipherCommitments)")
+            log("[InboundNearbyConnection \(self.id)] Unsupported clientInit handshakeCipher: \(clientInit.cipherCommitments)")
             throw NearbyError.ukey2
         }
         guard clientInit.nextProtocol == "AES_256_CBC-HMAC_SHA256" else {
             sendUkey2Alert(type: .badNextProtocol)
-            log("[InboundNearbyConnection] Unsupported clientInit nextProtocol: \(clientInit.nextProtocol)")
+            log("[InboundNearbyConnection \(self.id)] Unsupported clientInit nextProtocol: \(clientInit.nextProtocol)")
             throw NearbyError.ukey2
         }
 
@@ -297,14 +328,14 @@ class InboundNearbyConnection: NearbyConnection {
     private func processUkey2ClientFinish(_ msg: Securegcm_Ukey2Message, raw: Data) throws {
         guard msg.hasMessageType, msg.hasMessageData else { throw NearbyError.requiredFieldMissing("clientFinish ukey2message.type|data") }
         guard case .clientFinish = msg.messageType else {
-            log("[InboundNearbyConnection] Unexpected message type \(msg.messageType)")
+            log("[InboundNearbyConnection \(self.id)] Unexpected message type \(msg.messageType)")
             throw NearbyError.ukey2
         }
 
         var sha = SHA512()
         sha.update(data: raw)
         guard cipherCommitment == Data(sha.finalize()) else {
-            log("[InboundNearbyConnection] Invalid cipherCommitment in clientFinish")
+            log("[InboundNearbyConnection \(self.id)] Invalid cipherCommitment in clientFinish")
             throw NearbyError.ukey2
         }
 
@@ -345,7 +376,7 @@ class InboundNearbyConnection: NearbyConnection {
             try sendTransferSetupFrame(pairedEncryption)
             currentState = .sentConnectionResponse
         } else {
-            log("[InboundNearbyConnection] Unhandled offline frame plaintext: \(frame)")
+            log("[InboundNearbyConnection \(self.id)] Unhandled offline frame plaintext: \(frame)")
         }
     }
 
@@ -436,7 +467,7 @@ class InboundNearbyConnection: NearbyConnection {
     
     func rejectDueToUnsupportedFileType(_ frame: Sharing_Nearby_Frame) {
         
-        log("[InboundNearbyConnection] Rejecting transfer due to unsupported file type. Frame is \(frame.debugDescription)")
+        log("[InboundNearbyConnection \(self.id)] Rejecting transfer due to unsupported file type. Frame is \(frame.debugDescription)")
         
         NearbyConnectionManager.shared.mainAppDelegate?.showUnsupportedFileAlert(for: remoteDeviceInfo)
         rejectTransfer(with: .unsupportedAttachmentType)
@@ -456,7 +487,7 @@ class InboundNearbyConnection: NearbyConnection {
     
     private func acceptTransfer(storeInTemp: Bool) {
         if currentState == .disconnected {
-            log("[InboundNearbyConnection] Detected timeout, not accepting transfer")
+            log("[InboundNearbyConnection \(self.id)] Detected timeout, not accepting transfer")
             return
         }
 
@@ -477,9 +508,13 @@ class InboundNearbyConnection: NearbyConnection {
                 progress.totalUnitCount = file.meta.size
                 progress.kind = .file
                 progress.isPausable = false
+                #if os(macOS)
                 progress.publish()
+                #endif
                 filesToBeReceived[id]!.progress = progress
                 filesToBeReceived[id]!.created = true
+                
+                log("[InboundNearbyConnection \(self.id)] Accepted file with size \(file.meta.size)")
             }
 
             var frame = Sharing_Nearby_Frame()
@@ -487,6 +522,7 @@ class InboundNearbyConnection: NearbyConnection {
             frame.v1.type = .response
             frame.v1.connectionResponse.status = .accept
             currentState = .receivingFiles
+            isTransferring = true
             try sendTransferSetupFrame(frame)
         } catch {
             lastError = error
@@ -499,7 +535,7 @@ class InboundNearbyConnection: NearbyConnection {
         
         self.wasRejected = true
         
-        log("[InboundNearbyConnection] Rejecting transfer because of \( reason)")
+        log("[InboundNearbyConnection \(self.id)] Rejecting transfer because of \( reason)")
         
         var frame = Sharing_Nearby_Frame()
         frame.version = .v1
@@ -509,7 +545,7 @@ class InboundNearbyConnection: NearbyConnection {
             try sendTransferSetupFrame(frame)
             try sendDisconnectionAndDisconnect()
         } catch {
-            log("[InboundNearbyConnection] Error \(error)")
+            log("[InboundNearbyConnection \(self.id)] Error \(error)")
             protocolError()
         }
     }
@@ -518,9 +554,11 @@ class InboundNearbyConnection: NearbyConnection {
     private func deletePartiallyReceivedFiles() {
         for (_, file) in filesToBeReceived {
             
+            #if os(macOS)
             if let progress = file.progress {
                 progress.unpublish()
             }
+            #endif
             
             guard file.created else { continue }
             do {

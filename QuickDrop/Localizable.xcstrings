@@ -2891,103 +2891,103 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تم إنهاء الاتصال بواسطة هاتفك. إذا حدث ذلك بشكل متكرر، يرجى إعادة تشغيل هاتفك."
+            "value" : "تم إيقاف الاتصال بواسطة هاتفك."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Die Verbindung wurde von deinem Telefon abgebrochen. Wenn dieses Problem wiederholt auftritt, starte bitte dein Telefon neu."
+            "value" : "Die Verbindung wurde von deinem Telefon abgebrochen."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The connection was aborted by your phone. If this happens repeatedly, please restart your phone."
+            "value" : "The connection was aborted by your phone."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La conexión fue interrumpida por tu teléfono. Si esto ocurre repetidamente, por favor reinicia tu teléfono."
+            "value" : "La conexión fue abortada por tu teléfono."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La connexion a été interrompue par votre téléphone. Si cela se produit plusieurs fois, veuillez redémarrer votre téléphone."
+            "value" : "La connexion a été interrompue par votre téléphone."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A kapcsolatot a telefonja szakította meg. Ha ez ismételten előfordul, kérjük, indítsa újra a telefonját."
+            "value" : "A kapcsolatot megszakította a telefonod."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La connessione è stata interrotta dal tuo telefono. Se questo accade ripetutamente, ti preghiamo di riavviare il telefono."
+            "value" : "La connessione è stata interrotta dal tuo telefono."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "接続が電話によって中断されました。これが繰り返し起こる場合は、電話を再起動してください。"
+            "value" : "接続はあなたの電話によって中断されました。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "연결이 휴대전화에 의해 중단되었습니다. 이 문제가 반복되면, 휴대전화를 재시작하세요."
+            "value" : "연결이 휴대폰에 의해 중단되었습니다."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "De verbinding is afgebroken door je telefoon. Als dit herhaaldelijk gebeurt, start dan je telefoon opnieuw op."
+            "value" : "De verbinding is door uw telefoon afgebroken."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A conexão foi abortada pelo seu telefone. Se isso acontecer repetidamente, por favor, reinicie seu telefone."
+            "value" : "A conexão foi interrompida pelo seu telefone."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A ligação foi interrompida pelo seu telemóvel. Se isto acontecer repetidamente, por favor reinicie o seu telemóvel."
+            "value" : "A ligação foi interrompida pelo seu telemóvel."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Conexiunea a fost întreruptă de telefonul dumneavoastră. Dacă acest lucru se întâmplă în mod repetat, vă rugăm să reporniți telefonul."
+            "value" : "Conexiunea a fost întreruptă de telefonul dumneavoastră."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Соединение было прервано вашим телефоном. Если это происходит повторно, пожалуйста, перезагрузите телефон."
+            "value" : "Соединение было прервано вашим телефоном."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "การเชื่อมต่อถูกยกเลิกโดยโทรศัพท์ของคุณ หากเกิดขึ้นบ่อย ๆ กรุณารีสตาร์ทโทรศัพท์ของคุณ"
+            "value" : "การเชื่อมต่อล้มเลิกโดยโทรศัพท์ของคุณ"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "З'єднання було перервано вашим телефоном. Якщо це повторюється, перезапустіть телефон."
+            "value" : "З'єднання було перервано вашим телефоном."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "连接被您的手机中断。如果此问题频繁出现，请重启您的手机。"
+            "value" : "连接被您的手机中断。"
           }
         }
       }
@@ -3099,6 +3099,113 @@
         }
       }
     },
+    "Error.FixInstructions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إذا حدث ذلك مرارًا، يرجى تعطيل وتمكين الواي فاي على هاتفك، أو إعادة تشغيل هاتفك."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn dies wiederholt passiert, deaktiviere bitte das WLAN auf deinem Telefon und aktiviere es erneut oder starte dein Telefon neu."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If this happens repeatedly, please disable and re-enable Wi-Fi on your phone, or restart your phone."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si esto ocurre repetidamente, desactiva y vuelve a activar el Wi-Fi en tu teléfono, o reinicia tu teléfono."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si cela se produit plusieurs fois, veuillez désactiver et réactiver le Wi-Fi sur votre téléphone ou redémarrez votre téléphone."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha ez ismétlődik, kapcsold ki majd be újra a Wi-Fi-t a telefonodon, vagy indítsd újra a telefonod."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se ciò accade ripetutamente, disattiva e riattiva il Wi-Fi sul tuo telefono o riavvia il tuo telefono."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "これが繰り返し起こる場合は、お使いの電話でWi-Fiを無効にして再度有効にするか、電話を再起動してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 문제가 반복되면 휴대폰에서 Wi-Fi를 비활성화하고 다시 활성화하거나 휴대폰을 재시작하세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Als dit herhaaldelijk gebeurt, schakel dan Wi-Fi op uw telefoon uit en weer in, of start uw telefoon opnieuw op."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se isso acontecer repetidamente, desative e reative o Wi-Fi no seu telefone, ou reinicie o seu telefone."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se isso acontecer repetidamente, por favor, desative e ative novamente o Wi-Fi do seu telemóvel ou reinicie o seu telemóvel."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dacă se întâmplă în mod repetat, vă rugăm să dezactivați și să reactivați Wi-Fi pe telefonul dvs. sau să reporniți telefonul."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Если это повторяется, пожалуйста, отключите и снова включите Wi-Fi на вашем телефоне или перезагрузите его."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ถ้าเกิดเหตุการณ์นี้บ่อย ๆ กรุณาปิดและเปิด Wi-Fi ในโทรศัพท์ของคุณใหม่ หรือรีสตาร์ทโทรศัพท์ของคุณ"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо це повторюється, будь ласка, вимкніть і знову увімкніть Wi-Fi на вашому телефоні або перезавантажте телефон."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果这种情况反复发生，请禁用并重新启用手机上的Wi-Fi，或重启手机。"
+          }
+        }
+      }
+    },
     "Error.NetworkDown" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3206,109 +3313,109 @@
         }
       }
     },
-    "Error.Protocol" : {
+    "Error.Signature" : {
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "خطأ في الاتصال"
+            "value" : "توقيع غير صالح. عادةً ما يعني هذا أن الرسالة تعرضت للتلف أثناء النقل. يرجى المحاولة مرة أخرى."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fehler bei der Datenübertragung"
+            "value" : "Ungültige Signatur. Dies bedeutet normalerweise, dass eine Nachricht während der Übertragung beschädigt wurde. Bitte versuche es erneut."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Communication error"
+            "value" : "Invalid signature. This usually means that a message was damaged during transit. Please try again."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Error de comunicación"
+            "value" : "Firma no válida. Esto usualmente significa que un mensaje fue dañado durante el tránsito. Por favor, inténtelo de nuevo."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erreur de communication"
+            "value" : "Signature invalide. Cela signifie généralement qu'un message a été endommagé pendant le transit. Veuillez réessayer."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kommunikációs hiba"
+            "value" : "Érvénytelen aláírás. Ez általában azt jelenti, hogy egy üzenet sérült meg az átvitel során. Kérjük, próbálja újra."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Errore di comunicazione"
+            "value" : "Firma non valida. Questo di solito significa che un messaggio è stato danneggiato durante la trasmissione. Per favore riprova."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "通信エラー"
+            "value" : "署名が無効です。これは通常、メッセージが転送中に破損したことを意味します。もう一度試してください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "통신 오류"
+            "value" : "잘못된 서명입니다. 보통은 전송 중 메시지가 손상된 것을 의미합니다. 다시 시도해 주세요."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Communicatiefout"
+            "value" : "Ongeldige handtekening. Dit betekent meestal dat een bericht beschadigd is tijdens de overdracht. Probeer het opnieuw."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erro de comunicação"
+            "value" : "Assinatura inválida. Isso geralmente significa que uma mensagem foi danificada durante a transmissão. Por favor, tente novamente."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erro de comunicação"
+            "value" : "Assinatura inválida. Isso geralmente significa que uma mensagem foi danificada durante o trânsito. Por favor, tente novamente."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Eroare de comunicare"
+            "value" : "Semnătură nevalidă. De obicei, asta înseamnă că un mesaj a fost deteriorat în timpul transmiterii. Vă rugăm să încercați din nou."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ошибка протокола"
+            "value" : "Недействительная подпись. Обычно это означает, что сообщение было повреждено во время передачи. Пожалуйста, попробуйте еще раз."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "การสื่อสารผิดพลาด"
+            "value" : "ลายเซ็นไม่ถูกต้อง ซึ่งมักหมายถึงข้อความได้รับความเสียหายระหว่างการส่ง กรุณาลองใหม่อีกครั้ง"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Помилка протоколу"
+            "value" : "Недійсний підпис. Зазвичай це означає, що повідомлення було пошкоджене під час передачі. Будь ласка, спробуйте ще раз."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "通信出错"
+            "value" : "签名无效。这通常意味着消息在传输过程中损坏。请再试一次。"
           }
         }
       }
@@ -3844,6 +3951,113 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已插入"
+          }
+        }
+      }
+    },
+    "LaunchAtLogin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فتح QuickDrop عند بدء تشغيل Mac"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop beim Starten des Macs öffnen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open QuickDrop When Starting Mac"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir QuickDrop al iniciar Mac"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir QuickDrop au démarrage du Mac"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nyissa meg a QuickDropot a Mac indításakor"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apri QuickDrop all'avvio del Mac"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Macの起動時にQuickDropを開く"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac 시작 시 QuickDrop 열기"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open QuickDrop bij het opstarten van de Mac"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir o QuickDrop ao iniciar o Mac"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir QuickDrop ao Iniciar o Mac"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deschide QuickDrop la Pornirea Mac-ului"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть QuickDrop при запуске Mac"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เปิด QuickDrop เมื่อเริ่มต้น Mac"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити QuickDrop при запуску Mac"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启动 Mac 时打开 QuickDrop"
           }
         }
       }
@@ -4485,6 +4699,113 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "接收后在访达中显示文件"
+          }
+        }
+      }
+    },
+    "OpenFinderAfterReceivingFooter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إذا تم تمكين هذا الإعداد، ستفتح نافذة Finder جديدة تلقائيًا بعد النقل، مع تحديد الملفات التي تم تنزيلها للتو من هاتفك إلى جهاز Mac الخاص بك."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn diese Einstellung aktiviert ist, wird nach der Übertragung automatisch ein neues Finder-Fenster geöffnet, das die gerade von deinem Telefon auf deinen Mac heruntergeladenen Dateien hervorhebt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If this setting is enabled, a new Finder window will automatically open after the transfer, highlighting the files just downloaded from your phone to your Mac."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si esta configuración está habilitada, se abrirá automáticamente una nueva ventana del Finder después de la transferencia, resaltando los archivos recién descargados de tu teléfono a tu Mac."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si ce paramètre est activé, une nouvelle fenêtre du Finder s'ouvrira automatiquement après le transfert, mettant en évidence les fichiers juste téléchargés de votre téléphone vers votre Mac."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha ez a beállítás engedélyezve van, a fájlok telefonjáról a Mac-re történő letöltése után automatikusan megnyílik egy új Finder ablak, amely kiemeli az imént letöltött fájlokat."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se questa impostazione è attivata, una nuova finestra del Finder si aprirà automaticamente dopo il trasferimento, evidenziando i file appena scaricati dal tuo telefono al tuo Mac."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この設定を有効にすると、転送後に新しいFinderウィンドウが自動的に開き、電話からMacにダウンロードされたファイルが強調表示されます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 설정이 활성화되면 전송 후 Finder 새 창이 자동으로 열리고, 휴대폰에서 Mac으로 방금 다운로드된 파일이 강조 표시됩니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Als deze instelling is ingeschakeld, wordt er automatisch een nieuw Finder-venster geopend na de overdracht, waarin de zojuist van je telefoon naar je Mac gedownloade bestanden worden gemarkeerd."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se esta configuração estiver ativada, uma nova janela do Finder será aberta automaticamente após a transferência, destacando os arquivos recém-baixados do seu telefone para o seu Mac."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se esta definição estiver ativada, uma nova janela do Finder abrir-se-á automaticamente após a transferência, destacando os ficheiros acabados de descarregar do seu telemóvel para o seu Mac."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dacă această setare este activată, o fereastră nouă Finder se va deschide automat după transfer, evidențiind fișierele tocmai descărcate de pe telefonul tău pe Mac-ul tău."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Если эта настройка включена, новое окно Finder автоматически откроется после передачи, выделяя файлы, только что загруженные с вашего телефона на ваш Mac."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "หากเปิดใช้งานการตั้งค่านี้ หน้าต่าง Finder ใหม่จะเปิดอัตโนมัติหลังจากการถ่ายโอน โดยจะเน้นไฟล์ที่เพิ่งดาวน์โหลดจากโทรศัพท์ของคุณไปยัง Mac"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо увімкнути цей параметр, нове вікно Finder автоматично відкриється після передачі, виділяючи файли, щойно завантажені з вашого телефону на ваш Mac."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果启用此设置，传输完成后，将自动打开一个新的访达窗口，高亮显示从手机下载到Mac的文件。"
           }
         }
       }
@@ -6300,110 +6621,6 @@
       }
     },
     "QuickDrop" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        }
-      },
       "shouldTranslate" : false
     },
     "QuickDropAndroidAppAdvertisement" : {
@@ -8659,103 +8876,103 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "الجهاز الآخر لم يستجب في الوقت المحدد. إذا حدثت هذه المشكلة بشكل متكرر، يرجى إعادة تشغيل جهاز الأندرويد الخاص بك."
+            "value" : "لم يستجب الجهاز الآخر في الوقت المناسب."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Das andere Gerät hat nicht rechtzeitig geantwortet. Wenn dieses Problem wiederholt auftritt, starte bitte dein Android-Gerät neu."
+            "value" : "Das andere Gerät hat nicht rechtzeitig geantwortet."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The other device did not respond in time. If this issue occurs repeatedly, please restart your Android device."
+            "value" : "The other device did not respond in time."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El otro dispositivo no respondió a tiempo. Si este problema ocurre repetidamente, reinicie su dispositivo Android."
+            "value" : "El otro dispositivo no respondió a tiempo."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'autre appareil n'a pas répondu à temps. Si ce problème se reproduit, redémarrez votre appareil Android."
+            "value" : "L'autre appareil n'a pas réagi à temps."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A másik eszköz nem válaszolt időben. Ha ez a probléma ismétlődik, kérjük, indítsa újra Android eszközét."
+            "value" : "A másik eszköz nem válaszolt időben."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'altro dispositivo non ha risposto in tempo. Se questo problema si ripete, riavvia il tuo dispositivo Android."
+            "value" : "L'altro dispositivo non ha risposto in tempo."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "他のデバイスが時間内に応答しませんでした。この問題が繰り返し発生する場合は、Androidデバイスを再起動してください。"
+            "value" : "他のデバイスが時間内に応答しませんでした。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "다른 기기가 시간 내에 응답하지 않았습니다. 이 문제가 반복되면 Android 기기를 다시 시작해 주세요."
+            "value" : "다른 기기가 시간 내에 응답하지 않았습니다."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Het andere apparaat heeft niet op tijd gereageerd. Als dit probleem zich herhaaldelijk voordoet, start dan uw Android-apparaat opnieuw op."
+            "value" : "Het andere apparaat reageerde niet op tijd."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O outro dispositivo não respondeu a tempo. Se esse problema ocorrer repetidamente, reinicie seu dispositivo Android."
+            "value" : "O outro dispositivo não respondeu a tempo."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O outro dispositivo não respondeu a tempo. Se este problema ocorrer repetidamente, reinicie o seu dispositivo Android."
+            "value" : "O outro dispositivo não respondeu a tempo."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cealaltă unitate nu a răspuns la timp. Dacă problema apare frecvent, reporniți dispozitivul Android."
+            "value" : "Celălalt dispozitiv nu a răspuns la timp."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Другое устройство не ответило вовремя. Если это повторяется, перезагрузите устройство Android."
+            "value" : "Другое устройство не ответило вовремя."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "อุปกรณ์อื่นไม่ตอบสนองในเวลาที่กำหนด ถ้าเกิดปัญหานี้ซ้ำๆ กรุณารีสตาร์ทอุปกรณ์ Android ของคุณ"
+            "value" : "อุปกรณ์อีกเครื่องไม่ตอบสนองทันเวลา"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Інший пристрій не встиг відповісти. Якщо проблема повторюється, перезапустіть ваш Android пристрій."
+            "value" : "Інший пристрій не відповів вчасно."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "其他设备未能及时回应。如果此问题重复出现，请重启您的安卓设备。"
+            "value" : "另一台设备未及时响应。"
           }
         }
       }

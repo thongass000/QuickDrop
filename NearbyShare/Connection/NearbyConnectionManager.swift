@@ -9,6 +9,9 @@ import Foundation
 import Network
 import System
 
+#if os(iOS)
+import UIKit
+#endif
 
 public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearbyConnectionDelegate, OutboundNearbyConnectionDelegate {
 
@@ -90,19 +93,28 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         ]
         
         let name = Data(nameBytes).urlSafeBase64EncodedString()
-        let endpointInfo = EndpointInfo(name: Host.current().localizedName!, deviceType: .computer)
-
         let port = Int32(tcpListener.port!.rawValue)
 
         mdnsServices = serviceTypes.map { serviceType in
             let service = NetService(domain: "", type: serviceType, name: name, port: port)
             service.delegate = self
             service.setTXTRecord(NetService.data(fromTXTRecord: [
-                "n": endpointInfo.serialize().urlSafeBase64EncodedString().data(using: .utf8)!,
+                "n": getEndpointInfo().serialize().urlSafeBase64EncodedString().data(using: .utf8)!,
             ]))
             service.publish()
             return service
         }
+    }
+    
+    
+    func getEndpointInfo() -> EndpointInfo {
+        #if os(macOS)
+        let endpointInfo = EndpointInfo(name: Host.current().localizedName!, deviceType: .computer)
+        #else
+        let endpointInfo = EndpointInfo(name: UIDevice.current.name, deviceType: .phone)
+        #endif
+        
+        return endpointInfo
     }
 
     
@@ -123,7 +135,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     public func submitUserConsent(transferID: String, accept: Bool, storeInTemp: Bool = false) {
         guard let conn = incomingConnections[transferID] else { return }
         
-        log("[NearbyConnectionManager] Submitting user consent for transfer, accepted: \(accept), store in temp: \(storeInTemp)")
+        log("[NearbyConnectionManager] Submitting user consent for transfer \(transferID), accepted: \(accept), store in temp: \(storeInTemp)")
         conn.submitUserConsent(accepted: accept, storeInTemp: storeInTemp)
     }
 

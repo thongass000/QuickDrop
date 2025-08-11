@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import NearbyShare
 import UniformTypeIdentifiers
 
 struct WelcomeScreen: View {
