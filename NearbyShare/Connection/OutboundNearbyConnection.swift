@@ -101,7 +101,7 @@ class OutboundNearbyConnection: NearbyConnection {
     override func processReceivedFrame(frameData: Data) {
         
         if currentState != .sendingFiles {
-            log("[OutboundNearbyConnection] Received frame in state \(currentState)...")
+            log("[OutboundNearbyConnection \(self.id)] Received frame in state \(currentState)...")
         }
         
         do {
@@ -118,7 +118,7 @@ class OutboundNearbyConnection: NearbyConnection {
             }
         } catch {
             
-            log("[OutboundNearbyConnection] Error occured while processing frame with data \(frameData.hex): \(error)")
+            log("[OutboundNearbyConnection \(self.id)] Error occured while processing frame with data \(frameData.hex): \(error)")
             
             if case NearbyError.ukey2 = error {
                 // do nothing
@@ -137,7 +137,7 @@ class OutboundNearbyConnection: NearbyConnection {
         if frame.hasV1 && frame.v1.hasType, case .cancel = frame.v1.type {
             self.cancelled = true
             self.lastError = NearbyError.canceled(reason: .userCanceled)
-            log("[OutboundNearbyConnection] Transfer canceled")
+            log("[OutboundNearbyConnection \(self.id)] Transfer canceled")
             try sendDisconnectionAndDisconnect()
             delegate?.outboundConnection(connection: self, failedWithError: self.lastError!)
             return
@@ -153,7 +153,7 @@ class OutboundNearbyConnection: NearbyConnection {
         case .sendingFiles:
             break
         default:
-            assertionFailure("[OutboundNearbyConnection] Unexpected state \(currentState)")
+            assertionFailure("[OutboundNearbyConnection \(self.id)] Unexpected state \(currentState)")
         }
     }
     
@@ -224,23 +224,23 @@ class OutboundNearbyConnection: NearbyConnection {
         ukeyServerInitMsgData = raw
         guard frame.messageType == .serverInit else {
             sendUkey2Alert(type: .badMessageType)
-            log("[OutboundNearbyConnection] Invalid message type: \(frame.messageType)")
+            log("[OutboundNearbyConnection \(self.id)] Invalid message type: \(frame.messageType)")
             throw NearbyError.ukey2
         }
         let serverInit = try Securegcm_Ukey2ServerInit(serializedBytes: frame.messageData)
         guard serverInit.version == 1 else {
             sendUkey2Alert(type: .badVersion)
-            log("[OutboundNearbyConnection] Invalid version: \(serverInit.version)")
+            log("[OutboundNearbyConnection \(self.id)] Invalid version: \(serverInit.version)")
             throw NearbyError.ukey2
         }
         guard serverInit.random.count == 32 else {
             sendUkey2Alert(type: .badRandom)
-            log("[OutboundNearbyConnection] Invalid random: \(serverInit.random.count)")
+            log("[OutboundNearbyConnection \(self.id)] Invalid random: \(serverInit.random.count)")
             throw NearbyError.ukey2
         }
         guard serverInit.handshakeCipher == .p256Sha512 else {
             sendUkey2Alert(type: .badHandshakeCipher)
-            log("[OutboundNearbyConnection] Invalid handshake cipher: \(serverInit.handshakeCipher)")
+            log("[OutboundNearbyConnection \(self.id)] Invalid handshake cipher: \(serverInit.handshakeCipher)")
             throw NearbyError.ukey2
         }
 
@@ -349,7 +349,7 @@ class OutboundNearbyConnection: NearbyConnection {
                 introduction.v1.introduction.fileMetadata.append(meta)
                 totalBytesToSend += meta.size
                 
-                log("[OutboundNearbyConnection] Sending file with \(meta.size) bytes")
+                log("[OutboundNearbyConnection \(self.id)] Sending file with \(meta.size) bytes")
             }
         }
         try sendTransferSetupFrame(introduction)
@@ -416,7 +416,7 @@ class OutboundNearbyConnection: NearbyConnection {
                 try currentTransfer?.handle?.close()
             }
             if queue.isEmpty {
-                log("[OutboundNearbyConnection] Disconnecting because all files have been transferred")
+                log("[OutboundNearbyConnection \(self.id)] Disconnecting because all files have been transferred")
                 try sendDisconnectionAndDisconnect()
                 delegate?.outboundConnectionTransferFinished(connection: self)
                 return
@@ -479,7 +479,7 @@ class OutboundNearbyConnection: NearbyConnection {
             wrapper.v1.type = .payloadTransfer
             wrapper.v1.payloadTransfer = transfer
             try encryptAndSendOfflineFrame(wrapper)
-            log("[OutboundNearbyConnection] Sent EOF, current transfer: \(String(describing: currentTransfer))")
+            log("[OutboundNearbyConnection \(self.id)] Sent EOF, current transfer: \(String(describing: currentTransfer))")
         }
     }
 
