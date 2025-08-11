@@ -172,8 +172,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         let pasteboard = NSPasteboard.general
         let clipboardString = pasteboard.string(forType: .string) ?? ""
         
-        let sharingService = NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension"))
-        sharingService?.perform(withItems: [clipboardString])
+        if clipboardString.isEmpty {
+            DispatchQueue.main.async {
+                BezelNotification.show(messageText: "ClipboardEmpty".localized(), icon: .clipboard)
+            }
+        }
+        else {
+            let sharingService = NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension"))
+            sharingService?.perform(withItems: [clipboardString])
+        }
     }
 
     
