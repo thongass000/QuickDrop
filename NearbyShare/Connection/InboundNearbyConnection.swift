@@ -115,6 +115,14 @@ class InboundNearbyConnection: NearbyConnection {
         case .receivedPairedKeyResult:
             try processIntroductionFrame(frame)
         default:
+            if frame.hasV1, frame.v1.hasType, frame.v1.type == .progressUpdate {
+                // ignore progress updates
+                return
+            }
+            if frame.hasV1, frame.v1.hasType, frame.v1.type == .response, case .accept = frame.v1.connectionResponse.status {
+                // ignore accept response frame, it is inferred since the other device set up the connection
+                return
+            }
             log("[InboundNearbyConnection \(self.id)] Unexpected connection state in processTransferSetupFrame: \(currentState)")
             log(frame.debugDescription)
         }

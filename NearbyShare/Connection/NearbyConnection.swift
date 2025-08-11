@@ -65,6 +65,9 @@ class NearbyConnection {
     
     
     func start() {
+        
+        log("[NearbyConnection \(self.id)] Starting connection.")
+        
         connection.stateUpdateHandler = { state in
             
             if !self.connectionClosed {
@@ -424,6 +427,11 @@ class NearbyConnection {
             log("[NearbyConnection \(self.id)] Sent keep-alive, \(self.bytesTransferred) bytes sent")
             sendKeepAlive(ack: true)
         } else {
+            
+            if offlineFrame.hasV1, offlineFrame.v1.hasType, offlineFrame.v1.type == .bandwidthUpgradeRetry {
+                // only supporting WiFi for now, ignore upgrade request to other mediums
+                return
+            }
             
             log("[NearbyConnection \(self.id)] Unhandled offline frame encrypted: \(offlineFrame)")
         }
