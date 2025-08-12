@@ -80,6 +80,9 @@
 		EB5C38402E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
 		EB5C38412E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
 		EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */; };
+		EB704A822E4A7BB3008E608F /* DistributionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB704A812E4A7BAE008E608F /* DistributionDetector.swift */; };
+		EB704A832E4B10D4008E608F /* DistributionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB704A812E4A7BAE008E608F /* DistributionDetector.swift */; };
+		EB704A842E4B10D4008E608F /* DistributionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB704A812E4A7BAE008E608F /* DistributionDetector.swift */; };
 		EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7CD1462D6FB0E800CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7F54122D78E96000989564 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54112D78E95C00989564 /* TutorialView.swift */; };
@@ -209,6 +212,7 @@
 		EB5C38382E38C1F60052EFD7 /* justMaybe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = justMaybe.mp3; sourceTree = "<group>"; };
 		EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
 		EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EB704A812E4A7BAE008E608F /* DistributionDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionDetector.swift; sourceTree = "<group>"; };
 		EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		EB7F54112D78E95C00989564 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		EB7F54132D78E9E400989564 /* LicenseWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWindow.swift; sourceTree = "<group>"; };
@@ -431,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				EBC05C6D2E33B57D00EECC18 /* Converter.swift */,
+				EB704A812E4A7BAE008E608F /* DistributionDetector.swift */,
 				EBC05C6E2E33B57D00EECC18 /* Helper.swift */,
 				EBC05C6F2E33B57D00EECC18 /* PlusView.swift */,
 			);
@@ -647,6 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB704A832E4B10D4008E608F /* DistributionDetector.swift in Sources */,
 				EB96ED902D7F8114004B3FF1 /* Localized.swift in Sources */,
 				EBC05C862E33B58300EECC18 /* NetworkFilterIssueView.swift in Sources */,
 				EBC05C872E33B58300EECC18 /* IssueView.swift in Sources */,
@@ -713,6 +719,7 @@
 				69DA9A1229E0BF5100A442DA /* AppDelegate.swift in Sources */,
 				EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */,
 				EB7F54122D78E96000989564 /* TutorialView.swift in Sources */,
+				EB704A822E4A7BB3008E608F /* DistributionDetector.swift in Sources */,
 				EB9925812E45D53E00357055 /* sharing_enums.pb.swift in Sources */,
 				EB96ED8F2D7F8105004B3FF1 /* Localized.swift in Sources */,
 				EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */,
@@ -733,6 +740,7 @@
 				EB5C37F42E377CE70052EFD7 /* NearbyConnectionManager.swift in Sources */,
 				EB5C37F52E377CE70052EFD7 /* securemessage.pb.swift in Sources */,
 				EB5C37F62E377CE70052EFD7 /* device_to_device_messages.pb.swift in Sources */,
+				EB704A842E4B10D4008E608F /* DistributionDetector.swift in Sources */,
 				EB5C37F82E377CE70052EFD7 /* SleepManager.swift in Sources */,
 				EB5C38012E377DE60052EFD7 /* Localized.swift in Sources */,
 				EB5C37F92E377CE70052EFD7 /* securegcm.pb.swift in Sources */,
