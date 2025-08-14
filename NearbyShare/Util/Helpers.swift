@@ -31,7 +31,8 @@ extension Data {
     }
     
     
-    func suffixOfAtMost(numBytes: Int) -> Data{
+    func suffixOfAtMost(numBytes: Int) -> Data {
+        
         if count <= numBytes {
             return self
         }

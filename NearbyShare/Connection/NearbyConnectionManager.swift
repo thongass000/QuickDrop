@@ -311,8 +311,8 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         keyData.append(keyBytes.suffixOfAtMost(numBytes: 32))
         
         let ikm = SymmetricKey(data: keyData)
-        qrCodeAdvertisingToken = NearbyConnection.hkdf(inputKeyMaterial: ikm, salt: Data(), info: "advertisingContext".data(using: .utf8)!, outputByteCount: 16).data()
-        qrCodeNameEncryptionKey = NearbyConnection.hkdf(inputKeyMaterial: ikm, salt: Data(), info: "encryptionKey".data(using: .utf8)!, outputByteCount: 16)
+        qrCodeAdvertisingToken = HKDF.deriveKey(ikm: ikm, salt: Data(), info: "advertisingContext".data(using: .utf8)!, outputLength: 16).data()
+        qrCodeNameEncryptionKey = HKDF.deriveKey(ikm: ikm, salt: Data(), info: "encryptionKey".data(using: .utf8)!, outputLength: 16)
         qrCodeData = keyData
         
         return keyData.urlSafeBase64EncodedString()
