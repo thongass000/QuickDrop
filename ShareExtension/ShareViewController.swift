@@ -400,13 +400,13 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
                 let configuration = NSWorkspace.OpenConfiguration()
                 NSWorkspace.shared.openApplication(at: url, configuration: configuration) { app, error in
                     if let error = error {
-                        print("Failed to launch application: \(error)")
+                        log("Failed to launch application: \(error)")
                     } else {
-                        print("Application launched successfully")
+                        log("Application launched successfully")
                     }
                 }
             } else {
-                print("Could not find application with bundle identifier \(bundleIdentifier)")
+                log("Could not find application with bundle identifier \(bundleIdentifier)")
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
