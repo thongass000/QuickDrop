@@ -317,15 +317,6 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         
         return keyData.urlSafeBase64EncodedString()
     }
-    
-    
-    public func clearQrCodeKey(){
-        qrCodePublicKey = nil
-        qrCodePrivateKey = nil
-        qrCodeAdvertisingToken = nil
-        qrCodeNameEncryptionKey = nil
-        qrCodeData = nil
-    }
 
     
     public func startOutgoingTransfer(deviceID: String, delegate: ShareExtensionDelegate, urls: [URL], textToSend: String?) {
