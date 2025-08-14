@@ -185,7 +185,6 @@ class OutboundNearbyConnection: NearbyConnection {
     private func sendUkey2ClientInit() throws {
         let domain = Domain.instance(curve: .EC256r1)
         let (pubKey, privKey) = domain.makeKeyPair()
-        publicKey = pubKey
         privateKey = privKey
 
         var finishFrame = Securegcm_Ukey2Message()

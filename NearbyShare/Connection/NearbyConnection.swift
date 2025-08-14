@@ -40,7 +40,6 @@ class NearbyConnection {
     private let timeoutInterval: TimeInterval = 30
     
     // UKEY2-related state
-    var publicKey: ECPublicKey?
     var privateKey: ECPrivateKey?
     var ukeyClientInitMsgData: Data?
     var ukeyServerInitMsgData: Data?

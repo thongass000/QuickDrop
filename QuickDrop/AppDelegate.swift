@@ -121,7 +121,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
               welcomeWindow = nil
               NSApp.setActivationPolicy(.accessory)
           }
-      }
+    }
     
     
     func applicationShouldHandleReopen(_: NSApplication, hasVisibleWindows _: Bool) -> Bool {

@@ -27,8 +27,8 @@ class InboundNearbyConnection: NearbyConnection {
     private var textPayloadID: Int64 = 0
     private var isPlainTextTransfer = false
     
-    public var wasRejected = false
-    public var delegate: InboundNearbyConnectionDelegate?
+    var wasRejected = false
+    var delegate: InboundNearbyConnectionDelegate?
 
     enum State {
         case initial, receivedConnectionRequest, sentUkeyServerInit, receivedUkeyClientFinish, sentConnectionResponse, sentPairedKeyResult, receivedPairedKeyResult, waitingForUserConsent, receivingFiles, disconnected
@@ -300,7 +300,6 @@ class InboundNearbyConnection: NearbyConnection {
 
         let domain = Domain.instance(curve: .EC256r1)
         let (pubKey, privKey) = domain.makeKeyPair()
-        publicKey = pubKey
         privateKey = privKey
 
         var serverInit = Securegcm_Ukey2ServerInit()

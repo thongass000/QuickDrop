@@ -27,11 +27,9 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private var startedDeviceDiscovery = false
     private var browsers: [NWBrowser] = []
     private let serviceTypes = ["_FC9F5ED42C8A._tcp."]
-    private var qrCodePublicKey: ECPublicKey?
     private var qrCodePrivateKey: ECPrivateKey?
     private var qrCodeAdvertisingToken: Data?
     private var qrCodeNameEncryptionKey: SymmetricKey?
-    private var qrCodeData: Data?
 
     public let endpointID: [UInt8] = generateEndpointID()
     public var mainAppDelegate: (any MainAppDelegate)?
@@ -302,7 +300,6 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     public func generateQrCodeKey() -> String{
         let domain = Domain.instance(curve: .EC256r1)
         let (pubKey, privKey) = domain.makeKeyPair()
-        qrCodePublicKey = pubKey
         qrCodePrivateKey = privKey
         var keyData = Data()
         keyData.append(contentsOf: [0, 0, 2])
@@ -313,7 +310,6 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         let ikm = SymmetricKey(data: keyData)
         qrCodeAdvertisingToken = HKDF.deriveKey(ikm: ikm, salt: Data(), info: "advertisingContext".data(using: .utf8)!, outputLength: 16).data()
         qrCodeNameEncryptionKey = HKDF.deriveKey(ikm: ikm, salt: Data(), info: "encryptionKey".data(using: .utf8)!, outputLength: 16)
-        qrCodeData = keyData
         
         return keyData.urlSafeBase64EncodedString()
     }
