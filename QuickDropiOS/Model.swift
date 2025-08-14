@@ -17,7 +17,7 @@ class ShareViewModel: ObservableObject, ShareExtensionDelegate {
     @Published var progressValue: Double? = nil
     
     private var urls: [URL] = []
-    private var textToSend: String? = nil
+    private var textToSend = "Test from QuickDrop iOS"
     //private var errorAlertHandler = ErrorAlertHandler.shared
     
     private var connectionEstablished = false
@@ -25,6 +25,7 @@ class ShareViewModel: ObservableObject, ShareExtensionDelegate {
     
     init() {
         NearbyConnectionManager.shared.startDeviceDiscovery()
+        NearbyConnectionManager.shared.addShareExtensionDelegate(self)
     }
     
     func addDevice(device: RemoteDeviceInfo) {
@@ -62,6 +63,10 @@ class ShareViewModel: ObservableObject, ShareExtensionDelegate {
     
     func transferFinished() {
         progressState = "TransferFinished".localized()
+    }
+    
+    func startTransferWithQrCode(device: RemoteDeviceInfo) {
+        selectDevice(device: device)
     }
     
     func selectDevice(device: RemoteDeviceInfo) {

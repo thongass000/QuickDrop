@@ -12,6 +12,7 @@ class DistributionDetector {
     
     static var isDirectDistributionEnabled: Bool {
         get {
+            #if os(macOS)
             if let cached = _directDistributionCached {
                 return cached
             }
@@ -21,13 +22,16 @@ class DistributionDetector {
             log("[DistributionDetector] isDirectDistribution: \(result)")
             
             return result
+            #else
+            return false
+            #endif
         }
     }
     
     
     static var _directDistributionCached: Bool? = nil
     
-    
+    #if os(macOS)
     private static func isDirectDistribution() -> Bool {
         // 1. Get dynamic code object for our process
         var code: SecCode?
@@ -69,4 +73,5 @@ class DistributionDetector {
         
         return false
     }
+    #endif
 }

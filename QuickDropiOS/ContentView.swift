@@ -32,7 +32,7 @@ struct DeviceListView: View {
                         Image(systemName: "smartphone")
                             .resizable()
                             .frame(width: 30, height: 30)
-                        Text(device.name.isEmpty ? "Android" : device.name)
+                        Text(device.name ?? "Android")
                         Spacer()
                         
                         if model.selectedDevice == device {
