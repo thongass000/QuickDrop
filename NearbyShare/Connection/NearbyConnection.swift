@@ -502,15 +502,15 @@ class NearbyConnection {
         var ukeyInfo = Data()
         ukeyInfo.append(ukeyClientInitMsgData!)
         ukeyInfo.append(ukeyServerInitMsgData!)
-        let authString = NearbyConnection.hkdf(inputKeyMaterial: SymmetricKey(data: derivedSecretKey), salt: "UKEY2 v1 auth".data(using: .utf8)!, info: ukeyInfo, outputByteCount: 32)
+        let authenticationSecret = NearbyConnection.hkdf(inputKeyMaterial: SymmetricKey(data: derivedSecretKey), salt: "UKEY2 v1 auth".data(using: .utf8)!, info: ukeyInfo, outputByteCount: 32)
         let nextSecret = NearbyConnection.hkdf(inputKeyMaterial: SymmetricKey(data: derivedSecretKey), salt: "UKEY2 v1 next".data(using: .utf8)!, info: ukeyInfo, outputByteCount: 32)
         
-        authKey = authString
-        pinCode = NearbyConnection.pinCodeFromAuthKey(authString)
+        authKey = authenticationSecret
+        pinCode = NearbyConnection.pinCodeFromAuthKey(authenticationSecret)
         
-        let salt = Data([0x82, 0xAA, 0x55, 0xA0, 0xD3, 0x97, 0xF8, 0x83, 0x46, 0xCA, 0x1C,
-                         0xEE, 0x8D, 0x39, 0x09, 0xB9, 0x5F, 0x13, 0xFA, 0x7D, 0xEB, 0x1D,
-                         0x4A, 0xB3, 0x83, 0x76, 0xB8, 0x25, 0x6D, 0xA8, 0x55, 0x10])
+        sha = SHA256()
+        sha.update(data: "D2D".data(using: .utf8)!)
+        let salt = Data(sha.finalize())
         
         let d2dClientKey = NearbyConnection.hkdf(inputKeyMaterial: nextSecret, salt: salt, info: "client".data(using: .utf8)!, outputByteCount: 32)
         let d2dServerKey = NearbyConnection.hkdf(inputKeyMaterial: nextSecret, salt: salt, info: "server".data(using: .utf8)!, outputByteCount: 32)
