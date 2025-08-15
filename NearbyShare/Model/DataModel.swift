@@ -88,6 +88,16 @@ public struct RemoteDeviceInfo: Identifiable, Equatable {
             }
         }
     }
+    
+    
+    public var icon: String {
+        switch type {
+            case .computer:
+                return "laptopcomputer"
+            default:
+                return "smartphone"
+        }
+    }
 }
 
 

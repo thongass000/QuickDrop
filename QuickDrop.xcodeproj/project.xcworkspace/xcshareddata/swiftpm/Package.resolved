@@ -1,6 +1,15 @@
 {
-  "originHash" : "10744462d42c114b38e0002c6a341b37abcba576ba3203c8d951905fbbdf1f58",
+  "originHash" : "dc2ed9804dbbcffdc405b2edfb84282a3cc98d80b17b0d759f119e81dde31eba",
   "pins" : [
+    {
+      "identity" : "applewatchscreensize",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/VIkill33/AppleWatchScreenSize",
+      "state" : {
+        "branch" : "main",
+        "revision" : "8b0073863646c0dd694bfd380bde22a6c1734228"
+      }
+    },
     {
       "identity" : "asn1",
       "kind" : "remoteSourceControl",
@@ -26,6 +35,15 @@
       "state" : {
         "revision" : "afb70a0038bfbba845271b60fa9a58d5840f8017",
         "version" : "1.21.0"
+      }
+    },
+    {
+      "identity" : "lui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/leonboe1/LUI.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "a4a9e2fb64cd3e928a00bddf3b401bf1e56d69b6"
       }
     },
     {
@@ -89,6 +107,15 @@
       "state" : {
         "revision" : "42ace2412279f18bc264bc306e96b51c36e12a33",
         "version" : "1.9.2"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/swiftui-introspect",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9bedf1e79c7b7c34b35b74bef126f56d2400ef7f"
       }
     }
   ],

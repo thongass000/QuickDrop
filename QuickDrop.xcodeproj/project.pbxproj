@@ -90,6 +90,8 @@
 		EB886E522E4E19390052B7D9 /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E512E4E19390052B7D9 /* HKDF.swift */; };
 		EB886E532E4E19390052B7D9 /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E512E4E19390052B7D9 /* HKDF.swift */; };
 		EB886E542E4E19390052B7D9 /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E512E4E19390052B7D9 /* HKDF.swift */; };
+		EB886E552E4E50F40052B7D9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
+		EB886E582E4E66420052B7D9 /* LUI in Frameworks */ = {isa = PBXBuildFile; productRef = EB886E572E4E66420052B7D9 /* LUI */; };
 		EB96ED8B2D7F7CF7004B3FF1 /* SmallSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */; };
 		EB96ED8C2D7F7E7B004B3FF1 /* SmallSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */; };
 		EB96ED8D2D7F7EA3004B3FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
@@ -270,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB5C37F02E377C3F0052EFD7 /* SwiftECC in Frameworks */,
+				EB886E582E4E66420052B7D9 /* LUI in Frameworks */,
 				EB5C37EE2E377C3F0052EFD7 /* SwiftProtobuf in Frameworks */,
 				EB9925892E45F13500357055 /* QRCode in Frameworks */,
 			);
@@ -546,6 +549,7 @@
 				EB5C37ED2E377C3F0052EFD7 /* SwiftProtobuf */,
 				EB5C37EF2E377C3F0052EFD7 /* SwiftECC */,
 				EB9925882E45F13500357055 /* QRCode */,
+				EB886E572E4E66420052B7D9 /* LUI */,
 			);
 			productName = QuickDropiOS;
 			productReference = EB5C37E22E377C2E0052EFD7 /* QuickDropiOS.app */;
@@ -603,6 +607,7 @@
 				69DA9A3429E1994C00A442DA /* XCRemoteSwiftPackageReference "SwiftECC" */,
 				EB2F9BFC2DA05F48004010A2 /* XCRemoteSwiftPackageReference "BezelNotification" */,
 				EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */,
+				EB886E562E4E66420052B7D9 /* XCRemoteSwiftPackageReference "LUI" */,
 			);
 			productRefGroup = 69DA9A0F29E0BF5100A442DA /* Products */;
 			projectDirPath = "";
@@ -647,6 +652,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB5C383B2E38C1F60052EFD7 /* justMaybe.mp3 in Resources */,
+				EB886E552E4E50F40052B7D9 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1208,6 +1214,14 @@
 				minimumVersion = 2.1.0;
 			};
 		};
+		EB886E562E4E66420052B7D9 /* XCRemoteSwiftPackageReference "LUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/leonboe1/LUI.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dagronf/qrcode.git";
@@ -1253,6 +1267,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 69DA9A3429E1994C00A442DA /* XCRemoteSwiftPackageReference "SwiftECC" */;
 			productName = SwiftECC;
+		};
+		EB886E572E4E66420052B7D9 /* LUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB886E562E4E66420052B7D9 /* XCRemoteSwiftPackageReference "LUI" */;
+			productName = LUI;
 		};
 		EB9925842E45EF0900357055 /* QRCode */ = {
 			isa = XCSwiftPackageProductDependency;
