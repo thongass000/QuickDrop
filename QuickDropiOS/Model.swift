@@ -11,7 +11,6 @@ class ShareViewModel: ObservableObject, ShareExtensionDelegate {
     
     @Published var foundDevices: [RemoteDeviceInfo] = []
     @Published var selectedDevice: RemoteDeviceInfo?
-    @Published var lastError: Error?
     
     @Published var progressState: String? = nil
     @Published var progressValue: Double? = nil
@@ -25,6 +24,7 @@ class ShareViewModel: ObservableObject, ShareExtensionDelegate {
     
     init() {
         NearbyConnectionManager.shared.startDeviceDiscovery()
+        NearbyConnectionManager.shared.becomeVisible()
         NearbyConnectionManager.shared.addShareExtensionDelegate(self)
     }
     
@@ -47,10 +47,11 @@ class ShareViewModel: ObservableObject, ShareExtensionDelegate {
     }
     
     func connectionFailed(with error: any Error) {
-        progressValue = nil
-        lastError = error
         
-        //ErrorAlertHandler.shared.showErrorAlert(for: chosenDevice?.name ?? "", error: error)
+        ErrorAlertHandler.shared.showErrorAlert(for: selectedDevice?.name ?? "?", error: error)
+        
+        progressValue = nil
+        selectedDevice = nil
     }
     
     func transferAccepted() {
@@ -62,6 +63,8 @@ class ShareViewModel: ObservableObject, ShareExtensionDelegate {
     }
     
     func transferFinished() {
+        progressValue = 0
+        selectedDevice = nil
         progressState = "TransferFinished".localized()
     }
     
@@ -70,9 +73,19 @@ class ShareViewModel: ObservableObject, ShareExtensionDelegate {
     }
     
     func selectDevice(device: RemoteDeviceInfo) {
-        progressValue = 0
-        progressState = "Connecting".localized()
-        selectedDevice = device
-        NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: urls, textToSend: textToSend)
+        
+        // already selected, cancel transfer
+        if device == selectedDevice {
+            progressValue = 0
+            progressState = nil
+            selectedDevice = nil
+            NearbyConnectionManager.shared.cancelOutgoingTransfer(id: device.id!)
+        }
+        else {
+            progressValue = 0
+            progressState = "Connecting".localized()
+            selectedDevice = device
+            NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: urls, textToSend: textToSend)
+        }
     }
 }

@@ -6,12 +6,17 @@
 //
 
 import AudioToolbox
-import BezelNotification
-import Cocoa
 import Network
 import StoreKit
 import SwiftUI
 import UserNotifications
+
+#if os(macOS)
+import BezelNotification
+import Cocoa
+#else
+import LUI
+#endif
 
 class ErrorAlertHandler {
     
@@ -19,12 +24,16 @@ class ErrorAlertHandler {
     static let shared = ErrorAlertHandler()
     
     private var isAlertShown = false
+    #if os(macOS)
     private var firewallAlertWindow: NSWindow?
     private var apIsolationAlertWindow: NSWindow?
     private var networkFilterAlertWindow: NSWindow?
+    #endif
     
     func showErrorAlert(for deviceName: String, error: Error) {
+        #if os(macOS)
         NSApp.activate(ignoringOtherApps: true)
+        #endif
         
         var description = ""
         let fixInstructions = " " + "Error.FixInstructions".localized()
@@ -36,11 +45,19 @@ class ErrorAlertHandler {
             case .protocolError(errorMessage: let errorMessage):
                 description = errorMessage + fixInstructions
             case .packetFilterError:
+                #if os(macOS)
                 openAlert(type: .NetworkFilter)
                 return
+                #else
+                description = error.localizedDescription
+                #endif
             case .firewallError:
+                #if os(macOS)
                 openAlert(type: .Firewall)
                 return
+                #else
+                description = error.localizedDescription
+                #endif
             case .requiredFieldMissing(errorMessage: let errorMessage):
                 description = errorMessage + fixInstructions
             case .ukey2:
@@ -57,13 +74,6 @@ class ErrorAlertHandler {
             description = error.localizedDescription
         }
         
-        let alert = NSAlert()
-        alert.alertStyle = .critical
-        alert.messageText = String(format: "TransferError".localized(), arguments: [deviceName])
-        alert.informativeText = description
-        alert.addButton(withTitle: "InformDeveloper".localized())
-        alert.addButton(withTitle: "CloseAlert".localized())
-        
         // Prevent multiple alerts at the same time
         if self.isAlertShown {
             log("Skipping alert for error \(error.localizedDescription) because one is already shown")
@@ -71,9 +81,19 @@ class ErrorAlertHandler {
         }
         else {
             AudioManager.playErrorSound()
-            self.isAlertShown = true
-            log("Showing alert with message: \"\(alert.messageText)\" and description: \"\(alert.informativeText)\"")
+            
+            let title = String(format: "TransferError".localized(), arguments: [deviceName])
+            log("Showing alert with title: \"\(title)\" and description: \"\(description)\"")
             log("Unsuccessful transmission. Already successful transmissions: \(transmissionCount())")
+            
+            #if os(macOS)
+            self.isAlertShown = true
+            let alert = NSAlert()
+            alert.alertStyle = .critical
+            alert.messageText = title
+            alert.informativeText = description
+            alert.addButton(withTitle: "InformDeveloper".localized())
+            alert.addButton(withTitle: "CloseAlert".localized())
             
             let result = alert.runModal()
             self.isAlertShown = false
@@ -82,10 +102,14 @@ class ErrorAlertHandler {
                 log("Sending logging string")
                 sendLoggingString()
             }
+            #else
+            showAlert(title: title, message: description)
+            #endif
         }
     }
     
 
+    #if os(macOS)
     func openAlert(type: AlertType) {
         log("Opening Alert for \(type)")
         AudioManager.playErrorSound()
@@ -130,9 +154,11 @@ class ErrorAlertHandler {
             self.apIsolationAlertWindow = nil
         }
     }
+    #endif
 }
 
 
+#if os(macOS)
 func sendLoggingString() {
     // If we're in an extension, redirect to the main app
     if Bundle.main.bundlePath.hasSuffix(".appex") {
@@ -195,6 +221,7 @@ func copyToClipboard(_ text: String) {
     pasteboard.clearContents()
     pasteboard.setString(text, forType: .string)
 }
+#endif
 
 
 enum AlertType: String {
