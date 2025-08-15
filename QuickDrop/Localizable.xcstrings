@@ -1603,6 +1603,113 @@
         }
       }
     },
+    "ClipboardEmptyMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يرجى نسخ النص إلى الحافظة، وحاول مرة أخرى."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte kopiere Text in die Zwischenablage und versuche es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please copy text to the clipboard, and try again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, copie el texto al portapapeles y vuelva a intentarlo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez copier le texte dans le presse-papiers, puis réessayez."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kérem, másolja a szöveget a vágólapra, majd próbálja újra."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copia il testo negli appunti e riprova."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テキストをクリップボードにコピーして、もう一度お試しください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "클립보드에 텍스트를 복사하고 다시 시도하세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopieer de tekst naar het klembord en probeer opnieuw."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, copie o texto para a área de transferência e tente novamente."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, copie o texto para a área de transferência e tente novamente."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Te rog copiază textul în clipboard și încearcă din nou."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пожалуйста, скопируйте текст в буфер обмена и попробуйте снова."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "โปรดคัดลอกข้อความไปยังคลิปบอร์ด แล้วลองอีกครั้ง"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопіюйте текст у буфер обміну та спробуйте ще раз."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请将文本复制到剪贴板，然后重试。"
+          }
+        }
+      }
+    },
     "CloseAlert" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -6201,6 +6308,113 @@
         }
       }
     },
+    "QuickDropWelcomeDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يتيح لك تطبيق QuickDrop نقل الملفات بسهولة وسرعة بين أجهزة iPhone وiPad وMac وAndroid."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop macht es einfach und schnell, Dateien zwischen iPhone, iPad, Mac und Android-Geräten zu übertragen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop makes it easy and quick to transfer files between iPhone, iPad, Mac, and Android devices."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop facilita y agiliza la transferencia de archivos entre dispositivos iPhone, iPad, Mac y Android."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop facilite et accélère le transfert de fichiers entre iPhone, iPad, Mac et appareils Android."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A QuickDrop megkönnyíti és felgyorsítja a fájlok átvitelét iPhone, iPad, Mac és Android eszközök között."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop rende facile e veloce il trasferimento di file tra iPhone, iPad, Mac e dispositivi Android."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDropは、iPhone、iPad、Mac、およびAndroidデバイス間でのファイル転送を簡単かつ迅速に行えます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop은 iPhone, iPad, Mac, Android 기기 간 파일 전송을 쉽고 빠르게 만들어줍니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop maakt het eenvoudig en snel om bestanden over te zetten tussen iPhone-, iPad-, Mac- en Android-apparaten."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop torna fácil e rápido transferir arquivos entre dispositivos iPhone, iPad, Mac e Android."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O QuickDrop facilita e acelera a transferência de ficheiros entre iPhone, iPad, Mac e dispositivos Android."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop face ușor și rapid transferul de fișiere între dispozitive iPhone, iPad, Mac și Android."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop позволяет легко и быстро передавать файлы между iPhone, iPad, Mac и Android-устройствами."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop ทำให้การถ่ายโอนไฟล์ระหว่าง iPhone, iPad, Mac และอุปกรณ์ Android ง่ายและรวดเร็ว"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop дозволяє легко та швидко передавати файли між пристроями iPhone, iPad, Mac та Android."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop让您可以轻松快捷地在iPhone、iPad、Mac和Android设备之间传输文件。"
+          }
+        }
+      }
+    },
     "Quit" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -7479,6 +7693,113 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "要将文件发送到您的 Android 设备，请点击共享图标或右键点击文件并选择“共享”。然后，从应用列表中选择“QuickDrop”，并按照说明进行操作。\n\n如果列表中没有 QuickDrop，请点击“编辑扩展”，向下滚动并启用 QuickDrop。\n\n您还可以通过点击菜单栏中的 QuickDrop 图标并选择“发送剪贴板”，将 Mac 剪贴板的当前内容发送到您的 Android 设备。"
+          }
+        }
+      }
+    },
+    "SendImages" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إرسال الصور"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bilder senden"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Send Images"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar imágenes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Envoyer des images"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Képek küldése"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invia immagini"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "画像を送信"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이미지 보내기"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afbeeldingen verzenden"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar Imagens"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar Imagens"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trimite Imagini"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отправить изображения"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ส่งรูปภาพ"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Надіслати зображення"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发送图片"
           }
         }
       }

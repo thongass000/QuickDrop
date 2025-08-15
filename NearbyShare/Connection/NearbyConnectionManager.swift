@@ -16,7 +16,7 @@ import SwiftECC
 import CryptoKit
 
 public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearbyConnectionDelegate, OutboundNearbyConnectionDelegate {
-
+    
     private let sleepManager = SleepManager.shared
     private var tcpListener: NWListener
     private var mdnsServices: [NetService] = []
@@ -30,11 +30,11 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private var qrCodePrivateKey: ECPrivateKey?
     private var qrCodeAdvertisingToken: Data?
     private var qrCodeNameEncryptionKey: SymmetricKey?
-
+    
     public let endpointID: [UInt8] = generateEndpointID()
     public var mainAppDelegate: (any MainAppDelegate)?
     public static let shared = NearbyConnectionManager()
-
+    
     
     override init() {
         tcpListener = try! NWListener(using: NWParameters(tls: .none))
@@ -46,7 +46,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         startTCPListener()
     }
     
-
+    
     private func startTCPListener() {
         tcpListener.stateUpdateHandler = { (state: NWListener.State) in
             if case .ready = state {
@@ -62,32 +62,32 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
         tcpListener.start(queue: .global(qos: .utility))
     }
-
+    
     
     private static func generateEndpointID() -> [UInt8] {
         let userDefaultsKey = UserDefaultsKeys.endpointID.rawValue
-
+        
         // Try to retrieve from UserDefaults
         if let savedString = UserDefaults.standard.string(forKey: userDefaultsKey),
            let savedData = savedString.data(using: .utf8)
         {
             return [UInt8](savedData)
         }
-
+        
         // Generate a new random ID
         var id: [UInt8] = []
         let alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".compactMap { UInt8($0.asciiValue!) }
         for _ in 0 ..< 4 {
             id.append(alphabet[Int.random(in: 0 ..< alphabet.count)])
         }
-
+        
         // Save to UserDefaults as String
         let idString = String(bytes: id, encoding: .utf8) ?? ""
         UserDefaults.standard.set(idString, forKey: userDefaultsKey)
-
+        
         return id
     }
-
+    
     
     private func initMDNS() {
         let nameBytes: [UInt8] = [
@@ -99,7 +99,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         
         let name = Data(nameBytes).urlSafeBase64EncodedString()
         let port = Int32(tcpListener.port!.rawValue)
-
+        
         mdnsServices = serviceTypes.map { serviceType in
             let service = NetService(domain: "", type: serviceType, name: name, port: port)
             service.delegate = self
@@ -113,15 +113,15 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     
     func getEndpointInfo() -> EndpointInfo {
-        #if os(macOS)
+#if os(macOS)
         let endpointInfo = EndpointInfo(name: Host.current().localizedName ?? "Mac", deviceType: .computer)
-        #else
+#else
         let endpointInfo = EndpointInfo(name: UIDevice.current.name, deviceType: .phone)
-        #endif
+#endif
         
         return endpointInfo
     }
-
+    
     
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo, connection _: InboundNearbyConnection) {
         mainAppDelegate?.obtainUserConsent(for: transfer, from: device)
@@ -135,7 +135,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             mainAppDelegate?.incomingTransfer(id: connection.id, didFinishWith: error)
         }
     }
-
+    
     
     public func submitUserConsent(transferID: String, accept: Bool, storeInTemp: Bool = false) {
         guard let conn = incomingConnections[transferID] else { return }
@@ -143,20 +143,20 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         log("[NearbyConnectionManager] Submitting user consent for transfer \(transferID), accepted: \(accept), store in temp: \(storeInTemp)")
         conn.submitUserConsent(accepted: accept, storeInTemp: storeInTemp)
     }
-
+    
     
     public func startDeviceDiscovery() {
         
         if !startedDeviceDiscovery {
             startedDeviceDiscovery = true
             foundServices.removeAll()
-
+            
             log("[NearbyConnectionManager] Starting device discovery")
-
+            
             if browsers.isEmpty {
                 for type in serviceTypes {
                     log("[NearbyConnectionManager] Starting browser for type \(type)")
-
+                    
                     let browser = NWBrowser(for: .bonjourWithTXTRecord(type: type, domain: nil), using: .tcp)
                     browser.browseResultsChangedHandler = { _, changes in
                         for change in changes {
@@ -176,7 +176,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             }
         }
     }
-
+    
     
     public func stopDeviceDiscovery() {
         if startedDeviceDiscovery {
@@ -186,12 +186,12 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             for browser in browsers {
                 browser.cancel()
             }
-
+            
             browsers.removeAll()
             startedDeviceDiscovery = false
         }
     }
-
+    
     
     public func addShareExtensionDelegate(_ delegate: ShareExtensionDelegate) {
         shareExtensionDelegates.append(delegate)
@@ -200,18 +200,18 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             delegate.addDevice(device: device)
         }
     }
-
+    
     
     public func removeShareExtensionDelegate(_ delegate: ShareExtensionDelegate) {
         shareExtensionDelegates.removeAll(where: { $0 === delegate })
     }
-
+    
     
     public func cancelOutgoingTransfer(id: String) {
         guard let transfer = outgoingTransfers[id] else { return }
         transfer.connection.cancel()
     }
-
+    
     
     private func endpointID(for service: NWBrowser.Result) -> String? {
         guard case let NWEndpoint.service(name: serviceName, type: _, domain: _, interface: _) = service.endpoint else { return nil }
@@ -224,7 +224,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         guard serviceIDHash == Data([0xFC, 0x9F, 0x5E]) else { return nil }
         return endpointID
     }
-
+    
     
     private func addFoundDevice(service: NWBrowser.Result) {
         log("[NearbyConnectionManager] Found Service \(service)")
@@ -286,7 +286,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         
         return deviceInfo
     }
-
+    
     
     private func removeFoundDevice(service: NWBrowser.Result) {
         guard let endpointID = endpointID(for: service) else { return }
@@ -313,21 +313,33 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         
         return keyData.urlSafeBase64EncodedString()
     }
-
+    
     
     public func startOutgoingTransfer(deviceID: String, delegate: ShareExtensionDelegate, urls: [URL], textToSend: String?) {
+        log("Starting outgoing transfer to \(deviceID)")
         guard let info = foundServices[deviceID] else { return }
-        let tcp = NWProtocolTCP.Options()
-        tcp.noDelay = true
-        let nwconn = NWConnection(to: info.service.endpoint, using: NWParameters(tls: .none, tcp: tcp))
-        let conn = OutboundNearbyConnection(connection: nwconn, id: deviceID, urlsToSend: urls, textToSend: textToSend)
-        conn.delegate = self
-        conn.qrCodePrivateKey = qrCodePrivateKey
-        let transfer = OutgoingTransferInfo(service: info.service, device: info.device!, connection: conn, delegate: delegate)
-        outgoingTransfers[deviceID] = transfer
-        conn.start()
+        
+        do {
+            let localUrls = try saveFilesToTemp(urls: urls)
+            
+            let tcp = NWProtocolTCP.Options()
+            tcp.noDelay = true
+            let nwconn = NWConnection(to: info.service.endpoint, using: NWParameters(tls: .none, tcp: tcp))
+            
+            let conn = OutboundNearbyConnection(connection: nwconn, id: deviceID, urlsToSend: localUrls, textToSend: textToSend)
+            conn.delegate = self
+            conn.qrCodePrivateKey = qrCodePrivateKey
+            let transfer = OutgoingTransferInfo(service: info.service, device: info.device!, connection: conn, delegate: delegate)
+            outgoingTransfers[deviceID] = transfer
+            conn.start()
+        } catch {
+            log("[NearbyConnectionManager] Error zipping URLs: \(error)")
+            shareExtensionDelegates.forEach { delegate in
+                delegate.connectionFailed(with: error)
+            }
+        }
     }
-
+    
     
     func outboundConnectionWasEstablished(connection: OutboundNearbyConnection) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
@@ -336,14 +348,14 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
     }
     
-
+    
     func outboundConnectionTransferAccepted(connection: OutboundNearbyConnection) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
         DispatchQueue.main.async {
             transfer.delegate.transferAccepted()
         }
     }
-
+    
     
     func outboundConnection(connection: OutboundNearbyConnection, transferProgress: Double) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
@@ -351,7 +363,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             transfer.delegate.transferProgress(progress: transferProgress)
         }
     }
-
+    
     
     func outboundConnection(connection: OutboundNearbyConnection, failedWithError: Error) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
@@ -361,7 +373,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         outgoingTransfers.removeValue(forKey: connection.id)
     }
     
-
+    
     func outboundConnectionTransferFinished(connection: OutboundNearbyConnection) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
         DispatchQueue.main.async {
@@ -369,10 +381,58 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
         outgoingTransfers.removeValue(forKey: connection.id)
     }
-
+    
     
     public func getActiveConnectionsCount() -> Int {
         return incomingConnections.count + outgoingTransfers.count
+    }
+    
+    
+    private func saveFilesToTemp(urls: [URL]) throws -> [URL] {
+        
+        var modifiedUrls = [URL]()
+        
+        for url in urls {
+            
+            // if url is no file url or already in inside temp directory, do nothing
+            if url.isFileURL && !url.standardizedFileURL.path.contains(FileManager.default.temporaryDirectory.standardizedFileURL.path) {
+                
+                let accessSuccess = url.startAccessingSecurityScopedResource()
+                
+                if !accessSuccess {
+                    log("[NearbyConnectionManager] Could not access security scoped resource at \(url)")
+                }
+                
+                var isDirectory: ObjCBool = false
+                if FileManager.default.fileExists(atPath: url.path, isDirectory: &isDirectory) && isDirectory.boolValue {
+                    let zipUrl = try Zip.createAtTemporaryDirectory(zipFilename: url.lastPathComponent, fromDirectory: url)
+                    
+                    modifiedUrls.append(zipUrl)
+                }
+                else {
+                    // Copy single file to temp directory
+                    let tempUrl = FileManager.default.temporaryDirectory
+                        .appendingPathComponent(url.lastPathComponent)
+                    // Remove if already exists
+                    if FileManager.default.fileExists(atPath: tempUrl.path) {
+                        try FileManager.default.removeItem(at: tempUrl)
+                    }
+                    try FileManager.default.copyItem(at: url, to: tempUrl)
+                    modifiedUrls.append(tempUrl)
+                }
+                
+                if accessSuccess {
+                    url.stopAccessingSecurityScopedResource()
+                }
+                
+            }
+            else {
+                log("[NearbyConnectionManager] File URL \(url) does not point to a security scoped resource")
+                modifiedUrls.append(url)
+            }
+        }
+        
+        return modifiedUrls
     }
     
     

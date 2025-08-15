@@ -16,8 +16,8 @@ class ShareViewModel: ObservableObject, ShareExtensionDelegate {
     @Published var progressState: String? = nil
     @Published var progressValue: Double? = nil
     
-    private var urls: [URL] = []
-    private var textToSend = "Test from QuickDrop iOS"
+    var urls: [URL] = []
+    var textToSend: String? = nil
     //private var errorAlertHandler = ErrorAlertHandler.shared
     
     private var connectionEstablished = false
@@ -70,8 +70,6 @@ class ShareViewModel: ObservableObject, ShareExtensionDelegate {
     }
     
     func selectDevice(device: RemoteDeviceInfo) {
-        NearbyConnectionManager.shared.stopDeviceDiscovery()
-        
         progressValue = 0
         progressState = "Connecting".localized()
         selectedDevice = device

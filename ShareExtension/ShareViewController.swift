@@ -56,7 +56,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
                 textToSend = text
                 
                 DispatchQueue.main.async {
-                    self.zipFolderAndSetUpIcon()
+                    self.setUpIcon()
                 }
             } else {
                 for attachment in attachments {
@@ -72,7 +72,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
                             
                             if self.urls.count == attachments.count {
                                 DispatchQueue.main.async {
-                                    self.zipFolderAndSetUpIcon()
+                                    self.setUpIcon()
                                 }
                             }
                         }
@@ -209,42 +209,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     }
     
     
-    private func zipFolderAndSetUpIcon() {
-        for url in urls {
-            if url.isFileURL {
-                let isDirectory = UnsafeMutablePointer<ObjCBool>.allocate(capacity: 1)
-                if FileManager.default.fileExists(atPath: url.path, isDirectory: isDirectory) && isDirectory.pointee.boolValue {
-                    do {
-                        let zipUrl = try createZipAtTmp(zipFilename: url.lastPathComponent, fromDirectory: url)
-                        
-                        let index = urls.firstIndex(of: url)
-                        urls[index!] = zipUrl
-                    } catch {
-                        log("Error creating zip file: \(error)")
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            log("Canceling share request because URL \(url) is a directory")
-                            
-                            AudioManager.playErrorSound()
-                            let alert = NSAlert()
-                            alert.alertStyle = .critical
-                            
-                            alert.messageText = "TypeNotSupported".localized()
-                            alert.informativeText = "TypeNotSupportedDescription".localized()
-                            alert.addButton(withTitle: "TypeNotSupportedButton".localized())
-                            
-                            alert.beginSheetModal(for: self.view.window!) { _ in
-                                let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
-                                self.extensionContext!.cancelRequest(withError: cancelError)
-                            }
-                        }
-                        
-                        return
-                    }
-                }
-            }
-        }
-        
+    private func setUpIcon() {
         if let textToSend = textToSend {
             let maxLength = 50
             let cleanedText = textToSend.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "")

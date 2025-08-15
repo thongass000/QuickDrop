@@ -6,9 +6,19 @@
 //
 
 import SwiftUI
+import LUI
 
 @main
 struct QuickDropiOSApp: App {
+    
+    #if !os(macOS)
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    #endif
+
+    init() {
+        LUIInit(configuration: configuration)
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
