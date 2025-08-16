@@ -16,6 +16,8 @@ let configuration = LUIConfiguration(
     
     introductionViewInformation: "QuickDropWelcomeDescription",
     
+    usesAutomaticReviewPrompt: false,
+    
     usesPagedIntroduction: false,
     
     supportsSplitView: false,
