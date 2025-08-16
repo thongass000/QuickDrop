@@ -26,8 +26,4 @@ class ReceiveModel: ObservableObject, MainAppDelegate {
         
     }
     
-    func showUnsupportedFileAlert(for: RemoteDeviceInfo?) {
-        
-    }
-    
 }

@@ -30,7 +30,6 @@ public protocol MainAppDelegate {
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo)
     func incomingTransfer(id: String, from device: RemoteDeviceInfo, didFinishWith error: Error?)
     func showCopiedToClipboardAlert()
-    func showUnsupportedFileAlert(for: RemoteDeviceInfo?)
 }
 
 

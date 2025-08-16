@@ -314,28 +314,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             BezelNotification.show(messageText: "InsertedIntoClipboard".localized(), icon: .clipboard)
         }
     }
-    
-    
-    func showUnsupportedFileAlert(for device: RemoteDeviceInfo?) {
-        
-        DispatchQueue.main.async {
-            
-            AudioManager.playErrorSound()
-            
-            NSApp.activate(ignoringOtherApps: true)
-            
-            let alert = NSAlert()
-            alert.alertStyle = .critical
-            
-            alert.messageText = String(format: "TransferError".localized(), arguments: [device?.name ?? "??"])
-            alert.informativeText = "UnsupportedFileType".localized()
-            
-            alert.addButton(withTitle: "InformDeveloper".localized())
-            alert.addButton(withTitle: "CloseAlert".localized())
-            
-            let _ = alert.runModal()
-        }
-    }
 
     
     // MARK: - Transfer Handling

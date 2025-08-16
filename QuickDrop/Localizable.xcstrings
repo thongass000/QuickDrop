@@ -9622,216 +9622,109 @@
         }
       }
     },
-    "UnsupportedFileType" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "الملف الذي حاولت إرساله غير مدعوم حالياً. يُرجى إرسال تقرير بالخطأ."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Die Datei, die du senden wolltest, wird derzeit nicht unterstützt. Bitte sende einen Fehlerbericht."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The file you tried to send is currently not supported. Please send an error report."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El archivo que intentaste enviar no es compatible actualmente. Por favor, envía un informe de error."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le fichier que vous avez essayé d'envoyer n'est pas pris en charge actuellement. Veuillez envoyer un rapport d'erreur."
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A fájl, amelyet megpróbáltál küldeni, jelenleg nem támogatott. Kérjük, küldj hibajelentést."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il file che hai provato a inviare non è attualmente supportato. Invia un rapporto di errore."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "送信しようとしたファイルは現在サポートされていません。エラーレポートを送信してください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "보내려는 파일은 현재 지원되지 않습니다. 오류 보고서를 보내주세요."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Het bestand dat je probeerde te verzenden, wordt momenteel niet ondersteund. Stuur een foutrapport."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O arquivo que você tentou enviar não é compatível no momento. Por favor, envie um relatório de erro."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O ficheiro que tentou enviar não é atualmente suportado. Por favor, envie um relatório de erro."
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fișierul pe care ai încercat să-l trimiți nu este momentan acceptat. Te rugăm să trimiți un raport de eroare."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Файл, который вы пытались отправить, в настоящее время не поддерживается. Пожалуйста, отправьте отчет об ошибке."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ไฟล์ที่คุณพยายามส่งยังไม่รองรับในขณะนี้ โปรดส่งรายงานข้อผิดพลาด"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Файл, який ви намагалися надіслати, наразі не підтримується. Будь ласка, надішліть звіт про помилку."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您尝试发送的文件当前不受支持。请发送错误报告。"
-          }
-        }
-      }
-    },
     "UnsupportedType" : {
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "نوع المرفق غير مدعوم. يرجى محاولة إرسال هذا الملف كملف .zip مضغوط."
+            "value" : "نوع البيانات المنقولة غير مدعوم حاليًا. يرجى إرسال تقرير بالخطأ."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Anhangstyp wird nicht unterstützt. Versuche stattdessen, die Datei als .zip-Archiv zu senden."
+            "value" : "Der Typ der übertragenen Daten wird derzeit nicht unterstützt. Bitte sende einen Fehlerbericht."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The attachment type is not supported. Please try to send this file as a compressed .zip file instead."
+            "value" : "The type of the transferred data is currently not supported. Please send an error report."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El tipo de archivo no es compatible. Intenta enviar el archivo como un archivo .zip comprimido."
+            "value" : "El tipo de datos transferidos no es compatible actualmente. Por favor, envíe un informe de error."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le type de pièce jointe n'est pas pris en charge. Veuillez envoyer ce fichier sous forme de fichier .zip compressé."
+            "value" : "Le type de données transférées n'est actuellement pas pris en charge. Veuillez envoyer un rapport d'erreur."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ez a csatolmánytípus nem támogatott. Próbáld meg tömörített .zip fájlként elküldeni."
+            "value" : "Az átvitt adat típusa jelenleg nem támogatott. Kérjük, küldjön hibajelentést."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Il tipo di allegato non è supportato. Prova a inviare questo file come archivio compresso .zip."
+            "value" : "Il tipo di dati trasferiti attualmente non è supportato. Si prega di inviare un rapporto di errore."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "添付ファイルの形式はサポートされていません。ファイルを.zip形式で圧縮して送信してください。"
+            "value" : "転送されたデータの種類は現在サポートされていません。エラーレポートを送信してください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "첨부 파일 형식이 지원되지 않습니다. 파일을 압축된 .zip 형식으로 보내주세요."
+            "value" : "전송된 데이터 유형이 현재 지원되지 않습니다. 오류 보고서를 보내주세요."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Het type bijlage wordt niet ondersteund. Probeer het bestand als een gecomprimeerd .zip-bestand te verzenden."
+            "value" : "Het type van de overgedragen gegevens wordt momenteel niet ondersteund. Stuur een foutrapport in."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O tipo de anexo não é compatível. Tente enviar este arquivo como um .zip compactado."
+            "value" : "O tipo de dados transferidos atualmente não é suportado. Envie um relatório de erro."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O tipo de anexo não é suportado. Tenta enviar este ficheiro como um ficheiro .zip comprimido."
+            "value" : "O tipo de dados transferidos não é atualmente suportado. Por favor, envie um relatório de erro."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tipul de fișier atașat nu este acceptat. Încercați să trimiteți acest fișier ca arhivă .zip."
+            "value" : "Tipul datelor transferate nu este în prezent acceptat. Vă rugăm să trimiteți un raport de eroare."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Тип вложения не поддерживается. Попробуйте отправить файл в виде .zip архива."
+            "value" : "Тип переданных данных в данный момент не поддерживается. Пожалуйста, отправьте отчет об ошибке."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ไม่รองรับประเภทไฟล์แนบ โปรดลองส่งไฟล์นี้เป็น .zip แทน"
+            "value" : "ประเภทของข้อมูลที่ส่งไม่รองรับในขณะนี้ โปรดส่งรายงานข้อผิดพลาด"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Тип вкладення не підтримується. Спробуйте надіслати файл у форматі стиснутого .zip."
+            "value" : "Тип передаваних даних наразі не підтримується. Будь ласка, надішліть звіт про помилку."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "不支持的附件类型。请尝试将该文件压缩为 .zip 文件后再发送。"
+            "value" : "当前不支持传输的数据类型。请发送错误报告。"
           }
         }
       }

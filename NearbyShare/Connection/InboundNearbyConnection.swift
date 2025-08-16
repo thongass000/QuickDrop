@@ -27,7 +27,7 @@ class InboundNearbyConnection: NearbyConnection {
     private var textPayloadID: Int64 = 0
     private var isPlainTextTransfer = false
     
-    var wasRejected = false
+    var wasUserRejected = false
     var delegate: InboundNearbyConnectionDelegate?
 
     enum State {
@@ -194,9 +194,6 @@ class InboundNearbyConnection: NearbyConnection {
                     #elseif os(iOS)
                     // iOS clipboard
                     UIPasteboard.general.string = urlStr
-                    
-                    // Optionally show an alert (requires a way to present it)
-                    // For example, post a notification or use a delegate to show a toast or alert
                     #endif
                 } else if let url = URL(string: urlStr) {
                     #if os(macOS)
@@ -468,7 +465,7 @@ class InboundNearbyConnection: NearbyConnection {
         
         log("[InboundNearbyConnection \(self.id)] Rejecting transfer due to unsupported file type. Frame is \(frame.debugDescription)")
         
-        NearbyConnectionManager.shared.mainAppDelegate?.showUnsupportedFileAlert(for: remoteDeviceInfo)
+        lastError = NearbyError.canceled(reason: .unsupportedType)
         rejectTransfer(with: .unsupportedAttachmentType)
     }
     
@@ -532,7 +529,10 @@ class InboundNearbyConnection: NearbyConnection {
     
     private func rejectTransfer(with reason: Sharing_Nearby_ConnectionResponseFrame.Status = .reject) {
         
-        self.wasRejected = true
+        // rejected by user
+        if reason == .reject {
+            self.wasUserRejected = true
+        }
         
         log("[InboundNearbyConnection \(self.id)] Rejecting transfer because of \( reason)")
         

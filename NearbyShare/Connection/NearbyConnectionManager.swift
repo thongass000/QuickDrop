@@ -131,7 +131,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     func connectionWasTerminated(connection: InboundNearbyConnection, error: Error?) {
         incomingConnections.removeValue(forKey: connection.id)
         
-        if !connection.wasRejected {
+        if !connection.wasUserRejected {
             mainAppDelegate?.incomingTransfer(id: connection.id, from: connection.remoteDeviceInfo ?? RemoteDeviceInfo(name: "??", type: .unknown), didFinishWith: error)
         }
     }
