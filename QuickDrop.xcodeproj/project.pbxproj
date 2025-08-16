@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -103,6 +103,12 @@
 		EB96ED8D2D7F7EA3004B3FF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
 		EB96ED8F2D7F8105004B3FF1 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
 		EB96ED902D7F8114004B3FF1 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
+		EB979F942E50CA23008B8C5C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8D2E50CA23008B8C5C /* Configuration.swift */; };
+		EB979F952E50CA23008B8C5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8E2E50CA23008B8C5C /* ContentView.swift */; };
+		EB979F962E50CA23008B8C5C /* FilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8F2E50CA23008B8C5C /* FilePicker.swift */; };
+		EB979F972E50CA23008B8C5C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F902E50CA23008B8C5C /* Model.swift */; };
+		EB979F982E50CA23008B8C5C /* QuickDropiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */; };
+		EB979F9A2E50CAA6008B8C5C /* PieProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F992E50CAA6008B8C5C /* PieProgressView.swift */; };
 		EB9925802E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
 		EB9925812E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
 		EB9925822E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
@@ -231,6 +237,13 @@
 		EB886E662E4F2F7C0052B7D9 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSheetView.swift; sourceTree = "<group>"; };
 		EB96ED8E2D7F8103004B3FF1 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		EB979F8D2E50CA23008B8C5C /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		EB979F8E2E50CA23008B8C5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EB979F8F2E50CA23008B8C5C /* FilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePicker.swift; sourceTree = "<group>"; };
+		EB979F902E50CA23008B8C5C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		EB979F912E50CA23008B8C5C /* QuickDropiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickDropiOS.entitlements; sourceTree = "<group>"; };
+		EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDropiOSApp.swift; sourceTree = "<group>"; };
+		EB979F992E50CAA6008B8C5C /* PieProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieProgressView.swift; sourceTree = "<group>"; };
 		EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharing_enums.pb.swift; sourceTree = "<group>"; };
 		EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertHandler.swift; sourceTree = "<group>"; };
 		EBC05C6D2E33B57D00EECC18 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
@@ -247,10 +260,6 @@
 		EBCC27F82D80C9F70079C478 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
 		EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		EB5C37E32E377C2E0052EFD7 /* QuickDropiOS */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = QuickDropiOS; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		699DEB9E2AB0573200115D22 /* Frameworks */ = {
@@ -315,7 +324,7 @@
 				69DA9A1029E0BF5100A442DA /* QuickDrop */,
 				699DEBA22AB0573200115D22 /* ShareExtension */,
 				69DCF4822AB70D0600CBE2CC /* NearbyShare */,
-				EB5C37E32E377C2E0052EFD7 /* QuickDropiOS */,
+				EB979F932E50CA23008B8C5C /* QuickDropiOS */,
 				698DFAEC29E353220064F247 /* Frameworks */,
 				69DA9A0F29E0BF5100A442DA /* Products */,
 				EBC05C8B2E33B59E00EECC18 /* Resources */,
@@ -421,6 +430,20 @@
 				EB5C36E82E3546100052EFD7 /* DataModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EB979F932E50CA23008B8C5C /* QuickDropiOS */ = {
+			isa = PBXGroup;
+			children = (
+				EB979F8D2E50CA23008B8C5C /* Configuration.swift */,
+				EB979F8E2E50CA23008B8C5C /* ContentView.swift */,
+				EB979F8F2E50CA23008B8C5C /* FilePicker.swift */,
+				EB979F902E50CA23008B8C5C /* Model.swift */,
+				EB979F992E50CAA6008B8C5C /* PieProgressView.swift */,
+				EB979F912E50CA23008B8C5C /* QuickDropiOS.entitlements */,
+				EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */,
+			);
+			path = QuickDropiOS;
 			sourceTree = "<group>";
 		};
 		EBC05C6A2E33B55100EECC18 /* View */ = {
@@ -548,9 +571,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				EB5C37E32E377C2E0052EFD7 /* QuickDropiOS */,
 			);
 			name = QuickDropiOS;
 			packageProductDependencies = (
@@ -779,6 +799,12 @@
 				EB886E6A2E4F37B90052B7D9 /* ErrorAlertHandler.swift in Sources */,
 				EB886E5E2E4F13EB0052B7D9 /* Zip.swift in Sources */,
 				EB5C383D2E38C2D90052EFD7 /* AudioManager.swift in Sources */,
+				EB979F942E50CA23008B8C5C /* Configuration.swift in Sources */,
+				EB979F952E50CA23008B8C5C /* ContentView.swift in Sources */,
+				EB979F962E50CA23008B8C5C /* FilePicker.swift in Sources */,
+				EB979F9A2E50CAA6008B8C5C /* PieProgressView.swift in Sources */,
+				EB979F972E50CA23008B8C5C /* Model.swift in Sources */,
+				EB979F982E50CA23008B8C5C /* QuickDropiOSApp.swift in Sources */,
 				EB5C38402E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37FF2E377CE70052EFD7 /* wire_format.pb.swift in Sources */,
 				EB5C38002E377CE70052EFD7 /* DataModel.swift in Sources */,

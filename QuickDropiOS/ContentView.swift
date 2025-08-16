@@ -63,6 +63,8 @@ struct DeviceListView: View {
                 CustomSection(header: "AvailableDevices") {
                     ForEach(model.foundDevices) { device in
                         
+                        let isSelected = model.selectedDevice == device
+                        
                         SendPickerButton {
                             HStack(spacing: 12) {
                                 
@@ -90,15 +92,20 @@ struct DeviceListView: View {
                                         .fontWeight(.medium)
                                         .foregroundColor(Color.primary)
                                     
-                                    Text(model.selectedDevice == device ? model.progressState ?? "..." : "Available".localized())
+                                    Text(isSelected ? model.progressState ?? "..." : "Available".localized())
                                         .font(.system(size: 12))
                                         .foregroundColor(Color.primary.opacity(0.6))
                                 }
                                 
                                 Spacer()
                                 
-                                Image(systemName: "chevron.right")
-                                    .foregroundColor(Color.primary.opacity(0.6))
+                                if isSelected, let progress = model.progressValue {
+                                    PieProgressView(progress: progress, size: 20)
+                                }
+                                else {
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(Color.primary.opacity(0.6))
+                                }
                             }
                             .padding(.vertical, 13)
                         } onResult: { urls, text in
@@ -106,6 +113,8 @@ struct DeviceListView: View {
                             model.textToSend = text
                             model.selectDevice(device: device)
                         }
+                        .animation(.easeInOut, value: model.progressValue)
+                        .animation(.easeInOut, value: isSelected)
                     }
                 }
             }
