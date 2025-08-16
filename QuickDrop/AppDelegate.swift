@@ -228,6 +228,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
     
     @objc func openPlusScreen() {
+        // If window already exists and is visible, just bring it to the front
+        if let window = plusWindow, window.isVisible {
+            NSApp.activate(ignoringOtherApps: true)
+            window.makeKeyAndOrderFront(nil)
+            return
+        }
+
         // Create the welcome screen SwiftUI view
         let plusView = PlusView(closeView: {
             log("Closing plus screen")
@@ -235,26 +242,33 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         })
 
         // Create an NSWindow to host the SwiftUI view
-        plusWindow = NSWindow(
+        let window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: plusViewWidth, height: plusViewHeight),
             styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false
         )
 
-        plusWindow?.styleMask.insert(.fullSizeContentView)
-        plusWindow?.titleVisibility = .hidden
-        plusWindow?.titlebarAppearsTransparent = true
+        window.styleMask.insert(.fullSizeContentView)
+        window.titleVisibility = .hidden
+        window.titlebarAppearsTransparent = true
 
-        plusWindow?.center()
-        plusWindow?.isReleasedWhenClosed = false
-        plusWindow?.setFrameAutosaveName("PlusScreen")
-        plusWindow?.contentView = NSHostingView(rootView: plusView)
+        window.center()
+        window.isReleasedWhenClosed = false
+        window.setFrameAutosaveName("PlusScreen")
+        window.contentView = NSHostingView(rootView: plusView)
+
+        // Reset reference when closed by red button
+        NotificationCenter.default.addObserver(forName: NSWindow.willCloseNotification, object: window, queue: .main) { [weak self] _ in
+            self?.plusWindow = nil
+        }
+
+        plusWindow = window
 
         // Ensure the window is always on top
-        NSApp.activate(ignoringOtherApps: true) // Brings the whole app to the front
-        plusWindow?.makeKeyAndOrderFront(nil)
-        plusWindow?.level = .normal
+        NSApp.activate(ignoringOtherApps: true)
+        window.makeKeyAndOrderFront(nil)
+        window.level = .normal
     }
     
     

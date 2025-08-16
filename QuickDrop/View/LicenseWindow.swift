@@ -24,7 +24,6 @@ struct LicensePage: View {
 
 
 func openLicenseWindow() -> NSWindow {
-    // Create a new NSWindow and retain it in the `newWindow` property
     let window = NSWindow(
         contentRect: NSRect(x: 0, y: 0, width: 500, height: 400),
         styleMask: [.titled, .closable, .resizable],
@@ -37,10 +36,9 @@ func openLicenseWindow() -> NSWindow {
     window.contentView = NSHostingView(rootView: LicensePage())
     
     // Ensure the window is always on top
-    NSApp.activate(ignoringOtherApps: true) // Brings the whole app to the front
+    NSApp.activate(ignoringOtherApps: true)
     window.makeKeyAndOrderFront(nil)
     window.level = .normal
     
-    // Retain the window to prevent deallocation
     return window
 }
