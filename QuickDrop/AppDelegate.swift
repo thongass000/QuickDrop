@@ -17,7 +17,6 @@ import UserNotifications
 class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSWindowDelegate, MainAppDelegate {
     
     private var statusItem: NSStatusItem?
-    private var activeIncomingTransfers: [String: TransferInfo] = [:]
 
     var welcomeWindow: NSWindow?
     var plusWindow: NSWindow?
@@ -308,10 +307,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     // MARK: - Alerts and Notifications
-
-    func showFirewallAlert() {
-        ErrorAlertHandler.shared.openAlert(type: .Firewall)
-    }
     
     
     func showCopiedToClipboardAlert() {
@@ -347,19 +342,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     public func continueTransmission(accept: Bool, transferID: String, storeInTemp: Bool = false) {
         NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: accept, storeInTemp: storeInTemp)
-
-        if !accept {
-            activeIncomingTransfers.removeValue(forKey: transferID)
-        }
     }
     
 
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo) {
         
         NSApp.activate(ignoringOtherApps: true)
-        
-        activeIncomingTransfers[transfer.id] = TransferInfo(device: device, transfer: transfer)
-
         AudioManager.playIncomingFileSound()
 
         let acceptAutomatically = UserDefaults.standard.bool(forKey: UserDefaultsKeys.automaticallyAcceptFiles.rawValue)
@@ -446,7 +434,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
     
 
-    func incomingTransfer(id: String, didFinishWith error: Error?) {
+    func incomingTransfer(id: String, from device: RemoteDeviceInfo, didFinishWith error: Error?) {
 
         if let error = error {
             
@@ -455,7 +443,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 plusWindow.close()
             }
             
-            ErrorAlertHandler.shared.showErrorAlert(for: activeIncomingTransfers[id]?.device.name ?? "Android", error: error)
+            ErrorAlertHandler.shared.showErrorAlert(for: device.name ?? "Android", error: error)
         } else {
             let currentCount = transmissionCount()
             if currentCount == 0 {
@@ -467,8 +455,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             UserDefaults.standard.set(currentCount + 1, forKey: UserDefaultsKeys.transmissionCount.rawValue)
             log("Successful transmission. Current count: \(currentCount)")
         }
-
-        activeIncomingTransfers.removeValue(forKey: id)
     }
     
     

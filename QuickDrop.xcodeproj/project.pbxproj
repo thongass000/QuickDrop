@@ -106,9 +106,10 @@
 		EB979F942E50CA23008B8C5C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8D2E50CA23008B8C5C /* Configuration.swift */; };
 		EB979F952E50CA23008B8C5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8E2E50CA23008B8C5C /* ContentView.swift */; };
 		EB979F962E50CA23008B8C5C /* FilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8F2E50CA23008B8C5C /* FilePicker.swift */; };
-		EB979F972E50CA23008B8C5C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F902E50CA23008B8C5C /* Model.swift */; };
+		EB979F972E50CA23008B8C5C /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F902E50CA23008B8C5C /* ShareViewModel.swift */; };
 		EB979F982E50CA23008B8C5C /* QuickDropiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */; };
 		EB979F9A2E50CAA6008B8C5C /* PieProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F992E50CAA6008B8C5C /* PieProgressView.swift */; };
+		EB97A00F2E511124008B8C5C /* ReceiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A00E2E511120008B8C5C /* ReceiveModel.swift */; };
 		EB9925802E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
 		EB9925812E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
 		EB9925822E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
@@ -240,10 +241,11 @@
 		EB979F8D2E50CA23008B8C5C /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		EB979F8E2E50CA23008B8C5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EB979F8F2E50CA23008B8C5C /* FilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePicker.swift; sourceTree = "<group>"; };
-		EB979F902E50CA23008B8C5C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		EB979F902E50CA23008B8C5C /* ShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewModel.swift; sourceTree = "<group>"; };
 		EB979F912E50CA23008B8C5C /* QuickDropiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickDropiOS.entitlements; sourceTree = "<group>"; };
 		EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDropiOSApp.swift; sourceTree = "<group>"; };
 		EB979F992E50CAA6008B8C5C /* PieProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieProgressView.swift; sourceTree = "<group>"; };
+		EB97A00E2E511120008B8C5C /* ReceiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveModel.swift; sourceTree = "<group>"; };
 		EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharing_enums.pb.swift; sourceTree = "<group>"; };
 		EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertHandler.swift; sourceTree = "<group>"; };
 		EBC05C6D2E33B57D00EECC18 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
@@ -438,7 +440,8 @@
 				EB979F8D2E50CA23008B8C5C /* Configuration.swift */,
 				EB979F8E2E50CA23008B8C5C /* ContentView.swift */,
 				EB979F8F2E50CA23008B8C5C /* FilePicker.swift */,
-				EB979F902E50CA23008B8C5C /* Model.swift */,
+				EB979F902E50CA23008B8C5C /* ShareViewModel.swift */,
+				EB97A00E2E511120008B8C5C /* ReceiveModel.swift */,
 				EB979F992E50CAA6008B8C5C /* PieProgressView.swift */,
 				EB979F912E50CA23008B8C5C /* QuickDropiOS.entitlements */,
 				EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */,
@@ -795,6 +798,7 @@
 				EB9925802E45D53E00357055 /* sharing_enums.pb.swift in Sources */,
 				EB5C37FC2E377CE70052EFD7 /* OutboundNearbyConnection.swift in Sources */,
 				EB5C37FD2E377CE70052EFD7 /* Logger.swift in Sources */,
+				EB97A00F2E511124008B8C5C /* ReceiveModel.swift in Sources */,
 				EB5C37FE2E377CE70052EFD7 /* offline_wire_formats.pb.swift in Sources */,
 				EB886E6A2E4F37B90052B7D9 /* ErrorAlertHandler.swift in Sources */,
 				EB886E5E2E4F13EB0052B7D9 /* Zip.swift in Sources */,
@@ -803,7 +807,7 @@
 				EB979F952E50CA23008B8C5C /* ContentView.swift in Sources */,
 				EB979F962E50CA23008B8C5C /* FilePicker.swift in Sources */,
 				EB979F9A2E50CAA6008B8C5C /* PieProgressView.swift in Sources */,
-				EB979F972E50CA23008B8C5C /* Model.swift in Sources */,
+				EB979F972E50CA23008B8C5C /* ShareViewModel.swift in Sources */,
 				EB979F982E50CA23008B8C5C /* QuickDropiOSApp.swift in Sources */,
 				EB5C38402E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37FF2E377CE70052EFD7 /* wire_format.pb.swift in Sources */,
