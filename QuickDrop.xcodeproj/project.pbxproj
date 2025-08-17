@@ -111,6 +111,8 @@
 		EB97A00F2E511124008B8C5C /* ReceiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A00E2E511120008B8C5C /* ReceiveModel.swift */; };
 		EB97A0102E51CD13008B8C5C /* ReceiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A00E2E511120008B8C5C /* ReceiveModel.swift */; };
 		EB97A0132E51D6B2008B8C5C /* RNDeviceName in Frameworks */ = {isa = PBXBuildFile; productRef = EB97A0122E51D6B2008B8C5C /* RNDeviceName */; };
+		EB97A0142E51DD00008B8C5C /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
+		EB97A0152E51DD00008B8C5C /* timeIsNow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EBC05C8A2E33B59E00EECC18 /* timeIsNow.mp3 */; };
 		EB9925802E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
 		EB9925812E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
 		EB9925822E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
@@ -685,6 +687,8 @@
 			files = (
 				EB5C383B2E38C1F60052EFD7 /* justMaybe.mp3 in Resources */,
 				EB886E592E4F056B0052B7D9 /* Assets.xcassets in Resources */,
+				EB97A0142E51DD00008B8C5C /* License.txt in Resources */,
+				EB97A0152E51DD00008B8C5C /* timeIsNow.mp3 in Resources */,
 				EB886E552E4E50F40052B7D9 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
