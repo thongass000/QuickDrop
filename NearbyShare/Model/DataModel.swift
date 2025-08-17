@@ -129,7 +129,7 @@ public struct FileMetadata {
 }
 
 
-struct EndpointInfo {
+public struct EndpointInfo {
     var name: String?
     let deviceType: RemoteDeviceInfo.DeviceType
     let qrCodeData: Data?

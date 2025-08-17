@@ -1,5 +1,5 @@
 {
-  "originHash" : "053324b22e9d13d48c4bf9290d746eb2c1a2e80e5900f9dde545bb150c5eff6a",
+  "originHash" : "6596056df2297c97fbb8a90f8b23b4feec22b8d0fbdb59f154e1c543f10c631c",
   "pins" : [
     {
       "identity" : "applewatchscreensize",
@@ -43,7 +43,7 @@
       "location" : "https://github.com/leonboe1/LUI.git",
       "state" : {
         "branch" : "main",
-        "revision" : "49e61e6ff710a1548e352d4179fceec785849b1b"
+        "revision" : "b4a9766db0f328c8251b1fa8bed2472c783d7128"
       }
     },
     {
@@ -53,6 +53,15 @@
       "state" : {
         "revision" : "177d4091f7fcce1efc22de2a5fcdb671bd103101",
         "version" : "26.10.0"
+      }
+    },
+    {
+      "identity" : "rndevicename",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/souzainf3/RNDeviceName",
+      "state" : {
+        "revision" : "68ada02a7135381425b01778aeb8719ce3bf8f62",
+        "version" : "2.1.0"
       }
     },
     {

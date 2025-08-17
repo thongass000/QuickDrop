@@ -87,13 +87,21 @@ class ErrorAlertHandler {
             log("Unsuccessful transmission. Already successful transmissions: \(incomingTransmissionCount())")
             
             #if os(macOS)
+            
+            let primaryButtonTitle = "InformDeveloper".localized()
+            let primaryButtonAction: () -> Void = {
+                log("Sending logging string")
+                sendLoggingString()
+            }
+            let secondaryButtonTitle = "CloseAlert".localized()
+            
             self.isAlertShown = true
             let alert = NSAlert()
             alert.alertStyle = .critical
             alert.messageText = title
             alert.informativeText = description
-            alert.addButton(withTitle: "InformDeveloper".localized())
-            alert.addButton(withTitle: "CloseAlert".localized())
+            alert.addButton(withTitle: primaryButtonTitle)
+            alert.addButton(withTitle: secondaryButtonTitle)
             
             let result = alert.runModal()
             self.isAlertShown = false

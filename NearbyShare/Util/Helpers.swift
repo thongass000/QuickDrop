@@ -105,8 +105,13 @@ public enum UserDefaultsKeys: String, CaseIterable {
 
 public func isPlusVersion() -> Bool {
     
+    #if os(macOS)
     // Enable full functionality if app distributed directly
     return DistributionDetector.isDirectDistributionEnabled || UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
+    #else
+    // iOS
+    return true
+    #endif
 }
 
 

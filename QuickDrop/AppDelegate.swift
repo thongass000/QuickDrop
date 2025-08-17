@@ -14,7 +14,7 @@ import SwiftUI
 import UserNotifications
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSWindowDelegate, InboundAppDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSWindowDelegate {
     
     private var statusItem: NSStatusItem?
 
@@ -26,6 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     private var errorAlertHandler = ErrorAlertHandler.shared
 
     private var iapManager: IAPManager?
+    private var receiveModel: ReceiveModel?
 
     var showsFirewallAlert = false
     var visibleItem: NSMenuItem? = nil
@@ -63,9 +64,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         statusItem?.button?.image = NSImage(named: "MenuBarIcon")
         statusItem?.menu = menu
         statusItem?.behavior = .removalAllowed
-
-        NearbyConnectionManager.shared.mainAppDelegate = self
-        NearbyConnectionManager.shared.becomeVisible()
 
         iapManager = IAPManager.sharedInstance
         iapManager?.startObserving()
@@ -111,6 +109,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         let queue2 = DispatchQueue(label: "NetworkConnectionMonitor")
         hasConnectionMonitor.start(queue: queue2)
+        
+        receiveModel = ReceiveModel(controlPlusScreen: { shouldOpen in
+            if shouldOpen {
+                self.openPlusScreen()
+            }
+            else {
+                if let window = self.plusWindow {
+                    log("[AppDelegate] Closing plus screen because of error")
+                    window.close()
+                }
+            }
+        })
     }
     
     
@@ -231,8 +241,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         if let window = plusWindow, window.isVisible {
             NSApp.activate(ignoringOtherApps: true)
             window.makeKeyAndOrderFront(nil)
+            log("Plus screen already open, bringing to front")
             return
         }
+        
+        log("Opening Plus screen")
 
         // Create the welcome screen SwiftUI view
         let plusView = PlusView(closeView: {
@@ -302,141 +315,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
             self.sheetView = nil
             self.sheetAttachedWindow = nil
-        }
-    }
-    
-    
-    // MARK: - Alerts and Notifications
-    
-    
-    func showCopiedToClipboardAlert() {
-        DispatchQueue.main.async {
-            BezelNotification.show(messageText: "InsertedIntoClipboard".localized(), icon: .clipboard)
-        }
-    }
-
-    
-    // MARK: - Transfer Handling
-    
-    public func continueTransmission(accept: Bool, transferID: String, storeInTemp: Bool = false) {
-        NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: accept, storeInTemp: storeInTemp)
-    }
-    
-
-    func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo) {
-        
-        NSApp.activate(ignoringOtherApps: true)
-        AudioManager.playIncomingFileSound()
-
-        let acceptAutomatically = UserDefaults.standard.bool(forKey: UserDefaultsKeys.automaticallyAcceptFiles.rawValue)
-
-        let fileStr: String
-
-        if let textTitle = transfer.textDescription {
-            fileStr = textTitle
-        } else if transfer.files.count == 1 {
-            fileStr = transfer.files[0].name
-        } else {
-            fileStr = String.localizedStringWithFormat("NFiles".localized(), transfer.files.count)
-        }
-
-        
-        let mainMessage: String
-        let name = device.name ?? "Android"
-        
-        switch transfer.type {
-            case .file:
-                mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingFiles" : "DeviceSendingFiles").localized(), arguments: [name, fileStr])
-            
-            case .text:
-                mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingText" : "DeviceSendingText").localized(), arguments: [name, fileStr])
-            
-            case .url:
-                mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingUrl" : "DeviceSendingUrl").localized(), arguments: [name, fileStr])
-        }
-        
-       
-        let pinCodeMessage = String(format: "PinCode".localized(), arguments: [transfer.pinCode ?? "?"])
-        let transferID = transfer.id
-
-        if acceptAutomatically {
-            pressAcceptButton(transferID: transfer.id)
-
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
-                if granted {
-                    log("User granted notification permissions")
-
-                    let notificationContent = UNMutableNotificationContent()
-                    notificationContent.title = "QuickDrop"
-                    notificationContent.body = mainMessage
-                    notificationContent.sound = nil
-                    let notificationId = UUID().uuidString
-
-                    let notificationReq = UNNotificationRequest(identifier: notificationId, content: notificationContent, trigger: nil)
-                    UNUserNotificationCenter.current().add(notificationReq)
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notificationId])
-                    }
-                }
-            }
-        } else {
-            let alert = NSAlert()
-            alert.alertStyle = .informational
-
-            alert.messageText = "QuickDrop - \(pinCodeMessage)"
-            alert.informativeText = mainMessage
-            alert.addButton(withTitle: "Accept".localized())
-            alert.addButton(withTitle: "Decline".localized())
-
-            let result = alert.runModal()
-
-            if result == .alertFirstButtonReturn {
-                pressAcceptButton(transferID: transferID)
-            } else if result == .alertSecondButtonReturn {
-                continueTransmission(accept: false, transferID: transferID)
-            }
-        }
-    }
-
-    
-    private func pressAcceptButton(transferID: String) {
-        if isFileTransferRestricted() {
-            continueTransmission(accept: true, transferID: transferID, storeInTemp: true)
-            log("Showing plus screen...")
-
-            openPlusScreen()
-        } else {
-            continueTransmission(accept: true, transferID: transferID)
-        }
-    }
-    
-
-    func connectionWasTerminated(from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: Error?) {
-
-        if let error = error {
-            
-            if let plusWindow = plusWindow {
-                log("Closing plus screen because of error")
-                plusWindow.close()
-            }
-            
-            ErrorAlertHandler.shared.showErrorAlert(for: device.name ?? "Android", error: error)
-        } else {
-            
-            if wasPlainTextTransfer {
-                showCopiedToClipboardAlert()
-            }
-            
-            let currentCount = incomingTransmissionCount()
-            if currentCount == 0 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    SKStoreReviewController.requestReview()
-                }
-            }
-
-            UserDefaults.standard.set(currentCount + 1, forKey: UserDefaultsKeys.transmissionCount.rawValue)
-            log("Successful transmission. Current count: \(currentCount)")
         }
     }
     

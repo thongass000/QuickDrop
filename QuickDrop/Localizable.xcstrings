@@ -2892,103 +2892,103 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "يرغب %1$@ في إدراج \"%2$@\" في حافظة جهاز Mac الخاص بك."
+            "value" : "%1$@ يريد إدراج \"%2$@\" في الحافظة الخاصة بك."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ möchte \"%2$@\" in die Zwischenablage deines Macs einfügen."
+            "value" : "%1$@ möchte \"%2$@\" in Deine Zwischenablage einfügen."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ wants to insert \"%2$@\" to your Mac's clipboard."
+            "value" : "%1$@ wants to insert \"%2$@\" to your clipboard."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ quiere insertar \"%2$@\" en el portapapeles de tu Mac."
+            "value" : "%1$@ quiere insertar \"%2$@\" en tu portapapeles."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ souhaite insérer \"%2$@\" dans le presse-papiers de votre Mac."
+            "value" : "%1$@ souhaite insérer \"%2$@\" dans votre presse-papiers."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ be szeretné illeszteni a(z) \"%2$@\" szöveget a Mac-ed vágólapjára."
+            "value" : "%1$@ be szeretné illeszteni a(z) \"%2$@\" elemet a vágólapodra."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ vuole inserire \"%2$@\" negli appunti del tuo Mac."
+            "value" : "%1$@ vuole inserire \"%2$@\" negli appunti."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ が \"%2$@\" をあなたの Mac のクリップボードに挿入しようとしています。"
+            "value" : "%1$@があなたのクリップボードに「%2$@」を挿入しようとしています。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@이(가) \"%2$@\"을(를) Mac의 클립보드에 삽입하려고 합니다."
+            "value" : "%1$@님이 클립보드에 \"%2$@\"을(를) 삽입하려고 합니다."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ wil \"%2$@\" in het klembord van je Mac plaatsen."
+            "value" : "%1$@ wil \"%2$@\" naar uw klembord kopiëren."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ deseja inserir \"%2$@\" na área de transferência do seu Mac."
+            "value" : "%1$@ deseja inserir \"%2$@\" na sua área de transferência."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ pretende inserir \"%2$@\" na área de transferência do seu Mac."
+            "value" : "%1$@ quer inserir \"%2$@\" na sua área de transferência."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ dorește să introducă \"%2$@\" în clipboard-ul Mac-ului tău."
+            "value" : "%1$@ dorește să insereze \"%2$@\" în clipboard-ul tău."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ хочет вставить \"%2$@\" в буфер обмена вашего Mac."
+            "value" : "%1$@ хочет вставить \"%2$@\" в ваш буфер обмена."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ ต้องการแทรก \"%2$@\" ไปยังคลิปบอร์ดของ Mac ของคุณ"
+            "value" : "%1$@ ต้องการเพิ่ม \"%2$@\" ไปยังคลิปบอร์ดของคุณ"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ хоче вставити \"%2$@\" до буфера обміну вашого Mac."
+            "value" : "%1$@ хоче вставити \"%2$@\" у ваш буфер обміну."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ 想要将 \"%2$@\" 插入到你的 Mac 剪贴板。"
+            "value" : "%1$@ 想将“%2$@”插入到你的剪贴板。"
           }
         }
       }
@@ -2999,103 +2999,103 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "يرغب %1$@ في فتح \"%2$@\" على جهاز Mac الخاص بك."
+            "value" : "%1$@ يريد فتح \"%2$@\" على هذا الجهاز."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ möchte \"%2$@\" auf deinem Mac öffnen."
+            "value" : "%1$@ möchte \"%2$@\" auf diesem Gerät öffnen."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ wants to open \"%2$@\" on your Mac."
+            "value" : "%1$@ wants to open \"%2$@\" on this device."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ quiere abrir \"%2$@\" en tu Mac."
+            "value" : "%1$@ quiere abrir \"%2$@\" en este dispositivo."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ souhaite ouvrir \"%2$@\" sur votre Mac."
+            "value" : "%1$@ souhaite ouvrir \"%2$@\" sur cet appareil."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ meg szeretné nyitni a(z) \"%2$@\" hivatkozást a Mac-eden."
+            "value" : "%1$@ meg akarja nyitni a(z) \"%2$@\" elemet ezen az eszközön."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ vuole aprire \"%2$@\" sul tuo Mac."
+            "value" : "%1$@ vuole aprire \"%2$@\" su questo dispositivo."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ があなたの Mac で \"%2$@\" を開こうとしています。"
+            "value" : "%1$@がこのデバイスで「%2$@」を開こうとしています。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@이(가) Mac에서 \"%2$@\"을(를) 열려고 합니다."
+            "value" : "%1$@님이 이 장치에서 \"%2$@\"을(를) 열려고 합니다."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ wil \"%2$@\" openen op je Mac."
+            "value" : "%1$@ wil \"%2$@\" openen op dit apparaat."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ deseja abrir \"%2$@\" no seu Mac."
+            "value" : "%1$@ deseja abrir \"%2$@\" neste dispositivo."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ pretende abrir \"%2$@\" no seu Mac."
+            "value" : "%1$@ quer abrir \"%2$@\" neste dispositivo."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ dorește să deschidă \"%2$@\" pe Mac-ul tău."
+            "value" : "%1$@ dorește să deschidă \"%2$@\" pe acest dispozitiv."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ хочет открыть \"%2$@\" на вашем Mac."
+            "value" : "%1$@ хочет открыть \"%2$@\" на этом устройстве."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ ต้องการเปิด \"%2$@\" บน Mac ของคุณ"
+            "value" : "%1$@ ต้องการเปิด \"%2$@\" บนอุปกรณ์นี้"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ хоче відкрити \"%2$@\" на вашому Mac."
+            "value" : "%1$@ хоче відкрити \"%2$@\" на цьому пристрої."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ 想要在你的 Mac 上打开 \"%2$@\"。"
+            "value" : "%1$@ 想在此设备上打开“%2$@”。"
           }
         }
       }
@@ -9618,6 +9618,113 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "所选文件类型不受支持。如果仍要分享，请右键点击文件，选择“压缩”，然后发送压缩后的文件。"
+          }
+        }
+      }
+    },
+    "Unknown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "غير معروف"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbekannt"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desconocido"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inconnu"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ismeretlen"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sconosciuto"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不明"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알 수 없음"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Onbekend"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desconhecido"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desconhecido"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Necunoscut"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неизвестно"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่ทราบ"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Невідомо"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未知"
           }
         }
       }

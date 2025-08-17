@@ -7,6 +7,7 @@
 
 #if os(iOS)
 import UIKit
+import RNDeviceName
 #endif
 
 import Foundation
@@ -31,12 +32,19 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private var qrCodeAdvertisingToken: Data?
     private var qrCodeNameEncryptionKey: SymmetricKey?
     
+    public let deviceInfo: EndpointInfo
     public let endpointID: [UInt8] = generateEndpointID()
     public var mainAppDelegate: (any InboundAppDelegate)?
     public static let shared = NearbyConnectionManager()
     
     
     override init() {
+#if os(macOS)
+        self.deviceInfo = EndpointInfo(name: Host.current().localizedName ?? "Mac", deviceType: .computer)
+#else
+        self.deviceInfo = EndpointInfo(name: UIDevice.current.marketingName, deviceType: .phone)
+#endif
+        
         tcpListener = try! NWListener(using: NWParameters(tls: .none))
         super.init()
     }
@@ -104,22 +112,11 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             let service = NetService(domain: "", type: serviceType, name: name, port: port)
             service.delegate = self
             service.setTXTRecord(NetService.data(fromTXTRecord: [
-                "n": getEndpointInfo().serialize().urlSafeBase64EncodedString().data(using: .utf8)!,
+                "n": deviceInfo.serialize().urlSafeBase64EncodedString().data(using: .utf8)!,
             ]))
             service.publish()
             return service
         }
-    }
-    
-    
-    func getEndpointInfo() -> EndpointInfo {
-#if os(macOS)
-        let endpointInfo = EndpointInfo(name: Host.current().localizedName ?? "Mac", deviceType: .computer)
-#else
-        let endpointInfo = EndpointInfo(name: UIDevice.current.name, deviceType: .phone)
-#endif
-        
-        return endpointInfo
     }
     
     

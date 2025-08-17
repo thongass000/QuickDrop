@@ -167,7 +167,7 @@ class OutboundNearbyConnection: NearbyConnection {
     
     private func sendConnectionRequest() throws {
         
-        let endpointInfo = NearbyConnectionManager.shared.getEndpointInfo()
+        let endpointInfo = NearbyConnectionManager.shared.deviceInfo
         
         var frame = Location_Nearby_Connections_OfflineFrame()
         frame.version = .v1

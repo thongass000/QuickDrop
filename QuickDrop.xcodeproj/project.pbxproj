@@ -105,10 +105,12 @@
 		EB979F942E50CA23008B8C5C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8D2E50CA23008B8C5C /* Configuration.swift */; };
 		EB979F952E50CA23008B8C5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8E2E50CA23008B8C5C /* ContentView.swift */; };
 		EB979F962E50CA23008B8C5C /* FilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8F2E50CA23008B8C5C /* FilePicker.swift */; };
-		EB979F972E50CA23008B8C5C /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F902E50CA23008B8C5C /* ShareViewModel.swift */; };
+		EB979F972E50CA23008B8C5C /* SendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F902E50CA23008B8C5C /* SendModel.swift */; };
 		EB979F982E50CA23008B8C5C /* QuickDropiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */; };
 		EB979F9A2E50CAA6008B8C5C /* PieProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F992E50CAA6008B8C5C /* PieProgressView.swift */; };
 		EB97A00F2E511124008B8C5C /* ReceiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A00E2E511120008B8C5C /* ReceiveModel.swift */; };
+		EB97A0102E51CD13008B8C5C /* ReceiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A00E2E511120008B8C5C /* ReceiveModel.swift */; };
+		EB97A0132E51D6B2008B8C5C /* RNDeviceName in Frameworks */ = {isa = PBXBuildFile; productRef = EB97A0122E51D6B2008B8C5C /* RNDeviceName */; };
 		EB9925802E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
 		EB9925812E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
 		EB9925822E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
@@ -239,7 +241,7 @@
 		EB979F8D2E50CA23008B8C5C /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		EB979F8E2E50CA23008B8C5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EB979F8F2E50CA23008B8C5C /* FilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePicker.swift; sourceTree = "<group>"; };
-		EB979F902E50CA23008B8C5C /* ShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewModel.swift; sourceTree = "<group>"; };
+		EB979F902E50CA23008B8C5C /* SendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendModel.swift; sourceTree = "<group>"; };
 		EB979F912E50CA23008B8C5C /* QuickDropiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickDropiOS.entitlements; sourceTree = "<group>"; };
 		EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDropiOSApp.swift; sourceTree = "<group>"; };
 		EB979F992E50CAA6008B8C5C /* PieProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieProgressView.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB97A0132E51D6B2008B8C5C /* RNDeviceName in Frameworks */,
 				EB5C37F02E377C3F0052EFD7 /* SwiftECC in Frameworks */,
 				EB886E582E4E66420052B7D9 /* LUI in Frameworks */,
 				EB5C37EE2E377C3F0052EFD7 /* SwiftProtobuf in Frameworks */,
@@ -438,7 +441,7 @@
 				EB979F8D2E50CA23008B8C5C /* Configuration.swift */,
 				EB979F8E2E50CA23008B8C5C /* ContentView.swift */,
 				EB979F8F2E50CA23008B8C5C /* FilePicker.swift */,
-				EB979F902E50CA23008B8C5C /* ShareViewModel.swift */,
+				EB979F902E50CA23008B8C5C /* SendModel.swift */,
 				EB97A00E2E511120008B8C5C /* ReceiveModel.swift */,
 				EB979F992E50CAA6008B8C5C /* PieProgressView.swift */,
 				EB979F912E50CA23008B8C5C /* QuickDropiOS.entitlements */,
@@ -578,6 +581,7 @@
 				EB5C37EF2E377C3F0052EFD7 /* SwiftECC */,
 				EB9925882E45F13500357055 /* QRCode */,
 				EB886E572E4E66420052B7D9 /* LUI */,
+				EB97A0122E51D6B2008B8C5C /* RNDeviceName */,
 			);
 			productName = QuickDropiOS;
 			productReference = EB5C37E22E377C2E0052EFD7 /* QuickDropiOS.app */;
@@ -636,6 +640,7 @@
 				EB2F9BFC2DA05F48004010A2 /* XCRemoteSwiftPackageReference "BezelNotification" */,
 				EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */,
 				EB886E562E4E66420052B7D9 /* XCRemoteSwiftPackageReference "LUI" */,
+				EB97A0112E51D6B2008B8C5C /* XCRemoteSwiftPackageReference "RNDeviceName" */,
 			);
 			productRefGroup = 69DA9A0F29E0BF5100A442DA /* Products */;
 			projectDirPath = "";
@@ -747,6 +752,7 @@
 				EB5C37C22E377A780052EFD7 /* device_to_device_messages.pb.swift in Sources */,
 				EB5C37C32E377A780052EFD7 /* wire_format.pb.swift in Sources */,
 				EB5C37C42E377A780052EFD7 /* securegcm.pb.swift in Sources */,
+				EB97A0102E51CD13008B8C5C /* ReceiveModel.swift in Sources */,
 				EBC05C782E33B58100EECC18 /* ActiveNetworkInterface.swift in Sources */,
 				EB5C37CB2E377A7F0052EFD7 /* NearbyConnection.swift in Sources */,
 				EB5C37CC2E377A7F0052EFD7 /* DataModel.swift in Sources */,
@@ -803,7 +809,7 @@
 				EB979F952E50CA23008B8C5C /* ContentView.swift in Sources */,
 				EB979F962E50CA23008B8C5C /* FilePicker.swift in Sources */,
 				EB979F9A2E50CAA6008B8C5C /* PieProgressView.swift in Sources */,
-				EB979F972E50CA23008B8C5C /* ShareViewModel.swift in Sources */,
+				EB979F972E50CA23008B8C5C /* SendModel.swift in Sources */,
 				EB979F982E50CA23008B8C5C /* QuickDropiOSApp.swift in Sources */,
 				EB5C38402E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37FF2E377CE70052EFD7 /* wire_format.pb.swift in Sources */,
@@ -1264,6 +1270,14 @@
 				kind = branch;
 			};
 		};
+		EB97A0112E51D6B2008B8C5C /* XCRemoteSwiftPackageReference "RNDeviceName" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/souzainf3/RNDeviceName";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
 		EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dagronf/qrcode.git";
@@ -1314,6 +1328,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EB886E562E4E66420052B7D9 /* XCRemoteSwiftPackageReference "LUI" */;
 			productName = LUI;
+		};
+		EB97A0122E51D6B2008B8C5C /* RNDeviceName */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB97A0112E51D6B2008B8C5C /* XCRemoteSwiftPackageReference "RNDeviceName" */;
+			productName = RNDeviceName;
 		};
 		EB9925842E45EF0900357055 /* QRCode */ = {
 			isa = XCSwiftPackageProductDependency;

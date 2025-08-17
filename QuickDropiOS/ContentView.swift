@@ -10,11 +10,12 @@ import LUI
 
 struct ContentView: View {
     
-    @StateObject var model = ShareViewModel()
+    @StateObject var sendModel = SendModel()
+    @StateObject var receiveModel = ReceiveModel()
     
     var body: some View {
         AppRootView(isPlus: .constant(true), phoneView: {
-            DeviceListView(model: model)
+            DeviceListView(sendModel: sendModel, receiveModel: receiveModel)
         }, settingsView: {
             EmptyView()
         })
@@ -23,7 +24,8 @@ struct ContentView: View {
 
 struct DeviceListView: View {
     
-    @ObservedObject var model: ShareViewModel
+    @ObservedObject var sendModel: SendModel
+    @ObservedObject var receiveModel: ReceiveModel
     
     var body: some View {
         
@@ -33,7 +35,7 @@ struct DeviceListView: View {
             VStack(alignment: .leading, spacing: 8) {
                 FooterView(text: "YouAreVisibleAs")
                 
-                Text(NearbyConnectionManager.shared.getEndpointInfo().name ?? "QuickDrop")
+                Text(NearbyConnectionManager.shared.deviceInfo.name ?? "Unknown".localized())
                     .fontWeight(.bold)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 6)
@@ -45,7 +47,7 @@ struct DeviceListView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             
             
-            if model.foundDevices.isEmpty {
+            if sendModel.foundDevices.isEmpty {
                 
                 CustomSection(header: "NoDevicesFound") {
                     
@@ -61,9 +63,9 @@ struct DeviceListView: View {
             } else {
                 
                 CustomSection(header: "AvailableDevices") {
-                    ForEach(model.foundDevices) { device in
+                    ForEach(sendModel.foundDevices) { device in
                         
-                        let isSelected = model.selectedDevice == device
+                        let isSelected = sendModel.selectedDevice == device
                         
                         SendPickerButton {
                             HStack(spacing: 12) {
@@ -92,14 +94,14 @@ struct DeviceListView: View {
                                         .fontWeight(.medium)
                                         .foregroundColor(Color.primary)
                                     
-                                    Text(isSelected ? model.progressState ?? "..." : "Available".localized())
+                                    Text(isSelected ? sendModel.progressState ?? "..." : "Available".localized())
                                         .font(.system(size: 12))
                                         .foregroundColor(Color.primary.opacity(0.6))
                                 }
                                 
                                 Spacer()
                                 
-                                if isSelected, let progress = model.progressValue {
+                                if isSelected, let progress = sendModel.progressValue {
                                     PieProgressView(progress: progress, size: 20)
                                 }
                                 else {
@@ -109,11 +111,11 @@ struct DeviceListView: View {
                             }
                             .padding(.vertical, 13)
                         } onResult: { urls, text in
-                            model.urls = urls ?? []
-                            model.textToSend = text
-                            model.selectDevice(device: device)
+                            sendModel.urls = urls ?? []
+                            sendModel.textToSend = text
+                            sendModel.selectDevice(device: device)
                         }
-                        .animation(.easeInOut, value: model.progressValue)
+                        .animation(.easeInOut, value: sendModel.progressValue)
                         .animation(.easeInOut, value: isSelected)
                     }
                 }
@@ -135,14 +137,14 @@ struct DeviceListView: View {
 
 extension DeviceListView {
     static var preview: DeviceListView {
-        let model = ShareViewModel()
+        let model = SendModel()
         model.foundDevices = [
             RemoteDeviceInfo(name: "MacBook Pro", type: .computer, id: "macbook-pro-id"),
             RemoteDeviceInfo(name: "iPhone 14", type: .phone, id: "iphone-14-id"),
             RemoteDeviceInfo(name: "Samsung Galaxy S21", type: .phone, id: "samsung-galaxy-s21-id")
         ]
         
-        return DeviceListView(model: model)
+        return DeviceListView(sendModel: model, receiveModel: ReceiveModel())
     }
 }
 
