@@ -134,6 +134,11 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
+    func inboundConnection(connection: InboundNearbyConnection, transferProgress: Double) {
+        mainAppDelegate?.transferProgress(progress: transferProgress)
+    }
+    
+    
     public func submitUserConsent(transferID: String, accept: Bool, storeInTemp: Bool = false) {
         guard let conn = incomingConnections[transferID] else { return }
         

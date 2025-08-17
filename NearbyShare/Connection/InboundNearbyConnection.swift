@@ -25,6 +25,7 @@ class InboundNearbyConnection: NearbyConnection {
     private var currentState: State = .initial
     private var cipherCommitment: Data?
     private var textPayloadID: Int64 = 0
+    private var bytesToBeTransferred: Int64 = 0
     var isPlainTextTransfer = false
     
     var wasUserRejected = false
@@ -154,6 +155,7 @@ class InboundNearbyConnection: NearbyConnection {
                 
                 // only for logging
                 self.bytesTransferred += Int64(frame.payloadChunk.body.count)
+                NearbyConnectionManager.shared.inboundConnection(connection: self, transferProgress: Double(self.bytesTransferred) / Double(self.bytesToBeTransferred))
             } catch {
                 log("[InboundNearbyConnection \(self.id)] Error occurred during writing file: \(error.localizedDescription)")
                 
@@ -172,6 +174,7 @@ class InboundNearbyConnection: NearbyConnection {
             
             if filesToBeReceived.isEmpty {
                 log("[InboundNearbyConnection \(self.id)] All files received, sending disconnection frame and disconnecting.")
+                NearbyConnectionManager.shared.inboundConnection(connection: self, transferProgress: 1)
                 try sendDisconnectionAndDisconnect()
             }
         }
@@ -218,6 +221,7 @@ class InboundNearbyConnection: NearbyConnection {
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
             
             log("[InboundNearbyConnection \(self.id)] Received file payload. Disconnecting...")
+            NearbyConnectionManager.shared.inboundConnection(connection: self, transferProgress: 1)
             try sendDisconnectionAndDisconnect()
             return true
         }
@@ -426,6 +430,7 @@ class InboundNearbyConnection: NearbyConnection {
                                             payloadID: file.payloadID,
                                             destinationURL: dest)
                 filesToBeReceived[file.payloadID] = info
+                bytesToBeTransferred += file.size
             }
             let metadata = TransferMetadata(files: filesToBeReceived.map { $0.value.meta }, id: id, pinCode: pinCode)
             DispatchQueue.main.async {

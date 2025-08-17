@@ -16,7 +16,7 @@ import LUI
 #endif
 
 class ReceiveModel: ObservableObject, InboundAppDelegate {
-
+    
     let controlPlusScreen: (Bool) -> Void
     
     init(controlPlusScreen: @escaping (Bool) -> Void = { _ in }) {
@@ -91,7 +91,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             let primaryButtonTitle = "Accept".localized()
             let primaryButtonAction = { self.pressAcceptButton(transferID: transferID) }
             let secondaryButtonTitle = "Decline".localized()
-            let secondaryButtonAction = { self.continueTransmission(accept: false, transferID: transferID) }
+            let secondaryButtonAction = { NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: false, storeInTemp: false) }
             
             #if os(macOS)
             let alert = NSAlert()
@@ -111,31 +111,51 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             }
             #else
             // iOS
-            showAlert(title: title, message: mainMessage, primaryButton: LUIAlertButton(title: secondaryButtonTitle, action: secondaryButtonAction), secondaryButton: LUIAlertButton(title: primaryButtonTitle, action: primaryButtonAction))
+            ProgressAlert.shared.askForUserPermission(title: title, message: mainMessage, acceptLabel: primaryButtonTitle, rejectLabel: secondaryButtonTitle) { accepted in
+                accepted ? primaryButtonAction() : secondaryButtonAction()
+            }
             #endif
         }
     }
     
     
+    func transferProgress(progress: Double) {
+        #if os(iOS)
+        ProgressAlert.shared.updateProgress(progress)
+        #endif
+    }
+    
+    
     func connectionWasTerminated(from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: (any Error)?) {
-        if let error = error {
-            controlPlusScreen(false)
-            ErrorAlertHandler.shared.showErrorAlert(for: device.name ?? "Android", error: error)
-        } else {
-            
-            if wasPlainTextTransfer {
-                showCopiedToClipboardAlert()
-            }
-            
-            let currentCount = incomingTransmissionCount()
-            if currentCount == 0 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    SKStoreReviewController.requestReview()
+        
+        #if os(macOS)
+        finish()
+        #else
+        ProgressAlert.shared.updateProgress(nil) {
+            finish()
+        }
+        #endif
+        
+        func finish() {
+            if let error = error {
+                controlPlusScreen(false)
+                ErrorAlertHandler.shared.showErrorAlert(for: device.name ?? "Android", error: error)
+            } else {
+                
+                if wasPlainTextTransfer {
+                    showCopiedToClipboardAlert()
                 }
-            }
+                
+                let currentCount = incomingTransmissionCount()
+                if currentCount == 0 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        SKStoreReviewController.requestReview()
+                    }
+                }
 
-            UserDefaults.standard.set(currentCount + 1, forKey: UserDefaultsKeys.transmissionCount.rawValue)
-            log("[ReceiveModel] Successful transmission. Current count: \(currentCount)")
+                UserDefaults.standard.set(currentCount + 1, forKey: UserDefaultsKeys.transmissionCount.rawValue)
+                log("[ReceiveModel] Successful transmission. Current count: \(currentCount)")
+            }
         }
     }
     
@@ -154,16 +174,11 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     
     private func pressAcceptButton(transferID: String) {
         if isFileTransferRestricted() {
-            continueTransmission(accept: true, transferID: transferID, storeInTemp: true)
             log("[ReceiveModel] Showing plus screen...")
+            NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: true, storeInTemp: true)
             controlPlusScreen(true)
         } else {
-            continueTransmission(accept: true, transferID: transferID)
+            NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: true, storeInTemp: false)
         }
-    }
-    
-    
-    private func continueTransmission(accept: Bool, transferID: String, storeInTemp: Bool = false) {
-        NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: accept, storeInTemp: storeInTemp)
     }
 }

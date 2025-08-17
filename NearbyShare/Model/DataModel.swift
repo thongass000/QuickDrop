@@ -13,6 +13,7 @@ import SwiftECC
 
 protocol InboundNearbyConnectionDelegate {
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo, connection: InboundNearbyConnection)
+    func inboundConnection(connection: InboundNearbyConnection, transferProgress: Double)
     func connectionWasTerminated(connection: InboundNearbyConnection, error: Error?)
 }
 
@@ -29,6 +30,7 @@ protocol OutboundNearbyConnectionDelegate {
 public protocol InboundAppDelegate: AnyObject {
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo)
     func connectionWasTerminated(from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: Error?)
+    func transferProgress(progress: Double)
 }
 
 

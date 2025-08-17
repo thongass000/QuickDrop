@@ -113,6 +113,7 @@
 		EB97A0132E51D6B2008B8C5C /* RNDeviceName in Frameworks */ = {isa = PBXBuildFile; productRef = EB97A0122E51D6B2008B8C5C /* RNDeviceName */; };
 		EB97A0142E51DD00008B8C5C /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
 		EB97A0152E51DD00008B8C5C /* timeIsNow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EBC05C8A2E33B59E00EECC18 /* timeIsNow.mp3 */; };
+		EB97A01A2E51EAA2008B8C5C /* UIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A0192E51EA9C008B8C5C /* UIAlert.swift */; };
 		EB9925802E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
 		EB9925812E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
 		EB9925822E45D53E00357055 /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
@@ -249,6 +250,7 @@
 		EB979F992E50CAA6008B8C5C /* PieProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieProgressView.swift; sourceTree = "<group>"; };
 		EB97A00E2E511120008B8C5C /* ReceiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveModel.swift; sourceTree = "<group>"; };
 		EB97A0162E51DF4F008B8C5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EB97A0192E51EA9C008B8C5C /* UIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlert.swift; sourceTree = "<group>"; };
 		EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharing_enums.pb.swift; sourceTree = "<group>"; };
 		EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertHandler.swift; sourceTree = "<group>"; };
 		EBC05C6D2E33B57D00EECC18 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				EB979F8F2E50CA23008B8C5C /* FilePicker.swift */,
 				EB979F902E50CA23008B8C5C /* SendModel.swift */,
 				EB97A00E2E511120008B8C5C /* ReceiveModel.swift */,
+				EB97A0192E51EA9C008B8C5C /* UIAlert.swift */,
 				EB979F992E50CAA6008B8C5C /* PieProgressView.swift */,
 				EB979F912E50CA23008B8C5C /* QuickDropiOS.entitlements */,
 				EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */,
@@ -813,6 +816,7 @@
 				EB5C383D2E38C2D90052EFD7 /* AudioManager.swift in Sources */,
 				EB979F942E50CA23008B8C5C /* Configuration.swift in Sources */,
 				EB979F952E50CA23008B8C5C /* ContentView.swift in Sources */,
+				EB97A01A2E51EAA2008B8C5C /* UIAlert.swift in Sources */,
 				EB979F962E50CA23008B8C5C /* FilePicker.swift in Sources */,
 				EB979F9A2E50CAA6008B8C5C /* PieProgressView.swift in Sources */,
 				EB979F972E50CA23008B8C5C /* SendModel.swift in Sources */,
