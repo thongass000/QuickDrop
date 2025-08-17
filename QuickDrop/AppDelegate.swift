@@ -412,7 +412,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
     
 
-    func connectionWasTerminated(wasPlainTextTransfer: Bool, from device: RemoteDeviceInfo, didFinishWith error: Error?) {
+    func connectionWasTerminated(from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: Error?) {
 
         if let error = error {
             

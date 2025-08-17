@@ -19,11 +19,7 @@ class ReceiveModel: ObservableObject, MainAppDelegate {
         
     }
     
-    func incomingTransfer(id: String, from device: RemoteDeviceInfo, didFinishWith error: (any Error)?) {
-    }
-    
-    func showCopiedToClipboardAlert() {
+    func connectionWasTerminated(from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: (any Error)?) {
         
     }
-    
 }

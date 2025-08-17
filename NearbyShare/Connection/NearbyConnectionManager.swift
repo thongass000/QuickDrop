@@ -132,7 +132,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         incomingConnections.removeValue(forKey: connection.id)
         
         if !connection.wasUserRejected {
-            mainAppDelegate?.connectionWasTerminated(wasPlainTextTransfer: connection.isPlainTextTransfer, from: connection.remoteDeviceInfo ?? RemoteDeviceInfo(name: "??", type: .unknown), didFinishWith: error)
+            mainAppDelegate?.connectionWasTerminated(from: connection.remoteDeviceInfo ?? RemoteDeviceInfo(name: "??", type: .unknown), wasPlainTextTransfer: connection.isPlainTextTransfer, error: error)
         }
     }
     
