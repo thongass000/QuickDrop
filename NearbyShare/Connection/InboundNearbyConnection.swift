@@ -198,7 +198,7 @@ class InboundNearbyConnection: NearbyConnection {
                 } else if let url = URL(string: urlStr) {
                     #if os(macOS)
                     NSWorkspace.shared.open(url)
-                    #elseif os(iOS)
+                    #elseif os(iOS) && !EXTENSION
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     #endif
                 }

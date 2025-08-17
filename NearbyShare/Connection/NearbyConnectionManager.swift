@@ -18,7 +18,9 @@ import CryptoKit
 
 public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearbyConnectionDelegate, OutboundNearbyConnectionDelegate {
     
+    #if !EXTENSION
     private let sleepManager = SleepManager.shared
+    #endif
     private var tcpListener: NWListener
     private var mdnsServices: [NetService] = []
     private var incomingConnections: [String: InboundNearbyConnection] = [:]

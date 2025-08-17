@@ -49,41 +49,15 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
     
     override func loadView() {
         super.loadView()
-        
-        let item = extensionContext!.inputItems[0] as! NSExtensionItem
-        if let attachments = item.attachments {
-            if let text = item.attributedContentText?.string, attachments.isEmpty {
-                textToSend = text
-                
-                DispatchQueue.main.async {
-                    self.setUpIcon()
-                }
-            } else {
-                for attachment in attachments {
-                    if attachment.hasItemConformingToTypeIdentifier(kUTTypeURL as String) {
-                        attachment.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil) { data, _ in
-                            if let urlData = data as? Data,
-                               let url = URL(dataRepresentation: urlData, relativeTo: nil, isAbsolute: false)
-                            {
-                                self.urls.append(url)
-                            } else if let url = data as? NSURL {
-                                self.urls.append(url as URL)
-                            }
-                            
-                            if self.urls.count == attachments.count {
-                                DispatchQueue.main.async {
-                                    self.setUpIcon()
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        } else {
-            let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
-            extensionContext!.cancelRequest(withError: cancelError)
-            return
-        }
+        loadAttachments(with: extensionContext, loadedItems: { result in
+            
+            log("Loaded attachments: \(result)")
+            
+            self.urls = result.urls
+            self.textToSend = result.textToSend
+            self.filesLabel?.stringValue = result.shortDescription
+            self.filesIcon?.image = result.previewImage
+        })
         
         contentWrap!.addSubview(listViewWrapper!)
         contentWrap!.addSubview(loadingOverlay!)
@@ -205,35 +179,6 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
             
             qrCodeSheetView = nil
             sheetAttachedWindow = nil
-        }
-    }
-    
-    
-    private func setUpIcon() {
-        if let textToSend = textToSend {
-            let maxLength = 50
-            let cleanedText = textToSend.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "")
-            
-            if cleanedText.count > maxLength {
-                let index = cleanedText.index(cleanedText.startIndex, offsetBy: maxLength)
-                filesLabel!.stringValue = String(cleanedText[..<index]) + "..."
-            } else {
-                filesLabel!.stringValue = cleanedText
-            }
-            
-            filesIcon!.image = NSImage(named: NSImage.multipleDocumentsName)
-        }
-        else if urls.count == 1 {
-            if urls[0].isFileURL {
-                filesLabel!.stringValue = urls[0].lastPathComponent
-                filesIcon!.image = NSWorkspace.shared.icon(forFile: urls[0].path)
-            } else if urls[0].scheme == "http" || urls[0].scheme == "https" {
-                filesLabel!.stringValue = urls[0].absoluteString
-                filesIcon!.image = NSImage(named: NSImage.networkName)
-            }
-        } else {
-            filesLabel!.stringValue = String.localizedStringWithFormat("NFiles".localized(), urls.count)
-            filesIcon!.image = NSImage(named: NSImage.multipleDocumentsName)
         }
     }
     

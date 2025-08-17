@@ -89,10 +89,6 @@ class ErrorAlertHandler {
             #if os(macOS)
             
             let primaryButtonTitle = "InformDeveloper".localized()
-            let primaryButtonAction: () -> Void = {
-                log("Sending logging string")
-                sendLoggingString()
-            }
             let secondaryButtonTitle = "CloseAlert".localized()
             
             self.isAlertShown = true

@@ -126,15 +126,14 @@ public class SaveFilesManager {
             #else
                 
                 let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-
-                if let documentsUrl = documentsUrl, let sharedUrl = URL(string: "shareddocuments://\(documentsUrl.path)") {
-                    if UIApplication.shared.canOpenURL(sharedUrl) {
-                        UIApplication.shared.open(sharedUrl, options: [:])
-                    }
+                #if !EXTENSION
+                if let documentsUrl = documentsUrl, let sharedUrl = URL(string: "shareddocuments://\(documentsUrl.path)"), UIApplication.shared.canOpenURL(sharedUrl) {
+                    UIApplication.shared.open(sharedUrl, options: [:])
                 }
                 else {
                     showAlert(title: "CouldNotOpenDocumentsFolder", message: "CouldNotOpenDocumentsFolderDescription")
                 }
+                #endif
             
             #endif
             
