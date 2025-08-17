@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class ShareViewModel: ObservableObject, ShareExtensionDelegate {
+class ShareViewModel: ObservableObject, OutboundAppDelegate {
     
     @Published var foundDevices: [RemoteDeviceInfo] = []
     @Published var selectedDevice: RemoteDeviceInfo?
@@ -17,7 +17,6 @@ class ShareViewModel: ObservableObject, ShareExtensionDelegate {
     
     var urls: [URL] = []
     var textToSend: String? = nil
-    //private var errorAlertHandler = ErrorAlertHandler.shared
     
     private var connectionEstablished = false
     private var timeoutDispatchWorkItem: DispatchWorkItem? = nil

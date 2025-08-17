@@ -26,13 +26,13 @@ protocol OutboundNearbyConnectionDelegate {
 }
 
 
-public protocol MainAppDelegate {
+public protocol InboundAppDelegate: AnyObject {
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo)
     func connectionWasTerminated(from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: Error?)
 }
 
 
-public protocol ShareExtensionDelegate: AnyObject {
+public protocol OutboundAppDelegate: AnyObject {
     func addDevice(device: RemoteDeviceInfo)
     func removeDevice(id: String)
     func startTransferWithQrCode(device: RemoteDeviceInfo)

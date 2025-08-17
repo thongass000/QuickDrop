@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class ReceiveModel: ObservableObject, MainAppDelegate {
+class ReceiveModel: ObservableObject, InboundAppDelegate {
 
     
     init() {

@@ -14,7 +14,7 @@ import SwiftUI
 import UserNotifications
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSWindowDelegate, MainAppDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSWindowDelegate, InboundAppDelegate {
     
     private var statusItem: NSStatusItem?
 

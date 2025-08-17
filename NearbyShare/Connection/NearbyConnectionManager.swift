@@ -22,7 +22,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private var mdnsServices: [NetService] = []
     private var incomingConnections: [String: InboundNearbyConnection] = [:]
     private var foundServices: [String: FoundServiceInfo] = [:]
-    private var shareExtensionDelegates: [ShareExtensionDelegate] = []
+    private var shareExtensionDelegates: [OutboundAppDelegate] = []
     private var outgoingTransfers: [String: OutgoingTransferInfo] = [:]
     private var startedDeviceDiscovery = false
     private var browsers: [NWBrowser] = []
@@ -32,7 +32,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private var qrCodeNameEncryptionKey: SymmetricKey?
     
     public let endpointID: [UInt8] = generateEndpointID()
-    public var mainAppDelegate: (any MainAppDelegate)?
+    public var mainAppDelegate: (any InboundAppDelegate)?
     public static let shared = NearbyConnectionManager()
     
     
@@ -193,7 +193,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    public func addShareExtensionDelegate(_ delegate: ShareExtensionDelegate) {
+    public func addShareExtensionDelegate(_ delegate: OutboundAppDelegate) {
         shareExtensionDelegates.append(delegate)
         for service in foundServices.values {
             guard let device = service.device else { continue }
@@ -202,7 +202,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    public func removeShareExtensionDelegate(_ delegate: ShareExtensionDelegate) {
+    public func removeShareExtensionDelegate(_ delegate: OutboundAppDelegate) {
         shareExtensionDelegates.removeAll(where: { $0 === delegate })
     }
     
@@ -315,7 +315,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    public func startOutgoingTransfer(deviceID: String, delegate: ShareExtensionDelegate, urls: [URL], textToSend: String?) {
+    public func startOutgoingTransfer(deviceID: String, delegate: OutboundAppDelegate, urls: [URL], textToSend: String?) {
         log("Starting outgoing transfer to \(deviceID)")
         guard let info = foundServices[deviceID] else { return }
         
@@ -448,6 +448,6 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         let service: NWBrowser.Result
         let device: RemoteDeviceInfo
         let connection: OutboundNearbyConnection
-        let delegate: ShareExtensionDelegate
+        let delegate: OutboundAppDelegate
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import QRCode
 
-class ShareViewController: NSViewController, ShareExtensionDelegate {
+class ShareViewController: NSViewController, OutboundAppDelegate {
     
     private var urls: [URL] = []
     private var textToSend: String? = nil
