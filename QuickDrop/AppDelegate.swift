@@ -428,7 +428,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 showCopiedToClipboardAlert()
             }
             
-            let currentCount = transmissionCount()
+            let currentCount = incomingTransmissionCount()
             if currentCount == 0 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     SKStoreReviewController.requestReview()

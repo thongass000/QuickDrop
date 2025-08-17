@@ -111,10 +111,10 @@ public func isPlusVersion() -> Bool {
 
 
 public func isFileTransferRestricted() -> Bool {
-    (!isPlusVersion() && transmissionCount() > 1)
+    (!isPlusVersion() && incomingTransmissionCount() > 1)
 }
 
 
-public func transmissionCount() -> Int {
+public func incomingTransmissionCount() -> Int {
     return UserDefaults.standard.integer(forKey: UserDefaultsKeys.transmissionCount.rawValue)
 }
