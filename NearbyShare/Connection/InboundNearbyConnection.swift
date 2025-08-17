@@ -25,7 +25,7 @@ class InboundNearbyConnection: NearbyConnection {
     private var currentState: State = .initial
     private var cipherCommitment: Data?
     private var textPayloadID: Int64 = 0
-    private var isPlainTextTransfer = false
+    var isPlainTextTransfer = false
     
     var wasUserRejected = false
     var delegate: InboundNearbyConnectionDelegate?
@@ -188,9 +188,6 @@ class InboundNearbyConnection: NearbyConnection {
                     let pasteboard = NSPasteboard.general
                     pasteboard.clearContents()
                     pasteboard.setString(urlStr, forType: .string)
-                    
-                    NearbyConnectionManager.shared.mainAppDelegate?.showCopiedToClipboardAlert()
-                    
                     #elseif os(iOS)
                     // iOS clipboard
                     UIPasteboard.general.string = urlStr
@@ -444,7 +441,7 @@ class InboundNearbyConnection: NearbyConnection {
                 let metadata = TransferMetadata(files: [], id: id, pinCode: pinCode, textDescription: textMetadata.textTitle, transferType: isClipboardText ? .text : .url)
                 textPayloadID = textMetadata.payloadID
                 
-                if isClipboardText{
+                if isClipboardText {
                     isPlainTextTransfer = true
                 }
                 

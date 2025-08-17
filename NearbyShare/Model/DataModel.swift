@@ -28,8 +28,7 @@ protocol OutboundNearbyConnectionDelegate {
 
 public protocol MainAppDelegate {
     func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo)
-    func incomingTransfer(id: String, from device: RemoteDeviceInfo, didFinishWith error: Error?)
-    func showCopiedToClipboardAlert()
+    func connectionWasTerminated(wasPlainTextTransfer: Bool, from device: RemoteDeviceInfo, didFinishWith error: Error?)
 }
 
 

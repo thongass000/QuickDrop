@@ -412,7 +412,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
     
 
-    func incomingTransfer(id: String, from device: RemoteDeviceInfo, didFinishWith error: Error?) {
+    func connectionWasTerminated(wasPlainTextTransfer: Bool, from device: RemoteDeviceInfo, didFinishWith error: Error?) {
 
         if let error = error {
             
@@ -423,6 +423,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             
             ErrorAlertHandler.shared.showErrorAlert(for: device.name ?? "Android", error: error)
         } else {
+            
+            if wasPlainTextTransfer {
+                showCopiedToClipboardAlert()
+            }
+            
             let currentCount = transmissionCount()
             if currentCount == 0 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
