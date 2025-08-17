@@ -10,11 +10,9 @@ import LUI
 
 struct ContentView: View {
     
-    var attachments: AttachmentDetails? = nil
-    
     var body: some View {
         AppRootView(isPlus: .constant(true), phoneView: {
-            DeviceListView(attachments: attachments)
+            DeviceListView()
         }, settingsView: {
             EmptyView()
         })
@@ -23,29 +21,41 @@ struct ContentView: View {
 
 struct DeviceListView: View {
     
-    var attachments: AttachmentDetails? = nil
-    
     @StateObject var sendModel = SendModel()
     
     #if !EXTENSION
     @StateObject var receiveModel = ReceiveModel()
     #endif
     
+    @ObservedObject var nearbyConnectionManager = NearbyConnectionManager.shared
+    
     var body: some View {
         
         NavigationSubView(header: "QuickDrop ") {
             
-            // "You're visible as"
             VStack(alignment: .leading, spacing: 8) {
-                FooterView(text: "YouAreVisibleAs")
                 
-                Text(NearbyConnectionManager.shared.deviceInfo.name ?? "Unknown".localized())
-                    .fontWeight(.bold)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 6)
-                    .background(Color.defaultForegroundColor)
-                    .cornerRadius(24)
-                    .padding(.horizontal)
+                let attachments = nearbyConnectionManager.attachments
+                
+                FooterView(text: attachments == nil ? "YouAreVisibleAs".localized() : "YouAreSending".localized())
+                
+                HStack {
+                    
+                    if let image = attachments?.previewImage {
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 10, height: 10)
+                    }
+                    
+                    Text(attachments?.shortDescription ?? NearbyConnectionManager.shared.deviceInfo.name ?? "Unknown".localized())
+                        .fontWeight(.bold)
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 6)
+                .background(Color.defaultForegroundColor)
+                .cornerRadius(24)
+                .padding(.horizontal)
             }
             .padding(.top, 8)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -72,7 +82,7 @@ struct DeviceListView: View {
                         let isSelected = sendModel.selectedDevice == device
                         
                         ZStack {
-                            if let attachments = attachments {
+                            if let attachments = NearbyConnectionManager.shared.attachments {
                                 LUIButton {
                                     sendModel.urls = attachments.urls
                                     sendModel.textToSend = attachments.textToSend

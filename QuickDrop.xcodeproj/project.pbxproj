@@ -83,6 +83,7 @@
 		EB704A832E4B10D4008E608F /* DistributionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB704A812E4A7BAE008E608F /* DistributionDetector.swift */; };
 		EB704A842E4B10D4008E608F /* DistributionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB704A812E4A7BAE008E608F /* DistributionDetector.swift */; };
 		EB7654782E525ACC006B4AA3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB7654772E525ACC006B4AA3 /* MainMenu.xib */; };
+		EB76547D2E526164006B4AA3 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = EB76547C2E526164006B4AA3 /* ZIPFoundation */; };
 		EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7CD1462D6FB0E800CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7F54122D78E96000989564 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54112D78E95C00989564 /* TutorialView.swift */; };
@@ -346,6 +347,7 @@
 				EB5C37D82E377ACF0052EFD7 /* SwiftECC in Frameworks */,
 				EB5C37D62E377ACF0052EFD7 /* SwiftProtobuf in Frameworks */,
 				EB9925852E45EF0900357055 /* QRCode in Frameworks */,
+				EB76547D2E526164006B4AA3 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1528,6 +1530,14 @@
 				minimumVersion = 2.1.0;
 			};
 		};
+		EB7654792E526155006B4AA3 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.19;
+			};
+		};
 		EB886E562E4E66420052B7D9 /* XCRemoteSwiftPackageReference "LUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/leonboe1/LUI.git";
@@ -1589,6 +1599,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 69DA9A3429E1994C00A442DA /* XCRemoteSwiftPackageReference "SwiftECC" */;
 			productName = SwiftECC;
+		};
+		EB76547C2E526164006B4AA3 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB7654792E526155006B4AA3 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
 		};
 		EB886E572E4E66420052B7D9 /* LUI */ = {
 			isa = XCSwiftPackageProductDependency;

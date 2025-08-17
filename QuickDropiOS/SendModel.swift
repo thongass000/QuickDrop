@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+#if os(iOS)
+import LUI
+#endif
 
 class SendModel: ObservableObject, OutboundAppDelegate {
     
@@ -47,6 +50,10 @@ class SendModel: ObservableObject, OutboundAppDelegate {
     
     func connectionFailed(with error: any Error) {
         
+        #if os(iOS)
+        errorVibration()
+        #endif
+        
         ErrorAlertHandler.shared.showErrorAlert(for: selectedDevice?.name ?? "?", error: error)
         
         progressValue = nil
@@ -62,9 +69,16 @@ class SendModel: ObservableObject, OutboundAppDelegate {
     }
     
     func transferFinished() {
+        
+        #if os(iOS)
+        doubleVibration()
+        #endif
+        
         progressValue = 0
         selectedDevice = nil
         progressState = "TransferFinished".localized()
+        
+        NearbyConnectionManager.shared.attachments?.closeView?()
     }
     
     func startTransferWithQrCode(device: RemoteDeviceInfo) {

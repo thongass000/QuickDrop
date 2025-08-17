@@ -15,8 +15,9 @@ import Network
 import System
 import SwiftECC
 import CryptoKit
+import SwiftUI
 
-public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearbyConnectionDelegate, OutboundNearbyConnectionDelegate {
+public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearbyConnectionDelegate, OutboundNearbyConnectionDelegate, ObservableObject {
     
     #if !EXTENSION
     private let sleepManager = SleepManager.shared
@@ -38,6 +39,8 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     public let endpointID: [UInt8] = generateEndpointID()
     public var mainAppDelegate: (any InboundAppDelegate)?
     public static let shared = NearbyConnectionManager()
+    
+    @Published var attachments: AttachmentDetails? = nil
     
     
     override init() {

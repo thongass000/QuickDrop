@@ -22,26 +22,30 @@ class ShareViewController: UIViewController {
                 self?.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
             }
             
-            // Replace with your app’s SwiftUI entry view
-            let contentView = ContentView(attachments: attachmentDetails)
-
-            // Embed SwiftUI inside the extension’s controller
-            let hostingController = UIHostingController(rootView: contentView)
-
-            addChild(hostingController)
-            hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(hostingController.view)
-
-            // Pin to edges
-            NSLayoutConstraint.activate([
-                hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
-                hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            ])
-
-            hostingController.didMove(toParent: self)
+            DispatchQueue.main.async {
+                NearbyConnectionManager.shared.attachments = attachmentDetails
+            }
         })
+        
+        // Replace with your app’s SwiftUI entry view
+        let contentView = ContentView()
+
+        // Embed SwiftUI inside the extension’s controller
+        let hostingController = UIHostingController(rootView: contentView)
+
+        addChild(hostingController)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(hostingController.view)
+
+        // Pin to edges
+        NSLayoutConstraint.activate([
+            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
+            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+
+        hostingController.didMove(toParent: self)
     }
 }
 

@@ -138,9 +138,18 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         
         func finish() {
             if let error = error {
+                
+                #if os(iOS)
+                errorVibration()
+                #endif
+                
                 controlPlusScreen(false)
                 ErrorAlertHandler.shared.showErrorAlert(for: device.name ?? "Android", error: error)
             } else {
+                
+                #if os(iOS)
+                doubleVibration()
+                #endif
                 
                 if wasPlainTextTransfer {
                     showCopiedToClipboardAlert()
@@ -165,9 +174,6 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         DispatchQueue.main.async {
             BezelNotification.show(messageText: "InsertedIntoClipboard".localized(), icon: .clipboard)
         }
-        #else
-        // iOS
-        doubleVibration()
         #endif
     }
     
