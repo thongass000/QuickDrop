@@ -24,8 +24,14 @@ final class LogManager {
     
     /// Private initializer
     private init() {
+        
+        #if os(macOS)
         // Use the App Group container
         let directory = getAppGroupDirectory()
+        #else
+        // On iOS, use the library directory, to not let the logs appear in the files app
+        let directory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first
+        #endif
         
         // Create file name from date
         let formatter = DateFormatter()

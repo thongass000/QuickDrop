@@ -10,6 +10,7 @@ import ImageIO
 #if os(macOS)
 import AppKit
 #else
+import LUI
 import UIKit
 #endif
 
@@ -46,7 +47,6 @@ public class SaveFilesManager {
 
     private var filesFinishedDownloading = [URL]()
     private var filesFinishedDownloadingSinceLastRun = [URL]()
-    
     
     public func registerFileFinishedDownloading(_ fileURL: URL) {
         filesFinishedDownloading.append(fileURL)
@@ -123,6 +123,19 @@ public class SaveFilesManager {
                 log("Opening \(filesFinishedDownloadingSinceLastRun.count) file(s) in Finder.")
                 NSWorkspace.shared.activateFileViewerSelecting(filesFinishedDownloadingSinceLastRun)
             }
+            #else
+                
+                let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+
+                if let documentsUrl = documentsUrl, let sharedUrl = URL(string: "shareddocuments://\(documentsUrl.path)") {
+                    if UIApplication.shared.canOpenURL(sharedUrl) {
+                        UIApplication.shared.open(sharedUrl, options: [:])
+                    }
+                }
+                else {
+                    showAlert(title: "CouldNotOpenDocumentsFolder", message: "CouldNotOpenDocumentsFolderDescription")
+                }
+            
             #endif
             
             // Clear the list of finished files
