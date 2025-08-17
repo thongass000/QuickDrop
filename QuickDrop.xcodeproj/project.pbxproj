@@ -248,6 +248,7 @@
 		EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDropiOSApp.swift; sourceTree = "<group>"; };
 		EB979F992E50CAA6008B8C5C /* PieProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieProgressView.swift; sourceTree = "<group>"; };
 		EB97A00E2E511120008B8C5C /* ReceiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveModel.swift; sourceTree = "<group>"; };
+		EB97A0162E51DF4F008B8C5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharing_enums.pb.swift; sourceTree = "<group>"; };
 		EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertHandler.swift; sourceTree = "<group>"; };
 		EBC05C6D2E33B57D00EECC18 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
@@ -440,6 +441,7 @@
 		EB979F932E50CA23008B8C5C /* QuickDropiOS */ = {
 			isa = PBXGroup;
 			children = (
+				EB97A0162E51DF4F008B8C5C /* Info.plist */,
 				EB979F8D2E50CA23008B8C5C /* Configuration.swift */,
 				EB979F8E2E50CA23008B8C5C /* ContentView.swift */,
 				EB979F8F2E50CA23008B8C5C /* FilePicker.swift */,
@@ -1131,8 +1133,10 @@
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuickDropiOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QuickDrop;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is required to scan and connect to devices.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1171,8 +1175,10 @@
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuickDropiOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QuickDrop;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is required to scan and connect to devices.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

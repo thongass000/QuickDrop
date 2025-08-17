@@ -143,6 +143,9 @@ public class SaveFilesManager {
 
     
     public func getSaveDirectory() -> URL {
+        
+        // Not supported on iOS
+        #if os(macOS)
         if let securityScopeUrl = securityScopeUrl {
             log("Using existing security scope URL: \(securityScopeUrl)")
             return securityScopeUrl
@@ -150,9 +153,7 @@ public class SaveFilesManager {
 
         if let bookmarkData = UserDefaults.standard.data(forKey: UserDefaultsKeys.saveFolderBookmark.rawValue) {
             var isStale = false
-
-            // Not supported on iOS
-            #if os(macOS)
+   
             do {
                 let url = try URL(resolvingBookmarkData: bookmarkData, options: .withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &isStale)
 
@@ -170,7 +171,6 @@ public class SaveFilesManager {
             } catch {
                 log("Failed to resolve bookmark: \(error), using default downloads folder.")
             }
-            #endif
         }
 
         do {
@@ -178,6 +178,14 @@ public class SaveFilesManager {
         } catch {
             fatalError("Failed to get downloads directory: \(error)")
         }
+        #else
+        // Return the documents directory for iOS
+        do {
+            return try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).resolvingSymlinksInPath()
+        } catch {
+            fatalError("Failed to get documents directory: \(error)")
+        }
+        #endif
     }
     
     
