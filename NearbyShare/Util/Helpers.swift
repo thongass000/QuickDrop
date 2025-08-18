@@ -64,7 +64,7 @@ extension Data {
 }
 
 
-extension SymmetricKey{
+extension SymmetricKey {
     func data() -> Data{
         return withUnsafeBytes({return Data(bytes: $0.baseAddress!, count: $0.count)})
     }
@@ -87,6 +87,25 @@ extension String {
             index = nextIndex
         }
         return data
+    }
+    
+    var withoutBracketedContent: String {
+        
+        let input = self
+        
+        // Replace any (...) including content inside, multiple times
+        let pattern = #"\([^)]*\)"#
+        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        
+        // Remove all bracketed parts
+        let range = NSRange(location: 0, length: input.utf16.count)
+        var result = regex.stringByReplacingMatches(in: input, options: [], range: range, withTemplate: "")
+        
+        // Remove extra spaces left behind
+        result = result.replacingOccurrences(of: "  ", with: " ") // collapse double spaces
+        result = result.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        return result
     }
 }
 
