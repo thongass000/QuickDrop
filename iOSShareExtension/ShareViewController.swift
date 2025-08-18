@@ -29,6 +29,7 @@ class ShareViewController: UIViewController {
         })
         
         // skip introduction for share extension
+        LUIInit(configuration: configuration)
         LUISettings.sharedInstance.appLaunchedBefore = true
         
         // Replace with your app’s SwiftUI entry view

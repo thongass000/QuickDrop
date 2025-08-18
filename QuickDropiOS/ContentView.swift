@@ -10,6 +10,8 @@ import LUI
 
 struct ContentView: View {
     
+    @Environment(\.scenePhase) var scenePhase
+    
     var body: some View {
         AppRootView(isPlus: .constant(true), phoneView: {
             DeviceListView()
@@ -23,6 +25,21 @@ struct ContentView: View {
                 }
             }
         })
+        .onChange(of: scenePhase) { newValue in
+            if newValue == .active {
+                #if !EXTENSION
+                NearbyConnectionManager.shared.becomeVisible()
+                #endif
+                NearbyConnectionManager.shared.startDeviceDiscovery()
+            }
+            
+            if newValue == .background {
+                #if !EXTENSION
+                NearbyConnectionManager.shared.becomeInvisible()
+                #endif
+                NearbyConnectionManager.shared.stopDeviceDiscovery()
+            }
+        }
     }
 }
 

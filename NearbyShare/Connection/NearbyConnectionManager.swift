@@ -29,6 +29,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private var shareExtensionDelegates: [OutboundAppDelegate] = []
     private var outgoingTransfers: [String: OutgoingTransferInfo] = [:]
     private var startedDeviceDiscovery = false
+    private var startedAdvertising = false
     private var browsers: [NWBrowser] = []
     private let serviceTypes = ["_FC9F5ED42C8A._tcp."]
     private var qrCodePrivateKey: ECPrivateKey?
@@ -56,11 +57,16 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     
     public func becomeVisible() {
-        startTCPListener()
-    }
-    
-    
-    private func startTCPListener() {
+        if startedAdvertising {
+            log("[NearbyConnectionManager] Already advertising, skipping")
+            return
+        }
+        
+        log("[NearbyConnectionManager] Becoming visible")
+        
+        tcpListener = try! NWListener(using: NWParameters(tls: .none))
+        startedAdvertising = true
+        
         tcpListener.stateUpdateHandler = { (state: NWListener.State) in
             if case .ready = state {
                 self.initMDNS()
@@ -74,6 +80,20 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             conn.start()
         }
         tcpListener.start(queue: .global(qos: .utility))
+    }
+    
+    
+    public func becomeInvisible() {
+        if !startedAdvertising {
+            print("[NearbyConnectionManager] Already invisible, ignoring becomeInvisible()")
+            return
+        }
+        
+        log("[NearbyConnectionManager] Becoming invisible")
+        
+        startedAdvertising = false
+        self.stopMDNS()
+        tcpListener.cancel()
     }
     
     
@@ -122,6 +142,15 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             service.publish()
             return service
         }
+    }
+    
+    
+    private func stopMDNS() {
+        // Gracefully stop each published service
+        for service in mdnsServices {
+            service.stop()
+        }
+        mdnsServices.removeAll()
     }
     
     
@@ -188,7 +217,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     public func stopDeviceDiscovery() {
         if startedDeviceDiscovery {
             
-            log("Stopping device discovery")
+            log("[NearbyConnectionManager] Stopping device discovery")
             
             for browser in browsers {
                 browser.cancel()
@@ -196,6 +225,15 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             
             browsers.removeAll()
             startedDeviceDiscovery = false
+            
+            
+            for delegate in shareExtensionDelegates {
+                
+                foundServices.values.forEach { service in
+                    guard let device = service.device, let id = device.id else { return }
+                    delegate.removeDevice(id: id)
+                }
+            }
         }
     }
     

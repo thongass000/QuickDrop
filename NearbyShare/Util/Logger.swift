@@ -24,14 +24,8 @@ final class LogManager {
     
     /// Private initializer
     private init() {
-        
-        #if os(macOS)
         // Use the App Group container
         let directory = getAppGroupDirectory()
-        #else
-        // On iOS, use the library directory, to not let the logs appear in the files app
-        let directory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first
-        #endif
         
         // Create file name from date
         let formatter = DateFormatter()
@@ -133,7 +127,7 @@ public func log(_ text: String) {
 
 
 /// Returns the shared App Group directory
-fileprivate func getAppGroupDirectory() -> URL? {
+func getAppGroupDirectory() -> URL? {
     let groupIdentifier = "group.com.leonboettger.neardrop"
     return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupIdentifier)
 }
