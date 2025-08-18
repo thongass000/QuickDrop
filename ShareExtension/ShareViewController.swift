@@ -57,21 +57,22 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
                     self.zipFolderAndSetUpIcon()
                 }
             } else {
-                for attachment in attachments {
-                    if attachment.hasItemConformingToTypeIdentifier(kUTTypeURL as String) {
-                        attachment.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil) { data, _ in
-                            if let urlData = data as? Data,
-                               let url = URL(dataRepresentation: urlData, relativeTo: nil, isAbsolute: false)
-                            {
-                                self.urls.append(url)
-                            } else if let url = data as? NSURL {
-                                self.urls.append(url as URL)
-                            }
-                            
-                            if self.urls.count == attachments.count {
-                                DispatchQueue.main.async {
-                                    self.zipFolderAndSetUpIcon()
-                                }
+                
+                let filteredAttachments = attachments.filter { $0.hasItemConformingToTypeIdentifier(kUTTypeURL as String) }
+                
+                for attachment in filteredAttachments {
+                    attachment.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil) { data, _ in
+                        if let urlData = data as? Data,
+                           let url = URL(dataRepresentation: urlData, relativeTo: nil, isAbsolute: false)
+                        {
+                            self.urls.append(url)
+                        } else if let url = data as? NSURL {
+                            self.urls.append(url as URL)
+                        }
+                        
+                        if self.urls.count == filteredAttachments.count {
+                            DispatchQueue.main.async {
+                                self.zipFolderAndSetUpIcon()
                             }
                         }
                     }
