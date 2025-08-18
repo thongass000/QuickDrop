@@ -135,6 +135,7 @@ public class SaveFilesManager {
     }
     
     
+    #if !os(macOS)
     public func openDownloadedFilesFolder() {
         #if !EXTENSION
         let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
@@ -147,6 +148,7 @@ public class SaveFilesManager {
         }
         #endif
     }
+    #endif
     
 
     public func stopAccessingSecurityScopedResource() {
