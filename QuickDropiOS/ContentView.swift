@@ -108,6 +108,7 @@ struct DeviceListView: View {
                         ZStack {
                             if let attachments = NearbyConnectionManager.shared.attachments {
                                 LUIButton {
+                                    lightVibration()
                                     sendModel.urls = attachments.urls
                                     sendModel.textToSend = attachments.textToSend
                                     sendModel.selectDevice(device: device)
