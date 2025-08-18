@@ -112,17 +112,11 @@ struct DeviceListView: View {
                                     sendModel.textToSend = attachments.textToSend
                                     sendModel.selectDevice(device: device)
                                 } label: {
-                                    DeviceButton(device: device, isSelected: isSelected, progress: sendModel.progressState, progressValue: sendModel.progressValue)
+                                    DeviceButtonLabel(device: device, isSelected: isSelected, progress: sendModel.progressState, progressValue: sendModel.progressValue)
                                 }
                             }
                             else {
-                                SendPickerButton {
-                                    DeviceButton(device: device, isSelected: isSelected, progress: sendModel.progressState, progressValue: sendModel.progressValue)
-                                } onResult: { urls, text in
-                                    sendModel.urls = urls ?? []
-                                    sendModel.textToSend = text
-                                    sendModel.selectDevice(device: device)
-                                }
+                                DeviceFilePickerButton(device: device, isSelected: isSelected, progressState: sendModel.progressState, progressValue: sendModel.progressValue, sendModel: sendModel)
                             }
                         }
                         .animation(.easeInOut, value: sendModel.progressValue)
@@ -153,7 +147,32 @@ struct DeviceListView: View {
 }
 
 
-struct DeviceButton: View {
+struct DeviceFilePickerButton: View {
+    
+    let device: RemoteDeviceInfo
+    let isSelected: Bool
+    let progressState: String?
+    let progressValue: Double?
+    let sendModel: SendModel
+    
+    @State private var isPreparing = false
+    
+    var body: some View {
+        SendPickerButton {
+            DeviceButtonLabel(device: device, isSelected: isPreparing || isSelected, progress: isPreparing ? "Preparing".localized() : progressState, progressValue: progressValue)
+        } onResult: { urls, text in
+            isPreparing = false
+            sendModel.urls = urls ?? []
+            sendModel.textToSend = text
+            sendModel.selectDevice(device: device)
+        } onPrepare: {
+            isPreparing = true
+        }
+    }
+}
+
+
+struct DeviceButtonLabel: View {
     
     let device: RemoteDeviceInfo
     let isSelected: Bool

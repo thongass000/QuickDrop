@@ -13,6 +13,7 @@ import UniformTypeIdentifiers
 struct SendPickerButton<Label: View>: View {
     var label: () -> Label
     var onResult: (_ urls: [URL]?, _ text: String?) -> Void
+    var onPrepare: (() -> Void)? = nil
     
     @State private var showPhotoPicker = false
     @State private var selectedPhotoItems: [PhotosPickerItem] = []
@@ -45,6 +46,7 @@ struct SendPickerButton<Label: View>: View {
         )
         .onChange(of: selectedPhotoItems) { newItems in
             guard !newItems.isEmpty else { return }
+            onPrepare?()
             updatedPhotoSelection(content: newItems)
         }
         // File picker
@@ -83,37 +85,37 @@ struct SendPickerButton<Label: View>: View {
                     if let dataUrl = try await item.loadTransferable(type: Data.self) {
                         
                         if let contentType = item.supportedContentTypes.first {
-                                        // Step 2: make the URL file name and a get a file extention.
+                            // Step 2: make the URL file name and a get a file extention.
                             let url = fileManager.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).\(contentType.preferredFilenameExtension ?? "")")
-                                         
-                                            do {
-                                                // Step 3: write to temp App file directory and return in completionHandler
-                                                try dataUrl.write(to: url)
-                                                return url
-                                            } catch {
-                                                log("Faied to write data to file: \(error)")
-                                                throw error
-                                            }
-                                        
-                                    }
+                            
+                            do {
+                                // Step 3: write to temp App file directory and return in completionHandler
+                                try dataUrl.write(to: url)
+                                return url
+                            } catch {
+                                log("Failed to write data to file: \(error)")
+                                throw error
+                            }
+                            
+                        }
                         
-//                        let destination = fileManager.temporaryDirectory.appendingPathComponent(dataUrl.url.lastPathComponent)
-//
-//                        // overwrite if file exists
-//                        if fileManager.fileExists(atPath: destination.path) {
-//                            try fileManager.removeItem(at: destination)
-//                        }
-//
-//                        log("Copying photo at \(dataUrl.url) to \(destination)")
-//                        
-//                        do {
-//                            try fileManager.copyItem(at: dataUrl.url, to: destination)
-//                        }
-//                        catch {
-//                            log("Failed to copy photo: \(error)")
-//                            throw error
-//                        }
-//                        return destination
+                        //                        let destination = fileManager.temporaryDirectory.appendingPathComponent(dataUrl.url.lastPathComponent)
+                        //
+                        //                        // overwrite if file exists
+                        //                        if fileManager.fileExists(atPath: destination.path) {
+                        //                            try fileManager.removeItem(at: destination)
+                        //                        }
+                        //
+                        //                        log("Copying photo at \(dataUrl.url) to \(destination)")
+                        //
+                        //                        do {
+                        //                            try fileManager.copyItem(at: dataUrl.url, to: destination)
+                        //                        }
+                        //                        catch {
+                        //                            log("Failed to copy photo: \(error)")
+                        //                            throw error
+                        //                        }
+                        //                        return destination
                     }
                     return nil
                 }
@@ -135,7 +137,7 @@ struct SendPickerButton<Label: View>: View {
 /// File representation
 fileprivate struct DataUrl: Transferable {
     let url: URL
-
+    
     static var transferRepresentation: some TransferRepresentation {
         FileRepresentation(contentType: .data) { data in
             
