@@ -24,7 +24,10 @@ func loadAttachments(with extensionContext: NSExtensionContext?, loadedItems: @e
     let item = extensionContext.inputItems[0] as! NSExtensionItem
     
     if let attachments = item.attachments {
-        if let text = item.attributedContentText?.string, attachments.isEmpty {
+        if let text = item.attributedContentText?.string {
+            
+            log("Found text content: \(text)")
+            
             result.textToSend = text
             
             #if os(macOS)

@@ -3747,103 +3747,103 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "حمل تطبيق QuickDrop من متجر Play لمشاركة الملفات مع أجهزتك."
+            "value" : "قم بتنزيل QuickDrop من App Store أو Play Store لمشاركة الملفات مع أجهزتك."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lade QuickDrop im Play Store herunter, um Dateien mit deinen Geräten zu teilen."
+            "value" : "Lade QuickDrop im App Store oder Play Store herunter, um Dateien mit deinen Geräten zu teilen."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Download QuickDrop on the Play Store to share files with your devices."
+            "value" : "Download QuickDrop on the App Store or the Play Store to share files with your devices."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Descarga QuickDrop en Play Store para compartir archivos con tus dispositivos."
+            "value" : "Descarga QuickDrop en la App Store o Play Store para compartir archivos con tus dispositivos."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Téléchargez QuickDrop sur le Play Store pour partager des fichiers avec vos appareils."
+            "value" : "Téléchargez QuickDrop sur l'App Store ou le Play Store pour partager des fichiers avec vos appareils."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Töltsd le a QuickDrop-ot a Play Áruházból, hogy fájlokat ossz meg az eszközeiddel."
+            "value" : "Töltse le a QuickDrop alkalmazást az App Store-ból vagy a Play Store-ból, hogy fájlokat osszon meg az eszközeivel."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scarica QuickDrop dal Play Store per condividere file con i tuoi dispositivi."
+            "value" : "Scarica QuickDrop dall'App Store o dal Play Store per condividere file con i tuoi dispositivi."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PlayストアでQuickDropをダウンロードして、デバイス間でファイルを共有しましょう。"
+            "value" : "App Store または Play Store から QuickDrop をダウンロードして、デバイス間でファイルを共有しましょう。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "기기와 파일을 공유하려면 Play 스토어에서 QuickDrop을 다운로드하세요."
+            "value" : "앱 스토어나 플레이 스토어에서 QuickDrop을 다운로드하여 기기와 파일을 공유하세요."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Download QuickDrop in de Play Store om bestanden met je apparaten te delen."
+            "value" : "Download QuickDrop in de App Store of de Play Store om bestanden met je apparaten te delen."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Baixe o QuickDrop na Play Store para compartilhar arquivos com seus dispositivos."
+            "value" : "Baixe o QuickDrop na App Store ou na Play Store para compartilhar arquivos com seus dispositivos."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Descarregue o QuickDrop na Play Store para partilhar ficheiros com os seus dispositivos."
+            "value" : "Descarregue o QuickDrop na App Store ou na Play Store para partilhar ficheiros com os seus dispositivos."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Descarcă QuickDrop din Play Store pentru a partaja fișiere cu dispozitivele tale."
+            "value" : "Descarcă QuickDrop din App Store sau Play Store pentru a partaja fișiere cu dispozitivele tale."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Скачайте QuickDrop в Play Store, чтобы обмениваться файлами с вашими устройствами."
+            "value" : "Скачайте QuickDrop в App Store или Play Store, чтобы делиться файлами с вашими устройствами."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ดาวน์โหลด QuickDrop บน Play Store เพื่อแชร์ไฟล์กับอุปกรณ์ของคุณ"
+            "value" : "ดาวน์โหลด QuickDrop บน App Store หรือ Play Store เพื่อแชร์ไฟล์กับอุปกรณ์ของคุณ"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Завантажте QuickDrop з Play Store, щоб обмінюватися файлами з вашими пристроями."
+            "value" : "Завантажте QuickDrop з App Store або Play Store, щоб обмінюватися файлами між вашими пристроями."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在 Play 商店下载 QuickDrop 与您的设备共享文件。"
+            "value" : "在 App Store 或 Play Store 下载 QuickDrop，与您的设备共享文件。"
           }
         }
       }
@@ -7810,103 +7810,103 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "جارٍ البحث عن الأجهزة..."
+            "value" : "جارٍ البحث عن الأجهزة عبر الواي فاي..."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Suche nach Geräten..."
+            "value" : "Suche nach Geräten im WLAN…"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Searching for devices..."
+            "value" : "Searching for devices on Wi-Fi…"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Buscando dispositivos..."
+            "value" : "Buscando dispositivos en Wi-Fi…"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Recherche des appareils..."
+            "value" : "Recherche des appareils sur le Wi-Fi…"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Eszközök keresése..."
+            "value" : "Eszközök keresése Wi-Fi-n…"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ricerca dei dispositivi..."
+            "value" : "Ricerca di dispositivi su Wi-Fi…"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "デバイスを検索中..."
+            "value" : "Wi-Fiでデバイスを検索中…"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "기기 검색 중..."
+            "value" : "Wi-Fi에서 장치를 검색 중…"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zoeken naar apparaten..."
+            "value" : "Zoeken naar apparaten op Wi-Fi…"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Procurando por dispositivos..."
+            "value" : "Procurando dispositivos no Wi-Fi…"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A pesquisar dispositivos..."
+            "value" : "A procurar dispositivos na rede Wi-Fi…"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Căutare dispozitive..."
+            "value" : "Căutare dispozitive prin Wi-Fi…"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Поиск устройств..."
+            "value" : "Поиск устройств по Wi-Fi…"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "กำลังค้นหาอุปกรณ์..."
+            "value" : "กำลังค้นหาอุปกรณ์บน Wi-Fi…"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Пошук пристроїв..."
+            "value" : "Пошук пристроїв у Wi-Fi…"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在搜索设备..."
+            "value" : "正在通过 Wi-Fi 搜索设备…"
           }
         }
       }

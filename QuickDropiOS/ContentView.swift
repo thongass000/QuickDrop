@@ -72,8 +72,8 @@ struct DeviceListView: View {
                             .frame(width: 10, height: 10)
                     }
                     
-                    Text(attachments?.shortDescription ?? NearbyConnectionManager.shared.deviceInfo.name ?? "Unknown".localized())
-                        .fontWeight(.bold)
+                    LUIText(attachments?.shortDescription ?? NearbyConnectionManager.shared.deviceInfo.name ?? "Unknown".localized(), isBold: true)
+                        .lineLimit(1)
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 6)
