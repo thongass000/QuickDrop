@@ -84,6 +84,8 @@
 		EB704A842E4B10D4008E608F /* DistributionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB704A812E4A7BAE008E608F /* DistributionDetector.swift */; };
 		EB7654782E525ACC006B4AA3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB7654772E525ACC006B4AA3 /* MainMenu.xib */; };
 		EB7654A12E53252D006B4AA3 /* AttachmentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB950B762E521712002D68FA /* AttachmentDetails.swift */; };
+		EB7654C02E534A8E006B4AA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
+		EB7654C12E534A8E006B4AA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
 		EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7CD1462D6FB0E800CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7F54122D78E96000989564 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54112D78E95C00989564 /* TutorialView.swift */; };
@@ -93,7 +95,6 @@
 		EB886E542E4E19390052B7D9 /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E512E4E19390052B7D9 /* HKDF.swift */; };
 		EB886E552E4E50F40052B7D9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
 		EB886E582E4E66420052B7D9 /* LUI in Frameworks */ = {isa = PBXBuildFile; productRef = EB886E572E4E66420052B7D9 /* LUI */; };
-		EB886E592E4F056B0052B7D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
 		EB886E5D2E4F13EB0052B7D9 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC27F82D80C9F70079C478 /* Zip.swift */; };
 		EB886E5E2E4F13EB0052B7D9 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC27F82D80C9F70079C478 /* Zip.swift */; };
 		EB886E672E4F2F800052B7D9 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E662E4F2F7C0052B7D9 /* License.swift */; };
@@ -137,7 +138,6 @@
 		EB950B672E520680002D68FA /* RNDeviceName in Frameworks */ = {isa = PBXBuildFile; productRef = EB950B662E520680002D68FA /* RNDeviceName */; };
 		EB950B6F2E5206E2002D68FA /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB950B6B2E5206E2002D68FA /* ShareViewController.swift */; };
 		EB950B702E520734002D68FA /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
-		EB950B712E52073F002D68FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
 		EB950B742E520957002D68FA /* Attachments.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB950B732E520954002D68FA /* Attachments.swift */; };
 		EB950B752E52111C002D68FA /* Attachments.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB950B732E520954002D68FA /* Attachments.swift */; };
 		EB950B772E521712002D68FA /* AttachmentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB950B762E521712002D68FA /* AttachmentDetails.swift */; };
@@ -813,10 +813,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB5C383B2E38C1F60052EFD7 /* justMaybe.mp3 in Resources */,
-				EB886E592E4F056B0052B7D9 /* Assets.xcassets in Resources */,
 				EB97A0142E51DD00008B8C5C /* License.txt in Resources */,
 				EB97A0152E51DD00008B8C5C /* timeIsNow.mp3 in Resources */,
 				EB886E552E4E50F40052B7D9 /* Localizable.xcstrings in Resources */,
+				EB7654C02E534A8E006B4AA3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,8 +827,8 @@
 				EB950B5B2E52065A002D68FA /* timeIsNow.mp3 in Resources */,
 				EB950B702E520734002D68FA /* Localizable.xcstrings in Resources */,
 				EB950B5C2E52065A002D68FA /* justMaybe.mp3 in Resources */,
-				EB950B712E52073F002D68FA /* Assets.xcassets in Resources */,
 				EB950B5D2E52065A002D68FA /* License.txt in Resources */,
+				EB7654C12E534A8E006B4AA3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
