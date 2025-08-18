@@ -10,7 +10,7 @@ import LUI
 
 struct ContentView: View {
     
-    @Environment(\.scenePhase) var scenePhase
+    @ObservedObject var luiSettings = LUISettings.sharedInstance
     
     var body: some View {
         AppRootView(isPlus: .constant(true), phoneView: {
@@ -25,21 +25,6 @@ struct ContentView: View {
                 }
             }
         })
-        .onChange(of: scenePhase) { newValue in
-            if newValue == .active {
-#if !EXTENSION
-                NearbyConnectionManager.shared.becomeVisible()
-#endif
-                NearbyConnectionManager.shared.startDeviceDiscovery()
-            }
-            
-            if newValue == .background {
-#if !EXTENSION
-                NearbyConnectionManager.shared.becomeInvisible()
-#endif
-                NearbyConnectionManager.shared.stopDeviceDiscovery()
-            }
-        }
     }
 }
 
@@ -51,107 +36,127 @@ struct DeviceListView: View {
     @StateObject var receiveModel = ReceiveModel()
 #endif
     
+    @Environment(\.scenePhase) var scenePhase
     @ObservedObject var nearbyConnectionManager = NearbyConnectionManager.shared
     
     var body: some View {
         
         NavigationSubView(header: "QuickDrop ", navigationBarLayout: isShareExtension() ? .SmallOnlyAlways : .Default) {
-            
-            
-            VStack(alignment: .leading, spacing: 8) {
+            VStack {
                 
-                let attachments = nearbyConnectionManager.attachments
-                
-                FooterView(text: attachments == nil ? "YouAreVisibleAs".localized() : "YouAreSending".localized())
-                
-                HStack {
+                VStack(alignment: .leading, spacing: 8) {
                     
-                    if let image = attachments?.previewImage {
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 10, height: 10)
-                    }
+                    let attachments = nearbyConnectionManager.attachments
                     
-                    LUIText(attachments?.shortDescription ?? NearbyConnectionManager.shared.deviceInfo.name ?? "Unknown".localized(), isBold: true)
-                        .lineLimit(1)
-                }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 6)
-                .background(Color.defaultForegroundColor)
-                .cornerRadius(24)
-                .padding(.horizontal)
-            }
-            .padding(.top, 8)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            
-            if !nearbyConnectionManager.hasLocalNetworkAccess {
-                CardView(backgroundColor: .red, title: "NoNetworkAccess", titleSymbol: "network.slash") {
+                    FooterView(text: attachments == nil ? "YouAreVisibleAs".localized() : "YouAreSending".localized())
+                    
                     HStack {
+                        
+                        if let image = attachments?.previewImage {
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 10, height: 10)
+                        }
+                        
+                        LUIText(attachments?.shortDescription ?? NearbyConnectionManager.shared.deviceInfo.name ?? "Unknown".localized(), isBold: true)
+                            .lineLimit(1)
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 6)
+                    .background(Color.defaultForegroundColor)
+                    .cornerRadius(24)
+                    .padding(.horizontal)
+                }
+                .padding(.top, 8)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                if !nearbyConnectionManager.hasLocalNetworkAccess {
+                    CardView(backgroundColor: .red, title: "NoNetworkAccess", titleSymbol: "network.slash") {
                         CardSubView(symbol: "exclamationmark.triangle.fill", text: "NoLocalNetworkAccessDescription")
-                        
+                    }
+                    .padding(.bottom, 10)
+                    .onTapGesture {
+                        openAppSettings()
                     }
                 }
-                .padding(.bottom, 10)
-                .onTapGesture {
-                    openAppSettings()
-                }
-            }
-            
-            if sendModel.foundDevices.isEmpty {
                 
-                CustomSection(header: "NoDevicesFound") {
+                if sendModel.foundDevices.isEmpty {
                     
-                    HStack(spacing: 12) {
-                        Image(systemName: "square.and.arrow.down")
-                            .font(.system(size: 30))
-                            .foregroundColor(.gray)
-                            .padding(.leading, -10)
+                    CustomSection(header: "NoDevicesFound") {
                         
-                        Text("DownloadQuickDropOnPlayStore")
+                        HStack(spacing: 12) {
+                            Image(systemName: "square.and.arrow.down")
+                                .font(.system(size: 30))
+                                .foregroundColor(.gray)
+                                .padding(.leading, -10)
+                            
+                            Text("DownloadQuickDropOnPlayStore")
+                        }
+                        .padding(.vertical)
                     }
-                    .padding(.vertical)
-                }
-                
-            } else {
-                
-                CustomSection(header: "AvailableDevices") {
-                    ForEach(sendModel.foundDevices) { device in
-                        
-                        let isSelected = sendModel.selectedDevice == device
-                        
-                        ZStack {
-                            if let attachments = NearbyConnectionManager.shared.attachments {
-                                LUIButton {
-                                    lightVibration()
-                                    sendModel.urls = attachments.urls
-                                    sendModel.textToSend = attachments.textToSend
-                                    sendModel.selectDevice(device: device)
-                                } label: {
-                                    DeviceButtonLabel(device: device, isSelected: isSelected, progress: sendModel.progressState, progressValue: sendModel.progressValue)
+                    
+                } else {
+                    
+                    CustomSection(header: "AvailableDevices") {
+                        ForEach(sendModel.foundDevices) { device in
+                            
+                            let isSelected = sendModel.selectedDevice == device
+                            
+                            ZStack {
+                                if let attachments = NearbyConnectionManager.shared.attachments {
+                                    LUIButton {
+                                        lightVibration()
+                                        sendModel.urls = attachments.urls
+                                        sendModel.textToSend = attachments.textToSend
+                                        sendModel.selectDevice(device: device)
+                                    } label: {
+                                        DeviceButtonLabel(device: device, isSelected: isSelected, progress: sendModel.progressState, progressValue: sendModel.progressValue)
+                                    }
+                                }
+                                else {
+                                    DeviceFilePickerButton(device: device, isSelected: isSelected, progressState: sendModel.progressState, progressValue: sendModel.progressValue, sendModel: sendModel)
                                 }
                             }
-                            else {
-                                DeviceFilePickerButton(device: device, isSelected: isSelected, progressState: sendModel.progressState, progressValue: sendModel.progressValue, sendModel: sendModel)
-                            }
+                            .animation(.easeInOut, value: sendModel.progressValue)
+                            .animation(.easeInOut, value: isSelected)
                         }
-                        .animation(.easeInOut, value: sendModel.progressValue)
-                        .animation(.easeInOut, value: isSelected)
                     }
                 }
+                
+                
+                if nearbyConnectionManager.hasLocalNetworkAccess {
+                    HStack(spacing: 8) {
+                        Text("SearchingForDevices")
+                            .font(.system(size: 14))
+                            .foregroundColor(Color.primary.opacity(0.6))
+                        
+                        ProgressView()
+                            .frame(width: 12, height: 12)
+                    }
+                    .padding(.vertical, 16)
+                }
+            }
+            .frame(maxWidth: 700)
+        }
+        .onChange(of: scenePhase) { newValue in
+            
+            if newValue == .active {
+                
+                log("App became active")
+#if !EXTENSION
+                NearbyConnectionManager.shared.becomeVisible()
+#endif
+                NearbyConnectionManager.shared.startDeviceDiscovery()
             }
             
-            
-            if nearbyConnectionManager.hasLocalNetworkAccess {
-                HStack(spacing: 8) {
-                    Text("SearchingForDevices")
-                        .font(.system(size: 14))
-                        .foregroundColor(Color.primary.opacity(0.6))
-                    
-                    ProgressView()
-                        .frame(width: 12, height: 12)
-                }
-                .padding(.vertical, 16)
+            if newValue == .background {
+                
+                log("App went to background")
+#if !EXTENSION
+                NearbyConnectionManager.shared.becomeInvisible()
+#endif
+                NearbyConnectionManager.shared.stopDeviceDiscovery()
             }
         }
         .animation(.smooth, value: nearbyConnectionManager.hasLocalNetworkAccess)

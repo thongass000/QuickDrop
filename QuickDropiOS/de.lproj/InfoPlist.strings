@@ -7,4 +7,4 @@
 */
 
 
-NSLocalNetworkUsageDescription = "Der Zugriff auf das lokale Netzwerk ist erforderlich, um Geräte zu erkennen und Dateien über Ihr Wi-Fi-Netzwerk zu übertragen.";
+NSLocalNetworkUsageDescription = "Der Zugriff auf das lokale Netzwerk ist erforderlich, um Geräte zu erkennen und Dateien über WLAN zu übertragen.";
