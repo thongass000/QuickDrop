@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import LUI
 
 class ShareViewController: UIViewController {
     override func viewDidLoad() {
@@ -26,6 +27,9 @@ class ShareViewController: UIViewController {
                 NearbyConnectionManager.shared.attachments = attachmentDetails
             }
         })
+        
+        // skip introduction for share extension
+        LUISettings.sharedInstance.appLaunchedBefore = true
         
         // Replace with your app’s SwiftUI entry view
         let contentView = ContentView()

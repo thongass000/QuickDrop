@@ -13,8 +13,15 @@ struct ContentView: View {
     var body: some View {
         AppRootView(isPlus: .constant(true), phoneView: {
             DeviceListView()
+                .environment(\.sheetActive, isShareExtension())
         }, settingsView: {
-            EmptyView()
+            CustomSection {
+                LUIButton {
+                    SaveFilesManager.shared.openDownloadedFilesFolder()
+                } label: {
+                    NavigationLinkLabel(imageName: "folder.fill", text: "BrowseDownloadedFiles")
+                }
+            }
         })
     }
 }
@@ -31,7 +38,7 @@ struct DeviceListView: View {
     
     var body: some View {
         
-        NavigationSubView(header: "QuickDrop ") {
+        NavigationSubView(header: "QuickDrop ", navigationBarLayout: isShareExtension() ? .SmallOnlyAlways : .Default) {
             
             VStack(alignment: .leading, spacing: 8) {
                 
@@ -117,7 +124,14 @@ struct DeviceListView: View {
             }
             .padding(.vertical, 16)
         }
-        .navigationBarItems(trailing: LUISettingsButton())
+        .navigationBarItems(trailing: ZStack {
+            if isShareExtension() {
+                XButton(action: { NearbyConnectionManager.shared.attachments?.closeView?() })
+            }
+            else {
+                LUISettingsButton()
+            }
+        })
     }
 }
 
@@ -173,6 +187,15 @@ struct DeviceButton: View {
         }
         .padding(.vertical, 13)
     }
+}
+
+
+func isShareExtension() -> Bool {
+    #if EXTENSION
+    return true
+    #else
+    return false
+    #endif
 }
 
 

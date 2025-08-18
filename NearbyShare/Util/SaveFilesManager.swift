@@ -124,17 +124,7 @@ public class SaveFilesManager {
                 NSWorkspace.shared.activateFileViewerSelecting(filesFinishedDownloadingSinceLastRun)
             }
             #else
-                
-                let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-                #if !EXTENSION
-                if let documentsUrl = documentsUrl, let sharedUrl = URL(string: "shareddocuments://\(documentsUrl.path)"), UIApplication.shared.canOpenURL(sharedUrl) {
-                    UIApplication.shared.open(sharedUrl, options: [:])
-                }
-                else {
-                    showAlert(title: "CouldNotOpenDocumentsFolder", message: "CouldNotOpenDocumentsFolderDescription")
-                }
-                #endif
-            
+                openDownloadedFilesFolder()
             #endif
             
             // Clear the list of finished files
@@ -142,6 +132,20 @@ public class SaveFilesManager {
         }
 
         stopAccessingSecurityScopedResource()
+    }
+    
+    
+    public func openDownloadedFilesFolder() {
+        #if !EXTENSION
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    
+        if let documentsUrl = documentsUrl, let sharedUrl = URL(string: "shareddocuments://\(documentsUrl.path)"), UIApplication.shared.canOpenURL(sharedUrl) {
+            UIApplication.shared.open(sharedUrl, options: [:])
+        }
+        else {
+            showAlert(title: "CouldNotOpenDocumentsFolder", message: "CouldNotOpenDocumentsFolderDescription")
+        }
+        #endif
     }
     
 
