@@ -19,6 +19,7 @@ func loadAttachments(with extensionContext: NSExtensionContext?, loadedItems: @e
     log("Loading attachments...")
     
     var result = AttachmentDetails(urls: [], textToSend: nil, shortDescription: "", previewImage: nil)
+    var ignoredAttachments = 0
     
     let item = extensionContext.inputItems[0] as! NSExtensionItem
     
@@ -56,7 +57,7 @@ func loadAttachments(with extensionContext: NSExtensionContext?, loadedItems: @e
                             result.urls += [(url as URL)]
                         }
                         
-                        checkIfAttachmentsLoaded(result: result, attachments: attachments)
+                        checkIfAttachmentsLoaded(result: result, attachmentCount: attachments.count, ignoredAttachments: ignoredAttachments)
                     }
                 }
                 else {
@@ -66,12 +67,13 @@ func loadAttachments(with extensionContext: NSExtensionContext?, loadedItems: @e
                             log("Found NSURL: \(url)")
                             result.urls += [(url as URL)]
                             
-                            checkIfAttachmentsLoaded(result: result, attachments: attachments)
+                            checkIfAttachmentsLoaded(result: result, attachmentCount: attachments.count, ignoredAttachments: ignoredAttachments)
                         }
                         else {
-                            log("Attachment is not a URL, ignoring.")
-                            let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
-                            extensionContext.cancelRequest(withError: cancelError)
+                            log("Attachment is not a URL, ignoring. All attachments: \(attachments.description)")
+                            ignoredAttachments += 1
+                            
+                            checkIfAttachmentsLoaded(result: result, attachmentCount: attachments.count, ignoredAttachments: ignoredAttachments)
                         }
                     }
                 }
@@ -86,11 +88,11 @@ func loadAttachments(with extensionContext: NSExtensionContext?, loadedItems: @e
     }
     
     
-    func checkIfAttachmentsLoaded(result: AttachmentDetails, attachments: [NSItemProvider]) {
+    func checkIfAttachmentsLoaded(result: AttachmentDetails, attachmentCount: Int, ignoredAttachments: Int = 0) {
         
         var result = result
         
-        if result.urls.count == attachments.count {
+        if result.urls.count == attachmentCount-ignoredAttachments {
             if result.urls.count == 1 {
                 
                 if result.urls[0].isFileURL {
