@@ -42,7 +42,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     public static let shared = NearbyConnectionManager()
     
     @Published var attachments: AttachmentDetails? = nil
-    
+    @Published var hasLocalNetworkAccess = true
     
     override init() {
 #if os(macOS)
@@ -206,6 +206,26 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
                             }
                         }
                     }
+                    
+                    browser.stateUpdateHandler = { newState in
+                        switch newState {
+                        case .failed(let error):
+                            log("[NearbyConnectionManager] Browser failed: \(error)")
+                        case .ready:
+                            log("[NearbyConnectionManager] Browser ready")
+                            self.hasLocalNetworkAccess = true
+                        case .waiting(let error):
+                            log("[NearbyConnectionManager] Browser waiting: \(error)")
+                            
+                            if error.errorCode == -65570 {
+                                log("[NearbyConnectionManager] Local network access not granted.")
+                                self.hasLocalNetworkAccess = false
+                            }
+                        default:
+                            break
+                        }
+                    }
+                    
                     browser.start(queue: .main)
                     browsers.append(browser)
                 }

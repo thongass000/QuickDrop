@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  AirGuard
+
+  Created by Leon Böttger on 23.08.22.
+  
+*/
+
+
+NSLocalNetworkUsageDescription = "Lokale netwerktoegang is nodig om apparaten te detecteren en bestanden over uw Wi-Fi-netwerk te verzenden.";

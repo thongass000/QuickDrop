@@ -5560,6 +5560,220 @@
         }
       }
     },
+    "NoLocalNetworkAccessDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لقد رفضت وصول الشبكة المحلية لتطبيق QuickDrop. لا يمكن لتطبيق QuickDrop العمل بدون هذا الإذن. انقر هنا لمنح الوصول إلى الشبكة المحلية."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du hast den lokalen Netzwerkzugriff für QuickDrop verweigert. QuickDrop kann ohne diese Berechtigung nicht funktionieren. Klicke hier, um den lokalen Netzwerkzugriff zu gewähren."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You denied local network access for QuickDrop. QuickDrop cannot work without this permission. Click here to grant local network access."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Negaste el acceso a la red local para QuickDrop. QuickDrop no puede funcionar sin este permiso. Haz clic aquí para otorgar acceso a la red local."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous avez refusé l'accès au réseau local pour QuickDrop. QuickDrop ne peut pas fonctionner sans cette autorisation. Cliquez ici pour accorder l'accès au réseau local."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ön megtagadta a helyi hálózathoz való hozzáférést a QuickDrop számára. A QuickDrop nem működik ezen engedély nélkül. Kattintson ide a helyi hálózathoz való hozzáférés engedélyezéséhez."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hai negato l'accesso alla rete locale per QuickDrop. QuickDrop non può funzionare senza questa autorizzazione. Clicca qui per concedere l'accesso alla rete locale."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDropのローカルネットワークアクセスが拒否されました。この権限がないとQuickDropは動作しません。ローカルネットワークアクセスを許可するにはここをクリックしてください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop에 대한 로컬 네트워크 액세스를 거부했습니다. 이 권한 없이는 QuickDrop이 작동할 수 없습니다. 로컬 네트워크 액세스를 허용하려면 여기를 클릭하세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je hebt toegang tot het lokale netwerk voor QuickDrop geweigerd. QuickDrop kan niet werken zonder deze toestemming. Klik hier om toegang tot het lokale netwerk te verlenen."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Você negou o acesso à rede local para o QuickDrop. O QuickDrop não pode funcionar sem essa permissão. Clique aqui para conceder acesso à rede local."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Negou o acesso à rede local para o QuickDrop. O QuickDrop não pode funcionar sem esta permissão. Clique aqui para conceder acesso à rede local."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ați refuzat accesul la rețeaua locală pentru QuickDrop. QuickDrop nu poate funcționa fără această permisiune. Apăsați aici pentru a oferi acces la rețeaua locală."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы отклонили доступ QuickDrop к локальной сети. QuickDrop не может работать без этого разрешения. Нажмите здесь, чтобы предоставить доступ к локальной сети."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คุณปฏิเสธการเข้าถึงเครือข่ายท้องถิ่นสำหรับ QuickDrop. QuickDrop ไม่สามารถทำงานได้โดยปราศจากสิทธิ์นี้. คลิกที่นี่เพื่ออนุญาตการเข้าถึงเครือข่ายท้องถิ่น."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви відхилили доступ до локальної мережі для QuickDrop. QuickDrop не може працювати без цього дозволу. Натисніть тут, щоб надати доступ до локальної мережі."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您已拒绝QuickDrop的本地网络访问权限。QuickDrop无法在没有该权限的情况下工作。点击此处授予本地网络访问权限。"
+          }
+        }
+      }
+    },
+    "NoNetworkAccess" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا يوجد وصول للشبكة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Netzwerkzugriff"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Network Access"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sin acceso a red"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas d'accès au réseau"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nincs hálózati hozzáférés"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessun accesso alla rete"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ネットワーク接続なし"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "네트워크 액세스 없음"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geen netwerktoegang"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem acesso à rede"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem acesso à rede"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fără acces la rețea"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нет доступа к сети"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่มีการเข้าถึงเครือข่าย"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає мережевого доступу"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无网络访问权限"
+          }
+        }
+      }
+    },
     "NoNetworkConnection" : {
       "extractionState" : "manual",
       "localizations" : {

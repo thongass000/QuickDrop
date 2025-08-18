@@ -27,16 +27,16 @@ struct ContentView: View {
         })
         .onChange(of: scenePhase) { newValue in
             if newValue == .active {
-                #if !EXTENSION
+#if !EXTENSION
                 NearbyConnectionManager.shared.becomeVisible()
-                #endif
+#endif
                 NearbyConnectionManager.shared.startDeviceDiscovery()
             }
             
             if newValue == .background {
-                #if !EXTENSION
+#if !EXTENSION
                 NearbyConnectionManager.shared.becomeInvisible()
-                #endif
+#endif
                 NearbyConnectionManager.shared.stopDeviceDiscovery()
             }
         }
@@ -47,15 +47,16 @@ struct DeviceListView: View {
     
     @StateObject var sendModel = SendModel()
     
-    #if !EXTENSION
+#if !EXTENSION
     @StateObject var receiveModel = ReceiveModel()
-    #endif
+#endif
     
     @ObservedObject var nearbyConnectionManager = NearbyConnectionManager.shared
     
     var body: some View {
         
         NavigationSubView(header: "QuickDrop ", navigationBarLayout: isShareExtension() ? .SmallOnlyAlways : .Default) {
+            
             
             VStack(alignment: .leading, spacing: 8) {
                 
@@ -84,6 +85,18 @@ struct DeviceListView: View {
             .padding(.top, 8)
             .frame(maxWidth: .infinity, alignment: .leading)
             
+            if !nearbyConnectionManager.hasLocalNetworkAccess {
+                CardView(backgroundColor: .red, title: "NoNetworkAccess", titleSymbol: "network.slash") {
+                    HStack {
+                        CardSubView(symbol: "exclamationmark.triangle.fill", text: "NoLocalNetworkAccessDescription")
+                        
+                    }
+                }
+                .padding(.bottom, 10)
+                .onTapGesture {
+                    openAppSettings()
+                }
+            }
             
             if sendModel.foundDevices.isEmpty {
                 
@@ -93,11 +106,13 @@ struct DeviceListView: View {
                         Image(systemName: "square.and.arrow.down")
                             .font(.system(size: 30))
                             .foregroundColor(.gray)
+                            .padding(.leading, -10)
                         
                         Text("DownloadQuickDropOnPlayStore")
                     }
                     .padding(.vertical)
                 }
+                
             } else {
                 
                 CustomSection(header: "AvailableDevices") {
@@ -126,16 +141,20 @@ struct DeviceListView: View {
                 }
             }
             
-            HStack(spacing: 8) {
-                Text("SearchingForDevices")
-                    .font(.system(size: 14))
-                    .foregroundColor(Color.primary.opacity(0.6))
-                
-                ProgressView()
-                    .frame(width: 12, height: 12)
+            
+            if nearbyConnectionManager.hasLocalNetworkAccess {
+                HStack(spacing: 8) {
+                    Text("SearchingForDevices")
+                        .font(.system(size: 14))
+                        .foregroundColor(Color.primary.opacity(0.6))
+                    
+                    ProgressView()
+                        .frame(width: 12, height: 12)
+                }
+                .padding(.vertical, 16)
             }
-            .padding(.vertical, 16)
         }
+        .animation(.smooth, value: nearbyConnectionManager.hasLocalNetworkAccess)
         .navigationBarItems(trailing: ZStack {
             if isShareExtension() {
                 XButton(action: { NearbyConnectionManager.shared.attachments?.closeView?() })
@@ -228,11 +247,11 @@ struct DeviceButtonLabel: View {
 
 
 func isShareExtension() -> Bool {
-    #if EXTENSION
+#if EXTENSION
     return true
-    #else
+#else
     return false
-    #endif
+#endif
 }
 
 
@@ -244,13 +263,13 @@ func isShareExtension() -> Bool {
 //            RemoteDeviceInfo(name: "iPhone 14", type: .phone, id: "iphone-14-id"),
 //            RemoteDeviceInfo(name: "Samsung Galaxy S21", type: .phone, id: "samsung-galaxy-s21-id")
 //        ]
-//        
+//
 //        return DeviceListView(sendModel: model, receiveModel: ReceiveModel())
 //    }
 //}
 //
-//#Preview {
-//    NavigationView {
-//        DeviceListView.preview
-//    }
-//}
+#Preview {
+    NavigationView {
+        DeviceListView()
+    }
+}

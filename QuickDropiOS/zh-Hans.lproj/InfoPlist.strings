@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  AirGuard
+
+  Created by Leon Böttger on 23.08.22.
+  
+*/
+
+
+NSLocalNetworkUsageDescription = "需要本地网络访问以检测设备并通过您的 Wi-Fi 网络传输文件。";
