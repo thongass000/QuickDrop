@@ -48,6 +48,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
     
     
     override func loadView() {
+        
         super.loadView()
         loadAttachments(with: extensionContext, loadedItems: { result in
             
@@ -95,6 +96,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         dicoverDevices()
@@ -184,6 +186,10 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
     
     
     func addDevice(device: RemoteDeviceInfo) {
+        
+        if chosenDevice != nil {
+            return
+        }
         if foundDevices.isEmpty {
             loadingOverlay?.animator().isHidden = true
         }
@@ -195,6 +201,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
     
     
     func removeDevice(id: String) {
+        
         if chosenDevice != nil {
             return
         }
@@ -255,7 +262,6 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
     
     
     func selectDevice(device: RemoteDeviceInfo) {
-        NearbyConnectionManager.shared.stopDeviceDiscovery()
         
         listViewWrapper?.animator().isHidden = true
         dontSeeDeviceButton?.animator().isHidden = true
@@ -265,6 +271,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
         progressProgressBar?.startAnimation(nil)
         progressState?.stringValue = "Connecting".localized()
         chosenDevice = device
+        NearbyConnectionManager.shared.stopDeviceDiscovery()
         NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: urls, textToSend: textToSend)
         
         let timeoutAlert = DispatchWorkItem {
@@ -298,6 +305,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
     
     
     private func dicoverDevices() {
+        
         let bundleIdentifier = "com.leonboettger.neardrop"
         let runningApps = NSWorkspace.shared.runningApplications
         
@@ -332,6 +340,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
     
     
     private func scheduleAutomaticQrCodeView() {
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             if self.foundDevices.isEmpty {
                 self.openQrCodeView()
