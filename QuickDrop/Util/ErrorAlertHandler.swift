@@ -148,12 +148,15 @@ func sendLoggingString() {
     if let url = LogManager.sharedInstance.logFileURL {
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
         log("Sending logging string with file URL: \(url)")
+        log("Currently running apps: \(NSWorkspace.shared.runningApplications.map { $0.localizedName ?? "Unknown" })")
         
-        sendEmailWithAttachment(
-            fileURL: url,
-            recipients: ["quickdrop@leonboettger.com"],
-            subject: "QuickDrop \(appVersion) - \(getDeviceAndSystem())"
-        )
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+            sendEmailWithAttachment(
+                fileURL: url,
+                recipients: ["quickdrop@leonboettger.com"],
+                subject: "QuickDrop \(appVersion) - \(getDeviceAndSystem())"
+            )
+        })
     }
 }
 

@@ -513,9 +513,11 @@ class InboundNearbyConnection: NearbyConnection {
                 #endif
                 filesToBeReceived[id]!.progress = progress
                 filesToBeReceived[id]!.created = true
-                
-                log("[InboundNearbyConnection \(self.id)] Accepted file with size \(file.meta.size)")
             }
+            
+            let totalBytes = filesToBeReceived.values.reduce(0) { $0 + $1.meta.size }
+            let gigabytes = Double(totalBytes) / 1_000_000_000
+            log("[InboundNearbyConnection \(self.id)] Accepted \(filesToBeReceived.count) file(s) with size \(totalBytes) bytes (\(gigabytes) GB)")
 
             var frame = Sharing_Nearby_Frame()
             frame.version = .v1

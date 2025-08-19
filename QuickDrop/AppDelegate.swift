@@ -112,6 +112,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         let queue2 = DispatchQueue(label: "NetworkConnectionMonitor")
         hasConnectionMonitor.start(queue: queue2)
+        
+        log("Application did finish launching")
     }
     
     
@@ -147,9 +149,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     func application(_ application: NSApplication, open urls: [URL]) {
         for url in urls {
             if url.scheme == "quickdrop", url.host == "sendLog" {
-                sendLoggingString() // this time it runs in the main app
+                sendLoggingString()
             }
-            
             
             if url.scheme == "quickdrop", url.host == "openLog", let url = LogManager.sharedInstance.logFileURL {
                 log("Opening log file: \(url)")
