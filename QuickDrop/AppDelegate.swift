@@ -233,6 +233,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         let plusView = PlusView(closeView: {
             log("Closing plus screen")
             self.plusWindow?.close()
+            self.plusWindow = nil
         })
 
         // Create an NSWindow to host the SwiftUI view
@@ -252,7 +253,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         window.setFrameAutosaveName("PlusScreen")
         window.contentView = NSHostingView(rootView: plusView)
 
-        // Reset reference when closed by red button
+        // Reset reference when closed by close button
         NotificationCenter.default.addObserver(forName: NSWindow.willCloseNotification, object: window, queue: .main) { [weak self] _ in
             self?.plusWindow = nil
         }
@@ -446,6 +447,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             if let plusWindow = plusWindow {
                 log("Closing plus screen because of error")
                 plusWindow.close()
+                self.plusWindow = nil
             }
             
             ErrorAlertHandler.shared.showErrorAlert(for: activeIncomingTransfers[id]?.device.name ?? "Android", error: error)
