@@ -7,6 +7,7 @@
 
 import SwiftUI
 import LUI
+import StoreKit
 
 struct ContentView: View {
     
@@ -37,6 +38,7 @@ struct DeviceListView: View {
 #endif
     
     @Environment(\.scenePhase) var scenePhase
+    @AppStorage("requestedReview") private var requestedReview = false
     @ObservedObject var nearbyConnectionManager = NearbyConnectionManager.shared
     
     var body: some View {
@@ -144,10 +146,23 @@ struct DeviceListView: View {
             if newValue == .active {
                 
                 log("App became active")
+                NearbyConnectionManager.shared.startDeviceDiscovery()
 #if !EXTENSION
                 NearbyConnectionManager.shared.becomeVisible()
+                
+                if incomingTransmissionCount() > 0 && !requestedReview {
+                    runAfter(seconds: 0.3) {
+                        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                            
+                            SKStoreReviewController.requestReview(in: scene)
+                            requestedReview = true
+                        }
+                        else {
+                            log("Error Requesting Review!")
+                        }
+                    }
+                }
 #endif
-                NearbyConnectionManager.shared.startDeviceDiscovery()
             }
             
             if newValue == .background {

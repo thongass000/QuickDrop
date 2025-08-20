@@ -156,11 +156,14 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 }
                 
                 let currentCount = incomingTransmissionCount()
+                
+                #if os(macOS)
                 if currentCount == 0 {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         SKStoreReviewController.requestReview()
                     }
                 }
+                #endif
 
                 UserDefaults.standard.set(currentCount + 1, forKey: UserDefaultsKeys.transmissionCount.rawValue)
                 log("[ReceiveModel] Successful transmission. Current count: \(currentCount)")
