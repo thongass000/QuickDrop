@@ -217,7 +217,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
                         case .waiting(let error):
                             log("[NearbyConnectionManager] Browser waiting: \(error)")
                             
-                            if error.errorCode == -65570 {
+                            if error == NWError.dns(DNSServiceErrorType(kDNSServiceErr_PolicyDenied))  {
                                 log("[NearbyConnectionManager] Local network access not granted.")
                                 self.hasLocalNetworkAccess = false
                             }
