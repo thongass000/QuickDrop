@@ -26,7 +26,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     }
     
     
-    func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo) {
+    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo) {
         
         #if os(macOS)
         NSApp.activate(ignoringOtherApps: true)

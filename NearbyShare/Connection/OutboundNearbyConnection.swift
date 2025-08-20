@@ -63,7 +63,7 @@ class OutboundNearbyConnection: NearbyConnection {
   
         if let error = lastError {
             DispatchQueue.main.async {
-                self.delegate?.outboundConnection(connection: self, failedWithError: error)
+                self.delegate?.failedWithError(connection: self, error: error)
             }
         }
     }
@@ -140,7 +140,7 @@ class OutboundNearbyConnection: NearbyConnection {
             self.lastError = NearbyError.canceled(reason: .userCanceled)
             log("[OutboundNearbyConnection \(self.id)] Transfer canceled")
             try sendDisconnectionAndDisconnect()
-            delegate?.outboundConnection(connection: self, failedWithError: self.lastError!)
+            delegate?.failedWithError(connection: self, error: self.lastError!)
             return
         }
         
@@ -161,7 +161,7 @@ class OutboundNearbyConnection: NearbyConnection {
 
     override func protocolError() {
         super.protocolError()
-        delegate?.outboundConnection(connection: self, failedWithError: lastError!)
+        delegate?.failedWithError(connection: self, error: lastError!)
     }
 
     
@@ -261,7 +261,7 @@ class OutboundNearbyConnection: NearbyConnection {
         try sendFrameAsync(resp.serializedData())
 
         encryptionDone = true
-        delegate?.outboundConnectionWasEstablished(connection: self)
+        delegate?.connectionWasEstablished(connection: self)
     }
 
     
@@ -372,7 +372,7 @@ class OutboundNearbyConnection: NearbyConnection {
         case .accept:
             currentState = .sendingFiles
             isTransferring = true
-            delegate?.outboundConnectionTransferAccepted(connection: self)
+            delegate?.transferAccepted(connection: self)
             
             if let textToSend = textToSend {
                 try sendText(text: textToSend)
@@ -383,16 +383,16 @@ class OutboundNearbyConnection: NearbyConnection {
                 try sendNextFileChunk()
             }
         case .reject, .unknown:
-            delegate?.outboundConnection(connection: self, failedWithError: NearbyError.canceled(reason: .userRejected))
+            delegate?.failedWithError(connection: self, error: NearbyError.canceled(reason: .userRejected))
             try sendDisconnectionAndDisconnect()
         case .notEnoughSpace:
-            delegate?.outboundConnection(connection: self, failedWithError: NearbyError.canceled(reason: .notEnoughSpace))
+            delegate?.failedWithError(connection: self, error: NearbyError.canceled(reason: .notEnoughSpace))
             try sendDisconnectionAndDisconnect()
         case .timedOut:
-            delegate?.outboundConnection(connection: self, failedWithError: NearbyError.canceled(reason: .timedOut))
+            delegate?.failedWithError(connection: self, error: NearbyError.canceled(reason: .timedOut))
             try sendDisconnectionAndDisconnect()
         case .unsupportedAttachmentType:
-            delegate?.outboundConnection(connection: self, failedWithError: NearbyError.canceled(reason: .unsupportedType))
+            delegate?.failedWithError(connection: self, error: NearbyError.canceled(reason: .unsupportedType))
             try sendDisconnectionAndDisconnect()
         }
     }
@@ -410,7 +410,7 @@ class OutboundNearbyConnection: NearbyConnection {
     
     private func sendText(text: String) throws {
         try sendBytesPayload(data: Data(text.utf8), id: textPayloadID)
-        delegate?.outboundConnectionTransferFinished(connection: self)
+        delegate?.transferFinished(connection: self)
         try sendDisconnectionAndDisconnect()
     }
     
@@ -426,7 +426,7 @@ class OutboundNearbyConnection: NearbyConnection {
             if queue.isEmpty {
                 log("[OutboundNearbyConnection \(self.id)] Disconnecting because all files have been transferred")
                 try sendDisconnectionAndDisconnect()
-                delegate?.outboundConnectionTransferFinished(connection: self)
+                delegate?.transferFinished(connection: self)
                 return
             }
             currentTransfer = queue.removeFirst()
@@ -468,7 +468,7 @@ class OutboundNearbyConnection: NearbyConnection {
         self.bytesTransferred += Int64(fileBuffer.count)
         
         startAndResetHeartbeatTimer()
-        delegate?.outboundConnection(connection: self, transferProgress: Double(totalBytesSent) / Double(totalBytesToSend))
+        delegate?.updatedTransferProgress(connection: self, progress: Double(totalBytesSent) / Double(totalBytesToSend))
 
         if currentTransfer!.currentOffset == currentTransfer!.totalBytes {
             // Signal end of file (yes, all this for one bit)

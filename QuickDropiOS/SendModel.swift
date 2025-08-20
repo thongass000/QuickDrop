@@ -47,7 +47,7 @@ class SendModel: ObservableObject, OutboundAppDelegate {
         progressValue = 0
     }
     
-    func connectionFailed(with error: any Error) {
+    func connectionFailed(error: any Error) {
         
         #if os(iOS)
         errorVibration()

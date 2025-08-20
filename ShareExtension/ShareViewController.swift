@@ -234,7 +234,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
     }
     
     
-    func connectionFailed(with error: Error) {
+    func connectionFailed(error: Error) {
         progressProgressBar?.isIndeterminate = false
         progressProgressBar?.maxValue = 1000
         progressProgressBar?.doubleValue = 0

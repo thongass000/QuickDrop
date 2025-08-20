@@ -155,7 +155,7 @@ class InboundNearbyConnection: NearbyConnection {
                 
                 // only for logging
                 self.bytesTransferred += Int64(frame.payloadChunk.body.count)
-                NearbyConnectionManager.shared.inboundConnection(connection: self, transferProgress: Double(self.bytesTransferred) / Double(self.bytesToBeTransferred))
+                NearbyConnectionManager.shared.updatedTransferProgress(connection: self, progress: Double(self.bytesTransferred) / Double(self.bytesToBeTransferred))
             } catch {
                 log("[InboundNearbyConnection \(self.id)] Error occurred during writing file: \(error.localizedDescription)")
                 
@@ -174,7 +174,7 @@ class InboundNearbyConnection: NearbyConnection {
             
             if filesToBeReceived.isEmpty {
                 log("[InboundNearbyConnection \(self.id)] All files received, sending disconnection frame and disconnecting.")
-                NearbyConnectionManager.shared.inboundConnection(connection: self, transferProgress: 1)
+                NearbyConnectionManager.shared.updatedTransferProgress(connection: self, progress: 1)
                 try sendDisconnectionAndDisconnect()
             }
         }
@@ -221,7 +221,7 @@ class InboundNearbyConnection: NearbyConnection {
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
             
             log("[InboundNearbyConnection \(self.id)] Received file payload. Disconnecting...")
-            NearbyConnectionManager.shared.inboundConnection(connection: self, transferProgress: 1)
+            NearbyConnectionManager.shared.updatedTransferProgress(connection: self, progress: 1)
             try sendDisconnectionAndDisconnect()
             return true
         }
@@ -434,7 +434,7 @@ class InboundNearbyConnection: NearbyConnection {
             }
             let metadata = TransferMetadata(files: filesToBeReceived.map { $0.value.meta }, id: id, pinCode: pinCode)
             DispatchQueue.main.async {
-                self.delegate?.obtainUserConsent(for: metadata, from: self.remoteDeviceInfo!, connection: self)
+                self.delegate?.obtainUserConsent(transfer: metadata, device: self.remoteDeviceInfo!, connection: self)
             }
         }
         else if let textMetadata = frame.v1.introduction.textMetadata.first {
@@ -451,7 +451,7 @@ class InboundNearbyConnection: NearbyConnection {
                 }
                 
                 DispatchQueue.main.async {
-                    self.delegate?.obtainUserConsent(for: metadata, from: self.remoteDeviceInfo!, connection: self)
+                    self.delegate?.obtainUserConsent(transfer: metadata, device: self.remoteDeviceInfo!, connection: self)
                 }
             }
             else {

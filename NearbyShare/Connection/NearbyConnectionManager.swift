@@ -154,8 +154,8 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo, connection _: InboundNearbyConnection) {
-        mainAppDelegate?.obtainUserConsent(for: transfer, from: device)
+    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, connection _: InboundNearbyConnection) {
+        mainAppDelegate?.obtainUserConsent(transfer: transfer, device: device)
     }
     
     
@@ -168,8 +168,8 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    func inboundConnection(connection: InboundNearbyConnection, transferProgress: Double) {
-        mainAppDelegate?.transferProgress(progress: transferProgress)
+    func updatedTransferProgress(connection: InboundNearbyConnection, progress: Double) {
+        mainAppDelegate?.transferProgress(progress: progress)
     }
     
     
@@ -400,13 +400,13 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         } catch {
             log("[NearbyConnectionManager] Error zipping URLs: \(error)")
             shareExtensionDelegates.forEach { delegate in
-                delegate.connectionFailed(with: error)
+                delegate.connectionFailed(error: error)
             }
         }
     }
     
     
-    func outboundConnectionWasEstablished(connection: OutboundNearbyConnection) {
+    func connectionWasEstablished(connection: OutboundNearbyConnection) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
         DispatchQueue.main.async {
             transfer.delegate.connectionWasEstablished(pinCode: connection.pinCode!)
@@ -414,7 +414,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    func outboundConnectionTransferAccepted(connection: OutboundNearbyConnection) {
+    func transferAccepted(connection: OutboundNearbyConnection) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
         DispatchQueue.main.async {
             transfer.delegate.transferAccepted()
@@ -422,24 +422,24 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    func outboundConnection(connection: OutboundNearbyConnection, transferProgress: Double) {
+    func updatedTransferProgress(connection: OutboundNearbyConnection, progress: Double) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
         DispatchQueue.main.async {
-            transfer.delegate.transferProgress(progress: transferProgress)
+            transfer.delegate.transferProgress(progress: progress)
         }
     }
     
     
-    func outboundConnection(connection: OutboundNearbyConnection, failedWithError: Error) {
+    func failedWithError(connection: OutboundNearbyConnection, error: Error) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
         DispatchQueue.main.async {
-            transfer.delegate.connectionFailed(with: failedWithError)
+            transfer.delegate.connectionFailed(error: error)
         }
         outgoingTransfers.removeValue(forKey: connection.id)
     }
     
     
-    func outboundConnectionTransferFinished(connection: OutboundNearbyConnection) {
+    func transferFinished(connection: OutboundNearbyConnection) {
         guard let transfer = outgoingTransfers[connection.id] else { return }
         DispatchQueue.main.async {
             transfer.delegate.transferFinished()

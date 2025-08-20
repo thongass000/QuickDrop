@@ -12,23 +12,23 @@ import SwiftECC
 
 
 protocol InboundNearbyConnectionDelegate {
-    func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo, connection: InboundNearbyConnection)
-    func inboundConnection(connection: InboundNearbyConnection, transferProgress: Double)
+    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, connection: InboundNearbyConnection)
+    func updatedTransferProgress(connection: InboundNearbyConnection, progress: Double)
     func connectionWasTerminated(connection: InboundNearbyConnection, error: Error?)
 }
 
 
 protocol OutboundNearbyConnectionDelegate {
-    func outboundConnectionWasEstablished(connection: OutboundNearbyConnection)
-    func outboundConnection(connection: OutboundNearbyConnection, transferProgress: Double)
-    func outboundConnectionTransferAccepted(connection: OutboundNearbyConnection)
-    func outboundConnection(connection: OutboundNearbyConnection, failedWithError: Error)
-    func outboundConnectionTransferFinished(connection: OutboundNearbyConnection)
+    func connectionWasEstablished(connection: OutboundNearbyConnection)
+    func updatedTransferProgress(connection: OutboundNearbyConnection, progress: Double)
+    func transferAccepted(connection: OutboundNearbyConnection)
+    func failedWithError(connection: OutboundNearbyConnection, error: Error)
+    func transferFinished(connection: OutboundNearbyConnection)
 }
 
 
 public protocol InboundAppDelegate: AnyObject {
-    func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo)
+    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo)
     func connectionWasTerminated(from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: Error?)
     func transferProgress(progress: Double)
 }
@@ -39,7 +39,7 @@ public protocol OutboundAppDelegate: AnyObject {
     func removeDevice(id: String)
     func startTransferWithQrCode(device: RemoteDeviceInfo)
     func connectionWasEstablished(pinCode: String)
-    func connectionFailed(with error: Error)
+    func connectionFailed(error: Error)
     func transferAccepted()
     func transferProgress(progress: Double)
     func transferFinished()
