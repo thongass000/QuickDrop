@@ -207,8 +207,7 @@ class NearbyConnection {
                 log("[NearbyConnection \(self.id)] Connection closed by peer during receiveFrameAsync(length:)")
                 
                 if let content = content, !content.isEmpty {
-                    log("[NearbyConnection \(self.id)] Connection closed by peer during receiveFrameAsync(length:), but trying to process the frame anyway. Frame length: \(content.count)")
-                    self.processReceivedFrame(frameData: content)
+                    log("[NearbyConnection \(self.id)] Connection closed by peer during receiveFrameAsync(length:), and frame not empty. Frame length: \(content.count)")
                 }
                 else {
                     log("[NearbyConnection \(self.id)] Connection closed by peer during receiveFrameAsync(length:), but no content received anymore (\(String(describing: content))).")
@@ -424,7 +423,10 @@ class NearbyConnection {
         }
         else if offlineFrame.hasV1, offlineFrame.v1.hasType, case .keepAlive = offlineFrame.v1.type {
             
-            log("[NearbyConnection \(self.id)] Sent keep-alive, \(self.bytesTransferred) bytes sent")
+            let bytesTransferred = self.bytesTransferred
+            let gigabytesTransferred = Double(bytesTransferred) / 1_000_000_000
+            
+            log("[NearbyConnection \(self.id)] Sent keep-alive, \(self.bytesTransferred) bytes (\(gigabytesTransferred) GB) sent")
             sendKeepAlive(ack: true)
         } else {
             

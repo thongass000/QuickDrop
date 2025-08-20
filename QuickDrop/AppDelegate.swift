@@ -14,9 +14,10 @@ import SwiftUI
 import UserNotifications
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSWindowDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSWindowDelegate, MainAppDelegate {
     
     private var statusItem: NSStatusItem?
+    private var activeIncomingTransfers: [String: TransferInfo] = [:]
 
     var welcomeWindow: NSWindow?
     var plusWindow: NSWindow?
@@ -26,7 +27,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     private var errorAlertHandler = ErrorAlertHandler.shared
 
     private var iapManager: IAPManager?
-    private var receiveModel: ReceiveModel?
 
     var showsFirewallAlert = false
     var visibleItem: NSMenuItem? = nil
@@ -64,6 +64,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         statusItem?.button?.image = NSImage(named: "MenuBarIcon")
         statusItem?.menu = menu
         statusItem?.behavior = .removalAllowed
+
+        NearbyConnectionManager.shared.mainAppDelegate = self
+        NearbyConnectionManager.shared.becomeVisible()
 
         iapManager = IAPManager.sharedInstance
         iapManager?.startObserving()
@@ -109,7 +112,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         let queue2 = DispatchQueue(label: "NetworkConnectionMonitor")
         hasConnectionMonitor.start(queue: queue2)
-        
+
         receiveModel = ReceiveModel(controlPlusScreen: { shouldOpen in
             if shouldOpen {
                 self.openPlusScreen()
@@ -118,9 +121,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 if let window = self.plusWindow {
                     log("[AppDelegate] Closing plus screen because of error")
                     window.close()
+                    self.plusWindow = nil
                 }
             }
         })
+
+        log("Application did finish launching")
     }
     
     
@@ -130,7 +136,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
               welcomeWindow = nil
               NSApp.setActivationPolicy(.accessory)
           }
-    }
+      }
     
     
     func applicationShouldHandleReopen(_: NSApplication, hasVisibleWindows _: Bool) -> Bool {
@@ -181,15 +187,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         let pasteboard = NSPasteboard.general
         let clipboardString = pasteboard.string(forType: .string) ?? ""
         
-        if clipboardString.isEmpty {
-            DispatchQueue.main.async {
-                BezelNotification.show(messageText: "ClipboardEmpty".localized(), icon: .clipboard)
-            }
-        }
-        else {
-            let sharingService = NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension"))
-            sharingService?.perform(withItems: [clipboardString])
-        }
+        let sharingService = NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension"))
+        sharingService?.perform(withItems: [clipboardString])
     }
 
     
@@ -244,13 +243,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             log("Plus screen already open, bringing to front")
             return
         }
-        
+
         log("Opening Plus screen")
 
         // Create the welcome screen SwiftUI view
         let plusView = PlusView(closeView: {
             log("Closing plus screen")
             self.plusWindow?.close()
+            self.plusWindow = nil
         })
 
         // Create an NSWindow to host the SwiftUI view
@@ -318,7 +318,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
     }
     
-    
+
     // MARK: - Helper Functions
     
     private func performDeviceToDeviceCheck() {

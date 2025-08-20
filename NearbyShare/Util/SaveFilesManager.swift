@@ -33,10 +33,10 @@ public class SaveFilesManager {
              }
              
              if didSomething {
-                 log("Temporary directory cleared.")
+                 log("[SaveFilesManager] Temporary directory cleared.")
              }
          } catch {
-             log("Failed to list contents of temp directory: \(error)")
+             log("[SaveFilesManager] Failed to list contents of temp directory: \(error)")
          }
     }
 
@@ -70,7 +70,7 @@ public class SaveFilesManager {
                 for file in files {
                     
                     if !loggedExecution {
-                        log("Moving pending files to target directory")
+                        log("[SaveFilesManager] Moving pending files to target directory")
                         loggedExecution = true
                     }
                     
@@ -78,11 +78,11 @@ public class SaveFilesManager {
                     let destinationURL = target.appendingPathComponent(fileName)
                     
                     if !filesFinishedDownloading.contains(destinationURL) {
-                        log("File \(file) not finished downloading, skipping")
+                        log("[SaveFilesManager] File \(file) not finished downloading, skipping")
                         continue
                     }
                     
-                    log("Moving file: \(file.lastPathComponent) to \(destinationURL.lastPathComponent)")
+                    log("[SaveFilesManager] Moving file: \(file.lastPathComponent) to \(destinationURL.lastPathComponent)")
                     
                     do {
                         try fileManager.copyItem(at: file, to: destinationURL)
@@ -106,10 +106,10 @@ public class SaveFilesManager {
                         try fileManager.removeItem(at: file)
                     }
                     catch {
-                        log("Error moving file: \(error)")
+                        log("[SaveFilesManager] Error moving file: \(error)")
                     }
                 }
-                log("Moved all pending files to target directory")
+                log("[SaveFilesManager] Moved all pending files to target directory")
             }
             catch {
                 // Pending directory doesn't exist or is empty
@@ -120,7 +120,7 @@ public class SaveFilesManager {
             
             #if os(macOS)
             if UserDefaults.standard.bool(forKey: UserDefaultsKeys.openFinderAfterReceiving.rawValue) {
-                log("Opening \(filesFinishedDownloadingSinceLastRun.count) file(s) in Finder.")
+                log("[SaveFilesManager] Opening \(filesFinishedDownloadingSinceLastRun.count) file(s) in Finder.")
                 NSWorkspace.shared.activateFileViewerSelecting(filesFinishedDownloadingSinceLastRun)
             }
             #else
@@ -156,7 +156,7 @@ public class SaveFilesManager {
             return
         }
 
-        log("Stopping access to security scoped resource: \(url)")
+        log("[SaveFilesManager] Stopping access to security scoped resource: \(url)")
         url.stopAccessingSecurityScopedResource()
         securityScopeUrl = nil
     }
@@ -167,7 +167,7 @@ public class SaveFilesManager {
         // Not supported on iOS
         #if os(macOS)
         if let securityScopeUrl = securityScopeUrl {
-            log("Using existing security scope URL: \(securityScopeUrl)")
+            log("[SaveFilesManager] Using existing security scope URL: \(securityScopeUrl)")
             return securityScopeUrl
         }
 
@@ -179,24 +179,24 @@ public class SaveFilesManager {
 
                 if !isStale {
                     if url.startAccessingSecurityScopedResource() {
-                        log("Successfully accessed security scoped resource: \(url)")
+                        log("[SaveFilesManager] Successfully accessed security scoped resource: \(url)")
 
                         securityScopeUrl = url
                         return url
                     }
                 } else {
-                    log("Bookmark is stale, using default downloads folder.")
+                    log("[SaveFilesManager] Bookmark is stale, using default downloads folder.")
                 }
 
             } catch {
-                log("Failed to resolve bookmark: \(error), using default downloads folder.")
+                log("[SaveFilesManager] Failed to resolve bookmark: \(error), using default downloads folder.")
             }
         }
 
         do {
             return try FileManager.default.url(for: .downloadsDirectory, in: .userDomainMask, appropriateFor: nil, create: true).resolvingSymlinksInPath()
         } catch {
-            fatalError("Failed to get downloads directory: \(error)")
+            fatalError("[SaveFilesManager] Failed to get downloads directory: \(error)")
         }
         #else
         // Return the documents directory for iOS
