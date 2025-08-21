@@ -147,13 +147,12 @@ class InboundNearbyConnection: NearbyConnection {
         
         guard currentOffset + Int64(frame.payloadChunk.body.count) <= fileInfo.meta.size else { throw NearbyError.protocolError("Transferred file size exceeds previously specified value") }
         
-        if frame.payloadChunk.body.count > 0 {
+        if !frame.payloadChunk.body.isEmpty {
             do {
                 try fileInfo.fileHandle?.write(contentsOf: frame.payloadChunk.body)
                 filesToBeReceived[id]!.bytesTransferred += Int64(frame.payloadChunk.body.count)
                 fileInfo.progress?.completedUnitCount = filesToBeReceived[id]!.bytesTransferred
                 
-                // only for logging
                 self.bytesTransferred += Int64(frame.payloadChunk.body.count)
                 NearbyConnectionManager.shared.updatedTransferProgress(connection: self, progress: Double(self.bytesTransferred) / Double(self.bytesToBeTransferred))
             } catch {
@@ -177,6 +176,9 @@ class InboundNearbyConnection: NearbyConnection {
                 NearbyConnectionManager.shared.updatedTransferProgress(connection: self, progress: 1)
                 try sendDisconnectionAndDisconnect()
             }
+        }
+        else {
+            log("[InboundNearbyConnection \(self.id)] Received file chunk with no body and no flags, ignoring it.")
         }
     }
 
@@ -220,9 +222,11 @@ class InboundNearbyConnection: NearbyConnection {
             filesToBeReceived.removeValue(forKey: id)
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
             
-            log("[InboundNearbyConnection \(self.id)] Received file payload. Disconnecting...")
-            NearbyConnectionManager.shared.updatedTransferProgress(connection: self, progress: 1)
-            try sendDisconnectionAndDisconnect()
+            if filesToBeReceived.isEmpty {
+                log("[InboundNearbyConnection \(self.id)] Received file payload. Disconnecting...")
+                NearbyConnectionManager.shared.updatedTransferProgress(connection: self, progress: 1)
+                try sendDisconnectionAndDisconnect()
+            }
             return true
         }
         return false

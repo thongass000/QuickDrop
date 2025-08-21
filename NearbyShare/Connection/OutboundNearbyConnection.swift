@@ -23,7 +23,6 @@ class OutboundNearbyConnection: NearbyConnection {
     private var queue: [OutgoingFileTransfer] = []
     private var currentTransfer: OutgoingFileTransfer?
     private var totalBytesToSend: Int64 = 0
-    private var totalBytesSent: Int64 = 0
     private var textPayloadID: Int64 = 0
     
     public var qrCodePrivateKey: ECPrivateKey?
@@ -462,13 +461,11 @@ class OutboundNearbyConnection: NearbyConnection {
                 self.protocolError()
             }
         })
-        totalBytesSent += Int64(fileBuffer.count)
         
-        // only for logging
         self.bytesTransferred += Int64(fileBuffer.count)
         
         startAndResetHeartbeatTimer()
-        delegate?.updatedTransferProgress(connection: self, progress: Double(totalBytesSent) / Double(totalBytesToSend))
+        delegate?.updatedTransferProgress(connection: self, progress: Double(bytesTransferred) / Double(totalBytesToSend))
 
         if currentTransfer!.currentOffset == currentTransfer!.totalBytes {
             // Signal end of file (yes, all this for one bit)
