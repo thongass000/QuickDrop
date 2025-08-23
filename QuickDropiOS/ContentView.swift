@@ -56,7 +56,7 @@ struct DeviceListView: View {
                     
                     let attachments = nearbyConnectionManager.attachments
                     
-                    FooterView(text: attachments == nil ? "YouAreVisibleAs".localized() : "YouAreSending".localized())
+                    FormHeader(name: attachments == nil ? "YouAreVisibleAs".localized() : "YouAreSending".localized())
                     
                     HStack {
                         
@@ -74,8 +74,8 @@ struct DeviceListView: View {
                     .padding(.vertical, 6)
                     .background(Color.defaultForegroundColor)
                     .cornerRadius(24)
-                    .padding(.horizontal)
                 }
+                .padding(.horizontal)
                 .padding(.top, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
