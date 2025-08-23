@@ -14,6 +14,9 @@
 		699DEBAE2AB0573200115D22 /* QuickDropShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 699DEBA12AB0573200115D22 /* QuickDropShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		69DA9A1229E0BF5100A442DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A1129E0BF5100A442DA /* AppDelegate.swift */; };
 		69DA9A1429E0BF5200A442DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
+		EB05DFBE2E59FC8900EF567A /* TrustedDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */; };
+		EB05DFBF2E59FD0A00EF567A /* TrustedDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */; };
+		EB05DFC02E5A2EAA00EF567A /* TrustedDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */; };
 		EB16B6122E58B4B9007D9792 /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B6112E58B4B9007D9792 /* IdentityManager.swift */; };
 		EB16B6132E58B4B9007D9792 /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B6112E58B4B9007D9792 /* IdentityManager.swift */; };
 		EB16B6142E58B4B9007D9792 /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B6112E58B4B9007D9792 /* IdentityManager.swift */; };
@@ -299,6 +302,7 @@
 		69DA9A2B29E18CB500A442DA /* offline_wire_formats.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = offline_wire_formats.pb.swift; sourceTree = "<group>"; };
 		69DA9A2C29E18CB500A442DA /* securegcm.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = securegcm.pb.swift; sourceTree = "<group>"; };
 		69DA9A2D29E18CB500A442DA /* securemessage.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = securemessage.pb.swift; sourceTree = "<group>"; };
+		EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedDevicesView.swift; sourceTree = "<group>"; };
 		EB16B6112E58B4B9007D9792 /* IdentityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityManager.swift; sourceTree = "<group>"; };
 		EB16B6162E58B4C8007D9792 /* TrustStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustStore.swift; sourceTree = "<group>"; };
 		EB16B7762E59BA9F007D9792 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
@@ -590,6 +594,7 @@
 				EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */,
 				EB7F54112D78E95C00989564 /* TutorialView.swift */,
 				EB7F54132D78E9E400989564 /* LicenseWindow.swift */,
+				EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */,
 				EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */,
 				EBC05C812E33B58300EECC18 /* IssueViews */,
 			);
@@ -928,6 +933,7 @@
 				EB5C37B82E377A6F0052EFD7 /* SleepManager.swift in Sources */,
 				EB5C37B92E377A6F0052EFD7 /* SaveFilesManager.swift in Sources */,
 				EB5C37BA2E377A6F0052EFD7 /* Helpers.swift in Sources */,
+				EB05DFBE2E59FC8900EF567A /* TrustedDevicesView.swift in Sources */,
 				EB16B6182E58B4C8007D9792 /* TrustStore.swift in Sources */,
 				EBC05C5B2E33937200EECC18 /* ErrorAlertHandler.swift in Sources */,
 				EBC05C712E33B57D00EECC18 /* Converter.swift in Sources */,
@@ -974,6 +980,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB05DFBF2E59FD0A00EF567A /* TrustedDevicesView.swift in Sources */,
 				EB5C37F12E377CE70052EFD7 /* ukey.pb.swift in Sources */,
 				EB5C37F22E377CE70052EFD7 /* NearbyConnection.swift in Sources */,
 				EB5C37F32E377CE70052EFD7 /* SaveFilesManager.swift in Sources */,
@@ -1034,6 +1041,7 @@
 				EB950B512E520436002D68FA /* securemessage.pb.swift in Sources */,
 				EB950B522E520436002D68FA /* NearbyConnectionManager.swift in Sources */,
 				EB950B532E520436002D68FA /* ukey.pb.swift in Sources */,
+				EB05DFC02E5A2EAA00EF567A /* TrustedDevicesView.swift in Sources */,
 				EB950B542E520436002D68FA /* HKDF.swift in Sources */,
 				EB950B552E520436002D68FA /* SaveFilesManager.swift in Sources */,
 				EB950B562E520436002D68FA /* DataModel.swift in Sources */,

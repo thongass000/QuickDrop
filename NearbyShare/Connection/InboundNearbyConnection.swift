@@ -547,9 +547,8 @@ class InboundNearbyConnection: NearbyConnection {
     
 
     func submitUserConsent(accepted: Bool, trustDevice: Bool, storeInTemp: Bool = false) {
-        
-        if trustDevice, let peerCertificate = peerCertificate {
-            TrustStore.shared.addTrusted(certificate: peerCertificate)
+        if trustDevice, let peerCertificate = peerCertificate, let remoteDeviceInfo = remoteDeviceInfo {
+            TrustStore.shared.addTrusted(certificate: peerCertificate, device: remoteDeviceInfo)
         }
         
         DispatchQueue.global(qos: .utility).async {

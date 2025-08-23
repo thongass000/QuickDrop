@@ -46,10 +46,10 @@ public protocol OutboundAppDelegate: AnyObject {
 }
 
 
-public struct RemoteDeviceInfo: Identifiable, Equatable {
+public struct RemoteDeviceInfo: Codable, Identifiable, Equatable {
     public let name: String?
     public let type: DeviceType
-    public let qrCodeData:Data?
+    public let qrCodeData: Data?
     public var id: String?
 
     init(name: String, type: DeviceType, id: String? = nil) {
@@ -67,7 +67,7 @@ public struct RemoteDeviceInfo: Identifiable, Equatable {
     }
 
     
-    public enum DeviceType: Int32 {
+    public enum DeviceType: Int32, Codable {
         case unknown = 0
         case phone
         case tablet

@@ -24,6 +24,12 @@ struct ContentView: View {
                 } label: {
                     NavigationLinkLabel(imageName: "folder.fill", text: "BrowseDownloadedFiles")
                 }
+                
+                LUILink(destination: NavigationSubView(header: "TrustedDevices") {
+                    TrustedDevicesView()
+                }) {
+                    NavigationLinkLabel(imageName: "checkmark.shield.fill", text: "ManageTrustedDevices", backgroundColor: .green)
+                }
             }
         })
     }

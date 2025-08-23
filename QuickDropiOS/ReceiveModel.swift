@@ -61,8 +61,15 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
        
         let pinCodeMessage = String(format: "PinCode".localized(), arguments: [transfer.pinCode ?? "?"])
         let transferID = transfer.id
+        
+        #if os(macOS)
+        let isMac = true
+        #else
+        let isMac = false
+        #endif
+        
 
-        if acceptAutomatically && isMac() {
+        if acceptAutomatically && isMac {
             pressAcceptButton(transferID: transfer.id, trustDevice: false)
 
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
