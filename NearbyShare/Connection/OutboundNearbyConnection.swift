@@ -304,7 +304,13 @@ class OutboundNearbyConnection: NearbyConnection {
             
             pairedEncryption.v1.pairedKeyResult.status = .success
         }
-        
+        else {
+            
+            log("[OutboundNearbyConnection \(self.id)] No private key available, cannot send signing certificate!")
+            
+            pairedEncryption.v1.pairedKeyEncryption.secretIDHash = Data.randomData(length: 6)
+            pairedEncryption.v1.pairedKeyEncryption.signedData = Data.randomData(length: 72)
+        }
         
         if let qrKey = qrCodePrivateKey, let authKey = authKey {
             let signature = qrKey.sign(msg: authKey.data())

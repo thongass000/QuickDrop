@@ -387,11 +387,10 @@ class InboundNearbyConnection: NearbyConnection {
 
 
     private func processPairedKeyEncryptionFrame(_ frame: Sharing_Nearby_Frame) throws {
-        let pkeFrame = frame.v1.pairedKeyEncryption
-
-        log("[InboundNearbyConnection \(self.id)] Processing paired key encryption frame with secretIDHash: \(pkeFrame.secretIDHash.hex)")
         
-        log("Signed data: " + pkeFrame.signedData.hex)
+        guard frame.hasV1, frame.v1.hasPairedKeyEncryption else { throw NearbyError.requiredFieldMissing("shareNearbyFrame.v1.pairedKeyEncryption") }
+        
+        let pkeFrame = frame.v1.pairedKeyEncryption
         
         // Check if we can accept the connection automatically
         if !pkeFrame.secretIDHash.isEmpty,
