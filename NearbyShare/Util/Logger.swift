@@ -25,7 +25,7 @@ final class LogManager {
     /// Private initializer
     private init() {
         // Use the App Group container
-        let directory = getAppGroupDirectory()
+        let directory = AppGroup.appGroupDirectory
         
         // Create file name from date
         let formatter = DateFormatter()
@@ -89,7 +89,7 @@ final class LogManager {
     func deleteLogs() {
         log("[LUI] Deleting all logs...")
         
-        guard let directory = getAppGroupDirectory() else { return }
+        guard let directory = AppGroup.appGroupDirectory else { return }
         let fileManager = FileManager.default
         
         guard let allFiles = try? fileManager.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil) else {
@@ -123,11 +123,4 @@ public func log(_ text: String) {
 #endif
         }
     }
-}
-
-
-/// Returns the shared App Group directory
-func getAppGroupDirectory() -> URL? {
-    let groupIdentifier = "group.com.leonboettger.neardrop"
-    return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupIdentifier)
 }

@@ -154,8 +154,8 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, connection _: InboundNearbyConnection) {
-        mainAppDelegate?.obtainUserConsent(transfer: transfer, device: device)
+    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, connection _: InboundNearbyConnection, acceptAutomatically: Bool) {
+        mainAppDelegate?.obtainUserConsent(transfer: transfer, device: device, acceptAutomatically: acceptAutomatically)
     }
     
     
@@ -173,11 +173,11 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    public func submitUserConsent(transferID: String, accept: Bool, storeInTemp: Bool = false) {
+    public func submitUserConsent(transferID: String, accept: Bool, trustDevice: Bool, storeInTemp: Bool = false) {
         guard let conn = incomingConnections[transferID] else { return }
         
         log("[NearbyConnectionManager] Submitting user consent for transfer \(transferID), accepted: \(accept), store in temp: \(storeInTemp)")
-        conn.submitUserConsent(accepted: accept, storeInTemp: storeInTemp)
+        conn.submitUserConsent(accepted: accept, trustDevice: trustDevice, storeInTemp: storeInTemp)
     }
     
     

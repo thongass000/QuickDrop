@@ -26,6 +26,8 @@ class InboundNearbyConnection: NearbyConnection {
     private var cipherCommitment: Data?
     private var textPayloadID: Int64 = 0
     private var bytesToBeTransferred: Int64 = 0
+    private var isAuthenticated = false
+    private var peerCertificate: Sharing_Nearby_PublicCertificate? = nil
     var isPlainTextTransfer = false
     
     var wasUserRejected = false
@@ -371,9 +373,11 @@ class InboundNearbyConnection: NearbyConnection {
             pairedEncryption.v1 = Sharing_Nearby_V1Frame()
             pairedEncryption.v1.type = .pairedKeyEncryption
             pairedEncryption.v1.pairedKeyEncryption = Sharing_Nearby_PairedKeyEncryptionFrame()
-            // Presumably used for all the phone number stuff that no one needs anyway
+            
+            // For inbound connections, we do not use provide secretIDHash and signedData
             pairedEncryption.v1.pairedKeyEncryption.secretIDHash = Data.randomData(length: 6)
             pairedEncryption.v1.pairedKeyEncryption.signedData = Data.randomData(length: 72)
+            
             try sendTransferSetupFrame(pairedEncryption)
             currentState = .sentConnectionResponse
         } else {
@@ -381,16 +385,77 @@ class InboundNearbyConnection: NearbyConnection {
         }
     }
 
-    
+
     private func processPairedKeyEncryptionFrame(_ frame: Sharing_Nearby_Frame) throws {
-        guard frame.hasV1, frame.v1.hasPairedKeyEncryption else { throw NearbyError.requiredFieldMissing("shareNearbyFrame.v1.pairedKeyEncryption") }
-        var pairedResult = Sharing_Nearby_Frame()
-        pairedResult.version = .v1
-        pairedResult.v1 = Sharing_Nearby_V1Frame()
-        pairedResult.v1.type = .pairedKeyResult
-        pairedResult.v1.pairedKeyResult = Sharing_Nearby_PairedKeyResultFrame()
-        pairedResult.v1.pairedKeyResult.status = .unable
-        try sendTransferSetupFrame(pairedResult)
+        let pkeFrame = frame.v1.pairedKeyEncryption
+
+        log("[InboundNearbyConnection \(self.id)] Processing paired key encryption frame with secretIDHash: \(pkeFrame.secretIDHash.hex)")
+        
+        log("Signed data: " + pkeFrame.signedData.hex)
+        
+        // Check if we can accept the connection automatically
+        if !pkeFrame.secretIDHash.isEmpty,
+            let trustedCertData = TrustStore.shared.findTrustedKey(for: pkeFrame.secretIDHash),
+            let trustedCert = try? Sharing_Nearby_PublicCertificate(serializedBytes: trustedCertData),
+            let peerGenericKey = try? Securemessage_GenericPublicKey(serializedBytes: trustedCert.publicKey),
+            let authKeyData = self.authKey?.data() {
+            
+            log("[InboundNearbyConnection \(self.id)] Found trusted certificate for secretIDHash: \(pkeFrame.secretIDHash.hex)")
+
+            let domain = Domain.instance(curve: .EC256r1)
+            let ecKey = peerGenericKey.ecP256PublicKey
+            let point = Point(BInt(magnitude: [UInt8](ecKey.x)), BInt(magnitude: [UInt8](ecKey.y)))
+            
+            guard let peerPublicKey = try? ECPublicKey(domain: domain, w: point) else {
+                log("[InboundNearbyConnection \(self.id)] Paired key auth failed: Invalid peer public key.")
+                try automaticAuthFailed()
+                return
+            }
+            
+            guard pkeFrame.signedData.count == 72 else {
+                log("[InboundNearbyConnection \(self.id)] Paired key auth failed: Invalid signature length.")
+                try automaticAuthFailed()
+                return
+            }
+            
+            // Strip header
+            let signedData = pkeFrame.signedData.subdata(in: 8..<72)
+            
+            let r = Array(signedData.prefix(32))
+            let s = Array(signedData.suffix(32))
+            
+            let signature = ECSignature(domain: domain, r: r, s: s)
+
+            if peerPublicKey.verify(signature: signature, msg: authKeyData) {
+                log("[InboundNearbyConnection \(self.id)] Paired key authentication successful.")
+                try sendPairedKeyResult(status: .success)
+                isAuthenticated = true
+            } else {
+                log("[InboundNearbyConnection \(self.id)] Paired key auth failed: Signature verification failed.")
+                try automaticAuthFailed()
+            }
+        } else {
+            try automaticAuthFailed()
+        }
+        
+        func automaticAuthFailed() throws {
+            // Store certificate of peer to let user device later to trust it
+            if let peerCertificate = frame.v1.certificateInfo.publicCertificate.first {
+                log("[InboundNearbyConnection \(self.id)] Storing peer certificate for potential later use")
+                self.peerCertificate = peerCertificate
+            }
+            
+            try sendPairedKeyResult(status: .unable)
+        }
+    }
+    
+
+    private func sendPairedKeyResult(status: Sharing_Nearby_PairedKeyResultFrame.Status) throws {
+        var resultFrame = Sharing_Nearby_Frame()
+        resultFrame.version = .v1
+        resultFrame.v1.type = .pairedKeyResult
+        resultFrame.v1.pairedKeyResult.status = status
+        try sendTransferSetupFrame(resultFrame)
         currentState = .sentPairedKeyResult
     }
 
@@ -436,10 +501,8 @@ class InboundNearbyConnection: NearbyConnection {
                 filesToBeReceived[file.payloadID] = info
                 bytesToBeTransferred += file.size
             }
-            let metadata = TransferMetadata(files: filesToBeReceived.map { $0.value.meta }, id: id, pinCode: pinCode)
-            DispatchQueue.main.async {
-                self.delegate?.obtainUserConsent(transfer: metadata, device: self.remoteDeviceInfo!, connection: self)
-            }
+            let metadata = TransferMetadata(files: filesToBeReceived.map { $0.value.meta }, id: id, pinCode: pinCode, allowsToBeAddedAsTrustedDevice: self.peerCertificate != nil)
+            checkIfCanProceed(metadata: metadata)
         }
         else if let textMetadata = frame.v1.introduction.textMetadata.first {
             
@@ -447,22 +510,30 @@ class InboundNearbyConnection: NearbyConnection {
                 
                 let isClipboardText = textMetadata.type == .text
                 
-                let metadata = TransferMetadata(files: [], id: id, pinCode: pinCode, textDescription: textMetadata.textTitle, transferType: isClipboardText ? .text : .url)
+                let metadata = TransferMetadata(files: [], id: id, pinCode: pinCode, textDescription: textMetadata.textTitle, transferType: isClipboardText ? .text : .url, allowsToBeAddedAsTrustedDevice: self.peerCertificate != nil)
                 textPayloadID = textMetadata.payloadID
                 
                 if isClipboardText {
                     isPlainTextTransfer = true
                 }
                 
-                DispatchQueue.main.async {
-                    self.delegate?.obtainUserConsent(transfer: metadata, device: self.remoteDeviceInfo!, connection: self)
-                }
+                checkIfCanProceed(metadata: metadata)
             }
             else {
                 rejectDueToUnsupportedFileType(frame)
             }
         } else {
             rejectDueToUnsupportedFileType(frame)
+        }
+        
+        
+        func checkIfCanProceed(metadata: TransferMetadata) {
+            
+            let acceptAutomatically = isAuthenticated || UserDefaults.standard.bool(forKey: UserDefaultsKeys.automaticallyAcceptFiles.rawValue)
+            
+            DispatchQueue.main.async {
+                self.delegate?.obtainUserConsent(transfer: metadata, device: self.remoteDeviceInfo!, connection: self, acceptAutomatically: acceptAutomatically)
+            }
         }
     }
     
@@ -476,7 +547,12 @@ class InboundNearbyConnection: NearbyConnection {
     }
     
 
-    func submitUserConsent(accepted: Bool, storeInTemp: Bool = false) {
+    func submitUserConsent(accepted: Bool, trustDevice: Bool, storeInTemp: Bool = false) {
+        
+        if trustDevice, let peerCertificate = peerCertificate {
+            TrustStore.shared.addTrusted(certificate: peerCertificate)
+        }
+        
         DispatchQueue.global(qos: .utility).async {
             if accepted {
                 self.acceptTransfer(storeInTemp: storeInTemp)

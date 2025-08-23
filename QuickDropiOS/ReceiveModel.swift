@@ -26,14 +26,12 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     }
     
     
-    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo) {
+    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, acceptAutomatically: Bool) {
         
         #if os(macOS)
         NSApp.activate(ignoringOtherApps: true)
         AudioManager.playIncomingFileSound()
         #endif
-
-        let acceptAutomatically = UserDefaults.standard.bool(forKey: UserDefaultsKeys.automaticallyAcceptFiles.rawValue)
 
         let fileStr: String
 
@@ -64,8 +62,8 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         let pinCodeMessage = String(format: "PinCode".localized(), arguments: [transfer.pinCode ?? "?"])
         let transferID = transfer.id
 
-        if acceptAutomatically {
-            pressAcceptButton(transferID: transfer.id)
+        if acceptAutomatically && isMac() {
+            pressAcceptButton(transferID: transfer.id, trustDevice: false)
 
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
                 if granted {
@@ -89,9 +87,9 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             
             let title = "QuickDrop - \(pinCodeMessage)"
             let primaryButtonTitle = "Accept".localized()
-            let primaryButtonAction = { self.pressAcceptButton(transferID: transferID) }
+            let primaryButtonAction = { (trustDevice: Bool) in self.pressAcceptButton(transferID: transferID, trustDevice: trustDevice) }
             let secondaryButtonTitle = "Decline".localized()
-            let secondaryButtonAction = { NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: false, storeInTemp: false) }
+            let secondaryButtonAction = { NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: false, trustDevice: false, storeInTemp: false) }
             
             #if os(macOS)
             let alert = NSAlert()
@@ -101,18 +99,32 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             alert.informativeText = mainMessage
             alert.addButton(withTitle: primaryButtonTitle)
             alert.addButton(withTitle: secondaryButtonTitle)
+            
+            if transfer.allowsToBeAddedAsTrustedDevice {
+                alert.showsSuppressionButton = true
+                alert.suppressionButton?.title = "AutoAcceptFromThisDevice".localized()
+            }
 
             let result = alert.runModal()
 
             if result == .alertFirstButtonReturn {
-                primaryButtonAction()
+                primaryButtonAction(alert.suppressionButton?.state == .on)
             } else if result == .alertSecondButtonReturn {
                 secondaryButtonAction()
             }
             #else
             // iOS
-            ProgressAlert.shared.askForUserPermission(title: title, message: mainMessage, acceptLabel: primaryButtonTitle, rejectLabel: secondaryButtonTitle) { accepted in
-                accepted ? primaryButtonAction() : secondaryButtonAction()
+            let alwaysAcceptLabel = transfer.allowsToBeAddedAsTrustedDevice ? "AlwaysAccept".localized() : nil
+            ProgressAlert.shared.askForUserPermission(title: title, message: mainMessage, acceptLabel: primaryButtonTitle, acceptAlwaysLabel: alwaysAcceptLabel, rejectLabel: secondaryButtonTitle, acceptAutomatically: acceptAutomatically) { accepted in
+                
+                switch accepted {
+                    case .Accept:
+                        primaryButtonAction(false)
+                    case .AcceptAlways:
+                        primaryButtonAction(true)
+                    case .Decline:
+                        secondaryButtonAction()
+                }
             }
             #endif
         }
@@ -181,13 +193,13 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     }
     
     
-    private func pressAcceptButton(transferID: String) {
+    private func pressAcceptButton(transferID: String, trustDevice: Bool) {
         if isFileTransferRestricted() {
             log("[ReceiveModel] Showing plus screen...")
-            NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: true, storeInTemp: true)
+            NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: true, trustDevice: trustDevice, storeInTemp: true)
             controlPlusScreen(true)
         } else {
-            NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: true, storeInTemp: false)
+            NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: true, trustDevice: trustDevice, storeInTemp: false)
         }
     }
 }

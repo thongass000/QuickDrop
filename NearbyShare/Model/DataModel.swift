@@ -12,7 +12,7 @@ import SwiftECC
 
 
 protocol InboundNearbyConnectionDelegate {
-    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, connection: InboundNearbyConnection)
+    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, connection: InboundNearbyConnection, acceptAutomatically: Bool)
     func updatedTransferProgress(connection: InboundNearbyConnection, progress: Double)
     func connectionWasTerminated(connection: InboundNearbyConnection, error: Error?)
 }
@@ -28,7 +28,7 @@ protocol OutboundNearbyConnectionDelegate {
 
 
 public protocol InboundAppDelegate: AnyObject {
-    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo)
+    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, acceptAutomatically: Bool)
     func connectionWasTerminated(from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: Error?)
     func transferProgress(progress: Double)
 }
@@ -107,13 +107,15 @@ public struct TransferMetadata {
     public let pinCode: String?
     public let textDescription: String?
     public let type: TransferType
+    public let allowsToBeAddedAsTrustedDevice: Bool
 
-    init(files: [FileMetadata], id: String, pinCode: String?, textDescription: String? = nil, transferType: TransferType = .file) {
+    init(files: [FileMetadata], id: String, pinCode: String?, textDescription: String? = nil, transferType: TransferType = .file, allowsToBeAddedAsTrustedDevice: Bool) {
         self.files = files
         self.id = id
         self.pinCode = pinCode
         self.textDescription = textDescription
         self.type = transferType
+        self.allowsToBeAddedAsTrustedDevice = allowsToBeAddedAsTrustedDevice
     }
     
     public enum TransferType {

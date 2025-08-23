@@ -271,11 +271,40 @@ class OutboundNearbyConnection: NearbyConnection {
 
         var pairedEncryption = Sharing_Nearby_Frame()
         pairedEncryption.version = .v1
-        pairedEncryption.v1 = Sharing_Nearby_V1Frame()
         pairedEncryption.v1.type = .pairedKeyEncryption
-        pairedEncryption.v1.pairedKeyEncryption = Sharing_Nearby_PairedKeyEncryptionFrame()
-        pairedEncryption.v1.pairedKeyEncryption.secretIDHash = Data.randomData(length: 6)
-        pairedEncryption.v1.pairedKeyEncryption.signedData = Data.randomData(length: 72)
+        
+        // add public key
+        var cert = Sharing_Nearby_PublicCertificate()
+        if let signingPrivateKey = IdentityManager.shared.getPrivateKey(),
+            let publicKey = IdentityManager.shared.getPublicKey()?.toGenericPublicKey(),
+            let publicKeyData = IdentityManager.shared.getPublicKey()?.toGenericPublicKeyData(),
+            let publicKeyId = publicKey.id(),
+            let authKeyData = self.authKey?.data() {
+            
+            log("[OutboundNearbyConnection \(self.id)] Using private key for signing")
+            
+            cert.secretID = publicKeyId
+            cert.publicKey = publicKeyData
+
+            let signatureTuple = signingPrivateKey.sign(msg: authKeyData)
+
+            let rBytes = signatureTuple.r
+            let sBytes = signatureTuple.s
+                
+            // Make sure r and s are 32 bytes each by padding with leading zeros if necessary
+            let paddedR = Data(repeating: 0, count: 32 - rBytes.count) + rBytes
+            let paddedS = Data(repeating: 0, count: 32 - sBytes.count) + sBytes
+            
+            // Signature: Header (8 bytes) + r (32 bytes) + s (32 bytes)
+            let signatureData = Data(repeating: 0, count: 8) + paddedR + paddedS
+
+            pairedEncryption.v1.certificateInfo.publicCertificate.append(cert)
+            pairedEncryption.v1.pairedKeyEncryption.signedData = signatureData
+            pairedEncryption.v1.pairedKeyEncryption.secretIDHash = cert.secretID
+            
+            pairedEncryption.v1.pairedKeyResult.status = .success
+        }
+        
         
         if let qrKey = qrCodePrivateKey, let authKey = authKey {
             let signature = qrKey.sign(msg: authKey.data())
@@ -298,6 +327,7 @@ class OutboundNearbyConnection: NearbyConnection {
         pairedResult.v1.type = .pairedKeyResult
         pairedResult.v1.pairedKeyResult = Sharing_Nearby_PairedKeyResultFrame()
         pairedResult.v1.pairedKeyResult.status = .unable
+        
         try sendTransferSetupFrame(pairedResult)
         currentState = .sentPairedKeyResult
     }
@@ -375,8 +405,7 @@ class OutboundNearbyConnection: NearbyConnection {
             
             if let textToSend = textToSend {
                 try sendText(text: textToSend)
-            }
-            if hasURL() {
+            } else if hasURL() {
                 try sendURL()
             } else {
                 try sendNextFileChunk()

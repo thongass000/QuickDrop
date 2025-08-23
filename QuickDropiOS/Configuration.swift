@@ -14,7 +14,7 @@ let configuration = LUIConfiguration(
     
     copyrightInformation: licenseText,
     
-    loggingUrl: getAppGroupDirectory(),
+    loggingUrl: AppGroup.appGroupDirectory,
     
     introductionViewInformation: "QuickDropWelcomeDescription",
     

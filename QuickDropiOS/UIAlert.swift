@@ -18,23 +18,37 @@ final class ProgressAlert {
     private weak var progressView: UIProgressView?
 
     // MARK: - Initial Accept / Decline
-    func askForUserPermission(title: String, message: String, acceptLabel: String, rejectLabel: String, onAccept: @escaping (Bool) -> Void) {
+    func askForUserPermission(title: String, message: String, acceptLabel: String, acceptAlwaysLabel: String?, rejectLabel: String, acceptAutomatically: Bool, onAccept: @escaping (AcceptAction) -> Void) {
         guard let vc = topMostViewController() else { return }
 
-        let alert = UIAlertController(title: title,
-                                      message: message,
-                                      preferredStyle: .alert)
-
-        alert.addAction(UIAlertAction(title: rejectLabel, style: .cancel, handler: { _ in
-            onAccept(false)
-        }))
-
-        alert.addAction(UIAlertAction(title: acceptLabel, style: .default, handler: { _ in
-            onAccept(true)
+        if acceptAutomatically {
+            onAccept(.Accept)
             self.showProgressAlert(on: vc)
-        }))
-
-        vc.present(alert, animated: true)
+        }
+        else {
+            
+            let alert = UIAlertController(title: title,
+                                          message: message,
+                                          preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: rejectLabel, style: .cancel, handler: { _ in
+                onAccept(.Decline)
+            }))
+            
+            alert.addAction(UIAlertAction(title: acceptLabel, style: .default, handler: { _ in
+                onAccept(.Accept)
+                self.showProgressAlert(on: vc)
+            }))
+            
+            if let acceptAlways = acceptAlwaysLabel {
+                alert.addAction(UIAlertAction(title: acceptAlways, style: .default, handler: { _ in
+                    onAccept(.AcceptAlways)
+                    self.showProgressAlert(on: vc)
+                }))
+            }
+            
+            vc.present(alert, animated: true)
+        }
     }
 
     // MARK: - Progress Alert
@@ -89,5 +103,12 @@ final class ProgressAlert {
         if let tab = base as? UITabBarController { return topMostViewController(base: tab.selectedViewController) }
         if let presented = base?.presentedViewController { return topMostViewController(base: presented) }
         return base
+    }
+    
+    
+    enum AcceptAction {
+        case Accept
+        case AcceptAlways
+        case Decline
     }
 }
