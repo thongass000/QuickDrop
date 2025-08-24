@@ -94,9 +94,19 @@ public struct RemoteDeviceInfo: Codable, Identifiable, Equatable {
         switch type {
             case .computer:
                 return "laptopcomputer"
+            case .tablet:
+                return "ipad.landscape"
             default:
-                return "smartphone"
+                return getSmartphoneIcon()
         }
+    }
+    
+    
+    private func getSmartphoneIcon() -> String {
+        if #available(iOS 17.0, macOS 14.0, *) {
+            return "smartphone"
+        }
+        return "iphone"
     }
 }
 

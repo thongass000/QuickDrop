@@ -48,7 +48,10 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
 #if os(macOS)
         self.deviceInfo = EndpointInfo(name: Host.current().localizedName ?? "Mac", deviceType: .computer)
 #else
-        self.deviceInfo = EndpointInfo(name: UIDevice.current.marketingName.withoutBracketedContent, deviceType: .phone)
+        let marketingName = UIDevice.current.marketingName.withoutBracketedContent
+        let isiPad = UIDevice.current.model == "iPad"
+        
+        self.deviceInfo = EndpointInfo(name: marketingName, deviceType: isiPad ? .tablet : .phone)
 #endif
         
         tcpListener = try! NWListener(using: NWParameters(tls: .none))
