@@ -410,29 +410,25 @@ class InboundNearbyConnection: NearbyConnection {
                 try automaticAuthFailed()
                 return
             }
-            
-            guard pkeFrame.signedData.count == 72 else {
+
+            do {
+                let signature =  try ECSignature(asn1: .build(pkeFrame.signedData), domain: domain)
+                
+                if peerPublicKey.verify(signature: signature, msg: authKeyData) {
+                    log("[InboundNearbyConnection \(self.id)] Paired key authentication successful.")
+                    try sendPairedKeyResult(status: .success)
+                    isAuthenticated = true
+                } else {
+                    log("[InboundNearbyConnection \(self.id)] Paired key auth failed: Signature verification failed.")
+                    try automaticAuthFailed()
+                }
+            }
+            catch {
                 log("[InboundNearbyConnection \(self.id)] Paired key auth failed: Invalid signature length.")
                 try automaticAuthFailed()
                 return
             }
-            
-            // Strip header
-            let signedData = pkeFrame.signedData.subdata(in: 8..<72)
-            
-            let r = Array(signedData.prefix(32))
-            let s = Array(signedData.suffix(32))
-            
-            let signature = ECSignature(domain: domain, r: r, s: s)
 
-            if peerPublicKey.verify(signature: signature, msg: authKeyData) {
-                log("[InboundNearbyConnection \(self.id)] Paired key authentication successful.")
-                try sendPairedKeyResult(status: .success)
-                isAuthenticated = true
-            } else {
-                log("[InboundNearbyConnection \(self.id)] Paired key auth failed: Signature verification failed.")
-                try automaticAuthFailed()
-            }
         } else {
             try automaticAuthFailed()
         }

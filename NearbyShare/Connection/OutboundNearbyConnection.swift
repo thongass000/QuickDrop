@@ -13,6 +13,8 @@ import System
 import UniformTypeIdentifiers
 import BigInt
 import SwiftECC
+import ASN1
+import BigInt // required dependency of ASN1
 
 
 class OutboundNearbyConnection: NearbyConnection {
@@ -265,8 +267,11 @@ class OutboundNearbyConnection: NearbyConnection {
 
     
     private func processConnectionResponse(frame: Location_Nearby_Connections_OfflineFrame) throws {
+        
         guard frame.version == .v1 else { throw NearbyError.protocolError("Unexpected offline frame version \(frame.version)") }
+        
         guard frame.v1.type == .connectionResponse else { throw NearbyError.protocolError("Unexpected frame type \(frame.v1.type)") }
+        
         guard frame.v1.connectionResponse.response == .accept else { throw NearbyError.protocolError("Connection was rejected by recipient") }
 
         var pairedEncryption = Sharing_Nearby_Frame()
@@ -288,18 +293,8 @@ class OutboundNearbyConnection: NearbyConnection {
 
             let signatureTuple = signingPrivateKey.sign(msg: authKeyData)
 
-            let rBytes = signatureTuple.r
-            let sBytes = signatureTuple.s
-                
-            // Make sure r and s are 32 bytes each by padding with leading zeros if necessary
-            let paddedR = Data(repeating: 0, count: 32 - rBytes.count) + rBytes
-            let paddedS = Data(repeating: 0, count: 32 - sBytes.count) + sBytes
-            
-            // Signature: Header (8 bytes) + r (32 bytes) + s (32 bytes)
-            let signatureData = Data(repeating: 0, count: 8) + paddedR + paddedS
-
             pairedEncryption.v1.certificateInfo.publicCertificate.append(cert)
-            pairedEncryption.v1.pairedKeyEncryption.signedData = signatureData
+            pairedEncryption.v1.pairedKeyEncryption.signedData = Data(signatureTuple.asn1.encode())
             pairedEncryption.v1.pairedKeyEncryption.secretIDHash = cert.secretID
             
             pairedEncryption.v1.pairedKeyResult.status = .success
