@@ -30,13 +30,13 @@ class SendModel: ObservableObject, OutboundAppDelegate {
     }
     
     func addDevice(device: RemoteDeviceInfo) {
-        withAnimation {
+        withAnimation(.smooth) {
             foundDevices.append(device)
         }
     }
     
     func removeDevice(id: String) {
-        withAnimation {
+        withAnimation(.smooth) {
             foundDevices.removeAll { $0.id == id }
         }
     }
