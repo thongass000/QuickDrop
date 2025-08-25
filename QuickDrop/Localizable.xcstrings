@@ -6416,6 +6416,17 @@
         }
       }
     },
+    "NoWiFiConnectionDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To transfer files to other devices, please connect this device to a Wi-Fi network."
+          }
+        }
+      }
+    },
     "OpenFinderAfterReceiving" : {
       "localizations" : {
         "ar" : {

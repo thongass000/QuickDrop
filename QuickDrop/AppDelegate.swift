@@ -30,7 +30,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
     var showsFirewallAlert = false
     var visibleItem: NSMenuItem? = nil
-    let hasConnectionMonitor = NWPathMonitor()
 
     
     // MARK: NSApplicationDelegate functions
@@ -95,21 +94,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         UNUserNotificationCenter.current().delegate = self
         
-        hasConnectionMonitor.pathUpdateHandler = { path in
-            DispatchQueue.main.async {
-                if path.status == .satisfied {
-                    self.statusItem?.button?.image = NSImage(named: "MenuBarIcon")
-                    self.visibleItem?.title = "VisibleToEveryone".localized()
-                } else {
-                    self.statusItem?.button?.image = NSImage(named: "MenuBarIconSlash")
-                    self.visibleItem?.title = "NoNetworkConnection".localized()
-                }
-            }
-        }
-
-        let queue2 = DispatchQueue(label: "NetworkConnectionMonitor")
-        hasConnectionMonitor.start(queue: queue2)
-        
         receiveModel = ReceiveModel(controlPlusScreen: { shouldOpen in
             if shouldOpen {
                 self.openPlusScreen()
@@ -123,6 +107,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             }
         })
 
+        
+        NearbyConnectionManager.shared.connectionUpdateCallback = { isConnected in
+            if isConnected {
+                self.statusItem?.button?.image = NSImage(named: "MenuBarIcon")
+                self.visibleItem?.title = "VisibleToEveryone".localized()
+            }
+            else {
+                self.statusItem?.button?.image = NSImage(named: "MenuBarIconSlash")
+                self.visibleItem?.title = "NoNetworkConnection".localized()
+            }
+        }
+        
         log("Application did finish launching")
     }
     

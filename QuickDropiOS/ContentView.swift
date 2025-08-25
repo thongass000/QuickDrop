@@ -93,14 +93,18 @@ struct DeviceListView: View {
                     
                     CustomSection(header: "NoDevicesFound") {
                         
+                        let hasWifi = nearbyConnectionManager.isConnectedViaWiFi
+                        
                         HStack(spacing: 12) {
-                            Image(systemName: "square.and.arrow.down")
+                            Image(systemName: hasWifi ? "arrow.down.circle.fill" : "wifi.slash")
                                 .font(.system(size: 30))
-                                .foregroundColor(.gray)
+                                .foregroundColor(.blue)
                                 .padding(.leading, -10)
+                                .frame(width: 30)
                             
-                            Text("DownloadQuickDropOnPlayStore")
+                            Text(hasWifi ? "DownloadQuickDropOnPlayStore" : "NoWiFiConnectionDescription")
                         }
+                        .animation(.default, value: hasWifi)
                         .padding(.vertical)
                     }
                     
@@ -133,7 +137,7 @@ struct DeviceListView: View {
                 }
                 
                 
-                if nearbyConnectionManager.hasLocalNetworkAccess {
+                if nearbyConnectionManager.hasLocalNetworkAccess && nearbyConnectionManager.isConnectedViaWiFi {
                     HStack(spacing: 8) {
                         Text("SearchingForDevices")
                             .font(.system(size: 14))

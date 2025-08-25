@@ -35,6 +35,8 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private var qrCodePrivateKey: ECPrivateKey?
     private var qrCodeAdvertisingToken: Data?
     private var qrCodeNameEncryptionKey: SymmetricKey?
+    private let hasConnectionMonitor = NWPathMonitor()
+    private let connectionMonitorQueue = DispatchQueue(label: "NetworkConnectionMonitorQueue")
     
     public let deviceInfo: EndpointInfo
     public let endpointID: [UInt8] = generateEndpointID()
@@ -43,8 +45,16 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     @Published var attachments: AttachmentDetails? = nil
     @Published var hasLocalNetworkAccess = true
+    @Published var isConnectedViaWiFi = true
+    
+    public var connectionUpdateCallback: (Bool) -> Void = { _ in } {
+        didSet {
+            connectionUpdateCallback(isConnectedViaWiFi)
+        }
+    }
     
     override init() {
+        
 #if os(macOS)
         self.deviceInfo = EndpointInfo(name: Host.current().localizedName ?? "Mac", deviceType: .computer)
 #else
@@ -55,7 +65,26 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
 #endif
         
         tcpListener = try! NWListener(using: NWParameters(tls: .none))
+        
         super.init()
+        
+        hasConnectionMonitor.pathUpdateHandler = { path in
+            if path.usesInterfaceType(.wifi) {
+                log("[NearbyConnectionManager] Connected via WiFi.")
+                DispatchQueue.main.async {
+                    self.isConnectedViaWiFi = true
+                    self.connectionUpdateCallback(true)
+                }
+            } else {
+                log("[NearbyConnectionManager] WiFi connection lost.")
+                DispatchQueue.main.async {
+                    self.isConnectedViaWiFi = false
+                    self.connectionUpdateCallback(false)
+                }
+            }
+        }
+        
+        hasConnectionMonitor.start(queue: connectionMonitorQueue)
     }
     
     
