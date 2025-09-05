@@ -8,8 +8,10 @@
 import Cocoa
 import Foundation
 import SwiftUI
+import QRCode
 
-class ShareViewController: NSViewController, ShareExtensionDelegate {
+class ShareViewController: NSViewController, OutboundAppDelegate {
+    
     private var urls: [URL] = []
     private var textToSend: String? = nil
     private var foundDevices: [RemoteDeviceInfo] = []
@@ -46,43 +48,17 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     
     
     override func loadView() {
-        super.loadView()
         
-        let item = extensionContext!.inputItems[0] as! NSExtensionItem
-        if let attachments = item.attachments {
-            if let text = item.attributedContentText?.string, attachments.isEmpty {
-                textToSend = text
-                
-                DispatchQueue.main.async {
-                    self.zipFolderAndSetUpIcon()
-                }
-            } else {
-                
-                let filteredAttachments = attachments.filter { $0.hasItemConformingToTypeIdentifier(kUTTypeURL as String) }
-                
-                for attachment in filteredAttachments {
-                    attachment.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil) { data, _ in
-                        if let urlData = data as? Data,
-                           let url = URL(dataRepresentation: urlData, relativeTo: nil, isAbsolute: false)
-                        {
-                            self.urls.append(url)
-                        } else if let url = data as? NSURL {
-                            self.urls.append(url as URL)
-                        }
-                        
-                        if self.urls.count == filteredAttachments.count {
-                            DispatchQueue.main.async {
-                                self.zipFolderAndSetUpIcon()
-                            }
-                        }
-                    }
-                }
-            }
-        } else {
-            let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
-            extensionContext!.cancelRequest(withError: cancelError)
-            return
-        }
+        super.loadView()
+        loadAttachments(with: extensionContext, loadedItems: { result in
+            
+            log("Loaded attachments: \(result)")
+            
+            self.urls = result.urls
+            self.textToSend = result.textToSend
+            self.filesLabel?.stringValue = result.shortDescription
+            self.filesIcon?.image = result.previewImage
+        })
         
         contentWrap!.addSubview(listViewWrapper!)
         contentWrap!.addSubview(loadingOverlay!)
@@ -120,6 +96,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         dicoverDevices()
@@ -155,7 +132,27 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     
     private func openQrCodeView() {
         if qrCodeSheetView == nil {
-            let contentView = SmallSheetView(type: .sendToDeviceQrCode) {
+            
+            var image: Image? = nil
+            
+            do {
+                let qrKey = NearbyConnectionManager.shared.generateQrCodeKey()
+                let qrCodeImage = try QRCode.build
+                    .text("https://quickshare.google/qrcode#key=\(qrKey)")
+                    .backgroundColor(CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 0))
+                    .quietZonePixelCount(3)
+                    .onPixels.shape(.circle())
+                    .eye.shape(.squircle())
+                    .errorCorrection(.low)
+                    .generate.image(dimension: 1000)
+                
+                image = Image(nsImage: NSImage(cgImage: qrCodeImage, size: qrCodeImage.size))
+            }
+            catch {
+                log("Error generating QR code: \(error)")
+            }
+            
+            let contentView = SmallSheetView(type: .sendToDeviceQrCode, dynamicQrCode: image) {
                 self.closeQrCodeView()
             }
             
@@ -188,71 +185,11 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     }
     
     
-    private func zipFolderAndSetUpIcon() {
-        for url in urls {
-            if url.isFileURL {
-                let isDirectory = UnsafeMutablePointer<ObjCBool>.allocate(capacity: 1)
-                if FileManager.default.fileExists(atPath: url.path, isDirectory: isDirectory) && isDirectory.pointee.boolValue {
-                    do {
-                        let zipUrl = try createZipAtTmp(zipFilename: url.lastPathComponent, fromDirectory: url)
-                        
-                        let index = urls.firstIndex(of: url)
-                        urls[index!] = zipUrl
-                    } catch {
-                        log("Error creating zip file: \(error)")
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            log("Canceling share request because URL \(url) is a directory")
-                            
-                            AudioManager.playErrorSound()
-                            let alert = NSAlert()
-                            alert.alertStyle = .critical
-                            
-                            alert.messageText = "TypeNotSupported".localized()
-                            alert.informativeText = "TypeNotSupportedDescription".localized()
-                            alert.addButton(withTitle: "TypeNotSupportedButton".localized())
-                            
-                            alert.beginSheetModal(for: self.view.window!) { _ in
-                                let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
-                                self.extensionContext!.cancelRequest(withError: cancelError)
-                            }
-                        }
-                        
-                        return
-                    }
-                }
-            }
-        }
-        
-        if let textToSend = textToSend {
-            let maxLength = 50
-            let cleanedText = textToSend.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "")
-            
-            if cleanedText.count > maxLength {
-                let index = cleanedText.index(cleanedText.startIndex, offsetBy: maxLength)
-                filesLabel!.stringValue = String(cleanedText[..<index]) + "..."
-            } else {
-                filesLabel!.stringValue = cleanedText
-            }
-            
-            filesIcon!.image = NSImage(named: NSImage.multipleDocumentsName)
-        }
-        else if urls.count == 1 {
-            if urls[0].isFileURL {
-                filesLabel!.stringValue = urls[0].lastPathComponent
-                filesIcon!.image = NSWorkspace.shared.icon(forFile: urls[0].path)
-            } else if urls[0].scheme == "http" || urls[0].scheme == "https" {
-                filesLabel!.stringValue = urls[0].absoluteString
-                filesIcon!.image = NSImage(named: NSImage.networkName)
-            }
-        } else {
-            filesLabel!.stringValue = String.localizedStringWithFormat("NFiles".localized(), urls.count)
-            filesIcon!.image = NSImage(named: NSImage.multipleDocumentsName)
-        }
-    }
-    
-    
     func addDevice(device: RemoteDeviceInfo) {
+        
+        if chosenDevice != nil {
+            return
+        }
         if foundDevices.isEmpty {
             loadingOverlay?.animator().isHidden = true
         }
@@ -264,6 +201,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     
     
     func removeDevice(id: String) {
+        
         if chosenDevice != nil {
             return
         }
@@ -280,6 +218,12 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     }
     
     
+    func startTransferWithQrCode(device: RemoteDeviceInfo) {
+        closeQrCodeView()
+        selectDevice(device: device)
+    }
+    
+    
     func connectionWasEstablished(pinCode: String) {
         connectionEstablished = true
         
@@ -290,7 +234,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     }
     
     
-    func connectionFailed(with error: Error) {
+    func connectionFailed(error: Error) {
         progressProgressBar?.isIndeterminate = false
         progressProgressBar?.maxValue = 1000
         progressProgressBar?.doubleValue = 0
@@ -318,7 +262,6 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     
     
     func selectDevice(device: RemoteDeviceInfo) {
-        NearbyConnectionManager.shared.stopDeviceDiscovery()
         
         listViewWrapper?.animator().isHidden = true
         dontSeeDeviceButton?.animator().isHidden = true
@@ -328,6 +271,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
         progressProgressBar?.startAnimation(nil)
         progressState?.stringValue = "Connecting".localized()
         chosenDevice = device
+        NearbyConnectionManager.shared.stopDeviceDiscovery()
         NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: urls, textToSend: textToSend)
         
         let timeoutAlert = DispatchWorkItem {
@@ -361,6 +305,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     
     
     private func dicoverDevices() {
+        
         let bundleIdentifier = "com.leonboettger.neardrop"
         let runningApps = NSWorkspace.shared.runningApplications
         
@@ -373,13 +318,13 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
                 let configuration = NSWorkspace.OpenConfiguration()
                 NSWorkspace.shared.openApplication(at: url, configuration: configuration) { app, error in
                     if let error = error {
-                        print("Failed to launch application: \(error)")
+                        log("Failed to launch application: \(error)")
                     } else {
-                        print("Application launched successfully")
+                        log("Application launched successfully")
                     }
                 }
             } else {
-                print("Could not find application with bundle identifier \(bundleIdentifier)")
+                log("Could not find application with bundle identifier \(bundleIdentifier)")
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -395,6 +340,7 @@ class ShareViewController: NSViewController, ShareExtensionDelegate {
     
     
     private func scheduleAutomaticQrCodeView() {
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             if self.foundDevices.isEmpty {
                 self.openQrCodeView()
@@ -448,9 +394,10 @@ extension ShareViewController: NSCollectionViewDataSource {
     
     
     func getDeviceName(device: RemoteDeviceInfo) -> String {
-        if device.name.count <= 1 {
-            return "Android"
+        if let name = device.name, name.count > 1 {
+            return name
         }
-        return device.name
+        
+        return "Android"
     }
 }

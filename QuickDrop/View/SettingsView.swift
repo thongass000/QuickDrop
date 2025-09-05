@@ -45,21 +45,27 @@ struct SettingsView: View {
                 Toggle("OpenFinderAfterReceiving", isOn: $openFinderAfterReceiving)
                     .padding(.top, 5)
                 
-                Text("OpenFinderAfterReceivingFooter")
-                    .font(.footnote)
-                    .padding(.top, 5)
-                
-                
                 if #available(macOS 13.0, *) {
-                    
-                    Divider()
-                        .padding(.vertical, 10)
-                    
                     LaunchAtLogin.Toggle {
                         Text("LaunchAtLogin")
                     }
                     .padding(.top, 5)
                 }
+                
+                Divider()
+                    .padding(.vertical, 10)
+                
+                Button {
+                    openTrustedDevicesWindow()
+                } label: {
+                    Text("ManageTrustedDevices")
+                        .underline()
+                        .font(.subheadline)
+                        .opacity(0.5)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 15)
+                }
+                .buttonStyle(PlainButtonStyle())
             }
         }
     }
@@ -98,7 +104,26 @@ struct SettingsView: View {
             }
         }
     }
+    
+    
+    private func openTrustedDevicesWindow() {
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 600, height: 400),
+            styleMask: [.titled, .closable, .resizable],
+            backing: .buffered,
+            defer: false
+        )
+        window.center()
+        window.isReleasedWhenClosed = false
+        window.title = "TrustedDevices".localized()
+        window.contentView = NSHostingView(rootView: TrustedDevicesView())
+        
+        NSApp.activate(ignoringOtherApps: true)
+        window.makeKeyAndOrderFront(nil)
+        window.level = .normal
+    }
 }
+
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {

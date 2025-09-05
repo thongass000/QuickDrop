@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  AirGuard
+
+  Created by Leon Böttger on 23.08.22.
+  
+*/
+
+
+NSLocalNetworkUsageDescription = "ローカルネットワークへのアクセスは、デバイスを検出し、Wi-Fi ネットワーク経由でファイルを転送するために必要です。";

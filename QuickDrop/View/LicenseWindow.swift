@@ -15,14 +15,7 @@ struct LicensePage: View {
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
                 LazyVStack {
-                    if let path = Bundle.main.path(forResource: "License", ofType: "txt"),
-                       let licenseText = try? String(contentsOfFile: path) {
-                        Text(licenseText)
-                            .padding()
-                    }
-                    else {
-                        Text(Bundle.main.path(forResource: "License", ofType: "txt") ?? "License file not found")
-                    }
+                    Text(licenseText)
                 }
             }
         }

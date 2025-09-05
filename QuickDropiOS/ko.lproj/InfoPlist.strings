@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  AirGuard
+
+  Created by Leon Böttger on 23.08.22.
+  
+*/
+
+
+NSLocalNetworkUsageDescription = "장치를 감지하고 Wi-Fi 네트워크를 통해 파일을 전송하려면 로컬 네트워크 접근이 필요합니다.";

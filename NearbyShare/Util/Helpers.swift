@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CryptoKit
 
 extension Data {
     func urlSafeBase64EncodedString() -> String {
@@ -20,7 +21,7 @@ extension Data {
         })
     }
     
-
+    
     static func randomData(length: Int) -> Data {
         var data = Data(count: length)
         data.withUnsafeMutableBytes {
@@ -29,7 +30,17 @@ extension Data {
         return data
     }
     
-
+    
+    func suffixOfAtMost(numBytes: Int) -> Data {
+        
+        if count <= numBytes {
+            return self
+        }
+        
+        return subdata(in: count-numBytes..<count)
+    }
+    
+    
     static func dataFromUrlSafeBase64(_ str: String) -> Data? {
         var regularB64 = String(str.map {
             if $0 == "_" {
@@ -53,6 +64,13 @@ extension Data {
 }
 
 
+extension SymmetricKey {
+    func data() -> Data{
+        return withUnsafeBytes({return Data(bytes: $0.baseAddress!, count: $0.count)})
+    }
+}
+
+
 extension String {
     var dataFromHex: Data {
         var data = Data(capacity: count / 2)
@@ -70,6 +88,25 @@ extension String {
         }
         return data
     }
+    
+    var withoutBracketedContent: String {
+        
+        let input = self
+        
+        // Replace any (...) including content inside, multiple times
+        let pattern = #"\([^)]*\)"#
+        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        
+        // Remove all bracketed parts
+        let range = NSRange(location: 0, length: input.utf16.count)
+        var result = regex.stringByReplacingMatches(in: input, options: [], range: range, withTemplate: "")
+        
+        // Remove extra spaces left behind
+        result = result.replacingOccurrences(of: "  ", with: " ") // collapse double spaces
+        result = result.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        return result
+    }
 }
 
 
@@ -86,15 +123,22 @@ public enum UserDefaultsKeys: String, CaseIterable {
 
 
 public func isPlusVersion() -> Bool {
-    return UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
+    
+    #if os(macOS)
+    // Enable full functionality if app distributed directly
+    return DistributionDetector.isDirectDistributionEnabled || UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
+    #else
+    // iOS
+    return true
+    #endif
 }
 
 
 public func isFileTransferRestricted() -> Bool {
-    (!isPlusVersion() && transmissionCount() > 1)
+    (!isPlusVersion() && incomingTransmissionCount() > 1)
 }
 
 
-public func transmissionCount() -> Int {
+public func incomingTransmissionCount() -> Int {
     return UserDefaults.standard.integer(forKey: UserDefaultsKeys.transmissionCount.rawValue)
 }

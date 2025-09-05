@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  AirGuard
+
+  Created by Leon Böttger on 23.08.22.
+  
+*/
+
+
+NSLocalNetworkUsageDescription = "Se necesita acceso a la red local para detectar dispositivos y transferir archivos a través de su red Wi-Fi.";

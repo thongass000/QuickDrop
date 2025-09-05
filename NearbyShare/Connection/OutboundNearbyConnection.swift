@@ -13,6 +13,8 @@ import System
 import UniformTypeIdentifiers
 import BigInt
 import SwiftECC
+import ASN1
+import BigInt // required dependency of ASN1
 
 
 class OutboundNearbyConnection: NearbyConnection {
@@ -23,9 +25,9 @@ class OutboundNearbyConnection: NearbyConnection {
     private var queue: [OutgoingFileTransfer] = []
     private var currentTransfer: OutgoingFileTransfer?
     private var totalBytesToSend: Int64 = 0
-    private var totalBytesSent: Int64 = 0
     private var textPayloadID: Int64 = 0
     
+    public var qrCodePrivateKey: ECPrivateKey?
     public var delegate: OutboundNearbyConnectionDelegate?
 
     enum State {
@@ -62,7 +64,7 @@ class OutboundNearbyConnection: NearbyConnection {
   
         if let error = lastError {
             DispatchQueue.main.async {
-                self.delegate?.outboundConnection(connection: self, failedWithError: error)
+                self.delegate?.failedWithError(connection: self, error: error)
             }
         }
     }
@@ -139,7 +141,7 @@ class OutboundNearbyConnection: NearbyConnection {
             self.lastError = NearbyError.canceled(reason: .userCanceled)
             log("[OutboundNearbyConnection \(self.id)] Transfer canceled")
             try sendDisconnectionAndDisconnect()
-            delegate?.outboundConnection(connection: self, failedWithError: self.lastError!)
+            delegate?.failedWithError(connection: self, error: self.lastError!)
             return
         }
         
@@ -160,13 +162,13 @@ class OutboundNearbyConnection: NearbyConnection {
 
     override func protocolError() {
         super.protocolError()
-        delegate?.outboundConnection(connection: self, failedWithError: lastError!)
+        delegate?.failedWithError(connection: self, error: lastError!)
     }
 
     
     private func sendConnectionRequest() throws {
         
-        let endpointInfo = NearbyConnectionManager.shared.getEndpointInfo()
+        let endpointInfo = NearbyConnectionManager.shared.deviceInfo
         
         var frame = Location_Nearby_Connections_OfflineFrame()
         frame.version = .v1
@@ -174,7 +176,7 @@ class OutboundNearbyConnection: NearbyConnection {
         frame.v1.type = .connectionRequest
         frame.v1.connectionRequest = Location_Nearby_Connections_ConnectionRequestFrame()
         frame.v1.connectionRequest.endpointID = String(bytes: NearbyConnectionManager.shared.endpointID, encoding: .ascii)!
-        frame.v1.connectionRequest.endpointName = endpointInfo.name
+        frame.v1.connectionRequest.endpointName = endpointInfo.name ?? "QuickDrop"
         frame.v1.connectionRequest.endpointInfo = endpointInfo.serialize()
         frame.v1.connectionRequest.mediums = [.wifiLan]
         try sendFrameAsync(frame.serializedData())
@@ -184,7 +186,6 @@ class OutboundNearbyConnection: NearbyConnection {
     private func sendUkey2ClientInit() throws {
         let domain = Domain.instance(curve: .EC256r1)
         let (pubKey, privKey) = domain.makeKeyPair()
-        publicKey = pubKey
         privateKey = privKey
 
         var finishFrame = Securegcm_Ukey2Message()
@@ -261,22 +262,58 @@ class OutboundNearbyConnection: NearbyConnection {
         try sendFrameAsync(resp.serializedData())
 
         encryptionDone = true
-        delegate?.outboundConnectionWasEstablished(connection: self)
+        delegate?.connectionWasEstablished(connection: self)
     }
 
     
     private func processConnectionResponse(frame: Location_Nearby_Connections_OfflineFrame) throws {
+        
         guard frame.version == .v1 else { throw NearbyError.protocolError("Unexpected offline frame version \(frame.version)") }
+        
         guard frame.v1.type == .connectionResponse else { throw NearbyError.protocolError("Unexpected frame type \(frame.v1.type)") }
+        
         guard frame.v1.connectionResponse.response == .accept else { throw NearbyError.protocolError("Connection was rejected by recipient") }
 
         var pairedEncryption = Sharing_Nearby_Frame()
         pairedEncryption.version = .v1
-        pairedEncryption.v1 = Sharing_Nearby_V1Frame()
         pairedEncryption.v1.type = .pairedKeyEncryption
-        pairedEncryption.v1.pairedKeyEncryption = Sharing_Nearby_PairedKeyEncryptionFrame()
-        pairedEncryption.v1.pairedKeyEncryption.secretIDHash = Data.randomData(length: 6)
-        pairedEncryption.v1.pairedKeyEncryption.signedData = Data.randomData(length: 72)
+        
+        // add public key
+        var cert = Sharing_Nearby_PublicCertificate()
+        if let signingPrivateKey = IdentityManager.shared.getPrivateKey(),
+            let publicKey = IdentityManager.shared.getPublicKey()?.toGenericPublicKey(),
+            let publicKeyData = IdentityManager.shared.getPublicKey()?.toGenericPublicKeyData(),
+            let publicKeyId = publicKey.id(),
+            let authKeyData = self.authKey?.data() {
+            
+            log("[OutboundNearbyConnection \(self.id)] Using private key for signing")
+            
+            cert.secretID = publicKeyId
+            cert.publicKey = publicKeyData
+
+            let signatureTuple = signingPrivateKey.sign(msg: authKeyData)
+
+            pairedEncryption.v1.certificateInfo.publicCertificate.append(cert)
+            pairedEncryption.v1.pairedKeyEncryption.signedData = Data(signatureTuple.asn1.encode())
+            pairedEncryption.v1.pairedKeyEncryption.secretIDHash = cert.secretID
+            
+            pairedEncryption.v1.pairedKeyResult.status = .success
+        }
+        else {
+            
+            log("[OutboundNearbyConnection \(self.id)] No private key available, cannot send signing certificate!")
+            
+            pairedEncryption.v1.pairedKeyEncryption.secretIDHash = Data.randomData(length: 6)
+            pairedEncryption.v1.pairedKeyEncryption.signedData = Data.randomData(length: 72)
+        }
+        
+        if let qrKey = qrCodePrivateKey, let authKey = authKey {
+            let signature = qrKey.sign(msg: authKey.data())
+            var serializedSignature = Data(signature.r)
+            serializedSignature.append(Data(signature.s))
+            pairedEncryption.v1.pairedKeyEncryption.qrCodeHandshakeData = serializedSignature
+        }
+        
         try sendTransferSetupFrame(pairedEncryption)
 
         currentState = .sentPairedKeyEncryption
@@ -291,6 +328,7 @@ class OutboundNearbyConnection: NearbyConnection {
         pairedResult.v1.type = .pairedKeyResult
         pairedResult.v1.pairedKeyResult = Sharing_Nearby_PairedKeyResultFrame()
         pairedResult.v1.pairedKeyResult.status = .unable
+        
         try sendTransferSetupFrame(pairedResult)
         currentState = .sentPairedKeyResult
     }
@@ -364,27 +402,26 @@ class OutboundNearbyConnection: NearbyConnection {
         case .accept:
             currentState = .sendingFiles
             isTransferring = true
-            delegate?.outboundConnectionTransferAccepted(connection: self)
+            delegate?.transferAccepted(connection: self)
             
             if let textToSend = textToSend {
                 try sendText(text: textToSend)
-            }
-            if hasURL() {
+            } else if hasURL() {
                 try sendURL()
             } else {
                 try sendNextFileChunk()
             }
         case .reject, .unknown:
-            delegate?.outboundConnection(connection: self, failedWithError: NearbyError.canceled(reason: .userRejected))
+            delegate?.failedWithError(connection: self, error: NearbyError.canceled(reason: .userRejected))
             try sendDisconnectionAndDisconnect()
         case .notEnoughSpace:
-            delegate?.outboundConnection(connection: self, failedWithError: NearbyError.canceled(reason: .notEnoughSpace))
+            delegate?.failedWithError(connection: self, error: NearbyError.canceled(reason: .notEnoughSpace))
             try sendDisconnectionAndDisconnect()
         case .timedOut:
-            delegate?.outboundConnection(connection: self, failedWithError: NearbyError.canceled(reason: .timedOut))
+            delegate?.failedWithError(connection: self, error: NearbyError.canceled(reason: .timedOut))
             try sendDisconnectionAndDisconnect()
         case .unsupportedAttachmentType:
-            delegate?.outboundConnection(connection: self, failedWithError: NearbyError.canceled(reason: .unsupportedType))
+            delegate?.failedWithError(connection: self, error: NearbyError.canceled(reason: .unsupportedType))
             try sendDisconnectionAndDisconnect()
         }
     }
@@ -402,7 +439,7 @@ class OutboundNearbyConnection: NearbyConnection {
     
     private func sendText(text: String) throws {
         try sendBytesPayload(data: Data(text.utf8), id: textPayloadID)
-        delegate?.outboundConnectionTransferFinished(connection: self)
+        delegate?.transferFinished(connection: self)
         try sendDisconnectionAndDisconnect()
     }
     
@@ -418,7 +455,7 @@ class OutboundNearbyConnection: NearbyConnection {
             if queue.isEmpty {
                 log("[OutboundNearbyConnection \(self.id)] Disconnecting because all files have been transferred")
                 try sendDisconnectionAndDisconnect()
-                delegate?.outboundConnectionTransferFinished(connection: self)
+                delegate?.transferFinished(connection: self)
                 return
             }
             currentTransfer = queue.removeFirst()
@@ -454,13 +491,11 @@ class OutboundNearbyConnection: NearbyConnection {
                 self.protocolError()
             }
         })
-        totalBytesSent += Int64(fileBuffer.count)
         
-        // only for logging
         self.bytesTransferred += Int64(fileBuffer.count)
         
         startAndResetHeartbeatTimer()
-        delegate?.outboundConnection(connection: self, transferProgress: Double(totalBytesSent) / Double(totalBytesToSend))
+        delegate?.updatedTransferProgress(connection: self, progress: Double(bytesTransferred) / Double(totalBytesToSend))
 
         if currentTransfer!.currentOffset == currentTransfer!.totalBytes {
             // Signal end of file (yes, all this for one bit)

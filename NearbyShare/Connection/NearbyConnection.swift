@@ -40,7 +40,6 @@ class NearbyConnection {
     private let timeoutInterval: TimeInterval = 30
     
     // UKEY2-related state
-    var publicKey: ECPublicKey?
     var privateKey: ECPrivateKey?
     var ukeyClientInitMsgData: Data?
     var ukeyServerInitMsgData: Data?
@@ -56,6 +55,7 @@ class NearbyConnection {
     private var clientSeq: Int32 = 0
     
     private(set) var pinCode: String?
+    private(set) var authKey: SymmetricKey?
     
     
     init(connection: NWConnection, id: String) {
@@ -457,30 +457,6 @@ class NearbyConnection {
     }
     
     
-    static func hkdfExtract(salt: Data, ikm: Data) -> Data {
-        return HMAC<SHA256>.authenticationCode(for: ikm, using: SymmetricKey(data: salt)).withUnsafeBytes { Data(bytes: $0.baseAddress!, count: $0.count) }
-    }
-    
-    
-    static func hkdfExpand(prk: Data, info: Data, length: Int) -> Data {
-        var okm = Data()
-        var t = Data()
-        var i = 0
-        while okm.count < length {
-            i = i + 1
-            let toDigest = t + info + Data([UInt8(truncatingIfNeeded: i)])
-            t = HMAC<SHA256>.authenticationCode(for: toDigest, using: SymmetricKey(data: prk)).withUnsafeBytes { Data(bytes: $0.baseAddress!, count: $0.count) }
-            okm = okm + t
-        }
-        return okm.subdata(in: 0 ..< length)
-    }
-    
-    
-    static func hkdf(inputKeyMaterial: SymmetricKey, salt: Data, info: Data, outputByteCount: Int) -> SymmetricKey {
-        return HKDF<SHA256>.deriveKey(inputKeyMaterial: inputKeyMaterial, salt: salt, info: info, outputByteCount: outputByteCount)
-    }
-    
-    
     func finalizeKeyExchange(peerKey: Securemessage_GenericPublicKey) throws {
         guard peerKey.hasEcP256PublicKey else { throw NearbyError.requiredFieldMissing("peerKey.ecP256PublicKey") }
         
@@ -503,26 +479,27 @@ class NearbyConnection {
         var ukeyInfo = Data()
         ukeyInfo.append(ukeyClientInitMsgData!)
         ukeyInfo.append(ukeyServerInitMsgData!)
-        let authString = NearbyConnection.hkdf(inputKeyMaterial: SymmetricKey(data: derivedSecretKey), salt: "UKEY2 v1 auth".data(using: .utf8)!, info: ukeyInfo, outputByteCount: 32)
-        let nextSecret = NearbyConnection.hkdf(inputKeyMaterial: SymmetricKey(data: derivedSecretKey), salt: "UKEY2 v1 next".data(using: .utf8)!, info: ukeyInfo, outputByteCount: 32)
+        let authenticationSecret = HKDF.deriveKey(ikm: SymmetricKey(data: derivedSecretKey), salt: "UKEY2 v1 auth".data(using: .utf8)!, info: ukeyInfo, outputLength: 32)
+        let nextSecret = HKDF.deriveKey(ikm: SymmetricKey(data: derivedSecretKey), salt: "UKEY2 v1 next".data(using: .utf8)!, info: ukeyInfo, outputLength: 32)
         
-        pinCode = NearbyConnection.pinCodeFromAuthKey(authString)
+        authKey = authenticationSecret
+        pinCode = NearbyConnection.pinCodeFromAuthKey(authenticationSecret)
         
-        let salt = Data([0x82, 0xAA, 0x55, 0xA0, 0xD3, 0x97, 0xF8, 0x83, 0x46, 0xCA, 0x1C,
-                         0xEE, 0x8D, 0x39, 0x09, 0xB9, 0x5F, 0x13, 0xFA, 0x7D, 0xEB, 0x1D,
-                         0x4A, 0xB3, 0x83, 0x76, 0xB8, 0x25, 0x6D, 0xA8, 0x55, 0x10])
+        sha = SHA256()
+        sha.update(data: "D2D".data(using: .utf8)!)
+        let salt = Data(sha.finalize())
         
-        let d2dClientKey = NearbyConnection.hkdf(inputKeyMaterial: nextSecret, salt: salt, info: "client".data(using: .utf8)!, outputByteCount: 32)
-        let d2dServerKey = NearbyConnection.hkdf(inputKeyMaterial: nextSecret, salt: salt, info: "server".data(using: .utf8)!, outputByteCount: 32)
+        let d2dClientKey = HKDF.deriveKey(ikm: nextSecret, salt: salt, info: "client".data(using: .utf8)!, outputLength: 32)
+        let d2dServerKey = HKDF.deriveKey(ikm: nextSecret, salt: salt, info: "server".data(using: .utf8)!, outputLength: 32)
         
         sha = SHA256()
         sha.update(data: "SecureMessage".data(using: .utf8)!)
         let smsgSalt = Data(sha.finalize())
         
-        let clientKey = NearbyConnection.hkdf(inputKeyMaterial: d2dClientKey, salt: smsgSalt, info: "ENC:2".data(using: .utf8)!, outputByteCount: 32).withUnsafeBytes { [UInt8]($0) }
-        let clientHmacKey = NearbyConnection.hkdf(inputKeyMaterial: d2dClientKey, salt: smsgSalt, info: "SIG:1".data(using: .utf8)!, outputByteCount: 32)
-        let serverKey = NearbyConnection.hkdf(inputKeyMaterial: d2dServerKey, salt: smsgSalt, info: "ENC:2".data(using: .utf8)!, outputByteCount: 32).withUnsafeBytes { [UInt8]($0) }
-        let serverHmacKey = NearbyConnection.hkdf(inputKeyMaterial: d2dServerKey, salt: smsgSalt, info: "SIG:1".data(using: .utf8)!, outputByteCount: 32)
+        let clientKey = HKDF.deriveBytes(ikm: d2dClientKey, salt: smsgSalt, info: "ENC:2".data(using: .utf8)!, outputLength: 32)
+        let clientHmacKey = HKDF.deriveKey(ikm: d2dClientKey, salt: smsgSalt, info: "SIG:1".data(using: .utf8)!, outputLength: 32)
+        let serverKey = HKDF.deriveBytes(ikm: d2dServerKey, salt: smsgSalt, info: "ENC:2".data(using: .utf8)!, outputLength: 32)
+        let serverHmacKey = HKDF.deriveKey(ikm: d2dServerKey, salt: smsgSalt, info: "SIG:1".data(using: .utf8)!, outputLength: 32)
         
         if isServer() {
             decryptKey = clientKey

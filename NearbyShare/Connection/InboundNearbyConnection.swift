@@ -25,10 +25,13 @@ class InboundNearbyConnection: NearbyConnection {
     private var currentState: State = .initial
     private var cipherCommitment: Data?
     private var textPayloadID: Int64 = 0
-    private var isPlainTextTransfer = false
+    private var bytesToBeTransferred: Int64 = 0
+    private var isAuthenticated = false
+    private var peerCertificate: Sharing_Nearby_PublicCertificate? = nil
+    var isPlainTextTransfer = false
     
-    public var wasRejected = false
-    public var delegate: InboundNearbyConnectionDelegate?
+    var wasUserRejected = false
+    var delegate: InboundNearbyConnectionDelegate?
 
     enum State {
         case initial, receivedConnectionRequest, sentUkeyServerInit, receivedUkeyClientFinish, sentConnectionResponse, sentPairedKeyResult, receivedPairedKeyResult, waitingForUserConsent, receivingFiles, disconnected
@@ -146,14 +149,14 @@ class InboundNearbyConnection: NearbyConnection {
         
         guard currentOffset + Int64(frame.payloadChunk.body.count) <= fileInfo.meta.size else { throw NearbyError.protocolError("Transferred file size exceeds previously specified value") }
         
-        if frame.payloadChunk.body.count > 0 {
+        if !frame.payloadChunk.body.isEmpty {
             do {
                 try fileInfo.fileHandle?.write(contentsOf: frame.payloadChunk.body)
                 filesToBeReceived[id]!.bytesTransferred += Int64(frame.payloadChunk.body.count)
                 fileInfo.progress?.completedUnitCount = filesToBeReceived[id]!.bytesTransferred
                 
-                // only for logging
                 self.bytesTransferred += Int64(frame.payloadChunk.body.count)
+                NearbyConnectionManager.shared.updatedTransferProgress(connection: self, progress: Double(self.bytesTransferred) / Double(self.bytesToBeTransferred))
             } catch {
                 log("[InboundNearbyConnection \(self.id)] Error occurred during writing file: \(error.localizedDescription)")
                 
@@ -172,8 +175,12 @@ class InboundNearbyConnection: NearbyConnection {
             
             if filesToBeReceived.isEmpty {
                 log("[InboundNearbyConnection \(self.id)] All files received, sending disconnection frame and disconnecting.")
+                NearbyConnectionManager.shared.updatedTransferProgress(connection: self, progress: 1)
                 try sendDisconnectionAndDisconnect()
             }
+        }
+        else {
+            log("[InboundNearbyConnection \(self.id)] Received file chunk with no body and no flags, ignoring it.")
         }
     }
 
@@ -188,20 +195,14 @@ class InboundNearbyConnection: NearbyConnection {
                     let pasteboard = NSPasteboard.general
                     pasteboard.clearContents()
                     pasteboard.setString(urlStr, forType: .string)
-                    
-                    NearbyConnectionManager.shared.mainAppDelegate?.showCopiedToClipboardAlert()
-                    
                     #elseif os(iOS)
                     // iOS clipboard
                     UIPasteboard.general.string = urlStr
-                    
-                    // Optionally show an alert (requires a way to present it)
-                    // For example, post a notification or use a delegate to show a toast or alert
                     #endif
                 } else if let url = URL(string: urlStr) {
                     #if os(macOS)
                     NSWorkspace.shared.open(url)
-                    #elseif os(iOS)
+                    #elseif os(iOS) && !EXTENSION
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     #endif
                 }
@@ -223,8 +224,11 @@ class InboundNearbyConnection: NearbyConnection {
             filesToBeReceived.removeValue(forKey: id)
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
             
-            log("[InboundNearbyConnection \(self.id)] Received file payload. Disconnecting...")
-            try sendDisconnectionAndDisconnect()
+            if filesToBeReceived.isEmpty {
+                log("[InboundNearbyConnection \(self.id)] Received file payload. Disconnecting...")
+                NearbyConnectionManager.shared.updatedTransferProgress(connection: self, progress: 1)
+                try sendDisconnectionAndDisconnect()
+            }
             return true
         }
         return false
@@ -300,7 +304,6 @@ class InboundNearbyConnection: NearbyConnection {
 
         let domain = Domain.instance(curve: .EC256r1)
         let (pubKey, privKey) = domain.makeKeyPair()
-        publicKey = pubKey
         privateKey = privKey
 
         var serverInit = Securegcm_Ukey2ServerInit()
@@ -370,9 +373,11 @@ class InboundNearbyConnection: NearbyConnection {
             pairedEncryption.v1 = Sharing_Nearby_V1Frame()
             pairedEncryption.v1.type = .pairedKeyEncryption
             pairedEncryption.v1.pairedKeyEncryption = Sharing_Nearby_PairedKeyEncryptionFrame()
-            // Presumably used for all the phone number stuff that no one needs anyway
+            
+            // For inbound connections, we do not use provide secretIDHash and signedData
             pairedEncryption.v1.pairedKeyEncryption.secretIDHash = Data.randomData(length: 6)
             pairedEncryption.v1.pairedKeyEncryption.signedData = Data.randomData(length: 72)
+            
             try sendTransferSetupFrame(pairedEncryption)
             currentState = .sentConnectionResponse
         } else {
@@ -380,16 +385,72 @@ class InboundNearbyConnection: NearbyConnection {
         }
     }
 
-    
+
     private func processPairedKeyEncryptionFrame(_ frame: Sharing_Nearby_Frame) throws {
+        
         guard frame.hasV1, frame.v1.hasPairedKeyEncryption else { throw NearbyError.requiredFieldMissing("shareNearbyFrame.v1.pairedKeyEncryption") }
-        var pairedResult = Sharing_Nearby_Frame()
-        pairedResult.version = .v1
-        pairedResult.v1 = Sharing_Nearby_V1Frame()
-        pairedResult.v1.type = .pairedKeyResult
-        pairedResult.v1.pairedKeyResult = Sharing_Nearby_PairedKeyResultFrame()
-        pairedResult.v1.pairedKeyResult.status = .unable
-        try sendTransferSetupFrame(pairedResult)
+        
+        let pkeFrame = frame.v1.pairedKeyEncryption
+        
+        // Check if we can accept the connection automatically
+        if !pkeFrame.secretIDHash.isEmpty,
+            let trustedCertData = TrustStore.shared.findTrustedKey(for: pkeFrame.secretIDHash),
+            let trustedCert = try? Sharing_Nearby_PublicCertificate(serializedBytes: trustedCertData),
+            let peerGenericKey = try? Securemessage_GenericPublicKey(serializedBytes: trustedCert.publicKey),
+            let authKeyData = self.authKey?.data() {
+            
+            log("[InboundNearbyConnection \(self.id)] Found trusted certificate for secretIDHash: \(pkeFrame.secretIDHash.hex)")
+
+            let domain = Domain.instance(curve: .EC256r1)
+            let ecKey = peerGenericKey.ecP256PublicKey
+            let point = Point(BInt(magnitude: [UInt8](ecKey.x)), BInt(magnitude: [UInt8](ecKey.y)))
+            
+            guard let peerPublicKey = try? ECPublicKey(domain: domain, w: point) else {
+                log("[InboundNearbyConnection \(self.id)] Paired key auth failed: Invalid peer public key.")
+                try automaticAuthFailed()
+                return
+            }
+
+            do {
+                let signature =  try ECSignature(asn1: .build(pkeFrame.signedData), domain: domain)
+                
+                if peerPublicKey.verify(signature: signature, msg: authKeyData) {
+                    log("[InboundNearbyConnection \(self.id)] Paired key authentication successful.")
+                    try sendPairedKeyResult(status: .success)
+                    isAuthenticated = true
+                } else {
+                    log("[InboundNearbyConnection \(self.id)] Paired key auth failed: Signature verification failed.")
+                    try automaticAuthFailed()
+                }
+            }
+            catch {
+                log("[InboundNearbyConnection \(self.id)] Paired key auth failed: Invalid signature length.")
+                try automaticAuthFailed()
+                return
+            }
+
+        } else {
+            try automaticAuthFailed()
+        }
+        
+        func automaticAuthFailed() throws {
+            // Store certificate of peer to let user device later to trust it
+            if let peerCertificate = frame.v1.certificateInfo.publicCertificate.first {
+                log("[InboundNearbyConnection \(self.id)] Storing peer certificate for potential later use")
+                self.peerCertificate = peerCertificate
+            }
+            
+            try sendPairedKeyResult(status: .unable)
+        }
+    }
+    
+
+    private func sendPairedKeyResult(status: Sharing_Nearby_PairedKeyResultFrame.Status) throws {
+        var resultFrame = Sharing_Nearby_Frame()
+        resultFrame.version = .v1
+        resultFrame.v1.type = .pairedKeyResult
+        resultFrame.v1.pairedKeyResult.status = status
+        try sendTransferSetupFrame(resultFrame)
         currentState = .sentPairedKeyResult
     }
 
@@ -433,11 +494,10 @@ class InboundNearbyConnection: NearbyConnection {
                                             payloadID: file.payloadID,
                                             destinationURL: dest)
                 filesToBeReceived[file.payloadID] = info
+                bytesToBeTransferred += file.size
             }
-            let metadata = TransferMetadata(files: filesToBeReceived.map { $0.value.meta }, id: id, pinCode: pinCode)
-            DispatchQueue.main.async {
-                self.delegate?.obtainUserConsent(for: metadata, from: self.remoteDeviceInfo!, connection: self)
-            }
+            let metadata = TransferMetadata(files: filesToBeReceived.map { $0.value.meta }, id: id, pinCode: pinCode, allowsToBeAddedAsTrustedDevice: self.peerCertificate != nil)
+            checkIfCanProceed(metadata: metadata)
         }
         else if let textMetadata = frame.v1.introduction.textMetadata.first {
             
@@ -445,22 +505,30 @@ class InboundNearbyConnection: NearbyConnection {
                 
                 let isClipboardText = textMetadata.type == .text
                 
-                let metadata = TransferMetadata(files: [], id: id, pinCode: pinCode, textDescription: textMetadata.textTitle, transferType: isClipboardText ? .text : .url)
+                let metadata = TransferMetadata(files: [], id: id, pinCode: pinCode, textDescription: textMetadata.textTitle, transferType: isClipboardText ? .text : .url, allowsToBeAddedAsTrustedDevice: self.peerCertificate != nil)
                 textPayloadID = textMetadata.payloadID
                 
-                if isClipboardText{
+                if isClipboardText {
                     isPlainTextTransfer = true
                 }
                 
-                DispatchQueue.main.async {
-                    self.delegate?.obtainUserConsent(for: metadata, from: self.remoteDeviceInfo!, connection: self)
-                }
+                checkIfCanProceed(metadata: metadata)
             }
             else {
                 rejectDueToUnsupportedFileType(frame)
             }
         } else {
             rejectDueToUnsupportedFileType(frame)
+        }
+        
+        
+        func checkIfCanProceed(metadata: TransferMetadata) {
+            
+            let acceptAutomatically = isAuthenticated || UserDefaults.standard.bool(forKey: UserDefaultsKeys.automaticallyAcceptFiles.rawValue)
+            
+            DispatchQueue.main.async {
+                self.delegate?.obtainUserConsent(transfer: metadata, device: self.remoteDeviceInfo!, connection: self, acceptAutomatically: acceptAutomatically)
+            }
         }
     }
     
@@ -469,12 +537,16 @@ class InboundNearbyConnection: NearbyConnection {
         
         log("[InboundNearbyConnection \(self.id)] Rejecting transfer due to unsupported file type. Frame is \(frame.debugDescription)")
         
-        NearbyConnectionManager.shared.mainAppDelegate?.showUnsupportedFileAlert(for: remoteDeviceInfo)
+        lastError = NearbyError.canceled(reason: .unsupportedType)
         rejectTransfer(with: .unsupportedAttachmentType)
     }
     
 
-    func submitUserConsent(accepted: Bool, storeInTemp: Bool = false) {
+    func submitUserConsent(accepted: Bool, trustDevice: Bool, storeInTemp: Bool = false) {
+        if trustDevice, let peerCertificate = peerCertificate, let remoteDeviceInfo = remoteDeviceInfo {
+            TrustStore.shared.addTrusted(certificate: peerCertificate, device: remoteDeviceInfo)
+        }
+        
         DispatchQueue.global(qos: .utility).async {
             if accepted {
                 self.acceptTransfer(storeInTemp: storeInTemp)
@@ -535,7 +607,10 @@ class InboundNearbyConnection: NearbyConnection {
     
     private func rejectTransfer(with reason: Sharing_Nearby_ConnectionResponseFrame.Status = .reject) {
         
-        self.wasRejected = true
+        // rejected by user
+        if reason == .reject {
+            self.wasUserRejected = true
+        }
         
         log("[InboundNearbyConnection \(self.id)] Rejecting transfer because of \( reason)")
         

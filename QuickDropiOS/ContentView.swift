@@ -6,59 +6,303 @@
 //
 
 import SwiftUI
+import LUI
+import StoreKit
 
 struct ContentView: View {
+    
+    @ObservedObject var luiSettings = LUISettings.sharedInstance
+    
     var body: some View {
-        DeviceListView()
+        AppRootView(isPlus: .constant(true), phoneView: {
+            DeviceListView()
+                .environment(\.sheetActive, isShareExtension())
+        }, settingsView: {
+            CustomSection {
+                LUIButton {
+                    SaveFilesManager.shared.openDownloadedFilesFolder()
+                } label: {
+                    NavigationLinkLabel(imageName: "folder.fill", text: "BrowseDownloadedFiles")
+                }
+                
+                LUILink(destination: NavigationSubView(header: "TrustedDevices") {
+                    TrustedDevicesView()
+                }) {
+                    NavigationLinkLabel(imageName: "checkmark.shield.fill", text: "ManageTrustedDevices", backgroundColor: .green)
+                }
+            }
+        })
     }
 }
 
 struct DeviceListView: View {
-    @StateObject var model = ShareViewModel()
-
+    
+    @StateObject var sendModel = SendModel()
+    
+#if !EXTENSION
+    @StateObject var receiveModel = ReceiveModel()
+#endif
+    
+    @Environment(\.scenePhase) var scenePhase
+    @AppStorage("requestedReview") private var requestedReview = false
+    @ObservedObject var nearbyConnectionManager = NearbyConnectionManager.shared
+    
     var body: some View {
-        VStack {
-            Text("Available Devices")
-                .font(.title)
-                .padding()
-
-            if model.foundDevices.isEmpty {
-                Text("Searching for devices...")
-                    .italic()
-                    .padding()
-            } else {
-                List(model.foundDevices) { device in
+        
+        NavigationSubView(header: "QuickDrop ", navigationBarLayout: isShareExtension() ? .SmallOnlyAlways : .Default) {
+            VStack {
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    
+                    let attachments = nearbyConnectionManager.attachments
+                    
+                    FormHeader(name: attachments == nil ? "YouAreVisibleAs".localized() : "YouAreSending".localized())
+                    
                     HStack {
-                        Image(systemName: "smartphone")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                        Text(device.name.isEmpty ? "Android" : device.name)
-                        Spacer()
                         
-                        if model.selectedDevice == device {
-                            ProgressView()
-                                .progressViewStyle(CircularProgressViewStyle())
+                        if let image = attachments?.previewImage {
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 10, height: 10)
+                        }
+                        
+                        LUIText(attachments?.shortDescription ?? NearbyConnectionManager.shared.deviceInfo.name ?? "Unknown".localized(), isBold: true)
+                            .lineLimit(1)
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 6)
+                    .background(Color.defaultForegroundColor)
+                    .cornerRadius(24)
+                }
+                .padding(.horizontal)
+                .padding(.top, 8)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                if !nearbyConnectionManager.hasLocalNetworkAccess {
+                    CardView(backgroundColor: .red, title: "NoNetworkAccess", titleSymbol: "network.slash") {
+                        CardSubView(symbol: "exclamationmark.triangle.fill", text: "NoLocalNetworkAccessDescription")
+                    }
+                    .padding(.bottom, 10)
+                    .onTapGesture {
+                        openAppSettings()
+                    }
+                }
+                
+                if sendModel.foundDevices.isEmpty {
+                    
+                    CustomSection(header: "NoDevicesFound") {
+                        
+                        let hasWifi = nearbyConnectionManager.isConnectedViaWiFi
+                        
+                        HStack(spacing: 12) {
+                            Image(systemName: hasWifi ? "arrow.down.circle.fill" : "wifi.slash")
+                                .font(.system(size: 30))
+                                .foregroundColor(.blue)
+                                .padding(.leading, -10)
+                                .frame(width: 30)
+                            
+                            Text(hasWifi ? "DownloadQuickDropOnPlayStore" : "NoWiFiConnectionDescription")
+                        }
+                        .animation(.default, value: hasWifi)
+                        .padding(.vertical)
+                    }
+                    
+                } else {
+                    
+                    CustomSection(header: "AvailableDevices") {
+                        ForEach(sendModel.foundDevices) { device in
+                            
+                            let isSelected = sendModel.selectedDevice == device
+                            
+                            ZStack {
+                                if let attachments = NearbyConnectionManager.shared.attachments {
+                                    LUIButton {
+                                        lightVibration()
+                                        sendModel.urls = attachments.urls
+                                        sendModel.textToSend = attachments.textToSend
+                                        sendModel.selectDevice(device: device)
+                                    } label: {
+                                        DeviceButtonLabel(device: device, isSelected: isSelected, progress: sendModel.progressState, progressValue: sendModel.progressValue)
+                                    }
+                                }
+                                else {
+                                    DeviceFilePickerButton(device: device, isSelected: isSelected, progressState: sendModel.progressState, progressValue: sendModel.progressValue, sendModel: sendModel)
+                                }
+                            }
+                            .animation(.easeInOut, value: sendModel.progressValue)
+                            .animation(.easeInOut, value: isSelected)
                         }
                     }
-                    .contentShape(Rectangle()) // Make entire row tappable
-                    .onTapGesture {
-                        model.selectDevice(device: device)
-                    }
-                    .background(model.selectedDevice == device ? Color.blue.opacity(0.2) : Color.clear)
                 }
-                .listStyle(PlainListStyle())
+                
+                
+                if nearbyConnectionManager.hasLocalNetworkAccess && nearbyConnectionManager.isConnectedViaWiFi {
+                    HStack(spacing: 8) {
+                        Text("SearchingForDevices")
+                            .font(.system(size: 14))
+                            .foregroundColor(Color.primary.opacity(0.6))
+                        
+                        LoadingIndicator()
+                            .opacity(0.75)
+                            .frame(width: 12, height: 12)
+                    }
+                    .padding(.vertical, 16)
+                }
+            }
+            .frame(maxWidth: 700)
+        }
+        .onChange(of: scenePhase) { newValue in
+            
+            if newValue == .active {
+                
+                log("App became active")
+                NearbyConnectionManager.shared.startDeviceDiscovery()
+#if !EXTENSION
+                NearbyConnectionManager.shared.becomeVisible()
+                
+                if incomingTransmissionCount() > 0 && !requestedReview {
+                    runAfter(seconds: 0.3) {
+                        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                            
+                            log("Requesting Review...")
+                            
+                            SKStoreReviewController.requestReview(in: scene)
+                            requestedReview = true
+                        }
+                        else {
+                            log("Error Requesting Review!")
+                        }
+                    }
+                }
+#endif
+            }
+            
+            if newValue == .background {
+                
+                log("App went to background")
+#if !EXTENSION
+                NearbyConnectionManager.shared.becomeInvisible()
+#endif
+                NearbyConnectionManager.shared.stopDeviceDiscovery()
             }
         }
-        .frame(minWidth: 300, minHeight: 400)
+        .animation(.smooth, value: nearbyConnectionManager.hasLocalNetworkAccess)
+        .navigationBarItems(trailing: ZStack {
+            if isShareExtension() {
+                XButton(action: { NearbyConnectionManager.shared.attachments?.closeView?() })
+            }
+            else {
+                LUISettingsButton()
+            }
+        })
     }
 }
 
-struct DeviceListView_Previews: PreviewProvider {
-    static var previews: some View {
+
+struct DeviceFilePickerButton: View {
+    
+    let device: RemoteDeviceInfo
+    let isSelected: Bool
+    let progressState: String?
+    let progressValue: Double?
+    let sendModel: SendModel
+    
+    @State private var isPreparing = false
+    
+    var body: some View {
+        SendPickerButton {
+            DeviceButtonLabel(device: device, isSelected: isPreparing || isSelected, progress: isPreparing ? "Preparing".localized() : progressState, progressValue: progressValue)
+        } onResult: { urls, text in
+            isPreparing = false
+            sendModel.urls = urls ?? []
+            sendModel.textToSend = text
+            sendModel.selectDevice(device: device)
+        } onPrepare: {
+            isPreparing = true
+        }
+    }
+}
+
+
+struct DeviceButtonLabel: View {
+    
+    let device: RemoteDeviceInfo
+    let isSelected: Bool
+    let progress: String?
+    let progressValue: Double?
+    
+    var body: some View {
+        HStack(spacing: 12) {
+            
+            let name = device.name ?? "Android"
+            
+            ZStack {
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            colors: [Color(red: 0.623, green: 0.659, blue: 0.855),
+                                     Color(red: 0.474, green: 0.525, blue: 0.796)],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+                    .frame(width: 40, height: 40)
+                
+                Image(systemName: device.icon)
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+            }
+            
+            VStack(alignment: .leading, spacing: 5) {
+                Text(name)
+                    .fontWeight(.medium)
+                    .foregroundColor(Color.primary)
+                
+                Text(isSelected ? progress ?? "..." : "Available".localized())
+                    .font(.system(size: 12))
+                    .foregroundColor(Color.primary.opacity(0.6))
+            }
+            
+            Spacer()
+            
+            if isSelected, let progress = progressValue {
+                PieProgressView(progress: progress, size: 20)
+            }
+            else {
+                Image(systemName: "chevron.right")
+                    .foregroundColor(Color.primary.opacity(0.6))
+            }
+        }
+        .padding(.vertical, 13)
+    }
+}
+
+
+func isShareExtension() -> Bool {
+#if EXTENSION
+    return true
+#else
+    return false
+#endif
+}
+
+
+//extension DeviceListView {
+//    static var preview: DeviceListView {
+//        let model = SendModel()
+//        model.foundDevices = [
+//            RemoteDeviceInfo(name: "MacBook Pro", type: .computer, id: "macbook-pro-id"),
+//            RemoteDeviceInfo(name: "iPhone 14", type: .phone, id: "iphone-14-id"),
+//            RemoteDeviceInfo(name: "Samsung Galaxy S21", type: .phone, id: "samsung-galaxy-s21-id")
+//        ]
+//
+//        return DeviceListView(sendModel: model, receiveModel: ReceiveModel())
+//    }
+//}
+//
+#Preview {
+    NavigationView {
         DeviceListView()
     }
-}
-
-#Preview {
-    ContentView()
 }

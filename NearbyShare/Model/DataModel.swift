@@ -7,60 +7,67 @@
 
 import Foundation
 import Network
+import CryptoKit
+import SwiftECC
 
 
 protocol InboundNearbyConnectionDelegate {
-    func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo, connection: InboundNearbyConnection)
+    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, connection: InboundNearbyConnection, acceptAutomatically: Bool)
+    func updatedTransferProgress(connection: InboundNearbyConnection, progress: Double)
     func connectionWasTerminated(connection: InboundNearbyConnection, error: Error?)
 }
 
 
 protocol OutboundNearbyConnectionDelegate {
-    func outboundConnectionWasEstablished(connection: OutboundNearbyConnection)
-    func outboundConnection(connection: OutboundNearbyConnection, transferProgress: Double)
-    func outboundConnectionTransferAccepted(connection: OutboundNearbyConnection)
-    func outboundConnection(connection: OutboundNearbyConnection, failedWithError: Error)
-    func outboundConnectionTransferFinished(connection: OutboundNearbyConnection)
+    func connectionWasEstablished(connection: OutboundNearbyConnection)
+    func updatedTransferProgress(connection: OutboundNearbyConnection, progress: Double)
+    func transferAccepted(connection: OutboundNearbyConnection)
+    func failedWithError(connection: OutboundNearbyConnection, error: Error)
+    func transferFinished(connection: OutboundNearbyConnection)
 }
 
 
-public protocol MainAppDelegate {
-    func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo)
-    func incomingTransfer(id: String, didFinishWith error: Error?)
-    func showCopiedToClipboardAlert()
-    func showUnsupportedFileAlert(for: RemoteDeviceInfo?)
+public protocol InboundAppDelegate: AnyObject {
+    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, acceptAutomatically: Bool)
+    func connectionWasTerminated(from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: Error?)
+    func transferProgress(progress: Double)
 }
 
 
-public protocol ShareExtensionDelegate: AnyObject {
+public protocol OutboundAppDelegate: AnyObject {
     func addDevice(device: RemoteDeviceInfo)
     func removeDevice(id: String)
+    func startTransferWithQrCode(device: RemoteDeviceInfo)
     func connectionWasEstablished(pinCode: String)
-    func connectionFailed(with error: Error)
+    func connectionFailed(error: Error)
     func transferAccepted()
     func transferProgress(progress: Double)
     func transferFinished()
 }
 
 
-public struct RemoteDeviceInfo: Identifiable, Equatable {
-    public let name: String
+public struct RemoteDeviceInfo: Codable, Identifiable, Equatable {
+    public let name: String?
     public let type: DeviceType
+    public let qrCodeData: Data?
     public var id: String?
 
     init(name: String, type: DeviceType, id: String? = nil) {
         self.name = name
         self.type = type
         self.id = id
+        self.qrCodeData = nil
     }
 
-    init(info: EndpointInfo) {
-        name = info.name
-        type = info.deviceType
+    init(info: EndpointInfo, id: String? = nil) {
+        self.name = info.name
+        self.type = info.deviceType
+        self.qrCodeData = info.qrCodeData
+        self.id = id
     }
 
     
-    public enum DeviceType: Int32 {
+    public enum DeviceType: Int32, Codable {
         case unknown = 0
         case phone
         case tablet
@@ -81,6 +88,26 @@ public struct RemoteDeviceInfo: Identifiable, Equatable {
             }
         }
     }
+    
+    
+    public var icon: String {
+        switch type {
+            case .computer:
+                return "laptopcomputer"
+            case .tablet:
+                return "ipad.landscape"
+            default:
+                return getSmartphoneIcon()
+        }
+    }
+    
+    
+    private func getSmartphoneIcon() -> String {
+        if #available(iOS 17.0, macOS 14.0, *) {
+            return "smartphone"
+        }
+        return "iphone"
+    }
 }
 
 
@@ -90,13 +117,15 @@ public struct TransferMetadata {
     public let pinCode: String?
     public let textDescription: String?
     public let type: TransferType
+    public let allowsToBeAddedAsTrustedDevice: Bool
 
-    init(files: [FileMetadata], id: String, pinCode: String?, textDescription: String? = nil, transferType: TransferType = .file) {
+    init(files: [FileMetadata], id: String, pinCode: String?, textDescription: String? = nil, transferType: TransferType = .file, allowsToBeAddedAsTrustedDevice: Bool) {
         self.files = files
         self.id = id
         self.pinCode = pinCode
         self.textDescription = textDescription
         self.type = transferType
+        self.allowsToBeAddedAsTrustedDevice = allowsToBeAddedAsTrustedDevice
     }
     
     public enum TransferType {
@@ -114,25 +143,64 @@ public struct FileMetadata {
 }
 
 
-struct EndpointInfo {
-    let name: String
+public struct EndpointInfo {
+    var name: String?
     let deviceType: RemoteDeviceInfo.DeviceType
+    let qrCodeData: Data?
 
     
     init(name: String, deviceType: RemoteDeviceInfo.DeviceType) {
         self.name = name
         self.deviceType = deviceType
+        self.qrCodeData = nil
     }
 
     
     init?(data: Data) {
         guard data.count > 17 else { return nil }
-        let deviceNameLength = Int(data[17])
-        guard data.count >= deviceNameLength + 18 else { return nil }
-        guard let deviceName = String(data: data[18 ..< (18 + deviceNameLength)], encoding: .utf8) else { return nil }
-        let rawDeviceType = Int(data[0] & 7) >> 1
-        name = deviceName
-        deviceType = RemoteDeviceInfo.DeviceType.fromRawValue(value: rawDeviceType)
+        
+        let hasName = (data[0] & 0x10) == 0
+        let deviceNameLength: Int
+        let deviceName: String?
+        
+        if hasName {
+            deviceNameLength = Int(data[17])
+            guard data.count >= deviceNameLength + 18 else { return nil }
+            guard let newDeviceName = String(data: data[18..<(18 + deviceNameLength)], encoding: .utf8) else { return nil }
+            deviceName = newDeviceName
+        }
+        else {
+            deviceNameLength = 0
+            deviceName = nil
+        }
+        
+        let rawDeviceType: Int = Int(data[0] & 7) >> 1
+        self.name = deviceName
+        self.deviceType = RemoteDeviceInfo.DeviceType.fromRawValue(value: rawDeviceType)
+        var offset = 1 + 16
+        
+        if hasName {
+            offset = offset + 1 + deviceNameLength
+        }
+        
+        var qrCodeData: Data? = nil
+        
+        // read TLV records, if any
+        while data.count - offset > 2 {
+            let type = data[offset]
+            let length = Int(data[offset+1])
+            offset = offset + 2
+            if data.count - offset >= length{
+                // QR code data
+                if type == 1 {
+                    qrCodeData = data.subdata(in: offset..<offset + length)
+                }
+                
+                offset = offset + length
+            }
+        }
+        
+        self.qrCodeData = qrCodeData
     }
 
     
@@ -145,7 +213,7 @@ struct EndpointInfo {
             endpointInfo.append(UInt8.random(in: 0 ... 255))
         }
         // Device name in UTF-8 prefixed with 1-byte length
-        var nameChars = [UInt8](name.utf8)
+        var nameChars = [UInt8]((name ?? "").utf8)
         if nameChars.count > 255 {
             nameChars = [UInt8](nameChars[0 ..< 255])
         }

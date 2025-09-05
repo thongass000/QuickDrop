@@ -9,6 +9,9 @@ import Foundation
 import ImageIO
 #if os(macOS)
 import AppKit
+#else
+import LUI
+import UIKit
 #endif
 
 public class SaveFilesManager {
@@ -44,7 +47,6 @@ public class SaveFilesManager {
 
     private var filesFinishedDownloading = [URL]()
     private var filesFinishedDownloadingSinceLastRun = [URL]()
-    
     
     public func registerFileFinishedDownloading(_ fileURL: URL) {
         filesFinishedDownloading.append(fileURL)
@@ -121,6 +123,8 @@ public class SaveFilesManager {
                 log("[SaveFilesManager] Opening \(filesFinishedDownloadingSinceLastRun.count) file(s) in Finder.")
                 NSWorkspace.shared.activateFileViewerSelecting(filesFinishedDownloadingSinceLastRun)
             }
+            #else
+                openDownloadedFilesFolder()
             #endif
             
             // Clear the list of finished files
@@ -129,6 +133,22 @@ public class SaveFilesManager {
 
         stopAccessingSecurityScopedResource()
     }
+    
+    
+    #if !os(macOS)
+    public func openDownloadedFilesFolder() {
+        #if !EXTENSION
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    
+        if let documentsUrl = documentsUrl, let sharedUrl = URL(string: "shareddocuments://\(documentsUrl.path)"), UIApplication.shared.canOpenURL(sharedUrl) {
+            UIApplication.shared.open(sharedUrl, options: [:])
+        }
+        else {
+            showAlert(title: "CouldNotOpenDocumentsFolder", message: "CouldNotOpenDocumentsFolderDescription")
+        }
+        #endif
+    }
+    #endif
     
 
     public func stopAccessingSecurityScopedResource() {
@@ -143,6 +163,9 @@ public class SaveFilesManager {
 
     
     public func getSaveDirectory() -> URL {
+        
+        // Not supported on iOS
+        #if os(macOS)
         if let securityScopeUrl = securityScopeUrl {
             log("[SaveFilesManager] Using existing security scope URL: \(securityScopeUrl)")
             return securityScopeUrl
@@ -150,9 +173,7 @@ public class SaveFilesManager {
 
         if let bookmarkData = UserDefaults.standard.data(forKey: UserDefaultsKeys.saveFolderBookmark.rawValue) {
             var isStale = false
-
-            // Not supported on iOS
-            #if os(macOS)
+   
             do {
                 let url = try URL(resolvingBookmarkData: bookmarkData, options: .withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &isStale)
 
@@ -170,7 +191,6 @@ public class SaveFilesManager {
             } catch {
                 log("[SaveFilesManager] Failed to resolve bookmark: \(error), using default downloads folder.")
             }
-            #endif
         }
 
         do {
@@ -178,6 +198,14 @@ public class SaveFilesManager {
         } catch {
             fatalError("[SaveFilesManager] Failed to get downloads directory: \(error)")
         }
+        #else
+        // Return the documents directory for iOS
+        do {
+            return try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).resolvingSymlinksInPath()
+        } catch {
+            fatalError("Failed to get documents directory: \(error)")
+        }
+        #endif
     }
     
     

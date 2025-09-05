@@ -14,10 +14,9 @@ import SwiftUI
 import UserNotifications
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSWindowDelegate, MainAppDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSWindowDelegate {
     
     private var statusItem: NSStatusItem?
-    private var activeIncomingTransfers: [String: TransferInfo] = [:]
 
     var welcomeWindow: NSWindow?
     var plusWindow: NSWindow?
@@ -27,10 +26,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     private var errorAlertHandler = ErrorAlertHandler.shared
 
     private var iapManager: IAPManager?
+    private var receiveModel: ReceiveModel?
 
     var showsFirewallAlert = false
     var visibleItem: NSMenuItem? = nil
-    let hasConnectionMonitor = NWPathMonitor()
 
     
     // MARK: NSApplicationDelegate functions
@@ -65,15 +64,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         statusItem?.menu = menu
         statusItem?.behavior = .removalAllowed
 
-        NearbyConnectionManager.shared.mainAppDelegate = self
-        NearbyConnectionManager.shared.becomeVisible()
-
         iapManager = IAPManager.sharedInstance
         iapManager?.startObserving()
+        
+        log("[AppDelegate] Downloaded directly: \(DistributionDetector.isDirectDistributionEnabled)")
 
         // app did not lauch before
         if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.appLaunchedBefore.rawValue) {
-            log("Opening Welcome Screen")
+            log("[AppDelegate] Opening Welcome Screen")
             // open welcome screen
             openWelcomeScreen()
             UserDefaults.standard.set(true, forKey: UserDefaultsKeys.appLaunchedBefore.rawValue)
@@ -85,11 +83,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
             // user installed the app before the IAP was implemented, grant the plus version
             if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.isEligibleForIap.rawValue) {
-                log("Granting QuickDrop+ for old user")
+                log("[AppDelegate] Granting QuickDrop+ for old user")
                 UserDefaults.standard.set(true, forKey: UserDefaultsKeys.plusVersion.rawValue)
             } else {
                 if !isPlusVersion() {
-                    log("New user - QuickDrop+ not available")
+                    log("[AppDelegate] New user - QuickDrop+ not available")
+                }
+                else {
+                    log("[AppDelegate] QuickDrop+ available")
                 }
             }
 
@@ -98,20 +99,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         UNUserNotificationCenter.current().delegate = self
         
-        hasConnectionMonitor.pathUpdateHandler = { path in
-            DispatchQueue.main.async {
-                if path.status == .satisfied {
-                    self.statusItem?.button?.image = NSImage(named: "MenuBarIcon")
-                    self.visibleItem?.title = "VisibleToEveryone".localized()
-                } else {
-                    self.statusItem?.button?.image = NSImage(named: "MenuBarIconSlash")
-                    self.visibleItem?.title = "NoNetworkConnection".localized()
+        receiveModel = ReceiveModel(controlPlusScreen: { shouldOpen in
+            if shouldOpen {
+                self.openPlusScreen()
+            }
+            else {
+                if let window = self.plusWindow {
+                    log("[AppDelegate] Closing plus screen because of error")
+                    window.close()
+                    self.plusWindow = nil
                 }
             }
-        }
+        })
 
-        let queue2 = DispatchQueue(label: "NetworkConnectionMonitor")
-        hasConnectionMonitor.start(queue: queue2)
+        
+        NearbyConnectionManager.shared.connectionUpdateCallback = { isConnected in
+            if isConnected {
+                self.statusItem?.button?.image = NSImage(named: "MenuBarIcon")
+                self.visibleItem?.title = "VisibleToEveryone".localized()
+            }
+            else {
+                self.statusItem?.button?.image = NSImage(named: "MenuBarIconSlash")
+                self.visibleItem?.title = "NoNetworkConnection".localized()
+            }
+        }
         
         log("Application did finish launching")
     }
@@ -123,7 +134,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
               welcomeWindow = nil
               NSApp.setActivationPolicy(.accessory)
           }
-      }
+    }
     
     
     func applicationShouldHandleReopen(_: NSApplication, hasVisibleWindows _: Bool) -> Bool {
@@ -149,8 +160,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     func application(_ application: NSApplication, open urls: [URL]) {
         for url in urls {
             if url.scheme == "quickdrop", url.host == "sendLog" {
-                sendLoggingString()
+                sendLoggingString() // this time it runs in the main app
             }
+            
             
             if url.scheme == "quickdrop", url.host == "openLog", let url = LogManager.sharedInstance.logFileURL {
                 log("Opening log file: \(url)")
@@ -173,8 +185,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         let pasteboard = NSPasteboard.general
         let clipboardString = pasteboard.string(forType: .string) ?? ""
         
-        let sharingService = NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension"))
-        sharingService?.perform(withItems: [clipboardString])
+        if clipboardString.isEmpty {
+            DispatchQueue.main.async {
+                BezelNotification.show(messageText: "ClipboardEmpty".localized(), icon: .clipboard)
+            }
+        }
+        else {
+            let sharingService = NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension"))
+            sharingService?.perform(withItems: [clipboardString])
+        }
     }
 
     
@@ -226,8 +245,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         if let window = plusWindow, window.isVisible {
             NSApp.activate(ignoringOtherApps: true)
             window.makeKeyAndOrderFront(nil)
+            log("Plus screen already open, bringing to front")
             return
         }
+        
+        log("Opening Plus screen")
 
         // Create the welcome screen SwiftUI view
         let plusView = PlusView(closeView: {
@@ -253,7 +275,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         window.setFrameAutosaveName("PlusScreen")
         window.contentView = NSHostingView(rootView: plusView)
 
-        // Reset reference when closed by close button
+        // Reset reference when closed by red button
         NotificationCenter.default.addObserver(forName: NSWindow.willCloseNotification, object: window, queue: .main) { [weak self] _ in
             self?.plusWindow = nil
         }
@@ -299,171 +321,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             self.sheetView = nil
             self.sheetAttachedWindow = nil
         }
-    }
-    
-    
-    // MARK: - Alerts and Notifications
-
-    func showFirewallAlert() {
-        ErrorAlertHandler.shared.openAlert(type: .Firewall)
-    }
-    
-    
-    func showCopiedToClipboardAlert() {
-        DispatchQueue.main.async {
-            BezelNotification.show(messageText: "InsertedIntoClipboard".localized(), icon: .clipboard)
-        }
-    }
-    
-    
-    func showUnsupportedFileAlert(for device: RemoteDeviceInfo?) {
-        
-        DispatchQueue.main.async {
-            
-            AudioManager.playErrorSound()
-            
-            NSApp.activate(ignoringOtherApps: true)
-            
-            let alert = NSAlert()
-            alert.alertStyle = .critical
-            
-            alert.messageText = String(format: "TransferError".localized(), arguments: [device?.name ?? "??"])
-            alert.informativeText = "UnsupportedFileType".localized()
-            
-            alert.addButton(withTitle: "InformDeveloper".localized())
-            alert.addButton(withTitle: "CloseAlert".localized())
-            
-            let _ = alert.runModal()
-        }
-    }
-
-    
-    // MARK: - Transfer Handling
-    
-    public func continueTransmission(accept: Bool, transferID: String, storeInTemp: Bool = false) {
-        NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: accept, storeInTemp: storeInTemp)
-
-        if !accept {
-            activeIncomingTransfers.removeValue(forKey: transferID)
-        }
-    }
-    
-
-    func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo) {
-        
-        NSApp.activate(ignoringOtherApps: true)
-        
-        activeIncomingTransfers[transfer.id] = TransferInfo(device: device, transfer: transfer)
-
-        AudioManager.playIncomingFileSound()
-
-        let acceptAutomatically = UserDefaults.standard.bool(forKey: UserDefaultsKeys.automaticallyAcceptFiles.rawValue)
-
-        let fileStr: String
-
-        if let textTitle = transfer.textDescription {
-            fileStr = textTitle
-        } else if transfer.files.count == 1 {
-            fileStr = transfer.files[0].name
-        } else {
-            fileStr = String.localizedStringWithFormat("NFiles".localized(), transfer.files.count)
-        }
-
-        
-        let mainMessage: String
-        
-        switch transfer.type {
-            case .file:
-                mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingFiles" : "DeviceSendingFiles").localized(), arguments: [device.name, fileStr])
-            
-            case .text:
-                mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingText" : "DeviceSendingText").localized(), arguments: [device.name, fileStr])
-            
-            case .url:
-                mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingUrl" : "DeviceSendingUrl").localized(), arguments: [device.name, fileStr])
-        }
-        
-       
-        let pinCodeMessage = String(format: "PinCode".localized(), arguments: [transfer.pinCode ?? "?"])
-        let transferID = transfer.id
-
-        if acceptAutomatically {
-            pressAcceptButton(transferID: transfer.id)
-
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
-                if granted {
-                    log("User granted notification permissions")
-
-                    let notificationContent = UNMutableNotificationContent()
-                    notificationContent.title = "QuickDrop"
-                    notificationContent.body = mainMessage
-                    notificationContent.sound = nil
-                    let notificationId = UUID().uuidString
-
-                    let notificationReq = UNNotificationRequest(identifier: notificationId, content: notificationContent, trigger: nil)
-                    UNUserNotificationCenter.current().add(notificationReq)
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notificationId])
-                    }
-                }
-            }
-        } else {
-            let alert = NSAlert()
-            alert.alertStyle = .informational
-
-            alert.messageText = "QuickDrop - \(pinCodeMessage)"
-            alert.informativeText = mainMessage
-            alert.addButton(withTitle: "Accept".localized())
-            alert.addButton(withTitle: "Decline".localized())
-
-            let result = alert.runModal()
-
-            if result == .alertFirstButtonReturn {
-                pressAcceptButton(transferID: transferID)
-            } else if result == .alertSecondButtonReturn {
-                continueTransmission(accept: false, transferID: transferID)
-            }
-        }
-    }
-
-    
-    private func pressAcceptButton(transferID: String) {
-        if isFileTransferRestricted() {
-            continueTransmission(accept: true, transferID: transferID, storeInTemp: true)
-            log("Showing plus screen...")
-
-            openPlusScreen()
-        } else {
-            continueTransmission(accept: true, transferID: transferID)
-        }
-    }
-    
-
-    func incomingTransfer(id: String, didFinishWith error: Error?) {
-
-        if let error = error {
-            
-            if let plusWindow = plusWindow {
-                log("Closing plus screen because of error")
-                plusWindow.close()
-                self.plusWindow = nil
-            }
-            
-            ErrorAlertHandler.shared.showErrorAlert(for: activeIncomingTransfers[id]?.device.name ?? "Android", error: error)
-        } else {
-            let currentCount = transmissionCount()
-            if currentCount == 0 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    SKStoreReviewController.requestReview()
-                }
-            }
-
-            UserDefaults.standard.set(currentCount + 1, forKey: UserDefaultsKeys.transmissionCount.rawValue)
-            log("Successful transmission. Current count: \(currentCount)")
-        }
-
-        activeIncomingTransfers.removeValue(forKey: id)
     }
     
     
