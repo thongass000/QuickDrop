@@ -45,11 +45,11 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     @Published var attachments: AttachmentDetails? = nil
     @Published var hasLocalNetworkAccess = true
-    @Published var isConnectedViaWiFi = true
+    @Published var isConnectedToLocalNetwork = true
     
     public var connectionUpdateCallback: (Bool) -> Void = { _ in } {
         didSet {
-            connectionUpdateCallback(isConnectedViaWiFi)
+            connectionUpdateCallback(isConnectedToLocalNetwork)
         }
     }
     
@@ -69,18 +69,23 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         super.init()
         
         hasConnectionMonitor.pathUpdateHandler = { path in
-            if path.usesInterfaceType(.wifi) {
-                log("[NearbyConnectionManager] Connected via WiFi.")
-                DispatchQueue.main.async {
-                    self.isConnectedViaWiFi = true
-                    self.connectionUpdateCallback(true)
+            
+            #if os(macOS)
+            // On Mac, the local network is available as long as the path is satisfied, since Macs do not have cellular modems
+            let isConnected = path.status == .satisfied
+            #else
+            // On iPhone and iPad, the local network is only available using Wi-Fi or Ethernet
+            let isConnected = path.usesInterfaceType(.wifi) || path.usesInterfaceType(.wiredEthernet)
+            #endif
+            
+            DispatchQueue.main.async {
+                if isConnected {
+                    log("[NearbyConnectionManager] Connected to local network.")
+                } else {
+                    log("[NearbyConnectionManager] Local network lost.")
                 }
-            } else {
-                log("[NearbyConnectionManager] WiFi connection lost.")
-                DispatchQueue.main.async {
-                    self.isConnectedViaWiFi = false
-                    self.connectionUpdateCallback(false)
-                }
+                self.isConnectedToLocalNetwork = isConnected
+                self.connectionUpdateCallback(isConnected)
             }
         }
         
