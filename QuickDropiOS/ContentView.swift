@@ -93,7 +93,7 @@ struct DeviceListView: View {
                     
                     CustomSection(header: "NoDevicesFound") {
                         
-                        let hasWifi = nearbyConnectionManager.isConnectedViaWiFi
+                        let hasWifi = nearbyConnectionManager.isConnectedToLocalNetwork
                         
                         HStack(spacing: 12) {
                             Image(systemName: hasWifi ? "arrow.down.circle.fill" : "wifi.slash")
@@ -137,7 +137,7 @@ struct DeviceListView: View {
                 }
                 
                 
-                if nearbyConnectionManager.hasLocalNetworkAccess && nearbyConnectionManager.isConnectedViaWiFi {
+                if nearbyConnectionManager.hasLocalNetworkAccess && nearbyConnectionManager.hasLocalNetworkAccess {
                     HStack(spacing: 8) {
                         Text("SearchingForDevices")
                             .font(.system(size: 14))
