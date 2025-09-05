@@ -165,6 +165,8 @@ struct DeviceListView: View {
                     runAfter(seconds: 0.3) {
                         if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
                             
+                            log("Requesting Review...")
+                            
                             SKStoreReviewController.requestReview(in: scene)
                             requestedReview = true
                         }
