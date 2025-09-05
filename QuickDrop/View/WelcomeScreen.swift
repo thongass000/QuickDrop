@@ -10,7 +10,6 @@ import UniformTypeIdentifiers
 
 struct WelcomeScreen: View {
     
-    @AppStorage(UserDefaultsKeys.plusVersion.rawValue) var isPlusVersion = false
     @Environment(\.colorScheme) var colorScheme
     
     let openPlusScreen: () -> Void

@@ -66,10 +66,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         iapManager = IAPManager.sharedInstance
         iapManager?.startObserving()
+        
+        log("[AppDelegate] Downloaded directly: \(DistributionDetector.isDirectDistributionEnabled)")
 
         // app did not lauch before
         if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.appLaunchedBefore.rawValue) {
-            log("Opening Welcome Screen")
+            log("[AppDelegate] Opening Welcome Screen")
             // open welcome screen
             openWelcomeScreen()
             UserDefaults.standard.set(true, forKey: UserDefaultsKeys.appLaunchedBefore.rawValue)
@@ -81,11 +83,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
             // user installed the app before the IAP was implemented, grant the plus version
             if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.isEligibleForIap.rawValue) {
-                log("Granting QuickDrop+ for old user")
+                log("[AppDelegate] Granting QuickDrop+ for old user")
                 UserDefaults.standard.set(true, forKey: UserDefaultsKeys.plusVersion.rawValue)
             } else {
                 if !isPlusVersion() {
-                    log("New user - QuickDrop+ not available")
+                    log("[AppDelegate] New user - QuickDrop+ not available")
+                }
+                else {
+                    log("[AppDelegate] QuickDrop+ available")
                 }
             }
 

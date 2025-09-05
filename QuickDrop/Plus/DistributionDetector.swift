@@ -19,7 +19,6 @@ class DistributionDetector {
             
             let result = isDirectDistribution()
             self._directDistributionCached = result
-            log("[DistributionDetector] isDirectDistribution: \(result)")
             
             return result
             #else
