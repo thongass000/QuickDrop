@@ -38,14 +38,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         let menu = NSMenu()
 
         let visibleItem = NSMenuItem(
-            title: "VisibleToEveryone".localized(),
+            title: getDefaultVisibleLabel(),
             action: nil,
             keyEquivalent: ""
         )
         self.visibleItem = visibleItem
         menu.addItem(visibleItem)
-        
-        menu.addItem(withTitle: String(format: "DeviceName".localized(), arguments: [Host.current().localizedName ?? "Mac"]), action: nil, keyEquivalent: "")
 
         menu.addItem(NSMenuItem.separator())
 
@@ -116,7 +114,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         NearbyConnectionManager.shared.connectionUpdateCallback = { isConnected in
             if isConnected {
                 self.statusItem?.button?.image = NSImage(named: "MenuBarIcon")
-                self.visibleItem?.title = "VisibleToEveryone".localized()
+                self.visibleItem?.title = self.getDefaultVisibleLabel()
             }
             else {
                 self.statusItem?.button?.image = NSImage(named: "MenuBarIconSlash")
@@ -336,6 +334,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 ErrorAlertHandler.shared.openAlert(type: .ApIsolation)
             }
         }
+    }
+    
+    
+    private func getDefaultVisibleLabel() -> String {
+        let name = NearbyConnectionManager.shared.deviceInfo.name ?? "Unknown".localized()
+        return String(format: "VisibleAs".localized(), name)
     }
 }
 
