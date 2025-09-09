@@ -94,11 +94,29 @@ struct SettingsView: View {
             do {
                 log("Selected folder: \(url)")
                 
+                if url.description == "file:///" {
+                    throw NSError(domain: "InvalidSelection", code: 0, userInfo: [NSLocalizedDescriptionKey: "Cannot select root directory. Please choose a specific folder."])
+                }
+                
                 let bookmarkData = try url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
                 
                 Settings.shared.saveFolderBookmark = bookmarkData
             } catch {
                 log("Failed to save security-scoped bookmark: \(error)")
+                
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    
+                    AudioManager.playErrorSound()
+                    
+                    // show alert
+                    let alert = NSAlert()
+                    alert.alertStyle = .critical
+                    alert.messageText = "FolderSelectionFailedTitle".localized()
+                    alert.informativeText = "FolderSelectionFailedMessage".localized()
+                    alert.addButton(withTitle: "CloseAlert".localized())
+                    
+                    alert.runModal()
+                }
             }
         }
     }

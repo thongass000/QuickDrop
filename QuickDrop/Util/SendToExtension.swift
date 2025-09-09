@@ -13,11 +13,15 @@ func sendToSharingService(items: [Any]) {
         sharingService.perform(withItems: items)
     }
     else {
-        // show alert
-        let alert = NSAlert()
-        alert.alertStyle = .critical
-        alert.messageText = "ShareExtensionDisabledTitle".localized()
-        alert.informativeText = "ShareExtensionDisabledDescription".localized()
-        alert.runModal()
+        DispatchQueue.main.async {
+            // show alert
+            AudioManager.playErrorSound()
+            let alert = NSAlert()
+            alert.alertStyle = .critical
+            alert.messageText = "ShareExtensionDisabledTitle".localized()
+            alert.informativeText = "ShareExtensionDisabledDescription".localized()
+            alert.addButton(withTitle: "CloseAlert".localized())
+            alert.runModal()
+        }
     }
 }
