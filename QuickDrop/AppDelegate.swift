@@ -84,9 +84,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             // user installed the app before the IAP was implemented, grant the plus version
             if !Settings.shared.isEligibleForIap {
                 log("[AppDelegate] Granting QuickDrop+ for old user")
-                Settings.shared.isPlusVersion = true
+                Settings.shared.gotPlus = true
             } else {
-                if !isPlusVersion() {
+                if !fullVersion() {
                     log("[AppDelegate] New user - QuickDrop+ not available")
                 }
                 else {

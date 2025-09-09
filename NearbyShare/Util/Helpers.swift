@@ -110,11 +110,11 @@ extension String {
 }
 
 
-public func isPlusVersion() -> Bool {
+public func fullVersion() -> Bool {
     
     #if os(macOS)
     // Enable full functionality if app distributed directly
-    return DistributionDetector.isDirectDistributionEnabled || Settings.shared.isPlusVersion
+    return Settings.shared.gotPlus || DistributionDetector.isDirectDistributionEnabled 
     #else
     // iOS
     return true
@@ -123,5 +123,5 @@ public func isPlusVersion() -> Bool {
 
 
 public func isFileTransferRestricted() -> Bool {
-    (!isPlusVersion() && Settings.shared.incomingTransmissionCount > 1)
+    (!fullVersion() && Settings.shared.incomingTransmissionCount > 1)
 }

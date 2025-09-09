@@ -115,7 +115,7 @@ struct PlusView: View {
                     if success {
                         log("[LUI] Restored purchases successfully")
                         withAnimation {
-                            settings.isPlusVersion = true
+                            settings.gotPlus = true
                         }
                         boughtSuccessAlert = true
                     } else {
@@ -146,7 +146,7 @@ struct PlusView: View {
                     
                     if success {
                         withAnimation {
-                            settings.isPlusVersion = true
+                            settings.gotPlus = true
                         }
                         
                         boughtSuccessAlert = true
@@ -193,7 +193,7 @@ struct PlusView: View {
                     case .success(_):
                         
                         withAnimation {
-                            settings.isPlusVersion = true
+                            settings.gotPlus = true
                             boughtSuccessAlert = true
                             warning = false
                         }

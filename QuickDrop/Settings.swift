@@ -16,8 +16,8 @@ class Settings: ObservableObject {
     
     //  MARK: - Published UserDefaults Backed Properties
     
-    @Published var isPlusVersion = UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
-    { didSet { UserDefaults.standard.set(isPlusVersion, forKey: UserDefaultsKeys.plusVersion.rawValue) }}
+    @Published var gotPlus = UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
+    { didSet { UserDefaults.standard.set(gotPlus, forKey: UserDefaultsKeys.plusVersion.rawValue) }}
     
     
     @Published var automaticallyAcceptFiles: Bool = UserDefaults.standard.bool(forKey: UserDefaultsKeys.automaticallyAcceptFiles.rawValue)

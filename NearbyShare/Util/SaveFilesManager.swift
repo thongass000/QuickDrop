@@ -59,7 +59,7 @@ public class SaveFilesManager {
     
     public func movePendingFilesToTarget() {
 
-        if isPlusVersion() {
+        if fullVersion() {
             do {
                 let fileManager = FileManager.default
                 let files = try fileManager.contentsOfDirectory(at: tempDirectory, includingPropertiesForKeys: nil)

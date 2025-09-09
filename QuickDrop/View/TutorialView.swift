@@ -40,7 +40,7 @@ struct TutorialView: View {
                         }
                         .buttonStyle(.plain)
                         
-                        if !settings.isPlusVersion {
+                        if !settings.gotPlus {
                             Button {
                                 openPlus()
                             } label: {
