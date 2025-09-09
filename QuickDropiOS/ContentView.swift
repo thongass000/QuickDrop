@@ -161,7 +161,7 @@ struct DeviceListView: View {
 #if !EXTENSION
                 NearbyConnectionManager.shared.becomeVisible()
                 
-                if incomingTransmissionCount() > 0 && !requestedReview {
+                if Settings.shared.incomingTransmissionCount > 0 && !requestedReview {
                     runAfter(seconds: 0.3) {
                         if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
                             
