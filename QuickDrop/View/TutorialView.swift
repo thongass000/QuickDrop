@@ -56,7 +56,7 @@ struct TutorialView: View {
                         Button {
                             Settings.shared.deleteAllUserDefaults()
                         } label: {
-                            Text("Reset UD")
+                            Text("ResetAllSettings")
                                 .underline()
                                 .font(.footnote)
                                 .opacity(0.5)

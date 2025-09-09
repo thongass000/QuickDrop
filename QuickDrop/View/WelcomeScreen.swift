@@ -138,12 +138,6 @@ struct WelcomeScreen: View {
             }
         }
     }
-
-    func sendToSharingService(items: [Any]) {
-        if let sharingService = NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension")) {
-            sharingService.perform(withItems: items)
-        }
-    }
 }
 
 

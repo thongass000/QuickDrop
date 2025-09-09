@@ -191,8 +191,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             }
         }
         else {
-            let sharingService = NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension"))
-            sharingService?.perform(withItems: [clipboardString])
+            sendToSharingService(items: [clipboardString])
         }
     }
 

@@ -36,7 +36,7 @@ struct SmallSheetView: View {
                         .frame(width: imageSize, height: imageSize)
                     
                     if type != .sendToDeviceQrCode {
-                        Text("QuickDrop")
+                        Text(String("QuickDrop"))
                     }
                 }
                 .padding(.leading, 18)

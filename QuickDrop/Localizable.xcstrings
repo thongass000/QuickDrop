@@ -7271,113 +7271,6 @@
         }
       }
     },
-    "QuickDrop" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : ""
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "QuickDropAndroidAppAdvertisement" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -8447,112 +8340,111 @@
         }
       }
     },
-    "Reset UD" : {
+    "ResetAllSettings" : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "إعادة تعيين جميع الإعدادات"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "Alle Einstellungen zurücksetzen"
           }
         },
         "en" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "Reset All Settings"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "Restablecer Todos los Ajustes"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "Réinitialiser tous les réglages"
           }
         },
         "hu" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "Összes beállítás visszaállítása"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "Ripristina tutte le impostazioni"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "すべての設定をリセット"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "모든 설정 초기화"
           }
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "Alle instellingen opnieuw instellen"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "Redefinir Todas as Configurações"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "Repor Todas as Definições"
           }
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "Resetează toate setările"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "Сбросить все настройки"
           }
         },
         "th" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "รีเซ็ตการตั้งค่าทั้งหมด"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "Скинути всі налаштування"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ""
+            "state" : "translated",
+            "value" : "重置所有设置"
           }
         }
-      },
-      "shouldTranslate" : false
+      }
     },
     "SaveFilesLocation" : {
       "extractionState" : "manual",
@@ -9618,6 +9510,220 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "设置"
+          }
+        }
+      }
+    },
+    "ShareExtensionDisabledDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لمشاركة هذا المحتوى مع جهاز آخر، افتح إعدادات النظام في جهاز Mac الخاص بك وانتقل إلى \"عام > عناصر تسجيل الدخول والإضافات\".\n\nقم بالتمرير إلى الأسفل إلى \"المشاركة\" وانقر على زر المعلومات الصحيح. أخيراً، قم بتمكين التبديل لخدمة QuickDrop وحاول مرة أخرى."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um diesen Inhalt mit einem anderen Gerät zu teilen, öffne die Systemeinstellungen deines Macs und navigiere zu Allgemein > Anmeldeobjekte & Erweiterungen.\n\nScrolle nach unten zu 'Teilen' und klicke auf die rechte Info-Taste. Aktiviere abschließend den Schalter für QuickDrop und versuche es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To share this content with another device, open your Mac’s System Settings and navigate to General > Login Items & Extensions.\n\nScroll down to 'Sharing' and click on the right info button. Finally, enable the toggle for QuickDrop and try again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para compartir este contenido con otro dispositivo, abre la Configuración del Sistema de tu Mac y navega a General > Elementos de Inicio de Sesión y Extensiones.\n\nDesplázate hacia abajo hasta 'Compartir' y haz clic en el botón de información a la derecha. Finalmente, activa el interruptor de QuickDrop y vuelve a intentarlo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour partager ce contenu avec un autre appareil, ouvrez les Réglages Système de votre Mac et allez dans Général > Éléments Ouverture & Extensions.\n\nFaites défiler jusqu'à 'Partage' et cliquez sur le bouton d'info à droite. Enfin, activez le commutateur pour QuickDrop et réessayez."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha meg szeretné osztani ezt a tartalmat egy másik eszközzel, nyissa meg a Mac számítógépén a Rendszerbeállításokat, és navigáljon az Általános > Bejelentkezési elemek és bővítmények menüpontra.\n\nGörgessen le a „Megosztás” részhez, majd kattintson a jobb oldali információs gombra. Végül engedélyezze a QuickDrop kapcsolót, és próbálja újra."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per condividere questo contenuto con un altro dispositivo, apri le Impostazioni di Sistema del tuo Mac e vai su Generali > Elementi di Login e Estensioni.\n\nScorri fino a 'Condivisione' e clicca sul pulsante info a destra. Infine, abilita l’interruttore per QuickDrop e riprova."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このコンテンツを別のデバイスと共有するには、Macのシステム設定を開き、「一般」>「ログイン項目&拡張機能」に移動します。\n\n「共有」までスクロールして、右側の情報ボタンをクリックします。最後にQuickDropのトグルを有効にしてもう一度お試しください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 콘텐츠를 다른 기기와 공유하려면 Mac의 시스템 설정을 열고 일반 > 로그인 항목 및 확장으로 이동하세요.\n\n'공유'로 스크롤을 내리고 오른쪽 정보 버튼을 클릭하세요. 마지막으로 QuickDrop에 대한 토글을 활성화하고 다시 시도하세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Om deze inhoud met een ander apparaat te delen, open de Systeeminstellingen van je Mac en ga naar Algemeen > Inlogitems & Extensies.\n\nScroll naar 'Delen' en klik op de juiste infoknop. Schakel vervolgens de schakelaar voor QuickDrop in en probeer het opnieuw."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para compartilhar este conteúdo com outro dispositivo, abra as Configurações do Sistema do seu Mac e navegue até Geral > Itens de Login e Extensões.\n\nRole até 'Compartilhamento' e clique no botão de informação à direita. Por fim, ative a opção para QuickDrop e tente novamente."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para partilhar este conteúdo com outro dispositivo, abra as Definições do Sistema no seu Mac e navegue até Geral > Itens de Início de Sessão e Extensões.\n\nDesça até 'Partilha' e clique no botão de informação à direita. Finalmente, ative a opção para o QuickDrop e tente novamente."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pentru a partaja acest conținut cu alt dispozitiv, deschide Configurările de sistem ale Mac-ului tău și navighează la General > Elemente de Login & Extensii.\n\nDerulează în jos la 'Partajare' și fă clic pe butonul corespunzător de informații. În final, activează comutatorul pentru QuickDrop și încearcă din nou."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чтобы поделиться этим содержимым с другим устройством, откройте Системные настройки на вашем Mac и перейдите в раздел Общие > Элементы входа и Расширения.\n\nПрокрутите вниз до раздела 'Обмен' и нажмите на правую информационную кнопку. Наконец, включите переключатель для QuickDrop и попробуйте снова."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "หากต้องการแชร์เนื้อหานี้กับอุปกรณ์อื่น ให้เปิดการตั้งค่าระบบของ Mac แล้วไปที่ทั่วไป > รายการเข้าสู่ระบบ & ส่วนขยาย\n\nเลื่อนลงไปที่ 'การแชร์' และคลิกที่ปุ่มข้อมูลทางขวามือ สุดท้ายให้เปิดสวิตช์สำหรับ QuickDrop และลองอีกครั้ง"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щоб поділитися цим вмістом з іншим пристроєм, відкрийте Системні налаштування на вашому Mac і перейдіть до Загальне > Елементи входу та розширення.\n\nПрокрутіть вниз до 'Обмін' і натисніть праву кнопку з інформацією. Нарешті, увімкніть перемикач для QuickDrop і спробуйте ще раз."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要与其他设备共享此内容，请打开 Mac 的系统设置，导航到 通用 > 登录项与扩展。\n\n向下滚动到“共享”并点击右侧的信息按钮。最后，启用 QuickDrop 的切换按钮，然后重试。"
+          }
+        }
+      }
+    },
+    "ShareExtensionDisabledTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم تعطيل امتداد المشاركة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teilerweiterung deaktiviert"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share Extension Disabled"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensión de Compartir Desactivada"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extension de partage désactivée"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Megosztási bővítmény letiltva"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estensione di condivisione disattivata"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共有拡張機能が無効です"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "공유 확장 기능 비활성화됨"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deeluitbreiding uitgeschakeld"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensão de Compartilhamento Desativada"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensão de Partilha Desativada"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensia de partajare dezactivată"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Расширение обмена отключено"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การแชร์แบบส่วนขยายถูกปิดใช้งาน"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Розширення обміну вимкнено"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共享扩展已禁用"
           }
         }
       }

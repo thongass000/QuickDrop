@@ -33,6 +33,10 @@
 		EB1325F42E7025D900FD749C /* ApIsolationTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E92E7025D900FD749C /* ApIsolationTester.swift */; };
 		EB1325F52E7025D900FD749C /* ActiveNetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E72E7025D900FD749C /* ActiveNetworkInterface.swift */; };
 		EB1325F62E7025D900FD749C /* ApIsolation6Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E82E7025D900FD749C /* ApIsolation6Tester.swift */; };
+		EB1325F82E70288300FD749C /* SendToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325F72E70287C00FD749C /* SendToExtension.swift */; };
+		EB1325F92E70288300FD749C /* SendToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325F72E70287C00FD749C /* SendToExtension.swift */; };
+		EB1325FA2E70288300FD749C /* SendToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325F72E70287C00FD749C /* SendToExtension.swift */; };
+		EB1325FB2E70288300FD749C /* SendToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325F72E70287C00FD749C /* SendToExtension.swift */; };
 		EB16B6122E58B4B9007D9792 /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B6112E58B4B9007D9792 /* IdentityManager.swift */; };
 		EB16B6132E58B4B9007D9792 /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B6112E58B4B9007D9792 /* IdentityManager.swift */; };
 		EB16B6142E58B4B9007D9792 /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B6112E58B4B9007D9792 /* IdentityManager.swift */; };
@@ -318,6 +322,7 @@
 		EB1325E72E7025D900FD749C /* ActiveNetworkInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNetworkInterface.swift; sourceTree = "<group>"; };
 		EB1325E82E7025D900FD749C /* ApIsolation6Tester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApIsolation6Tester.swift; sourceTree = "<group>"; };
 		EB1325E92E7025D900FD749C /* ApIsolationTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApIsolationTester.swift; sourceTree = "<group>"; };
+		EB1325F72E70287C00FD749C /* SendToExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendToExtension.swift; sourceTree = "<group>"; };
 		EB16B6112E58B4B9007D9792 /* IdentityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityManager.swift; sourceTree = "<group>"; };
 		EB16B6162E58B4C8007D9792 /* TrustStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustStore.swift; sourceTree = "<group>"; };
 		EB16B7762E59BA9F007D9792 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
@@ -627,6 +632,7 @@
 		EBC05C6B2E33B57100EECC18 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				EB1325F72E70287C00FD749C /* SendToExtension.swift */,
 				EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */,
 				EB886E662E4F2F7C0052B7D9 /* License.swift */,
 				EB36435F2D73A29F009CDFF8 /* AudioManager.swift */,
@@ -898,6 +904,7 @@
 			files = (
 				EB704A832E4B10D4008E608F /* DistributionDetector.swift in Sources */,
 				EB96ED902D7F8114004B3FF1 /* Localized.swift in Sources */,
+				EB1325F82E70288300FD749C /* SendToExtension.swift in Sources */,
 				EB16B6172E58B4C8007D9792 /* TrustStore.swift in Sources */,
 				EB886E542E4E19390052B7D9 /* HKDF.swift in Sources */,
 				EBC05C862E33B58300EECC18 /* NetworkFilterIssueView.swift in Sources */,
@@ -984,6 +991,7 @@
 				EB16B77A2E59BAA1007D9792 /* AppGroup.swift in Sources */,
 				EBC05C822E33B58300EECC18 /* ApIsolationIssueView.swift in Sources */,
 				EBC05C832E33B58300EECC18 /* FirewallIssueView.swift in Sources */,
+				EB1325FA2E70288300FD749C /* SendToExtension.swift in Sources */,
 				EB1325F42E7025D900FD749C /* ApIsolationTester.swift in Sources */,
 				EB1325F52E7025D900FD749C /* ActiveNetworkInterface.swift in Sources */,
 				EB1325F62E7025D900FD749C /* ApIsolation6Tester.swift in Sources */,
@@ -1020,6 +1028,7 @@
 				EB5C37FE2E377CE70052EFD7 /* offline_wire_formats.pb.swift in Sources */,
 				EB886E6A2E4F37B90052B7D9 /* ErrorAlertHandler.swift in Sources */,
 				EB886E5E2E4F13EB0052B7D9 /* Zip.swift in Sources */,
+				EB1325F92E70288300FD749C /* SendToExtension.swift in Sources */,
 				EB5C383D2E38C2D90052EFD7 /* AudioManager.swift in Sources */,
 				EB979F942E50CA23008B8C5C /* Configuration.swift in Sources */,
 				EB979F952E50CA23008B8C5C /* ContentView.swift in Sources */,
@@ -1048,6 +1057,7 @@
 				EB950B572E520591002D68FA /* ErrorAlertHandler.swift in Sources */,
 				EB950B462E520436002D68FA /* OutboundNearbyConnection.swift in Sources */,
 				EB950B472E520436002D68FA /* sharing_enums.pb.swift in Sources */,
+				EB1325FB2E70288300FD749C /* SendToExtension.swift in Sources */,
 				EB950B482E520436002D68FA /* Localized.swift in Sources */,
 				EB950B492E520436002D68FA /* device_to_device_messages.pb.swift in Sources */,
 				EB1325F12E7025D900FD749C /* ApIsolationTester.swift in Sources */,
