@@ -12,6 +12,7 @@ import StoreKit
 struct ContentView: View {
     
     @ObservedObject var luiSettings = LUISettings.sharedInstance
+    @ObservedObject var settings = Settings.shared
     
     var body: some View {
         AppRootView(isPlus: .constant(true), phoneView: {
@@ -44,7 +45,6 @@ struct DeviceListView: View {
 #endif
     
     @Environment(\.scenePhase) var scenePhase
-    @AppStorage("requestedReview") private var requestedReview = false
     @ObservedObject var nearbyConnectionManager = NearbyConnectionManager.shared
     
     var body: some View {
@@ -156,23 +156,14 @@ struct DeviceListView: View {
             
             if newValue == .active {
                 
-                log("App became active")
+                log("[ScenePhase] App became active")
                 NearbyConnectionManager.shared.startDeviceDiscovery()
 #if !EXTENSION
                 NearbyConnectionManager.shared.becomeVisible()
                 
-                if Settings.shared.incomingTransmissionCount > 0 && !requestedReview {
+                if Settings.shared.incomingTransmissionCount > 0 {
                     runAfter(seconds: 0.3) {
-                        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
-                            
-                            log("Requesting Review...")
-                            
-                            SKStoreReviewController.requestReview(in: scene)
-                            requestedReview = true
-                        }
-                        else {
-                            log("Error Requesting Review!")
-                        }
+                        requestReviewOnce()
                     }
                 }
 #endif
@@ -180,7 +171,7 @@ struct DeviceListView: View {
             
             if newValue == .background {
                 
-                log("App went to background")
+                log("[ScenePhase] App went to background")
 #if !EXTENSION
                 NearbyConnectionManager.shared.becomeInvisible()
 #endif

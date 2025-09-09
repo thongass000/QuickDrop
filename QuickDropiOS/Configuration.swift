@@ -10,6 +10,8 @@ import LUI
 let configuration = LUIConfiguration(
     appName: "QuickDrop",
     
+    inAppPurchaseName: "plusversion",
+    
     hasRoundedFont: false,
     
     copyrightInformation: licenseText,

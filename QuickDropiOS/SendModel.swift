@@ -24,10 +24,12 @@ class SendModel: ObservableObject, OutboundAppDelegate {
     private var connectionEstablished = false
     private var timeoutDispatchWorkItem: DispatchWorkItem? = nil
     
+    
     init() {
         NearbyConnectionManager.shared.startDeviceDiscovery()
         NearbyConnectionManager.shared.addShareExtensionDelegate(self)
     }
+    
     
     func addDevice(device: RemoteDeviceInfo) {
         withAnimation(.smooth) {
@@ -35,17 +37,20 @@ class SendModel: ObservableObject, OutboundAppDelegate {
         }
     }
     
+    
     func removeDevice(id: String) {
         withAnimation(.smooth) {
             foundDevices.removeAll { $0.id == id }
         }
     }
     
+    
     func connectionWasEstablished(pinCode: String) {
         connectionEstablished = true
         progressState = String(format: "PinCode".localized(), arguments: [pinCode])
         progressValue = 0
     }
+    
     
     func connectionFailed(error: any Error) {
         
@@ -59,13 +64,16 @@ class SendModel: ObservableObject, OutboundAppDelegate {
         selectedDevice = nil
     }
     
+    
     func transferAccepted() {
         progressState = "Sending".localized()
     }
     
+    
     func transferProgress(progress: Double) {
         progressValue = progress
     }
+    
     
     func transferFinished() {
         
@@ -78,11 +86,17 @@ class SendModel: ObservableObject, OutboundAppDelegate {
         progressState = "TransferFinished".localized()
         
         NearbyConnectionManager.shared.attachments?.closeView?()
+        
+        #if !EXTENSION
+        requestReviewOnce()
+        #endif
     }
+    
     
     func startTransferWithQrCode(device: RemoteDeviceInfo) {
         selectDevice(device: device)
     }
+    
     
     func selectDevice(device: RemoteDeviceInfo) {
         
