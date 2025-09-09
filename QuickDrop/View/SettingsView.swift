@@ -101,6 +101,7 @@ struct SettingsView: View {
                 let bookmarkData = try url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
                 
                 Settings.shared.saveFolderBookmark = bookmarkData
+                Settings.shared.openFinderAfterReceiving = true
             } catch {
                 log("Failed to save security-scoped bookmark: \(error)")
                 
