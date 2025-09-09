@@ -174,7 +174,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                     showCopiedToClipboardAlert()
                 }
                 
-                let currentCount = incomingTransmissionCount()
+                let currentCount = Settings.shared.incomingTransmissionCount
                 
                 #if os(macOS)
                 if currentCount == 0 {
@@ -184,7 +184,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 }
                 #endif
 
-                UserDefaults.standard.set(currentCount + 1, forKey: UserDefaultsKeys.transmissionCount.rawValue)
+                Settings.shared.incomingTransmissionCount = currentCount + 1
                 log("[ReceiveModel] Successful transmission. Current count: \(currentCount)")
             }
         }

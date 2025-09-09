@@ -13,7 +13,7 @@ let plusViewHeight: CGFloat = 200
 
 struct PlusView: View {
     
-    @AppStorage(UserDefaultsKeys.plusVersion.rawValue) var isPlusVersion = false
+    @ObservedObject private var settings = Settings.shared
     @ObservedObject private var iaphelper = IAPManager.sharedInstance
     let closeView: () -> Void
     
@@ -115,7 +115,7 @@ struct PlusView: View {
                     if success {
                         log("[LUI] Restored purchases successfully")
                         withAnimation {
-                            isPlusVersion = true
+                            settings.isPlusVersion = true
                         }
                         boughtSuccessAlert = true
                     } else {
@@ -146,7 +146,7 @@ struct PlusView: View {
                     
                     if success {
                         withAnimation {
-                            isPlusVersion = true
+                            settings.isPlusVersion = true
                         }
                         
                         boughtSuccessAlert = true
@@ -193,7 +193,7 @@ struct PlusView: View {
                     case .success(_):
                         
                         withAnimation {
-                            isPlusVersion = true
+                            settings.isPlusVersion = true
                             boughtSuccessAlert = true
                             warning = false
                         }

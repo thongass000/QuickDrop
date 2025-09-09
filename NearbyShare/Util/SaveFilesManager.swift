@@ -119,7 +119,7 @@ public class SaveFilesManager {
         if !filesFinishedDownloadingSinceLastRun.isEmpty && !isFileTransferRestricted() {
             
             #if os(macOS)
-            if UserDefaults.standard.bool(forKey: UserDefaultsKeys.openFinderAfterReceiving.rawValue) {
+            if Settings.shared.openFinderAfterReceiving {
                 log("[SaveFilesManager] Opening \(filesFinishedDownloadingSinceLastRun.count) file(s) in Finder.")
                 NSWorkspace.shared.activateFileViewerSelecting(filesFinishedDownloadingSinceLastRun)
             }
@@ -171,7 +171,7 @@ public class SaveFilesManager {
             return securityScopeUrl
         }
 
-        if let bookmarkData = UserDefaults.standard.data(forKey: UserDefaultsKeys.saveFolderBookmark.rawValue) {
+        if let bookmarkData = Settings.shared.saveFolderBookmark {
             var isStale = false
    
             do {

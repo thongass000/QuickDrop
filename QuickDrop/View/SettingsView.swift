@@ -10,15 +10,13 @@ import AppKit
 
 struct SettingsView: View {
     
-    @AppStorage(UserDefaultsKeys.automaticallyAcceptFiles.rawValue) private var automaticallyAcceptFiles = false
-    @AppStorage(UserDefaultsKeys.openFinderAfterReceiving.rawValue) private var openFinderAfterReceiving = false
-    @AppStorage(UserDefaultsKeys.saveFolderBookmark.rawValue) private var saveFolderPath: Data = Data()
+    @ObservedObject var settings = Settings.shared
     
     var body: some View {
         
         LargeAppIconView(title: "Settings") {
             Form {
-                Toggle("AutomaticallyAcceptFiles", isOn: $automaticallyAcceptFiles)
+                Toggle("AutomaticallyAcceptFiles", isOn: $settings.automaticallyAcceptFiles)
                     .padding(.top, 10)
                 
                 Text("AutomaticallyAcceptFilesFooter")
@@ -33,7 +31,7 @@ struct SettingsView: View {
                     Text("SaveFilesTo")
                     Spacer()
                     Text(getSavedFolderPath() ?? "DownloadsFolder".localized())
-                        .foregroundColor(saveFolderPath.isEmpty ? .gray : .primary)
+                        .foregroundColor((settings.saveFolderBookmark ?? Data()).isEmpty ? .gray : .primary)
                     Button("SaveFilesToButton") {
                         selectFolder()
                     }
@@ -42,7 +40,7 @@ struct SettingsView: View {
                 Divider()
                     .padding(.vertical, 10)
                 
-                Toggle("OpenFinderAfterReceiving", isOn: $openFinderAfterReceiving)
+                Toggle("OpenFinderAfterReceiving", isOn: $settings.openFinderAfterReceiving)
                     .padding(.top, 5)
                 
                 if #available(macOS 13.0, *) {
@@ -72,10 +70,10 @@ struct SettingsView: View {
     
     
     private func getSavedFolderPath() -> String? {
-        if !saveFolderPath.isEmpty {
+        if let bookmark = settings.saveFolderBookmark, !bookmark.isEmpty {
             var isStale = false
             do {
-                let url = try URL(resolvingBookmarkData: saveFolderPath, options: [], relativeTo: nil, bookmarkDataIsStale: &isStale)
+                let url = try URL(resolvingBookmarkData: bookmark, options: [], relativeTo: nil, bookmarkDataIsStale: &isStale)
                 return url.lastPathComponent  // Returns the folder path as a string
             } catch {
                 log("Failed to resolve bookmark: \(error)")
@@ -98,7 +96,7 @@ struct SettingsView: View {
                 
                 let bookmarkData = try url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
                 
-                UserDefaults.standard.set(bookmarkData, forKey: UserDefaultsKeys.saveFolderBookmark.rawValue)
+                Settings.shared.saveFolderBookmark = bookmarkData
             } catch {
                 log("Failed to save security-scoped bookmark: \(error)")
             }

@@ -135,12 +135,10 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     
     private static func generateEndpointID() -> [UInt8] {
-        let userDefaultsKey = UserDefaultsKeys.endpointID.rawValue
         
         // Try to retrieve from UserDefaults
-        if let savedString = UserDefaults.standard.string(forKey: userDefaultsKey),
-           let savedData = savedString.data(using: .utf8)
-        {
+        if let savedString = Settings.shared.endpointID,
+           let savedData = savedString.data(using: .utf8) {
             return [UInt8](savedData)
         }
         
@@ -153,7 +151,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         
         // Save to UserDefaults as String
         let idString = String(bytes: id, encoding: .utf8) ?? ""
-        UserDefaults.standard.set(idString, forKey: userDefaultsKey)
+        Settings.shared.endpointID = idString
         
         return id
     }

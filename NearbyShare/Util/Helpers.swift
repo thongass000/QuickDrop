@@ -110,23 +110,11 @@ extension String {
 }
 
 
-public enum UserDefaultsKeys: String, CaseIterable {
-    case isEligibleForIap = "isEligibleForIap"
-    case appLaunchedBefore = "ShowedWelcomeScreen"
-    case plusVersion = "isPlusVersion"
-    case transmissionCount = "reviewRequestCountKey"
-    case automaticallyAcceptFiles = "automaticallyAcceptFiles"
-    case saveFolderBookmark = "saveFolderBookmark"
-    case openFinderAfterReceiving = "openFinderAfterReceiving"
-    case endpointID = "endpointID"
-}
-
-
 public func isPlusVersion() -> Bool {
     
     #if os(macOS)
     // Enable full functionality if app distributed directly
-    return DistributionDetector.isDirectDistributionEnabled || UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
+    return DistributionDetector.isDirectDistributionEnabled || Settings.shared.isPlusVersion
     #else
     // iOS
     return true
@@ -135,10 +123,5 @@ public func isPlusVersion() -> Bool {
 
 
 public func isFileTransferRestricted() -> Bool {
-    (!isPlusVersion() && incomingTransmissionCount() > 1)
-}
-
-
-public func incomingTransmissionCount() -> Int {
-    return UserDefaults.standard.integer(forKey: UserDefaultsKeys.transmissionCount.rawValue)
+    (!isPlusVersion() && Settings.shared.incomingTransmissionCount > 1)
 }

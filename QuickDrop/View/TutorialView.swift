@@ -15,7 +15,7 @@ struct TutorialView: View {
     let openPlus: () -> Void
     
     @State private var licenseWindow: NSWindow?
-    @AppStorage(UserDefaultsKeys.plusVersion.rawValue) var isPlusVersion = false
+    @ObservedObject var settings = Settings.shared
     
     var body: some View {
         
@@ -40,7 +40,7 @@ struct TutorialView: View {
                         }
                         .buttonStyle(.plain)
                         
-                        if !isPlusVersion {
+                        if !settings.isPlusVersion {
                             Button {
                                 openPlus()
                             } label: {
@@ -54,9 +54,7 @@ struct TutorialView: View {
                         
 #if DEBUG
                         Button {
-                            for key in UserDefaultsKeys.allCases {
-                                UserDefaults.standard.removeObject(forKey: key.rawValue)
-                            }
+                            Settings.shared.deleteAllUserDefaults()
                         } label: {
                             Text("Reset UD")
                                 .underline()

@@ -17,6 +17,22 @@
 		EB05DFBE2E59FC8900EF567A /* TrustedDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */; };
 		EB05DFBF2E59FD0A00EF567A /* TrustedDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */; };
 		EB05DFC02E5A2EAA00EF567A /* TrustedDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */; };
+		EB1325D32E701D8E00FD749C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325D22E701D8900FD749C /* Settings.swift */; };
+		EB1325D42E701D8E00FD749C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325D22E701D8900FD749C /* Settings.swift */; };
+		EB1325D52E701D8E00FD749C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325D22E701D8900FD749C /* Settings.swift */; };
+		EB1325D62E701D8E00FD749C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325D22E701D8900FD749C /* Settings.swift */; };
+		EB1325EB2E7025D900FD749C /* ApIsolationTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E92E7025D900FD749C /* ApIsolationTester.swift */; };
+		EB1325EC2E7025D900FD749C /* ActiveNetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E72E7025D900FD749C /* ActiveNetworkInterface.swift */; };
+		EB1325ED2E7025D900FD749C /* ApIsolation6Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E82E7025D900FD749C /* ApIsolation6Tester.swift */; };
+		EB1325EE2E7025D900FD749C /* ApIsolationTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E92E7025D900FD749C /* ApIsolationTester.swift */; };
+		EB1325EF2E7025D900FD749C /* ActiveNetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E72E7025D900FD749C /* ActiveNetworkInterface.swift */; };
+		EB1325F02E7025D900FD749C /* ApIsolation6Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E82E7025D900FD749C /* ApIsolation6Tester.swift */; };
+		EB1325F12E7025D900FD749C /* ApIsolationTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E92E7025D900FD749C /* ApIsolationTester.swift */; };
+		EB1325F22E7025D900FD749C /* ActiveNetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E72E7025D900FD749C /* ActiveNetworkInterface.swift */; };
+		EB1325F32E7025D900FD749C /* ApIsolation6Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E82E7025D900FD749C /* ApIsolation6Tester.swift */; };
+		EB1325F42E7025D900FD749C /* ApIsolationTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E92E7025D900FD749C /* ApIsolationTester.swift */; };
+		EB1325F52E7025D900FD749C /* ActiveNetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E72E7025D900FD749C /* ActiveNetworkInterface.swift */; };
+		EB1325F62E7025D900FD749C /* ApIsolation6Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E82E7025D900FD749C /* ApIsolation6Tester.swift */; };
 		EB16B6122E58B4B9007D9792 /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B6112E58B4B9007D9792 /* IdentityManager.swift */; };
 		EB16B6132E58B4B9007D9792 /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B6112E58B4B9007D9792 /* IdentityManager.swift */; };
 		EB16B6142E58B4B9007D9792 /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B6112E58B4B9007D9792 /* IdentityManager.swift */; };
@@ -188,11 +204,6 @@
 		EBC05C712E33B57D00EECC18 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C6D2E33B57D00EECC18 /* Converter.swift */; };
 		EBC05C722E33B57D00EECC18 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C6E2E33B57D00EECC18 /* Helper.swift */; };
 		EBC05C732E33B57D00EECC18 /* PlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C6F2E33B57D00EECC18 /* PlusView.swift */; };
-		EBC05C782E33B58100EECC18 /* ActiveNetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C742E33B58100EECC18 /* ActiveNetworkInterface.swift */; };
-		EBC05C792E33B58100EECC18 /* ApIsolation6Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C752E33B58100EECC18 /* ApIsolation6Tester.swift */; };
-		EBC05C7A2E33B58100EECC18 /* ApIsolationTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C762E33B58100EECC18 /* ApIsolationTester.swift */; };
-		EBC05C7B2E33B58100EECC18 /* ActiveNetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C742E33B58100EECC18 /* ActiveNetworkInterface.swift */; };
-		EBC05C7C2E33B58100EECC18 /* ApIsolationTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C762E33B58100EECC18 /* ApIsolationTester.swift */; };
 		EBC05C822E33B58300EECC18 /* ApIsolationIssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C7D2E33B58300EECC18 /* ApIsolationIssueView.swift */; };
 		EBC05C832E33B58300EECC18 /* FirewallIssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C7E2E33B58300EECC18 /* FirewallIssueView.swift */; };
 		EBC05C842E33B58300EECC18 /* IssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C7F2E33B58300EECC18 /* IssueView.swift */; };
@@ -303,6 +314,10 @@
 		69DA9A2C29E18CB500A442DA /* securegcm.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = securegcm.pb.swift; sourceTree = "<group>"; };
 		69DA9A2D29E18CB500A442DA /* securemessage.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = securemessage.pb.swift; sourceTree = "<group>"; };
 		EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedDevicesView.swift; sourceTree = "<group>"; };
+		EB1325D22E701D8900FD749C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		EB1325E72E7025D900FD749C /* ActiveNetworkInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNetworkInterface.swift; sourceTree = "<group>"; };
+		EB1325E82E7025D900FD749C /* ApIsolation6Tester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApIsolation6Tester.swift; sourceTree = "<group>"; };
+		EB1325E92E7025D900FD749C /* ApIsolationTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApIsolationTester.swift; sourceTree = "<group>"; };
 		EB16B6112E58B4B9007D9792 /* IdentityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityManager.swift; sourceTree = "<group>"; };
 		EB16B6162E58B4C8007D9792 /* TrustStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustStore.swift; sourceTree = "<group>"; };
 		EB16B7762E59BA9F007D9792 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
@@ -364,9 +379,6 @@
 		EBC05C6D2E33B57D00EECC18 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		EBC05C6E2E33B57D00EECC18 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		EBC05C6F2E33B57D00EECC18 /* PlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusView.swift; sourceTree = "<group>"; };
-		EBC05C742E33B58100EECC18 /* ActiveNetworkInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNetworkInterface.swift; sourceTree = "<group>"; };
-		EBC05C752E33B58100EECC18 /* ApIsolation6Tester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApIsolation6Tester.swift; sourceTree = "<group>"; };
-		EBC05C762E33B58100EECC18 /* ApIsolationTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApIsolationTester.swift; sourceTree = "<group>"; };
 		EBC05C7D2E33B58300EECC18 /* ApIsolationIssueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApIsolationIssueView.swift; sourceTree = "<group>"; };
 		EBC05C7E2E33B58300EECC18 /* FirewallIssueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirewallIssueView.swift; sourceTree = "<group>"; };
 		EBC05C7F2E33B58300EECC18 /* IssueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueView.swift; sourceTree = "<group>"; };
@@ -476,8 +488,9 @@
 			isa = PBXGroup;
 			children = (
 				69DA9A1129E0BF5100A442DA /* AppDelegate.swift */,
+				EB1325D22E701D8900FD749C /* Settings.swift */,
+				EB1325EA2E7025D900FD749C /* SelfTest */,
 				EBC05C6A2E33B55100EECC18 /* View */,
-				EBC05C772E33B58100EECC18 /* SelfTest */,
 				EBC05C6B2E33B57100EECC18 /* Util */,
 				EBC05C702E33B57D00EECC18 /* Plus */,
 				69DA9A1329E0BF5200A442DA /* Assets.xcassets */,
@@ -509,6 +522,16 @@
 				EB5C371D2E3669150052EFD7 /* Connection */,
 			);
 			path = NearbyShare;
+			sourceTree = "<group>";
+		};
+		EB1325EA2E7025D900FD749C /* SelfTest */ = {
+			isa = PBXGroup;
+			children = (
+				EB1325E72E7025D900FD749C /* ActiveNetworkInterface.swift */,
+				EB1325E82E7025D900FD749C /* ApIsolation6Tester.swift */,
+				EB1325E92E7025D900FD749C /* ApIsolationTester.swift */,
+			);
+			path = SelfTest;
 			sourceTree = "<group>";
 		};
 		EB5C371C2E3669010052EFD7 /* Util */ = {
@@ -621,16 +644,6 @@
 				EBC05C6F2E33B57D00EECC18 /* PlusView.swift */,
 			);
 			path = Plus;
-			sourceTree = "<group>";
-		};
-		EBC05C772E33B58100EECC18 /* SelfTest */ = {
-			isa = PBXGroup;
-			children = (
-				EBC05C742E33B58100EECC18 /* ActiveNetworkInterface.swift */,
-				EBC05C752E33B58100EECC18 /* ApIsolation6Tester.swift */,
-				EBC05C762E33B58100EECC18 /* ApIsolationTester.swift */,
-			);
-			path = SelfTest;
 			sourceTree = "<group>";
 		};
 		EBC05C812E33B58300EECC18 /* IssueViews */ = {
@@ -901,13 +914,12 @@
 				EB5C37C82E377A780052EFD7 /* ukey.pb.swift in Sources */,
 				EB5C37C92E377A780052EFD7 /* device_to_device_messages.pb.swift in Sources */,
 				EB950B742E520957002D68FA /* Attachments.swift in Sources */,
+				EB1325D32E701D8E00FD749C /* Settings.swift in Sources */,
 				EB16B7782E59BAA1007D9792 /* AppGroup.swift in Sources */,
 				EB5C383C2E38C2D90052EFD7 /* AudioManager.swift in Sources */,
 				EB5C37CA2E377A780052EFD7 /* offline_wire_formats.pb.swift in Sources */,
 				EB16B6122E58B4B9007D9792 /* IdentityManager.swift in Sources */,
 				EBC05C5C2E3394EF00EECC18 /* ErrorAlertHandler.swift in Sources */,
-				EBC05C7B2E33B58100EECC18 /* ActiveNetworkInterface.swift in Sources */,
-				EBC05C7C2E33B58100EECC18 /* ApIsolationTester.swift in Sources */,
 				691F53BB2ABB70840089FD92 /* DeviceListCell.swift in Sources */,
 				EB5C383F2E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37BC2E377A700052EFD7 /* SleepManager.swift in Sources */,
@@ -918,6 +930,9 @@
 				EB5C37D32E377A7F0052EFD7 /* InboundNearbyConnection.swift in Sources */,
 				EB5C37D42E377A7F0052EFD7 /* NearbyConnectionManager.swift in Sources */,
 				EB5C37BD2E377A700052EFD7 /* Helpers.swift in Sources */,
+				EB1325EB2E7025D900FD749C /* ApIsolationTester.swift in Sources */,
+				EB1325EC2E7025D900FD749C /* ActiveNetworkInterface.swift in Sources */,
+				EB1325ED2E7025D900FD749C /* ApIsolation6Tester.swift in Sources */,
 				EB5C37BE2E377A700052EFD7 /* SaveFilesManager.swift in Sources */,
 				EB9925822E45D53E00357055 /* sharing_enums.pb.swift in Sources */,
 			);
@@ -936,6 +951,7 @@
 				EB05DFBE2E59FC8900EF567A /* TrustedDevicesView.swift in Sources */,
 				EB16B6182E58B4C8007D9792 /* TrustStore.swift in Sources */,
 				EBC05C5B2E33937200EECC18 /* ErrorAlertHandler.swift in Sources */,
+				EB1325D42E701D8E00FD749C /* Settings.swift in Sources */,
 				EBC05C712E33B57D00EECC18 /* Converter.swift in Sources */,
 				EB886E5D2E4F13EB0052B7D9 /* Zip.swift in Sources */,
 				EBC05C722E33B57D00EECC18 /* Helper.swift in Sources */,
@@ -948,15 +964,12 @@
 				EB16B6152E58B4B9007D9792 /* IdentityManager.swift in Sources */,
 				EB5C37C42E377A780052EFD7 /* securegcm.pb.swift in Sources */,
 				EB97A0102E51CD13008B8C5C /* ReceiveModel.swift in Sources */,
-				EBC05C782E33B58100EECC18 /* ActiveNetworkInterface.swift in Sources */,
 				EB5C37CB2E377A7F0052EFD7 /* NearbyConnection.swift in Sources */,
 				EB5C37CC2E377A7F0052EFD7 /* DataModel.swift in Sources */,
 				EB5C37CD2E377A7F0052EFD7 /* OutboundNearbyConnection.swift in Sources */,
 				EB5C37CE2E377A7F0052EFD7 /* InboundNearbyConnection.swift in Sources */,
 				EB5C37CF2E377A7F0052EFD7 /* NearbyConnectionManager.swift in Sources */,
-				EBC05C792E33B58100EECC18 /* ApIsolation6Tester.swift in Sources */,
 				EB7654A12E53252D006B4AA3 /* AttachmentDetails.swift in Sources */,
-				EBC05C7A2E33B58100EECC18 /* ApIsolationTester.swift in Sources */,
 				EB886E522E4E19390052B7D9 /* HKDF.swift in Sources */,
 				EB96ED8C2D7F7E7B004B3FF1 /* SmallSheetView.swift in Sources */,
 				EB886E682E4F2F800052B7D9 /* License.swift in Sources */,
@@ -971,6 +984,9 @@
 				EB16B77A2E59BAA1007D9792 /* AppGroup.swift in Sources */,
 				EBC05C822E33B58300EECC18 /* ApIsolationIssueView.swift in Sources */,
 				EBC05C832E33B58300EECC18 /* FirewallIssueView.swift in Sources */,
+				EB1325F42E7025D900FD749C /* ApIsolationTester.swift in Sources */,
+				EB1325F52E7025D900FD749C /* ActiveNetworkInterface.swift in Sources */,
+				EB1325F62E7025D900FD749C /* ApIsolation6Tester.swift in Sources */,
 				EBC05C842E33B58300EECC18 /* IssueView.swift in Sources */,
 				EBC05C852E33B58300EECC18 /* NetworkFilterIssueView.swift in Sources */,
 			);
@@ -998,6 +1014,7 @@
 				EB5C37FB2E377CE70052EFD7 /* InboundNearbyConnection.swift in Sources */,
 				EB9925802E45D53E00357055 /* sharing_enums.pb.swift in Sources */,
 				EB5C37FC2E377CE70052EFD7 /* OutboundNearbyConnection.swift in Sources */,
+				EB1325D62E701D8E00FD749C /* Settings.swift in Sources */,
 				EB5C37FD2E377CE70052EFD7 /* Logger.swift in Sources */,
 				EB97A00F2E511124008B8C5C /* ReceiveModel.swift in Sources */,
 				EB5C37FE2E377CE70052EFD7 /* offline_wire_formats.pb.swift in Sources */,
@@ -1015,6 +1032,9 @@
 				EB16B7792E59BAA1007D9792 /* AppGroup.swift in Sources */,
 				EB5C38402E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37FF2E377CE70052EFD7 /* wire_format.pb.swift in Sources */,
+				EB1325EE2E7025D900FD749C /* ApIsolationTester.swift in Sources */,
+				EB1325EF2E7025D900FD749C /* ActiveNetworkInterface.swift in Sources */,
+				EB1325F02E7025D900FD749C /* ApIsolation6Tester.swift in Sources */,
 				EB950B792E521717002D68FA /* AttachmentDetails.swift in Sources */,
 				EB5C38002E377CE70052EFD7 /* DataModel.swift in Sources */,
 			);
@@ -1030,6 +1050,9 @@
 				EB950B472E520436002D68FA /* sharing_enums.pb.swift in Sources */,
 				EB950B482E520436002D68FA /* Localized.swift in Sources */,
 				EB950B492E520436002D68FA /* device_to_device_messages.pb.swift in Sources */,
+				EB1325F12E7025D900FD749C /* ApIsolationTester.swift in Sources */,
+				EB1325F22E7025D900FD749C /* ActiveNetworkInterface.swift in Sources */,
+				EB1325F32E7025D900FD749C /* ApIsolation6Tester.swift in Sources */,
 				EB950B4A2E520436002D68FA /* securegcm.pb.swift in Sources */,
 				EB950B4B2E520436002D68FA /* offline_wire_formats.pb.swift in Sources */,
 				EB950B4C2E520436002D68FA /* InboundNearbyConnection.swift in Sources */,
@@ -1044,6 +1067,7 @@
 				EB05DFC02E5A2EAA00EF567A /* TrustedDevicesView.swift in Sources */,
 				EB950B542E520436002D68FA /* HKDF.swift in Sources */,
 				EB950B552E520436002D68FA /* SaveFilesManager.swift in Sources */,
+				EB1325D52E701D8E00FD749C /* Settings.swift in Sources */,
 				EB950B562E520436002D68FA /* DataModel.swift in Sources */,
 				EB950B3E2E52038A002D68FA /* SendModel.swift in Sources */,
 				EB950B772E521712002D68FA /* AttachmentDetails.swift in Sources */,
@@ -1241,7 +1265,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 68;
+				SHARED_BUILD = 69;
 				SHARED_VERSION = 2.2.1;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1303,7 +1327,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 68;
+				SHARED_BUILD = 69;
 				SHARED_VERSION = 2.2.1;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;

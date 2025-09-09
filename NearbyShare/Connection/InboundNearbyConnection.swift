@@ -524,7 +524,7 @@ class InboundNearbyConnection: NearbyConnection {
         
         func checkIfCanProceed(metadata: TransferMetadata) {
             
-            let acceptAutomatically = isAuthenticated || UserDefaults.standard.bool(forKey: UserDefaultsKeys.automaticallyAcceptFiles.rawValue)
+            let acceptAutomatically = isAuthenticated || Settings.shared.automaticallyAcceptFiles
             
             DispatchQueue.main.async {
                 self.delegate?.obtainUserConsent(transfer: metadata, device: self.remoteDeviceInfo!, connection: self, acceptAutomatically: acceptAutomatically)
