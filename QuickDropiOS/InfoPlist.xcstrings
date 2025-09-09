@@ -1,0 +1,275 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CFBundleDisplayName" : {
+      "comment" : "Bundle display name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "QuickDrop"
+          }
+        }
+      }
+    },
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "QuickDropiOS"
+          }
+        }
+      }
+    },
+    "NSHumanReadableCopyright" : {
+      "comment" : "Copyright (human-readable)",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "NSLocalNetworkUsageDescription" : {
+      "comment" : "Privacy - Local Network Usage Description",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الوصول إلى الشبكة المحلية مطلوب لاكتشاف الأجهزة ونقل الملفات عبر شبكة Wi-Fi الخاصة بك."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cal accés a la xarxa local per detectar dispositius i transferir fitxers a través de la teva xarxa Wi-Fi."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro přenos souborů a detekci zařízení přes vaši Wi-Fi síť je třeba povolit přístup k místní síti."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adgang til lokalt netværk er nødvendig for at finde enheder og overføre filer via dit Wi-Fi-netværk."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Zugriff auf das lokale Netzwerk ist erforderlich, um Geräte zu erkennen und Dateien über WLAN zu übertragen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Απαιτείται πρόσβαση στο τοπικό δίκτυο για ανίχνευση συσκευών και μεταφορά αρχείων μέσω του Wi-Fi δικτύου σας."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Local network access is needed to detect devices and transfer files over your Wi-Fi network."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Local network access is required to find devices and transfer files over your Wi-Fi network."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Local network access is required to find devices and transfer files over your Wi-Fi network."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Local network access is required to discover devices and transfer files via your Wi-Fi network."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se necesita acceso a la red local para detectar dispositivos y transferir archivos a través de su red Wi-Fi."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se necesita acceso a la red local para detectar dispositivos y transferir archivos por tu red Wi-Fi."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lähiverkkoyhteys tarvitaan laitteiden tunnistamiseen ja tiedostojen siirtoon Wi-Fi-verkossasi."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’accès au réseau local est nécessaire pour détecter les appareils et transférer des fichiers via votre réseau Wi-Fi."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’accès au réseau local est nécessaire pour détecter les appareils et transférer des fichiers sur votre réseau Wi-Fi."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "נדרש גישה לרשת המקומית כדי לזהות מכשירים ולהעביר קבצים דרך רשת ה-Wi-Fi שלך."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "डिवाइस का पता लगाने और अपने Wi-Fi नेटवर्क पर फाइल ट्रांसफर के लिए लोकल नेटवर्क एक्सेस आवश्यक है।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pristup lokalnoj mreži potreban je za pronalaženje uređaja i prijenos datoteka putem vaše Wi-Fi mreže."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Helyi hálózati hozzáférés szükséges az eszközök felismeréséhez és a fájlok átviteléhez a Wi-Fi hálózatán keresztül."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akses jaringan lokal diperlukan untuk mendeteksi perangkat dan mentransfer file melalui jaringan Wi-Fi Anda."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "È necessario l’accesso alla rete locale per rilevare i dispositivi e trasferire file tramite la tua rete Wi-Fi."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ローカルネットワークへのアクセスは、デバイスを検出し、Wi-Fi ネットワーク経由でファイルを転送するために必要です。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "장치를 감지하고 Wi-Fi 네트워크를 통해 파일을 전송하려면 로컬 네트워크 접근이 필요합니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akses rangkaian tempatan diperlukan untuk mengesan peranti dan memindahkan fail melalui rangkaian Wi-Fi anda."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tilgang til lokalt nettverk er nødvendig for å oppdage enheter og overføre filer via Wi-Fi-nettverket ditt."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lokale netwerktoegang is nodig om apparaten te detecteren en bestanden over uw Wi-Fi-netwerk te verzenden."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dostęp do sieci lokalnej jest potrzebny, aby wykrywać urządzenia i przesyłać pliki przez Twoją sieć Wi-Fi."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O acesso à rede local é necessário para detectar dispositivos e transferir arquivos pela sua rede Wi-Fi."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O acesso à rede local é necessário para detetar dispositivos e transferir ficheiros através da sua rede Wi-Fi."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accesul la rețeaua locală este necesar pentru a detecta dispozitivele și a transfera fișiere prin rețeaua Wi-Fi."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доступ к локальной сети необходим для обнаружения устройств и передачи файлов через вашу сеть Wi-Fi."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åtkomst till lokalt nätverk krävs för att upptäcka enheter och överföra filer via ditt Wi-Fi-nätverk."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การเข้าถึงเครือข่ายภายในเครื่องจำเป็นสำหรับการตรวจหาดีไวซ์และการถ่ายโอนไฟล์ผ่านเครือข่าย Wi-Fi ของคุณ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cihazları algılamak ve dosya aktarmak için yerel ağa erişim gereklidir."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доступ до локальної мережі потрібен для виявлення пристроїв та передавання файлів через вашу мережу Wi-Fi."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cần truy cập mạng nội bộ để phát hiện thiết bị và truyền tệp qua Wi-Fi của bạn."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需要本地网络访问以检测设备并通过您的 Wi-Fi 网络传输文件。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需要本機網路存取權才能偵測裝置並透過 Wi-Fi 網路傳輸檔案。"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
