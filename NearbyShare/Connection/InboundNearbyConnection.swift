@@ -392,6 +392,13 @@ class InboundNearbyConnection: NearbyConnection {
         
         let pkeFrame = frame.v1.pairedKeyEncryption
         
+        if pkeFrame.secretIDHash.isEmpty {
+            log("[InboundNearbyConnection \(self.id)] Detected legacy peer.")
+        }
+        else {
+            log("[InboundNearbyConnection \(self.id)] Detected QuickDrop peer.")
+        }
+        
         // Check if we can accept the connection automatically
         if !pkeFrame.secretIDHash.isEmpty,
             let trustedCertData = TrustStore.shared.findTrustedKey(for: pkeFrame.secretIDHash),
