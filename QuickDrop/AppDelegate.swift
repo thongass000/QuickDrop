@@ -122,7 +122,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             }
         }
         
-        log("Application did finish launching")
+        log("[AppDelegate] Application did finish launching")
     }
     
     

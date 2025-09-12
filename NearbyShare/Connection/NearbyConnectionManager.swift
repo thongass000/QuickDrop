@@ -44,7 +44,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     public static let shared = NearbyConnectionManager()
     
     @Published var attachments: AttachmentDetails? = nil
-    @Published var hasLocalNetworkAccess = true
+    @Published var hasLocalNetworkPermission = true
     @Published var isConnectedToLocalNetwork = true
     
     public var connectionUpdateCallback: (Bool) -> Void = { _ in } {
@@ -248,13 +248,13 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
                             log("[NearbyConnectionManager] Browser failed: \(error)")
                         case .ready:
                             log("[NearbyConnectionManager] Browser ready")
-                            self.hasLocalNetworkAccess = true
+                            self.hasLocalNetworkPermission = true
                         case .waiting(let error):
                             log("[NearbyConnectionManager] Browser waiting: \(error)")
                             
                             if error == NWError.dns(DNSServiceErrorType(kDNSServiceErr_PolicyDenied))  {
                                 log("[NearbyConnectionManager] Local network access not granted.")
-                                self.hasLocalNetworkAccess = false
+                                self.hasLocalNetworkPermission = false
                             }
                         default:
                             break

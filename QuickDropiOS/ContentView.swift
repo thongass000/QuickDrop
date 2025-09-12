@@ -79,7 +79,7 @@ struct DeviceListView: View {
                 .padding(.top, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                if !nearbyConnectionManager.hasLocalNetworkAccess {
+                if !nearbyConnectionManager.hasLocalNetworkPermission {
                     CardView(backgroundColor: .red, title: "NoNetworkAccess", titleSymbol: "network.slash") {
                         CardSubView(symbol: "exclamationmark.triangle.fill", text: "NoLocalNetworkAccessDescription")
                     }
@@ -137,7 +137,7 @@ struct DeviceListView: View {
                 }
                 
                 
-                if nearbyConnectionManager.hasLocalNetworkAccess && nearbyConnectionManager.hasLocalNetworkAccess {
+                if nearbyConnectionManager.hasLocalNetworkPermission && nearbyConnectionManager.isConnectedToLocalNetwork {
                     HStack(spacing: 8) {
                         Text("SearchingForDevices")
                             .font(.system(size: 14))
@@ -178,7 +178,8 @@ struct DeviceListView: View {
                 NearbyConnectionManager.shared.stopDeviceDiscovery()
             }
         }
-        .animation(.smooth, value: nearbyConnectionManager.hasLocalNetworkAccess)
+        .animation(.smooth, value: nearbyConnectionManager.hasLocalNetworkPermission)
+        .animation(.smooth, value: nearbyConnectionManager.isConnectedToLocalNetwork)
         .navigationBarItems(trailing: ZStack {
             if isShareExtension() {
                 XButton(action: { NearbyConnectionManager.shared.attachments?.closeView?() })
