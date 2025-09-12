@@ -468,9 +468,11 @@ class InboundNearbyConnection: NearbyConnection {
     }
     
 
-    private func makeFileDestinationURL(_ initialDest: URL) -> URL {
+    private func makeFileDestinationURL(_ initialDest: URL, usedDestinations: Set<URL>) -> URL {
         var dest = initialDest
-        if FileManager.default.fileExists(atPath: dest.path) {
+        let fm = FileManager.default
+        
+        if fm.fileExists(atPath: dest.path) || usedDestinations.contains(dest) {
             var counter = 1
             var path: String
             let ext = dest.pathExtension
@@ -481,8 +483,8 @@ class InboundNearbyConnection: NearbyConnection {
                     path += ".\(ext)"
                 }
                 counter += 1
-            } while FileManager.default.fileExists(atPath: path)
-            dest = URL(fileURLWithPath: path)
+                dest = URL(fileURLWithPath: path)
+            } while fm.fileExists(atPath: dest.path) || usedDestinations.contains(dest)
         }
         return dest
     }
@@ -494,12 +496,18 @@ class InboundNearbyConnection: NearbyConnection {
 
         if frame.v1.introduction.fileMetadata.count > 0 && frame.v1.introduction.textMetadata.isEmpty {
             let saveDirectory = SaveFilesManager.shared.getSaveDirectory()
+            var usedDestinations = Set<URL>()
 
             for file in frame.v1.introduction.fileMetadata {
-                let dest = makeFileDestinationURL(saveDirectory.appendingPathComponent(file.name))
-                let info = InternalFileInfo(meta: FileMetadata(name: file.name, size: file.size, mimeType: file.mimeType),
-                                            payloadID: file.payloadID,
-                                            destinationURL: dest)
+                let initialDest = saveDirectory.appendingPathComponent(file.name)
+                let dest = makeFileDestinationURL(initialDest, usedDestinations: usedDestinations)
+                usedDestinations.insert(dest)
+                
+                let info = InternalFileInfo(
+                    meta: FileMetadata(name: file.name, size: file.size, mimeType: file.mimeType),
+                    payloadID: file.payloadID,
+                    destinationURL: dest
+                )
                 filesToBeReceived[file.payloadID] = info
                 bytesToBeTransferred += file.size
             }
