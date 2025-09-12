@@ -653,12 +653,7 @@ class InboundNearbyConnection: NearbyConnection {
             #endif
             
             guard file.created else { continue }
-            do {
-                try FileManager.default.removeItem(at: file.destinationURL)
-            }
-            catch {
-                // if it fails, we don't care. Could be because file was not created yet
-            }
+            try? FileManager.default.removeItem(at: file.destinationURL)
         }
     }
 }
