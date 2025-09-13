@@ -111,8 +111,8 @@
 		EB704A822E4A7BB3008E608F /* DistributionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB704A812E4A7BAE008E608F /* DistributionDetector.swift */; };
 		EB704A832E4B10D4008E608F /* DistributionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB704A812E4A7BAE008E608F /* DistributionDetector.swift */; };
 		EB704A842E4B10D4008E608F /* DistributionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB704A812E4A7BAE008E608F /* DistributionDetector.swift */; };
-		EB721EC02E75A0DA00F2099F /* QuickDropIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = EB721EBF2E75A0DA00F2099F /* QuickDropIcon.icon */; };
-		EB721EC12E75A0DA00F2099F /* QuickDropIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = EB721EBF2E75A0DA00F2099F /* QuickDropIcon.icon */; };
+		EB721F242E75AFA900F2099F /* QuickDropIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = EB721F232E75AFA900F2099F /* QuickDropIcon.icon */; };
+		EB721F252E75AFA900F2099F /* QuickDropIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = EB721F232E75AFA900F2099F /* QuickDropIcon.icon */; };
 		EB7654782E525ACC006B4AA3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB7654772E525ACC006B4AA3 /* MainMenu.xib */; };
 		EB7654A12E53252D006B4AA3 /* AttachmentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB950B762E521712002D68FA /* AttachmentDetails.swift */; };
 		EB7654C02E534A8E006B4AA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
@@ -334,7 +334,7 @@
 		EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
 		EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB704A812E4A7BAE008E608F /* DistributionDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionDetector.swift; sourceTree = "<group>"; };
-		EB721EBF2E75A0DA00F2099F /* QuickDropIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = QuickDropIcon.icon; sourceTree = "<group>"; };
+		EB721F232E75AFA900F2099F /* QuickDropIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = QuickDropIcon.icon; sourceTree = "<group>"; };
 		EB7654772E525ACC006B4AA3 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		EB7F54112D78E95C00989564 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
@@ -447,7 +447,7 @@
 		69DA9A0529E0BF5100A442DA = {
 			isa = PBXGroup;
 			children = (
-				EB721EBF2E75A0DA00F2099F /* QuickDropIcon.icon */,
+				EB721F232E75AFA900F2099F /* QuickDropIcon.icon */,
 				69DA9A1029E0BF5100A442DA /* QuickDrop */,
 				699DEBA22AB0573200115D22 /* ShareExtension */,
 				69DCF4822AB70D0600CBE2CC /* NearbyShare */,
@@ -845,8 +845,8 @@
 				EB5C36E42E34EC0E0052EFD7 /* License.txt in Resources */,
 				EB5C36932E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */,
 				EBC05C8C2E33B59E00EECC18 /* timeIsNow.mp3 in Resources */,
+				EB721F252E75AFA900F2099F /* QuickDropIcon.icon in Resources */,
 				EB5C38392E38C1F60052EFD7 /* justMaybe.mp3 in Resources */,
-				EB721EC12E75A0DA00F2099F /* QuickDropIcon.icon in Resources */,
 				EB7654782E525ACC006B4AA3 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -859,8 +859,8 @@
 				EB1325FD2E7034B000FD749C /* InfoPlist.xcstrings in Resources */,
 				EB97A0142E51DD00008B8C5C /* License.txt in Resources */,
 				EB97A0152E51DD00008B8C5C /* timeIsNow.mp3 in Resources */,
+				EB721F242E75AFA900F2099F /* QuickDropIcon.icon in Resources */,
 				EB886E552E4E50F40052B7D9 /* Localizable.xcstrings in Resources */,
-				EB721EC02E75A0DA00F2099F /* QuickDropIcon.icon in Resources */,
 				EB7654C02E534A8E006B4AA3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1239,8 +1239,8 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 72;
-				SHARED_VERSION = 2.3.1;
+				SHARED_BUILD = 74;
+				SHARED_VERSION = 2.4;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1302,8 +1302,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 72;
-				SHARED_VERSION = 2.3.1;
+				SHARED_BUILD = 74;
+				SHARED_VERSION = 2.4;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;

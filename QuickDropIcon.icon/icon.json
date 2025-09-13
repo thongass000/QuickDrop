@@ -1,78 +1,27 @@
 {
   "fill" : {
     "linear-gradient" : [
-      "display-p3:0.31249,0.68878,0.97563,1.00000",
-      "display-p3:0.22950,0.42793,0.95758,1.00000"
+      "display-p3:0.31273,0.68878,0.97563,1.00000",
+      "display-p3:0.22962,0.42793,0.95758,1.00000"
     ]
   },
   "groups" : [
     {
-      "blur-material" : 1,
       "layers" : [
         {
-          "fill-specializations" : [
-            {
-              "value" : "none"
-            },
-            {
-              "appearance" : "dark",
-              "value" : "none"
-            }
-          ],
-          "image-name" : "arrows.png",
-          "name" : "arrows",
-          "opacity" : 1,
-          "position-specializations" : [
-            {
-              "value" : {
-                "scale" : 1.24,
-                "translation-in-points" : [
-                  -0.69993986327107,
-                  9.689528950583849
-                ]
-              }
-            },
-            {
-              "idiom" : "square",
-              "value" : {
-                "scale" : 1.24,
-                "translation-in-points" : [
-                  0.5,
-                  9.689528950583849
-                ]
-              }
-            }
-          ]
+          "image-name" : "QuickDropArrows.png",
+          "name" : "QuickDropArrows"
         },
         {
-          "blend-mode" : "normal",
-          "fill-specializations" : [
-            {
-              "appearance" : "dark",
-              "value" : {
-                "automatic-gradient" : "display-p3:0.38142,0.62648,0.96783,1.00000"
-              }
-            }
-          ],
-          "glass" : true,
-          "image-name" : "circle.png",
-          "name" : "circle",
-          "opacity" : 0.5,
-          "position" : {
-            "scale" : 1.24,
-            "translation-in-points" : [
-              0,
-              0
-            ]
-          }
+          "image-name" : "QuickDropCircle.png",
+          "name" : "QuickDropCircle",
+          "opacity" : 0.5
         }
       ],
-      "lighting" : "individual",
       "shadow" : {
         "kind" : "neutral",
         "opacity" : 0.5
       },
-      "specular" : true,
       "translucency" : {
         "enabled" : true,
         "value" : 0.52
