@@ -12,6 +12,8 @@ import LUI
 
 class SendModel: ObservableObject, OutboundAppDelegate {
     
+    @Published var showQrCodeView: Bool = false
+    
     @Published var foundDevices: [RemoteDeviceInfo] = []
     @Published var selectedDevice: RemoteDeviceInfo?
     
@@ -94,11 +96,20 @@ class SendModel: ObservableObject, OutboundAppDelegate {
     
     
     func startTransferWithQrCode(device: RemoteDeviceInfo) {
-        selectDevice(device: device)
+        showQrCodeView = false
+        
+        #if EXTENSION
+        if let attachments = NearbyConnectionManager.shared.attachments {
+            self.selectDevice(device:device, with: attachments)
+        }
+        #endif
     }
     
     
-    func selectDevice(device: RemoteDeviceInfo) {
+    func selectDevice(device: RemoteDeviceInfo, with attachments: AttachmentDetails) {
+        
+        self.urls = attachments.urls
+        self.textToSend = attachments.textToSend
         
         // already selected, cancel transfer
         if device == selectedDevice {
@@ -108,6 +119,7 @@ class SendModel: ObservableObject, OutboundAppDelegate {
             NearbyConnectionManager.shared.cancelOutgoingTransfer(id: device.id!)
         }
         else {
+            
             progressValue = 0
             progressState = "Connecting".localized()
             selectedDevice = device

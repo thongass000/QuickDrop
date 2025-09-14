@@ -16,6 +16,7 @@ import System
 import SwiftECC
 import CryptoKit
 import SwiftUI
+import QRCode
 
 public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearbyConnectionDelegate, OutboundNearbyConnectionDelegate, ObservableObject {
     
@@ -397,13 +398,17 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    public func generateQrCodeKey() -> String{
+    public func generateQrCodeKey() -> Image? {
+        
+        log("[NearbyConnectionManager] Generating new QR code key")
+        
         let domain = Domain.instance(curve: .EC256r1)
         let (pubKey, privKey) = domain.makeKeyPair()
         qrCodePrivateKey = privKey
         var keyData = Data()
         keyData.append(contentsOf: [0, 0, 2])
         let keyBytes = Data(pubKey.w.x.asSignedBytes())
+        
         // Sometimes, for some keys, there will be a leading zero byte. Strip that, Android really hates it (it breaks the endpoint info)
         keyData.append(keyBytes.suffixOfAtMost(numBytes: 32))
         
@@ -411,7 +416,26 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         qrCodeAdvertisingToken = HKDF.deriveKey(ikm: ikm, salt: Data(), info: "advertisingContext".data(using: .utf8)!, outputLength: 16).data()
         qrCodeNameEncryptionKey = HKDF.deriveKey(ikm: ikm, salt: Data(), info: "encryptionKey".data(using: .utf8)!, outputLength: 16)
         
-        return keyData.urlSafeBase64EncodedString()
+        
+        do {
+            let qrKey = keyData.urlSafeBase64EncodedString()
+            let qrCodeImage = try QRCode.build
+                .text("https://quickshare.google/qrcode#key=\(qrKey)")
+                .backgroundColor(CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 0))
+                .quietZonePixelCount(3)
+                .onPixels.shape(.circle())
+                .eye.shape(.squircle())
+                .errorCorrection(.low)
+                .generate
+                .image(dimension: 1000)
+            
+            return Image(decorative: qrCodeImage, scale: 1.0, orientation: .up)
+        }
+        catch {
+            log("Error generating QR code: \(error)")
+        }
+        
+        return nil
     }
     
     

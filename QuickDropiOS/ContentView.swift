@@ -38,6 +38,7 @@ struct ContentView: View {
 
 struct DeviceListView: View {
     
+    @State private var qrCode: Image? = nil
     @StateObject var sendModel = SendModel()
     
 #if !EXTENSION
@@ -45,11 +46,12 @@ struct DeviceListView: View {
 #endif
     
     @Environment(\.scenePhase) var scenePhase
+    @Environment(\.sheetActive) var sheetActive
     @ObservedObject var nearbyConnectionManager = NearbyConnectionManager.shared
     
     var body: some View {
         
-        NavigationSubView(header: "QuickDrop ", navigationBarLayout: isShareExtension() ? .SmallOnlyAlways : .Default) {
+        BottomBarView(header: "QuickDrop ", navigationBarLayout: isShareExtension() ? .SmallOnlyAlways : .Default, bottomViewHeight: 30) {
             VStack {
                 
                 VStack(alignment: .leading, spacing: 8) {
@@ -72,7 +74,7 @@ struct DeviceListView: View {
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 6)
-                    .background(Color.defaultForegroundColor)
+                    .background(sheetActive ? Color.sheetForegroundColor : Color.defaultForegroundColor)
                     .cornerRadius(24)
                 }
                 .padding(.horizontal)
@@ -119,9 +121,7 @@ struct DeviceListView: View {
                                 if let attachments = NearbyConnectionManager.shared.attachments {
                                     LUIButton {
                                         lightVibration()
-                                        sendModel.urls = attachments.urls
-                                        sendModel.textToSend = attachments.textToSend
-                                        sendModel.selectDevice(device: device)
+                                        sendModel.selectDevice(device: device, with: attachments)
                                     } label: {
                                         DeviceButtonLabel(device: device, isSelected: isSelected, progress: sendModel.progressState, progressValue: sendModel.progressValue)
                                     }
@@ -149,9 +149,27 @@ struct DeviceListView: View {
                     }
                     .padding(.vertical, 16)
                 }
+                
+             
+
             }
             .frame(maxWidth: 700)
+        } bottomView: {
+            LUIButton {
+                qrCode = NearbyConnectionManager.shared.generateQrCodeKey()
+                sendModel.showQrCodeView = true
+            } label: {
+                UnderlineText(label: "DeviceNotShown")
+            }
         }
+        .luiSheet(isPresented: $sendModel.showQrCodeView, content: {
+            NavigationView {
+                NavigationSubView(header: "ConnectDevice", navigationBarLayout: .SmallOnlyAlways) {
+                    SmallSheetView(type: .sendToDeviceQrCode, dynamicQrCode: qrCode, closeView: {})
+                }
+                .navigationBarItems(trailing: XButton(action: { sendModel.showQrCodeView = false }))
+            }
+        })
         .onChange(of: scenePhase) { newValue in
             
             if newValue == .active {
@@ -207,9 +225,7 @@ struct DeviceFilePickerButton: View {
             DeviceButtonLabel(device: device, isSelected: isPreparing || isSelected, progress: isPreparing ? "Preparing".localized() : progressState, progressValue: progressValue)
         } onResult: { urls, text in
             isPreparing = false
-            sendModel.urls = urls ?? []
-            sendModel.textToSend = text
-            sendModel.selectDevice(device: device)
+            sendModel.selectDevice(device: device, with: AttachmentDetails(urls: urls ?? [], textToSend: text, shortDescription: ""))
         } onPrepare: {
             isPreparing = true
         }

@@ -8,7 +8,9 @@
 import SwiftUI
 import QRCode
 
+#if os(macOS)
 let smallSheetViewSize = CGSize(width: 530.0, height: 270.0)
+#endif
 
 struct SmallSheetView: View {
     @State private var qrCode: String = ""
@@ -26,6 +28,7 @@ struct SmallSheetView: View {
             
             HStack {
                 
+                #if os(macOS)
                 HStack(spacing: 5) {
                     
                     let imageSize: CGFloat = type == .sendToDeviceQrCode ? 25 : 20
@@ -40,21 +43,31 @@ struct SmallSheetView: View {
                     }
                 }
                 .padding(.leading, 18)
+                #endif
                 
                 if type == .sendToDeviceQrCode {
+                    
+                    #if os(macOS)
                     Spacer()
+                    #endif
                     
                     HStack {
+                        
                         Text("ConnectWithQuickDropApp")
                             .padding(5)
                             .padding(.horizontal, 4)
                             .background(Capsule().fill(colorScheme == .light ? .white : .white.opacity(0.15)).opacity(connectWithApp ? 1 : 0))
                         
-                        Text("ConnectWithoutApp")
-                            .padding(5)
-                            .padding(.horizontal, 4)
-                            .background(Capsule().fill(colorScheme == .light ? .white : .white.opacity(0.15)).opacity(connectWithApp ? 0 : 1))
+                        ZStack {
+                            Text("ConnectWithoutApp")
+                            Text("ConnectWithQuickDropApp")
+                                .opacity(0) // keep size for label the same
+                        }
+                        .padding(5)
+                        .padding(.horizontal, 4)
+                        .background(Capsule().fill(colorScheme == .light ? .white : .white.opacity(0.15)).opacity(connectWithApp ? 0 : 1))
                     }
+                    .multilineTextAlignment(.center)
                     .padding(.horizontal, 1)
                     .padding(4)
                     .background(Capsule().fill(Color.gray.opacity(colorScheme == .light ? 0.2 : 0.15)))
@@ -66,6 +79,9 @@ struct SmallSheetView: View {
                     .animation(.smooth, value: connectWithApp)
                 }
                 
+                
+                #if os(macOS)
+                
                 Spacer()
                 
                 Button(action: {
@@ -76,6 +92,7 @@ struct SmallSheetView: View {
                         .foregroundColor(.gray)
                 })
                 .buttonStyle(PlainButtonStyle())
+                #endif
             }
             .padding(.trailing, 15)
             .padding(.leading, 10)
@@ -84,54 +101,79 @@ struct SmallSheetView: View {
             
             Spacer()
             
+            #if os(macOS)
             HStack {
                 Spacer()
-                
-                ZStack {
-                    if type == .sendToDeviceQrCode && dynamicQrCode != nil {
-                        Image(.qrBackground)
-                            .resizable()
-                            .aspectRatio(1, contentMode: .fit)
-                    }
-                    
-                    getImage()
-                        .resizable()
-                        .aspectRatio(1, contentMode: .fit)
-                }
-                .frame(height: 160)
-                
+                imageView
                 Spacer()
-               
-                VStack {
-                    Text(getDescription().localized())
-                        .padding(.top, 5)
-                        .padding(.horizontal)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .multilineTextAlignment(.center)
-                    
-                    if type == .downloadCableConnectionApp {
-                        Button {
-                            if let url = URL(string: "https://apps.apple.com/de/app/idroid-phone-file-manager/id6746444380") {
-                                NSWorkspace.shared.open(url)
-                            }
-                        } label: {
-                            Text("DownloadCableConnectionApp")
-                        }
-                        .keyboardShortcut(.defaultAction)
-                        .padding()
-                    }
-                }
-                
+                descriptionView
                 Spacer()
             }
             .padding(.horizontal)
             .padding(.bottom)
+            #else
+            imageView
+                .frame(maxWidth: 300)
+                .padding(.horizontal, 30)
+            Spacer()
+            descriptionView
+            #endif
             
             Spacer()
         
         }
+        #if os(macOS)
         .frame(width: smallSheetViewSize.width, height: smallSheetViewSize.height)
+        #endif
     }
+    
+    
+    var imageView: some View {
+        ZStack {
+            if type == .sendToDeviceQrCode && dynamicQrCode != nil {
+                Image(.qrBackground)
+                    .resizable()
+                    .aspectRatio(1, contentMode: .fit)
+            }
+            
+            getImage()
+                .resizable()
+                .aspectRatio(1, contentMode: .fit)
+        }
+        #if os(macOS)
+        .frame(height: 160)
+        #endif
+    }
+    
+    
+    var descriptionView: some View {
+        VStack {
+            Text(getDescription().localized())
+                .padding(.top, 5)
+                .padding(.horizontal)
+                .fixedSize(horizontal: false, vertical: true)
+                .multilineTextAlignment(.center)
+            
+            #if !(EXTENSION && os(iOS))
+            if type == .downloadCableConnectionApp {
+                Button {
+                    if let url = URL(string: "https://apps.apple.com/de/app/idroid-phone-file-manager/id6746444380") {
+                        #if os(iOS)
+                        UIApplication.shared.open(url)
+                        #else
+                        NSWorkspace.shared.open(url)
+                        #endif
+                    }
+                } label: {
+                    Text("DownloadCableConnectionApp")
+                }
+                .keyboardShortcut(.defaultAction)
+                .padding()
+            }
+            #endif
+        }
+    }
+    
     
     func getDescription() -> String {
         
@@ -172,19 +214,6 @@ enum SheetViewType {
 
 private struct Preview: View {
     var body: some View {
-        SmallSheetView(type: .sendToDeviceQrCode, dynamicQrCode: getImage(), closeView: {})
-    }
-    
-    func getImage() -> Image {
-        let qrCodeImage = try! QRCode.build
-                    .text("https://quickshare.google/qrcode#key=AAA")
-                    .backgroundColor(CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 0))
-                    .quietZonePixelCount(2)
-                    .onPixels.shape(.circle())
-                    .eye.shape(.squircle())
-                    .errorCorrection(.low)
-                    .generate.image(dimension: 1000)
-        
-        return Image(nsImage: NSImage(cgImage: qrCodeImage, size: qrCodeImage.size))
+        SmallSheetView(type: .sendToDeviceQrCode, dynamicQrCode: NearbyConnectionManager.shared.generateQrCodeKey(), closeView: {})
     }
 }

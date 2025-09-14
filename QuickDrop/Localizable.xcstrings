@@ -4658,6 +4658,239 @@
         }
       }
     },
+    "ConnectDevice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اتصال الجهاز"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connecta el dispositiu"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Připojit zařízení"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forbind enhed"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerät verbinden"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σύνδεση Συσκευής"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connect Device"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connect Device"
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connect Device"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connect Device"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectar dispositivo"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectar dispositivo"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yhdistä laite"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connecter l'appareil"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connecter l'appareil"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "חבר מכשיר"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "डिवाइस कनेक्ट करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poveži uređaj"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Csatlakoztassa az eszközt"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hubungkan Perangkat"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connetti Dispositivo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "デバイスを接続"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기기 연결"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sambungkan Peranti"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Koble til enhet"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apparaat Verbinden"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podłącz urządzenie"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectar Dispositivo"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ligar Dispositivo"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectează dispozitivul"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подключить устройство"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anslut enhet"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เชื่อมต่ออุปกรณ์"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cihaz Bağla"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Під'єднати пристрій"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kết nối thiết bị"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "连接设备"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "連接設備"
+          }
+        }
+      }
+    },
     "ConnectWithQuickDropApp" : {
       "localizations" : {
         "ar" : {
@@ -15612,229 +15845,229 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "امسح رمز الاستجابة السريعة (QR) باستخدام جهاز Android الخاص بك لتوصيله بجهاز Mac. تأكد من أن هاتفك متصل بنفس الشبكة.\n\nإذا كنت لا ترغب في مسح رمز الاستجابة السريعة في كل مرة تقوم فيها بنقل ملف، فقم بتثبيت تطبيق QuickDrop (انظر أعلاه)."
+            "value" : "امسح رمز QR باستخدام جهاز Android الخاص بك لربطه بهذا الجهاز. تأكد من أن هاتفك متصل بنفس الشبكة.\n\nإذا لم ترغب في مسح رمز QR في كل مرة ترسل فيها ملفًا، قم بتثبيت تطبيق QuickDrop (انظر أعلاه)."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Escaneja el codi QR amb el teu dispositiu Android per connectar-lo al teu Mac. Assegura't que el telèfon està connectat a la mateixa xarxa.\n\nSi no vols escanejar el codi QR per cada transferència d'arxius, instal·la l'app QuickDrop (vegeu a dalt)."
+            "value" : "Escaneja el codi QR amb el teu dispositiu Android per connectar-lo a aquest dispositiu. Assegura't que el teu telèfon estigui connectat a la mateixa xarxa.\n\nSi no vols escanejar el codi QR per a cada transferència de fitxers, instal·la l'app QuickDrop (vegeu més amunt)."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Naskenujte QR kód svým zařízením Android pro připojení k vašemu Macu. Ujistěte se, že je váš telefon připojen ke stejné síti.\n\nPokud nechcete skenovat QR kód při každém přenosu, nainstalujte aplikaci QuickDrop (viz výše)."
+            "value" : "Naskenujte QR kód svým Androidem pro připojení k tomuto zařízení. Ujistěte se, že je telefon připojen ke stejné síti.\n\nPokud nechcete skenovat QR kód při každém přenosu, nainstalujte si aplikaci QuickDrop (viz výše)."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan QR-koden med din Android-enhed for at forbinde den til din Mac. Sørg for, at din telefon er på samme netværk.\n\nHvis du ikke ønsker at scanne QR-koden hver gang, installer QuickDrop-appen (se ovenfor)."
+            "value" : "Scan QR-koden med din Android-enhed for at forbinde den til denne enhed. Sørg for, at din telefon er tilsluttet det samme netværk.\n\nHvis du ikke vil scanne QR-koden for hver filoverførsel, så installer QuickDrop-appen (se ovenfor)."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scanne den QR-Code mit deinem Android-Gerät, um es mit deinem Mac zu verbinden. Stelle sicher, dass dein Handy mit demselben Netzwerk verbunden ist.\n\nWenn du nicht bei jeder Dateiübertragung den QR-Code scannen willst, installiere die QuickDrop-App (siehe oben)."
+            "value" : "Scanne den QR-Code mit deinem Android-Gerät, um eine Verbindung zu diesem Gerät herzustellen. Stelle sicher, dass dein Handy mit demselben Netzwerk verbunden ist.\n\nWenn du nicht bei jeder Dateiübertragung den QR-Code scannen möchtest, installiere die QuickDrop-App (siehe oben)."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Σαρώστε τον κωδικό QR με τη συσκευή Android για να τη συνδέσετε με το Mac σας. Βεβαιωθείτε ότι το τηλέφωνό σας είναι συνδεδεμένο στο ίδιο δίκτυο.\n\nΕάν δεν θέλετε να σαρώνετε τον κωδικό QR για κάθε μεταφορά αρχείου, εγκαταστήστε την εφαρμογή QuickDrop (βλέπε παραπάνω)."
+            "value" : "Σαρώστε τον κωδικό QR με την Android συσκευή σας για να τη συνδέσετε με αυτή τη συσκευή. Βεβαιωθείτε ότι το κινητό σας είναι συνδεδεμένο στο ίδιο δίκτυο.\n\nΕάν δεν θέλετε να σαρώσετε τον κωδικό QR για κάθε μεταφορά αρχείου, εγκαταστήστε την εφαρμογή QuickDrop (δείτε παραπάνω)."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan the QR Code with your Android device to connect it to your Mac. Make sure your phone is connected to the same network.\n\nIf you do not want to scan the QR code for every file transfer, install the QuickDrop app (see above)."
+            "value" : "Use your Android device to scan the QR code and connect to this device. Make sure both devices are on the same network.\n\nFor easier transfers, install the QuickDrop app (see above)."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan the QR Code on your Android to connect to Mac. Ensure same network connectivity. Install QuickDrop for quicker transfers."
+            "value" : "Scan the QR code with your Android device to connect it to this device. Make sure your phone is connected to the same network.\n\nIf you don’t want to scan the QR code for every file transfer, install the QuickDrop app (see above)."
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan the QR Code with your phone to connect to your Mac. Ensure both share the same network.\n\nTo avoid scanning every time, install QuickDrop on your phone."
+            "value" : "Scan the QR code with your Android device to connect it to this device. Make sure your phone is on the same network.\n\nIf you don’t want to scan the QR code every time you transfer a file, install the QuickDrop app (see above)."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan the QR Code with your Android to connect. Ensure your phone and Mac use the same network.\n\nFor ease of transfer, install the QuickDrop app (see above)."
+            "value" : "Scan the QR Code with your Android device to connect it to this device. Ensure your phone is on the same network.\n\nIf you’d prefer not to scan the QR code every time you transfer a file, install the QuickDrop app (see above)."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Escanea el código QR con tu dispositivo Android para conectarlo a tu Mac. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nSi no deseas escanear el código QR en cada transferencia de archivos, instala la aplicación QuickDrop (ver arriba)."
+            "value" : "Escanea el código QR con tu dispositivo Android para conectarlo a este dispositivo. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nSi no quieres escanear el código QR cada vez que transfieras un archivo, instala la app QuickDrop (ver arriba)."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Escanea el código QR con tu dispositivo Android para conectarlo a tu Mac. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nSi no deseas escanear el código QR para cada transferencia de archivo, instala la aplicación QuickDrop (ver arriba)."
+            "value" : "Escanea el código QR con tu dispositivo Android para conectarlo a este dispositivo. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nSi no deseas escanear el código QR para cada transferencia de archivo, instala la app de QuickDrop (ver arriba)."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skannaa QR-koodi Android-laitteellasi yhdistääksesi sen Maciisi. Varmista, että puhelimesi on yhdistetty samaan verkkoon.\n\nJos et halua skannata QR-koodia jokaiselle tiedostonsiirrolle, asenna QuickDrop-sovellus (ks. yllä)."
+            "value" : "Skannaa QR-koodi Android-laitteellasi yhdistääksesi sen tähän laitteeseen. Varmista, että puhelimesi on yhdistetty samaan verkkoon.\n\nJos et halua skannata QR-koodia jokaista tiedostonsiirtoa varten, asenna QuickDrop-sovellus (katso yllä)."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scannez le code QR avec votre appareil Android pour le connecter à votre Mac. Assurez-vous que votre téléphone est connecté au même réseau.\n\nSi vous ne souhaitez pas scanner le code QR à chaque transfert de fichier, installez l'application QuickDrop (voir ci-dessus)."
+            "value" : "Scannez le code QR avec votre appareil Android pour le connecter à cet appareil. Assurez-vous que votre téléphone est connecté au même réseau.\n\nSi vous ne souhaitez pas scanner le code QR à chaque transfert de fichier, installez l'application QuickDrop (voir ci-dessus)."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scannez le code QR avec votre appareil Android pour le connecter à votre Mac. Assurez-vous que votre téléphone est connecté au même réseau.\n\nSi vous ne voulez pas scanner le code QR à chaque transfert de fichier, installez l'application QuickDrop (voir ci-dessus)."
+            "value" : "Scannez le code QR avec votre appareil Android pour le connecter à cet appareil. Assurez-vous que votre téléphone est connecté au même réseau.\n\nSi vous ne voulez pas scanner le code QR à chaque transfert de fichier, installez l’application QuickDrop (voir ci-dessus)."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "סרוק את קוד ה-QR עם מכשיר ה-Android שלך כדי לחבר אותו ל-Mac שלך. ודא שהטלפון שלך מחובר לאותה רשת.\n\nאם אינך רוצה לסרוק את קוד ה-QR עבור כל העברה, התקן את אפליקציית QuickDrop (ראה לעיל)."
+            "value" : "סרוק את קוד ה-QR עם מכשיר האנדרואיד שלך כדי להתחבר למחשב זה. ודא שהטלפון שלך מחובר לאותה רשת.\n\nאם אינך רוצה לסרוק קוד QR בכל העברת קבצים, התקן את אפליקציית QuickDrop (ראה למעלה)."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "अपने Mac से इसे कनेक्ट करने के लिए अपने Android डिवाइस पर QR कोड स्कैन करें। सुनिश्चित करें कि आपका फोन उसी नेटवर्क में जुड़ा है।\n\nहर बार QR कोड स्कैन करने से बचने के लिए QuickDrop ऐप इंस्टॉल करें (ऊपर देखें)।"
+            "value" : "अपने Android डिवाइस से QR कोड स्कैन करें ताकि इसे इस डिवाइस से जोड़ सकें। सुनिश्चित करें कि आपका फ़ोन उसी नेटवर्क से जुड़ा है।\n\nअगर आप हर बार फाइल ट्रांसफर के लिए QR कोड स्कैन नहीं करना चाहते, तो QuickDrop ऐप इंस्टॉल करें (ऊपर देखें)।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skenirajte QR kod svojim Android uređajem za povezivanje s Macom. Provjerite je li vaš telefon povezan na istu mrežu.\n\nAko ne želite skenirati QR kod za svaki prijenos datoteka, instalirajte QuickDrop aplikaciju (vidi gore)."
+            "value" : "Skenirajte QR kod svojim Android uređajem kako biste ga povezali s ovim uređajem. Provjerite je li vaš telefon spojen na istu mrežu.\n\nAko ne želite skenirati QR kod pri svakom prijenosu datoteka, instalirajte aplikaciju QuickDrop (pogledajte gore)."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Olvasd be a QR-kódot Android-eszközöddel a Mac-hez való csatlakozáshoz. Győződj meg róla, hogy a telefonod ugyanahhoz a hálózathoz csatlakozik.\n\nHa nem szeretnéd minden fájlátvitel előtt beolvasni a QR-kódot, telepítsd a QuickDrop alkalmazást (lásd fentebb)."
+            "value" : "Olvasd be a QR-kódot Android-készülékeddel, hogy csatlakoztasd ehhez az eszközhöz. Győződj meg róla, hogy telefonod ugyanahhoz a hálózathoz csatlakozik.\n\nHa nem szeretnéd minden fájlátvitelhez leolvasni a QR-kódot, telepítsd a QuickDrop alkalmazást (lásd fentebb)."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pindai Kode QR dengan perangkat Android Anda untuk menghubungkannya ke Mac Anda. Pastikan ponsel Anda terhubung ke jaringan yang sama.\n\nJika Anda tidak ingin memindai kode QR untuk setiap transfer file, instal aplikasi QuickDrop (lihat di atas)."
+            "value" : "Pindai kode QR dengan perangkat Android Anda untuk menghubungkannya ke perangkat ini. Pastikan ponsel Anda terhubung ke jaringan yang sama.\n\nJika Anda tidak ingin memindai kode QR setiap kali transfer file, instal aplikasi QuickDrop (lihat di atas)."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scansiona il codice QR con il tuo dispositivo Android per collegarlo al tuo Mac. Assicurati che il telefono sia connesso alla stessa rete.\n\nSe non vuoi scansionare il codice QR per ogni trasferimento di file, installa l'app QuickDrop (vedi sopra)."
+            "value" : "Scansiona il codice QR con il tuo dispositivo Android per collegarlo a questo dispositivo. Assicurati che il telefono sia connesso alla stessa rete.\n\nSe non vuoi scansionare il codice QR a ogni trasferimento, installa l'app QuickDrop (vedi sopra)."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "AndroidデバイスでQRコードをスキャンしてMacに接続してください。スマートフォンが同じネットワークに接続されていることを確認してください。\n\n毎回ファイル転送のたびにQRコードをスキャンしたくない場合は、QuickDropアプリをインストールしてください（上記参照）。"
+            "value" : "Android端末でQRコードをスキャンして、このデバイスと接続してください。スマートフォンが同じネットワークに接続されていることを確認してください。\n\n毎回ファイル転送のたびにQRコードをスキャンしたくない場合は、QuickDropアプリをインストールしてください（上記参照）。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Android 기기로 QR 코드를 스캔하여 Mac에 연결하세요. 휴대폰이 동일한 네트워크에 연결되어 있는지 확인하세요.\n\n파일을 전송할 때마다 QR 코드를 스캔하고 싶지 않다면, QuickDrop 앱을 설치하세요 (위 참조)."
+            "value" : "Android 기기로 QR 코드를 스캔해 이 기기와 연결하세요. 휴대폰이 동일한 네트워크에 연결되어 있는지 확인하세요.\n\n매번 QR 코드를 스캔하지 않고 파일을 전송하려면 QuickDrop 앱을 설치하세요(위 안내 참고)."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imbas Kod QR dengan peranti Android anda untuk menyambungkannya ke Mac anda. Pastikan telefon anda disambungkan ke rangkaian yang sama.\n\nJika anda tidak mahu mengimbas kod QR untuk setiap pemindahan fail, pasang aplikasi QuickDrop (lihat di atas)."
+            "value" : "Imbas Kod QR dengan peranti Android anda untuk sambungkan ke peranti ini. Pastikan telefon anda disambungkan ke rangkaian yang sama.\n\nJika anda tidak mahu imbas Kod QR setiap kali pindahan fail, pasang aplikasi QuickDrop (lihat di atas)."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skann QR-koden med Android-enheten for å koble den til Mac-en din. Sørg for at telefonen er koblet til samme nettverk.\n\nHvis du ikke vil skanne QR-koden for hver filoverføring, installer QuickDrop-appen (se over)."
+            "value" : "Skann QR-koden med Android-enheten din for å koble den til denne enheten. Pass på at telefonen er tilkoblet det samme nettverket.\n\nHvis du ikke vil skanne QR-koden for hver filoverføring, installer QuickDrop-appen (se over)."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan de QR-code met je Android-apparaat om het met je Mac te verbinden. Zorg ervoor dat je telefoon met hetzelfde netwerk is verbonden.\n\nAls je niet bij elke bestandsoverdracht de QR-code wilt scannen, installeer dan de QuickDrop-app (zie hierboven)."
+            "value" : "Scan de QR-code met je Android-toestel om deze te koppelen aan dit apparaat. Zorg dat je telefoon met hetzelfde netwerk is verbonden.\n\nWil je niet elke keer de QR-code scannen, installeer dan de QuickDrop-app (zie hierboven)."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zeskanuj kod QR urządzeniem z Androidem, aby połączyć je z Makiem. Upewnij się, że telefon jest w tej samej sieci.\n\nAby uniknąć konieczności skanowania kodu przy każdym transferze, zainstaluj aplikację QuickDrop (zobacz powyżej)."
+            "value" : "Zeskanuj kod QR swoim urządzeniem z Androidem, aby połączyć je z tym urządzeniem. Upewnij się, że Twój telefon jest podłączony do tej samej sieci.\n\nJeśli nie chcesz skanować kodu QR przy każdym przesyłaniu plików, zainstaluj aplikację QuickDrop (patrz powyżej)."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Escaneie o código QR com seu dispositivo Android para conectá-lo ao seu Mac. Certifique-se de que o telefone esteja conectado à mesma rede.\n\nSe não quiser escanear o QR Code em toda transferência, instale o aplicativo QuickDrop (veja acima)."
+            "value" : "Escaneie o código QR com seu dispositivo Android para conectá-lo a este dispositivo. Certifique-se de que seu telefone está conectado à mesma rede.\n\nSe não quiser escanear o código QR a cada transferência de arquivo, instale o aplicativo QuickDrop (veja acima)."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Digitaliza o código QR com o teu dispositivo Android para o ligares ao teu Mac. Certifica-te de que o teu telefone está ligado à mesma rede.\n\nSe não quiseres digitalizar o código QR em todas as transferências de ficheiros, instala a aplicação QuickDrop (ver acima)."
+            "value" : "Digitalize o código QR com o seu dispositivo Android para o ligar a este aparelho. Certifique-se de que o seu telemóvel está ligado à mesma rede.\n\nSe não quiser digitalizar o código QR em cada transferência, instale a app QuickDrop (ver acima)."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scanează codul QR cu dispozitivul tău Android pentru a-l conecta la Mac. Asigură-te că telefonul este conectat la aceeași rețea.\n\nDacă nu dorești să scanezi codul QR de fiecare dată când transferi fișiere, instalează aplicația QuickDrop (vezi mai sus)."
+            "value" : "Scanează codul QR cu dispozitivul tău Android pentru a-l conecta la acest dispozitiv. Asigură-te că telefonul este conectat la aceeași rețea.\n\nDacă nu vrei să scanezi codul QR la fiecare transfer de fișiere, instalează aplicația QuickDrop (vezi mai sus)."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Сканируйте QR-код с помощью устройства Android, чтобы подключить его к вашему Mac. Убедитесь, что ваш телефон подключен к той же сети.\n\nЕсли вы не хотите сканировать QR-код при каждой передаче файла, установите приложение QuickDrop (см. выше)."
+            "value" : "Отсканируйте QR-код с помощью вашего Android-устройства, чтобы подключить его к этому компьютеру. Убедитесь, что телефон подключён к той же сети.\n\nЕсли не хотите сканировать QR-код перед каждой передачей файла, установите приложение QuickDrop (см. выше)."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skanna QR-koden med din Android-enhet för att ansluta den till din Mac. Kontrollera att din telefon är ansluten till samma nätverk.\n\nOm du inte vill skanna QR-koden för varje filöverföring, installera QuickDrop-appen (se ovan)."
+            "value" : "Skanna QR-koden med din Android-enhet för att ansluta den till denna enhet. Se till att din telefon är ansluten till samma nätverk.\n\nOm du inte vill skanna QR-koden vid varje filöverföring, installera QuickDrop-appen (se ovan)."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "สแกนรหัส QR ด้วยอุปกรณ์ Android ของคุณเพื่อเชื่อมต่อกับ Mac ของคุณ ตรวจสอบให้แน่ใจว่าโทรศัพท์ของคุณเชื่อมต่อกับเครือข่ายเดียวกัน\n\nหากคุณไม่ต้องการสแกนรหัส QR ทุกครั้งที่ถ่ายโอนไฟล์ ให้ติดตั้งแอป QuickDrop (ดูด้านบน)"
+            "value" : "สแกน QR โค้ดด้วยอุปกรณ์ Android ของคุณเพื่อเชื่อมต่อกับอุปกรณ์นี้ ตรวจสอบว่าโทรศัพท์ของคุณเชื่อมต่อกับเครือข่ายเดียวกัน\n\nหากไม่ต้องการสแกน QR โค้ดทุกครั้งที่โอนไฟล์ ให้ติดตั้งแอป QuickDrop (ดูด้านบน)"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Android cihazınızı Mac'inize bağlamak için QR Kodunu tarayın. Telefonunuzun aynı ağa bağlı olduğundan emin olun.\n\nHer dosya aktarımı için QR kodunu taramak istemiyorsanız QuickDrop uygulamasını yükleyin (yukarıya bakın)."
+            "value" : "Bağlantı kurmak için Android cihazınızla QR Kodunu tarayın. Telefonunuzun aynı ağa bağlı olduğundan emin olun.\n\nHer dosya aktarımı için QR kodunu tekrar taramak istemiyorsanız, QuickDrop uygulamasını yükleyin (yukarıya bakın)."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Скануйте QR-код за допомогою вашого Android-пристрою, щоб підключити його до Mac. Переконайтесь, що телефон підключений до тієї ж мережі.\n\nЯкщо ви не хочете сканувати QR-код під час кожної передачі файлів, встановіть додаток QuickDrop (див. вище)."
+            "value" : "Скануйте QR-код на вашому Android, щоб підключити його до цього пристрою. Переконайтеся, що телефон у тій самій мережі.\n\nЩоб не сканувати QR-код для кожної передачі, встановіть додаток QuickDrop (див. вище)."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quét mã QR bằng thiết bị Android của bạn để kết nối với Mac. Đảm bảo điện thoại được kết nối cùng mạng.\n\nNếu bạn không muốn quét mã QR cho mỗi lần truyền tệp, hãy cài đặt ứng dụng QuickDrop (xem trên)."
+            "value" : "Quét mã QR bằng thiết bị Android của bạn để kết nối với thiết bị này. Đảm bảo điện thoại của bạn đã kết nối cùng mạng.\n\nNếu bạn không muốn quét mã QR mỗi lần chuyển tệp, hãy cài đặt ứng dụng QuickDrop (xem phía trên)."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "使用您的 Android 设备扫描二维码以将其连接到您的 Mac。请确保您的手机连接到同一网络。\n\n如果您不想每次传输文件都扫描二维码，请安装 QuickDrop 应用（见上方）。"
+            "value" : "用您的 Android 设备扫描二维码，将其连接到此设备。确保手机连接在同一网络。\n\n如果不想每次传输文件都扫描二维码，请安装 QuickDrop 应用（见上方）。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "用 Android 裝置掃描 QR 碼以連接到您的 Mac。確保您的手機連接到相同網路。\n\n如果您不想在每次檔案傳輸時掃描 QR 碼，請安裝 QuickDrop 應用程式（見上文）。"
+            "value" : "用您的 Android 手機掃描 QR 碼即可連接此裝置。請確保手機連接在同一個網路。\n\n如果您不想每次傳檔都掃描 QR 碼，請安裝 QuickDrop 應用程式（詳見上方）。"
           }
         }
       }
@@ -15845,229 +16078,229 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "لربط جهاز Mac بجهاز Android الخاص بك، افتح تطبيق QuickDrop على جهاز Android. تأكد من أن هاتفك متصل بالشبكة نفسها.\n\nلتثبيت QuickDrop على هاتفك، امسح رمز QR ضوئيًا أو ابحث عن 'QuickDrop' في متجر Google Play."
+            "value" : "لربط هذا الجهاز بجهاز Android الخاص بك، افتح تطبيق QuickDrop على جهاز Android. تأكد من أن هاتفك متصل بنفس الشبكة.\n\nلتثبيت QuickDrop على هاتفك، امسح رمز QR ضوئيًا أو ابحث عن 'QuickDrop' في متجر Google Play."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per connectar el teu Mac amb el dispositiu Android, obre l'app QuickDrop al dispositiu Android. Assegura't que el telèfon estigui connectat a la mateixa xarxa.\n\nPer instal·lar QuickDrop al teu telèfon, escaneja el codi QR o cerca 'QuickDrop' a Google Play Store."
+            "value" : "Per connectar aquest dispositiu al teu dispositiu Android, obre l'app QuickDrop al teu Android. Assegura't que el telèfon estigui connectat a la mateixa xarxa.\n\nPer instal·lar QuickDrop al teu telèfon, escaneja el codi QR o busca 'QuickDrop' a Google Play Store."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pro připojení vašeho Macu k zařízení Android otevřete aplikaci QuickDrop na vašem zařízení Android. Ujistěte se, že je váš telefon připojen ke stejné síti.\n\nChcete-li nainstalovat QuickDrop do vašeho telefonu, naskenujte QR kód nebo vyhledejte 'QuickDrop' na Google Play Store."
+            "value" : "Chcete-li připojit toto zařízení k vašemu Androidu, otevřete na telefonu aplikaci QuickDrop. Ujistěte se, že je telefon připojen ke stejné síti.\n\nPro instalaci QuickDrop na váš telefon naskenujte QR kód nebo vyhledejte 'QuickDrop' v Obchodě Play."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Forbind din Mac til din Android-enhed ved at åbne QuickDrop-appen på din Android. Sørg for, at telefonen er på samme netværk.\n\nFor at installere QuickDrop på din telefon skal du scanne QR-koden eller søge efter 'QuickDrop' i Google Play Butik."
+            "value" : "For at forbinde denne enhed til din Android-enhed, skal du åbne QuickDrop-appen på din Android-enhed. Sørg for, at din telefon er tilsluttet det samme netværk.\n\nFor at installere QuickDrop på din telefon, scan QR-koden eller søg efter 'QuickDrop' i Google Play Butik."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Um deinen Mac mit deinem Android-Gerät zu verbinden, öffne die QuickDrop-App auf deinem Android-Gerät. Stelle sicher, dass dein Telefon mit demselben Netzwerk verbunden ist.\n\nUm QuickDrop auf deinem Telefon zu installieren, scanne den QR-Code oder suche nach 'QuickDrop' im Google Play Store."
+            "value" : "Um dieses Gerät mit deinem Android-Gerät zu verbinden, öffne die QuickDrop-App auf deinem Android-Gerät. Stelle sicher, dass dein Handy mit demselben Netzwerk verbunden ist.\n\nUm QuickDrop auf deinem Handy zu installieren, scanne den QR-Code oder suche im Google Play Store nach 'QuickDrop'."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Για να συνδέσετε το Mac σας με τη συσκευή Android, ανοίξτε την εφαρμογή QuickDrop στη συσκευή Android. Βεβαιωθείτε ότι το τηλέφωνό σας είναι συνδεδεμένο στο ίδιο δίκτυο.\n\nΓια να εγκαταστήσετε το QuickDrop στο τηλέφωνό σας, σαρώστε τον κωδικό QR ή αναζητήστε 'QuickDrop' στο Google Play Store."
+            "value" : "Για να συνδέσετε αυτή τη συσκευή με την Android συσκευή σας, ανοίξτε την εφαρμογή QuickDrop στο Android σας. Βεβαιωθείτε ότι το κινητό σας είναι συνδεδεμένο στο ίδιο δίκτυο.\n\nΓια να εγκαταστήσετε το QuickDrop στο κινητό σας, σαρώστε τον κωδικό QR ή αναζητήστε 'QuickDrop' στο Google Play Store."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To connect your Mac to your Android device, open the QuickDrop app on your Android device. Make sure your phone is connected to the same network.\n\nTo install QuickDrop on your phone, scan the QR code or search for 'QuickDrop' on the Google Play Store."
+            "value" : "To link this device with your Android, open the QuickDrop app on your Android and ensure your phone is on the same network.\n\nTo get QuickDrop on your phone, scan the QR code or search 'QuickDrop' in the Google Play Store."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To link Mac with Android, open QuickDrop on Android, ensure same Wi-Fi, download QuickDrop using QR/Google Play."
+            "value" : "To connect this device to your Android device, open the QuickDrop app on your Android. Make sure your phone is connected to the same network.\n\nTo install QuickDrop on your phone, scan the QR code or search for ‘QuickDrop’ on the Google Play Store."
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To connect your Mac and Android device, open QuickDrop on your Android device, ensuring they’re on the same network.\n\nInstall QuickDrop on your phone by scanning the QR code or searching 'QuickDrop' in Google Play Store."
+            "value" : "To connect this device to your Android device, open the QuickDrop app on your Android device. Make sure your phone is on the same network.\n\nTo install QuickDrop on your phone, scan the QR code or search for 'QuickDrop' in the Google Play Store."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Open QuickDrop on Android and ensure the devices are on the same Wi-Fi.\n\nTo install, scan the QR code or search 'QuickDrop' on Google Play Store."
+            "value" : "To connect this device to your Android device, open the QuickDrop app on your Android. Ensure your phone is on the same network.\n\nTo install QuickDrop on your phone, scan the QR code or search for 'QuickDrop' on the Google Play Store."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para conectar tu Mac a tu dispositivo Android, abre la aplicación QuickDrop en tu dispositivo Android. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nPara instalar QuickDrop en tu teléfono, escanea el código QR o busca 'QuickDrop' en Google Play Store."
+            "value" : "Para conectar este dispositivo con tu Android, abre la app QuickDrop en tu dispositivo Android. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nPara instalar QuickDrop en tu teléfono, escanea el código QR o busca 'QuickDrop' en Google Play Store."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para conectar tu Mac a tu dispositivo Android, abre la aplicación QuickDrop en tu dispositivo Android. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nPara instalar QuickDrop en tu teléfono, escanea el código QR o busca 'QuickDrop' en Google Play Store."
+            "value" : "Para conectar este dispositivo a tu dispositivo Android, abre la app de QuickDrop en tu Android. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nPara instalar QuickDrop en tu teléfono, escanea el código QR o busca 'QuickDrop' en Google Play Store."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Yhdistääksesi Macin Android-laitteeseesi, avaa QuickDrop-sovellus Android-laitteellasi. Varmista, että puhelimesi on yhdistetty samaan verkkoon.\n\nAsenna QuickDrop puhelimeesi skannaamalla QR-koodi tai hakemalla 'QuickDrop' Google Play Storesta."
+            "value" : "Yhdistääksesi tämän laitteen Android-laitteeseesi, avaa QuickDrop-sovellus Android-laitteellasi. Varmista, että puhelimesi on yhdistetty samaan verkkoon.\n\nAsentaaksesi QuickDropin puhelimeesi, skannaa QR-koodi tai etsi 'QuickDrop' Google Play -kaupasta."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pour connecter votre Mac à votre appareil Android, ouvrez l'application QuickDrop sur votre appareil Android. Assurez-vous que votre téléphone est connecté au même réseau.\n\nPour installer QuickDrop sur votre téléphone, scannez le code QR ou recherchez 'QuickDrop' sur le Google Play Store."
+            "value" : "Pour connecter cet appareil à votre appareil Android, ouvrez l'application QuickDrop sur votre appareil Android. Assurez-vous que votre téléphone est connecté au même réseau.\n\nPour installer QuickDrop sur votre téléphone, scannez le code QR ou recherchez 'QuickDrop' sur le Google Play Store."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pour connecter votre Mac à votre appareil Android, ouvrez l'application QuickDrop sur votre appareil Android. Assurez-vous que votre téléphone est connecté au même réseau.\n\nPour installer QuickDrop sur votre téléphone, scannez le code QR ou recherchez 'QuickDrop' sur Google Play Store."
+            "value" : "Pour connecter cet appareil à votre appareil Android, ouvrez l’application QuickDrop sur votre appareil Android. Assurez-vous que votre téléphone est connecté au même réseau.\n\nPour installer QuickDrop sur votre téléphone, scannez le code QR ou cherchez « QuickDrop » sur le Google Play Store."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "כדי לחבר את ה-Mac למכשיר ה-Android, פתח את אפליקציית QuickDrop במכשיר ה-Android שלך. ודא שהטלפון שלך מחובר לאותה רשת.\n\nכדי להתקין את QuickDrop על הטלפון שלך, סרוק את קוד ה-QR או חפש 'QuickDrop' ב-Google Play Store."
+            "value" : "כדי לחבר מחשב זה לאנדרואיד שלך, פתח את אפליקציית QuickDrop במכשיר האנדרואיד. ודא שהטלפון שלך מחובר לאותה רשת.\n\nלהתקנת QuickDrop בטלפון, סרוק את קוד ה-QR או חפש 'QuickDrop' בחנות Google Play."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "अपने Mac को अपने Android डिवाइस से कनेक्ट करने के लिए, अपने Android डिवाइस पर QuickDrop ऐप खोलें। सुनिश्चित करें कि आपका फोन उसी नेटवर्क से जुड़ा है।\n\nअपने फोन पर QuickDrop इंस्टॉल करने के लिए, क्यूआर कोड स्कैन करें या Google Play Store पर 'QuickDrop' खोजें।"
+            "value" : "इस डिवाइस को अपने Android डिवाइस से जोड़ने के लिए, अपने Android डिवाइस पर QuickDrop ऐप खोलें। सुनिश्चित करें कि आपका फ़ोन उसी नेटवर्क से जुड़ा है।\n\nअपने फ़ोन पर QuickDrop इंस्टॉल करने के लिए QR कोड स्कैन करें या Google Play Store में 'QuickDrop' सर्च करें।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Da biste povezali svoj Mac s Android uređajem, otvorite QuickDrop aplikaciju na svom Android uređaju. Provjerite je li vaš telefon povezan na istu mrežu.\n\nZa instalaciju aplikacije QuickDrop na vašem telefonu, skenirajte QR kod ili potražite 'QuickDrop' na Google Play Store-u."
+            "value" : "Za povezivanje ovog uređaja s vašim Android uređajem, otvorite aplikaciju QuickDrop na svom Androidu. Provjerite je li vaš telefon spojen na istu mrežu.\n\nZa instalaciju QuickDropa na telefon, skenirajte QR kod ili pretražite 'QuickDrop' u Google Play trgovini."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A Mac és az Android eszköz összekapcsolásához nyisd meg a QuickDrop alkalmazást az Android eszközödön. Győződj meg róla, hogy a telefonod ugyanahhoz a hálózathoz csatlakozik.\n\nA QuickDrop telepítéséhez a telefonodra olvasd be a QR-kódot, vagy keresd meg a 'QuickDrop' alkalmazást a Google Play Áruházban."
+            "value" : "A készülék párosításához nyisd meg a QuickDrop alkalmazást az Android-telefonodon. Győződj meg róla, hogy a telefonod ugyanahhoz a hálózathoz csatlakozik.\n\nA QuickDrop telepítéséhez olvasd be a QR-kódot vagy keresd meg a 'QuickDrop' appot a Google Play Áruházban."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Untuk menghubungkan Mac Anda ke perangkat Android Anda, buka aplikasi QuickDrop di perangkat Android Anda. Pastikan ponsel Anda terhubung ke jaringan yang sama.\n\nUntuk memasang QuickDrop di ponsel Anda, pindai kode QR atau cari 'QuickDrop' di Google Play Store."
+            "value" : "Untuk menghubungkan perangkat ini ke perangkat Android Anda, buka aplikasi QuickDrop di perangkat Android Anda. Pastikan ponsel Anda terhubung ke jaringan yang sama.\n\nUntuk menginstal QuickDrop di ponsel Anda, pindai kode QR atau cari 'QuickDrop' di Google Play Store."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per collegare il tuo Mac al dispositivo Android, apri l'app QuickDrop sul tuo dispositivo Android. Assicurati che il telefono sia connesso alla stessa rete.\n\nPer installare QuickDrop sul tuo telefono, scansiona il codice QR o cerca 'QuickDrop' sul Google Play Store."
+            "value" : "Per collegare questo dispositivo al tuo Android, apri l'app QuickDrop sul dispositivo Android. Assicurati che il telefono sia connesso alla stessa rete.\n\nPer installare QuickDrop sul telefono, scansiona il codice QR o cerca 'QuickDrop' su Google Play Store."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "MacをAndroidデバイスに接続するには、AndroidデバイスでQuickDropアプリを開いてください。携帯電話が同じネットワークに接続されていることを確認してください。\n\n携帯電話にQuickDropをインストールするには、QRコードをスキャンするか、Google Playストアで「QuickDrop」を検索してください。"
+            "value" : "このデバイスをAndroid端末に接続するには、Android端末でQuickDropアプリを開いてください。スマートフォンが同じネットワークにつながっていることを確認してください。\n\nQuickDropアプリをスマートフォンにインストールするには、QRコードをスキャンするか、Google Playストアで『QuickDrop』と検索してください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac을 Android 기기와 연결하려면 Android 기기에서 QuickDrop 앱을 열어주세요. 휴대폰이 동일한 네트워크에 연결되어 있는지 확인하세요.\n\n휴대폰에 QuickDrop을 설치하려면 QR 코드를 스캔하거나 Google Play 스토어에서 'QuickDrop'을 검색하세요."
+            "value" : "이 기기를 Android 기기와 연결하려면, Android 기기에서 QuickDrop 앱을 실행하세요. 휴대폰이 동일한 네트워크에 연결되어 있는지 확인하세요.\n\nQuickDrop을 설치하려면 QR 코드를 스캔하거나 Google Play 스토어에서 'QuickDrop'을 검색하세요."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Untuk menyambungkan Mac anda ke peranti Android anda, buka aplikasi QuickDrop pada peranti Android anda. Pastikan telefon anda disambungkan ke rangkaian yang sama.\n\nUntuk memasang QuickDrop pada telefon anda, imbas kod QR atau cari 'QuickDrop' di Google Play Store."
+            "value" : "Untuk sambungkan peranti ini ke peranti Android anda, buka aplikasi QuickDrop di telefon Android anda. Pastikan telefon anda disambungkan ke rangkaian yang sama.\n\nUntuk memasang QuickDrop pada telefon anda, imbas kod QR atau cari 'QuickDrop' di Google Play Store."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "For å koble Mac-en til Android-enheten din, åpne QuickDrop-appen på Android-enheten. Sørg for at telefonen er koblet til samme nettverk.\n\nFor å installere QuickDrop på telefonen, skann QR-koden eller søk etter 'QuickDrop' i Google Play Store."
+            "value" : "For å koble denne enheten til din Android-enhet, åpne QuickDrop-appen på Android-enheten. Pass på at telefonen er tilkoblet det samme nettverket.\n\nFor å installere QuickDrop på telefonen, skann QR-koden eller søk etter 'QuickDrop' i Google Play Store."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Om je Mac met je Android-apparaat te verbinden, open je de QuickDrop-app op je Android-apparaat. Zorg ervoor dat je telefoon is verbonden met hetzelfde netwerk.\n\nOm QuickDrop op je telefoon te installeren, scan de QR-code of zoek naar 'QuickDrop' in de Google Play Store."
+            "value" : "Om dit apparaat te verbinden met je Android-toestel, open je de QuickDrop-app op je Android. Zorg dat je telefoon met hetzelfde netwerk is verbonden.\n\nOm QuickDrop op je telefoon te installeren, scan je de QR-code of zoek je 'QuickDrop' in de Google Play Store."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aby połączyć Maca z urządzeniem z Androidem, otwórz aplikację QuickDrop na urządzeniu z Androidem. Upewnij się, że telefon jest w tej samej sieci.\n\nAby zainstalować QuickDrop na telefonie, zeskanuj kod QR lub wyszukaj ‚QuickDrop‘ w Google Play."
+            "value" : "Aby połączyć to urządzenie z Twoim Androidem, otwórz aplikację QuickDrop na swoim telefonie z Androidem. Upewnij się, że Twój telefon jest podłączony do tej samej sieci.\n\nAby zainstalować QuickDrop na swoim telefonie, zeskanuj kod QR lub wyszukaj 'QuickDrop' w sklepie Google Play."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para conectar seu Mac ao dispositivo Android, abra o aplicativo QuickDrop no seu dispositivo Android. Certifique-se de que seu telefone esteja conectado à mesma rede.\n\nPara instalar o QuickDrop no seu telefone, escaneie o código QR ou procure por 'QuickDrop' na Google Play Store."
+            "value" : "Para conectar este dispositivo ao seu Android, abra o aplicativo QuickDrop no seu dispositivo Android. Certifique-se de que seu telefone está conectado à mesma rede.\n\nPara instalar o QuickDrop no seu celular, escaneie o código QR ou pesquise por 'QuickDrop' na Google Play Store."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para ligar o teu Mac ao teu dispositivo Android, abre a app QuickDrop no dispositivo Android. Garante que o teu telemóvel está ligado à mesma rede.\n\nPara instalar o QuickDrop no teu telemóvel, digitaliza o código QR ou procura 'QuickDrop' na Google Play Store."
+            "value" : "Para ligar este dispositivo ao seu Android, abra a app QuickDrop no seu dispositivo Android. Certifique-se de que o seu telemóvel está ligado à mesma rede.\n\nPara instalar o QuickDrop no seu telemóvel, digitalize o código QR ou procure por 'QuickDrop' na Google Play Store."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pentru a conecta Mac-ul la dispozitivul Android, deschide aplicația QuickDrop pe dispozitivul Android. Asigură-te că telefonul este conectat la aceeași rețea.\n\nPentru a instala QuickDrop pe telefon, scanează codul QR sau caută 'QuickDrop' în Google Play Store."
+            "value" : "Pentru a conecta acest dispozitiv la dispozitivul tău Android, deschide aplicația QuickDrop pe telefonul Android. Asigură-te că telefonul este conectat la aceeași rețea.\n\nPentru a instala QuickDrop pe telefon, scanează codul QR sau caută 'QuickDrop' în Google Play Store."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Чтобы подключить ваш Mac к устройству Android, откройте приложение QuickDrop на устройстве Android. Убедитесь, что ваш телефон подключен к той же сети.\n\nЧтобы установить QuickDrop на телефон, отсканируйте QR-код или найдите 'QuickDrop' в Google Play Store."
+            "value" : "Чтобы подключить это устройство к вашему Android-устройству, откройте приложение QuickDrop на своём Android. Убедитесь, что телефон подключён к той же сети.\n\nЧтобы установить QuickDrop на телефон, отсканируйте QR-код или найдите 'QuickDrop' в Google Play Маркете."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "För att ansluta din Mac till din Android-enhet, öppna QuickDrop-appen på din Android-enhet. Kontrollera att din telefon är ansluten till samma nätverk.\n\nFör att installera QuickDrop på din telefon, skanna QR-koden eller sök efter 'QuickDrop' på Google Play Store."
+            "value" : "För att ansluta denna enhet till din Android-enhet, öppna QuickDrop-appen på din Android-enhet. Se till att din telefon är ansluten till samma nätverk.\n\nFör att installera QuickDrop på din telefon, skanna QR-koden eller sök efter 'QuickDrop' i Google Play Butik."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "เพื่อเชื่อมต่อ Mac ของคุณกับอุปกรณ์ Android ให้เปิดแอป QuickDrop บนอุปกรณ์ Android ของคุณ ตรวจสอบให้แน่ใจว่าโทรศัพท์ของคุณเชื่อมต่อกับเครือข่ายเดียวกัน\n\nหากต้องการติดตั้ง QuickDrop บนโทรศัพท์ของคุณ ให้สแกนรหัส QR หรือค้นหา 'QuickDrop' ใน Google Play Store"
+            "value" : "เพื่อเชื่อมต่ออุปกรณ์นี้กับอุปกรณ์ Android ของคุณ ให้เปิดแอป QuickDrop บนอุปกรณ์ Android และตรวจสอบว่าโทรศัพท์ของคุณเชื่อมต่อกับเครือข่ายเดียวกัน\n\nหากต้องการติดตั้ง QuickDrop บนโทรศัพท์ของคุณ ให้สแกน QR โค้ดหรือค้นหา 'QuickDrop' ใน Google Play Store"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac'inizi Android cihazınıza bağlamak için, Android cihazınızdaki QuickDrop uygulamasını açın. Telefonunuzun aynı ağa bağlı olduğundan emin olun.\n\nQuickDrop'u telefonunuza yüklemek için QR kodunu tarayın veya Google Play Store'da 'QuickDrop' arayın."
+            "value" : "Bu cihazı Android cihazınıza bağlamak için, Android cihazınızda QuickDrop uygulamasını açın. Telefonunuzun aynı ağa bağlı olduğundan emin olun.\n\nTelefonunuza QuickDrop yüklemek için QR kodunu tarayın veya Google Play Store’da 'QuickDrop' olarak arayın."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Щоб підключити Mac до пристрою Android, відкрийте додаток QuickDrop на вашому Android-пристрої. Переконайтеся, що ваш телефон підключено до тієї ж мережі.\n\nЩоб встановити QuickDrop на телефон, відскануйте QR-код або знайдіть 'QuickDrop' у Google Play Store."
+            "value" : "Щоб підключити цей пристрій до вашого Android, відкрийте на телефоні додаток QuickDrop. Переконайтеся, що телефон підключено до тієї ж мережі.\n\nЩоб встановити QuickDrop, відскануйте QR-код або знайдіть 'QuickDrop' у Google Play Store."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Để kết nối Mac của bạn với thiết bị Android, mở ứng dụng QuickDrop trên thiết bị Android của bạn. Đảm bảo điện thoại được kết nối cùng mạng.\n\nĐể cài đặt QuickDrop trên điện thoại, quét mã QR hoặc tìm 'QuickDrop' trên Google Play Store."
+            "value" : "Để kết nối thiết bị này với điện thoại Android của bạn, hãy mở ứng dụng QuickDrop trên điện thoại Android. Đảm bảo điện thoại đã kết nối cùng mạng.\n\nĐể cài đặt QuickDrop trên điện thoại, quét mã QR hoặc tìm 'QuickDrop' trên Google Play Store."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "要将您的 Mac 连接到 Android 设备，请在 Android 设备上打开 QuickDrop 应用。确保您的手机连接到同一网络。\n\n要在手机上安装 QuickDrop，请扫描二维码或在 Google Play 商店中搜索“QuickDrop”。"
+            "value" : "要将此设备连接到您的 Android 设备，请在 Android 设备上打开 QuickDrop 应用。确保您的手机连接在同一网络。\n\n要在手机上安装 QuickDrop，请扫描二维码或在 Google Play 应用商店搜索“QuickDrop”。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "要將 Mac 連接到 Android 裝置，請在 Android 裝置上打開 QuickDrop 應用程式。確保您的手機連接到相同網路。\n\n要在手機上安裝 QuickDrop，請掃描 QR 碼或在 Google Play 商店搜尋「QuickDrop」。"
+            "value" : "要將此裝置連接至您的 Android 手機，請在 Android 裝置上開啟 QuickDrop 應用程式。請確保您的手機連接在同一個網路。\n\n若要在手機上安裝 QuickDrop，請掃描 QR 碼或於 Google Play 商店搜尋「QuickDrop」。"
           }
         }
       }

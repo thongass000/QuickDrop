@@ -26,6 +26,8 @@ let configuration = LUIConfiguration(
     
     supportsSplitView: false,
     
+    supportsLiquidGlass: true,
+    
     supportsPortraitSplitView: false,
     
     supportsDarkModeShadow: false

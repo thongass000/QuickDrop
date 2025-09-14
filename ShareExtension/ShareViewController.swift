@@ -8,7 +8,6 @@
 import Cocoa
 import Foundation
 import SwiftUI
-import QRCode
 
 class ShareViewController: NSViewController, OutboundAppDelegate {
     
@@ -133,26 +132,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
     private func openQrCodeView() {
         if qrCodeSheetView == nil {
             
-            var image: Image? = nil
-            
-            do {
-                let qrKey = NearbyConnectionManager.shared.generateQrCodeKey()
-                let qrCodeImage = try QRCode.build
-                    .text("https://quickshare.google/qrcode#key=\(qrKey)")
-                    .backgroundColor(CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 0))
-                    .quietZonePixelCount(3)
-                    .onPixels.shape(.circle())
-                    .eye.shape(.squircle())
-                    .errorCorrection(.low)
-                    .generate.image(dimension: 1000)
-                
-                image = Image(nsImage: NSImage(cgImage: qrCodeImage, size: qrCodeImage.size))
-            }
-            catch {
-                log("Error generating QR code: \(error)")
-            }
-            
-            let contentView = SmallSheetView(type: .sendToDeviceQrCode, dynamicQrCode: image) {
+            let contentView = SmallSheetView(type: .sendToDeviceQrCode, dynamicQrCode: NearbyConnectionManager.shared.generateQrCodeKey()) {
                 self.closeQrCodeView()
             }
             

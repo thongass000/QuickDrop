@@ -121,6 +121,8 @@
 		EB7CD1462D6FB0E800CB0CB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */; };
 		EB7F54122D78E96000989564 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54112D78E95C00989564 /* TutorialView.swift */; };
 		EB7F54142D78E9E700989564 /* LicenseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54132D78E9E400989564 /* LicenseWindow.swift */; };
+		EB821C992E76FE5300036963 /* SmallSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */; };
+		EB821C9A2E76FE5300036963 /* SmallSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */; };
 		EB886E522E4E19390052B7D9 /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E512E4E19390052B7D9 /* HKDF.swift */; };
 		EB886E532E4E19390052B7D9 /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E512E4E19390052B7D9 /* HKDF.swift */; };
 		EB886E542E4E19390052B7D9 /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E512E4E19390052B7D9 /* HKDF.swift */; };
@@ -987,6 +989,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB821C992E76FE5300036963 /* SmallSheetView.swift in Sources */,
 				EB05DFBF2E59FD0A00EF567A /* TrustedDevicesView.swift in Sources */,
 				EB5C37F12E377CE70052EFD7 /* ukey.pb.swift in Sources */,
 				EB5C37F22E377CE70052EFD7 /* NearbyConnection.swift in Sources */,
@@ -1054,6 +1057,7 @@
 				EB950B552E520436002D68FA /* SaveFilesManager.swift in Sources */,
 				EB1325D52E701D8E00FD749C /* Settings.swift in Sources */,
 				EB950B562E520436002D68FA /* DataModel.swift in Sources */,
+				EB821C9A2E76FE5300036963 /* SmallSheetView.swift in Sources */,
 				EB950B3E2E52038A002D68FA /* SendModel.swift in Sources */,
 				EB950B772E521712002D68FA /* AttachmentDetails.swift in Sources */,
 				EB16B6192E58B4C8007D9792 /* TrustStore.swift in Sources */,
@@ -1128,8 +1132,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
-				SHARED_BUILD = 73;
-				SHARED_VERSION = 2.4;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) EXTENSION";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1168,8 +1170,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
-				SHARED_BUILD = 73;
-				SHARED_VERSION = 2.4;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = EXTENSION;
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = "";
