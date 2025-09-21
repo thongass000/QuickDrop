@@ -168,7 +168,6 @@
 		EB950B612E520674002D68FA /* SwiftECC in Frameworks */ = {isa = PBXBuildFile; productRef = EB950B602E520674002D68FA /* SwiftECC */; };
 		EB950B632E52067A002D68FA /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB950B622E52067A002D68FA /* QRCode */; };
 		EB950B652E52067D002D68FA /* LUI in Frameworks */ = {isa = PBXBuildFile; productRef = EB950B642E52067D002D68FA /* LUI */; };
-		EB950B672E520680002D68FA /* RNDeviceName in Frameworks */ = {isa = PBXBuildFile; productRef = EB950B662E520680002D68FA /* RNDeviceName */; };
 		EB950B6F2E5206E2002D68FA /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB950B6B2E5206E2002D68FA /* ShareViewController.swift */; };
 		EB950B702E520734002D68FA /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
 		EB950B742E520957002D68FA /* Attachments.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB950B732E520954002D68FA /* Attachments.swift */; };
@@ -189,7 +188,6 @@
 		EB979F9A2E50CAA6008B8C5C /* PieProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F992E50CAA6008B8C5C /* PieProgressView.swift */; };
 		EB97A00F2E511124008B8C5C /* ReceiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A00E2E511120008B8C5C /* ReceiveModel.swift */; };
 		EB97A0102E51CD13008B8C5C /* ReceiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A00E2E511120008B8C5C /* ReceiveModel.swift */; };
-		EB97A0132E51D6B2008B8C5C /* RNDeviceName in Frameworks */ = {isa = PBXBuildFile; productRef = EB97A0122E51D6B2008B8C5C /* RNDeviceName */; };
 		EB97A0142E51DD00008B8C5C /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
 		EB97A0152E51DD00008B8C5C /* timeIsNow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EBC05C8A2E33B59E00EECC18 /* timeIsNow.mp3 */; };
 		EB97A01A2E51EAA2008B8C5C /* UIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A0192E51EA9C008B8C5C /* UIAlert.swift */; };
@@ -199,6 +197,8 @@
 		EB9925852E45EF0900357055 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB9925842E45EF0900357055 /* QRCode */; };
 		EB9925872E45F12F00357055 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB9925862E45F12F00357055 /* QRCode */; };
 		EB9925892E45F13500357055 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB9925882E45F13500357055 /* QRCode */; };
+		EBADEB8F2E8029750021B5E4 /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = EBADEB8E2E8029750021B5E4 /* DeviceKit */; };
+		EBADEB912E802A830021B5E4 /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = EBADEB902E802A830021B5E4 /* DeviceKit */; };
 		EBC05C5B2E33937200EECC18 /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */; };
 		EBC05C5C2E3394EF00EECC18 /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */; };
 		EBC05C712E33B57D00EECC18 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C6D2E33B57D00EECC18 /* Converter.swift */; };
@@ -401,8 +401,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB97A0132E51D6B2008B8C5C /* RNDeviceName in Frameworks */,
 				EB5C37F02E377C3F0052EFD7 /* SwiftECC in Frameworks */,
+				EBADEB8F2E8029750021B5E4 /* DeviceKit in Frameworks */,
 				EB886E582E4E66420052B7D9 /* LUI in Frameworks */,
 				EB5C37EE2E377C3F0052EFD7 /* SwiftProtobuf in Frameworks */,
 				EB9925892E45F13500357055 /* QRCode in Frameworks */,
@@ -413,8 +413,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB950B672E520680002D68FA /* RNDeviceName in Frameworks */,
 				EB950B612E520674002D68FA /* SwiftECC in Frameworks */,
+				EBADEB912E802A830021B5E4 /* DeviceKit in Frameworks */,
 				EB950B652E52067D002D68FA /* LUI in Frameworks */,
 				EB950B5F2E520671002D68FA /* SwiftProtobuf in Frameworks */,
 				EB950B632E52067A002D68FA /* QRCode in Frameworks */,
@@ -724,7 +724,7 @@
 				EB5C37EF2E377C3F0052EFD7 /* SwiftECC */,
 				EB9925882E45F13500357055 /* QRCode */,
 				EB886E572E4E66420052B7D9 /* LUI */,
-				EB97A0122E51D6B2008B8C5C /* RNDeviceName */,
+				EBADEB8E2E8029750021B5E4 /* DeviceKit */,
 			);
 			productName = QuickDropiOS;
 			productReference = EB5C37E22E377C2E0052EFD7 /* QuickDropiOS.app */;
@@ -748,7 +748,7 @@
 				EB950B602E520674002D68FA /* SwiftECC */,
 				EB950B622E52067A002D68FA /* QRCode */,
 				EB950B642E52067D002D68FA /* LUI */,
-				EB950B662E520680002D68FA /* RNDeviceName */,
+				EBADEB902E802A830021B5E4 /* DeviceKit */,
 			);
 			productName = iOSShareExtension;
 			productReference = EB950B2D2E52027F002D68FA /* iOSShareExtension.appex */;
@@ -810,7 +810,7 @@
 				EB2F9BFC2DA05F48004010A2 /* XCRemoteSwiftPackageReference "BezelNotification" */,
 				EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */,
 				EB886E562E4E66420052B7D9 /* XCRemoteSwiftPackageReference "LUI" */,
-				EB97A0112E51D6B2008B8C5C /* XCRemoteSwiftPackageReference "RNDeviceName" */,
+				EBADEB8B2E8029420021B5E4 /* XCRemoteSwiftPackageReference "DeviceKit" */,
 			);
 			productRefGroup = 69DA9A0F29E0BF5100A442DA /* Products */;
 			projectDirPath = "";
@@ -1634,20 +1634,20 @@
 				kind = branch;
 			};
 		};
-		EB97A0112E51D6B2008B8C5C /* XCRemoteSwiftPackageReference "RNDeviceName" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/souzainf3/RNDeviceName";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.0;
-			};
-		};
 		EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dagronf/qrcode.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 26.10.0;
+			};
+		};
+		EBADEB8B2E8029420021B5E4 /* XCRemoteSwiftPackageReference "DeviceKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devicekit/DeviceKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1713,16 +1713,6 @@
 			package = EB886E562E4E66420052B7D9 /* XCRemoteSwiftPackageReference "LUI" */;
 			productName = LUI;
 		};
-		EB950B662E520680002D68FA /* RNDeviceName */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EB97A0112E51D6B2008B8C5C /* XCRemoteSwiftPackageReference "RNDeviceName" */;
-			productName = RNDeviceName;
-		};
-		EB97A0122E51D6B2008B8C5C /* RNDeviceName */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EB97A0112E51D6B2008B8C5C /* XCRemoteSwiftPackageReference "RNDeviceName" */;
-			productName = RNDeviceName;
-		};
 		EB9925842E45EF0900357055 /* QRCode */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */;
@@ -1737,6 +1727,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */;
 			productName = QRCode;
+		};
+		EBADEB8E2E8029750021B5E4 /* DeviceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBADEB8B2E8029420021B5E4 /* XCRemoteSwiftPackageReference "DeviceKit" */;
+			productName = DeviceKit;
+		};
+		EBADEB902E802A830021B5E4 /* DeviceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBADEB8B2E8029420021B5E4 /* XCRemoteSwiftPackageReference "DeviceKit" */;
+			productName = DeviceKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

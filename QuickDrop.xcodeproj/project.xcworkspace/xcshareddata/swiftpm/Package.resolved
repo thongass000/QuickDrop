@@ -1,5 +1,5 @@
 {
-  "originHash" : "212cf044c2b0bab89578ca93a3666a656e0c44fb54a69f813c4cc4fae07827d7",
+  "originHash" : "2300836aed6b8c40d3dd5a381b8b335723fedee317f36875e3e194b158f8ce9e",
   "pins" : [
     {
       "identity" : "applewatchscreensize",
@@ -38,6 +38,15 @@
       }
     },
     {
+      "identity" : "devicekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/devicekit/DeviceKit",
+      "state" : {
+        "revision" : "581df61650bc457ec00373a592a84be3e7468eb1",
+        "version" : "5.7.0"
+      }
+    },
+    {
       "identity" : "lui",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/leonboe1/LUI.git",
@@ -53,15 +62,6 @@
       "state" : {
         "revision" : "177d4091f7fcce1efc22de2a5fcdb671bd103101",
         "version" : "26.10.0"
-      }
-    },
-    {
-      "identity" : "rndevicename",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/souzainf3/RNDeviceName",
-      "state" : {
-        "revision" : "68ada02a7135381425b01778aeb8719ce3bf8f62",
-        "version" : "2.1.0"
       }
     },
     {

@@ -7,7 +7,7 @@
 
 #if os(iOS)
 import UIKit
-import RNDeviceName
+import DeviceKit
 #endif
 
 import Foundation
@@ -59,7 +59,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
 #if os(macOS)
         self.deviceInfo = EndpointInfo(name: Host.current().localizedName ?? "Mac", deviceType: .computer)
 #else
-        let marketingName = UIDevice.current.marketingName.withoutBracketedContent
+        let marketingName = Device.current.description.withoutBracketedContent
         let isiPad = UIDevice.current.model == "iPad"
         
         self.deviceInfo = EndpointInfo(name: marketingName, deviceType: isiPad ? .tablet : .phone)
