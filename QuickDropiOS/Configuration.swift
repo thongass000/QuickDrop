@@ -12,6 +12,8 @@ let configuration = LUIConfiguration(
     
     inAppPurchaseName: "plusversion",
     
+    plusVersionInfo: GetPlusViewInformation(description: "plusview_description_phone", plusVersionFeatures: [], settingsLabelColor: .orange, settingsFooter: "plusview_footer_phone"),
+    
     hasRoundedFont: false,
     
     copyrightInformation: licenseText,

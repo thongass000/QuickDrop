@@ -11180,6 +11180,239 @@
         }
       }
     },
+    "General" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عام"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obecné"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generelt"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allgemein"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Γενικά"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General"
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yleiset"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Général"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Général"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "כללי"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सामान्य"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Općenito"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Általános"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umum"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generale"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一般"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "일반"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umum"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generelt"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algemeen"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ogólne"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geral"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geral"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Общие"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allmänt"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ทั่วไป"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genel"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загальні"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chung"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通用"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一般"
+          }
+        }
+      }
+    },
     "GetSupport" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -24921,6 +25154,239 @@
         }
       }
     },
+    "TrustedDevicesFooterShort" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "أضف أجهزة موثوقة لاستلام الملفات دون الحاجة لقبولها يدويًا."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Afegeix dispositius de confiança per rebre fitxers sense haver-los d'acceptar manualment."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Přidejte důvěryhodná zařízení, abyste mohli přijímat soubory bez nutnosti je ručně potvrzovat."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tilføj betroede enheder for at modtage filer uden manuel accept."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vertraute Geräte hinzufügen, um Dateien automatisch zu empfangen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Προσθέστε αξιόπιστες συσκευές για να λαμβάνετε αρχεία χωρίς χειροκίνητη αποδοχή."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can add trusted devices to receive files without having to manually accept them."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Add trusted devices to get files without needing to accept them each time."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Add trusted devices to receive files without needing to approve each time."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Add trusted devices to receive files without having to approve them manually."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Agrega dispositivos de confianza para recibir archivos sin tener que aceptarlos manualmente."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Agrega dispositivos de confianza para recibir archivos sin tener que aceptarlos manualmente."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Lisää luotetut laitteet, jotta voit vastaanottaa tiedostoja ilman manuaalista hyväksyntää."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ajoutez des appareils de confiance pour recevoir des fichiers sans avoir à les accepter manuellement."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ajoutez des appareils de confiance pour recevoir des fichiers sans avoir à les accepter manuellement."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "הוסף מכשירים מהימנים כדי לקבל קבצים ללא צורך באישור ידני."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "विश्वसनीय डिवाइस जोड़ें ताकि फाइलें बिना मैन्युअल स्वीकृति के प्राप्त हो सकें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Dodajte pouzdane uređaje za primanje datoteka bez ručnog prihvaćanja."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Adj hozzá megbízható eszközöket, hogy automatikusan fogadhass fájlokat kézi elfogadás nélkül."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tambahkan perangkat tepercaya untuk menerima file tanpa harus menerima secara manual."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Aggiungi dispositivi attendibili per ricevere file senza doverli accettare manualmente."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "信頼できるデバイスを追加すると、手動で承認せずにファイルを受信できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "신뢰할 수 있는 기기를 추가하면 파일을 수동으로 승인하지 않아도 받을 수 있습니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tambah peranti dipercayai untuk terima fail tanpa perlu terima secara manual."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Legg til pålitelige enheter for å motta filer uten å måtte godkjenne manuelt."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Voeg vertrouwde apparaten toe om bestanden te ontvangen zonder handmatige goedkeuring."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Dodaj zaufane urządzenia, aby otrzymywać pliki bez konieczności ręcznego akceptowania."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Adicione dispositivos confiáveis para receber arquivos sem precisar aceitar manualmente."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Adicione dispositivos de confiança para receber ficheiros sem ter de os aceitar manualmente."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Adaugă dispozitive de încredere pentru a primi fișiere fără a le accepta manual."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Добавьте доверенные устройства, чтобы получать файлы без ручного подтверждения."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Lägg till betrodda enheter för att ta emot filer utan att behöva godkänna dem manuellt."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "เพิ่มอุปกรณ์ที่เชื่อถือได้เพื่อรับไฟล์โดยไม่ต้องกดยืนยันด้วยตนเอง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Dosyaları manuel olarak onaylamadan almak için güvenilen cihazlar ekleyin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Додайте довірені пристрої, щоб отримувати файли без ручного підтвердження."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Thêm thiết bị tin cậy để nhận tệp mà không cần phải chấp nhận thủ công."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "添加可信设备后可自动接收文件，无需手动确认。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "新增受信任的裝置，可自動接收檔案，無需手動接受。"
+          }
+        }
+      }
+    },
     "TypeNotSupported" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -27712,6 +28178,472 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "解鎖 QuickDrop+ 以繼續無限制地交換文件。QuickDrop+ 是一次性購買——不需要訂閱。包含所有當前和未來的功能。"
+          }
+        }
+      }
+    },
+    "plusview_description_phone" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتح QuickDrop+ لتبادل ملفات غير محدودة بين جهاز Android وجهاز Mac لديك. جميع المنصات والميزات القادمة مشمولة."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloqueja QuickDrop+ per intercanviar arxius il·limitats entre el teu dispositiu Android i el Mac. Totes les plataformes i futures funcionalitats incloses."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odemkněte QuickDrop+ a vyměňujte si neomezeně soubory mezi svým zařízením s Androidem a Macem. Zahrnuje všechny platformy i budoucí funkce."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lås op for QuickDrop+ for at udveksle ubegrænsede filer mellem din Android-enhed og Mac. Alle platforme og kommende funktioner er inkluderet."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schalte QuickDrop+ frei, um unbegrenzt Dateien zwischen deinem Android- und Mac-Gerät zu übertragen. Alle Plattformen und kommende Funktionen sind enthalten."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ξεκλειδώστε το QuickDrop+ για να ανταλλάσσετε απεριόριστα αρχεία ανάμεσα σε Android και Mac συσκευές. Περιλαμβάνονται όλες οι πλατφόρμες και μελλοντικές λειτουργίες."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock QuickDrop+ to exchange unlimited files with your Android device and Mac device. All platforms and upcoming features are included."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock QuickDrop+ to swap unlimited files between your Android and Mac. All platforms and upcoming features included."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock QuickDrop+ to exchange unlimited files between your Android device and Mac. Includes all platforms and future features."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock QuickDrop+ to exchange unlimited files between your Android and Mac devices. All platforms and future features included."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloquea QuickDrop+ para intercambiar archivos ilimitados entre tu dispositivo Android y Mac. Todas las plataformas y próximas funciones están incluidas."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloquea QuickDrop+ para intercambiar archivos ilimitados entre tu dispositivo Android y Mac. Incluye todas las plataformas y funciones futuras."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avaa QuickDrop+, jotta voit vaihtaa rajattomasti tiedostoja Android-laitteesi ja Macisi välillä. Kaikki alustat ja tulevat ominaisuudet sisältyvät."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Débloquez QuickDrop+ pour échanger des fichiers illimités entre votre appareil Android et votre Mac. Toutes les plateformes et futures fonctionnalités sont incluses."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Débloquez QuickDrop+ pour échanger un nombre illimité de fichiers entre votre appareil Android et votre Mac. Toutes les plateformes et les prochaines fonctionnalités sont incluses."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פתח את QuickDrop+ כדי להחליף קבצים ללא הגבלה בין מכשיר האנדרואיד ל-Mac שלך. כל הפלטפורמות והתכונות הקרובות כלולות."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अनलिमिटेड फाइल ट्रांसफर के लिए QuickDrop+ अनलॉक करें और अपने Android व Mac डिवाइस के बीच फ़ाइलें भेजें। सभी प्लेटफ़ॉर्म व आने वाली सुविधाएँ शामिल हैं।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otključajte QuickDrop+ za neograničenu razmjenu datoteka između Android i Mac uređaja. Sve platforme i nadolazeće značajke su uključene."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oldja fel a QuickDrop+ funkciót, hogy korlátlanul cserélhessen fájlokat Android és Mac eszköze között. Minden platform és közelgő funkció benne van."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka QuickDrop+ untuk bertukar file tanpa batas antara perangkat Android dan Mac Anda. Semua platform dan fitur terbaru sudah termasuk."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sblocca QuickDrop+ per scambiare file illimitati tra il tuo dispositivo Android e Mac. Tutte le piattaforme e le prossime funzionalità sono incluse."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop+ をアンロックして、Android デバイスと Mac デバイス間で無制限にファイル転送。全プラットフォームと今後の機能も利用可能です。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop+를 잠금 해제하여 Android와 Mac 기기 간에 무제한 파일을 전송하세요. 모든 플랫폼 및 향후 기능이 포함됩니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka QuickDrop+ untuk tukar fail tanpa had antara peranti Android dan Mac anda. Semua platform dan ciri akan datang disertakan."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lås opp QuickDrop+ for å overføre ubegrenset med filer mellom Android- og Mac-enheten din. Alle plattformer og kommende funksjoner er inkludert."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ontgrendel QuickDrop+ om onbeperkt bestanden uit te wisselen tussen je Android- en Mac-apparaat. Alle platforms en toekomstige functies zijn inbegrepen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odblokuj QuickDrop+, aby wymieniać nieograniczoną liczbę plików między urządzeniem z Androidem a Maciem. Wszystkie platformy i nadchodzące funkcje w cenie."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloqueie o QuickDrop+ para trocar arquivos ilimitados entre seu dispositivo Android e Mac. Todas as plataformas e recursos futuros incluídos."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloqueie o QuickDrop+ para trocar ficheiros ilimitados entre o seu dispositivo Android e Mac. Todas as plataformas e futuras funcionalidades incluídas."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deblochează QuickDrop+ pentru a transfera fișiere nelimitat între dispozitivul tău Android și Mac. Toate platformele și funcțiile viitoare sunt incluse."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Откройте QuickDrop+, чтобы обмениваться неограниченным количеством файлов между Android и Mac. Все платформы и будущие функции включены."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lås upp QuickDrop+ för att utbyta obegränsat med filer mellan din Android- och Mac-enhet. Alla plattformar och kommande funktioner ingår."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ปลดล็อก QuickDrop+ เพื่อแลกเปลี่ยนไฟล์ไม่จำกัดระหว่างอุปกรณ์ Android และ Mac ของคุณ รองรับทุกแพลตฟอร์มและฟีเจอร์ใหม่ในอนาคต"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop+’ı açarak Android ve Mac cihazların arasında sınırsız dosya aktarımı yapın. Tüm platformlar ve gelecek özellikler dahildir."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрийте QuickDrop+, щоб обмінюватися необмеженою кількістю файлів між вашим Android і Mac. Усі платформи та майбутні функції включені."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mở khóa QuickDrop+ để trao đổi không giới hạn tệp giữa thiết bị Android và Mac của bạn. Bao gồm tất cả nền tảng và tính năng sắp ra mắt."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解锁 QuickDrop+，即可在 Android 设备和 Mac 设备间无限制传输文件。支持所有平台及即将推出的功能。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解鎖 QuickDrop+，即可在 Android 與 Mac 裝置間無限傳輸檔案。所有平台和即將推出的功能均包含在內。"
+          }
+        }
+      }
+    },
+    "plusview_footer_phone" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شكرًا لاستخدامك QuickDrop! ادعم تطوير التطبيق بمساهمة بسيطة لمرة واحدة."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gràcies per utilitzar QuickDrop! Dona suport al desenvolupament amb una petita aportació única."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Děkujeme, že používáte QuickDrop! Podpořte vývoj malým jednorázovým příspěvkem."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tak for at bruge QuickDrop! Støt udviklingen med et lille engangsbeløb."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danke, dass Du QuickDrop nutzt! Unterstütze die Entwicklung mit einer kleinen Einmalspende."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ευχαριστούμε που χρησιμοποιείτε το QuickDrop! Υποστηρίξτε την ανάπτυξη με μια μικρή εφάπαξ συνεισφορά."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thanks for using QuickDrop! Support development with a small one-time contribution."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thanks for using QuickDrop! Support development with a small one-off contribution."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thanks for using QuickDrop! Support development with a small one-time contribution."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thanks for using QuickDrop! Support development with a small one-off contribution."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Gracias por usar QuickDrop! Apoya el desarrollo con una pequeña contribución única."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Gracias por usar QuickDrop! Apoya el desarrollo con una pequeña contribución única."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kiitos, että käytät QuickDropia! Tue kehitystä pienellä kertalahjoituksella."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merci d’utiliser QuickDrop ! Soutenez le développement avec une petite contribution unique."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merci d’utiliser QuickDrop! Soutenez le développement avec une petite contribution unique."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תודה שהשתמשת ב-QuickDrop! תמוך בפיתוח בתרומה חד-פעמית קטנה."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop का उपयोग करने के लिए धन्यवाद! विकास के लिए एक छोटी सी एकमुश्त सहायता करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hvala što koristite QuickDrop! Podržite razvoj malom jednokratnom donacijom."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Köszönjük, hogy használod a QuickDropot! Támogasd a fejlesztést egy kis egyszeri hozzájárulással."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terima kasih telah menggunakan QuickDrop! Dukung pengembangan dengan kontribusi sekali bayar."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grazie per aver scelto QuickDrop! Supporta lo sviluppo con un piccolo contributo una tantum."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDropをご利用いただきありがとうございます！開発支援のために小さなご支援をお願いします。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop를 이용해 주셔서 감사합니다! 소액의 일회성 후원으로 개발을 지원해 주세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terima kasih kerana menggunakan QuickDrop! Sokong pembangunan dengan sumbangan sekali sahaja."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Takk for at du bruker QuickDrop! Støtt utviklingen med et lite engangsbeløp."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bedankt voor het gebruik van QuickDrop! Steun de ontwikkeling met een kleine eenmalige bijdrage."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dziękujemy za korzystanie z QuickDrop! Wesprzyj rozwój jednorazową, niewielką wpłatą."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obrigado por usar o QuickDrop! Apoie o desenvolvimento com uma pequena contribuição única."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obrigado por usar o QuickDrop! Apoie o desenvolvimento com uma pequena contribuição única."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mulțumim că folosești QuickDrop! Susține dezvoltarea cu o mică contribuție unică."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спасибо, что пользуетесь QuickDrop! Поддержите разработку разовым взносом."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tack för att du använder QuickDrop! Stöd utvecklingen med ett litet engångsbidrag."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ขอบคุณที่ใช้ QuickDrop! สนับสนุนการพัฒนาด้วยการบริจาคเพียงครั้งเดียว"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop'u kullandığınız için teşekkürler! Geliştirme için küçük bir seferlik katkıda bulunun."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дякуємо, що користуєтесь QuickDrop! Підтримайте розвиток додатка одноразовим внеском."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cảm ơn bạn đã sử dụng QuickDrop! Hãy ủng hộ phát triển bằng một khoản đóng góp nhỏ một lần."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "感谢使用QuickDrop！请通过一次性小额捐助支持我们的开发。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "感謝您使用 QuickDrop！歡迎一次性小額贊助支持開發。"
           }
         }
       }

@@ -1,5 +1,5 @@
 {
-  "originHash" : "2300836aed6b8c40d3dd5a381b8b335723fedee317f36875e3e194b158f8ce9e",
+  "originHash" : "270e8bfd245fae589b12faf08b86042cbbe7c809d59c5b0b8b735c7fb3a8d4bd",
   "pins" : [
     {
       "identity" : "applewatchscreensize",
@@ -52,7 +52,7 @@
       "location" : "https://github.com/leonboe1/LUI.git",
       "state" : {
         "branch" : "main",
-        "revision" : "a0d723963afaec816df7a99ae7195674f8d4ce98"
+        "revision" : "123192312165c23271cd49492ae7e4fc676d7711"
       }
     },
     {

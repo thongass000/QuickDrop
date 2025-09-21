@@ -15,11 +15,11 @@ struct ContentView: View {
     @ObservedObject var settings = Settings.shared
     
     var body: some View {
-        AppRootView(isPlus: .constant(true), phoneView: {
+        AppRootView(isPlus: $settings.gotPlus, phoneView: {
             DeviceListView()
                 .environment(\.sheetActive, isShareExtension())
         }, settingsView: {
-            CustomSection {
+            CustomSection(header: settings.gotPlus ? "" : "General", footer: "TrustedDevicesFooterShort") {
                 LUIButton {
                     SaveFilesManager.shared.openDownloadedFilesFolder()
                 } label: {
@@ -48,8 +48,11 @@ struct DeviceListView: View {
     @Environment(\.scenePhase) var scenePhase
     @Environment(\.sheetActive) var sheetActive
     @ObservedObject var nearbyConnectionManager = NearbyConnectionManager.shared
+    @ObservedObject var settings = Settings.shared
     
     var body: some View {
+        
+        let showsLoadingIndicator = nearbyConnectionManager.hasLocalNetworkPermission && nearbyConnectionManager.isConnectedToLocalNetwork
         
         BottomBarView(header: "QuickDrop ", navigationBarLayout: isShareExtension() ? .SmallOnlyAlways : .Default, bottomViewHeight: 30) {
             VStack {
@@ -101,10 +104,16 @@ struct DeviceListView: View {
                             Image(systemName: hasWifi ? "arrow.down.circle.fill" : "wifi.slash")
                                 .font(.system(size: 30))
                                 .foregroundColor(.blue)
-                                .padding(.leading, -10)
-                                .frame(width: 30)
+                                .background(
+                                    Circle()
+                                        .fill(Color.white)
+                                        .padding(3)
+                                        .opacity(hasWifi ? 1 : 0)
+                                )
+                                .frame(width: 32)
                             
-                            Text(hasWifi ? "DownloadQuickDropOnPlayStore" : "NoWiFiConnectionDescription")
+                            LUIText(hasWifi ? "DownloadQuickDropOnPlayStore" : "NoWiFiConnectionDescription")
+                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         .animation(.default, value: hasWifi)
                         .padding(.vertical)
@@ -137,7 +146,7 @@ struct DeviceListView: View {
                 }
                 
                 
-                if nearbyConnectionManager.hasLocalNetworkPermission && nearbyConnectionManager.isConnectedToLocalNetwork {
+                if showsLoadingIndicator {
                     HStack(spacing: 8) {
                         Text("SearchingForDevices")
                             .font(.system(size: 14))
@@ -149,18 +158,18 @@ struct DeviceListView: View {
                     }
                     .padding(.vertical, 16)
                 }
-                
-             
-
             }
             .frame(maxWidth: 700)
         } bottomView: {
+            
             LUIButton {
                 qrCode = NearbyConnectionManager.shared.generateQrCodeKey()
                 sendModel.showQrCodeView = true
             } label: {
                 UnderlineText(label: "DeviceNotShown")
+                    .padding()
             }
+            .opacity(showsLoadingIndicator ? 1 : 0)
         }
         .luiSheet(isPresented: $sendModel.showQrCodeView, content: {
             NavigationView {

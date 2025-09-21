@@ -10,6 +10,8 @@ import QRCode
 
 #if os(macOS)
 let smallSheetViewSize = CGSize(width: 530.0, height: 270.0)
+#else
+import LUI
 #endif
 
 struct SmallSheetView: View {
@@ -52,16 +54,25 @@ struct SmallSheetView: View {
                     #endif
                     
                     HStack {
-                        
-                        Text("ConnectWithQuickDropApp")
-                            .padding(5)
-                            .padding(.horizontal, 4)
-                            .background(Capsule().fill(colorScheme == .light ? .white : .white.opacity(0.15)).opacity(connectWithApp ? 1 : 0))
+                        ZStack {
+                            Text("ConnectWithQuickDropApp")
+                            
+                            #if !os(macOS)
+                            Text(String(" \n "))
+                                .opacity(0) // keep size for label the same
+                            #endif
+                        }
+                        .padding(5)
+                        .padding(.horizontal, 4)
+                        .background(Capsule().fill(colorScheme == .light ? .white : .white.opacity(0.15)).opacity(connectWithApp ? 1 : 0))
                         
                         ZStack {
                             Text("ConnectWithoutApp")
-                            Text("ConnectWithQuickDropApp")
+                            
+                            #if !os(macOS)
+                            Text(String(" \n "))
                                 .opacity(0) // keep size for label the same
+                            #endif
                         }
                         .padding(5)
                         .padding(.horizontal, 4)
@@ -72,6 +83,11 @@ struct SmallSheetView: View {
                     .padding(4)
                     .background(Capsule().fill(Color.gray.opacity(colorScheme == .light ? 0.2 : 0.15)))
                     .onTapGesture {
+                        
+                        #if os(iOS)
+                        lightVibration()
+                        #endif
+                        
                         withAnimation {
                             connectWithApp.toggle()
                         }
@@ -81,7 +97,6 @@ struct SmallSheetView: View {
                 
                 
                 #if os(macOS)
-                
                 Spacer()
                 
                 Button(action: {
