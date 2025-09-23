@@ -25159,230 +25159,230 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "أضف أجهزة موثوقة لاستلام الملفات دون الحاجة لقبولها يدويًا."
+            "state" : "translated",
+            "value" : "يمكنك إضافة أجهزة موثوقة لاستلام الملفات دون الحاجة لقبولها يدويًا."
           }
         },
         "ca" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Afegeix dispositius de confiança per rebre fitxers sense haver-los d'acceptar manualment."
+            "state" : "translated",
+            "value" : "Pots afegir dispositius fiables per rebre fitxers sense haver-los d'acceptar manualment."
           }
         },
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Přidejte důvěryhodná zařízení, abyste mohli přijímat soubory bez nutnosti je ručně potvrzovat."
+            "state" : "translated",
+            "value" : "Můžete přidat důvěryhodná zařízení a přijímat soubory bez ručního schvalování."
           }
         },
         "da" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Tilføj betroede enheder for at modtage filer uden manuel accept."
+            "state" : "translated",
+            "value" : "Du kan tilføje betroede enheder for at modtage filer uden at skulle acceptere dem manuelt."
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Vertraute Geräte hinzufügen, um Dateien automatisch zu empfangen."
+            "state" : "translated",
+            "value" : "Du kannst vertrauenswürdige Geräte hinzufügen, um Dateien automatisch zu empfangen, ohne sie manuell annehmen zu müssen."
           }
         },
         "el" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Προσθέστε αξιόπιστες συσκευές για να λαμβάνετε αρχεία χωρίς χειροκίνητη αποδοχή."
+            "state" : "translated",
+            "value" : "Μπορείτε να προσθέσετε αξιόπιστες συσκευές για να λαμβάνετε αρχεία χωρίς χειροκίνητη αποδοχή."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You can add trusted devices to receive files without having to manually accept them."
+            "value" : "You can add trusted devices to receive files automatically, without manual approval."
           }
         },
         "en-AU" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Add trusted devices to get files without needing to accept them each time."
+            "state" : "translated",
+            "value" : "You can add trusted devices to receive files without needing to approve them each time."
           }
         },
         "en-CA" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Add trusted devices to receive files without needing to approve each time."
+            "state" : "translated",
+            "value" : "You can add trusted devices to receive files without needing to accept them manually."
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Add trusted devices to receive files without having to approve them manually."
+            "state" : "translated",
+            "value" : "You can add trusted devices to receive files without needing to approve them manually."
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Agrega dispositivos de confianza para recibir archivos sin tener que aceptarlos manualmente."
+            "state" : "translated",
+            "value" : "Puedes agregar dispositivos de confianza para recibir archivos sin tener que aceptarlos manualmente."
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Agrega dispositivos de confianza para recibir archivos sin tener que aceptarlos manualmente."
+            "state" : "translated",
+            "value" : "Puedes agregar dispositivos de confianza para recibir archivos sin tener que aceptarlos manualmente."
           }
         },
         "fi" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Lisää luotetut laitteet, jotta voit vastaanottaa tiedostoja ilman manuaalista hyväksyntää."
+            "state" : "translated",
+            "value" : "Voit lisätä luotettuja laitteita vastaanottaaksesi tiedostoja ilman manuaalista hyväksyntää."
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Ajoutez des appareils de confiance pour recevoir des fichiers sans avoir à les accepter manuellement."
+            "state" : "translated",
+            "value" : "Vous pouvez ajouter des appareils de confiance pour recevoir des fichiers sans avoir à les accepter manuellement."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Ajoutez des appareils de confiance pour recevoir des fichiers sans avoir à les accepter manuellement."
+            "state" : "translated",
+            "value" : "Vous pouvez ajouter des appareils de confiance pour recevoir des fichiers sans avoir à les accepter manuellement."
           }
         },
         "he" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "הוסף מכשירים מהימנים כדי לקבל קבצים ללא צורך באישור ידני."
+            "state" : "translated",
+            "value" : "אפשר להוסיף מכשירים מהימנים כדי לקבל קבצים ללא צורך באישור ידני."
           }
         },
         "hi" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "विश्वसनीय डिवाइस जोड़ें ताकि फाइलें बिना मैन्युअल स्वीकृति के प्राप्त हो सकें।"
+            "state" : "translated",
+            "value" : "आप विश्वसनीय डिवाइस जोड़ सकते हैं ताकि फाइलें बिना मैन्युअल स्वीकृति के प्राप्त हों।"
           }
         },
         "hr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Dodajte pouzdane uređaje za primanje datoteka bez ručnog prihvaćanja."
+            "state" : "translated",
+            "value" : "Možete dodati pouzdane uređaje za primanje datoteka bez ručnog prihvaćanja."
           }
         },
         "hu" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Adj hozzá megbízható eszközöket, hogy automatikusan fogadhass fájlokat kézi elfogadás nélkül."
+            "state" : "translated",
+            "value" : "Hozzáadhatsz megbízható eszközöket, hogy kézi elfogadás nélkül fogadhass fájlokat."
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Tambahkan perangkat tepercaya untuk menerima file tanpa harus menerima secara manual."
+            "state" : "translated",
+            "value" : "Anda dapat menambahkan perangkat tepercaya untuk menerima file tanpa harus menerimanya secara manual."
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Aggiungi dispositivi attendibili per ricevere file senza doverli accettare manualmente."
+            "state" : "translated",
+            "value" : "Puoi aggiungere dispositivi attendibili per ricevere file senza doverli accettare manualmente."
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "信頼できるデバイスを追加すると、手動で承認せずにファイルを受信できます。"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "신뢰할 수 있는 기기를 추가하면 파일을 수동으로 승인하지 않아도 받을 수 있습니다."
+            "state" : "translated",
+            "value" : "신뢰할 수 있는 기기를 추가하면 수동 승인 없이 파일을 받을 수 있습니다."
           }
         },
         "ms" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Tambah peranti dipercayai untuk terima fail tanpa perlu terima secara manual."
+            "state" : "translated",
+            "value" : "Anda boleh tambah peranti dipercayai untuk terima fail tanpa perlu menerimanya secara manual."
           }
         },
         "nb" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Legg til pålitelige enheter for å motta filer uten å måtte godkjenne manuelt."
+            "state" : "translated",
+            "value" : "Du kan legge til betrodde enheter for å motta filer uten å måtte godkjenne dem manuelt."
           }
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Voeg vertrouwde apparaten toe om bestanden te ontvangen zonder handmatige goedkeuring."
+            "state" : "translated",
+            "value" : "Je kunt vertrouwde apparaten toevoegen om bestanden te ontvangen zonder deze handmatig te hoeven accepteren."
           }
         },
         "pl" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Dodaj zaufane urządzenia, aby otrzymywać pliki bez konieczności ręcznego akceptowania."
+            "state" : "translated",
+            "value" : "Możesz dodać zaufane urządzenia, by otrzymywać pliki bez konieczności ręcznego akceptowania."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Adicione dispositivos confiáveis para receber arquivos sem precisar aceitar manualmente."
+            "state" : "translated",
+            "value" : "Você pode adicionar dispositivos confiáveis para receber arquivos sem precisar aceitá-los manualmente."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Adicione dispositivos de confiança para receber ficheiros sem ter de os aceitar manualmente."
+            "state" : "translated",
+            "value" : "Pode adicionar dispositivos de confiança para receber ficheiros sem ter de os aceitar manualmente."
           }
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Adaugă dispozitive de încredere pentru a primi fișiere fără a le accepta manual."
+            "state" : "translated",
+            "value" : "Poți adăuga dispozitive de încredere pentru a primi fișiere fără acceptare manuală."
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Добавьте доверенные устройства, чтобы получать файлы без ручного подтверждения."
+            "state" : "translated",
+            "value" : "Вы можете добавить доверенные устройства, чтобы получать файлы без ручного подтверждения."
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Lägg till betrodda enheter för att ta emot filer utan att behöva godkänna dem manuellt."
+            "state" : "translated",
+            "value" : "Du kan lägga till betrodda enheter för att ta emot filer utan att behöva godkänna dem manuellt."
           }
         },
         "th" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "เพิ่มอุปกรณ์ที่เชื่อถือได้เพื่อรับไฟล์โดยไม่ต้องกดยืนยันด้วยตนเอง"
+            "state" : "translated",
+            "value" : "คุณสามารถเพิ่มอุปกรณ์ที่เชื่อถือได้เพื่อรับไฟล์โดยไม่ต้องกดยอมรับด้วยตนเอง"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Dosyaları manuel olarak onaylamadan almak için güvenilen cihazlar ekleyin."
+            "state" : "translated",
+            "value" : "Güvenilen cihazlar ekleyerek dosyaları manuel olarak onaylamadan alabilirsiniz."
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Додайте довірені пристрої, щоб отримувати файли без ручного підтвердження."
+            "state" : "translated",
+            "value" : "Ви можете додати довірені пристрої, щоб отримувати файли без ручного підтвердження."
           }
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Thêm thiết bị tin cậy để nhận tệp mà không cần phải chấp nhận thủ công."
+            "state" : "translated",
+            "value" : "Bạn có thể thêm thiết bị tin cậy để nhận tệp mà không cần phải chấp nhận thủ công."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "添加可信设备后可自动接收文件，无需手动确认。"
+            "state" : "translated",
+            "value" : "您可以添加受信任的设备，这样接收文件时无需手动确认。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "新增受信任的裝置，可自動接收檔案，無需手動接受。"
+            "state" : "translated",
+            "value" : "您可以新增信任的裝置來自動接收檔案，無需手動接受。"
           }
         }
       }

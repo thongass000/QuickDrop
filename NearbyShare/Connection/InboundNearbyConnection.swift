@@ -392,7 +392,7 @@ class InboundNearbyConnection: NearbyConnection {
         
         let pkeFrame = frame.v1.pairedKeyEncryption
         
-        if pkeFrame.secretIDHash.isEmpty {
+        if frame.v1.certificateInfo.publicCertificate.isEmpty {
             log("[InboundNearbyConnection \(self.id)] Detected legacy peer.")
         }
         else {
