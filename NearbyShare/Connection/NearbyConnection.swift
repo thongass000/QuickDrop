@@ -164,6 +164,8 @@ class NearbyConnection {
     private func receiveFrameAsync() {
         connection.receive(minimumIncompleteLength: 4, maximumLength: 4) { content, _, isComplete, error in
             if self.connectionClosed {
+                log("[NearbyConnection \(self.id)] Received FIN from peer, connection closed.")
+                self.connection.cancel()
                 return
             }
             if isComplete {
@@ -201,6 +203,8 @@ class NearbyConnection {
     private func receiveFrameAsync(length: UInt32) {
         connection.receive(minimumIncompleteLength: Int(length), maximumLength: Int(length)) { [self] content, _, isComplete, _ in
             if self.connectionClosed {
+                log("[NearbyConnection \(self.id)] Received FIN from peer, connection closed.")
+                connection.cancel()
                 return
             }
             if isComplete {
