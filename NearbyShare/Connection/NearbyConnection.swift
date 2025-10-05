@@ -173,6 +173,7 @@ class NearbyConnection {
                 self.connectionClosedByPeer {
                     self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
                     self.disconnect()
+                    self.connection.cancel()
                 }
                 return
             }
@@ -220,6 +221,7 @@ class NearbyConnection {
                 self.connectionClosedByPeer {
                     self.lastError = NearbyError.protocolError("Error.ClosedByPeer".localized())
                     self.disconnect()
+                    self.connection.cancel()
                 }
                 
                 return
