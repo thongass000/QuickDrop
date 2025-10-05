@@ -31,12 +31,8 @@ class ShareViewController: UIViewController {
         // skip introduction for share extension
         LUIInit(configuration: configuration)
         LUISettings.sharedInstance.appLaunchedBefore = true
-        
-        // Replace with your app’s SwiftUI entry view
-        let contentView = ContentView()
-
-        // Embed SwiftUI inside the extension’s controller
-        let hostingController = UIHostingController(rootView: contentView)
+ 
+        let hostingController = UIHostingController(rootView: ContentView())
 
         addChild(hostingController)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
