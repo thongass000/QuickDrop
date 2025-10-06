@@ -24,31 +24,8 @@ func loadAttachments(with extensionContext: NSExtensionContext?, loadedItems: @e
     let item = extensionContext.inputItems[0] as! NSExtensionItem
     
     if let attachments = item.attachments {
-        if let text = item.attributedContentText?.string {
-            
-            log("Found text content: \(text)")
-            
-            result.textToSend = text
-            
-            #if os(macOS)
-            result.previewImage = NSImage(named: NSImage.multipleDocumentsName)
-            #else
-            result.previewImage = Image(systemName: "text.document")
-            #endif
-            
-            let maxLength = 50
-            let cleanedText = text.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "")
-            
-            if cleanedText.count > maxLength {
-                let index = cleanedText.index(cleanedText.startIndex, offsetBy: maxLength)
-                result.shortDescription = String(cleanedText[..<index]) + "..."
-            } else {
-                result.shortDescription = cleanedText
-            }
-            
-            loadedItems(result)
-            
-        } else {
+        
+        if !attachments.isEmpty {
             for attachment in attachments {
                 
                 if attachment.hasItemConformingToTypeIdentifier(UTType.url.identifier) {
@@ -58,6 +35,10 @@ func loadAttachments(with extensionContext: NSExtensionContext?, loadedItems: @e
                             result.urls += [(url as URL)]
                         } else if let url = data as? NSURL {
                             result.urls += [(url as URL)]
+                        }
+                        else {
+                            log("Attachment is not a URL, ignoring. All attachments: \(attachments.description)")
+                            ignoredAttachments += 1
                         }
                         
                         checkIfAttachmentsLoaded(result: result, attachmentCount: attachments.count, ignoredAttachments: ignoredAttachments)
@@ -82,6 +63,9 @@ func loadAttachments(with extensionContext: NSExtensionContext?, loadedItems: @e
                 }
             }
         }
+        else {
+            loadTextIfPossible()
+        }
     }
     else {
         log("No attachments found in extension context. Exiting.")
@@ -91,12 +75,48 @@ func loadAttachments(with extensionContext: NSExtensionContext?, loadedItems: @e
     }
     
     
+    func loadTextIfPossible() {
+        if let text = item.attributedContentText?.string {
+            
+            log("Found text content: \(text)")
+            
+            result.textToSend = text
+            
+            #if os(macOS)
+            result.previewImage = NSImage(named: NSImage.multipleDocumentsName)
+            #else
+            result.previewImage = Image(systemName: "text.document")
+            #endif
+            
+            let maxLength = 50
+            let cleanedText = text.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: "")
+            
+            if cleanedText.count > maxLength {
+                let index = cleanedText.index(cleanedText.startIndex, offsetBy: maxLength)
+                result.shortDescription = String(cleanedText[..<index]) + "..."
+            } else {
+                result.shortDescription = cleanedText
+            }
+            
+            DispatchQueue.main.async {
+                loadedItems(result)
+            }
+        }
+    }
+    
+    
     func checkIfAttachmentsLoaded(result: AttachmentDetails, attachmentCount: Int, ignoredAttachments: Int = 0) {
         
         var result = result
         
         if result.urls.count == attachmentCount-ignoredAttachments {
-            if result.urls.count == 1 {
+            
+            // Unable to load anything useful, check if there is text as last resort
+            if result.urls.count == 0 {
+                loadTextIfPossible()
+                return
+            }
+            else if result.urls.count == 1 {
                 
                 if result.urls[0].isFileURL {
                     
