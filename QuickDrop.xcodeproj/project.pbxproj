@@ -123,6 +123,7 @@
 		EB7F54142D78E9E700989564 /* LicenseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54132D78E9E400989564 /* LicenseWindow.swift */; };
 		EB821C992E76FE5300036963 /* SmallSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */; };
 		EB821C9A2E76FE5300036963 /* SmallSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */; };
+		EB869DB52E92AA3A009AAAD4 /* QuickDropToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB869DB42E92AA33009AAAD4 /* QuickDropToastView.swift */; };
 		EB886E522E4E19390052B7D9 /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E512E4E19390052B7D9 /* HKDF.swift */; };
 		EB886E532E4E19390052B7D9 /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E512E4E19390052B7D9 /* HKDF.swift */; };
 		EB886E542E4E19390052B7D9 /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E512E4E19390052B7D9 /* HKDF.swift */; };
@@ -341,6 +342,7 @@
 		EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		EB7F54112D78E95C00989564 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		EB7F54132D78E9E400989564 /* LicenseWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWindow.swift; sourceTree = "<group>"; };
+		EB869DB42E92AA33009AAAD4 /* QuickDropToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDropToastView.swift; sourceTree = "<group>"; };
 		EB886E512E4E19390052B7D9 /* HKDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKDF.swift; sourceTree = "<group>"; };
 		EB886E662E4F2F7C0052B7D9 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		EB950B2D2E52027F002D68FA /* iOSShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = iOSShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -605,6 +607,7 @@
 				EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */,
 				EB7F54112D78E95C00989564 /* TutorialView.swift */,
 				EB7F54132D78E9E400989564 /* LicenseWindow.swift */,
+				EB869DB42E92AA33009AAAD4 /* QuickDropToastView.swift */,
 				EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */,
 				EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */,
 				EBC05C812E33B58300EECC18 /* IssueViews */,
@@ -938,6 +941,7 @@
 				EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */,
 				EB5C38412E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37B82E377A6F0052EFD7 /* SleepManager.swift in Sources */,
+				EB869DB52E92AA3A009AAAD4 /* QuickDropToastView.swift in Sources */,
 				EB5C37B92E377A6F0052EFD7 /* SaveFilesManager.swift in Sources */,
 				EB5C37BA2E377A6F0052EFD7 /* Helpers.swift in Sources */,
 				EB05DFBE2E59FC8900EF567A /* TrustedDevicesView.swift in Sources */,
@@ -1239,8 +1243,8 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 76;
-				SHARED_VERSION = 2.4.2;
+				SHARED_BUILD = 77;
+				SHARED_VERSION = 2.4.3;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1302,8 +1306,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 76;
-				SHARED_VERSION = 2.4.2;
+				SHARED_BUILD = 77;
+				SHARED_VERSION = 2.4.3;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;

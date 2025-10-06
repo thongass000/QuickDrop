@@ -162,10 +162,10 @@ fileprivate struct DataUrl: Transferable {
             .cornerRadius(8)
     } onResult: { urls, text in
         if let urls = urls {
-            print("Selected URLs: \(urls)")
+            log("Selected URLs: \(urls)")
         }
         if let text = text {
-            print("Clipboard text: \(text)")
+            log("Clipboard text: \(text)")
         }
     }
 }

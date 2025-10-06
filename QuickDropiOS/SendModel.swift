@@ -60,7 +60,7 @@ class SendModel: ObservableObject, OutboundAppDelegate {
         errorVibration()
         #endif
         
-        ErrorAlertHandler.shared.showErrorAlert(for: selectedDevice?.name ?? "?", error: error)
+        ErrorAlertHandler.shared.showErrorAlert(for: selectedDevice?.name ?? "UnknownDevice".localized(), error: error)
         
         progressValue = nil
         selectedDevice = nil
@@ -116,7 +116,7 @@ class SendModel: ObservableObject, OutboundAppDelegate {
             progressValue = 0
             progressState = nil
             selectedDevice = nil
-            NearbyConnectionManager.shared.cancelOutgoingTransfer(id: device.id!)
+            NearbyConnectionManager.shared.cancelTransfer(id: device.id!)
         }
         else {
             

@@ -117,7 +117,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
     
     @IBAction func cancel(_: AnyObject?) {
         if let device = chosenDevice {
-            NearbyConnectionManager.shared.cancelOutgoingTransfer(id: device.id!)
+            NearbyConnectionManager.shared.cancelTransfer(id: device.id!)
         }
         let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
         extensionContext!.cancelRequest(withError: cancelError)

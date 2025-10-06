@@ -18,12 +18,12 @@ final class ProgressAlert {
     private weak var progressView: UIProgressView?
 
     // MARK: - Initial Accept / Decline
-    func askForUserPermission(title: String, message: String, acceptLabel: String, acceptAlwaysLabel: String?, rejectLabel: String, acceptAutomatically: Bool, onAccept: @escaping (AcceptAction) -> Void) {
+    func askForUserPermission(title: String, message: String, acceptLabel: String, acceptAlwaysLabel: String?, rejectLabel: String, acceptAutomatically: Bool, onAccept: @escaping (AcceptAction) -> Void, onCancel: @escaping () -> Void) {
         guard let vc = topMostViewController() else { return }
 
         if acceptAutomatically {
             onAccept(.Accept)
-            self.showProgressAlert(on: vc)
+            self.showProgressAlert(on: vc, onCancel: onCancel)
         }
         else {
             
@@ -37,13 +37,13 @@ final class ProgressAlert {
             
             alert.addAction(UIAlertAction(title: acceptLabel, style: .default, handler: { _ in
                 onAccept(.Accept)
-                self.showProgressAlert(on: vc)
+                self.showProgressAlert(on: vc, onCancel: onCancel)
             }))
             
             if let acceptAlways = acceptAlwaysLabel {
                 alert.addAction(UIAlertAction(title: acceptAlways, style: .default, handler: { _ in
                     onAccept(.AcceptAlways)
-                    self.showProgressAlert(on: vc)
+                    self.showProgressAlert(on: vc, onCancel: onCancel)
                 }))
             }
             
@@ -52,7 +52,7 @@ final class ProgressAlert {
     }
 
     // MARK: - Progress Alert
-    private func showProgressAlert(on vc: UIViewController) {
+    private func showProgressAlert(on vc: UIViewController, onCancel: @escaping () -> Void) {
         let alert = UIAlertController(title: "Receiving".localized(),
                                       message: "\n\n",
                                       preferredStyle: .alert)
@@ -67,7 +67,8 @@ final class ProgressAlert {
         ])
 
         let cancel = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { _ in
-            print("Cancel during progress")
+            log("Cancel during progress")
+            onCancel()
         })
         alert.addAction(cancel)
 

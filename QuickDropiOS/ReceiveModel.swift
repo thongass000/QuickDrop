@@ -17,6 +17,12 @@ import LUI
 
 class ReceiveModel: ObservableObject, InboundAppDelegate {
     
+    #if os(macOS)
+    @Published var progress: Double? = nil
+    private var toastWindow: NSWindow?
+    private var toastHosting: NSHostingView<QuickDropToastView>?
+    #endif
+    
     let controlPlusScreen: (Bool) -> Void
     
     init(controlPlusScreen: @escaping (Bool) -> Void = { _ in }) {
@@ -34,7 +40,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         #endif
 
         let fileStr: String
-
+        
         if let textTitle = transfer.textDescription {
             fileStr = textTitle
         } else if transfer.files.count == 1 {
@@ -72,25 +78,28 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         if acceptAutomatically && isMac {
             pressAcceptButton(transferID: transfer.id, trustDevice: false)
 
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
-                if granted {
-                    log("[ReceiveModel] User granted notification permissions")
-
-                    let notificationContent = UNMutableNotificationContent()
-                    notificationContent.title = "QuickDrop"
-                    notificationContent.body = mainMessage
-                    notificationContent.sound = nil
-                    let notificationId = UUID().uuidString
-
-                    let notificationReq = UNNotificationRequest(identifier: notificationId, content: notificationContent, trigger: nil)
-                    UNUserNotificationCenter.current().add(notificationReq)
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notificationId])
+            if transfer.type != .file {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
+                    if granted {
+                        log("[ReceiveModel] User granted notification permissions")
+                        
+                        let notificationContent = UNMutableNotificationContent()
+                        notificationContent.title = "QuickDrop"
+                        notificationContent.body = mainMessage
+                        notificationContent.sound = nil
+                        let notificationId = UUID().uuidString
+                        
+                        let notificationReq = UNNotificationRequest(identifier: notificationId, content: notificationContent, trigger: nil)
+                        UNUserNotificationCenter.current().add(notificationReq)
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notificationId])
+                        }
                     }
                 }
             }
-        } else {
+        }
+        else {
             
             let title = "QuickDrop - \(pinCodeMessage)"
             let primaryButtonTitle = "Accept".localized()
@@ -132,15 +141,23 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                     case .Decline:
                         secondaryButtonAction()
                 }
+            } onCancel: {
+                NearbyConnectionManager.shared.cancelTransfer(id: transferID)
             }
             #endif
         }
     }
     
     
-    func transferProgress(progress: Double) {
+    func transferProgress(connectionID: String, progress: Double) {
+        
         #if os(iOS)
         ProgressAlert.shared.updateProgress(progress)
+        #else
+        DispatchQueue.main.async {
+            self.progress = progress
+            self.showQuickDropToast(for: connectionID)
+        }
         #endif
     }
     
@@ -148,6 +165,10 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     func connectionWasTerminated(from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: (any Error)?) {
         
         #if os(macOS)
+        DispatchQueue.main.async {
+            self.hideQuickDropToast()
+            self.progress = nil
+        }
         finish()
         #else
         ProgressAlert.shared.updateProgress(nil) {
@@ -209,4 +230,90 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: true, trustDevice: trustDevice, storeInTemp: false)
         }
     }
+    
+    
+    // MARK: - macOS Progress Overlay
+    
+    #if os(macOS)
+    func showQuickDropToast(for connectionID: String) {
+        guard toastWindow == nil else { return }
+
+        let contentView = QuickDropToastView(
+            receiveModel: self,
+            onCancel: {
+                NearbyConnectionManager.shared.cancelTransfer(id: connectionID)
+            }
+        )
+
+        let hostingView = NSHostingView(rootView: contentView)
+        hostingView.frame.size = toastViewSize
+
+        // Prefer the screen under the mouse, then the key window’s screen, then main
+        let screen = NSScreen.screens.first { $0.frame.contains(NSEvent.mouseLocation) }
+            ?? NSApp.keyWindow?.screen
+            ?? NSScreen.main
+
+        guard let screen else { return }
+
+        let frame = screen.frame
+        let visible = screen.visibleFrame
+
+        let marginX: CGFloat = 24
+        let marginFromTop: CGFloat = 30
+
+        // If the menu bar is auto-hidden, visible.maxY == frame.maxY; subtract the status bar thickness to stay clear
+        let menuBarHidden = abs(frame.maxY - visible.maxY) < 0.5
+        let extraTopInset = menuBarHidden ? NSStatusBar.system.thickness : 0
+
+        let targetX = visible.maxX - toastViewSize.width - marginX
+        let targetY = visible.maxY - toastViewSize.height - marginFromTop - extraTopInset
+
+        // Start slightly above the final spot for a smooth slide-in
+        let startY = min(frame.maxY + 10, targetY + 10)
+        let startFrame = CGRect(x: targetX, y: startY, width: toastViewSize.width, height: toastViewSize.height)
+
+        let window = NSWindow(contentRect: startFrame,
+                              styleMask: [.borderless],
+                              backing: .buffered,
+                              defer: false)
+        window.isOpaque = false
+        window.backgroundColor = .clear
+        window.hasShadow = true
+        window.level = .statusBar
+        window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+        window.contentView = hostingView
+        window.ignoresMouseEvents = false
+        window.alphaValue = 0
+        window.makeKeyAndOrderFront(nil)
+
+        self.toastWindow = window
+        self.toastHosting = hostingView
+
+        NSAnimationContext.runAnimationGroup { ctx in
+            ctx.duration = 0.35
+            ctx.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            window.animator().setFrameOrigin(CGPoint(x: targetX, y: targetY))
+            window.animator().alphaValue = 1
+        }
+    }
+
+
+    func hideQuickDropToast() {
+        guard let window = toastWindow,
+              let screen = NSScreen.main else { return }
+
+        let offscreenY = screen.visibleFrame.origin.y + screen.visibleFrame.height + 20
+
+        NSAnimationContext.runAnimationGroup({ ctx in
+            ctx.duration = 0.35
+            ctx.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            window.animator().setFrameOrigin(CGPoint(x: window.frame.origin.x, y: offscreenY))
+            window.animator().alphaValue = 0
+        }, completionHandler: {
+            window.orderOut(nil)
+            self.toastWindow = nil
+            self.toastHosting = nil
+        })
+    }
+    #endif
 }

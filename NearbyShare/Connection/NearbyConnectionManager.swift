@@ -123,7 +123,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     public func becomeInvisible() {
         if !startedAdvertising {
-            print("[NearbyConnectionManager] Already invisible, ignoring becomeInvisible()")
+            log("[NearbyConnectionManager] Already invisible, ignoring becomeInvisible()")
             return
         }
         
@@ -205,7 +205,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     
     func updatedTransferProgress(connection: InboundNearbyConnection, progress: Double) {
-        mainAppDelegate?.transferProgress(progress: progress)
+        mainAppDelegate?.transferProgress(connectionID: connection.id, progress: progress)
     }
     
     
@@ -308,9 +308,14 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    public func cancelOutgoingTransfer(id: String) {
-        guard let transfer = outgoingTransfers[id] else { return }
-        transfer.connection.cancel()
+    public func cancelTransfer(id: String) {
+        
+        if let transfer = incomingConnections[id] {
+            transfer.cancel()
+        }
+        if let transfer = outgoingTransfers[id] {
+            transfer.connection.cancel()
+        }
     }
     
     

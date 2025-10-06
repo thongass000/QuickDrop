@@ -68,19 +68,6 @@ class OutboundNearbyConnection: NearbyConnection {
             }
         }
     }
-
-    
-    public func cancel() {
-        cancelled = true
-        if encryptionDone {
-            var cancel = Sharing_Nearby_Frame()
-            cancel.version = .v1
-            cancel.v1 = Sharing_Nearby_V1Frame()
-            cancel.v1.type = .cancel
-            try? sendTransferSetupFrame(cancel)
-        }
-        try? sendDisconnectionAndDisconnect()
-    }
     
 
     override func connectionReady() {
