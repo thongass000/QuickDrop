@@ -27,7 +27,8 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private var mdnsServices: [NetService] = []
     private var incomingConnections: [String: InboundNearbyConnection] = [:]
     private var foundServices: [String: FoundServiceInfo] = [:]
-    private var shareExtensionDelegates: [OutboundAppDelegate] = []
+    private var outboundAppDelegates: [OutboundAppDelegate] = []
+    private var inboundAppDelegates: [InboundAppDelegate] = []
     private var outgoingTransfers: [String: OutgoingTransferInfo] = [:]
     private var startedDeviceDiscovery = false
     private var startedAdvertising = false
@@ -41,7 +42,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     public let deviceInfo: EndpointInfo
     public let endpointID: [UInt8] = generateEndpointID()
-    public var mainAppDelegate: (any InboundAppDelegate)?
+    
     public static let shared = NearbyConnectionManager()
     
     @Published var attachments: AttachmentDetails? = nil
@@ -191,7 +192,9 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     
     func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, connection _: InboundNearbyConnection, acceptAutomatically: Bool) {
-        mainAppDelegate?.obtainUserConsent(transfer: transfer, device: device, acceptAutomatically: acceptAutomatically)
+        inboundAppDelegates.forEach { delegate in
+            delegate.obtainUserConsent(transfer: transfer, device: device, acceptAutomatically: acceptAutomatically)
+        }
     }
     
     
@@ -199,13 +202,17 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         incomingConnections.removeValue(forKey: connection.id)
         
         if !connection.wasUserRejected {
-            mainAppDelegate?.connectionWasTerminated(from: connection.remoteDeviceInfo ?? RemoteDeviceInfo(name: "UnknownDevice".localized(), type: .unknown), wasPlainTextTransfer: connection.isPlainTextTransfer, error: error)
+            inboundAppDelegates.forEach { delegate in
+                delegate.connectionWasTerminated(from: connection.remoteDeviceInfo ?? RemoteDeviceInfo(name: "UnknownDevice".localized(), type: .unknown), wasPlainTextTransfer: connection.isPlainTextTransfer, error: error)
+            }
         }
     }
     
     
     func updatedTransferProgress(connection: InboundNearbyConnection, progress: Double) {
-        mainAppDelegate?.transferProgress(connectionID: connection.id, progress: progress)
+        inboundAppDelegates.forEach { delegate in
+            delegate.transferProgress(connectionID: connection.id, progress: progress)
+        }
     }
     
     
@@ -283,7 +290,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             startedDeviceDiscovery = false
             
             
-            for delegate in shareExtensionDelegates {
+            for delegate in outboundAppDelegates {
                 
                 foundServices.values.forEach { service in
                     guard let device = service.device, let id = device.id else { return }
@@ -294,8 +301,8 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    public func addShareExtensionDelegate(_ delegate: OutboundAppDelegate) {
-        shareExtensionDelegates.append(delegate)
+    public func addOutboundAppDelegate(_ delegate: OutboundAppDelegate) {
+        outboundAppDelegates.append(delegate)
         for service in foundServices.values {
             guard let device = service.device else { continue }
             delegate.addDevice(device: device)
@@ -303,8 +310,17 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    public func removeShareExtensionDelegate(_ delegate: OutboundAppDelegate) {
-        shareExtensionDelegates.removeAll(where: { $0 === delegate })
+    public func addInboundAppDelegate(_ delegate: InboundAppDelegate) {
+        inboundAppDelegates.append(delegate)
+    }
+    
+    
+    public func removeOutboundAppDelegate(_ delegate: OutboundAppDelegate) {
+        outboundAppDelegates.removeAll(where: { $0 === delegate })
+    }
+    
+    public func removeInboundAppDelegate(_ delegate: InboundAppDelegate) {
+        inboundAppDelegates.removeAll(where: { $0 === delegate })
     }
     
     
@@ -358,7 +374,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             
             if qrData == qrCodeAdvertisingToken {
                 if let deviceInfo = deviceInfo {
-                    for delegate in shareExtensionDelegates {
+                    for delegate in outboundAppDelegates {
                         delegate.startTransferWithQrCode(device: deviceInfo)
                     }
                 }
@@ -370,7 +386,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
                     guard let name = String.init(data: decryptedName, encoding: .utf8) else { return }
                     endpointInfo.name = name
                     let deviceInfo = addFoundDevice(foundService: &foundService, endpointInfo: endpointInfo, endpointID: endpointID)
-                    for delegate in shareExtensionDelegates {
+                    for delegate in outboundAppDelegates {
                         delegate.startTransferWithQrCode(device: deviceInfo)
                     }
                 } catch {
@@ -386,7 +402,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         foundService.device = deviceInfo
         foundServices[endpointID] = foundService
         
-        for delegate in shareExtensionDelegates {
+        for delegate in outboundAppDelegates {
             delegate.addDevice(device: deviceInfo)
         }
         
@@ -397,7 +413,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private func removeFoundDevice(service: NWBrowser.Result) {
         guard let endpointID = endpointID(for: service) else { return }
         guard let _ = foundServices.removeValue(forKey: endpointID) else { return }
-        for delegate in shareExtensionDelegates {
+        for delegate in outboundAppDelegates {
             delegate.removeDevice(id: endpointID)
         }
     }
@@ -463,7 +479,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             conn.start()
         } catch {
             log("[NearbyConnectionManager] Error zipping URLs: \(error)")
-            shareExtensionDelegates.forEach { delegate in
+            outboundAppDelegates.forEach { delegate in
                 delegate.connectionFailed(error: error)
             }
         }

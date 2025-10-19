@@ -27,8 +27,13 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     
     init(controlPlusScreen: @escaping (Bool) -> Void = { _ in }) {
         self.controlPlusScreen = controlPlusScreen
-        NearbyConnectionManager.shared.mainAppDelegate = self
+        NearbyConnectionManager.shared.addInboundAppDelegate(self)
         NearbyConnectionManager.shared.becomeVisible()
+    }
+    
+    
+    deinit {
+        NearbyConnectionManager.shared.removeInboundAppDelegate(self)
     }
     
     

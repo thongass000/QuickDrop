@@ -29,7 +29,12 @@ class SendModel: ObservableObject, OutboundAppDelegate {
     
     init() {
         NearbyConnectionManager.shared.startDeviceDiscovery()
-        NearbyConnectionManager.shared.addShareExtensionDelegate(self)
+        NearbyConnectionManager.shared.addOutboundAppDelegate(self)
+    }
+    
+    
+    deinit {
+        NearbyConnectionManager.shared.removeOutboundAppDelegate(self)
     }
     
     
