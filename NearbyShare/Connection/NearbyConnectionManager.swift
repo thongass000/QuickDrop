@@ -203,7 +203,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         
         if !connection.wasUserRejected {
             inboundAppDelegates.forEach { delegate in
-                delegate.connectionWasTerminated(from: connection.remoteDeviceInfo ?? RemoteDeviceInfo(name: "UnknownDevice".localized(), type: .unknown), wasPlainTextTransfer: connection.isPlainTextTransfer, error: error)
+                delegate.connectionWasTerminated(connectionID: connection.id, from: connection.remoteDeviceInfo ?? RemoteDeviceInfo(name: "UnknownDevice".localized(), type: .unknown), wasPlainTextTransfer: connection.isPlainTextTransfer, error: error)
             }
         }
     }

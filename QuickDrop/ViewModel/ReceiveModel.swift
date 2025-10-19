@@ -17,6 +17,9 @@ import LUI
 
 class ReceiveModel: ObservableObject, InboundAppDelegate {
     
+    /// For each connection ID, store the last reported progress value
+    private var processes: [String: Double] = [:]
+    
     #if os(macOS)
     @Published var progress: Double? = nil
     private var toastWindow: NSWindow?
@@ -156,28 +159,42 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     
     func transferProgress(connectionID: String, progress: Double) {
         
+        // Update process dictionary
+        processes[connectionID] = progress
+        
+        // Calcualate average value for all ongoing transfers
+        let totalProgress = processes.values.reduce(0, +)
+        let averageProgress = totalProgress / Double(processes.count)
+        
         #if os(iOS)
-        ProgressAlert.shared.updateProgress(progress)
+        ProgressAlert.shared.updateProgress(averageProgress)
         #else
         DispatchQueue.main.async {
-            self.progress = progress
+            self.progress = averageProgress
             self.showQuickDropToast(for: connectionID)
         }
         #endif
     }
     
     
-    func connectionWasTerminated(from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: (any Error)?) {
+    func connectionWasTerminated(connectionID: String, from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: (any Error)?) {
+        
+        processes.removeValue(forKey: connectionID)
         
         #if os(macOS)
         DispatchQueue.main.async {
             self.hideQuickDropToast()
-            self.progress = nil
+            
+            if self.processes.isEmpty {
+                self.progress = nil
+            }
         }
         finish()
         #else
-        ProgressAlert.shared.updateProgress(nil) {
-            finish()
+        if self.processes.isEmpty {
+            ProgressAlert.shared.updateProgress(nil) {
+                finish()
+            }
         }
         #endif
         

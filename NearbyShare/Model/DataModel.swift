@@ -29,7 +29,7 @@ protocol OutboundNearbyConnectionDelegate {
 
 public protocol InboundAppDelegate: AnyObject {
     func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, acceptAutomatically: Bool)
-    func connectionWasTerminated(from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: Error?)
+    func connectionWasTerminated(connectionID: String, from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: Error?)
     func transferProgress(connectionID: String, progress: Double)
 }
 
