@@ -439,7 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				699DEBA52AB0573200115D22 /* ShareViewController.swift */,
-				EB950B732E520954002D68FA /* Attachments.swift */,
+				EB644B872EA50827006C2E6C /* Helpers */,
 				EB950B762E521712002D68FA /* AttachmentDetails.swift */,
 				EB5C371E2E36693D0052EFD7 /* View */,
 				699DEBAA2AB0573200115D22 /* Info.plist */,
@@ -479,7 +479,7 @@
 			children = (
 				69DA9A1129E0BF5100A442DA /* AppDelegate.swift */,
 				EB1325D22E701D8900FD749C /* Settings.swift */,
-				EB1325EA2E7025D900FD749C /* SelfTest */,
+				EB644B852EA507CF006C2E6C /* ViewModel */,
 				EBC05C6A2E33B55100EECC18 /* View */,
 				EBC05C6B2E33B57100EECC18 /* Util */,
 				EBC05C702E33B57D00EECC18 /* Plus */,
@@ -572,6 +572,34 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		EB644B852EA507CF006C2E6C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EB979F902E50CA23008B8C5C /* SendModel.swift */,
+				EB97A00E2E511120008B8C5C /* ReceiveModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EB644B862EA50807006C2E6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB979F8E2E50CA23008B8C5C /* ContentView.swift */,
+				EB979F8F2E50CA23008B8C5C /* FilePicker.swift */,
+				EB97A0192E51EA9C008B8C5C /* UIAlert.swift */,
+				EB979F992E50CAA6008B8C5C /* PieProgressView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EB644B872EA50827006C2E6C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EB950B732E520954002D68FA /* Attachments.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		EB950B6C2E5206E2002D68FA /* iOSShareExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -588,12 +616,7 @@
 				EB97A0162E51DF4F008B8C5C /* Info.plist */,
 				EB1325FC2E7034B000FD749C /* InfoPlist.xcstrings */,
 				EB979F8D2E50CA23008B8C5C /* Configuration.swift */,
-				EB979F8E2E50CA23008B8C5C /* ContentView.swift */,
-				EB979F8F2E50CA23008B8C5C /* FilePicker.swift */,
-				EB979F902E50CA23008B8C5C /* SendModel.swift */,
-				EB97A00E2E511120008B8C5C /* ReceiveModel.swift */,
-				EB97A0192E51EA9C008B8C5C /* UIAlert.swift */,
-				EB979F992E50CAA6008B8C5C /* PieProgressView.swift */,
+				EB644B862EA50807006C2E6C /* View */,
 				EB979F912E50CA23008B8C5C /* QuickDropiOS.entitlements */,
 				EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */,
 			);
@@ -623,6 +646,7 @@
 				EB886E662E4F2F7C0052B7D9 /* License.swift */,
 				EB36435F2D73A29F009CDFF8 /* AudioManager.swift */,
 				EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */,
+				EB1325EA2E7025D900FD749C /* SelfTest */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1243,8 +1267,8 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 77;
-				SHARED_VERSION = 2.4.3;
+				SHARED_BUILD = 80;
+				SHARED_VERSION = 2.5.1;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1306,8 +1330,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 77;
-				SHARED_VERSION = 2.4.3;
+				SHARED_BUILD = 80;
+				SHARED_VERSION = 2.5.1;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
