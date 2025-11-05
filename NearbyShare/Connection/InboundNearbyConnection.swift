@@ -582,6 +582,11 @@ class InboundNearbyConnection: NearbyConnection {
             if storeInTemp {
                 try FileManager.default.createDirectory(at: SaveFilesManager.shared.tempDirectory, withIntermediateDirectories: true)
             }
+            
+            if filesToBeReceived.count >= 1 {
+                // Show progress bar for file transfers immediately
+                NearbyConnectionManager.shared.updatedTransferProgress(connection: self, progress: 0)
+            }
 
             for (id, file) in filesToBeReceived {
                 let targetURL = storeInTemp ? SaveFilesManager.shared.tempDirectory.appendingPathComponent(file.destinationURL.lastPathComponent) : file.destinationURL
