@@ -48,14 +48,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         menu.addItem(NSMenuItem.separator())
 
         let sendClipboardItem = NSMenuItem(title: "SendClipboard".localized(), action: #selector(sendClipboard), keyEquivalent: "")
+        sendClipboardItem.image = NSImage(systemSymbolName: "doc.on.clipboard", accessibilityDescription: nil)
         menu.addItem(sendClipboardItem)
 
         menu.addItem(NSMenuItem.separator())
 
         let userManualItem = NSMenuItem(title: "UserManual".localized(), action: #selector(openWelcomeScreen), keyEquivalent: "")
+        userManualItem.image = NSImage(systemSymbolName: "gear", accessibilityDescription: nil)
         menu.addItem(userManualItem)
 
-        menu.addItem(withTitle: "Quit".localized(), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "")
+        let quitItem = NSMenuItem(title: "Quit".localized(), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "")
+        quitItem.image = NSImage(systemSymbolName: "xmark", accessibilityDescription: nil)
+        menu.addItem(quitItem)
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem?.button?.image = NSImage(named: "MenuBarIcon")

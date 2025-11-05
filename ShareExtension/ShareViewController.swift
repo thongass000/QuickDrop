@@ -99,7 +99,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
         super.viewDidLoad()
         
         dicoverDevices()
-        NearbyConnectionManager.shared.addShareExtensionDelegate(self)
+        NearbyConnectionManager.shared.addOutboundAppDelegate(self)
     }
     
     
@@ -111,7 +111,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
         if chosenDevice == nil {
             NearbyConnectionManager.shared.stopDeviceDiscovery()
         }
-        NearbyConnectionManager.shared.removeShareExtensionDelegate(self)
+        NearbyConnectionManager.shared.removeOutboundAppDelegate(self)
     }
     
     
