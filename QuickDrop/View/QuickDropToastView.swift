@@ -55,10 +55,6 @@ struct QuickDropToastView: View {
                         .font(.system(size: 10, weight: .semibold))
                         .foregroundColor(.secondary)
                         .frame(width: 18, height: 18)
-                        .background(
-                            VisualEffectView(material: .hudWindow)
-                                .clipShape(Circle())
-                        )
                 }
                 .buttonStyle(PlainButtonStyle())
             }
@@ -72,7 +68,7 @@ struct QuickDropToastView: View {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .stroke(Color.black.opacity(0.06), lineWidth: 1)
         )
-        .shadow(color: Color.black.opacity(0.12), radius: 20)
+        .shadow(color: Color.black.opacity(0.1), radius: 20)
         .frame(maxWidth: .infinity)
         .opacity(isFileTransferRestricted() ? 0 : 1)
     }
