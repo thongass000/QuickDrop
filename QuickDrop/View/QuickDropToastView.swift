@@ -110,11 +110,17 @@ struct CapsuleProgress: View {
 
     var body: some View {
         GeometryReader { geo in
+            let progress = max(0, min(1, value))
             ZStack(alignment: .leading) {
-                Capsule().fill(track)
                 Capsule()
+                    .fill(track)
+                Capsule() // Use a plain rectangle
                     .fill(fill)
-                    .frame(width: max(0, min(1, value)) * geo.size.width)
+                    .mask(
+                        Capsule()
+                            .frame(width: progress * geo.size.width)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    )
             }
         }
         .frame(height: 8)
@@ -126,13 +132,19 @@ struct CapsuleProgress: View {
 // MARK: - Preview
 struct QuickDropToastView_Previews: PreviewProvider {
     struct Demo: View {
+        
+        @State var model = ReceiveModel()
+        
         var body: some View {
             QuickDropToastView(
-                receiveModel: ReceiveModel(),
+                receiveModel: model,
                 onCancel: { }
             )
             .padding()
             .frame(width: toastViewSize.width, height: toastViewSize.height)
+            .onAppear {
+                model.progress = 0.01
+            }
         }
     }
     static var previews: some View { Demo() }
