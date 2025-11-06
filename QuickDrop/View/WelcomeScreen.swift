@@ -58,7 +58,7 @@ struct WelcomeScreen: View {
             .listStyle(SidebarListStyle())
             
             Divider()
-                .opacity(colorScheme == .light ? 1 : 0)
+                .opacity(colorScheme == .light ? 1 : 0.5)
                 .edgesIgnoringSafeArea(.vertical)
             
             ZStack {
