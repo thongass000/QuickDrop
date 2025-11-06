@@ -133,6 +133,36 @@ public struct TransferMetadata {
         case text
         case url
     }
+    
+    private func getSummary() -> String {
+        if let textTitle = textDescription {
+            return textTitle
+        } else if files.count == 1 {
+            return files[0].name
+        } else {
+            return String.localizedStringWithFormat("NFiles".localized(), files.count)
+        }
+    }
+    
+    public func getDescription(deviceName: String, alreadyAccepted: Bool) -> String {
+        
+        let fileStr = getSummary()
+        
+        switch type {
+            case .file:
+                return String(format: (alreadyAccepted ? "DeviceCurrentlySendingFiles" : "DeviceSendingFiles").localized(), arguments: [deviceName, fileStr])
+            
+            case .text:
+                return String(format: (alreadyAccepted ? "DeviceCurrentlySendingText" : "DeviceSendingText").localized(), arguments: [deviceName, fileStr])
+            
+            case .url:
+                return String(format: (alreadyAccepted ? "DeviceCurrentlySendingUrl" : "DeviceSendingUrl").localized(), arguments: [deviceName, fileStr])
+        }
+    }
+    
+    public func getPinCodeMessage() -> String {
+        return String(format: "PinCode".localized(), arguments: [pinCode ?? "?"])
+    }
 }
 
 

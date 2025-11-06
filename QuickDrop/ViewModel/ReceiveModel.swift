@@ -47,33 +47,8 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         AudioManager.playIncomingFileSound()
         #endif
 
-        let fileStr: String
-        
-        if let textTitle = transfer.textDescription {
-            fileStr = textTitle
-        } else if transfer.files.count == 1 {
-            fileStr = transfer.files[0].name
-        } else {
-            fileStr = String.localizedStringWithFormat("NFiles".localized(), transfer.files.count)
-        }
-
-        
-        let mainMessage: String
-        let name = device.name ?? "Android"
-        
-        switch transfer.type {
-            case .file:
-                mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingFiles" : "DeviceSendingFiles").localized(), arguments: [name, fileStr])
-            
-            case .text:
-                mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingText" : "DeviceSendingText").localized(), arguments: [name, fileStr])
-            
-            case .url:
-                mainMessage = String(format: (acceptAutomatically ? "DeviceCurrentlySendingUrl" : "DeviceSendingUrl").localized(), arguments: [name, fileStr])
-        }
-        
-       
-        let pinCodeMessage = String(format: "PinCode".localized(), arguments: [transfer.pinCode ?? "?"])
+        let mainMessage = transfer.getDescription(deviceName: device.name ?? "Android", alreadyAccepted: acceptAutomatically)
+        let pinCodeMessage = transfer.getPinCodeMessage()
         let transferID = transfer.id
         
         #if os(macOS)
