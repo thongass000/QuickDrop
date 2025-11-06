@@ -191,9 +191,16 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, connection _: InboundNearbyConnection, acceptAutomatically: Bool) {
+    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, connection _: InboundNearbyConnection) {
         inboundAppDelegates.forEach { delegate in
-            delegate.obtainUserConsent(transfer: transfer, device: device, acceptAutomatically: acceptAutomatically)
+            delegate.obtainUserConsent(transfer: transfer, device: device)
+        }
+    }
+    
+    
+    func obtainedUserConsentAutomatically(transfer: TransferMetadata, device: RemoteDeviceInfo, connection: InboundNearbyConnection) {
+        inboundAppDelegates.forEach { delegate in
+            delegate.obtainedUserConsentAutomatically(transfer: transfer, device: device)
         }
     }
     
@@ -209,6 +216,13 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
+    func showPlusScreen() {
+        inboundAppDelegates.forEach { delegate in
+            delegate.showPlusScreen()
+        }
+    }
+    
+    
     func updatedTransferProgress(connection: InboundNearbyConnection, progress: Double) {
         inboundAppDelegates.forEach { delegate in
             delegate.transferProgress(connectionID: connection.id, progress: progress)
@@ -216,11 +230,11 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    public func submitUserConsent(transferID: String, accept: Bool, trustDevice: Bool, storeInTemp: Bool = false) {
+    public func submitUserConsent(transferID: String, accept: Bool, trustDevice: Bool) {
         guard let conn = incomingConnections[transferID] else { return }
         
-        log("[NearbyConnectionManager] Submitting user consent for transfer \(transferID), accepted: \(accept), store in temp: \(storeInTemp)")
-        conn.submitUserConsent(accepted: accept, trustDevice: trustDevice, storeInTemp: storeInTemp)
+        log("[NearbyConnectionManager] Submitting user consent for transfer \(transferID), accepted: \(accept)")
+        conn.submitUserConsent(accepted: accept, trustDevice: trustDevice)
     }
     
     

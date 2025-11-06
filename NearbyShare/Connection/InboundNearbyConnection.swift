@@ -542,7 +542,13 @@ class InboundNearbyConnection: NearbyConnection {
             let acceptAutomatically = isAuthenticated || Settings.shared.automaticallyAcceptFiles
             
             DispatchQueue.main.async {
-                self.delegate?.obtainUserConsent(transfer: metadata, device: self.remoteDeviceInfo!, connection: self, acceptAutomatically: acceptAutomatically)
+                if acceptAutomatically {
+                    self.delegate?.obtainedUserConsentAutomatically(transfer: metadata, device: self.remoteDeviceInfo!, connection: self)
+                    self.submitUserConsent(accepted: true, trustDevice: false)
+                }
+                else {
+                    self.delegate?.obtainUserConsent(transfer: metadata, device: self.remoteDeviceInfo!, connection: self)
+                }
             }
         }
     }
@@ -557,14 +563,14 @@ class InboundNearbyConnection: NearbyConnection {
     }
     
 
-    func submitUserConsent(accepted: Bool, trustDevice: Bool, storeInTemp: Bool = false) {
+    func submitUserConsent(accepted: Bool, trustDevice: Bool) {
         if trustDevice, let peerCertificate = peerCertificate, let remoteDeviceInfo = remoteDeviceInfo {
             TrustStore.shared.addTrusted(certificate: peerCertificate, device: remoteDeviceInfo)
         }
         
         DispatchQueue.global(qos: .utility).async {
             if accepted {
-                self.acceptTransfer(storeInTemp: storeInTemp)
+                self.acceptTransfer()
             } else {
                 self.rejectTransfer()
             }
@@ -572,10 +578,17 @@ class InboundNearbyConnection: NearbyConnection {
     }
 
     
-    private func acceptTransfer(storeInTemp: Bool) {
+    private func acceptTransfer() {
         if currentState == .disconnected {
             log("[InboundNearbyConnection \(self.id)] Detected timeout, not accepting transfer")
             return
+        }
+        
+        let storeInTemp = isFileTransferRestricted()
+        
+        if storeInTemp {
+            log("[InboundNearbyConnection \(self.id)] File transfer restrictions detected, storing files in temporary directory.")
+            delegate?.showPlusScreen()
         }
 
         do {

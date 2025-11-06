@@ -18,38 +18,38 @@ final class ProgressAlert {
     private weak var progressView: UIProgressView?
 
     // MARK: - Initial Accept / Decline
-    func askForUserPermission(title: String, message: String, acceptLabel: String, acceptAlwaysLabel: String?, rejectLabel: String, acceptAutomatically: Bool, onAccept: @escaping (AcceptAction) -> Void, onCancel: @escaping () -> Void) {
+    func askForUserPermission(title: String, message: String, acceptLabel: String, acceptAlwaysLabel: String?, rejectLabel: String, onAccept: @escaping (AcceptAction) -> Void, onCancel: @escaping () -> Void) {
         guard let vc = topMostViewController() else { return }
 
-        if acceptAutomatically {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: rejectLabel, style: .cancel, handler: { _ in
+            onAccept(.Decline)
+        }))
+        
+        alert.addAction(UIAlertAction(title: acceptLabel, style: .default, handler: { _ in
             onAccept(.Accept)
             self.showProgressAlert(on: vc, onCancel: onCancel)
-        }
-        else {
-            
-            let alert = UIAlertController(title: title,
-                                          message: message,
-                                          preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: rejectLabel, style: .cancel, handler: { _ in
-                onAccept(.Decline)
-            }))
-            
-            alert.addAction(UIAlertAction(title: acceptLabel, style: .default, handler: { _ in
-                onAccept(.Accept)
+        }))
+        
+        if let acceptAlways = acceptAlwaysLabel {
+            alert.addAction(UIAlertAction(title: acceptAlways, style: .default, handler: { _ in
+                onAccept(.AcceptAlways)
                 self.showProgressAlert(on: vc, onCancel: onCancel)
             }))
-            
-            if let acceptAlways = acceptAlwaysLabel {
-                alert.addAction(UIAlertAction(title: acceptAlways, style: .default, handler: { _ in
-                    onAccept(.AcceptAlways)
-                    self.showProgressAlert(on: vc, onCancel: onCancel)
-                }))
-            }
-            
-            vc.present(alert, animated: true)
         }
+        
+        vc.present(alert, animated: true)
     }
+    
+    
+    func showProgressAlert(onCancel: @escaping () -> Void) {
+        guard let vc = topMostViewController() else { return }
+        self.showProgressAlert(on: vc, onCancel: onCancel)
+    }
+    
 
     // MARK: - Progress Alert
     private func showProgressAlert(on vc: UIViewController, onCancel: @escaping () -> Void) {

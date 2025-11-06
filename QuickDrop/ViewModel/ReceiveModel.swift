@@ -17,6 +17,7 @@ import LUI
 
 class ReceiveModel: ObservableObject, InboundAppDelegate {
     
+    
     /// For each connection ID, store the last reported progress value
     private var processes: [String: Double] = [:]
     
@@ -40,95 +41,117 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     }
     
     
-    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo, acceptAutomatically: Bool) {
+    func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo) {
         
         #if os(macOS)
         NSApp.activate(ignoringOtherApps: true)
         AudioManager.playIncomingFileSound()
         #endif
 
-        let mainMessage = transfer.getDescription(deviceName: device.name ?? "Android", alreadyAccepted: acceptAutomatically)
+        let mainMessage = transfer.getDescription(deviceName: device.name ?? "Android", alreadyAccepted: false)
         let pinCodeMessage = transfer.getPinCodeMessage()
         let transferID = transfer.id
         
-        #if os(macOS)
-        let isMac = true
-        #else
-        let isMac = false
-        #endif
+        let title = "QuickDrop - \(pinCodeMessage)"
+        let primaryButtonTitle = "Accept".localized()
+        let primaryButtonAction = { (trustDevice: Bool) in
+            NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: true, trustDevice: trustDevice)
+            
+            #if os(macOS)
+            if transfer.type == .text {
+                DispatchQueue.main.async {
+                    BezelNotification.show(messageText: "InsertedIntoClipboard".localized(), icon: .clipboard)
+                }
+            }
+            #endif
+        }
         
+        let secondaryButtonTitle = "Decline".localized()
+        let secondaryButtonAction = { NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: false, trustDevice: false) }
+        
+        #if os(macOS)
+        let alert = NSAlert()
+        alert.alertStyle = .informational
 
-        if acceptAutomatically && isMac {
-            pressAcceptButton(transferID: transfer.id, trustDevice: false)
+        alert.messageText = title
+        alert.informativeText = mainMessage
+        alert.addButton(withTitle: primaryButtonTitle)
+        alert.addButton(withTitle: secondaryButtonTitle)
+        
+        if transfer.allowsToBeAddedAsTrustedDevice {
+            alert.showsSuppressionButton = true
+            alert.suppressionButton?.title = "AutoAcceptFromThisDevice".localized()
+        }
 
-            if transfer.type != .file {
-                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
-                    if granted {
-                        log("[ReceiveModel] User granted notification permissions")
-                        
-                        let notificationContent = UNMutableNotificationContent()
-                        notificationContent.title = "QuickDrop"
-                        notificationContent.body = mainMessage
-                        notificationContent.sound = nil
-                        let notificationId = UUID().uuidString
-                        
-                        let notificationReq = UNNotificationRequest(identifier: notificationId, content: notificationContent, trigger: nil)
-                        UNUserNotificationCenter.current().add(notificationReq)
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notificationId])
-                        }
+        let result = alert.runModal()
+
+        if result == .alertFirstButtonReturn {
+            primaryButtonAction(alert.suppressionButton?.state == .on)
+        } else if result == .alertSecondButtonReturn {
+            secondaryButtonAction()
+        }
+        #else
+        // iOS
+        let alwaysAcceptLabel = transfer.allowsToBeAddedAsTrustedDevice ? "AlwaysAccept".localized() : nil
+        ProgressAlert.shared.askForUserPermission(title: title, message: mainMessage, acceptLabel: primaryButtonTitle, acceptAlwaysLabel: alwaysAcceptLabel, rejectLabel: secondaryButtonTitle) { accepted in
+            
+            switch accepted {
+                case .Accept:
+                    primaryButtonAction(false)
+                case .AcceptAlways:
+                    primaryButtonAction(true)
+                case .Decline:
+                    secondaryButtonAction()
+            }
+        } onCancel: {
+            NearbyConnectionManager.shared.cancelTransfer(id: transferID)
+        }
+        #endif
+    }
+    
+    
+    func obtainedUserConsentAutomatically(transfer: TransferMetadata, device: RemoteDeviceInfo) {
+        
+        let mainMessage = transfer.getDescription(deviceName: device.name ?? "Android", alreadyAccepted: true)
+        
+        #if os(macOS)
+        
+        NSApp.activate(ignoringOtherApps: true)
+        AudioManager.playIncomingFileSound()
+        
+        // If file -> no notification, as there is the QuickDrop progress toast
+        if transfer.type != .file {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
+                if granted {
+                    log("[ReceiveModel] User granted notification permissions")
+                    
+                    let notificationContent = UNMutableNotificationContent()
+                    notificationContent.title = "QuickDrop"
+                    notificationContent.body = mainMessage
+                    notificationContent.sound = nil
+                    let notificationId = UUID().uuidString
+                    
+                    let notificationReq = UNNotificationRequest(identifier: notificationId, content: notificationContent, trigger: nil)
+                    UNUserNotificationCenter.current().add(notificationReq)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notificationId])
                     }
                 }
             }
         }
-        else {
-            
-            let title = "QuickDrop - \(pinCodeMessage)"
-            let primaryButtonTitle = "Accept".localized()
-            let primaryButtonAction = { (trustDevice: Bool) in self.pressAcceptButton(transferID: transferID, trustDevice: trustDevice) }
-            let secondaryButtonTitle = "Decline".localized()
-            let secondaryButtonAction = { NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: false, trustDevice: false, storeInTemp: false) }
-            
-            #if os(macOS)
-            let alert = NSAlert()
-            alert.alertStyle = .informational
-
-            alert.messageText = title
-            alert.informativeText = mainMessage
-            alert.addButton(withTitle: primaryButtonTitle)
-            alert.addButton(withTitle: secondaryButtonTitle)
-            
-            if transfer.allowsToBeAddedAsTrustedDevice {
-                alert.showsSuppressionButton = true
-                alert.suppressionButton?.title = "AutoAcceptFromThisDevice".localized()
-            }
-
-            let result = alert.runModal()
-
-            if result == .alertFirstButtonReturn {
-                primaryButtonAction(alert.suppressionButton?.state == .on)
-            } else if result == .alertSecondButtonReturn {
-                secondaryButtonAction()
-            }
-            #else
-            // iOS
-            let alwaysAcceptLabel = transfer.allowsToBeAddedAsTrustedDevice ? "AlwaysAccept".localized() : nil
-            ProgressAlert.shared.askForUserPermission(title: title, message: mainMessage, acceptLabel: primaryButtonTitle, acceptAlwaysLabel: alwaysAcceptLabel, rejectLabel: secondaryButtonTitle, acceptAutomatically: acceptAutomatically) { accepted in
-                
-                switch accepted {
-                    case .Accept:
-                        primaryButtonAction(false)
-                    case .AcceptAlways:
-                        primaryButtonAction(true)
-                    case .Decline:
-                        secondaryButtonAction()
-                }
-            } onCancel: {
-                NearbyConnectionManager.shared.cancelTransfer(id: transferID)
-            }
-            #endif
+        #else
+        // If text is received, nothing is shown, as it is directly inserted into clipboard automatically
+        // Therefore, give a feedback dialog in this case
+        if transfer.type == .text {
+            showAlert(title: "QuickDrop", message: mainMessage)
         }
+        else {
+            ProgressAlert.shared.showProgressAlert(onCancel: {
+                NearbyConnectionManager.shared.cancelTransfer(id: transfer.id)
+            })
+        }
+        #endif
     }
     
     
@@ -188,10 +211,6 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 doubleVibration()
                 #endif
                 
-                if wasPlainTextTransfer {
-                    showCopiedToClipboardAlert()
-                }
-                
                 let currentCount = Settings.shared.incomingTransmissionCount
                 
                 #if os(macOS)
@@ -209,22 +228,9 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     }
     
     
-    private func showCopiedToClipboardAlert() {
-        #if os(macOS)
+    func showPlusScreen() {
         DispatchQueue.main.async {
-            BezelNotification.show(messageText: "InsertedIntoClipboard".localized(), icon: .clipboard)
-        }
-        #endif
-    }
-    
-    
-    private func pressAcceptButton(transferID: String, trustDevice: Bool) {
-        if isFileTransferRestricted() {
-            log("[ReceiveModel] Showing plus screen...")
-            NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: true, trustDevice: trustDevice, storeInTemp: true)
-            controlPlusScreen(true)
-        } else {
-            NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: true, trustDevice: trustDevice, storeInTemp: false)
+            self.controlPlusScreen(true)
         }
     }
     
