@@ -214,7 +214,8 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 let currentCount = Settings.shared.incomingTransmissionCount
                 
                 #if os(macOS)
-                if currentCount == 0 {
+                // If distributed directly, do not request review here as it does not work
+                if currentCount == 0 && !DistributionDetector.isDirectDistributionEnabled {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         SKStoreReviewController.requestReview()
                     }

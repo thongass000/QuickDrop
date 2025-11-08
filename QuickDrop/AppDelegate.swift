@@ -69,7 +69,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         iapManager = IAPManager.sharedInstance
         iapManager?.startObserving()
         
-        log("[AppDelegate] Downloaded directly: \(DistributionDetector.isDirectDistributionEnabled)")
+        if DistributionDetector.isDirectDistributionEnabled {
+            log("[AppDelegate] Downloaded from GitHub.")
+        }
+        else {
+            log("[AppDelegate] Downloaded from App Store.")
+        }
 
         // app did not lauch before
         if !Settings.shared.appLaunchedBefore {
