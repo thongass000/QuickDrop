@@ -17,7 +17,6 @@ import LUI
 
 class ReceiveModel: ObservableObject, InboundAppDelegate {
     
-    
     /// For each connection ID, store the last reported progress value
     private var processes: [String: Double] = [:]
     
@@ -29,7 +28,8 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     
     let controlPlusScreen: (Bool) -> Void
     
-    init(controlPlusScreen: @escaping (Bool) -> Void = { _ in }) {
+    
+    init(controlPlusScreen: @escaping (Bool) -> Void) {
         self.controlPlusScreen = controlPlusScreen
         NearbyConnectionManager.shared.addInboundAppDelegate(self)
         NearbyConnectionManager.shared.becomeVisible()
@@ -103,8 +103,6 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 case .Decline:
                     secondaryButtonAction()
             }
-        } onCancel: {
-            NearbyConnectionManager.shared.cancelTransfer(id: transferID)
         }
         #endif
     }
@@ -146,11 +144,6 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         if transfer.type == .text {
             showAlert(title: "QuickDrop", message: mainMessage)
         }
-        else {
-            ProgressAlert.shared.showProgressAlert(onCancel: {
-                NearbyConnectionManager.shared.cancelTransfer(id: transfer.id)
-            })
-        }
         #endif
     }
     
@@ -165,7 +158,9 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         let averageProgress = totalProgress / Double(processes.count)
         
         #if os(iOS)
-        ProgressAlert.shared.updateProgress(averageProgress)
+        ProgressAlert.shared.updateProgress(averageProgress, onCancel: {
+            NearbyConnectionManager.shared.cancelTransfer(id: connectionID)
+        })
         #else
         DispatchQueue.main.async {
             self.progress = averageProgress

@@ -45,6 +45,7 @@
 		EB16B77A2E59BAA1007D9792 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B7762E59BA9F007D9792 /* AppGroup.swift */; };
 		EB2F9BFE2DA05F48004010A2 /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = EB2F9BFD2DA05F48004010A2 /* BezelNotification */; };
 		EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36435F2D73A29F009CDFF8 /* AudioManager.swift */; };
+		EB4F9D1D2EC113EA00A74A0F /* DistributionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB704A812E4A7BAE008E608F /* DistributionDetector.swift */; };
 		EB5C36932E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
 		EB5C36942E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
 		EB5C36E42E34EC0E0052EFD7 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
@@ -1098,6 +1099,7 @@
 				EB950B6F2E5206E2002D68FA /* ShareViewController.swift in Sources */,
 				EB950B432E52038A002D68FA /* ContentView.swift in Sources */,
 				EB950B442E520414002D68FA /* License.swift in Sources */,
+				EB4F9D1D2EC113EA00A74A0F /* DistributionDetector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

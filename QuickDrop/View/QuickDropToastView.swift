@@ -129,7 +129,7 @@ struct CapsuleProgress: View {
 struct QuickDropToastView_Previews: PreviewProvider {
     struct Demo: View {
         
-        @State var model = ReceiveModel()
+        @State var model = ReceiveModel(controlPlusScreen: { _ in })
         
         var body: some View {
             QuickDropToastView(

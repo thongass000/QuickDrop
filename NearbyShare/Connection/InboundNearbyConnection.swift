@@ -589,6 +589,13 @@ class InboundNearbyConnection: NearbyConnection {
         if storeInTemp {
             log("[InboundNearbyConnection \(self.id)] File transfer restrictions detected, storing files in temporary directory.")
             delegate?.showPlusScreen()
+            
+            #if os(iOS)
+            // Continue transfer for macOS only
+            // On iOS, the transfer should be cancelled by user
+            rejectTransfer()
+            return
+            #endif
         }
 
         do {

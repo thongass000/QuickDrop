@@ -18,7 +18,7 @@ final class ProgressAlert {
     private weak var progressView: UIProgressView?
 
     // MARK: - Initial Accept / Decline
-    func askForUserPermission(title: String, message: String, acceptLabel: String, acceptAlwaysLabel: String?, rejectLabel: String, onAccept: @escaping (AcceptAction) -> Void, onCancel: @escaping () -> Void) {
+    func askForUserPermission(title: String, message: String, acceptLabel: String, acceptAlwaysLabel: String?, rejectLabel: String, onAccept: @escaping (AcceptAction) -> Void) {
         guard let vc = topMostViewController() else { return }
 
         let alert = UIAlertController(title: title,
@@ -31,28 +31,23 @@ final class ProgressAlert {
         
         alert.addAction(UIAlertAction(title: acceptLabel, style: .default, handler: { _ in
             onAccept(.Accept)
-            self.showProgressAlert(on: vc, onCancel: onCancel)
         }))
         
         if let acceptAlways = acceptAlwaysLabel {
             alert.addAction(UIAlertAction(title: acceptAlways, style: .default, handler: { _ in
                 onAccept(.AcceptAlways)
-                self.showProgressAlert(on: vc, onCancel: onCancel)
             }))
         }
         
         vc.present(alert, animated: true)
     }
     
-    
-    func showProgressAlert(onCancel: @escaping () -> Void) {
-        guard let vc = topMostViewController() else { return }
-        self.showProgressAlert(on: vc, onCancel: onCancel)
-    }
-    
 
     // MARK: - Progress Alert
-    private func showProgressAlert(on vc: UIViewController, onCancel: @escaping () -> Void) {
+    private func showProgressAlert(onCancel: @escaping () -> Void) {
+        
+        guard let vc = topMostViewController() else { return }
+        
         let alert = UIAlertController(title: "Receiving".localized(),
                                       message: "\n\n",
                                       preferredStyle: .alert)
@@ -77,11 +72,25 @@ final class ProgressAlert {
 
         vc.present(alert, animated: true)
     }
+    
 
     // MARK: - Update Progress
     // progress: 0…1 → update progress, nil → finished
-    func updateProgress(_ progress: Double?, completion: @escaping () -> Void = {}) {
+    func updateProgress(_ progress: Double?, onCancel: @escaping () -> Void, completion: @escaping () -> Void = {}) {
+        
+        // No progress to show, nothing shown currently → just complete
+        if progressAlert == nil && progress == nil {
+            completion()
+            return
+        }
+        
         DispatchQueue.main.async {
+            
+            // Show progress if not shown yet
+            if self.progressAlert == nil {
+                self.showProgressAlert(onCancel: onCancel)
+            }
+            
             if let p = progress {
                 self.progressView?.setProgress(Float(p), animated: true)
                 completion()

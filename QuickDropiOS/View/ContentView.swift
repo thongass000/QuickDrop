@@ -41,9 +41,14 @@ struct DeviceListView: View {
     @State private var qrCode: Image? = nil
     @StateObject var sendModel = SendModel()
     
-#if !EXTENSION
-    @StateObject var receiveModel = ReceiveModel()
-#endif
+    #if !EXTENSION
+    @StateObject var receiveModel = ReceiveModel(controlPlusScreen: { show in
+        log("[DeviceListView] Setting showPlusScreen to \(show)")
+        DeviceListViewModel.sharedInstance.showPlusScreen = show
+    })
+    #endif
+    
+    @ObservedObject var model = DeviceListViewModel.sharedInstance
     
     @Environment(\.scenePhase) var scenePhase
     @Environment(\.sheetActive) var sheetActive
@@ -54,7 +59,7 @@ struct DeviceListView: View {
         
         let showsLoadingIndicator = nearbyConnectionManager.hasLocalNetworkPermission && nearbyConnectionManager.isConnectedToLocalNetwork
         
-        BottomBarView(header: "QuickDrop ", navigationBarLayout: isShareExtension() ? .SmallOnlyAlways : .Default, bottomViewHeight: 30) {
+        BottomBarView(header: "QuickDrop", navigationBarLayout: isShareExtension() ? .SmallOnlyAlways : .Default, bottomViewHeight: 30) {
             VStack {
                 
                 VStack(alignment: .leading, spacing: 8) {
@@ -185,7 +190,7 @@ struct DeviceListView: View {
                 
                 log("[ScenePhase] App became active")
                 NearbyConnectionManager.shared.startDeviceDiscovery()
-#if !EXTENSION
+                #if !EXTENSION
                 NearbyConnectionManager.shared.becomeVisible()
                 
                 if Settings.shared.incomingTransmissionCount > 0 {
@@ -193,18 +198,21 @@ struct DeviceListView: View {
                         requestReviewOnce()
                     }
                 }
-#endif
+                #endif
             }
             
             if newValue == .background {
                 
                 log("[ScenePhase] App went to background")
-#if !EXTENSION
+                #if !EXTENSION
                 NearbyConnectionManager.shared.becomeInvisible()
-#endif
+                #endif
                 NearbyConnectionManager.shared.stopDeviceDiscovery()
             }
         }
+        #if !EXTENSION
+        .modifier(PlusVersionSheetModifier(sheetActive: $model.showPlusScreen, isPlusVersion: $settings.gotPlus))
+        #endif
         .animation(.smooth, value: nearbyConnectionManager.hasLocalNetworkPermission)
         .animation(.smooth, value: nearbyConnectionManager.isConnectedToLocalNetwork)
         .navigationBarItems(trailing: ZStack {
@@ -216,6 +224,12 @@ struct DeviceListView: View {
             }
         })
     }
+}
+
+final class DeviceListViewModel: SharedInstance {
+    static var sharedInstance = DeviceListViewModel()
+
+    @Published var showPlusScreen = false
 }
 
 
@@ -297,11 +311,11 @@ struct DeviceButtonLabel: View {
 
 
 func isShareExtension() -> Bool {
-#if EXTENSION
+    #if EXTENSION
     return true
-#else
+    #else
     return false
-#endif
+    #endif
 }
 
 

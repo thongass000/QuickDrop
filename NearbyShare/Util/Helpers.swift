@@ -111,14 +111,8 @@ extension String {
 
 
 public func fullVersion() -> Bool {
-    
-    #if os(macOS)
     // Enable full functionality if app distributed directly
-    return Settings.shared.gotPlus || DistributionDetector.isDirectDistributionEnabled 
-    #else
-    // iOS
-    return true
-    #endif
+    return Settings.shared.gotPlus || DistributionDetector.isDirectDistributionEnabled
 }
 
 
