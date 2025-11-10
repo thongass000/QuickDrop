@@ -46,6 +46,10 @@
 		EB2F9BFE2DA05F48004010A2 /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = EB2F9BFD2DA05F48004010A2 /* BezelNotification */; };
 		EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36435F2D73A29F009CDFF8 /* AudioManager.swift */; };
 		EB4F9D1D2EC113EA00A74A0F /* DistributionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB704A812E4A7BAE008E608F /* DistributionDetector.swift */; };
+		EB4F9D1F2EC26C8100A74A0F /* EXIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */; };
+		EB4F9D202EC26C8100A74A0F /* EXIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */; };
+		EB4F9D212EC26C8100A74A0F /* EXIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */; };
+		EB4F9D222EC26C8100A74A0F /* EXIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */; };
 		EB5C36932E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
 		EB5C36942E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
 		EB5C36E42E34EC0E0052EFD7 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
@@ -328,6 +332,7 @@
 		EB2B41E32DC63AC80070FC39 /* SleepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager.swift; sourceTree = "<group>"; };
 		EB2F9BFA2DA04B67004010A2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		EB36435F2D73A29F009CDFF8 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EXIFUtils.swift; sourceTree = "<group>"; };
 		EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB5C36952E34EBBD0052EFD7 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/ShareViewController.xcstrings; sourceTree = "<group>"; };
 		EB5C36E32E34EC0E0052EFD7 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
@@ -535,6 +540,7 @@
 				EBCC27F82D80C9F70079C478 /* Zip.swift */,
 				EB16B7762E59BA9F007D9792 /* AppGroup.swift */,
 				EB886E512E4E19390052B7D9 /* HKDF.swift */,
+				EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */,
 				EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */,
 				EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */,
 				EB2F9BFA2DA04B67004010A2 /* Helpers.swift */,
@@ -933,6 +939,7 @@
 				EB5C37C72E377A780052EFD7 /* wire_format.pb.swift in Sources */,
 				EB5C37C82E377A780052EFD7 /* ukey.pb.swift in Sources */,
 				EB5C37C92E377A780052EFD7 /* device_to_device_messages.pb.swift in Sources */,
+				EB4F9D222EC26C8100A74A0F /* EXIFUtils.swift in Sources */,
 				EB950B742E520957002D68FA /* Attachments.swift in Sources */,
 				EB1325D32E701D8E00FD749C /* Settings.swift in Sources */,
 				EB16B7782E59BAA1007D9792 /* AppGroup.swift in Sources */,
@@ -995,6 +1002,7 @@
 				EB96ED8C2D7F7E7B004B3FF1 /* SmallSheetView.swift in Sources */,
 				EB886E682E4F2F800052B7D9 /* License.swift in Sources */,
 				EB7F54142D78E9E700989564 /* LicenseWindow.swift in Sources */,
+				EB4F9D202EC26C8100A74A0F /* EXIFUtils.swift in Sources */,
 				69DA9A1229E0BF5100A442DA /* AppDelegate.swift in Sources */,
 				EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */,
 				EB7F54122D78E96000989564 /* TutorialView.swift in Sources */,
@@ -1041,6 +1049,7 @@
 				EB5C37FD2E377CE70052EFD7 /* Logger.swift in Sources */,
 				EB97A00F2E511124008B8C5C /* ReceiveModel.swift in Sources */,
 				EB5C37FE2E377CE70052EFD7 /* offline_wire_formats.pb.swift in Sources */,
+				EB4F9D1F2EC26C8100A74A0F /* EXIFUtils.swift in Sources */,
 				EB886E6A2E4F37B90052B7D9 /* ErrorAlertHandler.swift in Sources */,
 				EB886E5E2E4F13EB0052B7D9 /* Zip.swift in Sources */,
 				EB5C383D2E38C2D90052EFD7 /* AudioManager.swift in Sources */,
@@ -1074,6 +1083,7 @@
 				EB950B4B2E520436002D68FA /* offline_wire_formats.pb.swift in Sources */,
 				EB950B4C2E520436002D68FA /* InboundNearbyConnection.swift in Sources */,
 				EB16B6132E58B4B9007D9792 /* IdentityManager.swift in Sources */,
+				EB4F9D212EC26C8100A74A0F /* EXIFUtils.swift in Sources */,
 				EB950B4D2E520436002D68FA /* NearbyConnection.swift in Sources */,
 				EB950B4F2E520436002D68FA /* Logger.swift in Sources */,
 				EB950B502E520436002D68FA /* wire_format.pb.swift in Sources */,

@@ -51,8 +51,7 @@ class InboundNearbyConnection: NearbyConnection {
         DispatchQueue.main.async {
             self.delegate?.connectionWasTerminated(connection: self, error: self.lastError)
             
-            SaveFilesManager.shared.movePendingFilesToTarget()
-            SaveFilesManager.shared.stopAccessingSecurityScopedResource()
+            SaveFilesManager.shared.movePendingFilesToTarget() 
         }
     }
     
@@ -170,6 +169,7 @@ class InboundNearbyConnection: NearbyConnection {
             fileInfo.progress?.unpublish()
             #endif
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
+            EXIFUtils.applyEXIFTimestamps(at: fileInfo.destinationURL)
 
             filesToBeReceived.removeValue(forKey: id)
             
@@ -223,6 +223,7 @@ class InboundNearbyConnection: NearbyConnection {
             #endif
             filesToBeReceived.removeValue(forKey: id)
             SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
+            EXIFUtils.applyEXIFTimestamps(at: fileInfo.destinationURL)
             
             if filesToBeReceived.isEmpty {
                 log("[InboundNearbyConnection \(self.id)] Received file payload. Disconnecting...")
@@ -584,24 +585,14 @@ class InboundNearbyConnection: NearbyConnection {
             return
         }
         
-        let storeInTemp = isFileTransferRestricted()
-        
-        if storeInTemp {
-            log("[InboundNearbyConnection \(self.id)] File transfer restrictions detected, storing files in temporary directory.")
+        if isFileTransferRestricted() {
+            log("[InboundNearbyConnection \(self.id)] File transfer restrictions detected.")
             delegate?.showPlusScreen()
-            
-            #if os(iOS)
-            // Continue transfer for macOS only
-            // On iOS, the transfer should be cancelled by user
             rejectTransfer()
             return
-            #endif
         }
 
         do {
-            if storeInTemp {
-                try FileManager.default.createDirectory(at: SaveFilesManager.shared.tempDirectory, withIntermediateDirectories: true)
-            }
             
             if filesToBeReceived.count >= 1 {
                 // Show progress bar for file transfers immediately
@@ -609,7 +600,7 @@ class InboundNearbyConnection: NearbyConnection {
             }
 
             for (id, file) in filesToBeReceived {
-                let targetURL = storeInTemp ? SaveFilesManager.shared.tempDirectory.appendingPathComponent(file.destinationURL.lastPathComponent) : file.destinationURL
+                let targetURL = file.destinationURL
 
                 FileManager.default.createFile(atPath: targetURL.path, contents: nil)
                 let handle = try FileHandle(forWritingTo: targetURL)

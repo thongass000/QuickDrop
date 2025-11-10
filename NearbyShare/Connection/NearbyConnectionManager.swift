@@ -492,7 +492,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             outgoingTransfers[deviceID] = transfer
             conn.start()
         } catch {
-            log("[NearbyConnectionManager] Error zipping URLs: \(error)")
+            log("[NearbyConnectionManager] Error storing URLs: \(error)")
             outboundAppDelegates.forEach { delegate in
                 delegate.connectionFailed(error: error)
             }
