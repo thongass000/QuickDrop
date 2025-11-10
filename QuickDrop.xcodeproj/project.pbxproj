@@ -50,16 +50,16 @@
 		EB4F9D202EC26C8100A74A0F /* EXIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */; };
 		EB4F9D212EC26C8100A74A0F /* EXIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */; };
 		EB4F9D222EC26C8100A74A0F /* EXIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */; };
+		EB4F9D252EC27CFB00A74A0F /* FileManager+DocumentsOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D232EC27CF000A74A0F /* FileManager+DocumentsOpener.swift */; };
+		EB4F9D272EC27CFB00A74A0F /* FileManager+DocumentsOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D232EC27CF000A74A0F /* FileManager+DocumentsOpener.swift */; };
 		EB5C36932E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
 		EB5C36942E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
 		EB5C36E42E34EC0E0052EFD7 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
 		EB5C36E52E34EC0E0052EFD7 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
 		EB5C37B82E377A6F0052EFD7 /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B41E32DC63AC80070FC39 /* SleepManager.swift */; };
-		EB5C37B92E377A6F0052EFD7 /* SaveFilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */; };
 		EB5C37BA2E377A6F0052EFD7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9BFA2DA04B67004010A2 /* Helpers.swift */; };
 		EB5C37BC2E377A700052EFD7 /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B41E32DC63AC80070FC39 /* SleepManager.swift */; };
 		EB5C37BD2E377A700052EFD7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9BFA2DA04B67004010A2 /* Helpers.swift */; };
-		EB5C37BE2E377A700052EFD7 /* SaveFilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */; };
 		EB5C37BF2E377A780052EFD7 /* ukey.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2829E18CB500A442DA /* ukey.pb.swift */; };
 		EB5C37C02E377A780052EFD7 /* securemessage.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2D29E18CB500A442DA /* securemessage.pb.swift */; };
 		EB5C37C12E377A780052EFD7 /* offline_wire_formats.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2B29E18CB500A442DA /* offline_wire_formats.pb.swift */; };
@@ -90,7 +90,6 @@
 		EB5C37F02E377C3F0052EFD7 /* SwiftECC in Frameworks */ = {isa = PBXBuildFile; productRef = EB5C37EF2E377C3F0052EFD7 /* SwiftECC */; };
 		EB5C37F12E377CE70052EFD7 /* ukey.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2829E18CB500A442DA /* ukey.pb.swift */; };
 		EB5C37F22E377CE70052EFD7 /* NearbyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698DFAE529E2F91A0064F247 /* NearbyConnection.swift */; };
-		EB5C37F32E377CE70052EFD7 /* SaveFilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */; };
 		EB5C37F42E377CE70052EFD7 /* NearbyConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A1E29E0C0B300A442DA /* NearbyConnectionManager.swift */; };
 		EB5C37F52E377CE70052EFD7 /* securemessage.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2D29E18CB500A442DA /* securemessage.pb.swift */; };
 		EB5C37F62E377CE70052EFD7 /* device_to_device_messages.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2A29E18CB500A442DA /* device_to_device_messages.pb.swift */; };
@@ -161,7 +160,6 @@
 		EB950B522E520436002D68FA /* NearbyConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A1E29E0C0B300A442DA /* NearbyConnectionManager.swift */; };
 		EB950B532E520436002D68FA /* ukey.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2829E18CB500A442DA /* ukey.pb.swift */; };
 		EB950B542E520436002D68FA /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E512E4E19390052B7D9 /* HKDF.swift */; };
-		EB950B552E520436002D68FA /* SaveFilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */; };
 		EB950B562E520436002D68FA /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C36E82E3546100052EFD7 /* DataModel.swift */; };
 		EB950B572E520591002D68FA /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */; };
 		EB950B582E5205B4002D68FA /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC27F82D80C9F70079C478 /* Zip.swift */; };
@@ -333,10 +331,10 @@
 		EB2F9BFA2DA04B67004010A2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		EB36435F2D73A29F009CDFF8 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EXIFUtils.swift; sourceTree = "<group>"; };
+		EB4F9D232EC27CF000A74A0F /* FileManager+DocumentsOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DocumentsOpener.swift"; sourceTree = "<group>"; };
 		EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB5C36952E34EBBD0052EFD7 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/ShareViewController.xcstrings; sourceTree = "<group>"; };
 		EB5C36E32E34EC0E0052EFD7 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
-		EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFilesManager.swift; sourceTree = "<group>"; };
 		EB5C36E82E3546100052EFD7 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		EB5C37E22E377C2E0052EFD7 /* QuickDropiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDropiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5C38382E38C1F60052EFD7 /* justMaybe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = justMaybe.mp3; sourceTree = "<group>"; };
@@ -540,9 +538,9 @@
 				EBCC27F82D80C9F70079C478 /* Zip.swift */,
 				EB16B7762E59BA9F007D9792 /* AppGroup.swift */,
 				EB886E512E4E19390052B7D9 /* HKDF.swift */,
+				EB4F9D232EC27CF000A74A0F /* FileManager+DocumentsOpener.swift */,
 				EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */,
 				EB7CD1442D6FB0C100CB0CB5 /* Logger.swift */,
-				EB5C36E62E3544FB0052EFD7 /* SaveFilesManager.swift */,
 				EB2F9BFA2DA04B67004010A2 /* Helpers.swift */,
 			);
 			path = Util;
@@ -960,7 +958,6 @@
 				EB1325EB2E7025D900FD749C /* ApIsolationTester.swift in Sources */,
 				EB1325EC2E7025D900FD749C /* ActiveNetworkInterface.swift in Sources */,
 				EB1325ED2E7025D900FD749C /* ApIsolation6Tester.swift in Sources */,
-				EB5C37BE2E377A700052EFD7 /* SaveFilesManager.swift in Sources */,
 				EB9925822E45D53E00357055 /* sharing_enums.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -974,7 +971,6 @@
 				EB5C38412E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37B82E377A6F0052EFD7 /* SleepManager.swift in Sources */,
 				EB869DB52E92AA3A009AAAD4 /* QuickDropToastView.swift in Sources */,
-				EB5C37B92E377A6F0052EFD7 /* SaveFilesManager.swift in Sources */,
 				EB5C37BA2E377A6F0052EFD7 /* Helpers.swift in Sources */,
 				EB05DFBE2E59FC8900EF567A /* TrustedDevicesView.swift in Sources */,
 				EB16B6182E58B4C8007D9792 /* TrustStore.swift in Sources */,
@@ -1026,11 +1022,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB4F9D272EC27CFB00A74A0F /* FileManager+DocumentsOpener.swift in Sources */,
 				EB821C992E76FE5300036963 /* SmallSheetView.swift in Sources */,
 				EB05DFBF2E59FD0A00EF567A /* TrustedDevicesView.swift in Sources */,
 				EB5C37F12E377CE70052EFD7 /* ukey.pb.swift in Sources */,
 				EB5C37F22E377CE70052EFD7 /* NearbyConnection.swift in Sources */,
-				EB5C37F32E377CE70052EFD7 /* SaveFilesManager.swift in Sources */,
 				EB16B6142E58B4B9007D9792 /* IdentityManager.swift in Sources */,
 				EB886E672E4F2F800052B7D9 /* License.swift in Sources */,
 				EB5C37F42E377CE70052EFD7 /* NearbyConnectionManager.swift in Sources */,
@@ -1093,7 +1089,6 @@
 				EB950B532E520436002D68FA /* ukey.pb.swift in Sources */,
 				EB05DFC02E5A2EAA00EF567A /* TrustedDevicesView.swift in Sources */,
 				EB950B542E520436002D68FA /* HKDF.swift in Sources */,
-				EB950B552E520436002D68FA /* SaveFilesManager.swift in Sources */,
 				EB1325D52E701D8E00FD749C /* Settings.swift in Sources */,
 				EB950B562E520436002D68FA /* DataModel.swift in Sources */,
 				EB821C9A2E76FE5300036963 /* SmallSheetView.swift in Sources */,
@@ -1102,6 +1097,7 @@
 				EB16B6192E58B4C8007D9792 /* TrustStore.swift in Sources */,
 				EB16B7772E59BAA1007D9792 /* AppGroup.swift in Sources */,
 				EB950B3F2E52038A002D68FA /* FilePicker.swift in Sources */,
+				EB4F9D252EC27CFB00A74A0F /* FileManager+DocumentsOpener.swift in Sources */,
 				EB950B402E52038A002D68FA /* Configuration.swift in Sources */,
 				EB950B412E52038A002D68FA /* PieProgressView.swift in Sources */,
 				EB950B592E520649002D68FA /* AudioManager.swift in Sources */,

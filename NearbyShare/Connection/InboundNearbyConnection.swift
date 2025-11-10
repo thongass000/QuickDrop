@@ -22,6 +22,7 @@ import UIKit
 class InboundNearbyConnection: NearbyConnection {
     
     private var filesToBeReceived: [Int64: InternalFileInfo] = [:]
+    private var downloadedFiles = [URL]()
     private var currentState: State = .initial
     private var cipherCommitment: Data?
     private var textPayloadID: Int64 = 0
@@ -51,7 +52,17 @@ class InboundNearbyConnection: NearbyConnection {
         DispatchQueue.main.async {
             self.delegate?.connectionWasTerminated(connection: self, error: self.lastError)
             
-            SaveFilesManager.shared.movePendingFilesToTarget() 
+            if !self.downloadedFiles.isEmpty {
+                
+                #if os(macOS)
+                if Settings.shared.openFinderAfterReceiving {
+                    log("[SaveFilesManager] Opening \(self.downloadedFiles.count) file(s) in Finder.")
+                    NSWorkspace.shared.activateFileViewerSelecting(self.downloadedFiles)
+                }
+                #else
+                FileManager.default.openDocumentFolder()
+                #endif
+            }
         }
     }
     
@@ -168,7 +179,7 @@ class InboundNearbyConnection: NearbyConnection {
             #if os(macOS)
             fileInfo.progress?.unpublish()
             #endif
-            SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
+            downloadedFiles.append(fileInfo.destinationURL)
             EXIFUtils.applyEXIFTimestamps(at: fileInfo.destinationURL)
 
             filesToBeReceived.removeValue(forKey: id)
@@ -222,7 +233,7 @@ class InboundNearbyConnection: NearbyConnection {
             fileInfo.progress?.unpublish()
             #endif
             filesToBeReceived.removeValue(forKey: id)
-            SaveFilesManager.shared.registerFileFinishedDownloading(fileInfo.destinationURL)
+            downloadedFiles.append(fileInfo.destinationURL)
             EXIFUtils.applyEXIFTimestamps(at: fileInfo.destinationURL)
             
             if filesToBeReceived.isEmpty {
@@ -496,7 +507,7 @@ class InboundNearbyConnection: NearbyConnection {
         currentState = .waitingForUserConsent
 
         if frame.v1.introduction.fileMetadata.count > 0 && frame.v1.introduction.textMetadata.isEmpty {
-            let saveDirectory = SaveFilesManager.shared.getSaveDirectory()
+            let saveDirectory = NearbyConnectionManager.shared.getSaveDirectory()
             var usedDestinations = Set<URL>()
 
             for file in frame.v1.introduction.fileMetadata {

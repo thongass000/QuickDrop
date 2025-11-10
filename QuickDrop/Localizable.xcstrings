@@ -30745,229 +30745,229 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "يمكنك الآن متابعة استلام الملفات بدون قيود. أي ملفات حاولت إرسالها سابقًا تم حفظها بالفعل على جهازك."
+            "value" : "يمكنك الآن استقبال الملفات بدون أي قيود. يرجى إعادة إرسال الملف أو الملفات التي حاولت إرسالها سابقًا."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ara pots continuar rebent arxius sense restriccions. Qualsevol arxiu que hagis intentat enviar ja s'ha desat al teu dispositiu."
+            "value" : "Ara pots rebre fitxers sense cap restricció. Torna a enviar el(s) fitxer(s) que vas intentar enviar abans."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nyní můžete pokračovat v přijímání souborů bez omezení. Všechny soubory, které jste se pokusili odeslat, byly již uloženy na vašem zařízení."
+            "value" : "Nyní můžete přijímat soubory bez omezení. Prosím, znovu odešlete soubory, které jste se pokusili poslat dříve."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Du kan nu fortsætte med at modtage filer uden restriktioner. Alle filer, du forsøgte at sende, blev allerede gemt på din enhed."
+            "value" : "Du kan nu modtage filer uden begrænsninger. Send venligst filerne igen, som du tidligere forsøgte at sende."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Du kannst nun weiterhin Dateien ohne Einschränkungen empfangen. Alle Dateien, welche gerade gesendet wurden, wurden bereits gespeichert."
+            "value" : "Du kannst jetzt Dateien ohne Einschränkungen empfangen. Bitte sende die Datei(en), die du zuvor senden wolltest, erneut."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Μπορείτε τώρα να συνεχίσετε να λαμβάνετε αρχεία χωρίς περιορισμούς. Τυχόν αρχεία που δοκιμάσατε να στείλετε έχουν ήδη αποθηκευτεί στη συσκευή σας."
+            "value" : "Τώρα μπορείτε να λαμβάνετε αρχεία χωρίς περιορισμούς. Παρακαλούμε στείλτε ξανά το(α) αρχείο(α) που προσπαθήσατε να στείλετε νωρίτερα."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You can now continue receiving files without restrictions. Any files you tried to send were already saved on your device."
+            "value" : "You can now receive files without any restrictions. Please resend any files you tried to send earlier."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Continue unlimited file reception. Attempts were saved."
+            "value" : "You can now receive files without any restrictions. Please resend the file(s) you tried to send earlier."
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "File reception unrestricted. Previously sent files were saved on your device."
+            "value" : "You can now receive files without any restrictions. Please resend the file(s) you tried to send earlier."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You can now continue receiving files unrestricted. Any sent files have already been saved."
+            "value" : "You can now receive files without any restrictions. Please resend the file(s) you tried to send earlier."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ahora puedes seguir recibiendo archivos sin restricciones. Todos los archivos que intentaste enviar antes ya se han guardado en tu dispositivo."
+            "value" : "Ahora puedes recibir archivos sin restricciones. Por favor, vuelve a enviar el/los archivo(s) que intentaste enviar antes."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ahora puedes continuar recibiendo archivos sin restricciones. Cualquier archivo que intentaste enviar ya se guardó en tu dispositivo."
+            "value" : "Ahora puedes recibir archivos sin restricciones. Por favor, vuelve a enviar el/los archivo(s) que intentaste enviar antes."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Voit nyt jatkaa tiedostojen vastaanottamista ilman rajoituksia. Kaikki lähetettävät tiedostot on jo tallennettu laitteellesi."
+            "value" : "Voit nyt vastaanottaa tiedostoja ilman rajoituksia. Lähetäthän aiemmin yrittämäsi tiedoston/tiedostot uudelleen."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vous pouvez maintenant continuer à recevoir des fichiers sans restrictions. Tous les fichiers que vous avez essayé d'envoyer précédemment ont déjà été enregistrés sur votre appareil."
+            "value" : "Vous pouvez maintenant recevoir des fichiers sans aucune restriction. Veuillez renvoyer le(s) fichier(s) que vous avez tenté d’envoyer plus tôt."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vous pouvez maintenant continuer à recevoir des fichiers sans restrictions. Tous les fichiers que vous avez essayé d'envoyer ont déjà été enregistrés sur votre appareil."
+            "value" : "Vous pouvez maintenant recevoir des fichiers sans aucune restriction. Veuillez renvoyer le(s) fichier(s) que vous avez essayé d’envoyer plus tôt."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ניתן להמשיך לקבל קבצים ללא מגבלות. כל הקבצים שניסית לשלוח נשמרו כבר במכשיר שלך."
+            "value" : "ניתן כעת לקבל קבצים ללא מגבלות. אנא שלח שוב את הקובץ או הקבצים שניסית לשלוח קודם."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "आप अब बिना किसी प्रतिबंध के फ़ाइलें प्राप्त कर सकते हैं। आपने जो फ़ाइलें भेजने की कोशिश की थीं, वे आपकी डिवाइस पर पहले ही सहेजी जा चुकी हैं।"
+            "value" : "अब आप बिना किसी प्रतिबंध के फाइलें प्राप्त कर सकते हैं। कृपया वे फाइलें फिर से भेजें जिन्हें आपने पहले भेजने की कोशिश की थी।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sada možete nastaviti primati datoteke bez ograničenja. Sve datoteke koje ste pokušali poslati već su spremljene na vaš uređaj."
+            "value" : "Sada možete primati datoteke bez ikakvih ograničenja. Molimo ponovno pošaljite datoteke koje ste ranije pokušali poslati."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mostantól korlátozások nélkül fogadhat fájlokat. Az összes fájl, amelyet korábban próbált elküldeni, már el lett mentve az eszközére."
+            "value" : "Mostantól korlátozás nélkül fogadhat fájlokat. Kérjük, küldje el újra a korábban próbált fájl(oka)t."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Anda sekarang dapat terus menerima file tanpa batasan. File apa pun yang Anda coba kirim telah disimpan di perangkat Anda."
+            "value" : "Anda sekarang dapat menerima file tanpa batasan. Silakan kirim ulang file yang sebelumnya Anda coba kirim."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ora puoi continuare a ricevere file senza restrizioni. Tutti i file che hai provato a inviare in precedenza sono già stati salvati sul tuo dispositivo."
+            "value" : "Ora puoi ricevere file senza restrizioni. Invia di nuovo il/i file che hai provato a mandare prima."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "これで、制限なくファイルを受信し続けることができます。以前送信しようとしたファイルはすでにデバイスに保存されています。"
+            "value" : "これで制限なくファイルを受信できます。先ほど送信しようとしたファイルをもう一度送信してください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "이제 파일을 제한 없이 계속 받을 수 있습니다. 이전에 전송을 시도한 모든 파일이 이미 기기에 저장되었습니다."
+            "value" : "이제 아무 제한 없이 파일을 받을 수 있습니다. 이전에 보내려던 파일을 다시 보내주세요."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Anda kini boleh terus menerima fail tanpa sekatan. Sebarang fail yang anda cuba hantar telah disimpan pada peranti anda."
+            "value" : "Anda kini boleh menerima fail tanpa sebarang sekatan. Sila hantar semula fail yang anda cuba hantar sebelum ini."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Du kan nå fortsette å motta filer uten begrensninger. Alle filer du prøvde å sende ble allerede lagret på enheten din."
+            "value" : "Du kan nå motta filer uten begrensninger. Vennligst send filene du prøvde å sende tidligere på nytt."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Je kunt nu bestanden blijven ontvangen zonder beperkingen. Alle bestanden die je eerder probeerde te verzenden, zijn al opgeslagen op je apparaat."
+            "value" : "Je kunt nu bestanden zonder beperkingen ontvangen. Stuur het bestand of de bestanden die je eerder probeerde te verzenden opnieuw."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Możesz teraz kontynuować odbieranie plików bez ograniczeń. Wszystkie pliki, które próbowałeś wysłać, zostały już zapisane na Twoim urządzeniu."
+            "value" : "Możesz teraz odbierać pliki bez ograniczeń. Wyślij ponownie plik(i), które próbowałeś wcześniej wysłać."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Agora você pode continuar recebendo arquivos sem restrições. Todos os arquivos que você tentou enviar antes já foram salvos no seu dispositivo."
+            "value" : "Agora você pode receber arquivos sem restrições. Por favor, envie novamente o(s) arquivo(s) que tentou enviar anteriormente."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Agora pode continuar a receber ficheiros sem restrições. Todos os ficheiros que tentou enviar antes já foram guardados no seu dispositivo."
+            "value" : "Agora pode receber ficheiros sem quaisquer restrições. Por favor, reenvie os ficheiros que tentou enviar anteriormente."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Acum puteți continua să primiți fișiere fără restricții. Toate fișierele pe care ați încercat să le trimiteți anterior au fost deja salvate pe dispozitivul dvs."
+            "value" : "Acum poți primi fișiere fără restricții. Te rugăm să retrimiți fișierul(ele) pe care ai încercat să le trimiți mai devreme."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Теперь вы можете продолжать получать файлы без ограничений. Все файлы, которые вы пытались отправить ранее, уже сохранены на вашем устройстве."
+            "value" : "Теперь вы можете получать файлы без ограничений. Пожалуйста, отправьте файл(ы) заново."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Du kan nu fortsätta ta emot filer utan begränsningar. Alla filer du försökte skicka sparades redan på din enhet."
+            "value" : "Du kan nu ta emot filer utan några begränsningar. Vänligen skicka filen/filerna igen som du försökte skicka tidigare."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "คุณสามารถรับไฟล์ต่อไปได้โดยไม่มีข้อจำกัด ไฟล์ทั้งหมดที่คุณพยายามส่งก่อนหน้านี้ถูกบันทึกไว้ในอุปกรณ์ของคุณแล้ว"
+            "value" : "คุณสามารถรับไฟล์ได้โดยไม่มีข้อจำกัดแล้ว โปรดส่งไฟล์ที่คุณพยายามส่งมาก่อนหน้านี้อีกครั้ง"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artık sınırsız dosya alımına devam edebilirsiniz. Göndermeye çalıştığınız tüm dosyalar zaten cihazınıza kaydedildi."
+            "value" : "Artık herhangi bir kısıtlama olmadan dosya alabilirsiniz. Lütfen daha önce göndermeye çalıştığınız dosyaları tekrar gönderin."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Тепер ви можете продовжувати отримувати файли без обмежень. Усі файли, які ви намагалися надіслати раніше, вже збережено на вашому пристрої."
+            "value" : "Тепер ви можете отримувати файли без обмежень. Будь ласка, надішліть файл(и) ще раз."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bạn có thể tiếp tục nhận tệp không giới hạn. Bất kỳ tệp nào bạn đã cố gắng gửi đều đã được lưu vào thiết bị của bạn."
+            "value" : "Bạn hiện có thể nhận tệp mà không bị hạn chế. Vui lòng gửi lại tệp mà bạn đã cố gửi trước đó."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您现在可以继续无限制地接收文件。您之前尝试发送的所有文件已保存到您的设备上。"
+            "value" : "您现在可以无限制地接收文件了。请重新发送您之前尝试发送的文件。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您現在可以繼續無限制地接收檔案。您嘗試傳送的所有檔案均已保存到裝置上。"
+            "value" : "您現在可以無限制地接收檔案。請重新傳送您先前嘗試傳送的檔案。"
           }
         }
       }

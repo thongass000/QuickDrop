@@ -21,7 +21,7 @@ struct ContentView: View {
         }, settingsView: {
             CustomSection(header: settings.gotPlus ? "" : "General", footer: "TrustedDevicesFooterShort") {
                 LUIButton {
-                    SaveFilesManager.shared.openDownloadedFilesFolder()
+                    FileManager.default.openDocumentFolder()
                 } label: {
                     NavigationLinkLabel(imageName: "folder.fill", text: "BrowseDownloadedFiles")
                 }

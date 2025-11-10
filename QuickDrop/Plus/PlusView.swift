@@ -27,15 +27,7 @@ struct PlusView: View {
     @State var warning = false
     @State var buying = false
     @State var errorText = ""
-    
-    @State var boughtSuccessAlert = false {
-        didSet {
-            if boughtSuccessAlert {
-                log("User bought plus version. Moving pending files...")
-                SaveFilesManager.shared.movePendingFilesToTarget()
-            }
-        }
-    }
+    @State var boughtSuccessAlert = false
     
     
     var body: some View {
