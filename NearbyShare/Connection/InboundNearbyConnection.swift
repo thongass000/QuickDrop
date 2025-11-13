@@ -527,23 +527,16 @@ class InboundNearbyConnection: NearbyConnection {
             checkIfCanProceed(metadata: metadata)
         }
         else if let textMetadata = frame.v1.introduction.textMetadata.first {
+            let isURL = textMetadata.type == .url
             
-            if textMetadata.type == .url || textMetadata.type == .text {
-                
-                let isClipboardText = textMetadata.type == .text
-                
-                let metadata = TransferMetadata(files: [], id: id, pinCode: pinCode, textDescription: textMetadata.textTitle, transferType: isClipboardText ? .text : .url, allowsToBeAddedAsTrustedDevice: self.peerCertificate != nil)
-                textPayloadID = textMetadata.payloadID
-                
-                if isClipboardText {
-                    isPlainTextTransfer = true
-                }
-                
-                checkIfCanProceed(metadata: metadata)
+            let metadata = TransferMetadata(files: [], id: id, pinCode: pinCode, textDescription: textMetadata.textTitle, transferType: isURL ? .url : .text, allowsToBeAddedAsTrustedDevice: self.peerCertificate != nil)
+            textPayloadID = textMetadata.payloadID
+            
+            if !isURL {
+                isPlainTextTransfer = true
             }
-            else {
-                rejectDueToUnsupportedFileType(frame)
-            }
+            
+            checkIfCanProceed(metadata: metadata)
         } else {
             rejectDueToUnsupportedFileType(frame)
         }
