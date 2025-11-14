@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Contains information about the app group used to share data between main app and widget
+/// Contains information about the app group used to share data between main app and extensions
 struct AppGroup {
     
     /// Identifier of the app group
