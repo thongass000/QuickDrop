@@ -157,10 +157,10 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         let totalProgress = processes.values.reduce(0, +)
         let averageProgress = totalProgress / Double(processes.count)
         
-        #if os(iOS)
+#if os(iOS)
         ProgressAlert.shared.updateProgress(averageProgress, onCancel: {
             NearbyConnectionManager.shared.cancelTransfer(id: connectionID)
-        })
+        }, completion: {})
         #else
         DispatchQueue.main.async {
             self.progress = averageProgress
@@ -185,7 +185,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         finish()
         #else
         if self.processes.isEmpty {
-            ProgressAlert.shared.updateProgress(nil) {
+            ProgressAlert.shared.updateProgress(nil, onCancel: {}) {
                 finish()
             }
         }

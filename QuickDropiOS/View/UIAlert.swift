@@ -76,7 +76,7 @@ final class ProgressAlert {
 
     // MARK: - Update Progress
     // progress: 0…1 → update progress, nil → finished
-    func updateProgress(_ progress: Double?, onCancel: @escaping () -> Void, completion: @escaping () -> Void = {}) {
+    func updateProgress(_ progress: Double?, onCancel: @escaping () -> Void, completion: @escaping () -> Void) {
         
         // No progress to show, nothing shown currently → just complete
         if progressAlert == nil && progress == nil {
@@ -86,21 +86,22 @@ final class ProgressAlert {
         
         DispatchQueue.main.async {
             
-            // Show progress if not shown yet
-            if self.progressAlert == nil {
-                self.showProgressAlert(onCancel: onCancel)
-            }
-            
             if let p = progress {
+                // Show progress if not shown yet
+                if self.progressAlert == nil {
+                    self.showProgressAlert(onCancel: onCancel)
+                }
+                
                 self.progressView?.setProgress(Float(p), animated: true)
                 completion()
-            } else {
+            }
+            else {
                 // Completed: dismiss progress and show final alert
                 self.progressAlert?.dismiss(animated: true) {
                     completion()
+                    self.progressAlert = nil
+                    self.progressView = nil
                 }
-                self.progressAlert = nil
-                self.progressView = nil
             }
         }
     }

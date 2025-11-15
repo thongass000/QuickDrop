@@ -28183,6 +28183,472 @@
         }
       }
     },
+    "introduction_local_network_access" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الوصول إلى الشبكة"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accés a la xarxa"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přístup k síti"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Netværksadgang"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Netzwerkzugriff"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πρόσβαση στο δίκτυο"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network Access"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network Access"
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network Access"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network Access"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acceso a la red"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acceso a la red"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verkkoyhteys"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accès au réseau"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accès au réseau"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "גישה לרשת"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "नेटवर्क एक्सेस"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pristup mreži"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hálózati hozzáférés"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akses Jaringan"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accesso alla rete"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ネットワークアクセス"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "네트워크 접근"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akses Rangkaian"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nettverkstilgang"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Netwerktoegang"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dostęp do sieci"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acesso à Rede"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acesso à Rede"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acces la rețea"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доступ к сети"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nätverksåtkomst"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การเข้าถึงเครือข่าย"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ağ Erişimi"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доступ до мережі"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Truy cập mạng"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "网络访问"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "網路存取權"
+          }
+        }
+      }
+    },
+    "introduction_local_network_access_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يحتاج QuickDrop إلى الوصول إلى الشبكة المحلية لنقل الملفات عبر شبكة Wi-Fi الخاصة بك. اضغط على \"متابعة\" لمنح هذا الإذن."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop necessita accés a la xarxa local per transmetre fitxers via Wi-Fi. Toca «Continua» per concedir aquest permís."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop potřebuje přístup k místní síti pro přenos souborů přes vaše Wi-Fi. Klepněte na „Pokračovat“, abyste udělili toto oprávnění."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop har brug for adgang til det lokale netværk for at overføre filer via dit Wi-Fi. Tryk på “Fortsæt” for at give tilladelsen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop benötigt lokalen Netzwerkzugriff, um Dateien über dein WLAN zu übertragen. Tippe auf „Fortfahren“, um diese Berechtigung zu erteilen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το QuickDrop χρειάζεται πρόσβαση στο τοπικό δίκτυο για τη μετάδοση αρχείων μέσω Wi-Fi. Πατήστε «Συνέχεια» για να δώσετε αυτήν την άδεια."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop needs local network access to transmit files on your Wi-Fi. Tap “Continue“ to grant this permission."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop needs local network access to transmit files on your Wi-Fi. Tap “Continue“ to grant this permission."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop needs local network access to transmit files over your Wi-Fi. Tap “Continue” to grant this permission."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop needs local network access to transmit files on your Wi-Fi. Tap “Continue” to grant this permission."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop necesita acceso a la red local para transferir archivos por Wi-Fi. Pulsa “Continuar” para otorgar este permiso."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop necesita acceso a la red local para transferir archivos por Wi-Fi. Toca \"Continuar\" para otorgar este permiso."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop tarvitsee paikallisverkon käyttöoikeuden tiedostojen siirtoon Wi-Fi-verkossasi. Jatka myöntääksesi luvan."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop a besoin d'accéder au réseau local pour transférer des fichiers via votre Wi-Fi. Appuyez sur « Continuer » pour accorder cette autorisation."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop a besoin d’un accès au réseau local pour transmettre des fichiers via votre Wi-Fi. Touchez « Continuer » pour accorder cette permission."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop זקוק לגישה לרשת המקומית כדי להעביר קבצים ב-Wi-Fi שלך. לחץ על \"המשך\" כדי לאשר את ההרשאה."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop को फाइल भेजने के लिए आपके Wi-Fi पर लोकल नेटवर्क एक्सेस चाहिए। यह अनुमति देने के लिए 'जारी रखें' टैप करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop treba pristup lokalnoj mreži za prijenos datoteka putem Wi-Fi veze. Dodirnite „Nastavi“ za odobrenje."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A QuickDrop-nak helyi hálózati hozzáférésre van szüksége a fájlok Wi-Fi-n keresztüli átviteléhez. Koppints a „Folytatás” gombra az engedély megadásához."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop memerlukan akses jaringan lokal untuk mengirim file melalui Wi-Fi Anda. Ketuk \"Lanjutkan\" untuk memberikan izin ini."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop necessita dell’accesso alla rete locale per inviare file tramite il tuo Wi-Fi. Tocca “Continua” per concedere il permesso."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDropがWi-Fi経由でファイルを送信するには、ローカルネットワークへのアクセスが必要です。「続行」をタップして許可してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop이 와이파이에서 파일을 전송하려면 로컬 네트워크 접근 권한이 필요합니다. '계속'을 눌러 권한을 허용하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop memerlukan akses rangkaian tempatan untuk menghantar fail melalui Wi-Fi anda. Ketik “Teruskan“ untuk memberikan kebenaran ini."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop trenger tilgang til lokalt nettverk for å overføre filer via Wi-Fi. Trykk «Fortsett» for å gi tillatelse."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop heeft toegang tot het lokale netwerk nodig om bestanden via je wifi te versturen. Tik op 'Doorgaan' om deze toestemming te geven."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop potrzebuje dostępu do lokalnej sieci, aby przesyłać pliki przez Wi-Fi. Naciśnij „Kontynuuj”, aby przyznać to uprawnienie."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O QuickDrop precisa de acesso à rede local para transferir arquivos pelo seu Wi-Fi. Toque em “Continuar” para conceder essa permissão."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O QuickDrop precisa de acesso à rede local para transferir ficheiros através do seu Wi-Fi. Toque em \"Continuar\" para conceder esta permissão."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop are nevoie de acces la rețeaua locală pentru a transmite fișiere prin Wi-Fi. Apasă „Continuă” pentru a acorda această permisiune."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop требуется доступ к локальной сети для передачи файлов по Wi-Fi. Нажмите «Продолжить», чтобы предоставить разрешение."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop behöver åtkomst till lokalt nätverk för att överföra filer via ditt Wi-Fi. Tryck på ”Fortsätt” för att ge behörighet."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop ต้องการเข้าถึงเครือข่ายภายในเพื่อส่งไฟล์ผ่าน Wi-Fi ของคุณ แตะ “ดำเนินการต่อ” เพื่ออนุญาต"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop, dosya aktarımı için yerel ağa erişim gerektirir. Bu izni vermek için “Devam Et”e dokunun."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop потребує доступу до локальної мережі для передачі файлів через Wi-Fi. Натисніть «Продовжити», щоб надати дозвіл."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop cần quyền truy cập mạng cục bộ để truyền tệp qua Wi-Fi của bạn. Nhấn “Tiếp tục” để cho phép."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop 需要本地网络访问权限，以通过您的 Wi-Fi 传输文件。请点击“继续”以授予此权限。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop 需要本地網路權限，才能在您的 Wi-Fi 下傳輸檔案。請點擊「繼續」以授權。"
+          }
+        }
+      }
+    },
     "plusview_description" : {
       "localizations" : {
         "ar" : {

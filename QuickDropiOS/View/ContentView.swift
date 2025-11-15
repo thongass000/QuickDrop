@@ -32,6 +32,8 @@ struct ContentView: View {
                     NavigationLinkLabel(imageName: "checkmark.shield.fill", text: "ManageTrustedDevices", backgroundColor: .green)
                 }
             }
+        }, firstIntroductionView: {
+            LocalNetworkPermissionView()
         })
     }
 }
@@ -44,6 +46,7 @@ struct DeviceListView: View {
     #if !EXTENSION
     @StateObject var receiveModel = ReceiveModel(controlPlusScreen: { show in
         log("[DeviceListView] Setting showPlusScreen to \(show)")
+        errorVibration()
         DeviceListViewModel.sharedInstance.showPlusScreen = show
     })
     #endif
@@ -62,36 +65,39 @@ struct DeviceListView: View {
         BottomBarView(header: "QuickDrop", navigationBarLayout: isShareExtension() ? .SmallOnlyAlways : .Default, bottomViewHeight: 30) {
             VStack {
                 
-                VStack(alignment: .leading, spacing: 8) {
-                    
-                    let attachments = nearbyConnectionManager.attachments
-                    
-                    FormHeader(name: attachments == nil ? "YouAreVisibleAs".localized() : "YouAreSending".localized())
-                    
-                    HStack {
+                if nearbyConnectionManager.hasLocalNetworkPermission {
+                    VStack(alignment: .leading, spacing: 8) {
                         
-                        if let image = attachments?.previewImage {
-                            image
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 10, height: 10)
+                        let attachments = nearbyConnectionManager.attachments
+                        
+                        FormHeader(name: attachments == nil ? "YouAreVisibleAs".localized() : "YouAreSending".localized())
+                        
+                        HStack {
+                            
+                            if let image = attachments?.previewImage {
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 10, height: 10)
+                            }
+                            
+                            LUIText(attachments?.shortDescription ?? NearbyConnectionManager.shared.deviceInfo.name ?? "Unknown".localized(), isBold: true)
+                                .lineLimit(1)
                         }
-                        
-                        LUIText(attachments?.shortDescription ?? NearbyConnectionManager.shared.deviceInfo.name ?? "Unknown".localized(), isBold: true)
-                            .lineLimit(1)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 6)
+                        .background(sheetActive ? Color.sheetForegroundColor : Color.defaultForegroundColor)
+                        .cornerRadius(24)
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 6)
-                    .background(sheetActive ? Color.sheetForegroundColor : Color.defaultForegroundColor)
-                    .cornerRadius(24)
+                    .padding(.horizontal)
+                    .padding(.top, 8)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .padding(.horizontal)
-                .padding(.top, 8)
-                .frame(maxWidth: .infinity, alignment: .leading)
                 
                 if !nearbyConnectionManager.hasLocalNetworkPermission {
                     CardView(backgroundColor: .red, title: "NoNetworkAccess", titleSymbol: "network.slash") {
-                        CardSubView(symbol: "exclamationmark.triangle.fill", text: "NoLocalNetworkAccessDescription")
+                        LUIText("NoLocalNetworkAccessDescription", color: .white)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding(.bottom, 10)
                     .onTapGesture {

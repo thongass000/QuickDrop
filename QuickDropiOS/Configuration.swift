@@ -29,7 +29,7 @@ let configuration = LUIConfiguration(
     
     usesAutomaticReviewPrompt: false,
     
-    usesPagedIntroduction: false,
+    usesPagedIntroduction: true,
     
     supportsSplitView: false,
     
