@@ -99,7 +99,18 @@ struct DeviceListView: View {
                     }
                 }
                 
-                if sendModel.foundDevices.isEmpty {
+                var availableDevices: [RemoteDeviceInfo] {
+                    var devices = sendModel.foundDevices
+
+                    if let selected = sendModel.selectedDevice,
+                       !devices.contains(where: { $0.id == selected.id }) {
+                        devices.append(selected)
+                    }
+
+                    return devices
+                }
+                
+                if availableDevices.isEmpty {
                     
                     CustomSection(header: "NoDevicesFound") {
                         
@@ -127,7 +138,7 @@ struct DeviceListView: View {
                 } else {
                     
                     CustomSection(header: "AvailableDevices") {
-                        ForEach(sendModel.foundDevices) { device in
+                        ForEach(availableDevices) { device in
                             
                             let isSelected = sendModel.selectedDevice == device
                             

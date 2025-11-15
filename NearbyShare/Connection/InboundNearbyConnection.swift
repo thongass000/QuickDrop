@@ -537,8 +537,12 @@ class InboundNearbyConnection: NearbyConnection {
             }
             
             checkIfCanProceed(metadata: metadata)
-        } else {
-            rejectDueToUnsupportedFileType(frame)
+        }
+        else {
+            log("[InboundNearbyConnection \(self.id)] Rejecting transfer due to unsupported file type. Frame is \(frame.debugDescription)")
+            
+            lastError = NearbyError.canceled(reason: .unsupportedType)
+            rejectTransfer(with: .unsupportedAttachmentType)
         }
         
         
@@ -556,15 +560,6 @@ class InboundNearbyConnection: NearbyConnection {
                 }
             }
         }
-    }
-    
-    
-    func rejectDueToUnsupportedFileType(_ frame: Sharing_Nearby_Frame) {
-        
-        log("[InboundNearbyConnection \(self.id)] Rejecting transfer due to unsupported file type. Frame is \(frame.debugDescription)")
-        
-        lastError = NearbyError.canceled(reason: .unsupportedType)
-        rejectTransfer(with: .unsupportedAttachmentType)
     }
     
 

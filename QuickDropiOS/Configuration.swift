@@ -6,13 +6,18 @@
 //
 
 import LUI
+import Foundation
 
 let configuration = LUIConfiguration(
     appName: "QuickDrop",
     
-    inAppPurchaseName: "plusversion",
+    plusVersionInfo: GetPlusViewInformation(lifetimeID: "plusversion", description: "plusview_description_phone", plusVersionFeatures: [], settingsLabelColor: .orange, settingsFooter: "plusview_footer_phone"),
     
-    plusVersionInfo: GetPlusViewInformation(description: "plusview_description_phone", plusVersionFeatures: [], settingsLabelColor: .orange, settingsFooter: "plusview_footer_phone"),
+    setPlusVersion: { result in
+        DispatchQueue.main.async {
+            Settings.shared.gotPlus = result
+        }
+    },
     
     hasRoundedFont: false,
     
