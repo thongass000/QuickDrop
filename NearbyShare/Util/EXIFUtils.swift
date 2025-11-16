@@ -37,8 +37,13 @@ struct EXIFUtils {
             return
         }
 
-        // Set the "creation date"
-        try? FileManager.default.setAttributes([.creationDate: exifDate], ofItemAtPath: fileURL.path)
+        do {
+            // Set the "creation date"
+            try FileManager.default.setAttributes([.creationDate: exifDate], ofItemAtPath: fileURL.path)
+        }
+        catch {
+            log("[EXIFUtils] Failed to set file attributes for \(fileURL.path): \(error)")
+        }
     }
     
     
