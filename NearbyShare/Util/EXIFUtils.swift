@@ -48,7 +48,7 @@ struct EXIFUtils {
     
     
     /// Returns the EXIF original date of an image file, adjusted to the current time zone.
-    private static func exifOriginalDate(from url: URL) -> Date? {
+    static func exifOriginalDate(from url: URL) -> Date? {
         guard let imageSource = CGImageSourceCreateWithURL(url as CFURL, nil),
               let properties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as? [CFString: Any],
               let exif = properties[kCGImagePropertyExifDictionary] as? [CFString: Any],
@@ -56,10 +56,34 @@ struct EXIFUtils {
         else {
             return nil
         }
-
+        
+        let offsetString = exif[kCGImagePropertyExifOffsetTimeOriginal] as? String
+        
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.calendar = Calendar(identifier: .gregorian)
         formatter.dateFormat = "yyyy:MM:dd HH:mm:ss"
-        formatter.timeZone = TimeZone.current  // Use the current device time zone
+        
+        let offsetSeconds = offsetString.flatMap(secondsFromOffsetString)
+        if let seconds = offsetSeconds {
+            formatter.timeZone = TimeZone(secondsFromGMT: seconds)
+        } else {
+            // Fallback: treat as device local
+            formatter.timeZone = TimeZone.current
+        }
+        
         return formatter.date(from: dateString)
+    }
+    
+    
+    static private func secondsFromOffsetString(_ s: String) -> Int? {
+        // Expect formats like "+02:00" or "-05:30"
+        guard s.count == 6, (s.first == "+" || s.first == "-") else { return nil }
+        let sign = s.first == "-" ? -1 : 1
+        let parts = s.dropFirst().split(separator: ":")
+        guard parts.count == 2,
+              let hours = Int(parts[0]),
+              let minutes = Int(parts[1]) else { return nil }
+        return sign * (hours * 3600 + minutes * 60)
     }
 }

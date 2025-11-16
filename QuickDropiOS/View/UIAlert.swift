@@ -42,6 +42,42 @@ final class ProgressAlert {
         vc.present(alert, animated: true)
     }
     
+    
+    func presentIncomingTransferDoneAlert(
+        title: String,
+        message: String,
+        onImportToPhotos: (() -> Void)? = nil,
+        onDone: (() -> Void)? = nil
+    ) {
+        guard let vc = topMostViewController() else { return }
+
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+
+        // "Show in Files"
+        alert.addAction(UIAlertAction(title: "BrowseDownloadedFiles".localized(), style: .default) { _ in
+            FileManager.default.openDocumentFolder()
+        })
+
+        // Optional "Import to Photos"
+        if let importHandler = onImportToPhotos {
+            alert.addAction(UIAlertAction(title: "ImportToPhotos".localized(), style: .default) { _ in
+                importHandler()
+            })
+        }
+
+        // "Done"
+        alert.addAction(UIAlertAction(title: "Done".localized(), style: .cancel) { _ in
+            onDone?()
+        })
+
+        vc.present(alert, animated: true)
+    }
+
+    
 
     // MARK: - Progress Alert
     private func showProgressAlert(onCancel: @escaping () -> Void) {

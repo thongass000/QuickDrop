@@ -170,7 +170,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     }
     
     
-    func connectionWasTerminated(connectionID: String, from device: RemoteDeviceInfo, wasPlainTextTransfer: Bool, error: (any Error)?) {
+    func connectionWasTerminated(connectionID: String, from device: RemoteDeviceInfo, savedFiles: [URL], wasPlainTextTransfer: Bool, error: (any Error)?) {
         
         processes.removeValue(forKey: connectionID)
         
@@ -204,11 +204,35 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 
                 #if os(iOS)
                 doubleVibration()
+                if !savedFiles.isEmpty {
+                    
+                    let hasPhotoOrVideos = PhotoManager.hasPhotosOrVideos(at: savedFiles)
+                    let photoSaveAction: (() -> ())? = hasPhotoOrVideos ? {
+                        Task {
+                            do {
+                                try await PhotoManager.saveMediaToPhotoLibrary(from: savedFiles)
+                            }
+                            catch {
+                                showAlert(title: "CouldNotSaveMediaToPhotoLibrary", message: error.localizedDescription)
+                            }
+                        }
+                    } : nil
+                    
+                    ProgressAlert.shared.presentIncomingTransferDoneAlert(title: "FileTransferCompleted".localized(), message: "FileTransferCompletedMessage".localized(), onImportToPhotos: photoSaveAction)
+                }
+                
                 #endif
                 
                 let currentCount = Settings.shared.incomingTransmissionCount
                 
                 #if os(macOS)
+                
+                // Show received files if wanted
+                if !savedFiles.isEmpty, Settings.shared.openFinderAfterReceiving {
+                    log("[SaveFilesManager] Opening \(self.downloadedFiles.count) file(s) in Finder.")
+                    NSWorkspace.shared.activateFileViewerSelecting(self.downloadedFiles)
+                }
+                
                 // If distributed directly, do not request review here as it does not work
                 if currentCount == 0 && !DistributionDetector.isDirectDistributionEnabled {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

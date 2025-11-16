@@ -205,6 +205,7 @@
 		EBADEB912E802A830021B5E4 /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = EBADEB902E802A830021B5E4 /* DeviceKit */; };
 		EBBC93B22EC8B76600F541A1 /* LocalNetworkPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBC93B12EC8B75F00F541A1 /* LocalNetworkPermissionView.swift */; };
 		EBBC93B32EC8B76600F541A1 /* LocalNetworkPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBC93B12EC8B75F00F541A1 /* LocalNetworkPermissionView.swift */; };
+		EBBEE1462EC9D93400AA7831 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBEE1452EC9D92F00AA7831 /* PhotoManager.swift */; };
 		EBC05C5B2E33937200EECC18 /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */; };
 		EBC05C5C2E3394EF00EECC18 /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */; };
 		EBC05C712E33B57D00EECC18 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C6D2E33B57D00EECC18 /* Converter.swift */; };
@@ -371,6 +372,7 @@
 		EB97A0192E51EA9C008B8C5C /* UIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlert.swift; sourceTree = "<group>"; };
 		EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharing_enums.pb.swift; sourceTree = "<group>"; };
 		EBBC93B12EC8B75F00F541A1 /* LocalNetworkPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkPermissionView.swift; sourceTree = "<group>"; };
+		EBBEE1452EC9D92F00AA7831 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertHandler.swift; sourceTree = "<group>"; };
 		EBC05C6D2E33B57D00EECC18 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		EBC05C6E2E33B57D00EECC18 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 				EB979F8E2E50CA23008B8C5C /* ContentView.swift */,
 				EB979F8F2E50CA23008B8C5C /* FilePicker.swift */,
 				EB97A0192E51EA9C008B8C5C /* UIAlert.swift */,
+				EBBEE1452EC9D92F00AA7831 /* PhotoManager.swift */,
 				EBBC93B12EC8B75F00F541A1 /* LocalNetworkPermissionView.swift */,
 				EB979F992E50CAA6008B8C5C /* PieProgressView.swift */,
 			);
@@ -1056,6 +1059,7 @@
 				EB5C383D2E38C2D90052EFD7 /* AudioManager.swift in Sources */,
 				EB979F942E50CA23008B8C5C /* Configuration.swift in Sources */,
 				EB979F952E50CA23008B8C5C /* ContentView.swift in Sources */,
+				EBBEE1462EC9D93400AA7831 /* PhotoManager.swift in Sources */,
 				EB97A01A2E51EAA2008B8C5C /* UIAlert.swift in Sources */,
 				EB979F962E50CA23008B8C5C /* FilePicker.swift in Sources */,
 				EB979F9A2E50CAA6008B8C5C /* PieProgressView.swift in Sources */,
@@ -1462,6 +1466,7 @@
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Leon Böttger";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is needed to detect devices and transfer files over your Wi-Fi network.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The add photos permission is required to save received photos and videos to your photo library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1506,6 +1511,7 @@
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Leon Böttger";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is needed to detect devices and transfer files over your Wi-Fi network.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The add photos permission is required to save received photos and videos to your photo library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

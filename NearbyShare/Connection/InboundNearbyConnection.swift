@@ -50,19 +50,7 @@ class InboundNearbyConnection: NearbyConnection {
         deletePartiallyReceivedFiles()
   
         DispatchQueue.main.async {
-            self.delegate?.connectionWasTerminated(connection: self, error: self.lastError)
-            
-            if !self.downloadedFiles.isEmpty {
-                
-                #if os(macOS)
-                if Settings.shared.openFinderAfterReceiving {
-                    log("[SaveFilesManager] Opening \(self.downloadedFiles.count) file(s) in Finder.")
-                    NSWorkspace.shared.activateFileViewerSelecting(self.downloadedFiles)
-                }
-                #else
-                FileManager.default.openDocumentFolder()
-                #endif
-            }
+            self.delegate?.connectionWasTerminated(connection: self, savedFiles: self.downloadedFiles, error: self.lastError)
         }
     }
     

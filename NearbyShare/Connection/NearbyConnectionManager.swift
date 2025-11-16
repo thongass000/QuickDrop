@@ -228,7 +228,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    func connectionWasTerminated(connection: InboundNearbyConnection, error: Error?) {
+    func connectionWasTerminated(connection: InboundNearbyConnection, savedFiles: [URL], error: Error?) {
         incomingConnections.removeValue(forKey: connection.id)
         
         // If there are no more incoming connections, we can stop accessing the save directory
@@ -238,7 +238,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         
         if !connection.wasUserRejected {
             inboundAppDelegates.forEach { delegate in
-                delegate.connectionWasTerminated(connectionID: connection.id, from: connection.remoteDeviceInfo ?? RemoteDeviceInfo(name: "UnknownDevice".localized(), type: .unknown), wasPlainTextTransfer: connection.isPlainTextTransfer, error: error)
+                delegate.connectionWasTerminated(connectionID: connection.id, from: connection.remoteDeviceInfo ?? RemoteDeviceInfo(name: "UnknownDevice".localized(), type: .unknown), savedFiles: savedFiles, wasPlainTextTransfer: connection.isPlainTextTransfer, error: error)
             }
         }
     }
