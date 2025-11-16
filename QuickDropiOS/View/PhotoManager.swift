@@ -11,7 +11,8 @@ import UniformTypeIdentifiers
 
 
 struct PhotoManager {
-    
+
+    /// Returns if there are photos or videos among the given URLs.
     static func hasPhotosOrVideos(at urls: [URL]) -> Bool {
         urls.contains(where: { isImageFile(at: $0) || isVideoFile(at: $0) })
     }
@@ -22,10 +23,8 @@ struct PhotoManager {
     ///   - urls: Remote or local URLs to inspect.
     ///   - openPhotosOnSuccess: If true, will try to open the Photos app after saving.
     /// - Throws: `SaveToPhotosError` or underlying URLSession/Photos errors.
-    static func saveMediaToPhotoLibrary(
-        from urls: [URL],
-        openPhotosOnSuccess: Bool = true
-    ) async throws {
+    static func saveMediaToPhotoLibrary(from urls: [URL], openPhotosOnSuccess: Bool = true) async throws {
+        
         let candidates = urls.filter { isImageFile(at: $0) || isVideoFile(at: $0) }
         guard !candidates.isEmpty else { throw SaveToPhotosError.noSavableContent }
         
@@ -34,27 +33,17 @@ struct PhotoManager {
             throw SaveToPhotosError.permissionDenied
         }
         
-        struct ImageItem {
-            let fileURL: URL
-            let creationDate: Date?
-        }
-        
-        struct VideoItem {
-            let fileURL: URL
-            let creationDate: Date?
-        }
-        
         var imageItems: [ImageItem] = []
         var videoItems: [VideoItem] = []
         
-        // 1. Download and write to temp files, extracting EXIF date for images.
+        
+        // Extract creation date for image and video
         for sourceURL in candidates {
             
             if isImageFile(at: sourceURL) {
                 let exifDate = EXIFUtils.exifOriginalDate(from: sourceURL)
                 imageItems.append(ImageItem(fileURL: sourceURL, creationDate: exifDate))
             } else {
-                // For videos you may want to parse container metadata; as a fallback use file creation date.
                 let videoDate = await getVideoCreationDate(from: sourceURL)
                 videoItems.append(VideoItem(fileURL: sourceURL, creationDate: videoDate))
             }
@@ -64,7 +53,8 @@ struct PhotoManager {
             throw SaveToPhotosError.noSavableContent
         }
         
-        // 2. Import into Photos; explicitly set creationDate so it doesn't default to "now".
+        
+        // Import into Photos; explicitly set creationDate so it doesn't default to "now".
         try await withCheckedThrowingContinuation { continuation in
             PHPhotoLibrary.shared().performChanges({
                 for item in imageItems {
@@ -92,7 +82,19 @@ struct PhotoManager {
         }
         
         
-        // 5. Open the Photos app
+        // Delete files in documents directory after successful import
+        imageItems.forEach({ item in
+            do { try FileManager.default.removeItem(at: item.fileURL) }
+            catch { log("Failed to delete image at \(item.fileURL): \(error)") }
+        })
+        
+        videoItems.forEach({ item in
+            do { try FileManager.default.removeItem(at: item.fileURL) }
+            catch { log("Failed to delete video at \(item.fileURL): \(error)") }
+        })
+        
+        
+        // Open the Photos app
         if openPhotosOnSuccess {
             if let url = URL(string: "photos-redirect://") {
                 DispatchQueue.main.async  {
@@ -104,7 +106,6 @@ struct PhotoManager {
     
     
     private static func isImageFile(at url: URL) -> Bool {
-        // Assumes there *is* an extension, as per your requirement
         let ext = url.pathExtension.lowercased()
         guard let type = UTType(filenameExtension: ext) else {
             return false
@@ -113,7 +114,7 @@ struct PhotoManager {
         return type.conforms(to: .image)
     }
     
-
+    
     private static func isVideoFile(at url: URL) -> Bool {
         let ext = url.pathExtension.lowercased()
         guard let type = UTType(filenameExtension: ext) else {
@@ -123,7 +124,7 @@ struct PhotoManager {
         // catches some broader cases if needed.
         return type.conforms(to: .movie) || type.conforms(to: .audiovisualContent)
     }
-
+    
     
     private static func getVideoCreationDate(from url: URL) async -> Date? {
         let asset = AVURLAsset(url: url)
@@ -155,20 +156,32 @@ struct PhotoManager {
     }
     
     
-    enum SaveToPhotosError: Error, LocalizedError {
+    private enum SaveToPhotosError: Error, LocalizedError {
         case noSavableContent
         case permissionDenied
         case saveFailed
         
         var errorDescription: String? {
-               switch self {
-               case .noSavableContent:
-                   return "SaveToPhotosErrorNoSavableContent".localized()
-               case .permissionDenied:
-                   return "SaveToPhotosErrorPermissionDenied".localized()
-               case .saveFailed:
-                   return "SaveToPhotosErrorSaveFailed".localized()
-               }
-           }
+            switch self {
+            case .noSavableContent:
+                return "SaveToPhotosErrorNoSavableContent".localized()
+            case .permissionDenied:
+                return "SaveToPhotosErrorPermissionDenied".localized()
+            case .saveFailed:
+                return "SaveToPhotosErrorSaveFailed".localized()
+            }
+        }
+    }
+    
+    
+    private struct ImageItem {
+        let fileURL: URL
+        let creationDate: Date?
+    }
+    
+    
+    private struct VideoItem {
+        let fileURL: URL
+        let creationDate: Date?
     }
 }
