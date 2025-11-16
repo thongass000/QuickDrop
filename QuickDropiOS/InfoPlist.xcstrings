@@ -942,38 +942,38 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "يرغب QuickDrop في إضافة الصور ومقاطع الفيديو المستلمة إلى مكتبة صورك."
+            "state" : "translated",
+            "value" : "مطلوب إذن إضافة الصور لحفظ الصور ومقاطع الفيديو المستلمة في مكتبة الصور الخاصة بك."
           }
         },
         "ca" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop vol afegir les fotos i vídeos rebuts a la teva biblioteca de fotos."
+            "state" : "translated",
+            "value" : "Es requereix el permís d’afegir fotos per desar fotos i vídeos rebuts a la teva biblioteca."
           }
         },
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop si přeje přidat přijaté fotky a videa do vaší knihovny fotografií."
+            "state" : "translated",
+            "value" : "Oprávnění k přidání fotek je nutné pro ukládání přijatých fotek a videí do vaší knihovny fotografií."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop vil gerne tilføje modtagne billeder og videoer til dit fotobibliotek."
+            "value" : "Tilladelse til at tilføje fotos er nødvendig for at gemme modtagne fotos og videoer i dit fotobibliotek."
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop möchte empfangene Fotos und Videos deiner Mediathek hinzufügen."
+            "state" : "translated",
+            "value" : "Die Berechtigung zum Hinzufügen von Fotos ist nötig, um empfangene Fotos und Videos in deiner Mediathek zu speichern."
           }
         },
         "el" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Το QuickDrop θέλει να προσθέσει τις ληφθείσες φωτογραφίες και βίντεο στη βιβλιοθήκη φωτογραφιών σας."
+            "state" : "translated",
+            "value" : "Η άδεια προσθήκης φωτογραφιών είναι απαραίτητη για την αποθήκευση των ληφθέντων φωτογραφιών και βίντεο στη βιβλιοθήκη φωτογραφιών σας."
           }
         },
         "en" : {
@@ -984,188 +984,188 @@
         },
         "en-AU" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop would like to add received photos and videos to your photo library."
+            "state" : "translated",
+            "value" : "The add photos permission is required to save received photos and videos to your photo library."
           }
         },
         "en-CA" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop would like to add received photos and videos to your photo library."
+            "state" : "translated",
+            "value" : "The add photos permission is required to save received photos and videos to your photo library."
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop would like to add received photos and videos to your photo library."
+            "state" : "translated",
+            "value" : "The add photos permission is required to save received photos and videos to your photo library."
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop quiere añadir las fotos y videos recibidos a tu galería."
+            "state" : "translated",
+            "value" : "Se necesita el permiso para agregar fotos para guardar las fotos y videos recibidos en tu biblioteca."
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop quiere agregar las fotos y videos recibidos a tu galería."
+            "state" : "translated",
+            "value" : "Se necesita el permiso para agregar fotos para guardar las fotos y videos recibidos en tu galería."
           }
         },
         "fi" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop haluaa lisätä vastaanotetut kuvat ja videot kuvakirjastoosi."
+            "state" : "translated",
+            "value" : "Valokuvien lisäämisoikeus vaaditaan, jotta vastaanotetut kuvat ja videot voidaan tallentaa kuva-albumiisi."
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop souhaite ajouter les photos et vidéos reçues à votre bibliothèque."
+            "state" : "translated",
+            "value" : "L'autorisation d'ajouter des photos est requise pour enregistrer les photos et vidéos reçues dans votre bibliothèque."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop souhaite ajouter les photos et vidéos reçues à votre bibliothèque de photos."
+            "state" : "translated",
+            "value" : "L’autorisation d’ajouter des photos est requise pour enregistrer les photos et vidéos reçues dans votre bibliothèque photo."
           }
         },
         "he" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop מבקשת להוסיף תמונות וסרטונים שהתקבלו לספריית התמונות שלך."
+            "state" : "translated",
+            "value" : "נדרשת הרשאת הוספת תמונות כדי לשמור תמונות וסרטונים שהתקבלו לספריית התמונות שלך."
           }
         },
         "hi" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop प्राप्त तस्वीरें और वीडियो आपकी फोटो लाइब्रेरी में जोड़ना चाहता है।"
+            "state" : "translated",
+            "value" : "प्राप्त फोटो और वीडियो को आपकी फोटो लाइब्रेरी में सहेजने के लिए फ़ोटो जोड़ने की अनुमति आवश्यक है।"
           }
         },
         "hr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop želi dodati primljene fotografije i videozapise u vašu galeriju."
+            "state" : "translated",
+            "value" : "Dopuštenje za dodavanje fotografija potrebno je za spremanje primljenih fotografija i videa u vašu galeriju."
           }
         },
         "hu" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "A QuickDrop hozzá szeretné adni a fogadott fotókat és videókat a fotókönyvtáradhoz."
+            "state" : "translated",
+            "value" : "A fotók hozzáadása engedély szükséges ahhoz, hogy a fogadott fotókat és videókat el tudd menteni a fotótáradba."
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop ingin menambahkan foto dan video yang diterima ke perpustakaan foto Anda."
+            "state" : "translated",
+            "value" : "Izin menambah foto diperlukan untuk menyimpan foto dan video yang diterima ke perpustakaan foto Anda."
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop desidera aggiungere le foto e i video ricevuti alla tua libreria fotografica."
+            "state" : "translated",
+            "value" : "Il permesso di aggiungere foto è necessario per salvare le foto e i video ricevuti nella tua libreria fotografica."
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDropが受信した写真とビデオをフォトライブラリに追加しようとしています。"
+            "state" : "translated",
+            "value" : "受信した写真や動画をフォトライブラリに保存するには、写真の追加許可が必要です。"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop이(가) 받은 사진과 동영상을 사진 보관함에 추가하려고 합니다."
+            "state" : "translated",
+            "value" : "받은 사진과 동영상을 사진 보관함에 저장하려면 사진 추가 권한이 필요합니다."
           }
         },
         "ms" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop ingin menambah foto dan video yang diterima ke pustaka foto anda."
+            "state" : "translated",
+            "value" : "Kebenaran tambah foto diperlukan untuk menyimpan foto dan video yang diterima ke pustaka foto anda."
           }
         },
         "nb" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop vil legge til mottatte bilder og videoer i bildebiblioteket ditt."
+            "state" : "translated",
+            "value" : "Tillatelse til å legge til bilder er nødvendig for å lagre mottatte bilder og videoer i bildebiblioteket ditt."
           }
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop wil ontvangen foto's en video's toevoegen aan je fotobibliotheek."
+            "state" : "translated",
+            "value" : "De toestemming om foto’s toe te voegen is nodig om ontvangen foto’s en video’s op te slaan in je fotobibliotheek."
           }
         },
         "pl" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop chce dodać odebrane zdjęcia i filmy do Twojej biblioteki zdjęć."
+            "state" : "translated",
+            "value" : "Uprawnienie do dodawania zdjęć jest wymagane, aby zapisywać otrzymane zdjęcia i filmy w Twojej bibliotece zdjęć."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "O QuickDrop gostaria de adicionar fotos e vídeos recebidos à sua biblioteca de fotos."
+            "state" : "translated",
+            "value" : "A permissão para adicionar fotos é necessária para salvar fotos e vídeos recebidos na sua biblioteca de fotos."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "O QuickDrop gostaria de adicionar as fotos e vídeos recebidos à sua biblioteca de fotografias."
+            "state" : "translated",
+            "value" : "A permissão para adicionar fotos é necessária para guardar fotos e vídeos recebidos na sua biblioteca de fotos."
           }
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop dorește să adauge fotografiile și videoclipurile primite în biblioteca ta foto."
+            "state" : "translated",
+            "value" : "Permisiunea de a adăuga fotografii este necesară pentru a salva fotografii și videoclipuri primite în biblioteca ta foto."
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop хочет добавить полученные фото и видео в вашу медиатеку."
+            "state" : "translated",
+            "value" : "Необходимо разрешение на добавление фото для сохранения полученных фото и видео в вашу фототеку."
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop vill lägga till mottagna foton och videor i ditt bildbibliotek."
+            "state" : "translated",
+            "value" : "Behörighet att lägga till foton krävs för att spara mottagna bilder och videor i ditt fotobibliotek."
           }
         },
         "th" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop ต้องการเพิ่มรูปภาพและวิดีโอที่ได้รับไปยังคลังรูปภาพของคุณ"
+            "state" : "translated",
+            "value" : "จำเป็นต้องขออนุญาตเพิ่มรูปภาพเพื่อบันทึกรูปถ่ายและวิดีโอที่ได้รับลงในคลังรูปภาพของคุณ"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop, alınan fotoğraf ve videoları fotoğraf kitaplığınıza eklemek istiyor."
+            "state" : "translated",
+            "value" : "Alınan fotoğraf ve videoları fotoğraf galerine kaydetmek için fotoğraf ekleme izni gereklidir."
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop хоче додати отримані фото та відео до вашої фототеки."
+            "state" : "translated",
+            "value" : "Дозвіл на додавання фото потрібен для збереження отриманих фото та відео у вашу фототеку."
           }
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop muốn thêm ảnh và video nhận được vào thư viện ảnh của bạn."
+            "state" : "translated",
+            "value" : "Quyền thêm ảnh là cần thiết để lưu ảnh và video nhận được vào thư viện ảnh của bạn."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop 希望将接收的照片和视频添加到您的照片库。"
+            "state" : "translated",
+            "value" : "需要添加照片权限才能将接收到的照片和视频保存到您的相册。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "QuickDrop 想將收到的照片和影片加入你的相簿。"
+            "state" : "translated",
+            "value" : "需要新增照片權限才能將接收的照片和影片儲存到您的相簿。"
           }
         }
       }

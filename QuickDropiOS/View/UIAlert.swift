@@ -58,7 +58,7 @@ final class ProgressAlert {
         )
 
         // "Show in Files"
-        alert.addAction(UIAlertAction(title: "BrowseDownloadedFiles".localized(), style: .default) { _ in
+        alert.addAction(UIAlertAction(title: "OpenInFiles".localized(), style: .default) { _ in
             FileManager.default.openDocumentFolder()
         })
 
