@@ -8,21 +8,29 @@
 import SwiftUI
 import AppKit
 
-
 let toastViewSize = CGSize(width: 400, height: 100)
 
 struct QuickDropToastView: View {
     @ObservedObject var settings = Settings.shared
     @ObservedObject var receiveModel: ReceiveModel
-    public var onCancel: () -> Void = {}
+    
+    @State var autoHider: DispatchWorkItem? = nil
 
-    init(receiveModel: ReceiveModel,
-                onCancel: @escaping () -> Void = {}) {
+    /// Cancel while receiving.
+    public var onCancel: () -> Void
+
+    init(
+        receiveModel: ReceiveModel,
+        onCancel: @escaping () -> Void = {}
+    ) {
         self.receiveModel = receiveModel
         self.onCancel = onCancel
     }
 
     public var body: some View {
+        
+        let isDone = receiveModel.toastActions != nil
+        
         VStack(spacing: 12) {
             HStack(spacing: 12) {
                 ZStack(alignment: .bottomLeading) {
@@ -36,7 +44,8 @@ struct QuickDropToastView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(String("QuickDrop"))
                         .font(.system(size: 16, weight: .semibold))
-                    Text("Receiving")
+
+                    Text(isDone ? "FileTransferCompleted" : "Receiving")
                         .font(.system(size: 13))
                         .foregroundColor(.secondary)
                         .lineLimit(1)
@@ -46,17 +55,54 @@ struct QuickDropToastView: View {
                 Spacer(minLength: 12)
             }
 
-            HStack() {
-            
-                CapsuleProgress(value: receiveModel.progress ?? 1.0)
+            ZStack {
+                if let actions = receiveModel.toastActions {
+                    HStack(spacing: 8) {
+   
+                        QuickDropToastViewButton(title: "OpenInFinder") {
+                            actions.openFilesAction()
+                            actions.closeToastAction()
+                        }
 
-                Button(action: onCancel) {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 10, weight: .semibold))
-                        .foregroundColor(.secondary)
-                        .frame(width: 18, height: 18)
+                        if let onImportToPhotos = actions.importPhotosAction {
+                            QuickDropToastViewButton(title: "ImportToPhotos") {
+                                onImportToPhotos()
+                                actions.closeToastAction()
+                            }
+                        }
+                        
+                        Spacer()
+                        
+                        QuickDropToastViewButton(title: "Done", action: actions.closeToastAction)
+                            .onAppear {
+                                self.autoHider = DispatchWorkItem(block: {
+                                    actions.closeToastAction()
+                                })
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                                    self.autoHider?.perform()
+                                }
+                            }
+                            .onDisappear {
+                                self.autoHider?.cancel()
+                            }
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.small)
                 }
-                .buttonStyle(PlainButtonStyle())
+                
+                HStack {
+                    CapsuleProgress(value: receiveModel.progress ?? 1.0)
+                    
+                    Button(action: onCancel) {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 10, weight: .semibold))
+                            .foregroundColor(.secondary)
+                            .frame(width: 18, height: 18)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+                .opacity(isDone ? 0 : 1)
             }
         }
         .padding(16)
@@ -71,6 +117,25 @@ struct QuickDropToastView: View {
         .shadow(color: Color.black.opacity(0.1), radius: 20)
         .frame(maxWidth: .infinity)
         .opacity(isFileTransferRestricted() ? 0 : 1)
+    }
+}
+
+
+fileprivate struct QuickDropToastViewButton: View {
+    let title: String
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Text(title.localized())
+                .padding(.horizontal, 12)
+                .padding(.vertical, 4)
+                .background(
+                    Color.gray.opacity(0.15)
+                        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                )
+        }
+        .buttonStyle(.plain)  // prevents blue macOS button look
     }
 }
 
@@ -110,7 +175,7 @@ struct CapsuleProgress: View {
             ZStack(alignment: .leading) {
                 Capsule()
                     .fill(track)
-                Capsule() // Use a plain rectangle
+                Capsule()
                     .fill(fill)
                     .mask(
                         Capsule()
@@ -128,20 +193,22 @@ struct CapsuleProgress: View {
 // MARK: - Preview
 struct QuickDropToastView_Previews: PreviewProvider {
     struct Demo: View {
-        
         @State var model = ReceiveModel(controlPlusScreen: { _ in })
-        
+        @State var done = false
+
         var body: some View {
             QuickDropToastView(
                 receiveModel: model,
                 onCancel: { }
             )
-            .padding()
             .frame(width: toastViewSize.width, height: toastViewSize.height)
+            .padding(100)
+            .background(Color.white.opacity(0.2))
             .onAppear {
                 model.progress = 0.01
             }
         }
     }
+
     static var previews: some View { Demo() }
 }

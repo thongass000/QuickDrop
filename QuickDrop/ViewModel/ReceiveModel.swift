@@ -22,6 +22,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     
     #if os(macOS)
     @Published var progress: Double? = nil
+    @Published var toastActions: ToastViewAction? = nil
     private var toastWindow: NSWindow?
     private var toastHosting: NSHostingView<QuickDropToastView>?
     #endif
@@ -163,6 +164,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         }, completion: {})
         #else
         DispatchQueue.main.async {
+            self.toastActions = nil
             self.progress = averageProgress
             self.showQuickDropToast(for: connectionID)
         }
@@ -176,8 +178,6 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         
         #if os(macOS)
         DispatchQueue.main.async {
-            self.hideQuickDropToast()
-            
             if self.processes.isEmpty {
                 self.progress = nil
             }
@@ -200,8 +200,12 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 
                 controlPlusScreen(false)
                 ErrorAlertHandler.shared.showErrorAlert(for: device.name ?? "Android", error: error)
-            } else {
                 
+                DispatchQueue.main.async {
+                    self.hideQuickDropToast()
+                }
+            } else {
+ 
                 #if os(iOS)
                 doubleVibration()
                 if !savedFiles.isEmpty {
@@ -227,10 +231,42 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 
                 #if os(macOS)
                 
-                // Show received files if wanted
-                if !savedFiles.isEmpty, Settings.shared.openFinderAfterReceiving {
-                    log("[SaveFilesManager] Opening \(self.downloadedFiles.count) file(s) in Finder.")
-                    NSWorkspace.shared.activateFileViewerSelecting(self.downloadedFiles)
+                let openFilesAction = {
+                    if !savedFiles.isEmpty {
+                        log("[SaveFilesManager] Opening \(savedFiles.count) file(s) in Finder.")
+                        NSWorkspace.shared.activateFileViewerSelecting(savedFiles)
+                    }
+                }
+                
+                let hasPhotoOrVideos = PhotoManager.hasPhotosOrVideos(at: savedFiles)
+                let importPhotosAction: (()->())? = hasPhotoOrVideos ? {
+                    Task {
+                        do {
+                            try await PhotoManager.saveMediaToPhotoLibrary(from: savedFiles)
+                        }
+                        catch {
+                            DispatchQueue.main.async {
+                                let alert = NSAlert()
+                                alert.alertStyle = .critical
+                                alert.messageText = "CouldNotSaveMediaToPhotoLibrary".localized()
+                                alert.informativeText = error.localizedDescription
+                                alert.addButton(withTitle: "CloseAlert".localized())
+                                
+                                alert.runModal()
+                            }
+                        }
+                    }
+                } : nil
+                
+                DispatchQueue.main.async {
+                    withAnimation {
+                        self.toastActions = ToastViewAction(openFilesAction: openFilesAction, importPhotosAction: importPhotosAction, closeToastAction: self.hideQuickDropToast)
+                    }
+                    
+                    // Show received files if wanted
+                    if Settings.shared.openFinderAfterReceiving {
+                        self.toastActions?.openFilesAction()
+                    }
                 }
                 
                 // If distributed directly, do not request review here as it does not work
@@ -336,7 +372,15 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             window.orderOut(nil)
             self.toastWindow = nil
             self.toastHosting = nil
+            self.toastActions = nil
         })
+    }
+    
+    
+    struct ToastViewAction {
+        let openFilesAction: () -> ()
+        let importPhotosAction: (() -> ())?
+        let closeToastAction: () -> ()
     }
     #endif
 }

@@ -111,6 +111,9 @@
 		EB5C383F2E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
 		EB5C38402E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
 		EB5C38412E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
+		EB6E6AB42ECBA46D00E71D57 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBEE1452EC9D92F00AA7831 /* PhotoManager.swift */; };
+		EB6E6B212ECBA95000E71D57 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB6E6B202ECBA95000E71D57 /* InfoPlist.xcstrings */; };
+		EB6E6B222ECBA95000E71D57 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB6E6B202ECBA95000E71D57 /* InfoPlist.xcstrings */; };
 		EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */; };
 		EB704A822E4A7BB3008E608F /* DistributionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB704A812E4A7BAE008E608F /* DistributionDetector.swift */; };
 		EB704A832E4B10D4008E608F /* DistributionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB704A812E4A7BAE008E608F /* DistributionDetector.swift */; };
@@ -342,6 +345,7 @@
 		EB5C37E22E377C2E0052EFD7 /* QuickDropiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDropiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5C38382E38C1F60052EFD7 /* justMaybe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = justMaybe.mp3; sourceTree = "<group>"; };
 		EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
+		EB6E6B202ECBA95000E71D57 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB704A812E4A7BAE008E608F /* DistributionDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionDetector.swift; sourceTree = "<group>"; };
 		EB721F232E75AFA900F2099F /* QuickDropIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = QuickDropIcon.icon; sourceTree = "<group>"; };
@@ -493,6 +497,7 @@
 				EBC05C6B2E33B57100EECC18 /* Util */,
 				EBC05C702E33B57D00EECC18 /* Plus */,
 				69DA9A1329E0BF5200A442DA /* Assets.xcassets */,
+				EB6E6B202ECBA95000E71D57 /* InfoPlist.xcstrings */,
 				EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */,
 				69DA9A1829E0BF5200A442DA /* QuickDrop.entitlements */,
 			);
@@ -874,6 +879,7 @@
 				699DEBA92AB0573200115D22 /* ShareViewController.xib in Resources */,
 				EB96ED8D2D7F7EA3004B3FF1 /* Assets.xcassets in Resources */,
 				EB5C383A2E38C1F60052EFD7 /* justMaybe.mp3 in Resources */,
+				EB6E6B212ECBA95000E71D57 /* InfoPlist.xcstrings in Resources */,
 				EB950B5A2E52065A002D68FA /* timeIsNow.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -888,6 +894,7 @@
 				EBC05C8C2E33B59E00EECC18 /* timeIsNow.mp3 in Resources */,
 				EB721F252E75AFA900F2099F /* QuickDropIcon.icon in Resources */,
 				EB5C38392E38C1F60052EFD7 /* justMaybe.mp3 in Resources */,
+				EB6E6B222ECBA95000E71D57 /* InfoPlist.xcstrings in Resources */,
 				EB7654782E525ACC006B4AA3 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1011,6 +1018,7 @@
 				EB7F54122D78E96000989564 /* TutorialView.swift in Sources */,
 				EB704A822E4A7BB3008E608F /* DistributionDetector.swift in Sources */,
 				EB9925812E45D53E00357055 /* sharing_enums.pb.swift in Sources */,
+				EB6E6AB42ECBA46D00E71D57 /* PhotoManager.swift in Sources */,
 				EB96ED8F2D7F8105004B3FF1 /* Localized.swift in Sources */,
 				EB7CD1452D6FB0C300CB0CB5 /* Logger.swift in Sources */,
 				EB16B77A2E59BAA1007D9792 /* AppGroup.swift in Sources */,
@@ -1150,6 +1158,7 @@
 		699DEBAF2AB0573200115D22 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				AUTOMATION_APPLE_EVENTS = NO;
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -1158,9 +1167,15 @@
 				CURRENT_PROJECT_VERSION = "${SHARED_BUILD}";
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
@@ -1178,6 +1193,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) EXTENSION";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1188,6 +1209,7 @@
 		699DEBB02AB0573200115D22 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				AUTOMATION_APPLE_EVENTS = NO;
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -1196,9 +1218,15 @@
 				CURRENT_PROJECT_VERSION = "${SHARED_BUILD}";
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
@@ -1216,6 +1244,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = EXTENSION;
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = "";
@@ -1362,6 +1396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = QuickDropIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				AUTOMATION_APPLE_EVENTS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = QuickDrop/QuickDrop.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1372,18 +1407,28 @@
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readwrite;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuickDrop/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QuickDrop;
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Leon Böttger";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The add photos permission is required to save received photos and videos to your photo library.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The photo library permission is required to save received photos and videos to your photo library.";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1396,6 +1441,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1408,6 +1459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = QuickDropIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				AUTOMATION_APPLE_EVENTS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = QuickDrop/QuickDrop.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1418,18 +1470,28 @@
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readwrite;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuickDrop/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QuickDrop;
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Leon Böttger";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The add photos permission is required to save received photos and videos to your photo library.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The photo library permission is required to save received photos and videos to your photo library.";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1442,6 +1504,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;

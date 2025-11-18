@@ -16544,229 +16544,462 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "عرض الملفات"
+            "value" : "افتح في الملفات"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mostra fitxers"
+            "value" : "Obre a Fitxers"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zobrazit soubory"
+            "value" : "Otevřít ve Souborech"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vis filer"
+            "value" : "Åbn i Filer"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dateien anzeigen"
+            "value" : "In Dateien öffnen"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Εμφάνιση αρχείων"
+            "value" : "Άνοιγμα στα Αρχεία"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Show Files"
+            "value" : "Open in Files"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Show Files"
+            "value" : "Open in Files"
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Show Files"
+            "value" : "Open in Files"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Show Files"
+            "value" : "Open in Files"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mostrar archivos"
+            "value" : "Abrir en Archivos"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mostrar archivos"
+            "value" : "Abrir en Archivos"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Näytä tiedostot"
+            "value" : "Avaa Tiedostoissa"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Afficher les fichiers"
+            "value" : "Ouvrir dans Fichiers"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Afficher les fichiers"
+            "value" : "Ouvrir dans Fichiers"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הצג קבצים"
+            "value" : "פתח בקבצים"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "फ़ाइलें दिखाएं"
+            "value" : "Files में खोलें"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prikaži datoteke"
+            "value" : "Otvori u Datotekama"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fájlok megjelenítése"
+            "value" : "Megnyitás a Fájlokban"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tampilkan File"
+            "value" : "Buka di File"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mostra file"
+            "value" : "Apri in File"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ファイルを表示"
+            "value" : "ファイルで開く"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "파일 보기"
+            "value" : "파일에서 열기"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tunjuk Fail"
+            "value" : "Buka dalam Fail"
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vis filer"
+            "value" : "Åpne i Filer"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bestanden tonen"
+            "value" : "Openen in Bestanden"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pokaż pliki"
+            "value" : "Otwórz w Plikach"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mostrar Arquivos"
+            "value" : "Abrir no Arquivos"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mostrar Ficheiros"
+            "value" : "Abrir em Ficheiros"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Afișează fișierele"
+            "value" : "Deschide în Fișiere"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Показать файлы"
+            "value" : "Открыть в Файлах"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Visa filer"
+            "value" : "Öppna i Filer"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "แสดงไฟล์"
+            "value" : "เปิดในไฟล์"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dosyaları Göster"
+            "value" : "Dosyalarda Aç"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Показати файли"
+            "value" : "Відкрити у Файлах"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hiển thị Tệp"
+            "value" : "Mở trong Tệp"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "显示文件"
+            "value" : "在文件中打开"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "顯示檔案"
+            "value" : "在檔案中開啟"
+          }
+        }
+      }
+    },
+    "OpenInFinder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتح في Finder"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obre al Finder"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřít ve Finderu"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åbn i Finder"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im Finder öffnen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Άνοιγμα στο Finder"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open in Finder"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open in Finder"
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open in Finder"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open in Finder"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir en Finder"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir en Finder"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avaa Finderissa"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir dans le Finder"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir dans le Finder"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פתח ב-Finder"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finder में खोलें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otvori u Finderu"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Megnyitás Finderben"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka di Finder"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apri in Finder"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finderで開く"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finder에서 열기"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka dalam Finder"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åpne i Finder"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Openen in Finder"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otwórz w Finderze"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir no Finder"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir no Finder"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deschide în Finder"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть в Finder"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öppna i Finder"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เปิดใน Finder"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finder'da Aç"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити у Finder"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mở trong Finder"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在访达中打开"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 Finder 中開啟"
           }
         }
       }
@@ -21431,231 +21664,687 @@
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "لقد منعت تطبيق QuickDrop من حفظ المحتوى في معرض الصور الخاص بك. لتغيير ذلك، افتح تطبيق الإعدادات، وابحث عن \"QuickDrop\"، وغيّر إعداد \"الصور\" إلى \"إضافة الصور فقط\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "لقد منعت QuickDrop من حفظ المحتوى في معرض الصور لديك. لتغيير ذلك، افتح إعدادات النظام ثم انتقل إلى \"الخصوصية والأمان\" > \"الصور\"، وفعّل خيار QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "لقد منعت QuickDrop من حفظ المحتوى في معرض الصور لديك. لتغيير ذلك، افتح تطبيق الإعدادات، وابحث عن \"QuickDrop\"، ثم غيّر إعداد \"الصور\" إلى \"إضافة الصور فقط\"."
+                }
+              }
+            }
           }
         },
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Has denegat a QuickDrop l'accés per desar contingut a la galeria. Per canviar-ho, obre l'app Configuració, busca \"QuickDrop\" i canvia l'opció \"Fotos\" a \"Només afegir fotos\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Has denegat a QuickDrop l'accés per desar contingut a la teva galeria. Per canviar-ho, obre la configuració del sistema, ves a «Privacitat i seguretat» > «Fotos» i activa l'opció per a QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Has denegat a QuickDrop l'accés per desar contingut a la teva galeria. Per canviar-ho, obre l'app de configuració, busca \"QuickDrop\" i canvia l'opció «Fotos» a «Només afegir fotos»."
+                }
+              }
+            }
           }
         },
         "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Odepřeli jste aplikaci QuickDrop přístup k ukládání obsahu do vaší galerie. Chcete-li to změnit, otevřete aplikaci Nastavení, vyhledejte \"QuickDrop\" a změňte nastavení \"Fotky\" na \"Přidávat pouze fotky\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Odepřeli jste aplikaci QuickDrop přístup k ukládání obsahu do vaší galerie. Chcete-li to změnit, otevřete Systémová nastavení, přejděte na „Soukromí a zabezpečení“ > „Fotky“ a povolte přepínač pro QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Odepřeli jste aplikaci QuickDrop přístup k ukládání obsahu do vaší galerie. Chcete-li to změnit, otevřete aplikaci Nastavení, vyhledejte „QuickDrop“ a nastavte možnost „Fotky“ na „Přidat pouze fotky“."
+                }
+              }
+            }
           }
         },
         "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du har nægtet QuickDrop adgang til at gemme indhold i dit galleri. For at ændre dette, åbn appen Indstillinger, søg efter \"QuickDrop\", og skift indstillingen \"Fotos\" til \"Tilføj kun fotos\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du har nægtet QuickDrop adgang til at gemme indhold i dit galleri. For at ændre dette skal du åbne Systemindstillinger, gå til \"Privatliv & sikkerhed\" > \"Billeder\", og aktivere QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du har nægtet QuickDrop adgang til at gemme indhold i dit galleri. For at ændre dette skal du åbne Indstillinger, søge efter \"QuickDrop\" og sætte \"Billeder\" til \"Kun tilføj billeder\"."
+                }
+              }
+            }
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du hast QuickDrop den Zugriff verweigert, Inhalte in deiner Galerie zu speichern. Um dies zu ändern, öffne die Einstellungen, suche nach „QuickDrop“ und setze die Einstellung „Fotos“ auf „Nur Fotos hinzufügen“."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du hast QuickDrop den Zugriff zum Speichern von Inhalten in deiner Galerie verweigert. Um das zu ändern, öffne die Systemeinstellungen, gehe zu „Datenschutz & Sicherheit“ > „Fotos“ und aktiviere den Schalter für QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du hast QuickDrop den Zugriff zum Speichern von Inhalten in deiner Galerie verweigert. Um das zu ändern, öffne die Einstellungen, suche nach „QuickDrop“ und setze die Option „Fotos“ auf „Nur Fotos hinzufügen“."
+                }
+              }
+            }
           }
         },
         "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Αρνηθήκατε στην εφαρμογή QuickDrop πρόσβαση για αποθήκευση περιεχομένου στη συλλογή σας. Για να το αλλάξετε, ανοίξτε την εφαρμογή Ρυθμίσεις, βρείτε το \"QuickDrop\" και αλλάξτε τη ρύθμιση \"Φωτογραφίες\" σε \"Μόνο προσθήκη φωτογραφιών\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Αρνηθήκατε στην QuickDrop την πρόσβαση για αποθήκευση περιεχομένου στη συλλογή σας. Για να το αλλάξετε, ανοίξτε τις Ρυθμίσεις συστήματος, πηγαίνετε στο \"Απόρρητο & Ασφάλεια\" > \"Φωτογραφίες\" και ενεργοποιήστε τον διακόπτη για το QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Αρνηθήκατε στην QuickDrop την πρόσβαση για αποθήκευση περιεχομένου στη συλλογή σας. Για να το αλλάξετε, ανοίξτε την εφαρμογή Ρυθμίσεις, αναζητήστε \"QuickDrop\" και αλλάξτε την επιλογή \"Φωτογραφίες\" σε \"Μόνο προσθήκη φωτογραφιών\"."
+                }
+              }
+            }
           }
         },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You denied QuickDrop access to save content to your gallery. To change this, open the Settings app, search for \"QuickDrop\", and change the setting \"Photos\" to \"Add Photos Only\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied QuickDrop access to save content to your gallery. To change this, open the System Settings app, go to \"Privacy & Security\" >  \"Photos\", and enable the toggle for QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied QuickDrop access to save content to your gallery. To change this, open the Settings app, search for \"QuickDrop\", and change the setting \"Photos\" to \"Add Photos Only\"."
+                }
+              }
+            }
           }
         },
         "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You denied QuickDrop access to save content to your gallery. To change this, open the Settings app, search for \"QuickDrop\", and change the setting \"Photos\" to \"Add Photos Only\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied QuickDrop access to save content to your gallery. To change this, open the System Settings app, go to \"Privacy & Security\" >  \"Photos\", and enable the toggle for QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied QuickDrop access to save content to your gallery. To change this, open the Settings app, search for \"QuickDrop\", and change the setting \"Photos\" to \"Add Photos Only\"."
+                }
+              }
+            }
           }
         },
         "en-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You denied QuickDrop access to save content to your gallery. To change this, open the Settings app, search for \"QuickDrop,\" and change the setting \"Photos\" to \"Add Photos Only.\""
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied QuickDrop access to save content to your gallery. To change this, open the System Settings app, go to \"Privacy & Security\" >  \"Photos\", and enable the toggle for QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied QuickDrop access to save content to your gallery. To change this, open the Settings app, search for \"QuickDrop\", and change the setting \"Photos\" to \"Add Photos Only\"."
+                }
+              }
+            }
           }
         },
         "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You denied QuickDrop access to save content to your gallery. To change this, open the Settings app, search for \"QuickDrop\", and change the setting \"Photos\" to \"Add Photos Only\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied QuickDrop access to save content to your gallery. To change this, open the System Settings app, go to \"Privacy & Security\" > \"Photos\", and enable the toggle for QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied QuickDrop access to save content to your gallery. To change this, open the Settings app, search for \"QuickDrop\", and change the setting \"Photos\" to \"Add Photos Only\"."
+                }
+              }
+            }
           }
         },
         "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Denegaste a QuickDrop el acceso para guardar contenido en tu galería. Para cambiarlo, abre la app de Configuración, busca \"QuickDrop\" y cambia el ajuste de \"Fotos\" a \"Solo añadir fotos\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Has denegado a QuickDrop el acceso para guardar contenido en tu galería. Para cambiar esto, abre la app de Configuración del Sistema, ve a \"Privacidad y seguridad\" > \"Fotos\" y activa la opción para QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Has denegado a QuickDrop el acceso para guardar contenido en tu galería. Para cambiar esto, abre la app Configuración, busca \"QuickDrop\" y cambia el ajuste \"Fotos\" a \"Solo añadir fotos\"."
+                }
+              }
+            }
           }
         },
         "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Denegaste el acceso de QuickDrop para guardar contenido en tu galería. Para cambiar esto, abre la app de Configuración, busca \"QuickDrop\" y cambia la opción de \"Fotos\" a \"Solo agregar fotos\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Denegaste a QuickDrop el acceso para guardar contenido en tu galería. Para cambiar esto, abre la app de Configuración del Sistema, ve a \"Privacidad y Seguridad\" > \"Fotos\" y activa QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Denegaste a QuickDrop el acceso para guardar contenido en tu galería. Para cambiar esto, abre la app de Configuración, busca \"QuickDrop\" y cambia la opción \"Fotos\" a \"Solo añadir fotos\"."
+                }
+              }
+            }
           }
         },
         "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kieltäydyit antamasta QuickDropille lupaa tallentaa sisältöä galleriaasi. Muuttaaksesi tätä, avaa Asetukset-sovellus, etsi \"QuickDrop\" ja muuta \"Kuvat\"-asetukseksi \"Lisää vain kuvia\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Estät QuickDropin tallentamasta sisältöä galleriaasi. Voit muuttaa tämän avaamalla Järjestelmäasetukset > \"Tietosuoja ja turvallisuus\" > \"Kuvat\" ja ottamalla QuickDropin käyttöön."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Estät QuickDropin tallentamasta sisältöä galleriaasi. Voit muuttaa tämän avaamalla Asetukset, hakemalla \"QuickDrop\" ja muuttamalla \"Kuvat\"-asetuksen muotoon \"Lisää vain kuvia\"."
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous avez refusé à QuickDrop l'accès pour enregistrer du contenu dans votre galerie. Pour changer cela, ouvrez l'application Réglages, cherchez « QuickDrop », puis changez l'option « Photos » en « Ajouter des photos uniquement »."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez refusé à QuickDrop l'accès pour enregistrer du contenu dans votre galerie. Pour modifier cela, ouvrez l'app Réglages système, allez dans « Confidentialité et sécurité » > « Photos », et activez le bouton pour QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez refusé à QuickDrop l'accès pour enregistrer du contenu dans votre galerie. Pour modifier cela, ouvrez l'app Réglages, recherchez « QuickDrop », puis changez le réglage « Photos » en « Ajouter des photos uniquement »."
+                }
+              }
+            }
           }
         },
         "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous avez refusé à QuickDrop l'accès pour enregistrer du contenu dans votre galerie. Pour modifier cela, ouvrez l'application Réglages, cherchez « QuickDrop », puis changez l'option « Photos » à « Ajouter des photos seulement »."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez refusé à QuickDrop l'accès pour sauvegarder du contenu dans votre galerie. Pour modifier cela, ouvrez l’app Réglages système, allez à « Confidentialité et sécurité » > « Photos » et activez QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez refusé à QuickDrop l'accès pour sauvegarder du contenu dans votre galerie. Pour changer cela, ouvrez l’application Réglages, cherchez « QuickDrop », puis changez le réglage « Photos » à « Ajouter des photos uniquement »."
+                }
+              }
+            }
           }
         },
         "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "סירבת לאפליקציית QuickDrop גישה לשמירת תוכן בגלריה שלך. כדי לשנות זאת, פתח את אפליקציית ההגדרות, חפש \"QuickDrop\", ושנה את ההגדרה \"תמונות\" ל-\"הוספת תמונות בלבד\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "סירבת ל-QuickDrop גישה לשמירת תוכן לגלריה שלך. כדי לשנות זאת, פתח את אפליקציית הגדרות המערכת, עבור ל\"פרטיות ואבטחה\" > \"תמונות\", והפעל את האפשרות עבור QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "סירבת ל-QuickDrop גישה לשמירת תוכן לגלריה שלך. כדי לשנות זאת, פתח את אפליקציית ההגדרות, חפש \"QuickDrop\" ושנה את ההגדרה \"תמונות\" ל\"הוספת תמונות בלבד\"."
+                }
+              }
+            }
           }
         },
         "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "आपने QuickDrop को अपनी गैलरी में सामग्री सुरक्षित करने की अनुमति नहीं दी है। इसे बदलने के लिए, सेटिंग्स ऐप खोलें, \"QuickDrop\" सर्च करें, और \"Photos\" सेटिंग को \"Add Photos Only\" पर बदलें।"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "आपने QuickDrop को अपनी गैलरी में सामग्री सहेजने की अनुमति नहीं दी। इसे बदलने के लिए, सिस्टम सेटिंग्स ऐप खोलें, \"प्राइवेसी और सुरक्षा\" > \"फोटो\" में जाएँ, और QuickDrop के लिए टॉगल चालू करें।"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "आपने QuickDrop को अपनी गैलरी में सामग्री सहेजने की अनुमति नहीं दी। इसे बदलने के लिए, सेटिंग्स ऐप खोलें, \"QuickDrop\" खोजें और \"Photos\" सेटिंग को \"Add Photos Only\" पर बदलें।"
+                }
+              }
+            }
           }
         },
         "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Odbili ste dopuštenje QuickDropu za spremanje sadržaja u vašu galeriju. Da to promijenite, otvorite aplikaciju Postavke, potražite \"QuickDrop\" i postavite opciju \"Fotografije\" na \"Samo dodaj fotografije\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Odbili ste QuickDropu pristup za spremanje sadržaja u vašu galeriju. Da biste to promijenili, otvorite Sustavne postavke, idite na \"Privatnost i sigurnost\" > \"Fotografije\" i omogućite QuickDropu pristup."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Odbili ste QuickDropu pristup za spremanje sadržaja u vašu galeriju. Da biste to promijenili, otvorite aplikaciju Postavke, potražite \"QuickDrop\" i postavite opciju \"Fotografije\" na \"Samo dodavanje fotografija\"."
+                }
+              }
+            }
           }
         },
         "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Megtagadtad a QuickDrop számára a galéria elérését. A módosításhoz nyisd meg a Beállítások alkalmazást, keresd meg a „QuickDrop”-ot, majd a „Fotók” beállítást állítsd „Csak fotók hozzáadása” lehetőségre."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Megtagadtad a QuickDrop számára a hozzáférést a galériádhoz való tartalom mentéséhez. Ehhez nyisd meg a Rendszerbeállítások alkalmazást, menj a „Adatvédelem és biztonság” > „Fotók” részhez, és engedélyezd a QuickDrop lehetőséget."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Megtagadtad a QuickDrop számára a hozzáférést a galériádhoz való tartalom mentéséhez. Ehhez nyisd meg a Beállítások alkalmazást, keresd meg a „QuickDrop”-ot, és állítsd a „Fotók” beállítást „Csak fotók hozzáadása” értékre."
+                }
+              }
+            }
           }
         },
         "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anda menolak izin QuickDrop untuk menyimpan konten ke galeri Anda. Untuk mengubahnya, buka aplikasi Pengaturan, cari \"QuickDrop\", dan ubah pengaturan \"Foto\" menjadi \"Hanya Tambah Foto\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Anda menolak izin QuickDrop untuk menyimpan konten ke galeri Anda. Untuk mengubahnya, buka aplikasi Pengaturan Sistem, masuk ke \"Privasi & Keamanan\" > \"Foto\", lalu aktifkan sakelar untuk QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Anda menolak izin QuickDrop untuk menyimpan konten ke galeri Anda. Untuk mengubahnya, buka aplikasi Pengaturan, cari \"QuickDrop\", lalu ubah pengaturan \"Foto\" ke \"Hanya Tambahkan Foto\"."
+                }
+              }
+            }
           }
         },
         "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hai negato a QuickDrop l'accesso per salvare contenuti nella tua galleria. Per modificare questa impostazione, apri l'app Impostazioni, cerca \"QuickDrop\" e cambia l'impostazione \"Foto\" su \"Solo aggiunta di foto\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Hai negato a QuickDrop l'accesso per salvare contenuti nella tua galleria. Per modificare questa impostazione, apri l'app Impostazioni di Sistema, vai su \"Privacy e Sicurezza\" > \"Foto\" e attiva l'opzione per QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Hai negato a QuickDrop l'accesso per salvare contenuti nella tua galleria. Per modificare questa impostazione, apri l'app Impostazioni, cerca \"QuickDrop\" e imposta \"Foto\" su \"Solo aggiungi foto\"."
+                }
+              }
+            }
           }
         },
         "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "QuickDropがギャラリーにコンテンツを保存するアクセス権を拒否しました。これを変更するには、設定アプリを開き、「QuickDrop」を検索し、「写真」の設定を「写真の追加のみに許可」に変更してください。"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "QuickDropがギャラリーへの保存アクセスを拒否されました。変更するには、「システム設定」アプリを開き、「プライバシーとセキュリティ」>「写真」に進み、QuickDropの切り替えをオンにしてください。"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "QuickDropがギャラリーへの保存アクセスを拒否されました。変更するには、「設定」アプリを開き、「QuickDrop」で検索し、「写真」の設定を「写真の追加のみ」に変更してください。"
+                }
+              }
+            }
           }
         },
         "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "QuickDrop이 갤러리에 콘텐츠를 저장하는 접근 권한이 거부되었습니다. 이를 변경하려면 설정 앱을 열고 \"QuickDrop\"을 검색한 후 \"사진\" 설정을 \"사진 추가만 허용\"으로 변경하세요."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "QuickDrop이(가) 갤러리에 콘텐츠를 저장하는 권한이 거부되었습니다. 이를 변경하려면 시스템 설정 앱을 열고 \"개인 정보 보호 및 보안\" > \"사진\"으로 이동하여 QuickDrop의 토글을 활성화하세요."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "QuickDrop이(가) 갤러리에 콘텐츠를 저장하는 권한이 거부되었습니다. 이를 변경하려면 설정 앱을 열고, \"QuickDrop\"을 검색한 후 \"사진\" 설정을 \"사진만 추가\"로 변경하세요."
+                }
+              }
+            }
           }
         },
         "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anda telah menolak akses QuickDrop untuk menyimpan kandungan ke galeri anda. Untuk mengubah ini, buka aplikasi Tetapan, cari \"QuickDrop\", dan tukar tetapan \"Foto\" kepada \"Tambah Foto Sahaja\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Anda telah menolak akses QuickDrop untuk menyimpan kandungan ke galeri anda. Untuk menukar ini, buka aplikasi Tetapan Sistem, pergi ke \"Privasi & Keselamatan\" > \"Foto\", dan aktifkan togol untuk QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Anda telah menolak akses QuickDrop untuk menyimpan kandungan ke galeri anda. Untuk menukar ini, buka aplikasi Tetapan, cari \"QuickDrop\", dan tukar tetapan \"Foto\" kepada \"Tambah Foto Sahaja\"."
+                }
+              }
+            }
           }
         },
         "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du har nektet QuickDrop tilgang til å lagre innhold i galleriet. For å endre dette, åpne Innstillinger-appen, søk etter \"QuickDrop\", og endre innstillingen \"Bilder\" til \"Legg til bilder kun\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du nektet QuickDrop tilgang til å lagre innhold i galleriet ditt. For å endre dette, åpne Systeminnstillinger, gå til «Personvern og sikkerhet» > «Bilder», og aktiver bryteren for QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du nektet QuickDrop tilgang til å lagre innhold i galleriet ditt. For å endre dette, åpne Innstillinger-appen, søk etter «QuickDrop» og endre innstillingen «Bilder» til «Kun legg til bilder»."
+                }
+              }
+            }
           }
         },
         "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Je hebt QuickDrop geen toegang gegeven om inhoud in je galerij op te slaan. Open de app Instellingen, zoek naar \"QuickDrop\" en wijzig de instelling \"Foto's\" naar \"Alleen foto's toevoegen\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Je hebt QuickDrop geen toegang gegeven om inhoud in je galerij op te slaan. Om dit te wijzigen, open je de app Systeeminstellingen, ga naar \"Privacy & Beveiliging\" > \"Foto’s\" en zet de schakelaar voor QuickDrop aan."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Je hebt QuickDrop geen toegang gegeven om inhoud in je galerij op te slaan. Om dit te wijzigen, open de app Instellingen, zoek naar \"QuickDrop\" en wijzig de instelling \"Foto's\" in \"Alleen foto’s toevoegen\"."
+                }
+              }
+            }
           }
         },
         "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Odmówiłeś aplikacji QuickDrop dostępu do zapisywania zawartości w galerii. Aby to zmienić, otwórz aplikację Ustawienia, wyszukaj \"QuickDrop\" i ustaw opcję \"Zdjęcia\" na \"Dodaj tylko zdjęcia\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Odmówiłeś aplikacji QuickDrop dostępu do zapisywania treści w galerii. Aby to zmienić, otwórz aplikację Ustawienia systemowe, przejdź do \"Prywatność i bezpieczeństwo\" > \"Zdjęcia\" i włącz przełącznik dla QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Odmówiłeś aplikacji QuickDrop dostępu do zapisywania treści w galerii. Aby to zmienić, otwórz aplikację Ustawienia, wyszukaj \"QuickDrop\" i zmień ustawienie \"Zdjęcia\" na \"Dodaj tylko zdjęcia\"."
+                }
+              }
+            }
           }
         },
         "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Você negou ao QuickDrop acesso para salvar conteúdo na sua galeria. Para alterar isso, abra o app Ajustes, procure por \"QuickDrop\" e altere a configuração \"Fotos\" para \"Adicionar Fotos Apenas\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Você negou o acesso do QuickDrop para salvar conteúdo na sua galeria. Para mudar isso, abra o app Ajustes do Sistema, vá em \"Privacidade e Segurança\" > \"Fotos\" e ative a opção para o QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Você negou o acesso do QuickDrop para salvar conteúdo na sua galeria. Para mudar isso, abra o app Ajustes, pesquise por \"QuickDrop\" e altere a configuração \"Fotos\" para \"Apenas adicionar fotos\"."
+                }
+              }
+            }
           }
         },
         "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Negaste ao QuickDrop o acesso para guardar conteúdos na tua galeria. Para alterar isto, abre a aplicação Definições, procura por \"QuickDrop\" e muda a definição \"Fotografias\" para \"Apenas Adicionar Fotografias\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Negaste ao QuickDrop o acesso para guardar conteúdo na tua galeria. Para alterar isto, abre a aplicação Definições do Sistema, vai a \"Privacidade e Segurança\" > \"Fotografias\" e ativa o QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Negaste ao QuickDrop o acesso para guardar conteúdo na tua galeria. Para alterar isto, abre a aplicação Definições, procura \"QuickDrop\" e altera a definição \"Fotografias\" para \"Apenas Adicionar Fotografias\"."
+                }
+              }
+            }
           }
         },
         "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ai refuzat accesul QuickDrop pentru a salva conținut în galerie. Pentru a schimba acest lucru, deschide aplicația Configurări, caută „QuickDrop” și setează „Fotografii” pe „Doar adăugare fotografii”."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ați refuzat accesul QuickDrop pentru a salva conținut în galerie. Pentru a schimba acest lucru, deschideți aplicația Configurări sistem, accesați „Confidențialitate și securitate” > „Fotografii” și activați opțiunea pentru QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ați refuzat accesul QuickDrop pentru a salva conținut în galerie. Pentru a schimba acest lucru, deschideți aplicația Setări, căutați „QuickDrop” și schimbați setarea „Fotografii” pe „Doar adăugare fotografii” ."
+                }
+              }
+            }
           }
         },
         "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вы запретили QuickDrop сохранять контент в вашу галерею. Чтобы изменить это, откройте приложение \"Настройки\", найдите \"QuickDrop\" и измените настройку \"Фото\" на \"Только добавление\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Вы запретили QuickDrop сохранять файлы в галерею. Чтобы изменить это, откройте Системные настройки, перейдите в «Конфиденциальность и безопасность» > «Фото» и включите переключатель для QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Вы запретили QuickDrop сохранять файлы в галерею. Чтобы изменить это, откройте настройки, найдите «QuickDrop» и установите для параметра «Фото» значение «Добавлять только фото»."
+                }
+              }
+            }
           }
         },
         "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du har nekat QuickDrop åtkomst att spara innehåll i ditt galleri. För att ändra detta, öppna appen Inställningar, sök efter \"QuickDrop\" och ändra inställningen \"Bilder\" till \"Lägg till endast\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du har nekat QuickDrop åtkomst att spara innehåll i ditt galleri. För att ändra detta, öppna Systeminställningar, gå till \"Integritet & säkerhet\" > \"Foton\" och aktivera QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du har nekat QuickDrop åtkomst att spara innehåll i ditt galleri. För att ändra detta, öppna appen Inställningar, sök efter \"QuickDrop\" och ändra inställningen \"Foton\" till \"Lägg bara till foton\"."
+                }
+              }
+            }
           }
         },
         "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "คุณได้ปฏิเสธการเข้าถึงแกลเลอรี่ของ QuickDrop ในการเปลี่ยนแปลง ให้เปิดแอปการตั้งค่า ค้นหา \"QuickDrop\" และเปลี่ยนการตั้งค่า \"รูปภาพ\" เป็น \"เพิ่มรูปภาพเท่านั้น\""
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "คุณได้ปฏิเสธไม่ให้ QuickDrop บันทึกไฟล์ลงในคลังรูปภาพ หากต้องการเปลี่ยนแปลง ให้เปิดแอปการตั้งค่าระบบ ไปที่ \"ความเป็นส่วนตัวและความปลอดภัย\" > \"รูปภาพ\" และเปิดสวิตช์สำหรับ QuickDrop"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "คุณได้ปฏิเสธไม่ให้ QuickDrop บันทึกไฟล์ลงในคลังรูปภาพ หากต้องการเปลี่ยนแปลง ให้เปิดแอปการตั้งค่า ค้นหา \"QuickDrop\" แล้วเปลี่ยนการตั้งค่า \"รูปภาพ\" เป็น \"อนุญาตเฉพาะการเพิ่มรูปภาพ\""
+                }
+              }
+            }
           }
         },
         "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "QuickDrop'un galerinize içerik kaydetme iznini reddettiniz. Bunu değiştirmek için Ayarlar uygulamasını açın, \"QuickDrop\"u arayın ve \"Fotoğraflar\" ayarını \"Yalnızca Fotoğraf Ekle\" olarak değiştirin."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "QuickDrop'un galerine içerik kaydetme erişimini reddettin. Bunu değiştirmek için Sistem Ayarları uygulamasını aç, \"Gizlilik ve Güvenlik\" > \"Fotoğraflar\" bölümüne git ve QuickDrop için seçeneği etkinleştir."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "QuickDrop'un galerine içerik kaydetme erişimini reddettin. Bunu değiştirmek için Ayarlar uygulamasını aç, \"QuickDrop\"u ara ve \"Fotoğraflar\" ayarını \"Sadece Fotoğraf Ekle\" olarak değiştir."
+                }
+              }
+            }
           }
         },
         "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ви заборонили QuickDrop зберігати контент у вашу галерею. Щоб змінити це, відкрийте додаток Налаштування, знайдіть \"QuickDrop\" і змініть опцію \"Фото\" на \"Додавати лише фото\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви заборонили QuickDrop зберігати контент у вашій галереї. Щоб змінити це, відкрийте Системні налаштування, перейдіть у \"Конфіденційність і безпека\" > \"Фото\" та увімкніть перемикач для QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви заборонили QuickDrop зберігати контент у вашій галереї. Щоб змінити це, відкрийте додаток Налаштування, знайдіть \"QuickDrop\" і змініть параметр \"Фото\" на \"Додавати тільки фото\"."
+                }
+              }
+            }
           }
         },
         "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bạn đã từ chối quyền cho QuickDrop lưu nội dung vào thư viện của mình. Để thay đổi, hãy mở ứng dụng Cài đặt, tìm \"QuickDrop\" và chuyển tùy chọn \"Ảnh\" thành \"Chỉ thêm ảnh\"."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Bạn đã từ chối cho QuickDrop quyền lưu nội dung vào thư viện của mình. Để thay đổi điều này, hãy mở ứng dụng Cài đặt Hệ thống, vào \"Quyền riêng tư & Bảo mật\" > \"Ảnh\", và bật công tắc cho QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Bạn đã từ chối cho QuickDrop quyền lưu nội dung vào thư viện của mình. Để thay đổi, hãy mở ứng dụng Cài đặt, tìm \"QuickDrop\" và đổi mục \"Ảnh\" thành \"Chỉ Thêm Ảnh\"."
+                }
+              }
+            }
           }
         },
         "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你已拒绝QuickDrop保存内容到图库的权限。要更改此设置，请打开“设置”应用，搜索“QuickDrop”，并将“照片”权限设置为“仅添加照片”。"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你已拒绝QuickDrop保存内容到图库的权限。要更改此设置，请打开系统设置，前往“隐私与安全” > “照片”，并为QuickDrop开启开关。"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你已拒绝QuickDrop保存内容到图库的权限。要更改此设置，请打开设置，搜索“QuickDrop”，并将“照片”权限更改为“仅添加照片”。"
+                }
+              }
+            }
           }
         },
         "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "你已拒絕QuickDrop存取相簿的權限。若要更改，請開啟「設定」App，搜尋「QuickDrop」，然後將「相片」權限設為「僅加入相片」。"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你已拒絕 QuickDrop 儲存內容到你的相簿。要更改此設定，請打開「系統設定」App，前往「隱私權與安全性」>「照片」，然後啟用 QuickDrop 的權限。"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你已拒絕 QuickDrop 儲存內容到你的相簿。如需更改，請打開「設定」App，搜尋「QuickDrop」，將「照片」權限設定為「僅新增照片」。"
+                }
+              }
+            }
           }
         }
       }

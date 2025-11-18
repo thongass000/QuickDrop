@@ -5,10 +5,14 @@
 //  Created by Leon Böttger on 16.11.25.
 //
 
+#if os(iOS)
 import UIKit
+#else
+import AppKit
+#endif
+
 import Photos
 import UniformTypeIdentifiers
-
 
 struct PhotoManager {
 
@@ -44,7 +48,7 @@ struct PhotoManager {
                 let exifDate = EXIFUtils.exifOriginalDate(from: sourceURL)
                 imageItems.append(ImageItem(fileURL: sourceURL, creationDate: exifDate))
             } else {
-                let videoDate = await getVideoCreationDate(from: sourceURL)
+                let videoDate = getVideoCreationDate(from: sourceURL)
                 videoItems.append(VideoItem(fileURL: sourceURL, creationDate: videoDate))
             }
         }
@@ -96,10 +100,16 @@ struct PhotoManager {
         
         // Open the Photos app
         if openPhotosOnSuccess {
-            if let url = URL(string: "photos-redirect://") {
-                DispatchQueue.main.async  {
+            DispatchQueue.main.async  {
+                #if os(iOS)
+                if let url = URL(string: "photos-redirect://") {
                     UIApplication.shared.open(url)
                 }
+                #else
+                if let url = URL(string: "photos-navigation://album?name=recently-saved") {
+                    NSWorkspace.shared.open(url)
+                }
+                #endif
             }
         }
     }
@@ -126,23 +136,16 @@ struct PhotoManager {
     }
     
     
-    private static func getVideoCreationDate(from url: URL) async -> Date? {
+    private static func getVideoCreationDate(from url: URL) -> Date? {
         let asset = AVURLAsset(url: url)
-        
-        do {
-            // AVMetadataItem that typically contains an ISO‑8601 string
-            guard let item = try await asset.load(.creationDate),
-                  let dateString = try await item.load(.stringValue) else {
-                return nil
-            }
-            
-            let formatter = ISO8601DateFormatter()
-            return formatter.date(from: dateString)
-        }
-        catch {
-            log("Failed to load creation date from \(url): \(error)")
+        // AVMetadataItem that typically contains an ISO‑8601 string
+        guard let item = asset.creationDate,
+              let dateString = item.stringValue else {
             return nil
         }
+        
+        let formatter = ISO8601DateFormatter()
+        return formatter.date(from: dateString)
     }
     
     
