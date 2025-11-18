@@ -14,7 +14,7 @@ struct QuickDropToastView: View {
     @ObservedObject var settings = Settings.shared
     @ObservedObject var receiveModel: ReceiveModel
     
-    @State var autoHider: DispatchWorkItem? = nil
+    @State var autoHider = DispatchWorkItem(block: {})
 
     /// Cancel while receiving.
     public var onCancel: () -> Void
@@ -79,12 +79,10 @@ struct QuickDropToastView: View {
                                     actions.closeToastAction()
                                 })
                                 
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                                    self.autoHider?.perform()
-                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 10, execute: self.autoHider)
                             }
                             .onDisappear {
-                                self.autoHider?.cancel()
+                                self.autoHider.cancel()
                             }
                     }
                     .buttonStyle(.bordered)
@@ -116,7 +114,6 @@ struct QuickDropToastView: View {
         )
         .shadow(color: Color.black.opacity(0.1), radius: 20)
         .frame(maxWidth: .infinity)
-        .opacity(isFileTransferRestricted() ? 0 : 1)
     }
 }
 

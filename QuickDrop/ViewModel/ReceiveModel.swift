@@ -23,6 +23,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     #if os(macOS)
     @Published var progress: Double? = nil
     @Published var toastActions: ToastViewAction? = nil
+    private var pendingReview = false
     private var toastWindow: NSWindow?
     private var toastHosting: NSHostingView<QuickDropToastView>?
     #endif
@@ -231,6 +232,10 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 
                 #if os(macOS)
                 
+                if currentCount == 0 {
+                    pendingReview = true
+                }
+                
                 let openFilesAction = {
                     if !savedFiles.isEmpty {
                         log("[SaveFilesManager] Opening \(savedFiles.count) file(s) in Finder.")
@@ -285,7 +290,11 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         
         func showReviewIfAppropriate(currentTransmissionCount: Int) {
             // If distributed directly, do not request review here as it does not work
-            if currentTransmissionCount == 0 && !DistributionDetector.isDirectDistributionEnabled {
+            if pendingReview && !DistributionDetector.isDirectDistributionEnabled {
+                
+                // Dont request review again
+                pendingReview = false
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     SKStoreReviewController.requestReview()
                 }
