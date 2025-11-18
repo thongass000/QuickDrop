@@ -236,6 +236,8 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                         log("[SaveFilesManager] Opening \(savedFiles.count) file(s) in Finder.")
                         NSWorkspace.shared.activateFileViewerSelecting(savedFiles)
                     }
+                    
+                    showReviewIfAppropriate(currentTransmissionCount: currentCount)
                 }
                 
                 let hasPhotoOrVideos = PhotoManager.hasPhotosOrVideos(at: savedFiles)
@@ -243,6 +245,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                     Task {
                         do {
                             try await PhotoManager.saveMediaToPhotoLibrary(from: savedFiles)
+                            showReviewIfAppropriate(currentTransmissionCount: currentCount)
                         }
                         catch {
                             DispatchQueue.main.async {
@@ -258,9 +261,14 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                     }
                 } : nil
                 
+                let closeToastAction = {
+                    self.hideQuickDropToast()
+                    showReviewIfAppropriate(currentTransmissionCount: currentCount)
+                }
+                
                 DispatchQueue.main.async {
                     withAnimation {
-                        self.toastActions = ToastViewAction(openFilesAction: openFilesAction, importPhotosAction: importPhotosAction, closeToastAction: self.hideQuickDropToast)
+                        self.toastActions = ToastViewAction(openFilesAction: openFilesAction, importPhotosAction: importPhotosAction, closeToastAction: closeToastAction)
                     }
                     
                     // Show received files if wanted
@@ -268,17 +276,19 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                         self.toastActions?.openFilesAction()
                     }
                 }
-                
-                // If distributed directly, do not request review here as it does not work
-                if currentCount == 0 && !DistributionDetector.isDirectDistributionEnabled {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        SKStoreReviewController.requestReview()
-                    }
-                }
                 #endif
 
                 Settings.shared.incomingTransmissionCount = currentCount + 1
                 log("[ReceiveModel] Successful transmission. Current count: \(currentCount)")
+            }
+        }
+        
+        func showReviewIfAppropriate(currentTransmissionCount: Int) {
+            // If distributed directly, do not request review here as it does not work
+            if currentTransmissionCount == 0 && !DistributionDetector.isDirectDistributionEnabled {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    SKStoreReviewController.requestReview()
+                }
             }
         }
     }
