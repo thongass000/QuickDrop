@@ -74,13 +74,6 @@ struct DeviceListView: View {
                         
                         HStack {
                             
-                            if let image = attachments?.previewImage {
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 10, height: 10)
-                            }
-                            
                             LUIText(attachments?.shortDescription ?? NearbyConnectionManager.shared.deviceInfo.name ?? "Unknown".localized(), isBold: true)
                                 .lineLimit(1)
                         }

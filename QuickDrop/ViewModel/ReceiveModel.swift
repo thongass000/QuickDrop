@@ -197,14 +197,14 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 
                 #if os(iOS)
                 errorVibration()
+                #else
+                DispatchQueue.main.async {
+                    self.hideQuickDropToast()
+                }
                 #endif
                 
                 controlPlusScreen(false)
                 ErrorAlertHandler.shared.showErrorAlert(for: device.name ?? "Android", error: error)
-                
-                DispatchQueue.main.async {
-                    self.hideQuickDropToast()
-                }
             } else {
  
                 #if os(iOS)
@@ -288,6 +288,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             }
         }
         
+        #if os(macOS)
         func showReviewIfAppropriate(currentTransmissionCount: Int) {
             // If distributed directly, do not request review here as it does not work
             if pendingReview && !DistributionDetector.isDirectDistributionEnabled {
@@ -300,6 +301,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 }
             }
         }
+        #endif
     }
     
     

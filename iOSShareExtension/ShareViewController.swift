@@ -15,7 +15,7 @@ class ShareViewController: UIViewController {
         
         loadAttachments(with: extensionContext, loadedItems: { [self] result in
             
-            log("ShareViewController: Loaded attachments: \(result)")
+            log("[ShareViewController] Loaded attachments: \(result)")
             
             var attachmentDetails = result
             attachmentDetails.closeView = { [weak self] in
@@ -48,5 +48,12 @@ class ShareViewController: UIViewController {
 
         hostingController.didMove(toParent: self)
     }
+    
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NearbyConnectionManager.shared.stopDeviceDiscovery()
+        
+        super.viewDidDisappear(animated)
+        log("[ShareViewController] Disappeared view.")
+    }
 }
-
