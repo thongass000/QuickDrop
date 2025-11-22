@@ -13,6 +13,8 @@ class ShareViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NearbyConnectionManager.shared.stopDeviceDiscovery()
+        
         loadAttachments(with: extensionContext, loadedItems: { [self] result in
             
             log("[ShareViewController] Loaded attachments: \(result)")

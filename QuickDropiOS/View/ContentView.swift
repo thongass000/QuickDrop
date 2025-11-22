@@ -65,10 +65,10 @@ struct DeviceListView: View {
         BottomBarView(header: "QuickDrop", navigationBarLayout: isShareExtension() ? .SmallOnlyAlways : .Default, bottomViewHeight: 30) {
             VStack {
                 
-                if nearbyConnectionManager.hasLocalNetworkPermission {
+                let attachments = nearbyConnectionManager.attachments
+                
+                if nearbyConnectionManager.hasLocalNetworkPermission && attachments == nil {
                     VStack(alignment: .leading, spacing: 8) {
-                        
-                        let attachments = nearbyConnectionManager.attachments
                         
                         FormHeader(name: attachments == nil ? "YouAreVisibleAs".localized() : "YouAreSending".localized())
                         
