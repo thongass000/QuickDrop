@@ -118,6 +118,11 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
+    deinit {
+        self.stopAccessingSaveDirectory()
+    }
+    
+    
     public func becomeVisible() {
         if startedAdvertising {
             log("[NearbyConnectionManager] Already advertising, skipping")
@@ -230,11 +235,6 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     func connectionWasTerminated(connection: InboundNearbyConnection, savedFiles: [URL], error: Error?) {
         incomingConnections.removeValue(forKey: connection.id)
-        
-        // If there are no more incoming connections, we can stop accessing the save directory
-        if incomingConnections.isEmpty {
-            self.stopAccessingSaveDirectory()
-        }
         
         if !connection.wasUserRejected {
             inboundAppDelegates.forEach { delegate in
