@@ -17,6 +17,7 @@ import SwiftECC
 import CryptoKit
 import SwiftUI
 import QRCode
+import LUI
 
 public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearbyConnectionDelegate, OutboundNearbyConnectionDelegate, ObservableObject {
     

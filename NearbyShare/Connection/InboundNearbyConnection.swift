@@ -12,6 +12,7 @@ import Network
 import System
 import BigInt
 import SwiftECC
+import LUI
 
 #if os(macOS)
 import AppKit

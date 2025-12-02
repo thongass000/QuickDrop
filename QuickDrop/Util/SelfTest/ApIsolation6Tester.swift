@@ -7,6 +7,7 @@
 
 import Foundation
 import Network
+import LUI
 
 class IPv6DeviceScanner {
     /// Scans for IPv6 devices using `ping6 ff02::1` multicast on the given interface.

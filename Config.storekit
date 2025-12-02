@@ -1,0 +1,94 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "E6E18FE5",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : true,
+      "internalID" : "E7870357",
+      "localizations" : [
+        {
+          "description" : "Unlock all settings!",
+          "displayName" : "QuickDrop+ Lifetime",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "plusversion",
+      "referenceName" : "QuickDrop+",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_disableDialogs" : false,
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_renewalBillingIssuesEnabled" : false,
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ],
+    "_timeRate" : 0
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "DBA408BD",
+      "localizations" : [
+
+      ],
+      "name" : "QuickDrop+",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "4.99",
+          "familyShareable" : true,
+          "groupNumber" : 1,
+          "internalID" : "514B2EA4",
+          "introductoryOffer" : {
+            "internalID" : "D44066CC",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "Unlock all settings!",
+              "displayName" : "QuickDrop+ (1 Year)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "quickdrop.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "QuickDrop+",
+          "subscriptionGroupID" : "DBA408BD",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

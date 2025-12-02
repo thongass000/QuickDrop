@@ -19,6 +19,7 @@
 import SwiftUI
 import ServiceManagement
 import os.log
+import LUI
 
 @available(macOS 13.0, *)
 public enum LaunchAtLogin {

@@ -11,7 +11,7 @@ import Foundation
 let configuration = LUIConfiguration(
     appName: "QuickDrop",
     
-    plusVersionInfo: GetPlusViewInformation(lifetimeID: "plusversion", description: "plusview_description_phone", plusVersionFeatures: [], settingsLabelColor: .orange, settingsFooter: "plusview_footer_phone"),
+    plusVersionInfo: GetPlusViewInformation(lifetimeID: "plusversion", yearlyID: "quickdrop.yearly", plusViewHeader: isMac() ? "plusview_title" : nil, description: isMac() ? "plusview_description" : "plusview_description_phone", onBoughtPlusVersionAlertMessage: "plusview_success_description", plusVersionFeatures: [], settingsLabelColor: .orange, settingsFooter: "plusview_footer_phone"),
     
     setPlusVersion: { result in
         DispatchQueue.main.async {
@@ -20,6 +20,8 @@ let configuration = LUIConfiguration(
     },
     
     hasRoundedFont: false,
+    
+    switchedToIAPafterBundleVersion: AppVersionBundle(appVersion: "1.2", buildVersion: 0, legacyUserDefaultsKey: Settings.UserDefaultsKeys.plusVersionLegacy.rawValue),
     
     copyrightInformation: licenseText,
     

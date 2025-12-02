@@ -55,9 +55,11 @@ class Settings: ObservableObject {
     // MARK: - Debug
     
     func deleteAllUserDefaults() {
-        for key in UserDefaultsKeys.allCases {
-            UserDefaults.standard.removeObject(forKey: key.rawValue)
+        let defaults = UserDefaults.standard
+        if let bundleID = Bundle.main.bundleIdentifier {
+            defaults.removePersistentDomain(forName: bundleID)
         }
+        defaults.synchronize()
         
         Settings.shared = Settings()
     }
@@ -69,11 +71,14 @@ class Settings: ObservableObject {
     public enum UserDefaultsKeys: String, CaseIterable {
         case isEligibleForIap = "isEligibleForIap"
         case appLaunchedBefore = "ShowedWelcomeScreen"
-        case plusVersion = "isPlusVersion"
+        case plusVersion = "plusVersion"
         case transmissionCount = "reviewRequestCountKey"
         case automaticallyAcceptFiles = "automaticallyAcceptFiles"
         case saveFolderBookmark = "saveFolderBookmark"
         case openFinderAfterReceiving = "openFinderAfterReceiving"
         case endpointID = "endpointID"
+        
+        // Plus version used before StoreKit 2 update. New key is fetched from App Store directly.
+        case plusVersionLegacy = "isPlusVersion"
     }
 }

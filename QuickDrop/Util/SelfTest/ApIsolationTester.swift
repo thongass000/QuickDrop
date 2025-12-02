@@ -7,6 +7,7 @@
 
 import Foundation
 import Network
+import LUI
 
 class DeviceToDeviceHeuristicScanner {
     private let scanQueue = DispatchQueue(label: "DeviceToDeviceScanQueue")

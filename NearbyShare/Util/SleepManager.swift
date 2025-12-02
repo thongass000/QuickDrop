@@ -13,6 +13,7 @@ import IOKit.pwr_mgt
 #elseif os(iOS)
 import UIKit
 #endif
+import LUI
 
 class SleepManager {
     public static let shared = SleepManager()

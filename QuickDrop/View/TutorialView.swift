@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LUI
 
 struct TutorialView: View {
     
@@ -81,10 +82,8 @@ struct LargeAppIconView<Content: View>: View {
         ScrollView {
             
             VStack {
-                Image("AppIconHighRes")
-                    .resizable()
-                    .frame(width: 150, height: 150)
-                    .padding(.top, 40)
+                AppIconView(hasPlusIcon: false, size: 120)
+                    .padding(.top, 35)
                 
                 Text(title.localized())
                     .font(.largeTitle)

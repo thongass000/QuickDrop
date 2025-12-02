@@ -12,6 +12,7 @@ import Network
 import StoreKit
 import SwiftUI
 import UserNotifications
+import LUI
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSWindowDelegate {
@@ -34,7 +35,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     // MARK: NSApplicationDelegate functions
     
+    func applicationWillFinishLaunching(_: Notification) {
+        LUIInit(configuration: configuration)
+    }
+    
+    
     func applicationDidFinishLaunching(_: Notification) {
+        
         let menu = NSMenu()
 
         let visibleItem = NSMenuItem(
@@ -67,14 +74,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         statusItem?.behavior = .removalAllowed
 
         iapManager = IAPManager.sharedInstance
-        iapManager?.startObserving()
-        
-        if DistributionDetector.isDirectDistributionEnabled {
-            log("[AppDelegate] Downloaded from GitHub.")
-        }
-        else {
-            log("[AppDelegate] Downloaded from App Store.")
-        }
 
         // app did not lauch before
         if !Settings.shared.appLaunchedBefore {
@@ -92,6 +91,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             if !Settings.shared.isEligibleForIap {
                 log("[AppDelegate] Granting QuickDrop+ for old user")
                 Settings.shared.gotPlus = true
+                UserDefaults.standard.set(true, forKey: Settings.UserDefaultsKeys.plusVersionLegacy.rawValue)
             } else {
                 if !fullVersion() {
                     log("[AppDelegate] New user - QuickDrop+ not available")
@@ -160,7 +160,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
     func applicationWillTerminate(_: Notification) {
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-        iapManager?.stopObserving()
     }
     
     
@@ -258,11 +257,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         log("Opening Plus screen")
 
         // Create the welcome screen SwiftUI view
-        let plusView = PlusView(closeView: {
-            log("Closing plus screen")
-            self.plusWindow?.close()
-            self.plusWindow = nil
-        })
+        let plusView = GetPlusViewV4(showSheet: Binding(get: { self.plusWindow != nil }, set: { newValue in
+            if !newValue {
+                self.plusWindow?.close()
+                self.plusWindow = nil
+            }
+        }), hasSheet: false)
+        
+        let plusViewWidth: CGFloat = 550
+        let plusViewHeight: CGFloat = 650
 
         // Create an NSWindow to host the SwiftUI view
         let window = NSWindow(

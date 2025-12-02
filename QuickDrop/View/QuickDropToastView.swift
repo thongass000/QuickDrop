@@ -90,7 +90,15 @@ struct QuickDropToastView: View {
                 }
                 
                 HStack {
-                    CapsuleProgress(value: receiveModel.progress ?? 1.0)
+                    ZStack {
+                        CapsuleProgress(value: 0.5)
+                            .opacity(0)
+                        
+                        if let progress = receiveModel.progress {
+                            CapsuleProgress(value: progress)
+                        }
+                    }
+                    .animation(.easeInOut, value: receiveModel.progress == nil)
                     
                     Button(action: onCancel) {
                         Image(systemName: "xmark")

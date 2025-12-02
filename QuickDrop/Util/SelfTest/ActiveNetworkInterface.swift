@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import LUI
 
 /// Returns the name of the currently active network interface (e.g. "en0", "en1")
 func getActiveNetworkInterface() -> String? {

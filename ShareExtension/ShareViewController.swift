@@ -8,6 +8,7 @@
 import Cocoa
 import Foundation
 import SwiftUI
+import LUI
 
 class ShareViewController: NSViewController, OutboundAppDelegate {
     
@@ -49,6 +50,8 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
     override func loadView() {
         
         super.loadView()
+        LUIInit(configuration: configuration)
+        
         loadAttachments(with: extensionContext, loadedItems: { result in
             
             log("Loaded attachments: \(result)")

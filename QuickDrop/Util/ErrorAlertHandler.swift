@@ -10,12 +10,11 @@ import Network
 import StoreKit
 import SwiftUI
 import UserNotifications
+import LUI
 
 #if os(macOS)
 import BezelNotification
 import Cocoa
-#else
-import LUI
 #endif
 
 class ErrorAlertHandler {

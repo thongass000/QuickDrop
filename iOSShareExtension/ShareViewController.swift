@@ -10,6 +10,16 @@ import SwiftUI
 import LUI
 
 class ShareViewController: UIViewController {
+    
+    override func loadView() {
+        super.loadView()
+        
+        // skip introduction for share extension
+        LUIInit(configuration: configuration)
+        LUISettings.sharedInstance.appLaunchedBefore = true
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,10 +39,6 @@ class ShareViewController: UIViewController {
                 NearbyConnectionManager.shared.attachments = attachmentDetails
             }
         })
-        
-        // skip introduction for share extension
-        LUIInit(configuration: configuration)
-        LUISettings.sharedInstance.appLaunchedBefore = true
  
         let hostingController = UIHostingController(rootView: ContentView())
 

@@ -14,7 +14,8 @@ import UniformTypeIdentifiers
 import BigInt
 import SwiftECC
 import ASN1
-import BigInt // required dependency of ASN1
+import BigInt
+import LUI
 
 
 class OutboundNearbyConnection: NearbyConnection {

@@ -8,11 +8,10 @@
 import SwiftUI
 import StoreKit
 import UserNotifications
+import LUI
 
 #if os(macOS)
 import BezelNotification
-#else
-import LUI
 #endif
 
 class ReceiveModel: ObservableObject, InboundAppDelegate {
@@ -290,9 +289,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         
         #if os(macOS)
         func showReviewIfAppropriate(currentTransmissionCount: Int) {
-            // If distributed directly, do not request review here as it does not work
-            if pendingReview && !DistributionDetector.isDirectDistributionEnabled {
-                
+            if pendingReview {
                 // Dont request review again
                 pendingReview = false
                 
