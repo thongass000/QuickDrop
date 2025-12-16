@@ -45,47 +45,7 @@
     "_timeRate" : 0
   },
   "subscriptionGroups" : [
-    {
-      "id" : "DBA408BD",
-      "localizations" : [
 
-      ],
-      "name" : "QuickDrop+",
-      "subscriptions" : [
-        {
-          "adHocOffers" : [
-
-          ],
-          "codeOffers" : [
-
-          ],
-          "displayPrice" : "4.99",
-          "familyShareable" : true,
-          "groupNumber" : 1,
-          "internalID" : "514B2EA4",
-          "introductoryOffer" : {
-            "internalID" : "D44066CC",
-            "paymentMode" : "free",
-            "subscriptionPeriod" : "P3D"
-          },
-          "localizations" : [
-            {
-              "description" : "Unlock all settings!",
-              "displayName" : "QuickDrop+ (1 Year)",
-              "locale" : "en_US"
-            }
-          ],
-          "productID" : "quickdrop.yearly",
-          "recurringSubscriptionPeriod" : "P1Y",
-          "referenceName" : "QuickDrop+",
-          "subscriptionGroupID" : "DBA408BD",
-          "type" : "RecurringSubscription",
-          "winbackOffers" : [
-
-          ]
-        }
-      ]
-    }
   ],
   "version" : {
     "major" : 4,
