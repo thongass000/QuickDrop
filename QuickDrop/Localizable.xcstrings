@@ -10487,229 +10487,229 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تم إيقاف الاتصال بواسطة هاتفك."
+            "value" : "تم إنهاء الاتصال من قبل جهازك الآخر."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La connexió ha estat interrompuda pel teu telèfon."
+            "value" : "La connexió ha estat interrompuda per l'altre dispositiu."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Připojení bylo ukončeno vaším telefonem."
+            "value" : "Připojení bylo přerušeno vaším druhým zařízením."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Forbindelsen blev afbrudt af din telefon."
+            "value" : "Forbindelsen blev afbrudt af din anden enhed."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Die Verbindung wurde von deinem Telefon abgebrochen."
+            "value" : "Die Verbindung wurde von deinem anderen Gerät abgebrochen."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Η σύνδεση διεκόπη από το τηλέφωνό σας."
+            "value" : "Η σύνδεση διακόπηκε από την άλλη συσκευή σας."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The connection was aborted by your phone."
+            "value" : "The connection was aborted by your other device."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The connection was stopped by your phone."
+            "value" : "The connection was aborted by your other device."
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The connection was interrupted by your phone."
+            "value" : "The connection was aborted by your other device."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The connection was aborted by your phone."
+            "value" : "The connection was aborted by your other device."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La conexión fue abortada por tu teléfono."
+            "value" : "La conexión fue interrumpida por tu otro dispositivo."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La conexión fue abortada por tu teléfono."
+            "value" : "La conexión fue abortada por tu otro dispositivo."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Puhelimesi keskeytti yhteyden."
+            "value" : "Yhteys katkaistiin toisella laitteellasi."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La connexion a été interrompue par votre téléphone."
+            "value" : "La connexion a été interrompue par votre autre appareil."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La connexion a été interrompue par votre téléphone."
+            "value" : "La connexion a été interrompue par votre autre appareil."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "החיבור הופסק על ידי הטלפון שלך."
+            "value" : "החיבור נותק על ידי המכשיר השני שלך."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "कनेक्शन आपके फोन द्वारा रद्द कर दिया गया।"
+            "value" : "कनेक्शन आपके दूसरे डिवाइस द्वारा समाप्त कर दिया गया था।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Veza je prekinuta od strane vašeg telefona."
+            "value" : "Vaš drugi uređaj je prekinuo vezu."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A kapcsolatot megszakította a telefonod."
+            "value" : "A másik eszköz szakította meg a kapcsolatot."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Koneksi dibatalkan oleh ponsel Anda."
+            "value" : "Koneksi terputus oleh perangkat Anda yang lain."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La connessione è stata interrotta dal tuo telefono."
+            "value" : "La connessione è stata interrotta dall'altro dispositivo."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "接続はあなたの電話によって中断されました。"
+            "value" : "接続が他のデバイスによって中断されました。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "연결이 휴대폰에 의해 중단되었습니다."
+            "value" : "다른 기기에서 연결이 중단되었습니다."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sambungan telah dihentikan oleh telefon anda."
+            "value" : "Sambungan telah dibatalkan oleh peranti anda yang lain."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tilkoblingen ble avbrutt av telefonen din."
+            "value" : "Tilkoblingen ble avbrutt av den andre enheten din."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "De verbinding is door uw telefoon afgebroken."
+            "value" : "De verbinding is afgebroken door je andere apparaat."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Połączenie zostało przerwane przez telefon."
+            "value" : "Połączenie zostało przerwane przez inne urządzenie."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A conexão foi interrompida pelo seu telefone."
+            "value" : "A conexão foi abortada pelo seu outro dispositivo."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A ligação foi interrompida pelo seu telemóvel."
+            "value" : "A ligação foi interrompida pelo seu outro dispositivo."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Conexiunea a fost întreruptă de telefonul dumneavoastră."
+            "value" : "Conexiunea a fost întreruptă de către celălalt dispozitiv."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Соединение было прервано вашим телефоном."
+            "value" : "Соединение было прервано другим вашим устройством."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Förbindelsen avbröts av din telefon."
+            "value" : "Anslutningen avbröts av din andra enhet."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "การเชื่อมต่อล้มเลิกโดยโทรศัพท์ของคุณ"
+            "value" : "การเชื่อมต่อถูกยกเลิกโดยอุปกรณ์อีกเครื่องของคุณ"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bağlantı telefonunuz tarafından kesildi."
+            "value" : "Bağlantı diğer cihazınız tarafından sonlandırıldı."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "З'єднання було перервано вашим телефоном."
+            "value" : "З'єднання було перервано вашим іншим пристроєм."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kết nối bị hủy bởi điện thoại của bạn."
+            "value" : "Kết nối đã bị thiết bị kia của bạn hủy."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "连接被您的手机中断。"
+            "value" : "连接已被你的另一台设备中断。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "連接已被您的手機中止。"
+            "value" : "連線已被您的其他裝置中止。"
           }
         }
       }
@@ -10953,229 +10953,229 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "إذا تكرر هذا الأمر، يرجى إعادة تشغيل هاتفك أو محاولة تنزيل تطبيق QuickDrop للأندرويد من متجر Google Play."
+            "value" : "إذا تكرر ذلك، يرجى إعادة تشغيل جهازك الآخر أو محاولة تنزيل تطبيق QuickDrop للأندرويد من متجر Google Play."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Si això passa repetidament, reinicia el telèfon o prova de descarregar l'app QuickDrop per a Android des de Google Play."
+            "value" : "Si això passa repetidament, reinicia l'altre dispositiu o prova de descarregar l'app QuickDrop per a Android des de Google Play."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pokud se to opakuje, restartujte prosím svůj telefon nebo zkuste stáhnout aplikaci QuickDrop pro Android z Google Play."
+            "value" : "Pokud se to opakuje, restartujte své druhé zařízení nebo zkuste stáhnout aplikaci QuickDrop pro Android z Google Play."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hvis dette sker gentagne gange, så genstart venligst din telefon eller prøv at downloade QuickDrop Android-appen fra Google Play."
+            "value" : "Hvis dette sker gentagne gange, genstart venligst din anden enhed eller prøv at downloade QuickDrop Android-appen fra Google Play."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wenn dies wiederholt passiert, starte bitte dein Handy neu oder lade die QuickDrop Android-App aus dem Google Play Store herunter."
+            "value" : "Wenn das wiederholt passiert, starte bitte dein anderes Gerät neu oder lade die QuickDrop Android-App aus dem Google Play Store herunter."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Αν αυτό συμβαίνει επανειλημμένα, επανεκκινήστε το τηλέφωνό σας ή δοκιμάστε να κατεβάσετε την εφαρμογή QuickDrop για Android από το Google Play."
+            "value" : "Αν αυτό συμβαίνει επαναλαμβανόμενα, παρακαλώ επανεκκινήστε τη συσκευή σας ή δοκιμάστε να κατεβάσετε την εφαρμογή QuickDrop για Android από το Google Play."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If this happens repeatedly, please restart your phone or try downloading the QuickDrop Android app from Google Play."
+            "value" : "If this happens repeatedly, please restart your other device or try downloading the QuickDrop Android app from Google Play."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If this happens repeatedly, please restart your phone or try downloading the QuickDrop Android app from Google Play Store."
+            "value" : "If this happens repeatedly, please restart your other device or try downloading the QuickDrop Android app from Google Play."
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If this keeps happening, please restart your phone or try downloading the QuickDrop Android app from Google Play."
+            "value" : "If this happens repeatedly, please restart your other device or try downloading the QuickDrop Android app from Google Play."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If this happens repeatedly, please restart your phone or try downloading the QuickDrop Android app from Google Play Store."
+            "value" : "If this happens repeatedly, please restart your other device or try downloading the QuickDrop Android app from Google Play."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Si esto ocurre repetidamente, reinicia tu teléfono o intenta descargar la app QuickDrop para Android desde Google Play."
+            "value" : "Si esto ocurre repetidamente, reinicia tu otro dispositivo o intenta descargar la aplicación QuickDrop para Android desde Google Play."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Si esto ocurre repetidamente, reinicia tu teléfono o intenta descargar la app QuickDrop para Android desde Google Play."
+            "value" : "Si esto ocurre repetidamente, por favor reinicia tu otro dispositivo o intenta descargar la app QuickDrop para Android desde Google Play."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jos tämä tapahtuu toistuvasti, käynnistä puhelin uudelleen tai kokeile ladata QuickDrop Android -sovellus Google Playsta."
+            "value" : "Jos tämä toistuu, käynnistä toinen laitteesi uudelleen tai kokeile ladata QuickDrop Android -sovellus Google Playsta."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Si cela se produit à plusieurs reprises, veuillez redémarrer votre téléphone ou essayer de télécharger l'application QuickDrop pour Android depuis Google Play."
+            "value" : "Si cela se produit à plusieurs reprises, veuillez redémarrer votre autre appareil ou essayer de télécharger l'application QuickDrop pour Android depuis Google Play."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Si cela se produit à plusieurs reprises, veuillez redémarrer votre téléphone ou essayer de télécharger l'application QuickDrop pour Android depuis Google Play."
+            "value" : "Si cela se produit souvent, veuillez redémarrer votre autre appareil ou essayez de télécharger l’application QuickDrop pour Android sur Google Play."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "אם זה קורה שוב ושוב, נא להפעיל את הטלפון מחדש או לנסות להוריד את אפליקציית QuickDrop לאנדרואיד מגוגל פליי."
+            "value" : "אם זה קורה שוב ושוב, נא הפעל מחדש את המכשיר השני או נסה להוריד את אפליקציית QuickDrop לאנדרואיד מ-Google Play."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "यदि ऐसा बार-बार होता है, तो कृपया अपने फोन को रीस्टार्ट करें या Google Play से QuickDrop Android ऐप डाउनलोड करने की कोशिश करें।"
+            "value" : "अगर यह बार-बार होता है, तो कृपया अपने दूसरे डिवाइस को पुनः प्रारंभ करें या Google Play से QuickDrop Android ऐप डाउनलोड करने का प्रयास करें।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ako se ovo ponavlja, ponovno pokrenite svoj telefon ili pokušajte preuzeti QuickDrop Android aplikaciju s Google Playa."
+            "value" : "Ako se ovo ponavlja, ponovno pokrenite drugi uređaj ili pokušajte preuzeti QuickDrop Android aplikaciju s Google Playa."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ha ez ismétlődően előfordul, indítsd újra a telefonodat, vagy próbáld meg letölteni a QuickDrop Android alkalmazást a Google Play-ről."
+            "value" : "Ha ez ismétlődően előfordul, indítsa újra a másik eszközt, vagy próbálja letölteni a QuickDrop Android alkalmazást a Google Play-ről."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jika ini terjadi berulang kali, silakan mulai ulang ponsel Anda atau coba unduh aplikasi QuickDrop untuk Android dari Google Play."
+            "value" : "Jika ini terjadi berulang kali, silakan mulai ulang perangkat Anda yang lain atau coba unduh aplikasi QuickDrop Android dari Google Play."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Se questo accade ripetutamente, riavvia il telefono o prova a scaricare l'app QuickDrop per Android da Google Play."
+            "value" : "Se questo accade ripetutamente, riavvia il tuo altro dispositivo o prova a scaricare l'app QuickDrop per Android da Google Play."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "この問題が繰り返し発生する場合は、スマートフォンを再起動するか、Google Play から QuickDrop Android アプリをダウンロードしてください。"
+            "value" : "この問題が繰り返し発生する場合は、他のデバイスを再起動するか、Google Play から QuickDrop Android アプリをダウンロードしてください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "이 현상이 반복되면 휴대폰을 재시작하거나 Google Play에서 QuickDrop Android 앱을 다운로드해 보세요."
+            "value" : "이 문제가 반복된다면, 다른 기기를 재시작하거나 Google Play에서 QuickDrop Android 앱을 다운로드해보세요."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jika ini berlaku berulang kali, sila mulakan semula telefon anda atau cuba muat turun aplikasi QuickDrop Android dari Google Play."
+            "value" : "Jika ini berlaku berulang kali, sila mulakan semula peranti anda yang lain atau cuba muat turun aplikasi QuickDrop Android dari Google Play."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hvis dette skjer gjentatte ganger, start telefonen på nytt eller prøv å laste ned QuickDrop-appen for Android fra Google Play."
+            "value" : "Hvis dette skjer gjentatte ganger, start den andre enheten på nytt eller prøv å laste ned QuickDrop Android-appen fra Google Play."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Als dit herhaaldelijk gebeurt, start dan je telefoon opnieuw op of download de QuickDrop Android-app via Google Play."
+            "value" : "Als dit herhaaldelijk gebeurt, start dan je andere apparaat opnieuw op of download de QuickDrop Android-app via Google Play."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jeśli to się powtarza, uruchom ponownie telefon lub spróbuj pobrać aplikację QuickDrop na Androida z Google Play."
+            "value" : "Jeśli to się powtarza, uruchom ponownie inne urządzenie lub spróbuj pobrać aplikację QuickDrop na Androida ze Sklepu Google Play."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Se isso acontecer repetidamente, reinicie seu telefone ou tente baixar o aplicativo QuickDrop para Android na Google Play."
+            "value" : "Se isso acontecer repetidamente, reinicie seu outro dispositivo ou tente baixar o app QuickDrop para Android na Google Play."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Se isto acontecer repetidamente, reinicie o seu telemóvel ou tente instalar a aplicação QuickDrop para Android a partir da Google Play."
+            "value" : "Se isto acontecer repetidamente, reinicie o seu outro dispositivo ou tente descarregar a app QuickDrop para Android na Google Play."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dacă se întâmplă în mod repetat, repornește telefonul sau încearcă să descarci aplicația QuickDrop pentru Android din Google Play."
+            "value" : "Dacă se întâmplă frecvent, repornește celălalt dispozitiv sau încearcă să descarci aplicația QuickDrop pentru Android din Google Play."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Если это происходит неоднократно, перезапустите телефон или попробуйте установить приложение QuickDrop для Android из Google Play."
+            "value" : "Если это происходит часто, перезагрузите ваше другое устройство или попробуйте скачать приложение QuickDrop для Android в Google Play."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Om detta händer upprepade gånger, starta om din telefon eller ladda ner QuickDrop-appen för Android från Google Play."
+            "value" : "Om detta händer upprepade gånger, starta om din andra enhet eller ladda ner QuickDrop Android-appen från Google Play."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "หากเกิดเหตุการณ์นี้ซ้ำ โปรดรีสตาร์ทโทรศัพท์หรือดาวน์โหลดแอป QuickDrop สำหรับ Android จาก Google Play"
+            "value" : "หากเกิดเหตุการณ์นี้บ่อยๆ กรุณารีสตาร์ทอุปกรณ์อีกเครื่องหรือดาวน์โหลดแอป QuickDrop สำหรับ Android จาก Google Play"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bu tekrar ederse, lütfen telefonunuzu yeniden başlatın veya QuickDrop Android uygulamasını Google Play'den indirmeyi deneyin."
+            "value" : "Bu durum tekrar ederse, lütfen diğer cihazınızı yeniden başlatın veya Google Play'den QuickDrop Android uygulamasını indirmeyi deneyin."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Якщо це трапляється повторно, перезавантажте телефон або спробуйте завантажити додаток QuickDrop для Android з Google Play."
+            "value" : "Якщо це трапляється часто, перезапустіть інший пристрій або спробуйте завантажити додаток QuickDrop для Android з Google Play."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nếu điều này xảy ra liên tục, vui lòng khởi động lại điện thoại hoặc thử tải ứng dụng QuickDrop cho Android từ Google Play."
+            "value" : "Nếu điều này xảy ra nhiều lần, vui lòng khởi động lại thiết bị kia hoặc thử tải ứng dụng QuickDrop cho Android từ Google Play."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "如果此问题反复出现，请重启手机或尝试从 Google Play 下载 QuickDrop 安卓应用。"
+            "value" : "如果这种情况反复发生，请重启你的另一台设备，或尝试从 Google Play 下载 QuickDrop 安卓应用。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "如果這種情況重複發生，請重啟您的手機，或嘗試從 Google Play 下載 QuickDrop Android 應用程式。"
+            "value" : "如果這種情況反覆發生，請重新啟動您的其他裝置，或嘗試從 Google Play 下載 QuickDrop Android 應用程式。"
           }
         }
       }
@@ -27246,229 +27246,229 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "فشل في استقبال الملفات من %@"
+            "value" : "فشل الاتصال مع %@"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No s'han pogut rebre arxius de %@"
+            "value" : "No s'ha pogut connectar a %@"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nepodařilo se obdržet soubory od %@"
+            "value" : "Připojení k %@ selhalo"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mislykkedes at modtage filer fra %@"
+            "value" : "Forbindelsen til %@ mislykkedes"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Die Daten von %@ konnten nicht empfangen werden"
+            "value" : "Verbindung zu %@ fehlgeschlagen"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Αποτυχία λήψης αρχείων από %@"
+            "value" : "Η σύνδεση με το %@ απέτυχε"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Failed to receive files from %@"
+            "value" : "Connection to %@ failed"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Failed to get files from %@"
+            "value" : "Connection to %@ failed"
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Failed to receive files from %@"
+            "value" : "Connection to %@ failed"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Failed to receive files from %@"
+            "value" : "Connection to %@ failed"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Error al recibir archivos de %@"
+            "value" : "La conexión con %@ falló"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fallo al recibir archivos de %@"
+            "value" : "La conexión a %@ falló"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Virhe tiedostojen vastaanottamisessa: %@"
+            "value" : "Yhteys laitteeseen %@ epäonnistui."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Échec de la réception des fichiers de %@"
+            "value" : "La connexion à %@ a échoué"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Échec de la réception des fichiers de %@"
+            "value" : "La connexion à %@ a échoué"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "נכשל בקבלת קבצים מ-%@"
+            "value" : "החיבור אל %@ נכשל"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ से फ़ाइलें प्राप्त करने में विफल"
+            "value" : "%@ से कनेक्शन विफल हुआ"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Neuspješno preuzimanje datoteka s %@"
+            "value" : "Veza s %@ nije uspjela"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nem sikerült %@-tól/től fájlokat fogadni"
+            "value" : "A(z) %@ kapcsolódás sikertelen"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gagal menerima file dari %@"
+            "value" : "Koneksi ke %@ gagal"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossibile ricevere i file da %@"
+            "value" : "Connessione a %@ non riuscita"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@からのファイル受信に失敗しました。"
+            "value" : "%@ への接続に失敗しました"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@에서 전송한 Nearby Share가 실패했습니다."
+            "value" : "%@에 연결 실패"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gagal menerima fail daripada %@"
+            "value" : "Sambungan ke %@ gagal"
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kunne ikke motta filer fra %@"
+            "value" : "Tilkobling til %@ mislyktes"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mislukt om bestanden te ontvangen van %@"
+            "value" : "Verbinding met %@ mislukt"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nie udało się odebrać plików od %@"
+            "value" : "Połączenie z %@ nie powiodło się"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Falha ao receber arquivos de %@"
+            "value" : "Conexão com %@ falhou"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Falha ao receber ficheiros de %@"
+            "value" : "A ligação a %@ falhou"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Recepționarea fișierelor de la %@ a eșuat"
+            "value" : "Conectarea la %@ a eșuat"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Не удалость принять файлы от %@"
+            "value" : "Не удалось подключиться к %@"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Misslyckades att ta emot filer från %@"
+            "value" : "Anslutning till %@ misslyckades"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "เกิดข้อผิดพลาดในการรับไฟล์จาก %@"
+            "value" : "การเชื่อมต่อกับ %@ ล้มเหลว"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ dosyalarından dosyalar alınamadı."
+            "value" : "%@ ile bağlantı başarısız oldu"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Не вдалося отримати файли від %@"
+            "value" : "Не вдалося підключитися до %@"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Không nhận được tệp từ %@"
+            "value" : "Kết nối với %@ thất bại"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法从 %@ 接收文件"
+            "value" : "连接到 %@ 失败"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無法從 %@ 接收檔案"
+            "value" : "連接 %@ 失敗"
           }
         }
       }

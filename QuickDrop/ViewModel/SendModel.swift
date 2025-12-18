@@ -61,11 +61,10 @@ class SendModel: ObservableObject, OutboundAppDelegate {
     
     func connectionFailed(error: any Error) {
         
-        #if os(iOS)
-        errorVibration()
-        #endif
-        
-        ErrorAlertHandler.shared.showErrorAlert(for: selectedDevice?.name ?? "UnknownDevice".localized(), error: error)
+        if let name = selectedDevice?.name {
+            errorVibration()
+            ErrorAlertHandler.shared.showErrorAlert(for: name, error: error)
+        }
         
         progressValue = nil
         selectedDevice = nil
@@ -126,9 +125,13 @@ class SendModel: ObservableObject, OutboundAppDelegate {
         else {
             
             progressValue = 0
-            progressState = "Connecting".localized()
+            progressState = "Preparing".localized()
             selectedDevice = device
-            NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: urls, textToSend: textToSend)
+            
+            runAfter(seconds: 0.3) {
+                NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: self.urls, textToSend: self.textToSend)
+                self.progressState = "Connecting".localized()
+            }
         }
     }
 }

@@ -252,27 +252,32 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
         progressDeviceName?.stringValue = getDeviceName(device: device)
         progressDeviceIcon?.image = imageForDeviceType(type: device.type)
         progressProgressBar?.startAnimation(nil)
-        progressState?.stringValue = "Connecting".localized()
+        progressState?.stringValue = "Preparing".localized()
         chosenDevice = device
         NearbyConnectionManager.shared.stopDeviceDiscovery()
-        NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: urls, textToSend: textToSend)
         
-        let timeoutAlert = DispatchWorkItem {
-            if !self.connectionEstablished {
-                AudioManager.playErrorSound()
-                let alert = NSAlert()
-                alert.alertStyle = .critical
-                
-                alert.messageText = "TimeoutTitle".localized()
-                alert.informativeText = "TimeoutDescription".localized()
-                alert.addButton(withTitle: "TimeoutButton".localized())
-                
-                alert.beginSheetModal(for: self.view.window!) { _ in }
+        runAfter(seconds: 0.3) {
+            NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: self.urls, textToSend: self.textToSend)
+            
+            self.progressState?.stringValue = "Connecting".localized()
+            
+            let timeoutAlert = DispatchWorkItem {
+                if !self.connectionEstablished {
+                    AudioManager.playErrorSound()
+                    let alert = NSAlert()
+                    alert.alertStyle = .critical
+                    
+                    alert.messageText = "TimeoutTitle".localized()
+                    alert.informativeText = "TimeoutDescription".localized()
+                    alert.addButton(withTitle: "TimeoutButton".localized())
+                    
+                    alert.beginSheetModal(for: self.view.window!) { _ in }
+                }
             }
+            
+            self.timeoutDispatchWorkItem = timeoutAlert
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: timeoutAlert)
         }
-        
-        timeoutDispatchWorkItem = timeoutAlert
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: timeoutAlert)
     }
     
     
@@ -381,6 +386,6 @@ extension ShareViewController: NSCollectionViewDataSource {
             return name
         }
         
-        return "Android"
+        return "UnknownDevice".localized()
     }
 }

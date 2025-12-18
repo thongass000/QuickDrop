@@ -49,7 +49,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         AudioManager.playIncomingFileSound()
         #endif
 
-        let mainMessage = transfer.getDescription(deviceName: device.name ?? "Android", alreadyAccepted: false)
+        let mainMessage = transfer.getDescription(deviceName: device.name ?? "UnknownDevice".localized(), alreadyAccepted: false)
         let pinCodeMessage = transfer.getPinCodeMessage()
         let transferID = transfer.id
         
@@ -111,7 +111,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     
     func obtainedUserConsentAutomatically(transfer: TransferMetadata, device: RemoteDeviceInfo) {
         
-        let mainMessage = transfer.getDescription(deviceName: device.name ?? "Android", alreadyAccepted: true)
+        let mainMessage = transfer.getDescription(deviceName: device.name ?? "UnknownDevice".localized(), alreadyAccepted: true)
         
         #if os(macOS)
         
@@ -203,7 +203,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 #endif
                 
                 controlPlusScreen(false)
-                ErrorAlertHandler.shared.showErrorAlert(for: device.name ?? "Android", error: error)
+                ErrorAlertHandler.shared.showErrorAlert(for: device.name ?? "UnknownDevice".localized(), error: error)
             } else {
  
                 #if os(iOS)

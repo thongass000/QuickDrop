@@ -51,6 +51,11 @@
 		EB4F9D222EC26C8100A74A0F /* EXIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */; };
 		EB4F9D252EC27CFB00A74A0F /* FileManager+DocumentsOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D232EC27CF000A74A0F /* FileManager+DocumentsOpener.swift */; };
 		EB4F9D272EC27CFB00A74A0F /* FileManager+DocumentsOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D232EC27CF000A74A0F /* FileManager+DocumentsOpener.swift */; };
+		EB53D8C42EF496AB004C95BA /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = EB53D8C32EF496AB004C95BA /* ZIPFoundation */; };
+		EB53D8C62EF496CA004C95BA /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = EB53D8C52EF496CA004C95BA /* ZIPFoundation */; };
+		EB53D8C82EF496D1004C95BA /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = EB53D8C72EF496D1004C95BA /* ZIPFoundation */; };
+		EB53D8CA2EF49703004C95BA /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = EB53D8C92EF49703004C95BA /* BezelNotification */; };
+		EB53D8CC2EF49707004C95BA /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = EB53D8CB2EF49707004C95BA /* ZIPFoundation */; };
 		EB5C36932E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
 		EB5C36942E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
 		EB5C36E42E34EC0E0052EFD7 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
@@ -395,8 +400,10 @@
 			files = (
 				EB5C37D82E377ACF0052EFD7 /* SwiftECC in Frameworks */,
 				EBE5FF412EDB6F5D0019B380 /* LUI in Frameworks */,
+				EB53D8CA2EF49703004C95BA /* BezelNotification in Frameworks */,
 				EB5C37D62E377ACF0052EFD7 /* SwiftProtobuf in Frameworks */,
 				EB9925852E45EF0900357055 /* QRCode in Frameworks */,
+				EB53D8CC2EF49707004C95BA /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +416,7 @@
 				EB5C37DC2E377AD60052EFD7 /* SwiftECC in Frameworks */,
 				EB5C37DA2E377AD60052EFD7 /* SwiftProtobuf in Frameworks */,
 				EBE5FF3F2EDB6F550019B380 /* LUI in Frameworks */,
+				EB53D8C42EF496AB004C95BA /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +429,7 @@
 				EB886E582E4E66420052B7D9 /* LUI in Frameworks */,
 				EB5C37EE2E377C3F0052EFD7 /* SwiftProtobuf in Frameworks */,
 				EB9925892E45F13500357055 /* QRCode in Frameworks */,
+				EB53D8C62EF496CA004C95BA /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +442,7 @@
 				EB950B652E52067D002D68FA /* LUI in Frameworks */,
 				EB950B5F2E520671002D68FA /* SwiftProtobuf in Frameworks */,
 				EB950B632E52067A002D68FA /* QRCode in Frameworks */,
+				EB53D8C82EF496D1004C95BA /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +743,7 @@
 				EB5C37DB2E377AD60052EFD7 /* SwiftECC */,
 				EB9925862E45F12F00357055 /* QRCode */,
 				EBE5FF3E2EDB6F550019B380 /* LUI */,
+				EB53D8C32EF496AB004C95BA /* ZIPFoundation */,
 			);
 			productName = NearDrop;
 			productReference = 69DA9A0E29E0BF5100A442DA /* QuickDrop.app */;
@@ -759,6 +770,7 @@
 				EB9925882E45F13500357055 /* QRCode */,
 				EB886E572E4E66420052B7D9 /* LUI */,
 				EBADEB8E2E8029750021B5E4 /* DeviceKit */,
+				EB53D8C52EF496CA004C95BA /* ZIPFoundation */,
 			);
 			productName = QuickDropiOS;
 			productReference = EB5C37E22E377C2E0052EFD7 /* QuickDropiOS.app */;
@@ -783,6 +795,7 @@
 				EB950B622E52067A002D68FA /* QRCode */,
 				EB950B642E52067D002D68FA /* LUI */,
 				EBADEB902E802A830021B5E4 /* DeviceKit */,
+				EB53D8C72EF496D1004C95BA /* ZIPFoundation */,
 			);
 			productName = iOSShareExtension;
 			productReference = EB950B2D2E52027F002D68FA /* iOSShareExtension.appex */;
@@ -845,6 +858,7 @@
 				EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */,
 				EB886E562E4E66420052B7D9 /* XCRemoteSwiftPackageReference "LUI" */,
 				EBADEB8B2E8029420021B5E4 /* XCRemoteSwiftPackageReference "DeviceKit" */,
+				EB53D8C22EF496AB004C95BA /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 			);
 			productRefGroup = 69DA9A0F29E0BF5100A442DA /* Products */;
 			projectDirPath = "";
@@ -1311,7 +1325,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SHARED_BUILD = 97;
-				SHARED_VERSION = 2.9;
+				SHARED_VERSION = 2.9.1;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1374,7 +1388,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SHARED_BUILD = 97;
-				SHARED_VERSION = 2.9;
+				SHARED_VERSION = 2.9.1;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1737,6 +1751,14 @@
 				minimumVersion = 2.1.0;
 			};
 		};
+		EB53D8C22EF496AB004C95BA /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.20;
+			};
+		};
 		EB886E562E4E66420052B7D9 /* XCRemoteSwiftPackageReference "LUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/leonboe1/LUI.git";
@@ -1768,6 +1790,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EB2F9BFC2DA05F48004010A2 /* XCRemoteSwiftPackageReference "BezelNotification" */;
 			productName = BezelNotification;
+		};
+		EB53D8C32EF496AB004C95BA /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB53D8C22EF496AB004C95BA /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		EB53D8C52EF496CA004C95BA /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB53D8C22EF496AB004C95BA /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		EB53D8C72EF496D1004C95BA /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB53D8C22EF496AB004C95BA /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		EB53D8C92EF49703004C95BA /* BezelNotification */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB2F9BFC2DA05F48004010A2 /* XCRemoteSwiftPackageReference "BezelNotification" */;
+			productName = BezelNotification;
+		};
+		EB53D8CB2EF49707004C95BA /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB53D8C22EF496AB004C95BA /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
 		};
 		EB5C37D52E377ACF0052EFD7 /* SwiftProtobuf */ = {
 			isa = XCSwiftPackageProductDependency;

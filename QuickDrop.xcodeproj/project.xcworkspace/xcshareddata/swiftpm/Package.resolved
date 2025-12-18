@@ -1,5 +1,5 @@
 {
-  "originHash" : "270e8bfd245fae589b12faf08b86042cbbe7c809d59c5b0b8b735c7fb3a8d4bd",
+  "originHash" : "85c9b997510f22b553d79f68fb6d51d149ac9324df643dbf1475023b39da33b3",
   "pins" : [
     {
       "identity" : "applewatchscreensize",
@@ -125,6 +125,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "b10fc8a284abb9bd908d77243d2ba3b3d8ea6ebc"
+      }
+    },
+    {
+      "identity" : "zipfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/weichsel/ZIPFoundation.git",
+      "state" : {
+        "revision" : "22787ffb59de99e5dc1fbfe80b19c97a904ad48d",
+        "version" : "0.9.20"
       }
     }
   ],
