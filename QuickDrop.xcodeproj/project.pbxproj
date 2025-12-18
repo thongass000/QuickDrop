@@ -196,6 +196,9 @@
 		EB9925852E45EF0900357055 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB9925842E45EF0900357055 /* QRCode */; };
 		EB9925872E45F12F00357055 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB9925862E45F12F00357055 /* QRCode */; };
 		EB9925892E45F13500357055 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB9925882E45F13500357055 /* QRCode */; };
+		EBA1BB1D2EF1F5650068E46E /* ChangeDeviceNameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */; };
+		EBA1BB1E2EF1F6030068E46E /* ChangeDeviceNameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */; };
+		EBA1BB1F2EF1F6030068E46E /* ChangeDeviceNameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */; };
 		EBADEB8F2E8029750021B5E4 /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = EBADEB8E2E8029750021B5E4 /* DeviceKit */; };
 		EBADEB912E802A830021B5E4 /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = EBADEB902E802A830021B5E4 /* DeviceKit */; };
 		EBBC93B22EC8B76600F541A1 /* LocalNetworkPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBC93B12EC8B75F00F541A1 /* LocalNetworkPermissionView.swift */; };
@@ -371,6 +374,7 @@
 		EB97A0162E51DF4F008B8C5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EB97A0192E51EA9C008B8C5C /* UIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlert.swift; sourceTree = "<group>"; };
 		EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharing_enums.pb.swift; sourceTree = "<group>"; };
+		EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDeviceNameModifier.swift; sourceTree = "<group>"; };
 		EBBC93B12EC8B75F00F541A1 /* LocalNetworkPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkPermissionView.swift; sourceTree = "<group>"; };
 		EBBEE1452EC9D92F00AA7831 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertHandler.swift; sourceTree = "<group>"; };
@@ -643,6 +647,7 @@
 				EB7F54112D78E95C00989564 /* TutorialView.swift */,
 				EB7F54132D78E9E400989564 /* LicenseWindow.swift */,
 				EB869DB42E92AA33009AAAD4 /* QuickDropToastView.swift */,
+				EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */,
 				EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */,
 				EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */,
 				EBC05C812E33B58300EECC18 /* IssueViews */,
@@ -970,6 +975,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */,
+				EBA1BB1D2EF1F5650068E46E /* ChangeDeviceNameModifier.swift in Sources */,
 				EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */,
 				EB5C38412E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37B82E377A6F0052EFD7 /* SleepManager.swift in Sources */,
@@ -1062,6 +1068,7 @@
 				EB5C37FF2E377CE70052EFD7 /* wire_format.pb.swift in Sources */,
 				EB950B792E521717002D68FA /* AttachmentDetails.swift in Sources */,
 				EB5C38002E377CE70052EFD7 /* DataModel.swift in Sources */,
+				EBA1BB1E2EF1F6030068E46E /* ChangeDeviceNameModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1084,6 +1091,7 @@
 				EB950B502E520436002D68FA /* wire_format.pb.swift in Sources */,
 				EB950B582E5205B4002D68FA /* Zip.swift in Sources */,
 				EB950B512E520436002D68FA /* securemessage.pb.swift in Sources */,
+				EBA1BB1F2EF1F6030068E46E /* ChangeDeviceNameModifier.swift in Sources */,
 				EB950B522E520436002D68FA /* NearbyConnectionManager.swift in Sources */,
 				EB950B532E520436002D68FA /* ukey.pb.swift in Sources */,
 				EBBC93B22EC8B76600F541A1 /* LocalNetworkPermissionView.swift in Sources */,
@@ -1302,8 +1310,8 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 96;
-				SHARED_VERSION = 2.8;
+				SHARED_BUILD = 97;
+				SHARED_VERSION = 2.9;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1365,8 +1373,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 96;
-				SHARED_VERSION = 2.8;
+				SHARED_BUILD = 97;
+				SHARED_VERSION = 2.9;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;

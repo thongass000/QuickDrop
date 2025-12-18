@@ -41,15 +41,17 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private let hasConnectionMonitor = NWPathMonitor()
     private let connectionMonitorQueue = DispatchQueue(label: "NetworkConnectionMonitorQueue")
     private var securityScopeUrl: URL?
+    private static let customDeviceNameKey = "com.leonboettger.quickdrop.deviceName"
     
-    public let deviceInfo: EndpointInfo
     public let endpointID: [UInt8] = generateEndpointID()
+    public static let maxNameChars = 31
     
     public static let shared = NearbyConnectionManager()
     
     @Published var attachments: AttachmentDetails? = nil
     @Published var hasLocalNetworkPermission = true
     @Published var isConnectedToLocalNetwork = true
+    @Published var deviceInfo: EndpointInfo
     
     public var connectionUpdateCallback: (Bool) -> Void = { _ in } {
         didSet {
@@ -57,17 +59,10 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
     }
     
+    public var changedDeviceNameCallback: () -> Void = { }
+    
     override init() {
-        
-#if os(macOS)
-        self.deviceInfo = EndpointInfo(name: Host.current().localizedName ?? "Mac", deviceType: .computer)
-#else
-        let marketingName = Device.current.description.withoutBracketedContent
-        let isiPad = UIDevice.current.model == "iPad"
-        
-        self.deviceInfo = EndpointInfo(name: marketingName, deviceType: isiPad ? .tablet : .phone)
-#endif
-        
+        self.deviceInfo = Self.getEndpointInfo()
         tcpListener = try! NWListener(using: NWParameters(tls: .none))
         
         super.init()
@@ -121,6 +116,49 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     deinit {
         self.stopAccessingSaveDirectory()
+    }
+    
+    
+    public static func getCustomDeviceName() -> String? {
+        let storedName = AppGroup.appGroupUD.string(forKey: Self.customDeviceNameKey)
+        
+        guard let name = storedName, !name.isEmpty else {
+            return nil
+        }
+        
+        return name
+    }
+    
+    
+    public func setCustomDeviceName(to newName: String) {
+        AppGroup.appGroupUD.setValue(newName, forKey: Self.customDeviceNameKey)
+        
+        self.deviceInfo = Self.getEndpointInfo()
+        changedDeviceNameCallback()
+        
+        if startedAdvertising {
+            self.becomeInvisible()
+            
+            runAfter(seconds: 0.5) {
+                self.becomeVisible()
+            }
+        }
+    }
+    
+    
+    private static func getEndpointInfo() -> EndpointInfo {
+        
+        let deviceType = isMac() ? RemoteDeviceInfo.DeviceType.computer : (isiPadOrMac() ? .tablet : .phone)
+        
+        if let customName = getCustomDeviceName() {
+            return EndpointInfo(name: String(customName.prefix(Self.maxNameChars)), deviceType: deviceType)
+        }
+        
+        #if os(macOS)
+        return EndpointInfo(name: String((Host.current().localizedName ?? "Mac").prefix(Self.maxNameChars)), deviceType: deviceType)
+        #else
+        return EndpointInfo(name: String(Device.current.description.withoutBracketedContent.prefix(Self.maxNameChars)), deviceType: deviceType)
+        #endif
     }
     
     

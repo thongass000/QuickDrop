@@ -131,6 +131,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             }
         }
         
+        NearbyConnectionManager.shared.changedDeviceNameCallback = {
+            self.visibleItem?.title = self.getDefaultVisibleLabel()
+        }
+        
         log("[AppDelegate] Application did finish launching")
     }
     

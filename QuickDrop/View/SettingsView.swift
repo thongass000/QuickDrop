@@ -12,6 +12,7 @@ import LUI
 struct SettingsView: View {
     
     @ObservedObject var settings = Settings.shared
+    @ObservedObject var connectionManager = NearbyConnectionManager.shared
     
     var body: some View {
         
@@ -32,10 +33,24 @@ struct SettingsView: View {
                     Text("SaveFilesTo")
                     Spacer()
                     Text(getSavedFolderPath() ?? "DownloadsFolder".localized())
-                        .foregroundColor((settings.saveFolderBookmark ?? Data()).isEmpty ? .gray : .primary)
+                        .foregroundColor(.gray)
                     Button("SaveFilesToButton") {
                         selectFolder()
                     }
+                }
+                
+                HStack {
+                    Text("DeviceName")
+                    Spacer()
+                    Text(connectionManager.deviceInfo.name ?? "Unknown".localized())
+                        .foregroundColor(.gray)
+                    
+                    Button("Edit") {
+                    }
+                    .overlay(
+                        Color.clear
+                            .contentShape(Rectangle()).changeDeviceNameAlert()
+                    )
                 }
                 
                 Divider()

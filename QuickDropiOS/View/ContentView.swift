@@ -76,11 +76,18 @@ struct DeviceListView: View {
                             
                             LUIText(attachments?.shortDescription ?? NearbyConnectionManager.shared.deviceInfo.name ?? "Unknown".localized(), isBold: true)
                                 .lineLimit(1)
+                            
+                            if attachments == nil {
+                                Image(systemName: "pencil")
+                                    .foregroundColor(.mainColor.opacity(0.5))
+                                    .padding(.horizontal, -3)
+                            }
                         }
                         .padding(.horizontal, 16)
                         .padding(.vertical, 6)
                         .background(sheetActive ? Color.sheetForegroundColor : Color.defaultForegroundColor)
                         .cornerRadius(24)
+                        .changeDeviceNameAlert(isEnabled: attachments == nil)
                     }
                     .padding(.horizontal)
                     .padding(.top, 8)
@@ -235,6 +242,7 @@ struct DeviceListView: View {
         })
     }
 }
+
 
 final class DeviceListViewModel: SharedInstance {
     static var sharedInstance = DeviceListViewModel()
