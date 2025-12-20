@@ -108,7 +108,7 @@ struct IntroductionSplashView: View {
         }
         .task(id: pollingPage) {
             guard let page = pollingPage else { return }
-
+            
             // Poll every 1 second until condition is satisfied or canceled
             while !Task.isCancelled {
                 if page.canContinue() {
@@ -123,7 +123,7 @@ struct IntroductionSplashView: View {
                     }
                     return
                 }
-
+                
                 try? await Task.sleep(nanoseconds: 1_000_000_000)
             }
         }
@@ -177,6 +177,25 @@ struct IntroductionSplashView: View {
         if currentPage == .enableShareExtension {
             if let url = URL(string: "x-apple.systempreferences:com.apple.LoginItems-Settings.extension") {
                 NSWorkspace.shared.open(url)
+            }
+        }
+        
+        if currentPage == .localNetworkAccess {
+            Task {
+                do {
+                    try await Task.sleep(nanoseconds: 20_000_000_000)
+                } catch {
+                    return
+                }
+
+                await MainActor.run {
+                    guard currentPage == .localNetworkAccess else { return }
+                    guard skipAction == nil else { return }
+
+                    if let action = currentPage.skipAction {
+                        skipAction = action
+                    }
+                }
             }
         }
     }
@@ -260,7 +279,7 @@ enum IntroductionPage: CaseIterable {
     
     var needRequestBeforeSkipAvailable: Bool {
         switch self {
-            case .enableShareExtension:
+            case .localNetworkAccess:
                 return true
             default:
                 return false
