@@ -8,6 +8,9 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
+let welcomeScreenWidth: CGFloat = 1000
+let welcomeScreenHeight: CGFloat = 600
+
 struct WelcomeScreen: View {
     
     internal init(
@@ -125,7 +128,7 @@ struct WelcomeScreen: View {
             }
         }
         .animation(.easeInOut, value: openedIntroduction)
-        .frame(width: 1000, height: 600)
+        .frame(width: welcomeScreenWidth, height: welcomeScreenHeight)
     }
     
     func openPrivacyPolicy() {

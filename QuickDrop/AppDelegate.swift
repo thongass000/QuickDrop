@@ -87,6 +87,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         } else {
             // app launched before
 
+            #if GITHUB
+            log("[AppDelegate] Downloaded from GitHub.")
+            #else
             // user installed the app before the IAP was implemented, grant the plus version
             if !Settings.shared.isEligibleForIap {
                 log("[AppDelegate] Granting QuickDrop+ for old user")
@@ -100,6 +103,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                     log("[AppDelegate] QuickDrop+ available")
                 }
             }
+            #endif
 
             BezelNotification.show(messageText: "ReadyToReceive".localized(), icon: .receiveIcon)
             
@@ -234,7 +238,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         )
 
         welcomeWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 400, height: 280),
+            contentRect: NSRect(x: 0, y: 0, width: welcomeScreenWidth, height: welcomeScreenHeight),
             styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false

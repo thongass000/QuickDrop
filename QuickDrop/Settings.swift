@@ -16,8 +16,12 @@ class Settings: ObservableObject {
     
     //  MARK: - Published UserDefaults Backed Properties
     
+    #if GITHUB
+    let gotPlus = true
+    #else
     @Published var gotPlus = UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
     { didSet { UserDefaults.standard.set(gotPlus, forKey: UserDefaultsKeys.plusVersion.rawValue) }}
+    #endif
     
     
     @Published var automaticallyAcceptFiles: Bool = UserDefaults.standard.bool(forKey: UserDefaultsKeys.automaticallyAcceptFiles.rawValue)

@@ -32832,6 +32832,239 @@
         }
       }
     },
+    "introduction_enable_share_extension_description_macos12" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لإرسال الملفات من هذا الـ Mac، يمكنك تفعيل امتداد المشاركة. اضغط على متابعة، ثم اختر قائمة الامتدادات وفعّل خيار QuickDrop."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per enviar fitxers des d’aquest Mac, activa l’extensió de compartició. Fes clic a Continua, tria el menú d’extensions i activa la casella per a QuickDrop."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chcete-li odesílat soubory z tohoto Macu, můžete povolit rozšíření pro sdílení. Klikněte na Pokračovat, vyberte nabídku rozšíření a zaškrtněte políčko QuickDrop."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For at sende filer fra denne Mac kan du aktivere delingsudvidelsen. Klik på Fortsæt, vælg derefter udvidelsesmenuen, og marker afkrydsningsfeltet for QuickDrop."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um Dateien von diesem Mac zu senden, aktiviere die Share-Erweiterung. Klicke auf „Weiter“, wähle dann das Erweiterungsmenü und aktiviere das Kontrollkästchen für QuickDrop."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Για να στείλετε αρχεία από αυτό το Mac, μπορείτε να ενεργοποιήσετε την επέκταση κοινοποίησης. Κάντε κλικ στο Συνέχεια, μετά επιλέξτε το μενού επεκτάσεων και ενεργοποιήστε το κουτάκι για το QuickDrop."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To send files from this Mac, you may enable the share extension. Click on Continue, then choose the extensions menu, and enable the checkbox for QuickDrop."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To send files from this Mac, you may enable the share extension. Click on Continue, then choose the extensions menu, and enable the checkbox for QuickDrop."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To send files from this Mac, you may enable the share extension. Click on Continue, then choose the extensions menu, and enable the checkbox for QuickDrop."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To send files from this Mac, you may enable the share extension. Click on Continue, then choose the extensions menu, and enable the checkbox for QuickDrop."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para enviar archivos desde este Mac, activa la extensión de compartir. Haz clic en Continuar, luego ve al menú de extensiones y marca la casilla de QuickDrop."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para enviar archivos desde esta Mac, puedes habilitar la extensión para compartir. Haz clic en Continuar, luego elige el menú de extensiones y marca la casilla de QuickDrop."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jos haluat lähettää tiedostoja tältä Macilta, voit ottaa käyttöön jaon laajennuksen. Napsauta Jatka, valitse laajennusvalikko ja ota QuickDrop käyttöön valitsemalla sen valintaruutu."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour envoyer des fichiers depuis ce Mac, vous pouvez activer l’extension de partage. Cliquez sur Continuer, puis choisissez le menu des extensions et cochez la case pour QuickDrop."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour envoyer des fichiers depuis ce Mac, vous pouvez activer l’extension de partage. Cliquez sur Continuer, puis ouvrez le menu des extensions et cochez la case pour QuickDrop."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "כדי לשלוח קבצים מהמחשב הזה, אפשר להפעיל את תוסף השיתוף. לחץ על 'המשך', בחר בתפריט התוספים, וסמן את תיבת הסימון של QuickDrop."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "इस Mac से फ़ाइलें भेजने के लिए, आप शेयर एक्सटेंशन सक्षम कर सकते हैं। 'जारी रखें' पर क्लिक करें, फिर एक्सटेंशन मेनू चुनें और QuickDrop के लिए चेकबॉक्स चुनें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Da biste slali datoteke s ovog Maca, omogućite ekstenziju za dijeljenje. Kliknite Nastavi, zatim odaberite izbornik ekstenzija i označite QuickDrop."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fájlok küldéséhez erről a Mac-ről engedélyezze a megosztási bővítményt. Kattintson a Folytatásra, válassza a bővítmények menüt, majd jelölje be a QuickDrop jelölőnégyzetét."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Untuk mengirim file dari Mac ini, Anda dapat mengaktifkan ekstensi berbagi. Klik Lanjutkan, lalu pilih menu ekstensi, dan aktifkan kotak centang untuk QuickDrop."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per inviare file da questo Mac, puoi abilitare l'estensione di condivisione. Fai clic su Continua, poi scegli il menu delle estensioni e attiva la casella di controllo per QuickDrop."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このMacからファイルを送信するには、共有機能拡張を有効にしてください。「続ける」をクリックし、拡張機能メニューを開いて、QuickDropのチェックボックスを有効にします。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 Mac에서 파일을 보내려면 공유 확장 기능을 활성화하세요. 계속을 클릭한 다음, 확장 메뉴에서 QuickDrop 체크박스를 선택하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Untuk menghantar fail dari Mac ini, anda boleh aktifkan ekstensi perkongsian. Klik Teruskan, kemudian pilih menu ekstensi, dan aktifkan kotak semak untuk QuickDrop."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For å sende filer fra denne Macen, kan du aktivere delingsutvidelsen. Klikk på Fortsett, velg deretter utvidelsesmenyen og aktiver avkrysningsboksen for QuickDrop."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Om bestanden vanaf deze Mac te verzenden, kun je de deel-extensie inschakelen. Klik op Doorgaan, kies het extensiemenu en vink het selectievakje voor QuickDrop aan."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aby wysyłać pliki z tego Maca, możesz włączyć rozszerzenie udostępniania. Kliknij Dalej, wybierz menu rozszerzeń i zaznacz pole wyboru QuickDrop."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para enviar arquivos deste Mac, ative a extensão de compartilhamento. Clique em Continuar, depois escolha o menu de extensões e marque a caixa de seleção para o QuickDrop."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para enviar ficheiros deste Mac, pode ativar a extensão de partilha. Clique em Continuar, depois escolha o menu de extensões e ative a caixa de seleção para o QuickDrop."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pentru a trimite fișiere de pe acest Mac, poți activa extensia de partajare. Apasă Continuă, apoi mergi la meniul de extensii și bifează caseta pentru QuickDrop."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чтобы отправлять файлы с этого Mac, вы можете включить расширение для обмена. Нажмите «Продолжить», затем выберите меню расширений и поставьте галочку напротив QuickDrop."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "För att skicka filer från denna Mac kan du aktivera delningstillägget. Klicka på Fortsätt, välj sedan tilläggsmenyn och markera kryssrutan för QuickDrop."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "หากต้องการส่งไฟล์จาก Mac เครื่องนี้ คุณสามารถเปิดใช้งานส่วนขยายการแชร์ได้ คลิก 'ดำเนินการต่อ' จากนั้นเลือกเมนูส่วนขยาย และเปิดใช้งานช่องเลือกสำหรับ QuickDrop"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu Mac'ten dosya göndermek için paylaşım uzantısını etkinleştirebilirsiniz. Devam Et'e tıklayın, ardından uzantılar menüsünü seçin ve QuickDrop kutucuğunu işaretleyin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щоб надіслати файли з цього Mac, увімкніть розширення для спільного доступу. Натисніть «Продовжити», відкрийте меню розширень і поставте галочку біля QuickDrop."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Để gửi tệp từ máy Mac này, bạn có thể bật tiện ích chia sẻ. Nhấp Tiếp tục, sau đó chọn menu tiện ích và bật ô chọn cho QuickDrop."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如需从此 Mac 发送文件，请启用共享扩展。点击“继续”，然后选择扩展菜单，并勾选 QuickDrop 的复选框。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "若要從這台 Mac 傳送檔案，請啟用分享擴充功能。點擊「繼續」，然後選擇擴充功能選單，勾選 QuickDrop。"
+          }
+        }
+      }
+    },
     "introduction_enable_share_extension_skip_message" : {
       "extractionState" : "manual",
       "localizations" : {

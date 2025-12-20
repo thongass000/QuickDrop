@@ -14,9 +14,11 @@ let configuration = LUIConfiguration(
     plusVersionInfo: GetPlusViewInformation(lifetimeID: "plusversion", monthlyID: "quickdrop.monthly", yearlyID: "quickdrop.yearly", plusViewHeader: isMac() ? "plusview_title" : nil, description: isMac() ? "plusview_description" : "plusview_description_phone", onBoughtPlusVersionAlertMessage: "plusview_success_description", plusVersionFeatures: [], settingsLabelColor: .orange, settingsFooter: "plusview_footer_phone"),
     
     setPlusVersion: { result in
+        #if !GITHUB
         DispatchQueue.main.async {
             Settings.shared.gotPlus = result
         }
+        #endif
     },
     
     hasRoundedFont: false,

@@ -45,6 +45,125 @@
 		EB16B77A2E59BAA1007D9792 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B7762E59BA9F007D9792 /* AppGroup.swift */; };
 		EB2F9BFE2DA05F48004010A2 /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = EB2F9BFD2DA05F48004010A2 /* BezelNotification */; };
 		EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36435F2D73A29F009CDFF8 /* AudioManager.swift */; };
+		EB3B9F002EF7150400D6704E /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */; };
+		EB3B9F012EF7150400D6704E /* ChangeDeviceNameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */; };
+		EB3B9F022EF7150400D6704E /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36435F2D73A29F009CDFF8 /* AudioManager.swift */; };
+		EB3B9F032EF7150400D6704E /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
+		EB3B9F042EF7150400D6704E /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B41E32DC63AC80070FC39 /* SleepManager.swift */; };
+		EB3B9F052EF7150400D6704E /* QuickDropToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB869DB42E92AA33009AAAD4 /* QuickDropToastView.swift */; };
+		EB3B9F062EF7150400D6704E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9BFA2DA04B67004010A2 /* Helpers.swift */; };
+		EB3B9F072EF7150400D6704E /* TrustedDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */; };
+		EB3B9F082EF7150400D6704E /* TrustStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B6162E58B4C8007D9792 /* TrustStore.swift */; };
+		EB3B9F092EF7150400D6704E /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */; };
+		EB3B9F0A2EF7150400D6704E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325D22E701D8900FD749C /* Settings.swift */; };
+		EB3B9F0B2EF7150400D6704E /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC27F82D80C9F70079C478 /* Zip.swift */; };
+		EB3B9F0C2EF7150400D6704E /* ukey.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2829E18CB500A442DA /* ukey.pb.swift */; };
+		EB3B9F0D2EF7150400D6704E /* securemessage.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2D29E18CB500A442DA /* securemessage.pb.swift */; };
+		EB3B9F0E2EF7150400D6704E /* offline_wire_formats.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2B29E18CB500A442DA /* offline_wire_formats.pb.swift */; };
+		EB3B9F0F2EF7150400D6704E /* device_to_device_messages.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2A29E18CB500A442DA /* device_to_device_messages.pb.swift */; };
+		EB3B9F102EF7150400D6704E /* wire_format.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2929E18CB500A442DA /* wire_format.pb.swift */; };
+		EB3B9F112EF7150400D6704E /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B6112E58B4B9007D9792 /* IdentityManager.swift */; };
+		EB3B9F122EF7150400D6704E /* securegcm.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2C29E18CB500A442DA /* securegcm.pb.swift */; };
+		EB3B9F132EF7150400D6704E /* ReceiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A00E2E511120008B8C5C /* ReceiveModel.swift */; };
+		EB3B9F142EF7150400D6704E /* NearbyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698DFAE529E2F91A0064F247 /* NearbyConnection.swift */; };
+		EB3B9F152EF7150400D6704E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C36E82E3546100052EFD7 /* DataModel.swift */; };
+		EB3B9F162EF7150400D6704E /* OutboundNearbyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F53BD2ABF03820089FD92 /* OutboundNearbyConnection.swift */; };
+		EB3B9F172EF7150400D6704E /* InboundNearbyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2229E17F0400A442DA /* InboundNearbyConnection.swift */; };
+		EB3B9F182EF7150400D6704E /* NearbyConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A1E29E0C0B300A442DA /* NearbyConnectionManager.swift */; };
+		EB3B9F192EF7150400D6704E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8D2E50CA23008B8C5C /* Configuration.swift */; };
+		EB3B9F1A2EF7150400D6704E /* AttachmentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB950B762E521712002D68FA /* AttachmentDetails.swift */; };
+		EB3B9F1B2EF7150400D6704E /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E512E4E19390052B7D9 /* HKDF.swift */; };
+		EB3B9F1C2EF7150400D6704E /* SmallSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */; };
+		EB3B9F1D2EF7150400D6704E /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E662E4F2F7C0052B7D9 /* License.swift */; };
+		EB3B9F1E2EF7150400D6704E /* LicenseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54132D78E9E400989564 /* LicenseWindow.swift */; };
+		EB3B9F1F2EF7150400D6704E /* EXIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */; };
+		EB3B9F202EF7150400D6704E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A1129E0BF5100A442DA /* AppDelegate.swift */; };
+		EB3B9F212EF7150400D6704E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */; };
+		EB3B9F222EF7150400D6704E /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54112D78E95C00989564 /* TutorialView.swift */; };
+		EB3B9F232EF7150400D6704E /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
+		EB3B9F242EF7150400D6704E /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBEE1452EC9D92F00AA7831 /* PhotoManager.swift */; };
+		EB3B9F252EF7150400D6704E /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
+		EB3B9F262EF7150400D6704E /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B7762E59BA9F007D9792 /* AppGroup.swift */; };
+		EB3B9F272EF7150400D6704E /* ApIsolationIssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C7D2E33B58300EECC18 /* ApIsolationIssueView.swift */; };
+		EB3B9F282EF7150400D6704E /* FirewallIssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C7E2E33B58300EECC18 /* FirewallIssueView.swift */; };
+		EB3B9F292EF7150400D6704E /* SendToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325F72E70287C00FD749C /* SendToExtension.swift */; };
+		EB3B9F2A2EF7150400D6704E /* ApIsolationTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E92E7025D900FD749C /* ApIsolationTester.swift */; };
+		EB3B9F2B2EF7150400D6704E /* ActiveNetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E72E7025D900FD749C /* ActiveNetworkInterface.swift */; };
+		EB3B9F2C2EF7150400D6704E /* ApIsolation6Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E82E7025D900FD749C /* ApIsolation6Tester.swift */; };
+		EB3B9F2D2EF7150400D6704E /* IssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C7F2E33B58300EECC18 /* IssueView.swift */; };
+		EB3B9F2E2EF7150400D6704E /* NetworkFilterIssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C802E33B58300EECC18 /* NetworkFilterIssueView.swift */; };
+		EB3B9F2F2EF7150400D6704E /* IntroductionSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A95F22EF6E1BE0021111B /* IntroductionSplashView.swift */; };
+		EB3B9F312EF7150400D6704E /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9EF92EF7150400D6704E /* QRCode */; };
+		EB3B9F322EF7150400D6704E /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9EF32EF7150400D6704E /* BezelNotification */; };
+		EB3B9F332EF7150400D6704E /* SwiftECC in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9EF72EF7150400D6704E /* SwiftECC */; };
+		EB3B9F342EF7150400D6704E /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9EF52EF7150400D6704E /* SwiftProtobuf */; };
+		EB3B9F352EF7150400D6704E /* LUI in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9EFB2EF7150400D6704E /* LUI */; };
+		EB3B9F362EF7150400D6704E /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9EFD2EF7150400D6704E /* ZIPFoundation */; };
+		EB3B9F382EF7150400D6704E /* Config.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */; };
+		EB3B9F392EF7150400D6704E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
+		EB3B9F3A2EF7150400D6704E /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
+		EB3B9F3B2EF7150400D6704E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
+		EB3B9F3C2EF7150400D6704E /* timeIsNow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EBC05C8A2E33B59E00EECC18 /* timeIsNow.mp3 */; };
+		EB3B9F3D2EF7150400D6704E /* QuickDropIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = EB721F232E75AFA900F2099F /* QuickDropIcon.icon */; };
+		EB3B9F3E2EF7150400D6704E /* justMaybe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB5C38382E38C1F60052EFD7 /* justMaybe.mp3 */; };
+		EB3B9F3F2EF7150400D6704E /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB6E6B202ECBA95000E71D57 /* InfoPlist.xcstrings */; };
+		EB3B9F402EF7150400D6704E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB7654772E525ACC006B4AA3 /* MainMenu.xib */; };
+		EB3B9F4C2EF7151900D6704E /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E662E4F2F7C0052B7D9 /* License.swift */; };
+		EB3B9F4D2EF7151900D6704E /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8E2D7F8103004B3FF1 /* Localized.swift */; };
+		EB3B9F4E2EF7151900D6704E /* SendToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325F72E70287C00FD749C /* SendToExtension.swift */; };
+		EB3B9F4F2EF7151900D6704E /* TrustStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B6162E58B4C8007D9792 /* TrustStore.swift */; };
+		EB3B9F502EF7151900D6704E /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E512E4E19390052B7D9 /* HKDF.swift */; };
+		EB3B9F512EF7151900D6704E /* NetworkFilterIssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C802E33B58300EECC18 /* NetworkFilterIssueView.swift */; };
+		EB3B9F522EF7151900D6704E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8D2E50CA23008B8C5C /* Configuration.swift */; };
+		EB3B9F532EF7151900D6704E /* IssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C7F2E33B58300EECC18 /* IssueView.swift */; };
+		EB3B9F542EF7151900D6704E /* FirewallIssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C7E2E33B58300EECC18 /* FirewallIssueView.swift */; };
+		EB3B9F552EF7151900D6704E /* ApIsolationIssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C7D2E33B58300EECC18 /* ApIsolationIssueView.swift */; };
+		EB3B9F562EF7151900D6704E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699DEBA52AB0573200115D22 /* ShareViewController.swift */; };
+		EB3B9F572EF7151900D6704E /* SmallSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */; };
+		EB3B9F582EF7151900D6704E /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC27F82D80C9F70079C478 /* Zip.swift */; };
+		EB3B9F592EF7151900D6704E /* securemessage.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2D29E18CB500A442DA /* securemessage.pb.swift */; };
+		EB3B9F5A2EF7151900D6704E /* securegcm.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2C29E18CB500A442DA /* securegcm.pb.swift */; };
+		EB3B9F5B2EF7151900D6704E /* wire_format.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2929E18CB500A442DA /* wire_format.pb.swift */; };
+		EB3B9F5C2EF7151900D6704E /* ukey.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2829E18CB500A442DA /* ukey.pb.swift */; };
+		EB3B9F5D2EF7151900D6704E /* device_to_device_messages.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2A29E18CB500A442DA /* device_to_device_messages.pb.swift */; };
+		EB3B9F5E2EF7151900D6704E /* EXIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */; };
+		EB3B9F5F2EF7151900D6704E /* Attachments.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB950B732E520954002D68FA /* Attachments.swift */; };
+		EB3B9F602EF7151900D6704E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325D22E701D8900FD749C /* Settings.swift */; };
+		EB3B9F612EF7151900D6704E /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B7762E59BA9F007D9792 /* AppGroup.swift */; };
+		EB3B9F622EF7151900D6704E /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36435F2D73A29F009CDFF8 /* AudioManager.swift */; };
+		EB3B9F632EF7151900D6704E /* offline_wire_formats.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2B29E18CB500A442DA /* offline_wire_formats.pb.swift */; };
+		EB3B9F642EF7151900D6704E /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16B6112E58B4B9007D9792 /* IdentityManager.swift */; };
+		EB3B9F652EF7151900D6704E /* ErrorAlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */; };
+		EB3B9F662EF7151900D6704E /* DeviceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F53B92ABB70840089FD92 /* DeviceListCell.swift */; };
+		EB3B9F672EF7151900D6704E /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
+		EB3B9F682EF7151900D6704E /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B41E32DC63AC80070FC39 /* SleepManager.swift */; };
+		EB3B9F692EF7151900D6704E /* AttachmentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB950B762E521712002D68FA /* AttachmentDetails.swift */; };
+		EB3B9F6A2EF7151900D6704E /* OutboundNearbyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F53BD2ABF03820089FD92 /* OutboundNearbyConnection.swift */; };
+		EB3B9F6B2EF7151900D6704E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C36E82E3546100052EFD7 /* DataModel.swift */; };
+		EB3B9F6C2EF7151900D6704E /* NearbyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698DFAE529E2F91A0064F247 /* NearbyConnection.swift */; };
+		EB3B9F6D2EF7151900D6704E /* InboundNearbyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A2229E17F0400A442DA /* InboundNearbyConnection.swift */; };
+		EB3B9F6E2EF7151900D6704E /* NearbyConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA9A1E29E0C0B300A442DA /* NearbyConnectionManager.swift */; };
+		EB3B9F6F2EF7151900D6704E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9BFA2DA04B67004010A2 /* Helpers.swift */; };
+		EB3B9F702EF7151900D6704E /* ApIsolationTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E92E7025D900FD749C /* ApIsolationTester.swift */; };
+		EB3B9F712EF7151900D6704E /* ActiveNetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E72E7025D900FD749C /* ActiveNetworkInterface.swift */; };
+		EB3B9F722EF7151900D6704E /* ApIsolation6Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E82E7025D900FD749C /* ApIsolation6Tester.swift */; };
+		EB3B9F732EF7151900D6704E /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
+		EB3B9F7C2EF7151900D6704E /* Config.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */; };
+		EB3B9F7D2EF7151900D6704E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
+		EB3B9F7E2EF7151900D6704E /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
+		EB3B9F7F2EF7151900D6704E /* DeviceListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691F53BA2ABB70840089FD92 /* DeviceListCell.xib */; };
+		EB3B9F802EF7151900D6704E /* ShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 699DEBA72AB0573200115D22 /* ShareViewController.xib */; };
+		EB3B9F812EF7151900D6704E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
+		EB3B9F822EF7151900D6704E /* justMaybe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB5C38382E38C1F60052EFD7 /* justMaybe.mp3 */; };
+		EB3B9F832EF7151900D6704E /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB6E6B202ECBA95000E71D57 /* InfoPlist.xcstrings */; };
+		EB3B9F842EF7151900D6704E /* timeIsNow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EBC05C8A2E33B59E00EECC18 /* timeIsNow.mp3 */; };
+		EB3B9F8B2EF7153000D6704E /* QuickDropShareExtensionGitHub.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EB3B9F892EF7151900D6704E /* QuickDropShareExtensionGitHub.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EB3B9F8F2EF715A000D6704E /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9F8E2EF715A000D6704E /* SwiftProtobuf */; };
+		EB3B9F912EF715A000D6704E /* SwiftECC in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9F902EF715A000D6704E /* SwiftECC */; };
+		EB3B9F932EF715A000D6704E /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9F922EF715A000D6704E /* BezelNotification */; };
+		EB3B9F952EF715A000D6704E /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9F942EF715A000D6704E /* QRCode */; };
+		EB3B9F972EF715A000D6704E /* LUI in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9F962EF715A000D6704E /* LUI */; };
+		EB3B9F992EF715A000D6704E /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9F982EF715A000D6704E /* ZIPFoundation */; };
 		EB4F9D1F2EC26C8100A74A0F /* EXIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */; };
 		EB4F9D202EC26C8100A74A0F /* EXIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */; };
 		EB4F9D212EC26C8100A74A0F /* EXIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */; };
@@ -242,6 +361,13 @@
 			remoteGlobalIDString = 699DEBA02AB0573200115D22;
 			remoteInfo = ShareExtension;
 		};
+		EB3B9F8C2EF7153000D6704E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69DA9A0629E0BF5100A442DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB3B9F4A2EF7151900D6704E;
+			remoteInfo = QuickDropShareExtensionGitHub;
+		};
 		EB950B352E52027F002D68FA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 69DA9A0629E0BF5100A442DA /* Project object */;
@@ -284,6 +410,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		69DCF4A12AB8C9A500CBE2CC /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB3B9F412EF7150400D6704E /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EB3B9F8B2EF7153000D6704E /* QuickDropShareExtensionGitHub.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB3B9F432EF7150400D6704E /* Embed XPC Services */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed XPC Services";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB3B9F442EF7150400D6704E /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB3B9F852EF7151900D6704E /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -343,6 +510,10 @@
 		EB2B41E32DC63AC80070FC39 /* SleepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager.swift; sourceTree = "<group>"; };
 		EB2F9BFA2DA04B67004010A2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		EB36435F2D73A29F009CDFF8 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		EB3B9F482EF7150400D6704E /* QuickDropGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDropGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB3B9F492EF7150400D6704E /* QuickDrop copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "QuickDrop copy-Info.plist"; path = "/Users/leonboettger/QuickDrop Backup with git/QuickDrop copy-Info.plist"; sourceTree = "<absolute>"; };
+		EB3B9F892EF7151900D6704E /* QuickDropShareExtensionGitHub.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuickDropShareExtensionGitHub.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB3B9F8A2EF7151900D6704E /* QuickDropShareExtension copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "QuickDropShareExtension copy-Info.plist"; path = "/Users/leonboettger/QuickDrop Backup with git/QuickDropShareExtension copy-Info.plist"; sourceTree = "<absolute>"; };
 		EB4F9D1E2EC26C7C00A74A0F /* EXIFUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EXIFUtils.swift; sourceTree = "<group>"; };
 		EB4F9D232EC27CF000A74A0F /* FileManager+DocumentsOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DocumentsOpener.swift"; sourceTree = "<group>"; };
 		EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -422,6 +593,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EB3B9F302EF7150400D6704E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB3B9F312EF7150400D6704E /* QRCode in Frameworks */,
+				EB3B9F322EF7150400D6704E /* BezelNotification in Frameworks */,
+				EB3B9F332EF7150400D6704E /* SwiftECC in Frameworks */,
+				EB3B9F342EF7150400D6704E /* SwiftProtobuf in Frameworks */,
+				EB3B9F352EF7150400D6704E /* LUI in Frameworks */,
+				EB3B9F362EF7150400D6704E /* ZIPFoundation in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB3B9F742EF7151900D6704E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB3B9F952EF715A000D6704E /* QRCode in Frameworks */,
+				EB3B9F912EF715A000D6704E /* SwiftECC in Frameworks */,
+				EB3B9F8F2EF715A000D6704E /* SwiftProtobuf in Frameworks */,
+				EB3B9F932EF715A000D6704E /* BezelNotification in Frameworks */,
+				EB3B9F972EF715A000D6704E /* LUI in Frameworks */,
+				EB3B9F992EF715A000D6704E /* ZIPFoundation in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB5C37DF2E377C2E0052EFD7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -486,6 +683,8 @@
 				698DFAEC29E353220064F247 /* Frameworks */,
 				69DA9A0F29E0BF5100A442DA /* Products */,
 				EBC05C8B2E33B59E00EECC18 /* Resources */,
+				EB3B9F492EF7150400D6704E /* QuickDrop copy-Info.plist */,
+				EB3B9F8A2EF7151900D6704E /* QuickDropShareExtension copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -496,6 +695,8 @@
 				699DEBA12AB0573200115D22 /* QuickDropShareExtension.appex */,
 				EB5C37E22E377C2E0052EFD7 /* QuickDropiOS.app */,
 				EB950B2D2E52027F002D68FA /* iOSShareExtension.appex */,
+				EB3B9F482EF7150400D6704E /* QuickDropGitHub.app */,
+				EB3B9F892EF7151900D6704E /* QuickDropShareExtensionGitHub.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -760,6 +961,53 @@
 			productReference = 69DA9A0E29E0BF5100A442DA /* QuickDrop.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EB3B9EF02EF7150400D6704E /* QuickDropGitHub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB3B9F452EF7150400D6704E /* Build configuration list for PBXNativeTarget "QuickDropGitHub" */;
+			buildPhases = (
+				EB3B9EFF2EF7150400D6704E /* Sources */,
+				EB3B9F302EF7150400D6704E /* Frameworks */,
+				EB3B9F372EF7150400D6704E /* Resources */,
+				EB3B9F412EF7150400D6704E /* Embed Foundation Extensions */,
+				EB3B9F432EF7150400D6704E /* Embed XPC Services */,
+				EB3B9F442EF7150400D6704E /* Embed Libraries */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB3B9F8D2EF7153000D6704E /* PBXTargetDependency */,
+			);
+			name = QuickDropGitHub;
+			packageProductDependencies = (
+				EB3B9EF32EF7150400D6704E /* BezelNotification */,
+				EB3B9EF52EF7150400D6704E /* SwiftProtobuf */,
+				EB3B9EF72EF7150400D6704E /* SwiftECC */,
+				EB3B9EF92EF7150400D6704E /* QRCode */,
+				EB3B9EFB2EF7150400D6704E /* LUI */,
+				EB3B9EFD2EF7150400D6704E /* ZIPFoundation */,
+			);
+			productName = NearDrop;
+			productReference = EB3B9F482EF7150400D6704E /* QuickDropGitHub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EB3B9F4A2EF7151900D6704E /* QuickDropShareExtensionGitHub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB3B9F862EF7151900D6704E /* Build configuration list for PBXNativeTarget "QuickDropShareExtensionGitHub" */;
+			buildPhases = (
+				EB3B9F4B2EF7151900D6704E /* Sources */,
+				EB3B9F742EF7151900D6704E /* Frameworks */,
+				EB3B9F7B2EF7151900D6704E /* Resources */,
+				EB3B9F852EF7151900D6704E /* Embed Libraries */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuickDropShareExtensionGitHub;
+			productName = ShareExtension;
+			productReference = EB3B9F892EF7151900D6704E /* QuickDropShareExtensionGitHub.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		EB5C37E12E377C2E0052EFD7 /* QuickDropiOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB5C37EA2E377C310052EFD7 /* Build configuration list for PBXNativeTarget "QuickDropiOS" */;
@@ -879,6 +1127,8 @@
 				699DEBA02AB0573200115D22 /* QuickDropShareExtension */,
 				EB5C37E12E377C2E0052EFD7 /* QuickDropiOS */,
 				EB950B2C2E52027F002D68FA /* iOSShareExtension */,
+				EB3B9EF02EF7150400D6704E /* QuickDropGitHub */,
+				EB3B9F4A2EF7151900D6704E /* QuickDropShareExtensionGitHub */,
 			);
 		};
 /* End PBXProject section */
@@ -913,6 +1163,38 @@
 				EB5C38392E38C1F60052EFD7 /* justMaybe.mp3 in Resources */,
 				EB6E6B222ECBA95000E71D57 /* InfoPlist.xcstrings in Resources */,
 				EB7654782E525ACC006B4AA3 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB3B9F372EF7150400D6704E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB3B9F382EF7150400D6704E /* Config.storekit in Resources */,
+				EB3B9F392EF7150400D6704E /* Assets.xcassets in Resources */,
+				EB3B9F3A2EF7150400D6704E /* License.txt in Resources */,
+				EB3B9F3B2EF7150400D6704E /* Localizable.xcstrings in Resources */,
+				EB3B9F3C2EF7150400D6704E /* timeIsNow.mp3 in Resources */,
+				EB3B9F3D2EF7150400D6704E /* QuickDropIcon.icon in Resources */,
+				EB3B9F3E2EF7150400D6704E /* justMaybe.mp3 in Resources */,
+				EB3B9F3F2EF7150400D6704E /* InfoPlist.xcstrings in Resources */,
+				EB3B9F402EF7150400D6704E /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB3B9F7B2EF7151900D6704E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB3B9F7C2EF7151900D6704E /* Config.storekit in Resources */,
+				EB3B9F7D2EF7151900D6704E /* Localizable.xcstrings in Resources */,
+				EB3B9F7E2EF7151900D6704E /* License.txt in Resources */,
+				EB3B9F7F2EF7151900D6704E /* DeviceListCell.xib in Resources */,
+				EB3B9F802EF7151900D6704E /* ShareViewController.xib in Resources */,
+				EB3B9F812EF7151900D6704E /* Assets.xcassets in Resources */,
+				EB3B9F822EF7151900D6704E /* justMaybe.mp3 in Resources */,
+				EB3B9F832EF7151900D6704E /* InfoPlist.xcstrings in Resources */,
+				EB3B9F842EF7151900D6704E /* timeIsNow.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1050,6 +1332,108 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EB3B9EFF2EF7150400D6704E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB3B9F002EF7150400D6704E /* WelcomeScreen.swift in Sources */,
+				EB3B9F012EF7150400D6704E /* ChangeDeviceNameModifier.swift in Sources */,
+				EB3B9F022EF7150400D6704E /* AudioManager.swift in Sources */,
+				EB3B9F032EF7150400D6704E /* LaunchAtLogin.swift in Sources */,
+				EB3B9F042EF7150400D6704E /* SleepManager.swift in Sources */,
+				EB3B9F052EF7150400D6704E /* QuickDropToastView.swift in Sources */,
+				EB3B9F062EF7150400D6704E /* Helpers.swift in Sources */,
+				EB3B9F072EF7150400D6704E /* TrustedDevicesView.swift in Sources */,
+				EB3B9F082EF7150400D6704E /* TrustStore.swift in Sources */,
+				EB3B9F092EF7150400D6704E /* ErrorAlertHandler.swift in Sources */,
+				EB3B9F0A2EF7150400D6704E /* Settings.swift in Sources */,
+				EB3B9F0B2EF7150400D6704E /* Zip.swift in Sources */,
+				EB3B9F0C2EF7150400D6704E /* ukey.pb.swift in Sources */,
+				EB3B9F0D2EF7150400D6704E /* securemessage.pb.swift in Sources */,
+				EB3B9F0E2EF7150400D6704E /* offline_wire_formats.pb.swift in Sources */,
+				EB3B9F0F2EF7150400D6704E /* device_to_device_messages.pb.swift in Sources */,
+				EB3B9F102EF7150400D6704E /* wire_format.pb.swift in Sources */,
+				EB3B9F112EF7150400D6704E /* IdentityManager.swift in Sources */,
+				EB3B9F122EF7150400D6704E /* securegcm.pb.swift in Sources */,
+				EB3B9F132EF7150400D6704E /* ReceiveModel.swift in Sources */,
+				EB3B9F142EF7150400D6704E /* NearbyConnection.swift in Sources */,
+				EB3B9F152EF7150400D6704E /* DataModel.swift in Sources */,
+				EB3B9F162EF7150400D6704E /* OutboundNearbyConnection.swift in Sources */,
+				EB3B9F172EF7150400D6704E /* InboundNearbyConnection.swift in Sources */,
+				EB3B9F182EF7150400D6704E /* NearbyConnectionManager.swift in Sources */,
+				EB3B9F192EF7150400D6704E /* Configuration.swift in Sources */,
+				EB3B9F1A2EF7150400D6704E /* AttachmentDetails.swift in Sources */,
+				EB3B9F1B2EF7150400D6704E /* HKDF.swift in Sources */,
+				EB3B9F1C2EF7150400D6704E /* SmallSheetView.swift in Sources */,
+				EB3B9F1D2EF7150400D6704E /* License.swift in Sources */,
+				EB3B9F1E2EF7150400D6704E /* LicenseWindow.swift in Sources */,
+				EB3B9F1F2EF7150400D6704E /* EXIFUtils.swift in Sources */,
+				EB3B9F202EF7150400D6704E /* AppDelegate.swift in Sources */,
+				EB3B9F212EF7150400D6704E /* SettingsView.swift in Sources */,
+				EB3B9F222EF7150400D6704E /* TutorialView.swift in Sources */,
+				EB3B9F232EF7150400D6704E /* sharing_enums.pb.swift in Sources */,
+				EB3B9F242EF7150400D6704E /* PhotoManager.swift in Sources */,
+				EB3B9F252EF7150400D6704E /* Localized.swift in Sources */,
+				EB3B9F262EF7150400D6704E /* AppGroup.swift in Sources */,
+				EB3B9F272EF7150400D6704E /* ApIsolationIssueView.swift in Sources */,
+				EB3B9F282EF7150400D6704E /* FirewallIssueView.swift in Sources */,
+				EB3B9F292EF7150400D6704E /* SendToExtension.swift in Sources */,
+				EB3B9F2A2EF7150400D6704E /* ApIsolationTester.swift in Sources */,
+				EB3B9F2B2EF7150400D6704E /* ActiveNetworkInterface.swift in Sources */,
+				EB3B9F2C2EF7150400D6704E /* ApIsolation6Tester.swift in Sources */,
+				EB3B9F2D2EF7150400D6704E /* IssueView.swift in Sources */,
+				EB3B9F2E2EF7150400D6704E /* NetworkFilterIssueView.swift in Sources */,
+				EB3B9F2F2EF7150400D6704E /* IntroductionSplashView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB3B9F4B2EF7151900D6704E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB3B9F4C2EF7151900D6704E /* License.swift in Sources */,
+				EB3B9F4D2EF7151900D6704E /* Localized.swift in Sources */,
+				EB3B9F4E2EF7151900D6704E /* SendToExtension.swift in Sources */,
+				EB3B9F4F2EF7151900D6704E /* TrustStore.swift in Sources */,
+				EB3B9F502EF7151900D6704E /* HKDF.swift in Sources */,
+				EB3B9F512EF7151900D6704E /* NetworkFilterIssueView.swift in Sources */,
+				EB3B9F522EF7151900D6704E /* Configuration.swift in Sources */,
+				EB3B9F532EF7151900D6704E /* IssueView.swift in Sources */,
+				EB3B9F542EF7151900D6704E /* FirewallIssueView.swift in Sources */,
+				EB3B9F552EF7151900D6704E /* ApIsolationIssueView.swift in Sources */,
+				EB3B9F562EF7151900D6704E /* ShareViewController.swift in Sources */,
+				EB3B9F572EF7151900D6704E /* SmallSheetView.swift in Sources */,
+				EB3B9F582EF7151900D6704E /* Zip.swift in Sources */,
+				EB3B9F592EF7151900D6704E /* securemessage.pb.swift in Sources */,
+				EB3B9F5A2EF7151900D6704E /* securegcm.pb.swift in Sources */,
+				EB3B9F5B2EF7151900D6704E /* wire_format.pb.swift in Sources */,
+				EB3B9F5C2EF7151900D6704E /* ukey.pb.swift in Sources */,
+				EB3B9F5D2EF7151900D6704E /* device_to_device_messages.pb.swift in Sources */,
+				EB3B9F5E2EF7151900D6704E /* EXIFUtils.swift in Sources */,
+				EB3B9F5F2EF7151900D6704E /* Attachments.swift in Sources */,
+				EB3B9F602EF7151900D6704E /* Settings.swift in Sources */,
+				EB3B9F612EF7151900D6704E /* AppGroup.swift in Sources */,
+				EB3B9F622EF7151900D6704E /* AudioManager.swift in Sources */,
+				EB3B9F632EF7151900D6704E /* offline_wire_formats.pb.swift in Sources */,
+				EB3B9F642EF7151900D6704E /* IdentityManager.swift in Sources */,
+				EB3B9F652EF7151900D6704E /* ErrorAlertHandler.swift in Sources */,
+				EB3B9F662EF7151900D6704E /* DeviceListCell.swift in Sources */,
+				EB3B9F672EF7151900D6704E /* LaunchAtLogin.swift in Sources */,
+				EB3B9F682EF7151900D6704E /* SleepManager.swift in Sources */,
+				EB3B9F692EF7151900D6704E /* AttachmentDetails.swift in Sources */,
+				EB3B9F6A2EF7151900D6704E /* OutboundNearbyConnection.swift in Sources */,
+				EB3B9F6B2EF7151900D6704E /* DataModel.swift in Sources */,
+				EB3B9F6C2EF7151900D6704E /* NearbyConnection.swift in Sources */,
+				EB3B9F6D2EF7151900D6704E /* InboundNearbyConnection.swift in Sources */,
+				EB3B9F6E2EF7151900D6704E /* NearbyConnectionManager.swift in Sources */,
+				EB3B9F6F2EF7151900D6704E /* Helpers.swift in Sources */,
+				EB3B9F702EF7151900D6704E /* ApIsolationTester.swift in Sources */,
+				EB3B9F712EF7151900D6704E /* ActiveNetworkInterface.swift in Sources */,
+				EB3B9F722EF7151900D6704E /* ApIsolation6Tester.swift in Sources */,
+				EB3B9F732EF7151900D6704E /* sharing_enums.pb.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB5C37DE2E377C2E0052EFD7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1149,6 +1533,11 @@
 			isa = PBXTargetDependency;
 			target = 699DEBA02AB0573200115D22 /* QuickDropShareExtension */;
 			targetProxy = 699DEBAC2AB0573200115D22 /* PBXContainerItemProxy */;
+		};
+		EB3B9F8D2EF7153000D6704E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB3B9F4A2EF7151900D6704E /* QuickDropShareExtensionGitHub */;
+			targetProxy = EB3B9F8C2EF7153000D6704E /* PBXContainerItemProxy */;
 		};
 		EB950B362E52027F002D68FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1336,7 +1725,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 101;
+				SHARED_BUILD = 102;
 				SHARED_VERSION = 2.10;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1399,7 +1788,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 101;
+				SHARED_BUILD = 102;
 				SHARED_VERSION = 2.10;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1533,6 +1922,241 @@
 				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		EB3B9F462EF7150400D6704E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = QuickDropIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				AUTOMATION_APPLE_EVENTS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = QuickDrop/QuickDrop.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = "${SHARED_BUILD}";
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readwrite;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = YES;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "QuickDrop copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = QuickDrop;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Leon Böttger";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is needed to detect devices and transfer files over your Wi-Fi network.";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The add photos permission is required to save received photos and videos to your photo library.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The photo library permission is required to save received photos and videos to your photo library.";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = "${SHARED_VERSION}";
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonboettger.neardrop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG GITHUB";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		EB3B9F472EF7150400D6704E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = QuickDropIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				AUTOMATION_APPLE_EVENTS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = QuickDrop/QuickDrop.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = "${SHARED_BUILD}";
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readwrite;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = YES;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "QuickDrop copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = QuickDrop;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Leon Böttger";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is needed to detect devices and transfer files over your Wi-Fi network.";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The add photos permission is required to save received photos and videos to your photo library.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The photo library permission is required to save received photos and videos to your photo library.";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = "${SHARED_VERSION}";
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonboettger.neardrop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = GITHUB;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		EB3B9F872EF7151900D6704E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				AUTOMATION_APPLE_EVENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = "${SHARED_BUILD}";
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "QuickDropShareExtension copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = QuickDrop;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = "${SHARED_VERSION}";
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonboettger.neardrop.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) EXTENSION GITHUB";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		EB3B9F882EF7151900D6704E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				AUTOMATION_APPLE_EVENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = "${SHARED_BUILD}";
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "QuickDropShareExtension copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = QuickDrop;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = "${SHARED_VERSION}";
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonboettger.neardrop.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "EXTENSION GITHUB";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1720,6 +2344,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		EB3B9F452EF7150400D6704E /* Build configuration list for PBXNativeTarget "QuickDropGitHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB3B9F462EF7150400D6704E /* Debug */,
+				EB3B9F472EF7150400D6704E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB3B9F862EF7151900D6704E /* Build configuration list for PBXNativeTarget "QuickDropShareExtensionGitHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB3B9F872EF7151900D6704E /* Debug */,
+				EB3B9F882EF7151900D6704E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EB5C37EA2E377C310052EFD7 /* Build configuration list for PBXNativeTarget "QuickDropiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1765,6 +2407,54 @@
 				minimumVersion = 2.1.0;
 			};
 		};
+		EB3B9EF42EF7150400D6704E /* XCRemoteSwiftPackageReference "BezelNotification" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BlueHuskyStudios/BezelNotification.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+		EB3B9EF62EF7150400D6704E /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		EB3B9EF82EF7150400D6704E /* XCRemoteSwiftPackageReference "SwiftECC" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/leif-ibsen/SwiftECC";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		EB3B9EFA2EF7150400D6704E /* XCRemoteSwiftPackageReference "qrcode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dagronf/qrcode.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 26.10.0;
+			};
+		};
+		EB3B9EFC2EF7150400D6704E /* XCRemoteSwiftPackageReference "LUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/leonboe1/LUI.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		EB3B9EFE2EF7150400D6704E /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.20;
+			};
+		};
 		EB53D8C22EF496AB004C95BA /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
@@ -1804,6 +2494,66 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EB2F9BFC2DA05F48004010A2 /* XCRemoteSwiftPackageReference "BezelNotification" */;
 			productName = BezelNotification;
+		};
+		EB3B9EF32EF7150400D6704E /* BezelNotification */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB3B9EF42EF7150400D6704E /* XCRemoteSwiftPackageReference "BezelNotification" */;
+			productName = BezelNotification;
+		};
+		EB3B9EF52EF7150400D6704E /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB3B9EF62EF7150400D6704E /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		EB3B9EF72EF7150400D6704E /* SwiftECC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB3B9EF82EF7150400D6704E /* XCRemoteSwiftPackageReference "SwiftECC" */;
+			productName = SwiftECC;
+		};
+		EB3B9EF92EF7150400D6704E /* QRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB3B9EFA2EF7150400D6704E /* XCRemoteSwiftPackageReference "qrcode" */;
+			productName = QRCode;
+		};
+		EB3B9EFB2EF7150400D6704E /* LUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB3B9EFC2EF7150400D6704E /* XCRemoteSwiftPackageReference "LUI" */;
+			productName = LUI;
+		};
+		EB3B9EFD2EF7150400D6704E /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB3B9EFE2EF7150400D6704E /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		EB3B9F8E2EF715A000D6704E /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69DA9A2429E189EF00A442DA /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		EB3B9F902EF715A000D6704E /* SwiftECC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69DA9A3429E1994C00A442DA /* XCRemoteSwiftPackageReference "SwiftECC" */;
+			productName = SwiftECC;
+		};
+		EB3B9F922EF715A000D6704E /* BezelNotification */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB2F9BFC2DA05F48004010A2 /* XCRemoteSwiftPackageReference "BezelNotification" */;
+			productName = BezelNotification;
+		};
+		EB3B9F942EF715A000D6704E /* QRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB9925832E45EF0900357055 /* XCRemoteSwiftPackageReference "qrcode" */;
+			productName = QRCode;
+		};
+		EB3B9F962EF715A000D6704E /* LUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB886E562E4E66420052B7D9 /* XCRemoteSwiftPackageReference "LUI" */;
+			productName = LUI;
+		};
+		EB3B9F982EF715A000D6704E /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB53D8C22EF496AB004C95BA /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
 		};
 		EB53D8C32EF496AB004C95BA /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;

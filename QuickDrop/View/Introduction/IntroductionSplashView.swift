@@ -256,7 +256,10 @@ enum IntroductionPage: CaseIterable {
         case .localNetworkAccess:
             return "introduction_local_network_access_description"
         case .enableShareExtension:
-            return "introduction_enable_share_extension_description"
+            if #available(macOS 13.0, *) {
+                return "introduction_enable_share_extension_description"
+            }
+            return "introduction_enable_share_extension_description_macos12"
         case .finished:
             return "introduction_finished_description"
         }
@@ -298,9 +301,9 @@ enum IntroductionPage: CaseIterable {
     func presentNextPage() -> IntroductionPage? {
         switch self {
         case .splash:
-            return NearbyConnectionManager.shared.isConnectedToLocalNetwork ? .localNetworkAccess : .noWifi
+            return NearbyConnectionManager.shared.isConnectedToLocalNetwork ? firstPermissionPane() : .noWifi
         case .noWifi:
-            return .localNetworkAccess
+            return firstPermissionPane()
         case .localNetworkAccess:
             return .enableShareExtension
         case .enableShareExtension:
@@ -308,6 +311,14 @@ enum IntroductionPage: CaseIterable {
         case .finished:
             return nil
         }
+    }
+    
+    private func firstPermissionPane() -> IntroductionPage {
+        if #available(macOS 15.0, *) {
+            // Local network access is requested first on macOS 15+
+            return .localNetworkAccess
+        }
+        return .enableShareExtension
     }
     
     func canContinue() -> Bool {
