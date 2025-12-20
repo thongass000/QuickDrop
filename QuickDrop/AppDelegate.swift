@@ -102,23 +102,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             }
 
             BezelNotification.show(messageText: "ReadyToReceive".localized(), icon: .receiveIcon)
+            
+            // only start receiving immediately for existing user, for new users we want to delay the permission prompt
+            startReceiving()
         }
 
         UNUserNotificationCenter.current().delegate = self
-        
-        receiveModel = ReceiveModel(controlPlusScreen: { shouldOpen in
-            if shouldOpen {
-                self.openPlusScreen()
-            }
-            else {
-                if let window = self.plusWindow {
-                    log("[AppDelegate] Closing plus screen because of error")
-                    window.close()
-                    self.plusWindow = nil
-                }
-            }
-        })
-
         
         NearbyConnectionManager.shared.connectionUpdateCallback = { isConnected in
             if isConnected {
@@ -136,6 +125,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
         
         log("[AppDelegate] Application did finish launching")
+    }
+    
+    
+    func startReceiving() {
+        receiveModel = ReceiveModel(controlPlusScreen: { shouldOpen in
+            if shouldOpen {
+                self.openPlusScreen()
+            }
+            else {
+                if let window = self.plusWindow {
+                    log("[AppDelegate] Closing plus screen because of error")
+                    window.close()
+                    self.plusWindow = nil
+                }
+            }
+        })
     }
     
     
@@ -221,6 +226,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         let welcomeView = WelcomeScreen(
             openIntroduction: openIntroduction,
+            startReceiving: startReceiving,
             openPlusScreen: openPlusScreen,
             openAppAdvertisementView: { self.openSheetView(type: .downloadAndroidApp) },
             openCableTransmissionView: { self.openSheetView(type: .downloadCableConnectionApp) },

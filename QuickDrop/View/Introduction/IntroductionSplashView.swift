@@ -16,6 +16,7 @@ struct IntroductionSplashView: View {
     @State private var pollingPage: IntroductionPage? = nil
     @State private var skipAction: IntroductionPage.SkipAction? = nil
     
+    let startReceiving: (() -> Void)
     let onFinish: (() -> Void)
 
     var body: some View {
@@ -177,8 +178,22 @@ struct IntroductionSplashView: View {
             }
         }
     }
+    
+    private func triggerLocalNetworkPermission() {
+        self.startReceiving()
+        
+        // just to be sure it is triggered
+        runAfter(seconds: 1) {
+            DeviceToDeviceHeuristicScanner.shared.scan(completion: { _ in })
+        }
+    }
 
     private func advance() {
+        
+        if currentPage == .localNetworkAccess {
+            triggerLocalNetworkPermission()
+        }
+        
         if let nextPage = currentPage.presentNextPage() {
             currentPage = nextPage
         } else {
@@ -262,7 +277,6 @@ enum IntroductionPage: CaseIterable {
         case .noWifi:
             return .localNetworkAccess
         case .localNetworkAccess:
-            DeviceToDeviceHeuristicScanner.shared.scan(completion: { _ in })
             return .enableShareExtension
         case .enableShareExtension:
             return .finished
@@ -325,6 +339,6 @@ enum IntroductionPage: CaseIterable {
 
 
 #Preview {
-    IntroductionSplashView{}
+    IntroductionSplashView(startReceiving: {}){}
         .frame(width: 600, height: 500)
 }

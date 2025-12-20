@@ -12,12 +12,14 @@ struct WelcomeScreen: View {
     
     internal init(
         openIntroduction: Bool,
+        startReceiving: @escaping () -> Void,
         openPlusScreen: @escaping () -> Void,
         openAppAdvertisementView: @escaping () -> Void,
         openCableTransmissionView: @escaping () -> Void,
         checkForNetworkIssues: @escaping () -> Void
     ) {
         self._openedIntroduction = State(initialValue: openIntroduction)
+        self.startReceiving = startReceiving
         self.openPlusScreen = openPlusScreen
         self.openAppAdvertisementView = openAppAdvertisementView
         self.openCableTransmissionView = openCableTransmissionView
@@ -28,6 +30,7 @@ struct WelcomeScreen: View {
     @Environment(\.colorScheme) var colorScheme
     
     let openPlusScreen: () -> Void
+    let startReceiving: () -> Void
     let openAppAdvertisementView: () -> Void
     let openCableTransmissionView: () -> Void
     let checkForNetworkIssues: () -> Void
@@ -45,7 +48,7 @@ struct WelcomeScreen: View {
                     .resizable()
                     .ignoresSafeArea(.all)
                 
-                IntroductionSplashView {
+                IntroductionSplashView(startReceiving: startReceiving) {
                     openedIntroduction = false
                 }
                 .background(Color(NSColor.windowBackgroundColor))
@@ -239,5 +242,5 @@ enum Tabs: CaseIterable {
 
 
 #Preview {
-    WelcomeScreen(openIntroduction: true, openPlusScreen: {}, openAppAdvertisementView: {}, openCableTransmissionView: {}, checkForNetworkIssues: {})
+    WelcomeScreen(openIntroduction: true, startReceiving: {}, openPlusScreen: {}, openAppAdvertisementView: {}, openCableTransmissionView: {}, checkForNetworkIssues: {})
 }
