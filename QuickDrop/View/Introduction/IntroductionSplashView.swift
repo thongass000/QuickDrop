@@ -67,7 +67,9 @@ struct IntroductionSplashView: View {
                     Divider()
 
                     HStack {
-                        if let skipAction = currentPage.skipAction {
+                        if let skipAction = currentPage.skipAction,
+                            (currentPage.needRequestBeforeSkipAvailable == false || pollingPage != nil) {
+                            
                             Button("introduction_skip") {
                                 self.skipAction = skipAction
                             }
@@ -75,7 +77,7 @@ struct IntroductionSplashView: View {
                             .buttonStyle(.borderless)
                             .alert(item: $skipAction) { action in
                                 
-                                .init(title: Text(action.warningTitle.localized()), message: Text(action.warningMessage.localized()), primaryButton: .default(Text("introduction_skip".localized()), action: {
+                                .init(title: Text(action.warningTitle.localized()), message: Text(action.warningMessage.localized()), primaryButton: .default(Text("introduction_continue".localized()), action: {
                                     
                                     stopPolling()
                                     self.skipAction = nil
@@ -181,11 +183,6 @@ struct IntroductionSplashView: View {
     
     private func triggerLocalNetworkPermission() {
         self.startReceiving()
-        
-        // just to be sure it is triggered
-        runAfter(seconds: 1) {
-            DeviceToDeviceHeuristicScanner.shared.scan(completion: { _ in })
-        }
     }
 
     private func advance() {
@@ -251,13 +248,22 @@ enum IntroductionPage: CaseIterable {
         case .splash:
             return nil
         case .noWifi:
-            return .init(action: {presentNextPage()}, warningTitle: "introduction_no_wifi_skip_title", warningMessage: "introduction_no_wifi_skip_message", id: "noWifiSkip")
+            return .init(action: presentNextPage, warningTitle: "introduction_no_wifi_skip_title", warningMessage: "introduction_no_wifi_skip_message", id: "noWifiSkip")
         case .localNetworkAccess:
-            return nil
+            return .init(action: presentNextPage, warningTitle: "introduction_local_network_access_skip_title", warningMessage: "introduction_local_network_access_skip_message", id: "localNetworkAccessSkip")
         case .enableShareExtension:
-            return .init(action: {presentNextPage()}, warningTitle: "introduction_enable_share_extension_skip_title", warningMessage: "introduction_enable_share_extension_skip_message", id: "enableShareExtensionSkip")
+            return .init(action: presentNextPage, warningTitle: "introduction_enable_share_extension_skip_title", warningMessage: "introduction_enable_share_extension_skip_message", id: "enableShareExtensionSkip")
         case .finished:
             return nil
+        }
+    }
+    
+    var needRequestBeforeSkipAvailable: Bool {
+        switch self {
+            case .enableShareExtension:
+                return true
+            default:
+                return false
         }
     }
     
@@ -291,6 +297,8 @@ enum IntroductionPage: CaseIterable {
                 return NearbyConnectionManager.shared.isConnectedToLocalNetwork
             case .enableShareExtension:
                 return NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension")) != nil
+            case .localNetworkAccess:
+                return DeviceToDeviceHeuristicScanner.shared.hasLocalNetworkAccess(completion: {_ in })
             default:
                 return true
         }

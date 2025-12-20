@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -124,6 +124,7 @@
 		EB7654A12E53252D006B4AA3 /* AttachmentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB950B762E521712002D68FA /* AttachmentDetails.swift */; };
 		EB7654C02E534A8E006B4AA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
 		EB7654C12E534A8E006B4AA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
+		EB7A95F42EF6E1BE0021111B /* IntroductionSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A95F22EF6E1BE0021111B /* IntroductionSplashView.swift */; };
 		EB7F54122D78E96000989564 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54112D78E95C00989564 /* TutorialView.swift */; };
 		EB7F54142D78E9E700989564 /* LicenseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F54132D78E9E400989564 /* LicenseWindow.swift */; };
 		EB821C992E76FE5300036963 /* SmallSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96ED8A2D7F7CF4004B3FF1 /* SmallSheetView.swift */; };
@@ -355,6 +356,7 @@
 		EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB721F232E75AFA900F2099F /* QuickDropIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = QuickDropIcon.icon; sourceTree = "<group>"; };
 		EB7654772E525ACC006B4AA3 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		EB7A95F22EF6E1BE0021111B /* IntroductionSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionSplashView.swift; sourceTree = "<group>"; };
 		EB7F54112D78E95C00989564 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		EB7F54132D78E9E400989564 /* LicenseWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWindow.swift; sourceTree = "<group>"; };
 		EB869DB42E92AA33009AAAD4 /* QuickDropToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDropToastView.swift; sourceTree = "<group>"; };
@@ -392,10 +394,6 @@
 		EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Config.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		EB7A95582EF67C860021111B /* Introduction */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Introduction; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		699DEB9E2AB0573200115D22 /* Frameworks */ = {
@@ -630,6 +628,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		EB7A95F32EF6E1BE0021111B /* Introduction */ = {
+			isa = PBXGroup;
+			children = (
+				EB7A95F22EF6E1BE0021111B /* IntroductionSplashView.swift */,
+			);
+			path = Introduction;
+			sourceTree = "<group>";
+		};
 		EB950B6C2E5206E2002D68FA /* iOSShareExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -661,7 +667,7 @@
 				EB7F54112D78E95C00989564 /* TutorialView.swift */,
 				EB7F54132D78E9E400989564 /* LicenseWindow.swift */,
 				EB869DB42E92AA33009AAAD4 /* QuickDropToastView.swift */,
-				EB7A95582EF67C860021111B /* Introduction */,
+				EB7A95F32EF6E1BE0021111B /* Introduction */,
 				EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */,
 				EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */,
 				EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */,
@@ -740,9 +746,6 @@
 			);
 			dependencies = (
 				699DEBAD2AB0573200115D22 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				EB7A95582EF67C860021111B /* Introduction */,
 			);
 			name = QuickDrop;
 			packageProductDependencies = (
@@ -1043,6 +1046,7 @@
 				EB1325F62E7025D900FD749C /* ApIsolation6Tester.swift in Sources */,
 				EBC05C842E33B58300EECC18 /* IssueView.swift in Sources */,
 				EBC05C852E33B58300EECC18 /* NetworkFilterIssueView.swift in Sources */,
+				EB7A95F42EF6E1BE0021111B /* IntroductionSplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1332,7 +1336,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 99;
+				SHARED_BUILD = 101;
 				SHARED_VERSION = 2.10;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1395,7 +1399,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 99;
+				SHARED_BUILD = 101;
 				SHARED_VERSION = 2.10;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
