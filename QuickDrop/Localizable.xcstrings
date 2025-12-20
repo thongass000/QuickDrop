@@ -32133,6 +32133,1171 @@
         }
       }
     },
+    "introduction_continue" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "متابعة"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokračovat"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fortsæt"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiter"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Συνέχεια"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jatka"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuer"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuer"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "המשך"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "जारी रखें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nastavi"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Folytatás"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lanjutkan"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continua"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "続行"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계속"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teruskan"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fortsett"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doorgaan"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontynuuj"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuă"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продолжить"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fortsätt"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ดำเนินการต่อ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Devam Et"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продовжити"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiếp tục"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繼續"
+          }
+        }
+      }
+    },
+    "introduction_enable_share_extension" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إضافة المشاركة"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensió de compartició"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sdílecí rozšíření"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delingsudvidelse"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sharing-Erweiterung"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επέκταση Κοινής Χρήσης"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sharing Extension"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sharing Extension"
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sharing Extension"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sharing Extension"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensión de Compartir"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensión de uso compartido"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jakamislaajennus"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extension de partage"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extension de partage"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הרחבת שיתוף"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "शेयरिंग एक्सटेंशन"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proširenje za dijeljenje"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Megosztási bővítmény"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ekstensi Berbagi"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estensione di condivisione"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共有拡張機能"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "공유 확장 기능"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sambungan Perkongsian"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delingsutvidelse"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deel-extensie"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rozszerzenie udostępniania"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensão de Compartilhamento"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensão de Partilha"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensie de partajare"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Расширение обмена"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delningstillägg"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ส่วนขยายการแชร์"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paylaşım Uzantısı"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Розширення для спільного доступу"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiện ích chia sẻ"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共享扩展"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享擴充功能"
+          }
+        }
+      }
+    },
+    "introduction_enable_share_extension_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لإرسال الملفات من هذا الماك، يمكنك تفعيل إضافة المشاركة. انقر على متابعة، ومرّر للأسفل حتى ترى QuickDrop أو المشاركة، انقر على رمز المعلومات، وفعّل خيار QuickDrop."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per enviar fitxers des d'aquest Mac, pots activar l'extensió de compartició. Fes clic a Continua, desplaça't cap avall fins que vegis QuickDrop o Compartició, clica a la icona d'informació i activa l'opció per a QuickDrop."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chcete-li odesílat soubory z tohoto Macu, povolte sdílecí rozšíření. Klikněte na Pokračovat, sjeďte dolů, dokud neuvidíte QuickDrop nebo Sdílení, klikněte na ikonu info a povolte přepínač pro QuickDrop."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For at sende filer fra denne Mac kan du aktivere delingsudvidelsen. Klik på Fortsæt, rul ned indtil du ser QuickDrop eller Deling, klik på info-ikonet, og aktiver knappen for QuickDrop."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um Dateien von diesem Mac zu senden, kannst du die Sharing-Erweiterung aktivieren. Klicke auf Weiter, scrolle nach unten, bis du QuickDrop oder Teilen siehst, klicke auf das Info-Symbol und aktiviere den Schalter für QuickDrop."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Για να στείλετε αρχεία από αυτό το Mac, μπορείτε να ενεργοποιήσετε την επέκταση κοινής χρήσης. Πατήστε Συνέχεια, μετακινηθείτε προς τα κάτω μέχρι να δείτε το QuickDrop ή Κοινή Χρήση, πατήστε το εικονίδιο πληροφοριών και ενεργοποιήστε το διακόπτη για το QuickDrop."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To send files from this Mac, you may enable the sharing extension. Click on Continue, scroll down until you see QuickDrop or Sharing, click on the info icon, and enable the toggle for QuickDrop."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To send files from this Mac, you may enable the sharing extension. Click on Continue, scroll down until you see QuickDrop or Sharing, click on the info icon, and enable the toggle for QuickDrop."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To send files from this Mac, you may enable the sharing extension. Click on Continue, scroll down until you see QuickDrop or Sharing, click the info icon, and enable the toggle for QuickDrop."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To send files from this Mac, you may enable the sharing extension. Click on Continue, scroll down until you see QuickDrop or Sharing, click on the info icon, and enable the toggle for QuickDrop."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para enviar archivos desde este Mac, puedes activar la extensión de compartir. Haz clic en Continuar, desplázate hacia abajo hasta ver QuickDrop o Compartir, haz clic en el icono de información y activa el interruptor para QuickDrop."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para enviar archivos desde esta Mac, puedes habilitar la extensión de uso compartido. Haz clic en Continuar, desplázate hacia abajo hasta que veas QuickDrop o Compartir, haz clic en el ícono de información y activa la opción para QuickDrop."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voit lähettää tiedostoja tältä Macilta ottamalla jakamislaajennuksen käyttöön. Klikkaa Jatka, selaa alas kunnes näet QuickDropin tai Jakamisen, napsauta info-kuvaketta ja ota QuickDrop käyttöön."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour envoyer des fichiers depuis ce Mac, vous pouvez activer l'extension de partage. Cliquez sur Continuer, faites défiler jusqu'à voir QuickDrop ou Partage, cliquez sur l’icône d’info, puis activez le bouton pour QuickDrop."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour envoyer des fichiers depuis ce Mac, vous pouvez activer l’extension de partage. Cliquez sur Continuer, faites défiler jusqu'à voir QuickDrop ou Partage, cliquez sur l’icône d’info, puis activez le commutateur pour QuickDrop."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "כדי לשלוח קבצים מהמאק הזה, אפשר להפעיל את הרחבת השיתוף. לחץ על המשך, גלול למטה עד שתראה את QuickDrop או 'שיתוף', לחץ על סמל המידע, והפעל את המתג עבור QuickDrop."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "इस Mac से फाइल भेजने के लिए, आप शेयरिंग एक्सटेंशन सक्षम कर सकते हैं। 'Continue' पर क्लिक करें, नीचे स्क्रॉल करें जब तक QuickDrop या शेयरिंग न दिखे, जानकारी आइकन पर क्लिक करें, और QuickDrop के लिए टॉगल ऑन करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Da biste slali datoteke s ovog Maca, omogućite proširenje za dijeljenje. Kliknite na Nastavi, skrolajte dolje dok ne vidite QuickDrop ili Dijeljenje, kliknite na ikonu informacija i uključite opciju za QuickDrop."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fájlok küldéséhez erről a Mac-ről engedélyezheti a megosztási bővítményt. Kattintson a Folytatásra, görgessen le, amíg meg nem jelenik a QuickDrop vagy Megosztás, kattintson az információ ikonra, majd kapcsolja be a QuickDrop-ot."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Untuk mengirim file dari Mac ini, Anda dapat mengaktifkan ekstensi berbagi. Klik Lanjutkan, gulir ke bawah hingga menemukan QuickDrop atau Berbagi, klik ikon info, lalu aktifkan tombol untuk QuickDrop."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per inviare file da questo Mac, puoi abilitare l'estensione di condivisione. Fai clic su Continua, scorri verso il basso finché non vedi QuickDrop o Condivisione, clicca sull'icona delle info e attiva l'interruttore per QuickDrop."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このMacからファイルを送信するには、共有拡張機能を有効にしてください。「続ける」をクリックし、下にスクロールして「QuickDrop」または「共有」を見つけ、情報アイコンをクリックし、「QuickDrop」のトグルを有効にしてください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 Mac에서 파일을 보내려면 공유 확장 기능을 활성화해야 합니다. '계속'을 클릭하고 아래로 스크롤하여 QuickDrop 또는 공유 섹션을 찾은 후, 정보 아이콘을 클릭하고 QuickDrop 전환을 활성화하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Untuk menghantar fail dari Mac ini, anda boleh aktifkan sambungan perkongsian. Klik Teruskan, skrol ke bawah sehingga anda nampak QuickDrop atau Perkongsian, klik ikon info, dan hidupkan suis untuk QuickDrop."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For å sende filer fra denne Macen kan du aktivere delingsutvidelsen. Klikk på Fortsett, bla ned til du ser QuickDrop eller Deling, klikk på info-ikonet og aktiver bryteren for QuickDrop."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Om bestanden vanaf deze Mac te verzenden, kun je de deel-extensie inschakelen. Klik op Doorgaan, scroll naar beneden tot je QuickDrop of Delen ziet, klik op het info-icoon en zet de schakelaar voor QuickDrop aan."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aby wysyłać pliki z tego Maca, możesz włączyć rozszerzenie udostępniania. Kliknij Kontynuuj, przewiń w dół, aż zobaczysz QuickDrop lub Udostępnianie, kliknij ikonę informacji i włącz przełącznik dla QuickDrop."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para enviar arquivos deste Mac, você pode ativar a extensão de compartilhamento. Clique em Continuar, role para baixo até ver QuickDrop ou Compartilhamento, clique no ícone de informação e ative o QuickDrop."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para enviar ficheiros deste Mac, pode ativar a extensão de partilha. Clique em Continuar, desça até ver QuickDrop ou Partilha, clique no ícone de informação e ative a opção para o QuickDrop."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pentru a trimite fișiere de pe acest Mac, poți activa extensia de partajare. Apasă pe Continuă, derulează în jos până vezi QuickDrop sau Partajare, apasă pe pictograma informații și activează QuickDrop."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чтобы отправлять файлы с этого Mac, включите расширение для обмена. Нажмите «Продолжить», прокрутите вниз до QuickDrop или «Обмен», нажмите на значок информации и включите переключатель для QuickDrop."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "För att skicka filer från den här Macen kan du aktivera delningstillägget. Klicka på Fortsätt, scrolla ner tills du ser QuickDrop eller Delning, klicka på info-ikonen och slå på reglaget för QuickDrop."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "หากต้องการส่งไฟล์จาก Mac เครื่องนี้ คุณสามารถเปิดใช้ส่วนขยายการแชร์ได้ คลิกปุ่มดำเนินการต่อ เลื่อนลงจนเจอ QuickDrop หรือ การแชร์ คลิกไอคอนข้อมูล แล้วเปิดสวิตช์สำหรับ QuickDrop"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu Mac’ten dosya göndermek için paylaşım uzantısını etkinleştirebilirsiniz. Devam’a tıklayın, aşağı kaydırın ve QuickDrop veya Paylaşım’ı bulun, bilgi simgesine tıklayın ve QuickDrop için anahtarı etkinleştirin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щоб надіслати файли з цього Mac, активуйте розширення для спільного доступу. Натисніть «Продовжити», прокрутіть вниз до QuickDrop або «Спільний доступ», натисніть значок інформації та увімкніть перемикач для QuickDrop."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Để gửi tập tin từ máy Mac này, bạn cần bật tiện ích chia sẻ. Nhấn Tiếp tục, cuộn xuống đến khi thấy QuickDrop hoặc Chia sẻ, nhấn vào biểu tượng thông tin, rồi bật QuickDrop."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要从这台 Mac 发送文件，请启用共享扩展。点击“继续”，向下滚动直到看到 QuickDrop 或“共享”，点击信息图标，然后打开 QuickDrop 的开关。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "若要從此 Mac 傳送檔案，您可啟用分享擴充功能。請點選「繼續」，向下捲動直到看到 QuickDrop 或「分享」，點選資訊圖示，然後啟用 QuickDrop 的切換開關。"
+          }
+        }
+      }
+    },
+    "introduction_finished" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اكتمل الإعداد"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuració completada"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nastavení dokončeno"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opsætning fuldført"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einrichtung abgeschlossen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η ρύθμιση ολοκληρώθηκε"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setup Complete"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setup Complete"
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setup Complete"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setup Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración completa"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración completa"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asetukset valmiit"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuration terminée"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuration terminée"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ההגדרה הושלמה"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सेटअप पूरा हुआ"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Postavljanje dovršeno"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beállítás kész"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pengaturan Selesai"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configurazione completata"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "セットアップ完了"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설정 완료"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Persediaan Selesai"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oppsett fullført"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installatie voltooid"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konfiguracja zakończona"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuração Concluída"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuração Concluída"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configurare finalizată"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройка завершена"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installation klar"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตั้งค่าเสร็จสมบูรณ์"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurulum Tamamlandı"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Налаштування завершено"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cài đặt hoàn tất"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置完成"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定完成"
+          }
+        }
+      }
+    },
+    "introduction_finished_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أصبح QuickDrop جاهزاً للاستخدام الآن. لمعرفة المزيد عن QuickDrop وتعديل الإعدادات، انقر على متابعة."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop ja està llest per ser utilitzat. Per saber-ne més i modificar la configuració, fes clic a Continuar."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop je nyní připraven k použití. Chcete-li se dozvědět více nebo upravit nastavení, klikněte na Pokračovat."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop er nu klar til brug. Klik på Fortsæt for at lære mere om QuickDrop og ændre indstillinger."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop ist jetzt einsatzbereit. Um mehr zu erfahren oder Einstellungen zu ändern, klicke auf „Weiter“."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το QuickDrop είναι έτοιμο για χρήση. Για να μάθετε περισσότερα ή να αλλάξετε ρυθμίσεις, κάντε κλικ στη Συνέχεια."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop is now ready to be used. To learn more about QuickDrop and modify settings, click on Continue."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop is now ready to be used. To learn more about QuickDrop and modify settings, click on Continue."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop is now ready to be used. To learn more about QuickDrop and modify settings, click on Continue."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop is now ready to be used. To learn more about QuickDrop and modify settings, click on Continue."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop ya está listo para usarse. Para obtener más información y ajustar la configuración, haz clic en Continuar."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop ya está listo para usarse. Para saber más y modificar la configuración, haz clic en Continuar."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop on nyt käyttövalmis. Lisätietoja ja asetusten muokkaus: napsauta Jatka."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop est maintenant prêt à être utilisé. Pour en savoir plus sur QuickDrop et modifier les paramètres, cliquez sur Continuer."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop est maintenant prêt à être utilisé. Pour en savoir plus sur QuickDrop et modifier les paramètres, cliquez sur Continuer."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop מוכן לשימוש. כדי ללמוד עוד על QuickDrop ולשנות הגדרות, לחץ על המשך."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop अब उपयोग के लिए तैयार है। QuickDrop के बारे में अधिक जानने और सेटिंग्स बदलने के लिए, जारी रखें पर क्लिक करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop je sada spreman za korištenje. Za više informacija o QuickDropu i podešavanje postavki kliknite na Nastavi."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A QuickDrop most már használatra kész. További információkért és beállítások módosításához kattintson a Folytatásra."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop sekarang siap digunakan. Untuk mempelajari lebih lanjut tentang QuickDrop dan mengubah pengaturan, klik Lanjutkan."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop è pronto per l'uso. Per saperne di più e modificare le impostazioni, clicca su Continua."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDropの利用準備が整いました。QuickDropの詳細や設定変更については、「続行」をクリックしてください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop을 사용할 준비가 완료되었습니다. QuickDrop에 대해 더 알아보고 설정을 변경하려면 계속을 클릭하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop kini sedia untuk digunakan. Untuk mengetahui lebih lanjut tentang QuickDrop dan ubah tetapan, klik Teruskan."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop er nå klar til bruk. For å lære mer om QuickDrop og endre innstillinger, klikk på Fortsett."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop is nu klaar voor gebruik. Klik op Doorgaan voor meer informatie en instellingen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop jest gotowy do użycia. Aby dowiedzieć się więcej lub zmienić ustawienia, kliknij Kontynuuj."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop está pronto para uso. Para saber mais sobre o QuickDrop e modificar as configurações, clique em Continuar."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O QuickDrop está pronto a ser utilizado. Para saber mais sobre o QuickDrop e modificar definições, clique em Continuar."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop este gata de utilizare. Pentru a afla mai multe și a modifica setările, apasă pe Continuă."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop готов к использованию. Чтобы узнать больше о приложении и изменить настройки, нажмите «Продолжить»."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop är nu redo att användas. För att lära dig mer om QuickDrop och ändra inställningar, klicka på Fortsätt."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop พร้อมใช้งานแล้ว หากต้องการเรียนรู้เพิ่มเติมหรือปรับแต่งการตั้งค่า คลิกที่ ดำเนินการต่อ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop artık kullanıma hazır. QuickDrop hakkında daha fazla bilgi almak ve ayarları değiştirmek için Devam'a tıklayın."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop готовий до використання. Щоб дізнатися більше й змінити налаштування, натисніть «Продовжити»."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop đã sẵn sàng để sử dụng. Để tìm hiểu thêm về QuickDrop và chỉnh sửa cài đặt, nhấn Tiếp tục."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop 现已准备就绪。要了解更多信息或修改设置，请点击继续。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop 現已準備好使用。如需了解更多或調整設定，請點擊繼續。"
+          }
+        }
+      }
+    },
     "introduction_local_network_access" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -32595,6 +33760,705 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "QuickDrop 需要本地網路權限，才能在您的 Wi-Fi 下傳輸檔案。請點擊「繼續」以授權。"
+          }
+        }
+      }
+    },
+    "introduction_no_wifi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الواي فاي غير متوفر"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi no disponible"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi není k dispozici"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi ikke tilgængelig"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "WLAN nicht verfügbar"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το Wi-Fi δεν είναι διαθέσιμο"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi Not Available"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi Not Available"
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi Not Available"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi Not Available"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi no disponible"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi no disponible"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi ei saatavilla"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi non disponible"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi non disponible"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "‏Wi-Fi לא זמין"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi उपलब्ध नहीं है"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi nije dostupan"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi nem elérhető"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi Tidak Tersedia"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi non disponibile"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fiが利用できません"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi 사용 불가"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi Tidak Tersedia"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi ikke tilgjengelig"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi niet beschikbaar"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brak dostępnej sieci Wi-Fi"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi Indisponível"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi Indisponível"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi indisponibil"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi недоступен"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi ej tillgängligt"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่มี Wi-Fi"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi Kullanılamıyor"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi недоступний"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không tìm thấy Wi-Fi"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi 不可用"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法使用 Wi-Fi"
+          }
+        }
+      }
+    },
+    "introduction_no_wifi_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لاستخدام QuickDrop، يرجى توصيل جهاز Mac الخاص بك بشبكة Wi-Fi. إذا كنت مسافراً، يمكنك استخدام خاصية نقطة الاتصال في هاتفك."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per utilitzar QuickDrop, connecta el teu Mac a una xarxa Wi-Fi. Si estàs de viatge, pots utilitzar la funció de punt d'accés del teu telèfon."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro použití QuickDrop připojte svůj Mac k Wi-Fi síti. Pokud cestujete, můžete využít hotspot svého telefonu."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For at bruge QuickDrop skal du forbinde din Mac til et Wi-Fi-netværk. Hvis du er ude at rejse, kan du bruge hotspot-funktionen på din telefon."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um QuickDrop zu nutzen, verbinde deinen Mac bitte mit einem WLAN. Wenn du unterwegs bist, kannst du den Hotspot deines Handys verwenden."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Για να χρησιμοποιήσετε το QuickDrop, παρακαλώ συνδέστε το Mac σας σε δίκτυο Wi-Fi. Αν ταξιδεύετε, μπορείτε να χρησιμοποιήσετε τη λειτουργία hotspot του τηλεφώνου σας."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To use QuickDrop, please connect your Mac to a Wi-Fi network. If you are traveling, you may use the hotspot feature of your phone."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To use QuickDrop, please connect your Mac to a Wi-Fi network. If you are travelling, you may use the hotspot feature of your phone."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To use QuickDrop, please connect your Mac to a Wi-Fi network. If you are travelling, you may use the hotspot feature of your phone."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To use QuickDrop, please connect your Mac to a Wi-Fi network. If you are travelling, you may use the hotspot feature of your phone."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para usar QuickDrop, conecta tu Mac a una red Wi-Fi. Si estás de viaje, puedes usar la función de punto de acceso de tu teléfono."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para usar QuickDrop, conecta tu Mac a una red Wi-Fi. Si estás viajando, puedes usar la función de hotspot de tu teléfono."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Käyttääksesi QuickDropia, yhdistä Macisi Wi-Fi-verkkoon. Jos olet matkalla, voit käyttää puhelimesi hotspot-toimintoa."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour utiliser QuickDrop, veuillez connecter votre Mac à un réseau Wi-Fi. Si vous voyagez, vous pouvez utiliser la fonction hotspot de votre téléphone."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour utiliser QuickDrop, veuillez connecter votre Mac à un réseau Wi-Fi. Si vous voyagez, vous pouvez utiliser la fonction point d'accès de votre téléphone."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "כדי להשתמש ב-QuickDrop, חבר את ה-Mac שלך לרשת Wi-Fi. אם אתה בתנועה, אפשר להשתמש בתכונת ה-hotspot של הטלפון שלך."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop का उपयोग करने के लिए कृपया अपने Mac को Wi-Fi नेटवर्क से जोड़ें। यदि आप यात्रा कर रहे हैं तो फोन का हॉटस्पॉट इस्तेमाल कर सकते हैं।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Za korištenje QuickDropa povežite svoj Mac na Wi-Fi mrežu. Ako putujete, možete koristiti hotspot sa svog mobitela."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A QuickDrop használatához csatlakoztassa Mac-jét Wi-Fi hálózathoz. Ha utazik, használhatja a telefonja hotspot funkcióját is."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Untuk menggunakan QuickDrop, silakan hubungkan Mac Anda ke jaringan Wi-Fi. Jika Anda sedang bepergian, Anda bisa menggunakan fitur hotspot di ponsel Anda."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per usare QuickDrop, collega il Mac a una rete Wi-Fi. Se sei in viaggio, puoi usare l'hotspot del tuo telefono."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDropを使用するには、MacをWi-Fiネットワークに接続してください。旅行中の場合は、スマートフォンのホットスポット機能も利用できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop을 사용하려면 Mac을 Wi-Fi 네트워크에 연결하세요. 여행 중이라면 휴대폰의 핫스팟 기능을 사용할 수 있습니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Untuk menggunakan QuickDrop, sila sambungkan Mac anda ke rangkaian Wi-Fi. Jika anda sedang dalam perjalanan, anda boleh gunakan fungsi hotspot pada telefon anda."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For å bruke QuickDrop må du koble Mac-en til et Wi-Fi-nettverk. Hvis du er på reise, kan du bruke mobilens hotspot-funksjon."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Om QuickDrop te gebruiken, verbind je Mac met een Wi-Fi-netwerk. Ben je onderweg, gebruik dan de hotspot van je telefoon."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aby korzystać z QuickDrop, połącz swojego Maca z siecią Wi-Fi. Jeśli podróżujesz, możesz użyć funkcji hotspotu w telefonie."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para usar o QuickDrop, conecte seu Mac a uma rede Wi-Fi. Se estiver viajando, utilize o recurso hotspot do seu celular."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para usar o QuickDrop, ligue o seu Mac a uma rede Wi-Fi. Se estiver a viajar, pode utilizar o hotspot do seu telemóvel."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pentru a folosi QuickDrop, conectează Mac-ul la o rețea Wi-Fi. Dacă ești în deplasare, poți folosi hotspot-ul telefonului."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чтобы использовать QuickDrop, подключите ваш Mac к сети Wi-Fi. В поездке можно использовать точку доступа телефона."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "För att använda QuickDrop, anslut din Mac till ett Wi-Fi-nätverk. Om du reser kan du använda mobilens hotspotfunktion."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ในการใช้ QuickDrop กรุณาเชื่อมต่อ Mac ของคุณกับเครือข่าย Wi-Fi หากคุณกำลังเดินทาง สามารถใช้ฮอตสปอตจากโทรศัพท์ได้"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop'u kullanmak için lütfen Mac'inizi bir Wi-Fi ağına bağlayın. Seyahat ediyorsanız, telefonunuzun hotspot özelliğini kullanabilirsiniz."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щоб використовувати QuickDrop, підключіть Mac до Wi-Fi мережі. Якщо ви в дорозі, скористайтеся точкою доступу свого телефону."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Để sử dụng QuickDrop, vui lòng kết nối máy Mac của bạn với mạng Wi-Fi. Nếu bạn đang di chuyển, có thể sử dụng chức năng phát Wi-Fi từ điện thoại."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要使用 QuickDrop，请将您的 Mac 连接到 Wi-Fi 网络。如果您在旅行，可以使用手机的热点功能。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要使用 QuickDrop，請將您的 Mac 連接到 Wi-Fi 網路。若在旅途上，可使用手機的熱點功能。"
+          }
+        }
+      }
+    },
+    "introduction_skip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تخطي"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ometre"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přeskočit"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spring over"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Überspringen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παράλειψη"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skip"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skip"
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skip"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skip"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omitir"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omitir"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ohita"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignorer"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauter"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "דילוג"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "छोड़ें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preskoči"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kihagyás"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lewati"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salta"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スキップ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "건너뛰기"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Langkau"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hopp over"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Overslaan"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pomiń"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pular"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saltar"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sari peste"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пропустить"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hoppa över"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ข้าม"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atla"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пропустити"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bỏ qua"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "跳过"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "跳過"
           }
         }
       }

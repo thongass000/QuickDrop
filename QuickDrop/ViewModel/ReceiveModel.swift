@@ -194,16 +194,18 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         func finish() {
             if let error = error {
                 
-                #if os(iOS)
-                errorVibration()
-                #else
+                #if os(macOS)
                 DispatchQueue.main.async {
                     self.hideQuickDropToast()
                 }
                 #endif
-                
+
                 controlPlusScreen(false)
-                ErrorAlertHandler.shared.showErrorAlert(for: device.name ?? "UnknownDevice".localized(), error: error)
+                
+                if let name = device.name {
+                    errorVibration()
+                    ErrorAlertHandler.shared.showErrorAlert(for: name, error: error)
+                }
             } else {
  
                 #if os(iOS)

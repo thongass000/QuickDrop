@@ -60,7 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         menu.addItem(NSMenuItem.separator())
 
-        let userManualItem = NSMenuItem(title: "UserManual".localized(), action: #selector(openWelcomeScreen), keyEquivalent: "")
+        let userManualItem = NSMenuItem(title: "UserManual".localized(), action: #selector(openMainWindow), keyEquivalent: "")
         userManualItem.image = NSImage(systemSymbolName: "gear", accessibilityDescription: nil)
         menu.addItem(userManualItem)
 
@@ -79,7 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         if !Settings.shared.appLaunchedBefore {
             log("[AppDelegate] Opening Welcome Screen")
             // open welcome screen
-            openWelcomeScreen()
+            openMainWindow(openIntroduction: true)
             Settings.shared.appLaunchedBefore = true
 
             // user installed the app after the IAP was implemented, set the user as eligible for IAP
@@ -149,7 +149,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     func applicationShouldHandleReopen(_: NSApplication, hasVisibleWindows _: Bool) -> Bool {
-        openWelcomeScreen()
+        openMainWindow()
         statusItem?.isVisible = true
         return true
     }
@@ -206,7 +206,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
 
     
-    @objc func openWelcomeScreen() {
+    @objc func openMainWindow(openIntroduction: Bool = false) {
         
         NSApp.setActivationPolicy(.regular)
         
@@ -220,6 +220,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
 
         let welcomeView = WelcomeScreen(
+            openIntroduction: openIntroduction,
             openPlusScreen: openPlusScreen,
             openAppAdvertisementView: { self.openSheetView(type: .downloadAndroidApp) },
             openCableTransmissionView: { self.openSheetView(type: .downloadCableConnectionApp) },

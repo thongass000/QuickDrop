@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -393,6 +393,10 @@
 		EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Config.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		EB7A95582EF67C860021111B /* Introduction */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Introduction; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		699DEB9E2AB0573200115D22 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -657,6 +661,7 @@
 				EB7F54112D78E95C00989564 /* TutorialView.swift */,
 				EB7F54132D78E9E400989564 /* LicenseWindow.swift */,
 				EB869DB42E92AA33009AAAD4 /* QuickDropToastView.swift */,
+				EB7A95582EF67C860021111B /* Introduction */,
 				EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */,
 				EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */,
 				EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */,
@@ -735,6 +740,9 @@
 			);
 			dependencies = (
 				699DEBAD2AB0573200115D22 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EB7A95582EF67C860021111B /* Introduction */,
 			);
 			name = QuickDrop;
 			packageProductDependencies = (
@@ -1324,7 +1332,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 97;
+				SHARED_BUILD = 98;
 				SHARED_VERSION = 2.9.1;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1387,7 +1395,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 97;
+				SHARED_BUILD = 98;
 				SHARED_VERSION = 2.9.1;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
