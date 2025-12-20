@@ -8,13 +8,51 @@
 import SwiftUI
 import LUI
 
+struct ChangeDeviceNameAlertModifier: ViewModifier {
+    @Binding var isPresented: Bool
+    @State var customName = ""
+    
+    let maxLength = NearbyConnectionManager.maxNameChars
+    
+    func body(content: Content) -> some View {
+        
+        content
+            .alert("ChangeDeviceName", isPresented: $isPresented) {
+                TextField("DeviceName", text: $customName)
+                    .onChange(of: customName) { newValue in
+                        if newValue.count > maxLength {
+                            customName = String(newValue.prefix(maxLength))
+                        }
+                    }
+                
+                Button("Save") {
+                    let trimmed = customName.trimmingCharacters(in: .whitespacesAndNewlines)
+                    NearbyConnectionManager.shared.setCustomDeviceName(to: trimmed)
+                }
+                
+                Button("Cancel", role: .cancel) { }
+            } message: {
+                Text("ChangeDeviceNameDescription")
+            }
+    }
+}
+
+extension View {
+    func changeDeviceNameAlert(
+        isPresented: Binding<Bool>,
+    ) -> some View {
+        modifier(ChangeDeviceNameAlertModifier(
+            isPresented: isPresented
+        ))
+    }
+}
+
+
 struct ChangeDeviceNameModifier: ViewModifier {
 
     let isEnabled: Bool
-    private let maxLength = NearbyConnectionManager.maxNameChars
 
     @State private var isPresented = false
-    @State private var customName = ""
 
     func body(content: Content) -> some View {
         content
@@ -22,30 +60,12 @@ struct ChangeDeviceNameModifier: ViewModifier {
                 guard isEnabled else { return }
 
                 lightVibration()
-                customName = NearbyConnectionManager.getCustomDeviceName() ?? ""
                 isPresented = true
             }
-            .alert("ChangeDeviceName", isPresented: $isPresented) {
-
-                TextField("DeviceName", text: $customName)
-                    .onChange(of: customName) { newValue in
-                        if newValue.count > maxLength {
-                            customName = String(newValue.prefix(maxLength))
-                        }
-                    }
-
-                Button("Save") {
-                    NearbyConnectionManager.shared
-                        .setCustomDeviceName(to: customName.trimmingCharacters(in: .whitespacesAndNewlines))
-                }
-
-                Button("Cancel", role: .cancel) { }
-
-            } message: {
-                Text("ChangeDeviceNameDescription")
-            }
+            .changeDeviceNameAlert(isPresented: $isPresented)
     }
 }
+
 
 
 extension View {

@@ -14,6 +14,8 @@ struct SettingsView: View {
     @ObservedObject var settings = Settings.shared
     @ObservedObject var connectionManager = NearbyConnectionManager.shared
     
+    @State private var isChangeDeviceNameAlertPresented = false
+    
     var body: some View {
         
         LargeAppIconView(title: "Settings") {
@@ -46,11 +48,9 @@ struct SettingsView: View {
                         .foregroundColor(.gray)
                     
                     Button("Edit") {
+                        isChangeDeviceNameAlertPresented.toggle()
                     }
-                    .overlay(
-                        Color.clear
-                            .contentShape(Rectangle()).changeDeviceNameAlert()
-                    )
+                    .changeDeviceNameAlert(isPresented: $isChangeDeviceNameAlertPresented)
                 }
                 
                 Divider()
