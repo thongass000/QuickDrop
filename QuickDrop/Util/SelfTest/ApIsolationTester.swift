@@ -9,44 +9,69 @@ import Foundation
 import Network
 import LUI
 
-class DeviceToDeviceHeuristicScanner {
+final class DeviceToDeviceHeuristicScanner {
+    static let shared = DeviceToDeviceHeuristicScanner()
+    private init() {}
+
     private let scanQueue = DispatchQueue(label: "DeviceToDeviceScanQueue")
-    private var reachableIPs = [String]()
-    private var totalToScan = 0
+    private var reachableIPs: [String] = []
     private var completion: ((Bool) -> Void)?
+    private var finished = false
     
+    var success: Bool {
+        self.reachableIPs.count > 0
+    }
+
     /// Start scanning the subnet for reachable peers.
     /// - Parameters:
-    ///   - baseSubnet: e.g. `"192.168.1"` — if nil, will auto-detect
+    ///   - baseSubnet: e.g. "192.168.1" — if nil, will auto-detect
     ///   - completion: true if any peer device was reachable
-    func scan(subnet baseSubnet: String? = nil, port: UInt16 = 80, completion: @escaping (Bool) -> Void) {
-        self.completion = completion
-        let subnet = baseSubnet ?? Self.getLocalSubnetPrefix() ?? "192.168.1"
-        let ipsToScan = (2...254).map { "\(subnet).\($0)" }
-        totalToScan = ipsToScan.count
-        
-        for ip in ipsToScan {
-            testConnection(to: ip, port: port)
-        }
+    func scan(subnet baseSubnet: String? = nil,
+              port: UInt16 = 80,
+              timeout: TimeInterval = 10.0,
+              completion: @escaping (Bool) -> Void) {
 
-        // Timeout fallback
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-            self.finish()
+        if self.success {
+            completion(true)
+            return
+        }
+        
+        scanQueue.async {
+            self.completion = completion
+            self.finished = false
+
+            let subnet = baseSubnet ?? Self.getLocalSubnetPrefix() ?? "192.168.1"
+            let ipsToScan = (2...254).map { "\(subnet).\($0)" }
+
+            for ip in ipsToScan {
+                self.testConnection(to: ip, port: port)
+            }
+
+            // Timeout fallback
+            DispatchQueue.main.asyncAfter(deadline: .now() + timeout) {
+                self.finish()
+            }
         }
     }
-    
+
     private func testConnection(to ip: String, port: UInt16) {
         guard let nwPort = NWEndpoint.Port(rawValue: port) else { return }
         let connection = NWConnection(host: NWEndpoint.Host(ip), port: nwPort, using: .tcp)
 
-        connection.stateUpdateHandler = { state in
+        connection.stateUpdateHandler = { [weak self] state in
+            guard let self else { return }
+
             switch state {
             case .ready:
-                self.reachableIPs.append(ip)
+                self.scanQueue.async {
+                    self.reachableIPs.append(ip)
+                }
                 self.finish()
                 connection.cancel()
+
             case .failed, .cancelled:
                 connection.cancel()
+
             default:
                 break
             }
@@ -56,8 +81,17 @@ class DeviceToDeviceHeuristicScanner {
     }
 
     private func finish() {
-        completion?(reachableIPs.count > 0)
-        completion = nil
+        scanQueue.async {
+            guard !self.finished else { return }
+            self.finished = true
+            
+            let completion = self.completion
+            self.completion = nil
+
+            DispatchQueue.main.async {
+                completion?(self.success)
+            }
+        }
     }
 
     /// Attempts to detect the local subnet prefix (e.g., "192.168.0")
@@ -69,20 +103,27 @@ class DeviceToDeviceHeuristicScanner {
                 defer { ptr = ptr!.pointee.ifa_next }
                 let interface = ptr!.pointee
                 let addrFamily = interface.ifa_addr.pointee.sa_family
+
                 if addrFamily == UInt8(AF_INET),
                    let name = String(validatingUTF8: interface.ifa_name),
-                      name == getActiveNetworkInterface() {
+                   name == getActiveNetworkInterface() {
+
                     var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
-                    getnameinfo(interface.ifa_addr, socklen_t(interface.ifa_addr.pointee.sa_len),
-                                &hostname, socklen_t(hostname.count), nil, 0, NI_NUMERICHOST)
+                    getnameinfo(interface.ifa_addr,
+                                socklen_t(interface.ifa_addr.pointee.sa_len),
+                                &hostname,
+                                socklen_t(hostname.count),
+                                nil,
+                                0,
+                                NI_NUMERICHOST)
+
                     if let ip = String(validatingUTF8: hostname),
                        let lastDot = ip.lastIndex(of: ".") {
+
                         freeifaddrs(ifaddr)
-                        
+
                         let result = String(ip[..<lastDot])
-                        
                         log("[LUI] Found local subnet prefix: \(result) for interface \(name)")
-                        
                         return result
                     }
                 }

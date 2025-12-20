@@ -341,7 +341,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     // MARK: - Helper Functions
     
     private func performDeviceToDeviceCheck() {
-        let scanner = DeviceToDeviceHeuristicScanner()
+        let scanner = DeviceToDeviceHeuristicScanner.shared
         scanner.scan { allowed in
             if allowed {
                 log("✅ Device-to-device likely allowed (peer responded on LAN).")

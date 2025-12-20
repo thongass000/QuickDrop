@@ -18,7 +18,7 @@ struct ApIsolationIssueView: View {
     @Environment(\.colorScheme) var colorScheme
     let closeView : () -> Void
     
-    let scanner = DeviceToDeviceHeuristicScanner()
+    let scanner = DeviceToDeviceHeuristicScanner.shared
     
     var body: some View {
         
