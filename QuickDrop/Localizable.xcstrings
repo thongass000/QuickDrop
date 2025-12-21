@@ -19340,19 +19340,19 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "يتيح لك تطبيق QuickDrop نقل الملفات بسهولة وسرعة بين أجهزة iPhone وiPad وMac وAndroid."
+            "value" : "يتيح لك QuickDrop نقل الملفات بسهولة وسرعة بين أجهزة iPhone وiPad وMac وAndroid."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop fa que sigui fàcil i ràpid transferir arxius entre iPhone, iPad, Mac i dispositius Android."
+            "value" : "QuickDrop facilita i agilita la transferència d’arxius entre iPhone, iPad, Mac i dispositius Android."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop usnadňuje a urychluje přenos souborů mezi iPhone, iPad, Mac a zařízeními Android."
+            "value" : "QuickDrop usnadňuje a urychluje přenos souborů mezi iPhonem, iPadem, Macem a zařízeními s Androidem."
           }
         },
         "da" : {
@@ -19364,13 +19364,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop macht es einfach und schnell, Dateien zwischen iPhone, iPad, Mac und Android-Geräten zu übertragen."
+            "value" : "Mit QuickDrop kannst du Dateien schnell und einfach zwischen iPhone, iPad, Mac und Android-Geräten übertragen."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Το QuickDrop καθιστά εύκολη και γρήγορη τη μεταφορά αρχείων μεταξύ iPhone, iPad, Mac και συσκευών Android."
+            "value" : "Το QuickDrop καθιστά εύκολη και γρήγορη τη μεταφορά αρχείων μεταξύ iPhone, iPad, Mac και Android συσκευών."
           }
         },
         "en" : {
@@ -19382,37 +19382,37 @@
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop makes file sharing seamless between iPhone, iPad, Mac and Android."
+            "value" : "QuickDrop makes it easy and quick to transfer files between iPhone, iPad, Mac, and Android devices."
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop simplifies file transfers among iPhone, iPad, Mac, and Android devices."
+            "value" : "QuickDrop makes it easy and quick to transfer files between iPhone, iPad, Mac, and Android devices."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop enables fast and efficient transfers between iPhone, iPad, Mac, and Android devices."
+            "value" : "QuickDrop makes it easy and quick to transfer files between iPhone, iPad, Mac, and Android devices."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop facilita y agiliza la transferencia de archivos entre dispositivos iPhone, iPad, Mac y Android."
+            "value" : "QuickDrop facilita y acelera la transferencia de archivos entre iPhone, iPad, Mac y dispositivos Android."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop facilita y acelera la transferencia de archivos entre dispositivos iPhone, iPad, Mac y Android."
+            "value" : "QuickDrop facilita y agiliza la transferencia de archivos entre iPhone, iPad, Mac y dispositivos Android."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop tekee tiedostojen siirtämisestä helppoa ja nopeaa iPhonen, iPadin, Macin ja Android-laitteiden välillä."
+            "value" : "QuickDrop helpottaa ja nopeuttaa tiedostojen siirtoa iPhonen, iPadin, Macin ja Android-laitteiden välillä."
           }
         },
         "fr" : {
@@ -19424,19 +19424,19 @@
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop rend facile et rapide le transfert de fichiers entre iPhone, iPad, Mac et appareils Android."
+            "value" : "QuickDrop facilite et accélère le transfert de fichiers entre iPhone, iPad, Mac et appareils Android."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop הופך את העברת הקבצים בין iPhone, iPad, Mac ומכשירי Android לקלה ומהירה."
+            "value" : "‏QuickDrop מאפשר העברת קבצים בקלות ובמהירות בין iPhone, iPad, Mac ומכשירי Android."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop iPhone, iPad, Mac और Android डिवाइसों के बीच फ़ाइल स्थानांतरण को आसान और त्वरित बनाता है।"
+            "value" : "QuickDrop के जरिए iPhone, iPad, Mac और Android डिवाइसेज़ के बीच फाइल ट्रांसफर करना आसान और तेज़ है।"
           }
         },
         "hr" : {
@@ -19460,61 +19460,61 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop rende facile e veloce il trasferimento di file tra iPhone, iPad, Mac e dispositivi Android."
+            "value" : "QuickDrop rende facile e veloce trasferire file tra iPhone, iPad, Mac e dispositivi Android."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDropは、iPhone、iPad、Mac、およびAndroidデバイス間でのファイル転送を簡単かつ迅速に行えます。"
+            "value" : "QuickDropはiPhone、iPad、Mac、Android間でのファイル転送を簡単かつ迅速に行えます。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop은 iPhone, iPad, Mac, Android 기기 간 파일 전송을 쉽고 빠르게 만들어줍니다."
+            "value" : "QuickDrop을 사용하면 iPhone, iPad, Mac, Android 기기 간에 파일을 쉽고 빠르게 전송할 수 있습니다."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop mempermudah dan mempercepat pemindahan fail antara iPhone, iPad, Mac, dan peranti Android."
+            "value" : "QuickDrop memudahkan dan mempercepat pemindahan fail antara iPhone, iPad, Mac, dan peranti Android."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop gjør det enkelt å overføre filer mellom iPhone, iPad, Mac og Android-enheter."
+            "value" : "QuickDrop gjør det enkelt og raskt å overføre filer mellom iPhone, iPad, Mac og Android-enheter."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop maakt het eenvoudig en snel om bestanden over te zetten tussen iPhone-, iPad-, Mac- en Android-apparaten."
+            "value" : "QuickDrop maakt het eenvoudig en snel om bestanden over te zetten tussen iPhone, iPad, Mac en Android-apparaten."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop ułatwia szybkie przesyłanie plików między iPhone’em, iPadem, Makiem i urządzeniami z Androidem."
+            "value" : "QuickDrop umożliwia łatwe i szybkie przesyłanie plików między iPhone’em, iPadem, Maciem i urządzeniami z Androidem."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop torna fácil e rápido transferir arquivos entre dispositivos iPhone, iPad, Mac e Android."
+            "value" : "O QuickDrop facilita e agiliza a transferência de arquivos entre iPhone, iPad, Mac e dispositivos Android."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O QuickDrop facilita e acelera a transferência de ficheiros entre iPhone, iPad, Mac e dispositivos Android."
+            "value" : "O QuickDrop torna fácil e rápido transferir ficheiros entre iPhone, iPad, Mac e dispositivos Android."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop face ușor și rapid transferul de fișiere între dispozitive iPhone, iPad, Mac și Android."
+            "value" : "QuickDrop face ușor și rapid transferul de fișiere între iPhone, iPad, Mac și dispozitive Android."
           }
         },
         "ru" : {
@@ -19532,37 +19532,37 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop ทำให้การถ่ายโอนไฟล์ระหว่าง iPhone, iPad, Mac และอุปกรณ์ Android ง่ายและรวดเร็ว"
+            "value" : "QuickDrop ช่วยให้ง่ายและรวดเร็วในการถ่ายโอนไฟล์ระหว่าง iPhone, iPad, Mac และ Android"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop, iPhone, iPad, Mac ve Android cihazları arasında dosya paylaşımını kolay ve hızlı hale getirir."
+            "value" : "QuickDrop, iPhone, iPad, Mac ve Android cihazlar arasında dosya aktarmayı kolay ve hızlı hale getirir."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop дозволяє легко та швидко передавати файли між пристроями iPhone, iPad, Mac та Android."
+            "value" : "QuickDrop дозволяє легко та швидко передавати файли між iPhone, iPad, Mac та пристроями Android."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop giúp việc truyền tệp giữa iPhone, iPad, Mac và thiết bị Android trở nên nhanh chóng và dễ dàng."
+            "value" : "QuickDrop giúp bạn chuyển file giữa iPhone, iPad, Mac và Android dễ dàng, nhanh chóng."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop让您可以轻松快捷地在iPhone、iPad、Mac和Android设备之间传输文件。"
+            "value" : "QuickDrop 让您轻松快速地在 iPhone、iPad、Mac 和 Android 设备间传输文件。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QuickDrop 讓在 iPhone、iPad、Mac 和 Android 裝置之間傳輸檔案變得既簡單又快捷。"
+            "value" : "QuickDrop 可讓您輕鬆快速地在 iPhone、iPad、Mac 和 Android 裝置之間傳輸檔案。"
           }
         }
       }
@@ -33065,6 +33065,472 @@
         }
       }
     },
+    "introduction_enable_share_extension_not_visible" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الامتداد غير ظاهر؟"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L'extensió no és visible?"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rozšíření není viditelné?"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Udvidelse ikke synlig?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erweiterung nicht sichtbar?"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η επέκταση δεν είναι ορατή;"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extension not visible?"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extension not visible?"
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extension not visible?"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extension not visible?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿No ves la extensión?"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿No ves la extensión?"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laajennus ei näy?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extension non visible ?"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extension non visible?"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ההרחבה לא גלויה?"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "एक्सटेंशन दिखाई नहीं दे रहा?"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ekstenzija nije vidljiva?"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nem látható a kiterjesztés?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ekstensi tidak terlihat?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estensione non visibile?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拡張機能が表示されませんか？"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "확장 기능이 보이지 않나요?"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sambungan tidak kelihatan?"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utvidelse ikke synlig?"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensie niet zichtbaar?"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rozszerzenie niewidoczne?"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensão não visível?"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensão não visível?"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extensia nu este vizibilă?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Расширение не видно?"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tillägget syns inte?"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่พบส่วนขยายใช่ไหม?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uzantı görünmüyor mu?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Розширення не видно?"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không thấy tiện ích mở rộng?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扩展未显示？"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "擴充功能沒出現？"
+          }
+        }
+      }
+    },
+    "introduction_enable_share_extension_not_visible_answer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إذا لم يظهر امتداد المشاركة في إعدادات النظام، يرجى إعادة تشغيل جهاز Mac والمحاولة مرة أخرى. أو بدلاً من ذلك، اضغط على \"تخطي\" لتفعيل الامتداد لاحقًا."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si l'extensió de compartició no és visible als Ajustos del sistema, reinicia el teu Mac i torna-ho a provar. Alternativament, fes clic a “Omet” per activar l'extensió més tard."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokud sdílecí rozšíření není viditelné v Systémovém nastavení, restartujte prosím svůj Mac a zkuste to znovu. Případně klikněte na „Přeskočit“ pro aktivaci rozšíření později."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hvis delingsudvidelsen ikke er synlig i Systemindstillinger, så genstart din Mac og prøv igen. Alternativt kan du klikke på “Spring over” for at aktivere udvidelsen senere."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn die Freigabe-Erweiterung in den Systemeinstellungen nicht sichtbar ist, starte bitte deinen Mac neu und versuche es erneut. Alternativ kannst du auf „Überspringen“ klicken, um die Erweiterung später zu aktivieren."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αν η επέκταση κοινοποίησης δεν εμφανίζεται στις Ρυθμίσεις Συστήματος, κάντε επανεκκίνηση του Mac σας και δοκιμάστε ξανά. Εναλλακτικά, κάντε κλικ στο «Παράλειψη» για να την ενεργοποιήσετε αργότερα."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If the share extension is not visible in System Settings, please restart your Mac and try again. Alternatively, click on “Skip” to enable the extension later."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If the share extension isn’t visible in System Settings, please restart your Mac and try again. Alternatively, click on “Skip” to enable the extension later."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If the share extension isn’t visible in System Settings, please restart your Mac and try again. Alternatively, click on “Skip” to enable the extension later."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If the share extension is not visible in System Settings, please restart your Mac and try again. Alternatively, click on “Skip” to enable the extension later."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si la extensión para compartir no aparece en Configuración del sistema, reinicia tu Mac e inténtalo de nuevo. Alternativamente, haz clic en \"Omitir\" para activar la extensión más tarde."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si la extensión para compartir no es visible en Configuración del sistema, reinicia tu Mac y vuelve a intentarlo. Alternativamente, haz clic en “Omitir” para activar la extensión más tarde."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jos jakolaajennus ei näy Järjestelmäasetuksissa, käynnistä Mac uudelleen ja yritä uudestaan. Vaihtoehtoisesti voit klikata \"Ohita\" ottaaksesi laajennuksen käyttöön myöhemmin."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si l’extension de partage n’est pas visible dans les Réglages Système, veuillez redémarrer votre Mac et réessayez. Sinon, cliquez sur « Ignorer » pour activer l’extension plus tard."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si l’extension de partage n’apparaît pas dans les Réglages système, veuillez redémarrer votre Mac et réessayez. Vous pouvez aussi cliquer sur « Passer » pour activer l’extension plus tard."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אם ההרחבה לא מופיעה בהגדרות המערכת, נא להפעיל את ה-Mac מחדש ולנסות שוב. לחלופין, לחץ על \"דלג\" כדי להפעיל את ההרחבה מאוחר יותר."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अगर सिस्टम सेटिंग्स में शेयर एक्सटेंशन दिखाई नहीं दे रहा है, तो कृपया अपने Mac को रीस्टार्ट करें और फिर से प्रयास करें। वैकल्पिक रूप से, बाद में एक्सटेंशन सक्रिय करने के लिए \"छोड़ें\" पर क्लिक करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ako dijeljena ekstenzija nije vidljiva u Postavkama sustava, ponovno pokrenite svoj Mac i pokušajte ponovno. Alternativno, kliknite na „Preskoči” kako biste omogućili ekstenziju kasnije."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha a megosztási kiterjesztés nem látható a Rendszerbeállításokban, indítsd újra a Mac-et, majd próbáld újra. Alternatívaként kattints a „Kihagyás” gombra, hogy később engedélyezd a kiterjesztést."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jika ekstensi berbagi tidak terlihat di Pengaturan Sistem, silakan mulai ulang Mac Anda dan coba lagi. Atau, klik “Lewati” untuk mengaktifkan ekstensi nanti."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se l'estensione di condivisione non è visibile nelle Impostazioni di Sistema, riavvia il Mac e riprova. In alternativa, fai clic su “Salta” per attivare l'estensione in seguito."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共有拡張機能がシステム設定に表示されない場合は、Macを再起動し、再度お試しください。もしくは「スキップ」をクリックして後で拡張機能を有効にすることもできます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시스템 설정에서 공유 확장 기능이 보이지 않는 경우, Mac을 다시 시작한 후 다시 시도해 주세요. 또는 “건너뛰기”를 클릭하여 나중에 확장 기능을 활성화할 수 있습니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jika sambungan perkongsian tidak kelihatan dalam Tetapan Sistem, sila mulakan semula Mac anda dan cuba lagi. Atau, klik \"Langkau\" untuk membolehkan sambungan kemudian."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hvis delingsutvidelsen ikke er synlig i Systeminnstillinger, vennligst start Macen på nytt og prøv igjen. Alternativt kan du klikke på «Hopp over» for å aktivere utvidelsen senere."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Als de deel-extensie niet zichtbaar is in de Systeeminstellingen, herstart dan je Mac en probeer het opnieuw. Of klik op “Overslaan” om de extensie later in te schakelen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jeśli rozszerzenie udostępniania nie jest widoczne w Ustawieniach systemowych, uruchom ponownie Maca i spróbuj ponownie. Możesz też kliknąć „Pomiń”, aby włączyć rozszerzenie później."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se a extensão de compartilhamento não estiver visível nas Configurações do Sistema, reinicie seu Mac e tente novamente. Como alternativa, clique em “Pular” para ativar a extensão depois."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se a extensão de partilha não aparecer nas Definições do Sistema, reinicie o seu Mac e tente novamente. Em alternativa, clique em “Saltar” para ativar a extensão mais tarde."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dacă extensia de partajare nu este vizibilă în Configurările de Sistem, reporniți Mac-ul și încercați din nou. Alternativ, faceți clic pe „Sari peste” pentru a activa extensia mai târziu."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Если расширение не отображается в Системных настройках, перезагрузите Mac и попробуйте снова. Или нажмите «Пропустить», чтобы включить расширение позже."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Om delningstillägget inte är synligt i Systeminställningar, starta om din Mac och försök igen. Alternativt, klicka på ”Hoppa över” för att aktivera tillägget senare."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "หากไม่พบส่วนขยายในการตั้งค่าระบบ กรุณารีสตาร์ท Mac ของคุณแล้วลองใหม่ หรือคลิก \"ข้าม\" เพื่อเปิดใช้ส่วนขยายในภายหลัง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paylaşım uzantısı Sistem Ayarlarında görünmüyorsa, lütfen Mac'inizi yeniden başlatıp tekrar deneyin. Alternatif olarak, uzantıyı daha sonra etkinleştirmek için \"Atla\"ya tıklayın."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо розширення для спільного доступу не видно в Системних налаштуваннях, перезавантажте Mac і спробуйте ще раз. Або натисніть «Пропустити», щоб увімкнути розширення пізніше."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nếu tiện ích chia sẻ không hiển thị trong Cài đặt Hệ thống, vui lòng khởi động lại Mac và thử lại. Hoặc bấm vào “Bỏ qua” để bật tiện ích này sau."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果在系统设置中看不到共享扩展，请重启您的 Mac 后重试。或者，点击“跳过”稍后启用扩展。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果在系統設定中看不到分享擴充功能，請重新啟動您的 Mac 並再試一次。或者，點擊「跳過」以稍後啟用該擴充功能。"
+          }
+        }
+      }
+    },
     "introduction_enable_share_extension_skip_message" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -33993,6 +34459,239 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "QuickDrop 現已準備好使用。如需了解更多或調整設定，請點擊繼續。"
+          }
+        }
+      }
+    },
+    "introduction_help_action_alert_close" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حسنًا"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "D'acord"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Okay"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Okay"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εντάξει"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Okay"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Okay"
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Okay"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Okay"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceptar"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceptar"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "D’accord"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אוקיי"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ठीक है"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "U redu"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rendben"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oke"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "확인"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Okey"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oké"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ок"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Okej"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตกลง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamam"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Гаразд"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đồng ý"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好的"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好"
           }
         }
       }

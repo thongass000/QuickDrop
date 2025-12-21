@@ -1,5 +1,5 @@
 //
-//  IntroductionSplashView.swift
+//  IntroductionView.swift
 //  QuickDrop
 //
 //  Created by Leon Böttger on 20.12.25.
@@ -8,13 +8,18 @@
 import SwiftUI
 import LUI
 
-struct IntroductionSplashView: View {
+struct IntroductionView: View {
 
+    static let width: CGFloat = 810
+    static let height: CGFloat = 540
+    
     @Environment(\.colorScheme) private var colorScheme
     @State private var currentPage: IntroductionPage = .splash
 
     @State private var pollingPage: IntroductionPage? = nil
     @State private var skipAction: IntroductionPage.SkipAction? = nil
+    
+    @State private var helpActionAlert: IntroductionPage.HelpAction? = nil
     
     let startReceiving: (() -> Void)
     let onFinish: (() -> Void)
@@ -62,7 +67,13 @@ struct IntroductionSplashView: View {
                     .padding(.horizontal, 40)
 
                     Spacer()
-                    Spacer()
+                    
+                    if currentPage == .splash {
+                        BottomFootnoteView(type: .privacyBanner)
+                    }
+                    else {
+                        Spacer()
+                    }
 
                     Divider()
 
@@ -94,6 +105,22 @@ struct IntroductionSplashView: View {
                         }
 
                         Spacer()
+                        
+                        if let helpAction = currentPage.helpAction, pollingPage != nil {
+                            HStack(spacing: 3) {
+                                Image(systemName: "questionmark.circle")
+                                Text(helpAction.question.localized())
+                            }
+                            .opacity(0.8)
+                            .foregroundColor(.blue)
+                            .font(.system(size: 15))
+                            .onTapGesture {
+                                helpActionAlert = helpAction
+                            }
+                            .alert(item: $helpActionAlert) { helpAction in
+                                .init(title: Text(helpAction.question.localized()), message: Text(helpAction.answer.localized()), dismissButton: .cancel(Text("introduction_help_action_alert_close")))
+                            }
+                        }
 
                         continueArea
                     }
@@ -270,12 +297,21 @@ enum IntroductionPage: CaseIterable {
         case .splash:
             return nil
         case .noWifi:
-            return .init(action: presentNextPage, warningTitle: "introduction_no_wifi_skip_title", warningMessage: "introduction_no_wifi_skip_message", id: "noWifiSkip")
+            return .init(action: presentNextPage, warningTitle: "introduction_no_wifi_skip_title", warningMessage: "introduction_no_wifi_skip_message")
         case .localNetworkAccess:
-            return .init(action: presentNextPage, warningTitle: "introduction_local_network_access_skip_title", warningMessage: "introduction_local_network_access_skip_message", id: "localNetworkAccessSkip")
+            return .init(action: presentNextPage, warningTitle: "introduction_local_network_access_skip_title", warningMessage: "introduction_local_network_access_skip_message")
         case .enableShareExtension:
-            return .init(action: presentNextPage, warningTitle: "introduction_enable_share_extension_skip_title", warningMessage: "introduction_enable_share_extension_skip_message", id: "enableShareExtensionSkip")
+            return .init(action: presentNextPage, warningTitle: "introduction_enable_share_extension_skip_title", warningMessage: "introduction_enable_share_extension_skip_message")
         case .finished:
+            return nil
+        }
+    }
+    
+    var helpAction: HelpAction? {
+        switch self {
+        case .enableShareExtension:
+            return .init(question: "introduction_enable_share_extension_not_visible", answer: "introduction_enable_share_extension_not_visible_answer")
+        default:
             return nil
         }
     }
@@ -371,12 +407,19 @@ enum IntroductionPage: CaseIterable {
         let warningTitle: String
         let warningMessage: String
         
-        let id: String
+        var id: String { warningTitle }
+    }
+    
+    struct HelpAction: Identifiable {
+        let question: String
+        let answer: String
+        
+        var id: String { question }
     }
 }
 
 
 #Preview {
-    IntroductionSplashView(startReceiving: {}){}
-        .frame(width: 600, height: 500)
+    IntroductionView(startReceiving: {}){}
+        .frame(width: IntroductionView.width, height: IntroductionView.height)
 }

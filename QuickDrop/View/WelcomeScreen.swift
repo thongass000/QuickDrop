@@ -7,128 +7,89 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
-
-let welcomeScreenWidth: CGFloat = 1000
-let welcomeScreenHeight: CGFloat = 600
+import LUI
 
 struct WelcomeScreen: View {
     
-    internal init(
-        openIntroduction: Bool,
-        startReceiving: @escaping () -> Void,
-        openPlusScreen: @escaping () -> Void,
-        openAppAdvertisementView: @escaping () -> Void,
-        openCableTransmissionView: @escaping () -> Void,
-        checkForNetworkIssues: @escaping () -> Void
-    ) {
-        self._openedIntroduction = State(initialValue: openIntroduction)
-        self.startReceiving = startReceiving
-        self.openPlusScreen = openPlusScreen
-        self.openAppAdvertisementView = openAppAdvertisementView
-        self.openCableTransmissionView = openCableTransmissionView
-        self.checkForNetworkIssues = checkForNetworkIssues
-    }
-    
+    static let width: CGFloat = 1000
+    static let height: CGFloat = 600
     
     @Environment(\.colorScheme) var colorScheme
     
     let openPlusScreen: () -> Void
-    let startReceiving: () -> Void
     let openAppAdvertisementView: () -> Void
     let openCableTransmissionView: () -> Void
     let checkForNetworkIssues: () -> Void
     
     @State private var selection: Tabs? = Tabs.receive
-    @State private var openedIntroduction: Bool
     
     var body: some View {
         
-        ZStack {
-            
-            if openedIntroduction {
-                
-                Image(.introductionBackground)
-                    .resizable()
-                    .ignoresSafeArea(.all)
-                
-                IntroductionSplashView(startReceiving: startReceiving) {
-                    openedIntroduction = false
+        HStack(spacing: 0) {
+            List(selection: $selection) {
+                ForEach(Tabs.allCases.filter({$0 != .settings }), id: \.self) { tab in
+                    Label(tab.title, systemImage: tab.systemImage)
+                        .tag(tab)
+                        .frame(height: 30)
                 }
-                .background(Color(NSColor.windowBackgroundColor))
-                .cornerRadius(25)
-                .padding(.vertical, 60)
-                .padding(.horizontal, 190)
+                
+                Divider()
+                
+                ExternalLinkLabel(label: "GetSupport", icon: "questionmark.circle") {
+                    sendLoggingString()
+                }
+                
+                ExternalLinkLabel(label: "PrivacyPolicy", icon: "hand.raised") {
+                    openPrivacyPolicy()
+                }
+                
+                ExternalLinkLabel(label: "AndroidApp", icon: getPhoneIcon()) {
+                    openAppAdvertisementView()
+                }
+                
+                ExternalLinkLabel(label: "TransmitUsingCable", icon: getCableIcon()) {
+                    openCableTransmissionView()
+                }
+                
+                Divider()
+                
+                Label(Tabs.settings.title, systemImage: Tabs.settings.systemImage)
+                    .tag(Tabs.settings)
+                    .frame(height: 30)
             }
-            else {
+            .minimumScaleFactor(0.5)
+            .frame(width: 220)
+            .listStyle(SidebarListStyle())
+            
+            Divider()
+                .opacity(colorScheme == .light ? 1 : 0.5)
+                .edgesIgnoringSafeArea(.vertical)
+            
+            ZStack {
+                Color.defaultBackground.edgesIgnoringSafeArea(.vertical)
                 
-                HStack(spacing: 0) {
-                    List(selection: $selection) {
-                        ForEach(Tabs.allCases.filter({$0 != .settings }), id: \.self) { tab in
-                            Label(tab.title, systemImage: tab.systemImage)
-                                .tag(tab)
-                                .frame(height: 30)
-                        }
-                        
-                        Divider()
-                        
-                        ExternalLinkLabel(label: "GetSupport", icon: "questionmark.circle") {
-                            sendLoggingString()
-                        }
-                        
-                        ExternalLinkLabel(label: "PrivacyPolicy", icon: "hand.raised") {
-                            openPrivacyPolicy()
-                        }
-                        
-                        ExternalLinkLabel(label: "AndroidApp", icon: getPhoneIcon()) {
-                            openAppAdvertisementView()
-                        }
-                        
-                        ExternalLinkLabel(label: "TransmitUsingCable", icon: getCableIcon()) {
-                            openCableTransmissionView()
-                        }
-                        
-                        Divider()
-                        
-                        Label(Tabs.settings.title, systemImage: Tabs.settings.systemImage)
-                            .tag(Tabs.settings)
-                            .frame(height: 30)
-                    }
-                    .minimumScaleFactor(0.5)
-                    .frame(width: 220)
-                    .listStyle(SidebarListStyle())
+                switch selection {
+                case .receive:
+                    TutorialView(title: "ReceiveFiles", text: "UserManualDescription", showsLicense: true, openPlus: openPlusScreen)
                     
-                    Divider()
-                        .opacity(colorScheme == .light ? 1 : 0.5)
-                        .edgesIgnoringSafeArea(.vertical)
+                case .send:
+                    TutorialView(title: "SendFiles", text: "SendFilesDescription", showsLicense: false, openPlus: openPlusScreen)
                     
-                    ZStack {
-                        Color.defaultBackground.edgesIgnoringSafeArea(.vertical)
-                        
-                        switch selection {
-                        case .receive:
-                            TutorialView(title: "ReceiveFiles", text: "UserManualDescription", showsLicense: true, openPlus: openPlusScreen)
-                            
-                        case .send:
-                            TutorialView(title: "SendFiles", text: "SendFilesDescription", showsLicense: false, openPlus: openPlusScreen)
-                            
-                        case .troubleshooting:
-                            TutorialView(title: "Troubleshooting", text: "TroubleshootingDescription", showsLicense: false, openPlus: openPlusScreen)
-                                .onAppear {
-                                    checkForNetworkIssues()
-                                }
-                        default:
-                            SettingsView()
+                case .troubleshooting:
+                    TutorialView(title: "Troubleshooting", text: "TroubleshootingDescription", showsLicense: false, openPlus: openPlusScreen)
+                        .onAppear {
+                            checkForNetworkIssues()
                         }
-                    }
-                }
-                .onDrop(of: [.fileURL], isTargeted: nil) { providers in
-                    handleDrop(providers: providers)
-                    return true
+                default:
+                    SettingsView()
                 }
             }
         }
-        .animation(.easeInOut, value: openedIntroduction)
-        .frame(width: welcomeScreenWidth, height: welcomeScreenHeight)
+        .onDrop(of: [.fileURL], isTargeted: nil) { providers in
+            handleDrop(providers: providers)
+            return true
+        }
+        .frame(width: Self.width, height: Self.height)
     }
     
     func openPrivacyPolicy() {
@@ -155,7 +116,7 @@ struct WelcomeScreen: View {
         let dispatchGroup = DispatchGroup()
         var urls: [URL] = []
         let urlQueue = DispatchQueue(label: "DroppedURLsQueue")
-
+        
         for provider in providers {
             if provider.hasItemConformingToTypeIdentifier(UTType.fileURL.identifier) {
                 dispatchGroup.enter()
@@ -174,7 +135,7 @@ struct WelcomeScreen: View {
                 }
             }
         }
-
+        
         dispatchGroup.notify(queue: .main) {
             if !urls.isEmpty {
                 sendToSharingService(items: urls)
@@ -245,5 +206,5 @@ enum Tabs: CaseIterable {
 
 
 #Preview {
-    WelcomeScreen(openIntroduction: true, startReceiving: {}, openPlusScreen: {}, openAppAdvertisementView: {}, openCableTransmissionView: {}, checkForNetworkIssues: {})
+    WelcomeScreen(openPlusScreen: {}, openAppAdvertisementView: {}, openCableTransmissionView: {}, checkForNetworkIssues: {})
 }

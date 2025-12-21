@@ -20,6 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     private var statusItem: NSStatusItem?
 
     var welcomeWindow: NSWindow?
+    var introductionWindow: NSWindow?
     var plusWindow: NSWindow?
     
     private var sheetView: NSPanel? = nil
@@ -60,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         menu.addItem(NSMenuItem.separator())
 
-        let userManualItem = NSMenuItem(title: "UserManual".localized(), action: #selector(openMainWindow), keyEquivalent: "")
+        let userManualItem = NSMenuItem(title: "UserManual".localized(), action: #selector(openApplicableScreen), keyEquivalent: "")
         userManualItem.image = NSImage(systemSymbolName: "gear", accessibilityDescription: nil)
         menu.addItem(userManualItem)
 
@@ -79,9 +80,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         if !Settings.shared.appLaunchedBefore {
             log("[AppDelegate] Opening Welcome Screen")
             // open welcome screen
-            openMainWindow(openIntroduction: true)
-            Settings.shared.appLaunchedBefore = true
-
+            openIntroductionWindow()
+            
             // user installed the app after the IAP was implemented, set the user as eligible for IAP
             Settings.shared.isEligibleForIap = true
         } else {
@@ -158,9 +158,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     func applicationShouldHandleReopen(_: NSApplication, hasVisibleWindows _: Bool) -> Bool {
-        openMainWindow()
+        self.openApplicableScreen()
         statusItem?.isVisible = true
         return true
+    }
+    
+    
+    @objc func openApplicableScreen() {
+        if Settings.shared.appLaunchedBefore {
+            openMainWindow()
+        }
+        else {
+            openIntroductionWindow()
+        }
     }
     
 
@@ -215,7 +225,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
 
     
-    @objc func openMainWindow(openIntroduction: Bool = false) {
+    @objc func openMainWindow() {
         
         NSApp.setActivationPolicy(.regular)
         
@@ -229,16 +239,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
 
         let welcomeView = WelcomeScreen(
-            openIntroduction: openIntroduction,
-            startReceiving: startReceiving,
             openPlusScreen: openPlusScreen,
             openAppAdvertisementView: { self.openSheetView(type: .downloadAndroidApp) },
             openCableTransmissionView: { self.openSheetView(type: .downloadCableConnectionApp) },
             checkForNetworkIssues: performDeviceToDeviceCheck
         )
-
+        
         welcomeWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: welcomeScreenWidth, height: welcomeScreenHeight),
+            contentRect: NSRect(x: 0, y: 0, width: WelcomeScreen.width, height: WelcomeScreen.height),
             styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false
@@ -259,6 +267,49 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         welcomeWindow?.level = .normal
     }
 
+    
+    @objc func openIntroductionWindow() {
+        
+        NSApp.setActivationPolicy(.regular)
+        
+        if let window = introductionWindow {
+            if window.isMiniaturized {
+                window.deminiaturize(nil)
+            }
+            NSApp.activate(ignoringOtherApps: true)
+            window.makeKeyAndOrderFront(nil)
+            return
+        }
+
+        let introductionView = IntroductionView(startReceiving: startReceiving) {
+            Settings.shared.appLaunchedBefore = true
+            self.introductionWindow?.close()
+            self.introductionWindow = nil
+            self.openMainWindow()
+        }
+
+        introductionWindow = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: IntroductionView.width, height: IntroductionView.height),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+
+        introductionWindow?.styleMask.insert(.fullSizeContentView)
+        introductionWindow?.titleVisibility = .hidden
+        introductionWindow?.titlebarAppearsTransparent = true
+
+        introductionWindow?.center()
+        introductionWindow?.isReleasedWhenClosed = false
+        introductionWindow?.setFrameAutosaveName("IntroductionScreen")
+        introductionWindow?.contentView = NSHostingView(rootView: introductionView)
+        introductionWindow?.delegate = self
+
+        NSApp.activate(ignoringOtherApps: true)
+        introductionWindow?.makeKeyAndOrderFront(nil)
+        introductionWindow?.level = .normal
+    }
+    
     
     @objc func openPlusScreen() {
         // If window already exists and is visible, just bring it to the front

@@ -99,5 +99,5 @@ struct LargeAppIconView<Content: View>: View {
 
 
 #Preview {
-    WelcomeScreen(openIntroduction: false, startReceiving: {}, openPlusScreen: {}, openAppAdvertisementView: {}, openCableTransmissionView: {}, checkForNetworkIssues: {})
+    WelcomeScreen(openPlusScreen: {}, openAppAdvertisementView: {}, openCableTransmissionView: {}, checkForNetworkIssues: {})
 }
