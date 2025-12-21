@@ -63,6 +63,18 @@ class OutboundNearbyConnection: NearbyConnection {
     override func disconnect() {
         super.disconnect()
   
+        // delete all files
+        for url in urlsToSend {
+            
+            do {
+                try FileManager.default.removeItem(at: url)
+                log("[OutboundNearbyConnection \(self.id)] Deleted file at \(url).")
+            }
+            catch {
+                log("[OutboundNearbyConnection \(self.id)] Failed to delete file at \(url): \(error)")
+            }
+        }
+        
         if let error = lastError {
             DispatchQueue.main.async {
                 self.delegate?.failedWithError(connection: self, error: error)

@@ -410,8 +410,8 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         if let transfer = incomingConnections[id] {
             transfer.cancel()
         }
-        if let transfer = outgoingTransfers[id] {
-            transfer.connection.cancel()
+        if let info = outgoingTransfers[id] {
+            info.connection.cancel()
         }
     }
     
@@ -650,7 +650,6 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
                 if accessSuccess {
                     url.stopAccessingSecurityScopedResource()
                 }
-                
             }
             else {
                 log("[NearbyConnectionManager] File URL \(url) does not point to a security scoped resource")
