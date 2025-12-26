@@ -25,6 +25,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     private var pendingReview = false
     private var toastWindow: NSWindow?
     private var toastHosting: NSHostingView<QuickDropToastView>?
+    private let monitor = AllowedWorkMonitor()
     #endif
     
     let controlPlusScreen: (Bool) -> Void
@@ -32,13 +33,30 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     
     init(controlPlusScreen: @escaping (Bool) -> Void) {
         self.controlPlusScreen = controlPlusScreen
+    
         NearbyConnectionManager.shared.addInboundAppDelegate(self)
+        
+        #if os(macOS)
+        self.monitor.onAllowed = {
+            NearbyConnectionManager.shared.becomeVisible()
+        }
+        self.monitor.onStopped = {
+            NearbyConnectionManager.shared.becomeInvisible()
+        }
+        
+        self.monitor.start()
+        #else
         NearbyConnectionManager.shared.becomeVisible()
+        #endif
     }
     
     
     deinit {
         NearbyConnectionManager.shared.removeInboundAppDelegate(self)
+        
+        #if os(macOS)
+        self.monitor.stop()
+        #endif
     }
     
     

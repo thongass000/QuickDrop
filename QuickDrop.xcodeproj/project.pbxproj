@@ -236,6 +236,10 @@
 		EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */; };
 		EB6FE7CF2EFEB42800FF2BCF /* NoLocalNetworkAccessAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FE7CC2EFEAFF000FF2BCF /* NoLocalNetworkAccessAlertView.swift */; };
 		EB6FE7D02EFEB43000FF2BCF /* NoLocalNetworkAccessAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FE7CC2EFEAFF000FF2BCF /* NoLocalNetworkAccessAlertView.swift */; };
+		EB6FE7D22EFEFB2700FF2BCF /* AllowedWorkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FE7D12EFEFB2700FF2BCF /* AllowedWorkMonitor.swift */; };
+		EB6FE7D42EFEFB2700FF2BCF /* AllowedWorkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FE7D12EFEFB2700FF2BCF /* AllowedWorkMonitor.swift */; };
+		EB6FE7D52EFEFB2700FF2BCF /* AllowedWorkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FE7D12EFEFB2700FF2BCF /* AllowedWorkMonitor.swift */; };
+		EB6FE7D62EFEFB2700FF2BCF /* AllowedWorkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FE7D12EFEFB2700FF2BCF /* AllowedWorkMonitor.swift */; };
 		EB721F242E75AFA900F2099F /* QuickDropIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = EB721F232E75AFA900F2099F /* QuickDropIcon.icon */; };
 		EB721F252E75AFA900F2099F /* QuickDropIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = EB721F232E75AFA900F2099F /* QuickDropIcon.icon */; };
 		EB7654782E525ACC006B4AA3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB7654772E525ACC006B4AA3 /* MainMenu.xib */; };
@@ -528,6 +532,7 @@
 		EB6E6B202ECBA95000E71D57 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB6FE7CC2EFEAFF000FF2BCF /* NoLocalNetworkAccessAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLocalNetworkAccessAlertView.swift; sourceTree = "<group>"; };
+		EB6FE7D12EFEFB2700FF2BCF /* AllowedWorkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedWorkMonitor.swift; sourceTree = "<group>"; };
 		EB721F232E75AFA900F2099F /* QuickDropIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = QuickDropIcon.icon; sourceTree = "<group>"; };
 		EB7654772E525ACC006B4AA3 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		EB7A95F22EF6E1BE0021111B /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
@@ -879,6 +884,7 @@
 				EB1325F72E70287C00FD749C /* SendToExtension.swift */,
 				EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */,
 				EB886E662E4F2F7C0052B7D9 /* License.swift */,
+				EB6FE7D12EFEFB2700FF2BCF /* AllowedWorkMonitor.swift */,
 				EB36435F2D73A29F009CDFF8 /* AudioManager.swift */,
 				EBC05C5A2E33936C00EECC18 /* ErrorAlertHandler.swift */,
 				EB1325EA2E7025D900FD749C /* SelfTest */,
@@ -1242,6 +1248,7 @@
 				EB886E542E4E19390052B7D9 /* HKDF.swift in Sources */,
 				EBC05C862E33B58300EECC18 /* NetworkFilterIssueView.swift in Sources */,
 				EBE5FF432EDB71810019B380 /* Configuration.swift in Sources */,
+				EB6FE7D42EFEFB2700FF2BCF /* AllowedWorkMonitor.swift in Sources */,
 				EBC05C872E33B58300EECC18 /* IssueView.swift in Sources */,
 				EBC05C882E33B58300EECC18 /* FirewallIssueView.swift in Sources */,
 				EBC05C892E33B58300EECC18 /* ApIsolationIssueView.swift in Sources */,
@@ -1320,6 +1327,7 @@
 				EB9925812E45D53E00357055 /* sharing_enums.pb.swift in Sources */,
 				EB6E6AB42ECBA46D00E71D57 /* PhotoManager.swift in Sources */,
 				EB16B77A2E59BAA1007D9792 /* AppGroup.swift in Sources */,
+				EB6FE7D62EFEFB2700FF2BCF /* AllowedWorkMonitor.swift in Sources */,
 				EBC05C822E33B58300EECC18 /* ApIsolationIssueView.swift in Sources */,
 				EBC05C832E33B58300EECC18 /* FirewallIssueView.swift in Sources */,
 				EB1325FA2E70288300FD749C /* SendToExtension.swift in Sources */,
@@ -1374,6 +1382,7 @@
 				EB3B9F232EF7150400D6704E /* sharing_enums.pb.swift in Sources */,
 				EB3B9F242EF7150400D6704E /* PhotoManager.swift in Sources */,
 				EB3B9F262EF7150400D6704E /* AppGroup.swift in Sources */,
+				EB6FE7D52EFEFB2700FF2BCF /* AllowedWorkMonitor.swift in Sources */,
 				EB3B9F272EF7150400D6704E /* ApIsolationIssueView.swift in Sources */,
 				EB3B9F282EF7150400D6704E /* FirewallIssueView.swift in Sources */,
 				EB3B9F292EF7150400D6704E /* SendToExtension.swift in Sources */,
@@ -1396,6 +1405,7 @@
 				EB3B9F502EF7151900D6704E /* HKDF.swift in Sources */,
 				EB3B9F512EF7151900D6704E /* NetworkFilterIssueView.swift in Sources */,
 				EB3B9F522EF7151900D6704E /* Configuration.swift in Sources */,
+				EB6FE7D22EFEFB2700FF2BCF /* AllowedWorkMonitor.swift in Sources */,
 				EB3B9F532EF7151900D6704E /* IssueView.swift in Sources */,
 				EB3B9F542EF7151900D6704E /* FirewallIssueView.swift in Sources */,
 				EB3B9F552EF7151900D6704E /* ApIsolationIssueView.swift in Sources */,
