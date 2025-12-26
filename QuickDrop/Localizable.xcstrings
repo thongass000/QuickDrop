@@ -10481,6 +10481,472 @@
         }
       }
     },
+    "EnableQuickDropExtension" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فعّل إضافة QuickDrop"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activa l'extensió QuickDrop"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Povolit rozšíření QuickDrop"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktivér QuickDrop-udvidelse"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop-Erweiterung aktivieren"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ενεργοποίηση της επέκτασης QuickDrop"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable QuickDrop Extension"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable QuickDrop Extension"
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable QuickDrop Extension"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable QuickDrop Extension"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activar extensión QuickDrop"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habilitar extensión QuickDrop"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ota QuickDrop-laajennus käyttöön"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer l’extension QuickDrop"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer l’extension QuickDrop"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הפעל את ההרחבה של QuickDrop"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "क्विकड्रॉप एक्सटेंशन सक्षम करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omogući QuickDrop ekstenziju"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop-bővítmény engedélyezése"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktifkan Ekstensi QuickDrop"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abilita estensione QuickDrop"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop拡張機能を有効にする"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop 확장 기능 활성화"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktifkan Sambungan QuickDrop"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktiver QuickDrop-utvidelse"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop-extensie inschakelen"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Włącz rozszerzenie QuickDrop"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ativar Extensão do QuickDrop"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ativar Extensão QuickDrop"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activează extensia QuickDrop"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включить расширение QuickDrop"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktivera QuickDrop-tillägget"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เปิดใช้งาน QuickDrop ส่วนขยาย"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuickDrop Uzantısını Etkinleştir"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увімкнути розширення QuickDrop"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bật tiện ích QuickDrop"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用 QuickDrop 扩展"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "啟用 QuickDrop 擴充功能"
+          }
+        }
+      }
+    },
+    "EnableQuickDropExtensionDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "انقر على \"تعديل الإضافات\" في الأسفل لتفعيل QuickDrop للمشاركة."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fes clic a 'Edita extensions' a la part inferior per activar QuickDrop per compartir."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klikněte dole na „Upravit rozšíření“ a povolte QuickDrop pro sdílení."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klik på 'Rediger udvidelser' nederst for at aktivere QuickDrop til deling."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klicke unten auf „Erweiterungen bearbeiten“, um QuickDrop fürs Teilen zu aktivieren."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κάντε κλικ στο 'Επεξεργασία Επεκτάσεων' στο κάτω μέρος για να ενεργοποιήσετε το QuickDrop για διαμοιρασμό."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click on 'Edit Extensions' on the bottom to enable QuickDrop for sharing."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click on 'Edit Extensions' at the bottom to enable QuickDrop for sharing."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click on 'Edit Extensions' at the bottom to enable QuickDrop for sharing."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click on 'Edit Extensions' at the bottom to enable QuickDrop for sharing."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haz clic en 'Editar extensiones' abajo para activar QuickDrop para compartir."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haz clic en 'Editar extensiones' en la parte inferior para habilitar QuickDrop para compartir."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Napsauta alareunassa 'Muokkaa laajennuksia' ottaaksesi QuickDropin käyttöön jakamista varten."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cliquez sur « Modifier les extensions » en bas pour activer QuickDrop pour le partage."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cliquez sur « Modifier les extensions » en bas pour activer QuickDrop pour le partage."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "לחץ על 'ערוך הרחבות' בתחתית כדי להפעיל את QuickDrop לשיתוף."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "शेयरिंग के लिए क्विकड्रॉप सक्षम करने हेतु नीचे 'एक्सटेंशन संपादित करें' पर क्लिक करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kliknite na 'Uredi ekstenzije' pri dnu za omogućavanje QuickDrop dijeljenja."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kattintson alul a „Bővítmények szerkesztése” gombra a QuickDrop megosztásához."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klik 'Edit Ekstensi' di bawah untuk mengaktifkan QuickDrop agar dapat berbagi."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fai clic su 'Modifica estensioni' in basso per abilitare QuickDrop per la condivisione."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下部の「拡張機能を編集」をクリックして、QuickDropでの共有を有効にしてください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "하단의 '확장 프로그램 편집'을 클릭하여 공유용 QuickDrop을 활성화하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klik pada 'Edit Sambungan' di bawah untuk mengaktifkan QuickDrop untuk perkongsian."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klikk på «Rediger utvidelser» nederst for å aktivere QuickDrop for deling."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klik onderaan op 'Extensies bewerken' om QuickDrop voor delen in te schakelen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kliknij „Edytuj rozszerzenia” na dole, aby włączyć QuickDrop do udostępniania."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clique em 'Editar Extensões' na parte inferior para ativar o QuickDrop para compartilhamento."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clique em 'Editar Extensões' em baixo para ativar o QuickDrop para partilhas."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apasă pe „Editează extensiile” jos pentru a activa QuickDrop la partajare."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите «Изменить расширения» внизу, чтобы включить QuickDrop для обмена файлами."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klicka på 'Redigera tillägg' längst ner för att aktivera QuickDrop för delning."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คลิกที่ 'แก้ไขส่วนขยาย' ด้านล่างเพื่อเปิดใช้งาน QuickDrop สำหรับการแชร์"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paylaşım için QuickDrop'u etkinleştirmek adına alttaki 'Uzantıları Düzenle'ye tıklayın."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Натисніть «Редагувати розширення» внизу, щоб увімкнути QuickDrop для обміну файлами."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nhấn 'Chỉnh sửa Tiện ích' ở dưới để bật QuickDrop chia sẻ."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击底部的“编辑扩展”以启用 QuickDrop 共享。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點擊下方的「編輯擴充功能」以啟用 QuickDrop 分享。"
+          }
+        }
+      }
+    },
     "Error.ClosedByPeer" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -15611,231 +16077,687 @@
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "لقد رفضت وصول الشبكة المحلية لتطبيق QuickDrop. لا يمكن لتطبيق QuickDrop العمل بدون هذا الإذن. انقر هنا لمنح الوصول إلى الشبكة المحلية."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "لقد منعت وصول QuickDrop إلى الشبكة المحلية. لا يمكن لـ QuickDrop العمل بدون هذا الإذن. افتح إعدادات النظام، ثم انتقل إلى \"الخصوصية والأمان\" > \"الشبكة المحلية\". تأكد من تفعيل QuickDrop."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "لقد منعت وصول QuickDrop إلى الشبكة المحلية. لا يمكن لـ QuickDrop العمل بدون هذا الإذن. اضغط هنا لمنح إذن الوصول للشبكة المحلية."
+                }
+              }
+            }
           }
         },
         "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Has denegat l'accés a la xarxa local per QuickDrop. QuickDrop no pot funcionar sense aquest permís. Fes clic aquí per concedir l'accés a la xarxa local."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Has denegat l'accés a la xarxa local per a QuickDrop. QuickDrop no pot funcionar sense aquest permís. Obre la Configuració del sistema i ves a \"Privadesa i seguretat\" > \"Xarxa local\". Assegura't que QuickDrop estigui activat."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Has denegat l'accés a la xarxa local per a QuickDrop. QuickDrop no pot funcionar sense aquest permís. Fes clic aquí per concedir l'accés a la xarxa local."
+                }
+              }
+            }
           }
         },
         "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Odvolali jste přístup QuickDropu k místní síti. QuickDrop nemůže fungovat bez tohoto oprávnění. Klikněte sem pro udělení přístupu k místní síti."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Odepřeli jste QuickDropu přístup k místní síti. Bez tohoto oprávnění nebude QuickDrop fungovat. Otevřete Systémová nastavení a přejděte na „Soukromí a zabezpečení“ > „Místní síť“. Ujistěte se, že je QuickDrop povolen."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Odepřeli jste QuickDropu přístup k místní síti. Bez tohoto oprávnění nebude QuickDrop fungovat. Klikněte zde pro povolení přístupu k místní síti."
+                }
+              }
+            }
           }
         },
         "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du har nægtet lokal netværksadgang til QuickDrop. QuickDrop kan ikke fungere uden denne tilladelse. Klik her for at give adgang til det lokale netværk."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du har nægtet QuickDrop adgang til det lokale netværk. QuickDrop kan ikke fungere uden denne tilladelse. Åbn Systemindstillinger og gå til \"Privatliv & Sikkerhed\" > \"Lokalt netværk\". Sørg for, at QuickDrop er aktiveret."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du har nægtet QuickDrop adgang til det lokale netværk. QuickDrop kan ikke fungere uden denne tilladelse. Klik her for at give adgang til det lokale netværk."
+                }
+              }
+            }
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du hast den lokalen Netzwerkzugriff für QuickDrop verweigert. QuickDrop kann ohne diese Berechtigung nicht funktionieren. Klicke hier, um den lokalen Netzwerkzugriff zu gewähren."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du hast QuickDrop den Zugriff auf das lokale Netzwerk verweigert. Ohne diese Berechtigung funktioniert QuickDrop nicht. Öffne die Systemeinstellungen und gehe zu „Datenschutz & Sicherheit“ > „Lokales Netzwerk“. Stelle sicher, dass QuickDrop aktiviert ist."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du hast QuickDrop den Zugriff auf das lokale Netzwerk verweigert. Ohne diese Berechtigung funktioniert QuickDrop nicht. Klicke hier, um den Zugriff zu erlauben."
+                }
+              }
+            }
           }
         },
         "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Απορρίψατε την πρόσβαση στο τοπικό δίκτυο για το QuickDrop. Το QuickDrop δεν μπορεί να λειτουργήσει χωρίς αυτή την άδεια. Πατήστε εδώ για να χορηγήσετε πρόσβαση στο τοπικό δίκτυο."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Απορρίψατε την πρόσβαση στο τοπικό δίκτυο για το QuickDrop. Το QuickDrop δεν μπορεί να λειτουργήσει χωρίς αυτήν την άδεια. Ανοίξτε τις Ρυθμίσεις συστήματος και πηγαίνετε στο «Απόρρητο & Ασφάλεια» > «Τοπικό Δίκτυο». Βεβαιωθείτε ότι το QuickDrop είναι ενεργοποιημένο."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Απορρίψατε την πρόσβαση στο τοπικό δίκτυο για το QuickDrop. Το QuickDrop δεν μπορεί να λειτουργήσει χωρίς αυτήν την άδεια. Κάντε κλικ εδώ για να δώσετε πρόσβαση στο τοπικό δίκτυο."
+                }
+              }
+            }
           }
         },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You denied local network access for QuickDrop. QuickDrop cannot work without this permission. Click here to grant local network access."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied local network access for QuickDrop. QuickDrop cannot work without this permission. Open System Settings, and go to \"Privacy & Security\" > \"Local Network\". Make sure that QuickDrop is enabled."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied local network access for QuickDrop. QuickDrop cannot work without this permission. Click here to grant local network access."
+                }
+              }
+            }
           }
         },
         "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Local network access denied for QuickDrop. Grant it to function. Tap here to allow access."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied local network access for QuickDrop. QuickDrop cannot work without this permission. Open System Settings, and go to \"Privacy & Security\" > \"Local Network\". Make sure that QuickDrop is enabled."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied local network access for QuickDrop. QuickDrop cannot work without this permission. Click here to grant local network access."
+                }
+              }
+            }
           }
         },
         "en-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Access for QuickDrop to the local network is denied. Grant access to allow functionality."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied local network access for QuickDrop. QuickDrop cannot work without this permission. Open System Settings, and go to \"Privacy & Security\" > \"Local Network\". Make sure that QuickDrop is enabled."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied local network access for QuickDrop. QuickDrop cannot work without this permission. Click here to grant local network access."
+                }
+              }
+            }
           }
         },
         "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You denied local network access for QuickDrop. It cannot operate without this permission. Click here to grant local network access."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied local network access for QuickDrop. QuickDrop cannot work without this permission. Open System Settings, and go to \"Privacy & Security\" > \"Local Network\". Make sure that QuickDrop is enabled."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You denied local network access for QuickDrop. QuickDrop cannot work without this permission. Click here to grant local network access."
+                }
+              }
+            }
           }
         },
         "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Negaste el acceso a la red local para QuickDrop. QuickDrop no puede funcionar sin este permiso. Haz clic aquí para otorgar acceso a la red local."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Denegaste el acceso a la red local para QuickDrop. QuickDrop no puede funcionar sin este permiso. Abre Configuración del sistema y ve a \"Privacidad y seguridad\" > \"Red local\". Asegúrate de que QuickDrop esté activado."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Denegaste el acceso a la red local para QuickDrop. QuickDrop no puede funcionar sin este permiso. Haz clic aquí para otorgar acceso a la red local."
+                }
+              }
+            }
           }
         },
         "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Denegaste el acceso a la red local para QuickDrop. QuickDrop no puede funcionar sin este permiso. Haz clic aquí para otorgar acceso a la red local."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Denegaste el acceso a la red local para QuickDrop. QuickDrop no puede funcionar sin este permiso. Abre Configuración del sistema y ve a \"Privacidad y seguridad\" > \"Red local\". Asegúrate de que QuickDrop esté activado."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Denegaste el acceso a la red local para QuickDrop. QuickDrop no puede funcionar sin este permiso. Haz clic aquí para conceder acceso a la red local."
+                }
+              }
+            }
           }
         },
         "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Estit QuickDrop-sovelluksen paikallisverkon käytön. QuickDrop ei voi toimia ilman tätä lupaa. Napsauta tästä myöntääksesi pääsyn paikallisverkkoon."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Estät paikallisverkon käytön QuickDropille. QuickDrop ei toimi ilman tätä lupaa. Avaa Järjestelmäasetukset ja siirry \"Yksityisyys ja turvallisuus\" > \"Paikallisverkko\". Varmista, että QuickDrop on käytössä."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Estät paikallisverkon käytön QuickDropille. QuickDrop ei toimi ilman tätä lupaa. Napsauta tästä myöntääksesi paikallisverkon käyttöoikeus."
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous avez refusé l'accès au réseau local pour QuickDrop. QuickDrop ne peut pas fonctionner sans cette autorisation. Cliquez ici pour accorder l'accès au réseau local."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez refusé l'accès au réseau local pour QuickDrop. QuickDrop ne peut pas fonctionner sans cette autorisation. Ouvrez les Réglages Système, puis allez dans « Confidentialité et sécurité » > « Réseau local ». Assurez-vous que QuickDrop est activé."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez refusé l'accès au réseau local pour QuickDrop. QuickDrop ne peut pas fonctionner sans cette autorisation. Cliquez ici pour autoriser l'accès au réseau local."
+                }
+              }
+            }
           }
         },
         "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous avez refusé l'accès au réseau local pour QuickDrop. QuickDrop ne peut pas fonctionner sans cette autorisation. Cliquez ici pour accorder l'accès au réseau local."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez refusé l'accès au réseau local à QuickDrop. QuickDrop ne peut pas fonctionner sans cette permission. Ouvrez les Réglages du système, puis allez à « Confidentialité et sécurité » > « Réseau local ». Assurez-vous que QuickDrop est activé."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez refusé l'accès au réseau local à QuickDrop. QuickDrop ne peut pas fonctionner sans cette permission. Cliquez ici pour autoriser l'accès au réseau local."
+                }
+              }
+            }
           }
         },
         "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "סירבת לגישה לרשת המקומית עבור QuickDrop. QuickDrop אינו יכול לעבוד ללא אישור זה. לחץ כאן כדי להעניק גישה לרשת המקומית."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "סירבת לגישה לרשת המקומית עבור QuickDrop. האפליקציה לא תעבוד בלי הרשאה זו. פתח את העדפות המערכת, עבור ל\"פרטיות ואבטחה\" > \"רשת מקומית\" וודא ש-QuickDrop מאופשר."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "סירבת לגישה לרשת המקומית עבור QuickDrop. האפליקציה לא תעבוד בלי הרשאה זו. לחץ כאן כדי לאשר גישה לרשת המקומית."
+                }
+              }
+            }
           }
         },
         "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "आपने QuickDrop के लिए स्थानीय नेटवर्क एक्सेस से इनकार कर दिया है। इस अनुमति के बिना QuickDrop कार्य नहीं कर सकता। स्थानीय नेटवर्क एक्सेस देने के लिए यहां क्लिक करें।"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "आपने QuickDrop के लिए स्थानीय नेटवर्क एक्सेस अस्वीकार कर दिया। QuickDrop इस अनुमति के बिना काम नहीं कर सकता। सिस्टम सेटिंग्स खोलें, \"प्राइवेसी और सुरक्षा\" > \"स्थानीय नेटवर्क\" पर जाएँ। सुनिश्चित करें कि QuickDrop सक्षम है।"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "आपने QuickDrop के लिए स्थानीय नेटवर्क एक्सेस अस्वीकार कर दिया। QuickDrop इस अनुमति के बिना काम नहीं कर सकता। स्थानीय नेटवर्क एक्सेस देने के लिए यहाँ क्लिक करें।"
+                }
+              }
+            }
           }
         },
         "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Odbili ste lokalni pristup mreži za QuickDrop. QuickDrop ne može raditi bez ovog dopuštenja. Kliknite ovdje za dodjelu lokalnog mrežnog pristupa."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Odbili ste pristup lokalnoj mreži za QuickDrop. QuickDrop ne može raditi bez ove dozvole. Otvorite Postavke sustava i idite na \"Privatnost i sigurnost\" > \"Lokalna mreža\". Provjerite je li QuickDrop omogućen."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Odbili ste pristup lokalnoj mreži za QuickDrop. QuickDrop ne može raditi bez ove dozvole. Kliknite ovdje za omogućavanje pristupa lokalnoj mreži."
+                }
+              }
+            }
           }
         },
         "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ön megtagadta a helyi hálózathoz való hozzáférést a QuickDrop számára. A QuickDrop nem működik ezen engedély nélkül. Kattintson ide a helyi hálózathoz való hozzáférés engedélyezéséhez."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ön megtagadta a helyi hálózathoz való hozzáférést a QuickDrop számára. A QuickDrop nem működik ezen engedély nélkül. Nyissa meg a Rendszerbeállításokat, majd menjen a „Adatvédelem és biztonság” > „Helyi hálózat” menüponthoz. Győződjön meg arról, hogy a QuickDrop engedélyezve van."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ön megtagadta a helyi hálózathoz való hozzáférést a QuickDrop számára. A QuickDrop nem működik ezen engedély nélkül. Kattintson ide a helyi hálózat elérésének engedélyezéséhez."
+                }
+              }
+            }
           }
         },
         "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anda menolak akses jaringan lokal untuk QuickDrop. QuickDrop tidak dapat bekerja tanpa izin ini. Klik di sini untuk memberikan akses jaringan lokal."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Anda menolak akses jaringan lokal untuk QuickDrop. QuickDrop tidak dapat berfungsi tanpa izin ini. Buka Pengaturan Sistem, lalu ke \"Privasi & Keamanan\" > \"Jaringan Lokal\". Pastikan QuickDrop diaktifkan."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Anda menolak akses jaringan lokal untuk QuickDrop. QuickDrop tidak dapat berfungsi tanpa izin ini. Klik di sini untuk memberikan akses jaringan lokal."
+                }
+              }
+            }
           }
         },
         "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hai negato l'accesso alla rete locale per QuickDrop. QuickDrop non può funzionare senza questa autorizzazione. Clicca qui per concedere l'accesso alla rete locale."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Hai negato l'accesso alla rete locale a QuickDrop. QuickDrop non può funzionare senza questa autorizzazione. Apri le Impostazioni di Sistema e vai su \"Privacy e Sicurezza\" > \"Rete Locale\". Assicurati che QuickDrop sia abilitato."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Hai negato l'accesso alla rete locale a QuickDrop. QuickDrop non può funzionare senza questa autorizzazione. Clicca qui per concedere l'accesso alla rete locale."
+                }
+              }
+            }
           }
         },
         "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "QuickDropのローカルネットワークアクセスが拒否されました。この権限がないとQuickDropは動作しません。ローカルネットワークアクセスを許可するにはここをクリックしてください。"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "QuickDropへのローカルネットワークアクセスが拒否されました。この権限がないとQuickDropは動作しません。システム設定を開き、「プライバシーとセキュリティ」>「ローカルネットワーク」に進み、QuickDropが有効になっていることを確認してください。"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "QuickDropへのローカルネットワークアクセスが拒否されました。この権限がないとQuickDropは動作しません。アクセスを許可するにはここをクリックしてください。"
+                }
+              }
+            }
           }
         },
         "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "QuickDrop에 대한 로컬 네트워크 액세스를 거부했습니다. 이 권한 없이는 QuickDrop이 작동할 수 없습니다. 로컬 네트워크 액세스를 허용하려면 여기를 클릭하세요."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "QuickDrop의 로컬 네트워크 접근 권한이 거부되었습니다. 이 권한 없이는 QuickDrop을 사용할 수 없습니다. 시스템 설정에서 '개인정보 보호 및 보안' > '로컬 네트워크'로 이동해 QuickDrop이 활성화되어 있는지 확인하세요."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "QuickDrop의 로컬 네트워크 접근 권한이 거부되었습니다. 이 권한 없이는 QuickDrop을 사용할 수 없습니다. 로컬 네트워크 접근을 허용하려면 여기를 클릭하세요."
+                }
+              }
+            }
           }
         },
         "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anda menolak akses rangkaian setempat untuk QuickDrop. QuickDrop tidak dapat berfungsi tanpa kebenaran ini. Klik di sini untuk memberikan akses rangkaian setempat."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Anda telah menolak akses rangkaian setempat untuk QuickDrop. QuickDrop tidak dapat berfungsi tanpa kebenaran ini. Buka Tetapan Sistem dan pergi ke \"Privasi & Keselamatan\" > \"Rangkaian Setempat\". Pastikan QuickDrop diaktifkan."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Anda telah menolak akses rangkaian setempat untuk QuickDrop. QuickDrop tidak dapat berfungsi tanpa kebenaran ini. Klik di sini untuk benarkan akses rangkaian setempat."
+                }
+              }
+            }
           }
         },
         "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du nektet tilgang til lokalt nettverk for QuickDrop. QuickDrop kan ikke fungere uten denne tillatelsen. Klikk her for å gi tilgang til lokalt nettverk."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du har nektet QuickDrop tilgang til lokalt nettverk. QuickDrop kan ikke fungere uten denne tillatelsen. Åpne Systeminnstillinger og gå til «Personvern og sikkerhet» > «Lokalt nettverk». Sørg for at QuickDrop er aktivert."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du har nektet QuickDrop tilgang til lokalt nettverk. QuickDrop kan ikke fungere uten denne tillatelsen. Klikk her for å gi tilgang til lokalt nettverk."
+                }
+              }
+            }
           }
         },
         "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Je hebt toegang tot het lokale netwerk voor QuickDrop geweigerd. QuickDrop kan niet werken zonder deze toestemming. Klik hier om toegang tot het lokale netwerk te verlenen."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Je hebt lokale netwerktoegang voor QuickDrop geweigerd. QuickDrop werkt niet zonder deze toestemming. Open Systeeminstellingen en ga naar \"Privacy & Beveiliging\" > \"Lokaal netwerk\". Zorg ervoor dat QuickDrop is ingeschakeld."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Je hebt lokale netwerktoegang voor QuickDrop geweigerd. QuickDrop werkt niet zonder deze toestemming. Klik hier om toegang tot het lokale netwerk toe te staan."
+                }
+              }
+            }
           }
         },
         "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Odmówiłeś dostępu do lokalnej sieci dla QuickDrop. QuickDrop nie może działać bez tego uprawnienia. Kliknij tutaj, aby udzielić dostępu."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Odmówiłeś dostępu QuickDrop do sieci lokalnej. QuickDrop nie może działać bez tego uprawnienia. Otwórz Ustawienia systemowe i przejdź do „Prywatność i bezpieczeństwo” > „Sieć lokalna”. Upewnij się, że QuickDrop jest włączony."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Odmówiłeś dostępu QuickDrop do sieci lokalnej. QuickDrop nie może działać bez tego uprawnienia. Kliknij tutaj, aby przyznać dostęp do sieci lokalnej."
+                }
+              }
+            }
           }
         },
         "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Você negou o acesso à rede local para o QuickDrop. O QuickDrop não pode funcionar sem essa permissão. Clique aqui para conceder acesso à rede local."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Você negou o acesso à rede local para o QuickDrop. O QuickDrop não pode funcionar sem essa permissão. Abra as Configurações do Sistema e vá para \"Privacidade e Segurança\" > \"Rede Local\". Certifique-se de que o QuickDrop está ativado."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Você negou o acesso à rede local para o QuickDrop. O QuickDrop não pode funcionar sem essa permissão. Clique aqui para conceder acesso à rede local."
+                }
+              }
+            }
           }
         },
         "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Negou o acesso à rede local para o QuickDrop. O QuickDrop não pode funcionar sem esta permissão. Clique aqui para conceder acesso à rede local."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Negou o acesso à rede local para o QuickDrop. O QuickDrop não pode funcionar sem esta permissão. Abra as Definições do Sistema e vá a \"Privacidade e Segurança\" > \"Rede Local\". Certifique-se de que o QuickDrop está ativado."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Negou o acesso à rede local para o QuickDrop. O QuickDrop não pode funcionar sem esta permissão. Clique aqui para conceder acesso à rede local."
+                }
+              }
+            }
           }
         },
         "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ați refuzat accesul la rețeaua locală pentru QuickDrop. QuickDrop nu poate funcționa fără această permisiune. Apăsați aici pentru a oferi acces la rețeaua locală."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ai refuzat accesul la rețeaua locală pentru QuickDrop. QuickDrop nu poate funcționa fără această permisiune. Deschide Setările de sistem și mergi la \"Confidențialitate și securitate\" > \"Rețea locală\". Asigură-te că QuickDrop este activat."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ai refuzat accesul la rețeaua locală pentru QuickDrop. QuickDrop nu poate funcționa fără această permisiune. Apasă aici pentru a acorda acces la rețeaua locală."
+                }
+              }
+            }
           }
         },
         "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вы отклонили доступ QuickDrop к локальной сети. QuickDrop не может работать без этого разрешения. Нажмите здесь, чтобы предоставить доступ к локальной сети."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Вы отклонили доступ QuickDrop к локальной сети. Без этого разрешения QuickDrop не сможет работать. Откройте настройки системы и перейдите в «Конфиденциальность и безопасность» > «Локальная сеть». Убедитесь, что QuickDrop включён."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Вы отклонили доступ QuickDrop к локальной сети. Без этого разрешения QuickDrop не сможет работать. Нажмите здесь, чтобы предоставить доступ к локальной сети."
+                }
+              }
+            }
           }
         },
         "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du nekade lokalen nätverksåtkomst för QuickDrop. QuickDrop kan inte fungera utan denna behörighet. Klicka här för att ge lokalen nätverksåtkomst."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du har nekat QuickDrop åtkomst till lokalt nätverk. QuickDrop fungerar inte utan denna behörighet. Öppna Systeminställningar och gå till \"Integritet & säkerhet\" > \"Lokalt nätverk\". Kontrollera att QuickDrop är aktiverat."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du har nekat QuickDrop åtkomst till lokalt nätverk. QuickDrop fungerar inte utan denna behörighet. Klicka här för att ge åtkomst till lokalt nätverk."
+                }
+              }
+            }
           }
         },
         "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "คุณปฏิเสธการเข้าถึงเครือข่ายท้องถิ่นสำหรับ QuickDrop. QuickDrop ไม่สามารถทำงานได้โดยปราศจากสิทธิ์นี้. คลิกที่นี่เพื่ออนุญาตการเข้าถึงเครือข่ายท้องถิ่น."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "คุณได้ปฏิเสธการเข้าถึงเครือข่ายภายในสำหรับ QuickDrop ซึ่ง QuickDrop จำเป็นต้องใช้สิทธิ์นี้จึงจะทำงานได้ โปรดเปิดการตั้งค่าระบบ ไปที่ \"ความเป็นส่วนตัวและความปลอดภัย\" > \"เครือข่ายภายใน\" และตรวจสอบให้แน่ใจว่าเปิดใช้งาน QuickDrop แล้ว"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "คุณได้ปฏิเสธการเข้าถึงเครือข่ายภายในสำหรับ QuickDrop ซึ่ง QuickDrop จำเป็นต้องใช้สิทธิ์นี้จึงจะทำงานได้ คลิกที่นี่เพื่อให้สิทธิ์เข้าถึงเครือข่ายภายใน"
+                }
+              }
+            }
           }
         },
         "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "QuickDrop için yerel ağ erişimine izin vermediniz. QuickDrop bu izin olmadan çalışmaz. Yerel ağ erişimine izin vermek için buraya tıklayın."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "QuickDrop için yerel ağa erişimi reddettiniz. Bu izin olmadan QuickDrop çalışamaz. Sistem Ayarlarını açın, ardından \"Gizlilik ve Güvenlik\" > \"Yerel Ağ\" bölümüne gidin. QuickDrop'un etkin olduğundan emin olun."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "QuickDrop için yerel ağa erişimi reddettiniz. Bu izin olmadan QuickDrop çalışamaz. Yerel ağa erişim izni vermek için buraya tıklayın."
+                }
+              }
+            }
           }
         },
         "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ви відхилили доступ до локальної мережі для QuickDrop. QuickDrop не може працювати без цього дозволу. Натисніть тут, щоб надати доступ до локальної мережі."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви відмовили у доступі до локальної мережі для QuickDrop. QuickDrop не може працювати без цього дозволу. Відкрийте «Системні налаштування» та перейдіть у «Конфіденційність і безпека» > «Локальна мережа». Переконайтеся, що QuickDrop увімкнено."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви відмовили у доступі до локальної мережі для QuickDrop. QuickDrop не може працювати без цього дозволу. Натисніть тут, щоб надати доступ до локальної мережі."
+                }
+              }
+            }
           }
         },
         "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bạn đã từ chối quyền truy cập mạng cục bộ cho QuickDrop. QuickDrop không thể hoạt động nếu không có quyền này. Nhấp vào đây để cấp quyền."
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Bạn đã từ chối quyền truy cập mạng cục bộ cho QuickDrop. QuickDrop không thể hoạt động nếu không có quyền này. Mở Cài đặt Hệ thống, vào \"Quyền riêng tư & Bảo mật\" > \"Mạng cục bộ\". Đảm bảo rằng QuickDrop đã được bật."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Bạn đã từ chối quyền truy cập mạng cục bộ cho QuickDrop. QuickDrop không thể hoạt động nếu không có quyền này. Nhấn vào đây để cho phép truy cập mạng cục bộ."
+                }
+              }
+            }
           }
         },
         "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您已拒绝QuickDrop的本地网络访问权限。QuickDrop无法在没有该权限的情况下工作。点击此处授予本地网络访问权限。"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "您已拒绝QuickDrop的本地网络访问权限。没有此权限，QuickDrop无法运行。请打开系统设置，进入“隐私与安全”>“本地网络”，确保QuickDrop已启用。"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "您已拒绝QuickDrop的本地网络访问权限。没有此权限，QuickDrop无法运行。点击此处授予本地网络访问权限。"
+                }
+              }
+            }
           }
         },
         "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您已拒絕為 QuickDrop 授予本地網路訪問權限。QuickDrop 無法在沒有此許可的情況下運作。點擊這裡授予本地網路訪問權限。"
+          "variations" : {
+            "device" : {
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "您已拒絕 QuickDrop 的本地網路存取權限。沒有此權限，QuickDrop 將無法運作。請開啟「系統設定」，前往「隱私權與安全性」>「本地網路」，確認已啟用 QuickDrop。"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "您已拒絕 QuickDrop 的本地網路存取權限。沒有此權限，QuickDrop 將無法運作。點擊此處以授予本地網路存取權限。"
+                }
+              }
+            }
           }
         }
       }

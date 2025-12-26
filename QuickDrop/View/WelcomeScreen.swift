@@ -21,14 +21,22 @@ struct WelcomeScreen: View {
     let openCableTransmissionView: () -> Void
     let checkForNetworkIssues: () -> Void
     
-    @State private var selection: Tabs? = Tabs.receive
+    @State private var selection: Tab = Tab.receive
     
     var body: some View {
         
         HStack(spacing: 0) {
-            List(selection: $selection) {
-                ForEach(Tabs.allCases.filter({$0 != .settings }), id: \.self) { tab in
-                    Label(tab.title, systemImage: tab.systemImage)
+            
+            let listBinding = Binding<Tab?>(
+                get: { selection },
+                set: { newValue in
+                    selection = newValue ?? .receive
+                }
+            )
+            
+            List(selection: listBinding) {
+                ForEach(Tab.allCases.filter({$0 != .settings }), id: \.self) { tab in
+                    Label(tab.sidebarTitle, systemImage: tab.systemImage)
                         .tag(tab)
                         .frame(height: 30)
                 }
@@ -53,8 +61,8 @@ struct WelcomeScreen: View {
                 
                 Divider()
                 
-                Label(Tabs.settings.title, systemImage: Tabs.settings.systemImage)
-                    .tag(Tabs.settings)
+                Label(Tab.settings.sidebarTitle, systemImage: Tab.settings.systemImage)
+                    .tag(Tab.settings)
                     .frame(height: 30)
             }
             .minimumScaleFactor(0.5)
@@ -67,22 +75,18 @@ struct WelcomeScreen: View {
             
             ZStack {
                 Color.defaultBackground.edgesIgnoringSafeArea(.vertical)
-                
-                switch selection {
-                case .receive:
-                    TutorialView(title: "ReceiveFiles", text: "UserManualDescription", showsLicense: true, openPlus: openPlusScreen)
-                    
-                case .send:
-                    TutorialView(title: "SendFiles", text: "SendFilesDescription", showsLicense: false, openPlus: openPlusScreen)
-                    
-                case .troubleshooting:
-                    TutorialView(title: "Troubleshooting", text: "TroubleshootingDescription", showsLicense: false, openPlus: openPlusScreen)
-                        .onAppear {
-                            checkForNetworkIssues()
-                        }
-                default:
-                    SettingsView()
-                }
+            
+                    if selection == .settings {
+                        SettingsView()
+                    }
+                    else {
+                        TutorialView(tab: selection, openPlus: openPlusScreen)
+                            .onAppear {
+                                if selection == .troubleshooting {
+                                    checkForNetworkIssues()
+                                }
+                            }
+                    }
             }
         }
         .onDrop(of: [.fileURL], isTargeted: nil) { providers in
@@ -171,13 +175,13 @@ struct ExternalLinkLabel: View {
 }
 
 
-enum Tabs: CaseIterable {
+enum Tab: CaseIterable {
     case receive
     case send
     case troubleshooting
     case settings
     
-    var title: String {
+    var sidebarTitle: String {
         switch self {
         case .receive:
             return "ReceiveFiles".localized()
@@ -187,6 +191,28 @@ enum Tabs: CaseIterable {
             return "DeviceNotShown".localized()
         case .settings:
             return "Settings".localized()
+        }
+    }
+    
+    var title: String {
+        switch self {
+        case .troubleshooting:
+            return "Troubleshooting"
+        default:
+            return sidebarTitle
+        }
+    }
+    
+    var text: String {
+        switch self {
+        case .receive:
+            "UserManualDescription"
+        case .send:
+            "SendFilesDescription"
+        case .troubleshooting:
+            "TroubleshootingDescription"
+        case .settings:
+            ""
         }
     }
     

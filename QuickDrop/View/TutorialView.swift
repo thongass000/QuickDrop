@@ -5,14 +5,13 @@
 //  Created by Leon Böttger on 05.03.25.
 //
 
-import SwiftUI
+import AppKit
 import LUI
+import SwiftUI
 
 struct TutorialView: View {
     
-    let title: String
-    let text: String
-    let showsLicense: Bool
+    let tab: Tab
     let openPlus: () -> Void
     
     @State private var licenseWindow: NSWindow?
@@ -20,15 +19,16 @@ struct TutorialView: View {
     
     var body: some View {
         
-        LargeAppIconView(title: title) {
+        LargeAppIconView(title: tab.title) {
             VStack {
-                Text(text.localized())
+                
+                Text(tab.text.localized())
                     .multilineTextAlignment(.leading)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding()
                     .frame(width: 550)
                 
-                if showsLicense {
+                if tab == .receive {
                     HStack(spacing: 30) {
                         
                         Button {
@@ -67,7 +67,97 @@ struct TutorialView: View {
                     }
                     .padding()
                 }
+                else if tab == .send {
+                    EnableExtensionView()
+                }
             }
+        }
+    }
+}
+
+
+struct EnableExtensionView: View {
+    @State private var showSharePicker = false
+    @State private var shareItems: [Any] = []
+
+    @State private var isExtensionEnabled = false
+    @State private var showSuccessCheckmark = false
+    @State private var animateCheckmark = false
+
+    private let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+
+    init() {
+        _isExtensionEnabled = State(initialValue: Self.isEnabled())
+    }
+
+    var body: some View {
+        if !isExtensionEnabled {
+            Button("EnableQuickDropExtension".localized()) {
+                shareItems = [
+                    "EnableQuickDropExtensionDescription".localized()
+                ]
+                showSharePicker = true
+            }
+            .background(
+                SharingPickerPresenter(
+                    isPresented: $showSharePicker,
+                    sharingItems: shareItems
+                )
+            )
+            .padding()
+            .onReceive(timer) { _ in
+                updateEnabledState()
+            }
+        }
+        else if showSuccessCheckmark {
+            Image(systemName: "checkmark.circle.fill")
+                .font(.system(size: 20))
+                .foregroundColor(.green)
+                .background(Circle().foregroundColor(.white).frame(width: 18, height: 18))
+                .scaleEffect(animateCheckmark ? 1.0 : 0.5)
+                .animation(.easeOut(duration: 0.4), value: animateCheckmark)
+                .onAppear {
+                    animateCheckmark = true
+                }
+                .padding()
+        }
+    }
+
+    private func updateEnabledState() {
+        let enabled = Self.isEnabled()
+        if enabled != isExtensionEnabled {
+            withAnimation(.smooth) {
+                isExtensionEnabled = enabled
+                
+                if enabled {
+                    showSuccessCheckmark = true
+                }
+            }
+        }
+    }
+
+    private static func isEnabled() -> Bool {
+        NSSharingService(
+            named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension")
+        ) != nil
+    }
+}
+
+
+private struct SharingPickerPresenter: NSViewRepresentable {
+    @Binding var isPresented: Bool
+    let sharingItems: [Any]
+
+    func makeNSView(context: Context) -> NSView { NSView() }
+
+    func updateNSView(_ nsView: NSView, context: Context) {
+        guard isPresented else { return }
+
+        let picker = NSSharingServicePicker(items: sharingItems)
+
+        DispatchQueue.main.async {
+            picker.show(relativeTo: nsView.bounds, of: nsView, preferredEdge: .minY)
+            isPresented = false
         }
     }
 }

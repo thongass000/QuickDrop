@@ -95,14 +95,7 @@ struct DeviceListView: View {
                 }
                 
                 if !nearbyConnectionManager.hasLocalNetworkPermission {
-                    CardView(backgroundColor: .red, title: "NoNetworkAccess", titleSymbol: "network.slash") {
-                        LUIText("NoLocalNetworkAccessDescription", color: .white)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .padding(.bottom, 10)
-                    .onTapGesture {
-                        openAppSettings()
-                    }
+                    NoLocalNetworkAccessAlertView()
                 }
                 
                 var availableDevices: [RemoteDeviceInfo] {

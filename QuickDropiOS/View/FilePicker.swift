@@ -49,7 +49,6 @@ struct SendPickerButton<Label: View>: View {
             onPrepare?()
             updatedPhotoSelection(content: newItems)
         }
-        // File picker
         .fileImporter(isPresented: $showFilePicker,
                       allowedContentTypes: [.item, .folder], // any file
                       allowsMultipleSelection: true) { result in
