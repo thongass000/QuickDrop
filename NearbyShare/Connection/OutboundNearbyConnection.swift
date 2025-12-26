@@ -175,8 +175,8 @@ class OutboundNearbyConnection: NearbyConnection {
         frame.v1 = Location_Nearby_Connections_V1Frame()
         frame.v1.type = .connectionRequest
         frame.v1.connectionRequest = Location_Nearby_Connections_ConnectionRequestFrame()
-        frame.v1.connectionRequest.endpointID = String(bytes: NearbyConnectionManager.shared.endpointID, encoding: .ascii)!
-        frame.v1.connectionRequest.endpointName = endpointInfo.name ?? "QuickDrop"
+        frame.v1.connectionRequest.endpointID = Data(NearbyConnectionManager.shared.endpointID)
+        frame.v1.connectionRequest.endpointName = Data((endpointInfo.name ?? "QuickDrop").utf8)
         frame.v1.connectionRequest.endpointInfo = endpointInfo.serialize()
         frame.v1.connectionRequest.mediums = [.wifiLan]
         try sendFrameAsync(frame.serializedData())

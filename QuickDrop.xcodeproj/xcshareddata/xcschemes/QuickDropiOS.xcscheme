@@ -51,7 +51,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <StoreKitConfigurationFileReference
-         identifier = "../../Config.storekit">
+         identifier = "../../ConfigSynced.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction

@@ -342,6 +342,12 @@
 		EBC05C8C2E33B59E00EECC18 /* timeIsNow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EBC05C8A2E33B59E00EECC18 /* timeIsNow.mp3 */; };
 		EBCC27F92D80C9F90079C478 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC27F82D80C9F70079C478 /* Zip.swift */; };
 		EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */; };
+		EBD6AFBB2EF826E600DED4CD /* ConfigSynced.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBD6AFBA2EF826E600DED4CD /* ConfigSynced.storekit */; };
+		EBD6AFBC2EF826E600DED4CD /* ConfigSynced.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBD6AFBA2EF826E600DED4CD /* ConfigSynced.storekit */; };
+		EBD6AFBD2EF826E600DED4CD /* ConfigSynced.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBD6AFBA2EF826E600DED4CD /* ConfigSynced.storekit */; };
+		EBD6AFBE2EF826E600DED4CD /* ConfigSynced.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBD6AFBA2EF826E600DED4CD /* ConfigSynced.storekit */; };
+		EBD6AFBF2EF826E600DED4CD /* ConfigSynced.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBD6AFBA2EF826E600DED4CD /* ConfigSynced.storekit */; };
+		EBD6AFC02EF826E600DED4CD /* ConfigSynced.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBD6AFBA2EF826E600DED4CD /* ConfigSynced.storekit */; };
 		EBE5FF3F2EDB6F550019B380 /* LUI in Frameworks */ = {isa = PBXBuildFile; productRef = EBE5FF3E2EDB6F550019B380 /* LUI */; };
 		EBE5FF412EDB6F5D0019B380 /* LUI in Frameworks */ = {isa = PBXBuildFile; productRef = EBE5FF402EDB6F5D0019B380 /* LUI */; };
 		EBE5FF422EDB6F6F0019B380 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8D2E50CA23008B8C5C /* Configuration.swift */; };
@@ -563,6 +569,7 @@
 		EBC05C8A2E33B59E00EECC18 /* timeIsNow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timeIsNow.mp3; sourceTree = "<group>"; };
 		EBCC27F82D80C9F70079C478 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
 		EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		EBD6AFBA2EF826E600DED4CD /* ConfigSynced.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = ConfigSynced.storekit; sourceTree = "<group>"; };
 		EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Config.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -675,6 +682,7 @@
 			children = (
 				EB721F232E75AFA900F2099F /* QuickDropIcon.icon */,
 				EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */,
+				EBD6AFBA2EF826E600DED4CD /* ConfigSynced.storekit */,
 				69DA9A1029E0BF5100A442DA /* QuickDrop */,
 				699DEBA22AB0573200115D22 /* ShareExtension */,
 				69DCF4822AB70D0600CBE2CC /* NearbyShare */,
@@ -1130,6 +1138,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD6AFBC2EF826E600DED4CD /* ConfigSynced.storekit in Resources */,
 				EBE5FF4D2EDB8D4B0019B380 /* Config.storekit in Resources */,
 				EB5C36942E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */,
 				EB5C36E52E34EC0E0052EFD7 /* License.txt in Resources */,
@@ -1146,6 +1155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD6AFBB2EF826E600DED4CD /* ConfigSynced.storekit in Resources */,
 				EBE5FF4C2EDB8D4B0019B380 /* Config.storekit in Resources */,
 				69DA9A1429E0BF5200A442DA /* Assets.xcassets in Resources */,
 				EB5C36E42E34EC0E0052EFD7 /* License.txt in Resources */,
@@ -1162,6 +1172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD6AFBF2EF826E600DED4CD /* ConfigSynced.storekit in Resources */,
 				EB3B9F382EF7150400D6704E /* Config.storekit in Resources */,
 				EB3B9F392EF7150400D6704E /* Assets.xcassets in Resources */,
 				EB3B9F3A2EF7150400D6704E /* License.txt in Resources */,
@@ -1178,6 +1189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD6AFC02EF826E600DED4CD /* ConfigSynced.storekit in Resources */,
 				EB3B9F7C2EF7151900D6704E /* Config.storekit in Resources */,
 				EB3B9F7D2EF7151900D6704E /* Localizable.xcstrings in Resources */,
 				EB3B9F7E2EF7151900D6704E /* License.txt in Resources */,
@@ -1201,6 +1213,7 @@
 				EB97A0152E51DD00008B8C5C /* timeIsNow.mp3 in Resources */,
 				EB721F242E75AFA900F2099F /* QuickDropIcon.icon in Resources */,
 				EB886E552E4E50F40052B7D9 /* Localizable.xcstrings in Resources */,
+				EBD6AFBD2EF826E600DED4CD /* ConfigSynced.storekit in Resources */,
 				EB7654C02E534A8E006B4AA3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1213,6 +1226,7 @@
 				EB1325FE2E7034B000FD749C /* InfoPlist.xcstrings in Resources */,
 				EBE5FF4E2EDB8D4B0019B380 /* Config.storekit in Resources */,
 				EB950B702E520734002D68FA /* Localizable.xcstrings in Resources */,
+				EBD6AFBE2EF826E600DED4CD /* ConfigSynced.storekit in Resources */,
 				EB950B5C2E52065A002D68FA /* justMaybe.mp3 in Resources */,
 				EB950B5D2E52065A002D68FA /* License.txt in Resources */,
 				EB7654C12E534A8E006B4AA3 /* Assets.xcassets in Resources */,
@@ -1717,8 +1731,8 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 102;
-				SHARED_VERSION = 2.10;
+				SHARED_BUILD = 106;
+				SHARED_VERSION = 2.10.1;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1780,8 +1794,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 102;
-				SHARED_VERSION = 2.10;
+				SHARED_BUILD = 106;
+				SHARED_VERSION = 2.10.1;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;

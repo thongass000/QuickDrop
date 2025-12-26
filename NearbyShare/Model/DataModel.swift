@@ -9,6 +9,7 @@ import Foundation
 import Network
 import CryptoKit
 import SwiftECC
+import LUI
 
 
 protocol InboundNearbyConnectionDelegate {
@@ -56,9 +57,9 @@ public struct RemoteDeviceInfo: Codable, Identifiable, Equatable {
     public let qrCodeData: Data?
     public var id: String?
 
-    init(name: String, type: DeviceType, id: String? = nil) {
+    init(name: String?, type: DeviceType?, id: String? = nil) {
         self.name = name
-        self.type = type
+        self.type = type ?? .phone
         self.id = id
         self.qrCodeData = nil
     }
@@ -191,7 +192,10 @@ public struct EndpointInfo {
 
     
     init?(data: Data) {
-        guard data.count > 17 else { return nil }
+        guard data.count > 17 else {
+            log("[EndpointInfo] Invalid endpoint info data received (too short)")
+            return nil
+        }
         
         let hasName = (data[0] & 0x10) == 0
         let deviceNameLength: Int
@@ -199,8 +203,14 @@ public struct EndpointInfo {
         
         if hasName {
             deviceNameLength = Int(data[17])
-            guard data.count >= deviceNameLength + 18 else { return nil }
-            guard let newDeviceName = String(data: data[18..<(18 + deviceNameLength)], encoding: .utf8) else { return nil }
+            guard data.count >= deviceNameLength + 18 else {
+                log("[EndpointInfo] Invalid endpoint info data received (name length mismatch)")
+                return nil
+            }
+            guard let newDeviceName = String(data: data[18..<(18 + deviceNameLength)], encoding: .utf8) else {
+                log("[EndpointInfo] Invalid endpoint info data received (name decoding failed)")
+                return nil
+            }
             deviceName = newDeviceName
         }
         else {

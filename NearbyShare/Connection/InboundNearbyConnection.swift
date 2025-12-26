@@ -242,19 +242,9 @@ class InboundNearbyConnection: NearbyConnection {
         
         guard case .connectionRequest = frame.v1.type else { throw NearbyError.protocolError("Unexpected frame type \(frame.v1.type)") }
         
-        let endpointInfo = frame.v1.connectionRequest.endpointInfo
+        let endpointInfo = EndpointInfo(data: frame.v1.connectionRequest.endpointInfo)
         
-        guard endpointInfo.count > 17 else { throw NearbyError.protocolError("Endpoint info too short") }
-        
-        let deviceNameLength = Int(endpointInfo[17])
-        
-        guard endpointInfo.count >= deviceNameLength + 18 else { throw NearbyError.protocolError("Endpoint info too short to contain the device name") }
-        
-        guard let deviceName = String(data: endpointInfo[18 ..< (18 + deviceNameLength)], encoding: .utf8) else { throw NearbyError.protocolError("Device name is not valid UTF-8") }
-        
-        let rawDeviceType = Int(endpointInfo[0] & 7) >> 1
-        
-        remoteDeviceInfo = RemoteDeviceInfo(name: deviceName, type: RemoteDeviceInfo.DeviceType.fromRawValue(value: rawDeviceType))
+        remoteDeviceInfo = RemoteDeviceInfo(name: endpointInfo?.name, type: endpointInfo?.deviceType)
         currentState = .receivedConnectionRequest
     }
     

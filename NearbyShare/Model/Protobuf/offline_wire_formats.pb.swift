@@ -245,8 +245,8 @@ struct Location_Nearby_Connections_ConnectionRequestFrame: @unchecked Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var endpointID: String {
-    get {return _storage._endpointID ?? String()}
+  var endpointID: Data {
+    get {return _storage._endpointID ?? Data()}
     set {_uniqueStorage()._endpointID = newValue}
   }
   /// Returns true if `endpointID` has been explicitly set.
@@ -254,8 +254,8 @@ struct Location_Nearby_Connections_ConnectionRequestFrame: @unchecked Sendable {
   /// Clears the value of `endpointID`. Subsequent reads from it will return its default value.
   mutating func clearEndpointID() {_uniqueStorage()._endpointID = nil}
 
-  var endpointName: String {
-    get {return _storage._endpointName ?? String()}
+  var endpointName: Data {
+    get {return _storage._endpointName ?? Data()}
     set {_uniqueStorage()._endpointName = newValue}
   }
   /// Returns true if `endpointName` has been explicitly set.
@@ -2550,8 +2550,8 @@ extension Location_Nearby_Connections_ConnectionRequestFrame: SwiftProtobuf.Mess
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}endpoint_id\0\u{3}endpoint_name\0\u{3}handshake_data\0\u{1}nonce\0\u{1}mediums\0\u{3}endpoint_info\0\u{3}medium_metadata\0\u{3}keep_alive_interval_millis\0\u{3}keep_alive_timeout_millis\0\u{3}device_type\0\u{3}device_info\0\u{3}connections_device\0\u{3}presence_device\0\u{3}connection_mode\0\u{3}location_hint\0")
 
   fileprivate class _StorageClass {
-    var _endpointID: String? = nil
-    var _endpointName: String? = nil
+    var _endpointID: Data? = nil
+    var _endpointName: Data? = nil
     var _handshakeData: Data? = nil
     var _nonce: Int32? = nil
     var _mediums: [Location_Nearby_Connections_ConnectionRequestFrame.Medium] = []
@@ -2606,8 +2606,8 @@ extension Location_Nearby_Connections_ConnectionRequestFrame: SwiftProtobuf.Mess
         // allocates stack space for every case branch when no optimizations are
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
-        case 1: try { try decoder.decodeSingularStringField(value: &_storage._endpointID) }()
-        case 2: try { try decoder.decodeSingularStringField(value: &_storage._endpointName) }()
+        case 1: try { try decoder.decodeSingularBytesField(value: &_storage._endpointID) }()
+        case 2: try { try decoder.decodeSingularBytesField(value: &_storage._endpointName) }()
         case 3: try { try decoder.decodeSingularBytesField(value: &_storage._handshakeData) }()
         case 4: try { try decoder.decodeSingularInt32Field(value: &_storage._nonce) }()
         case 5: try { try decoder.decodeRepeatedEnumField(value: &_storage._mediums) }()
@@ -2658,10 +2658,10 @@ extension Location_Nearby_Connections_ConnectionRequestFrame: SwiftProtobuf.Mess
       // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
       // https://github.com/apple/swift-protobuf/issues/1182
       try { if let v = _storage._endpointID {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
       } }()
       try { if let v = _storage._endpointName {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 2)
       } }()
       try { if let v = _storage._handshakeData {
         try visitor.visitSingularBytesField(value: v, fieldNumber: 3)
