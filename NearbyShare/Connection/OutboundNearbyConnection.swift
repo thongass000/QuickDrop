@@ -388,7 +388,7 @@ class OutboundNearbyConnection: NearbyConnection {
                 meta.payloadID = Int64.random(in: Int64.min ... Int64.max)
                 meta.id = Int64.random(in: Int64.min ... Int64.max)
                 
-                try queue.append(OutgoingFileTransfer(url: url, payloadID: meta.payloadID, handle: FileHandle(forReadingFrom: url), totalBytes: meta.size, currentOffset: 0))
+                try queue.append(OutgoingFileTransfer(url: url, fileName: meta.name, payloadID: meta.payloadID, handle: FileHandle(forReadingFrom: url), totalBytes: meta.size, currentOffset: 0))
                 introduction.v1.introduction.fileMetadata.append(meta)
                 totalBytesToSend += meta.size
                 
@@ -491,7 +491,7 @@ class OutboundNearbyConnection: NearbyConnection {
         transfer.payloadHeader.type = .file
         transfer.payloadHeader.totalSize = Int64(currentTransfer!.totalBytes)
         transfer.payloadHeader.isSensitive = false
-        transfer.payloadHeader.fileName = OutboundNearbyConnection.sanitizeFileName(name: currentTransfer!.url.lastPathComponent)
+        transfer.payloadHeader.fileName = currentTransfer!.fileName
         currentTransfer!.currentOffset += Int64(fileBuffer.count)
 
         var wrapper = Location_Nearby_Connections_OfflineFrame()
@@ -545,6 +545,7 @@ class OutboundNearbyConnection: NearbyConnection {
     
     private struct OutgoingFileTransfer {
         let url: URL
+        let fileName: String
         let payloadID: Int64
         let handle: FileHandle?
         let totalBytes: Int64
