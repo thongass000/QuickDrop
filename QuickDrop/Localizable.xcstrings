@@ -24451,229 +24451,229 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "لإرسال ملف إلى جهاز Android الخاص بك، انقر فوق أيقونة المشاركة أو انقر بزر الماوس الأيمن على الملف ثم اختر \"مشاركة\". بعد ذلك، اختر \"QuickDrop\" من قائمة التطبيقات واتبع التعليمات.\n\nإذا لم يظهر QuickDrop في القائمة، فانقر فوق \"تعديل الامتدادات\"، وانتقل لأسفل، وقم بتمكين QuickDrop.\n\nيمكنك أيضًا إرسال المحتوى الحالي للحافظة الخاصة بجهاز Mac إلى جهاز Android الخاص بك عن طريق النقر على أيقونة QuickDrop في شريط القوائم واختيار \"إرسال الحافظة\"."
+            "value" : "لإرسال ملف إلى جهاز Android الخاص بك، اضغط على أيقونة المشاركة أو انقر بزر الماوس الأيمن على الملف واختر \"مشاركة\". بعد ذلك، اختر \"QuickDrop\" من قائمة التطبيقات واتبع التعليمات.\n\nإذا لم تجد QuickDrop في القائمة، اضغط على \"تعديل الامتدادات\"، مرّر للأسفل وفعّل زر التبديل لـ QuickDrop. إذا لم يظهر QuickDrop بعد إكمال هذه الخطوة، يرجى إعادة تشغيل جهاز Mac. بعد إعادة التشغيل، يجب أن يصبح QuickDrop متاحاً في القائمة.\n\nيمكنك أيضاً إرسال محتوى الحافظة الحالي في Mac إلى جهاز Android بالضغط على أيقونة QuickDrop في شريط القوائم واختيار \"إرسال الحافظة\"."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per enviar un arxiu al teu dispositiu Android, fes clic a la icona de Compartir o clic dret a l'arxiu i selecciona \"Compartir\". Després, selecciona \"QuickDrop\" de la llista d'apps i segueix les instruccions.\n\nSi no veus QuickDrop a la llista, fes clic a \"Editar Extensions\", ves avall i activa QuickDrop."
+            "value" : "Per enviar un fitxer al teu dispositiu Android, fes clic a la icona de Compartir o fes clic dret al fitxer i selecciona \"Compartir\". A continuació, tria \"QuickDrop\" de la llista d'apps i segueix les instruccions.\n\nSi no veus QuickDrop a la llista, fes clic a \"Edita extensions\", baixa fins avall i activa el commutador per QuickDrop. Si QuickDrop encara no apareix, reinicia el teu Mac. Un cop reiniciat, QuickDrop hauria d'estar disponible al menú.\n\nTambé pots enviar el contingut actual del porta-retalls del teu Mac al teu dispositiu Android fent clic a la icona de la barra de menú de QuickDrop i seleccionant \"Envia porta-retalls\"."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chcete-li odeslat soubor na své zařízení Android, klikněte na ikonu sdílení nebo klikněte pravým tlačítkem myši na soubor a vyberte \"Sdílet\". Poté vyberte \"QuickDrop\" ze seznamu aplikací a postupujte podle pokynů.\n\nPokud QuickDrop nevidíte v seznamu, klikněte na \"Upravit rozšíření\", posuňte se dolů a aktivujte přepínač pro QuickDrop.\n\nMůžete také odeslat aktuální obsah schránky Macu do zařízení Android kliknutím na ikonu QuickDrop v menu baru a výběrem \"Odeslat schránku\"."
+            "value" : "Chcete-li odeslat soubor do svého zařízení Android, klikněte na ikonu Sdílet nebo klikněte pravým tlačítkem na soubor a vyberte „Sdílet“. Poté v seznamu aplikací vyberte „QuickDrop“ a postupujte podle pokynů.\n\nPokud nevidíte QuickDrop v seznamu, klikněte na „Upravit rozšíření“, sjeďte dolů a povolte přepínač pro QuickDrop. Pokud se QuickDrop po tomto kroku stále nezobrazuje, restartujte Mac. Po restartování by měl být QuickDrop v nabídce dostupný.\n\nAktuální obsah schránky Macu můžete také odeslat na zařízení Android kliknutím na ikonu QuickDrop v horní liště a volbou „Odeslat schránku“."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "For at sende en fil til din Android-enhed skal du klikke på Share-ikonet eller højreklikke på filen og vælge \"Del\". Derefter vælger du \"QuickDrop\" fra listen over apps og følger instruktionerne.\n\nHvis du ikke ser QuickDrop på listen, skal du klikke på \"Rediger udvidelser\", rulle ned og aktivere QuickDrop.\n\nDu kan også sende indholdet af din Mac's udklipsholder til din Android-enhed ved at klikke på QuickDrop-ikonet i menulinjen og vælge \"Send udklipsholder\"."
+            "value" : "For at sende en fil til din Android-enhed, skal du klikke på Del-ikonet eller højreklikke på filen og vælge \"Del\". Vælg derefter \"QuickDrop\" fra listen over apps og følg anvisningerne.\n\nHvis du ikke ser QuickDrop på listen, skal du klikke på \"Rediger udvidelser\", rulle ned og aktivere kontakten for QuickDrop. Hvis QuickDrop stadig ikke vises, efter du har gjort dette, så genstart din Mac. Når din Mac er genstartet, bør QuickDrop være tilgængelig i menuen.\n\nDu kan også sende indholdet fra din Macs udklipsholder til din Android-enhed ved at klikke på QuickDrops menulinjeikon og vælge \"Send udklipsholder\"."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Um eine Datei an dein Android-Gerät zu senden, klicke mit der rechten Maustaste auf die Datei und wähle „Teilen“ oder wähle das Teilen-Symbol aus. Klicke anschließend auf „QuickDrop“ und folge den Anweisungen.\n\nFalls QuickDrop nicht in der Liste erscheint, klicke auf „Erweiterungen bearbeiten“, scrolle nach unten und aktiviere den Schalter für QuickDrop.\n\nDu kannst auch den aktuellen Inhalt der Zwischenablage deines Macs an dein Android-Gerät senden, indem du auf das QuickDrop-Symbol in der Menüleiste klickst und „Zwischenablage senden“ auswählst."
+            "value" : "Um eine Datei an dein Android-Gerät zu senden, klicke auf das Teilen-Symbol oder mache einen Rechtsklick auf die Datei und wähle „Teilen“. Wähle dann „QuickDrop“ aus der App-Liste aus und folge den Anweisungen.\n\nFalls QuickDrop nicht in der Liste erscheint, klicke auf „Erweiterungen bearbeiten“, scrolle nach unten und aktiviere den Schalter für QuickDrop. Sollte QuickDrop danach immer noch nicht angezeigt werden, starte deinen Mac neu. Danach sollte QuickDrop im Menü verfügbar sein.\n\nDu kannst auch den aktuellen Inhalt der Zwischenablage deines Macs an dein Android-Gerät senden, indem du auf das QuickDrop-Symbol in der Menüleiste klickst und „Zwischenablage senden“ auswählst."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Για να στείλετε ένα αρχείο στη συσκευή σας Android, κάντε κλικ στο εικονίδιο Κοινοποίησης ή κάντε δεξί κλικ στο αρχείο και επιλέξτε \"Κοινοποίηση\". Μετά, επιλέξτε \"QuickDrop\" από τη λίστα εφαρμογών και ακολουθήστε τις οδηγίες.\n\nΑν δεν βλέπετε το QuickDrop στη λίστα, κάντε κλικ στο \"Επεξεργασία Επεκτάσεων\", σκρολάρετε κάτω και ενεργοποιήστε τον διακόπτη για το QuickDrop.\n\nΜπορείτε επίσης να στείλετε το τρέχον περιεχόμενο του πρόχειρου του Mac σας στη συσκευή Android σας κάνοντας κλικ στο εικονίδιο της γραμμής μενού του QuickDrop και επιλέγοντας \"Αποστολή Πρόχειρου\"."
+            "value" : "Για να στείλετε ένα αρχείο στη συσκευή σας Android, κάντε κλικ στο εικονίδιο Κοινή Χρήση ή δεξί κλικ στο αρχείο και επιλέξτε «Κοινή Χρήση». Στη συνέχεια, επιλέξτε «QuickDrop» από τη λίστα εφαρμογών και ακολουθήστε τις οδηγίες.\n\nΑν δεν βλέπετε το QuickDrop στη λίστα, κάντε κλικ στο «Επεξεργασία Επεκτάσεων», μετακινηθείτε προς τα κάτω και ενεργοποιήστε τον διακόπτη για το QuickDrop. Εάν το QuickDrop δεν εμφανιστεί μετά από αυτό το βήμα, παρακαλούμε επανεκκινήστε το Mac σας. Μετά την επανεκκίνηση, το QuickDrop θα είναι διαθέσιμο στο μενού.\n\nΜπορείτε επίσης να στείλετε το περιεχόμενο του πρόχειρου του Mac σας στη συσκευή Android κάνοντας κλικ στο εικονίδιο QuickDrop στη γραμμή μενού και επιλέγοντας «Αποστολή πρόχειρου»."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To send a file to your Android device, click on the Share icon or right-click on the file and select \"Share\". Afterward, select \"QuickDrop\" from the list of apps and follow the instructions.\n\nIf you don't see QuickDrop in the list, click on \"Edit Extensions\", scroll down, and enable the toggle for QuickDrop.\n\nYou also can send the current content of your Mac's clipboard to your Android device by clicking on QuickDrop's menu bar icon and selecting \"Send Clipboard\"."
+            "value" : "To send a file to your Android device, click on the Share icon or right-click on the file and select \"Share\". Then, select \"QuickDrop\" from the list of apps and follow the instructions.\n\nIf you don't see QuickDrop in the list, click on \"Edit Extensions\", scroll down, and enable the toggle for QuickDrop. If QuickDrop still does not appear after this step, please restart your Mac. After restarting, QuickDrop should be available in the menu.\n\nYou can also send the current content of your Mac's clipboard to your Android device by clicking on QuickDrop's menu bar icon and selecting \"Send Clipboard\"."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To send files to your Android, click the Share icon or right-click and pick \"Share\". Choose \"QuickDrop\" as the app and follow instructions.\n\nIf QuickDrop doesn't appear, click \"Edit Extensions\", scroll and toggle QuickDrop on. Alternatively, use QuickDrop's menu bar icon to send clipboard content."
+            "value" : "To send a file to your Android device, click on the Share icon or right-click on the file and select \"Share\". Then, select \"QuickDrop\" from the list of apps and follow the instructions.\n\nIf you don’t see QuickDrop in the list, click on \"Edit Extensions\", scroll down, and turn on the toggle for QuickDrop. If QuickDrop still doesn’t show up after this, please restart your Mac. Once restarted, QuickDrop should be available in the menu.\n\nYou can also send your Mac's clipboard contents to your Android device by clicking on QuickDrop’s menu bar icon and selecting \"Send Clipboard\"."
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To send files to your Android device, click Share or right-click a file and choose \"Share.\" Select \"QuickDrop\" from the app list and follow the instructions.\n\nIf QuickDrop isn’t visible, go to \"Edit Extensions,\" scroll down, and enable the toggle for QuickDrop.\n\nAlternatively, send your Mac’s clipboard content by clicking QuickDrop in the menu bar and choosing \"Send Clipboard.\""
+            "value" : "To send a file to your Android device, click on the Share icon or right-click on the file and select \"Share.\" Then, choose \"QuickDrop\" from the list of apps and follow the instructions.\n\nIf you don’t see QuickDrop in the list, click on \"Edit Extensions,\" scroll down, and turn on the toggle for QuickDrop. If QuickDrop still doesn’t show up after this, please restart your Mac. After restarting, QuickDrop should appear in the menu.\n\nYou can also send your Mac’s clipboard contents to your Android device by clicking the QuickDrop icon in the menu bar and choosing \"Send Clipboard.\""
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Send files to Android via Share icon/right-click > Share > QuickDrop. If not listed, enable QuickDrop under \"Edit Extensions\".\n\nYou can also send clipboard content via the menu bar QuickDrop icon."
+            "value" : "To send a file to your Android device, click on the Share icon or right-click on the file and select \"Share\". Afterwards, select \"QuickDrop\" from the list of apps and follow the instructions.\n\nIf you don't see QuickDrop in the list, click on \"Edit Extensions\", scroll down, and enable the toggle for QuickDrop. If QuickDrop does not appear after completing this step, please restart your Mac. Once restarted, QuickDrop should be available in the menu.\n\nYou can also send the current content of your Mac's clipboard to your Android device by clicking on QuickDrop's menu bar icon and selecting \"Send Clipboard\"."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para enviar un archivo a tu dispositivo Android, haz clic en el icono de Compartir o haz clic derecho sobre el archivo y selecciona \"Compartir\". Luego, selecciona \"QuickDrop\" de la lista de aplicaciones y sigue las instrucciones.\n\nSi no ves QuickDrop en la lista, haz clic en \"Editar extensiones\", desplázate hacia abajo y habilita la opción para QuickDrop.\n\nTambién puedes enviar el contenido actual del portapapeles de tu Mac a tu dispositivo Android haciendo clic en el icono de QuickDrop en la barra de menú y seleccionando \"Enviar contenido del portapapeles\"."
+            "value" : "Para enviar un archivo a tu dispositivo Android, haz clic en el ícono de Compartir o haz clic derecho sobre el archivo y selecciona \"Compartir\". Luego, elige \"QuickDrop\" de la lista de apps y sigue las instrucciones.\n\nSi no ves QuickDrop en la lista, haz clic en \"Editar extensiones\", desplázate hacia abajo y activa el interruptor de QuickDrop. Si QuickDrop sigue sin aparecer después de este paso, reinicia tu Mac. Después de reiniciar, QuickDrop debería estar disponible en el menú.\n\nTambién puedes enviar el contenido actual del portapapeles de tu Mac a tu dispositivo Android haciendo clic en el ícono de QuickDrop en la barra de menú y seleccionando \"Enviar portapapeles\"."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para enviar un archivo a tu dispositivo Android, haz clic en el icono de compartir o haz clic derecho en el archivo y selecciona \"Compartir\". Luego, selecciona \"QuickDrop\" de la lista de apps y sigue las instrucciones.\n\nSi no ves QuickDrop en la lista, haz clic en \"Editar extensiones\", desplázate hacia abajo y habilita el interruptor para QuickDrop.\n\nTambién puedes enviar el contenido actual del portapapeles de tu Mac a tu dispositivo Android haciendo clic en el icono de la barra de menú de QuickDrop y seleccionando \"Enviar portapapeles\"."
+            "value" : "Para enviar un archivo a tu dispositivo Android, haz clic en el ícono de Compartir o haz clic derecho sobre el archivo y selecciona \"Compartir\". Luego, elige \"QuickDrop\" de la lista de apps y sigue las instrucciones.\n\nSi no ves QuickDrop en la lista, haz clic en \"Editar extensiones\", desplázate hacia abajo y activa el interruptor de QuickDrop. Si QuickDrop sigue sin aparecer después de este paso, reinicia tu Mac. Una vez reiniciado, QuickDrop debería estar disponible en el menú.\n\nTambién puedes enviar el contenido actual del portapapeles de tu Mac a tu dispositivo Android haciendo clic en el ícono de QuickDrop en la barra de menú y seleccionando \"Enviar portapapeles\"."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jos haluat lähettää tiedoston Android-laitteeseesi, napsauta Jaa-kuvaketta tai hiiren oikealla tiedostoa ja valitse 'Jaa'. Valitse sen jälkeen 'QuickDrop' sovelluslistasta ja seuraa ohjeita.\n\nJos et näe QuickDropia listassa, napsauta 'Muokkaa laajennuksia', vieritä alas ja ota QuickDrop käyttöön.\n\nVoit myös lähettää Macin leikepöydän sisällön Android-laitteeseesi napsauttamalla QuickDropin valikkorivin kuvaketta ja valitsemalla 'Lähetä leikepöytä'."
+            "value" : "Lähettääksesi tiedoston Android-laitteellesi, klikkaa Jaa-kuvaketta tai hiiren oikealla tiedoston päällä ja valitse \"Jaa\". Valitse sitten sovelluslistasta \"QuickDrop\" ja seuraa ohjeita.\n\nJos QuickDrop ei näy listalla, klikkaa \"Muokkaa laajennuksia\", vieritä alas ja ota QuickDrop käyttöön vaihtokytkimestä. Mikäli QuickDrop ei tule näkyviin tämän jälkeen, käynnistä Mac uudelleen. Uudelleenkäynnistyksen jälkeen QuickDropin pitäisi näkyä valikossa.\n\nVoit myös lähettää Macisi leikepöydän sisällön Android-laitteellesi klikkaamalla QuickDropin valikkopalkkikuvaketta ja valitsemalla \"Lähetä leikepöytä\"."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pour envoyer un fichier vers votre appareil Android, cliquez sur l'icône de partage ou faites un clic droit sur le fichier et sélectionnez \"Partager\". Ensuite, sélectionnez \"QuickDrop\" dans la liste des applications et suivez les instructions.\n\nSi vous ne voyez pas QuickDrop dans la liste, cliquez sur \"Modifier les extensions\", faites défiler vers le bas et activez l'option pour QuickDrop.\n\nVous pouvez également envoyer le contenu actuel du presse-papiers de votre Mac à votre appareil Android en cliquant sur l'icône QuickDrop dans la barre de menu et en sélectionnant \"Envoyer le presse-papiers\"."
+            "value" : "Pour envoyer un fichier vers votre appareil Android, cliquez sur l’icône Partager ou faites un clic droit sur le fichier et sélectionnez « Partager ». Ensuite, choisissez « QuickDrop » dans la liste des applications et suivez les instructions.\n\nSi QuickDrop n’apparaît pas dans la liste, cliquez sur « Modifier les extensions », faites défiler vers le bas et activez l’option QuickDrop. Si QuickDrop n’apparaît toujours pas après cette étape, redémarrez votre Mac. Après le redémarrage, QuickDrop devrait apparaître dans le menu.\n\nVous pouvez aussi envoyer le contenu actuel du presse-papiers de votre Mac vers votre appareil Android en cliquant sur l’icône QuickDrop dans la barre de menus et en sélectionnant « Envoyer le presse-papiers »."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pour envoyer un fichier à votre appareil Android, cliquez sur l'icône Partager ou faites un clic droit sur le fichier et sélectionnez \"Partager\". Ensuite, sélectionnez \"QuickDrop\" dans la liste des applications et suivez les instructions.\n\nSi QuickDrop n'apparaît pas dans la liste, cliquez sur \"Modifier les extensions\", faites défiler vers le bas et activez QuickDrop.\n\nVous pouvez également envoyer le contenu actuel du presse-papiers de votre Mac à votre appareil Android en cliquant sur l'icône de la barre de menu de QuickDrop et en sélectionnant \"Envoyer le presse-papiers\"."
+            "value" : "Pour envoyer un fichier à votre appareil Android, cliquez sur l’icône de partage ou faites un clic droit sur le fichier et sélectionnez « Partager ». Ensuite, choisissez « QuickDrop » dans la liste des applications et suivez les instructions.\n\nSi QuickDrop n’apparaît pas dans la liste, cliquez sur « Modifier les extensions », faites défiler vers le bas et activez le bouton pour QuickDrop. Si QuickDrop ne s’affiche toujours pas après cette étape, veuillez redémarrer votre Mac. Une fois redémarré, QuickDrop devrait être disponible dans le menu.\n\nVous pouvez aussi envoyer le contenu actuel du presse-papiers de votre Mac à votre appareil Android en cliquant sur l’icône QuickDrop dans la barre de menu, puis en sélectionnant « Envoyer le presse-papiers »."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "כדי לשלוח קובץ למכשיר ה-Android שלך, לחץ על סמל השיתוף או לחץ על הקובץ עם לחצן ימני ובחר \"שתף\". לאחר מכן, בחר \"QuickDrop\" מרשימת האפליקציות ופעל לפי ההוראות.\n\nאם אינך רואה את QuickDrop ברשימה, לחץ על \"ערוך הרחבות\", גלול למטה והפעל את התגית עבור QuickDrop.\n\nתוכל גם לשלוח את התוכן הנוכחי של הלוח של ה-Mac שלך למכשיר ה-Android על ידי לחיצה על אייקון QuickDrop בסרגל התפריטים ובחירה ב\"שלח לוח\"."
+            "value" : "כדי לשלוח קובץ למכשיר האנדרואיד שלך, לחץ על סמל השיתוף או לחץ לחיצה ימנית על הקובץ ובחר \"שיתוף\". לאחר מכן, בחר \"QuickDrop\" מרשימת האפליקציות ופעל לפי ההוראות.\n\nאם אינך רואה את QuickDrop ברשימה, לחץ על \"ערוך הרחבות\", גלול למטה והפעל את המתג עבור QuickDrop. אם QuickDrop לא מופיעה לאחר שלב זה, הפעל מחדש את ה-Mac שלך. לאחר ההפעלה, QuickDrop אמורה להופיע בתפריט.\n\nניתן גם לשלוח את תוכן הלוח הנוכחי של ה-Mac שלך למכשיר האנדרואיד על ידי לחיצה על סמל QuickDrop בשורת התפריטים ובחירה ב\"שלח לוח\"."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Android डिवाइस पर फ़ाइल भेजने के लिए, शेयर आइकन पर क्लिक करें या फ़ाइल पर राइट-क्लिक करें और \"शेयर\" चुनें। इसके बाद, एप्स की सूची में \"QuickDrop\" चुनें और दिशानिर्देशों का पालन करें।\n\nयदि आपको सूची में QuickDrop नहीं दिखता, तो \"Edit Extensions\" पर क्लिक करें, नीचे स्क्रॉल करें, और QuickDrop के लिए टॉगल को सक्षम करें।\n\nआप QuickDrop मेनू बार आइकॉन पर क्लिक करके और \"Send Clipboard\" चुनकर अपने Mac के क्लिपबोर्ड की वर्तमान सामग्री भी अपने Android डिवाइस को भेज सकते हैं।"
+            "value" : "अपने Android डिवाइस पर फ़ाइल भेजने के लिए, फ़ाइल पर Share आइकन पर क्लिक करें या उस पर राइट-क्लिक करके \"Share\" चुनें। इसके बाद, ऐप्स की सूची में से \"QuickDrop\" चुनें और निर्देशों का पालन करें।\n\nयदि आपको सूची में QuickDrop नहीं दिखता है, तो \"Edit Extensions\" पर क्लिक करें, नीचे स्क्रॉल करें और QuickDrop के लिए टॉगल को सक्षम करें। यदि ये करने के बाद भी QuickDrop नहीं दिखता, तो कृपया अपना Mac पुनः चालू करें। पुनः चालू करने के बाद, QuickDrop मेनू में उपलब्ध होना चाहिए।\n\nआप अपने Mac के क्लिपबोर्ड की सामग्री भी अपने Android डिवाइस पर भेज सकते हैं। इसके लिए QuickDrop का मेनू बार आइकन क्लिक करें और \"Send Clipboard\" चुनें।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Da biste poslali datoteku na svoj Android uređaj, kliknite na ikonu Dijeli ili desnim klikom na datoteku odaberite \"Dijeli\". Nakon toga odaberite \"QuickDrop\" s popisa aplikacija i pratite upute.\n\nAko ne vidite QuickDrop na popisu, kliknite na \"Uredi proširenja\", skrolajte dolje i omogućite prekidač za QuickDrop.\n\nTakođer, možete poslati trenutni sadržaj međuspremnika svog Maca na svoj Android uređaj klikom na ikonu QuickDrop na traci izbornika i odabirom \"Pošalji međuspremnik\"."
+            "value" : "Da biste poslali datoteku na svoj Android uređaj, kliknite na ikonu Dijeli ili desnom tipkom miša kliknite na datoteku i odaberite \"Dijeli\". Zatim izaberite \"QuickDrop\" s popisa aplikacija i slijedite upute.\n\nAko ne vidite QuickDrop na popisu, kliknite na \"Uredi ekstenzije\", pomaknite se dolje i uključite prekidač za QuickDrop. Ako se QuickDrop i nakon toga ne pojavi, ponovno pokrenite svoj Mac. Nakon ponovnog pokretanja, QuickDrop bi trebao biti dostupan u izborniku.\n\nTakođer možete poslati trenutni sadržaj međuspremnika vašeg Maca na Android uređaj klikom na QuickDrop ikonu u traci izbornika i odabirom \"Pošalji međuspremnik\"."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fájl küldéséhez az Android-eszközödre kattints a Megosztás ikonra, vagy kattints jobb gombbal a fájlra, majd válaszd a \"Megosztás\" lehetőséget. Ezután válaszd a \"QuickDrop\"-ot az alkalmazások listájából, és kövesd az utasításokat.\n\nHa nem látod a QuickDrop-ot a listában, kattints a \"Bővítmények szerkesztése\" gombra, görgess lefelé, és kapcsold be a QuickDrop-ot.\n\nA Mac vágólapjának aktuális tartalmát is elküldheted az Android-eszközödre a QuickDrop menüsáv ikonjára kattintva, majd a \"Vágólap küldése\" opció kiválasztásával."
+            "value" : "Fájl küldéséhez Android készülékedre kattints a Megosztás ikonra, vagy kattints jobb gombbal a fájlra, és válaszd a \"Megosztás\" lehetőséget. Ezután válaszd ki a listából a \"QuickDrop\" appot, és kövesd az utasításokat.\n\nHa nem látod a QuickDropot a listában, kattints a \"Kiterjesztések szerkesztése\" menüpontra, görgess lefelé, és kapcsold be a QuickDrop kapcsolót. Ha ezután sem jelenik meg, indítsd újra a Mac-et. Újraindítás után a QuickDrop elérhető lesz a menüben.\n\nA Mac vágólapjának aktuális tartalmát is elküldheted Android eszközödre: kattints a QuickDrop menüsor ikonjára, majd válaszd a \"Vágólap küldése\" lehetőséget."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Untuk mengirim file ke perangkat Android Anda, klik ikon Bagikan atau klik kanan pada file dan pilih \"Bagikan\". Selanjutnya, pilih \"QuickDrop\" dari daftar aplikasi dan ikuti petunjuknya.\n\nJika Anda tidak melihat QuickDrop dalam daftar, klik \"Edit Ekstensi\", gulir ke bawah, dan aktifkan toggle untuk QuickDrop.\n\nAnda juga dapat mengirim konten clipboard Mac Anda saat ini ke perangkat Android Anda dengan mengklik ikon bilah menu QuickDrop dan memilih \"Kirim Clipboard\"."
+            "value" : "Untuk mengirim file ke perangkat Android Anda, klik ikon Bagikan atau klik kanan pada file lalu pilih \"Bagikan\". Setelah itu, pilih \"QuickDrop\" dari daftar aplikasi dan ikuti petunjuknya.\n\nJika QuickDrop tidak muncul dalam daftar, klik \"Edit Ekstensi\", gulir ke bawah, lalu aktifkan pengalih untuk QuickDrop. Jika QuickDrop masih belum muncul setelah langkah ini, silakan mulai ulang Mac Anda. Setelah Mac dinyalakan ulang, QuickDrop harus tersedia di menu.\n\nAnda juga bisa mengirim isi clipboard Mac Anda ke perangkat Android dengan mengklik ikon QuickDrop di menu bar dan memilih \"Kirim Clipboard\"."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per inviare un file al tuo dispositivo Android, fai clic sull'icona Condividi o fai clic con il tasto destro sul file e seleziona \"Condividi\". Successivamente, seleziona \"QuickDrop\" dall'elenco delle app e segui le istruzioni.\n\nSe non vedi QuickDrop nell'elenco, fai clic su \"Modifica Estensioni\", scorri verso il basso e abilita l'interruttore per QuickDrop.\n\nPuoi anche inviare il contenuto attuale degli appunti del tuo Mac al tuo dispositivo Android facendo clic sull'icona della barra dei menu di QuickDrop e selezionando \"Invia Appunti\"."
+            "value" : "Per inviare un file al tuo dispositivo Android, clicca sull’icona Condividi oppure fai clic destro sul file e scegli \"Condividi\". Successivamente, seleziona \"QuickDrop\" dall’elenco delle app e segui le istruzioni.\n\nSe non vedi QuickDrop nell’elenco, clicca su \"Modifica estensioni\", scorri verso il basso e attiva l’interruttore per QuickDrop. Se QuickDrop non compare nemmeno dopo questo passaggio, riavvia il Mac. Una volta riavviato, QuickDrop dovrebbe essere disponibile nel menu.\n\nPuoi anche inviare il contenuto attuale degli appunti del Mac al dispositivo Android cliccando sull’icona QuickDrop nella barra menu e selezionando \"Invia Appunti\"."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Androidデバイスにファイルを送信するには、共有アイコンをクリックするか、ファイルを右クリックして「共有」を選択してください。その後、アプリの一覧から「QuickDrop」を選択し、指示に従ってください。\n\nリストにQuickDropが表示されない場合は、「拡張機能を編集」をクリックし、下にスクロールしてQuickDropを有効にしてください。\n\nまた、Macのクリップボードの内容をAndroidデバイスに送信するには、メニューバーのQuickDropアイコンをクリックし、「クリップボードを送信」を選択してください。"
+            "value" : "Android デバイスにファイルを送信するには、共有アイコンをクリックするか、ファイルを右クリックして「共有」を選択してください。その後、アプリ一覧から「QuickDrop」を選び、指示に従ってください。\n\nリストにQuickDropが表示されない場合は、「機能拡張を編集」をクリックし、下にスクロールしてQuickDropのトグルを有効にしてください。この手順を終えてもQuickDropが表示されない場合は、Macを再起動してください。再起動後、メニューでQuickDropが利用できるようになります。\n\nまた、メニューバーのQuickDropアイコンをクリックし、「クリップボード送信」を選択することで、Macのクリップボードの内容をAndroidデバイスに送信できます。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "파일을 Android 기기로 보내려면 공유 아이콘을 클릭하거나 파일을 마우스 오른쪽 버튼으로 클릭한 후 \"공유\"를 선택하세요. 그런 다음 앱 목록에서 \"QuickDrop\"을 선택하고 지시에 따라 진행하세요.\n\n목록에 QuickDrop이 보이지 않는 경우 \"확장 프로그램 편집\"을 클릭하고 아래로 스크롤하여 QuickDrop을 활성화하세요.\n\n또한 메뉴 막대의 QuickDrop 아이콘을 클릭하고 \"클립보드 보내기\"를 선택하여 Mac 클립보드의 현재 내용을 Android 기기로 전송할 수도 있습니다."
+            "value" : "Android 기기로 파일을 전송하려면, 파일을 선택 후 공유 아이콘을 클릭하거나 파일을 우클릭하여 \"공유\"를 선택하세요. 이후 앱 목록에서 \"QuickDrop\"을 선택하고 안내에 따라 진행하세요.\n\n목록에 QuickDrop이 보이지 않으면, \"확장 프로그램 편집\"을 클릭하고 아래로 스크롤하여 QuickDrop 토글을 활성화하세요. 이 단계를 완료해도 QuickDrop이 보이지 않는다면 Mac을 재시작해 주세요. 재시작하면 QuickDrop이 메뉴에 나타날 것입니다.\n\n또한 Mac의 클립보드 내용을 QuickDrop 메뉴 막대 아이콘을 클릭한 뒤 \"클립보드 전송\"을 선택하여 Android 기기로 보낼 수 있습니다."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Untuk menghantar fail ke peranti Android anda, klik pada ikon Berkongsi atau klik kanan pada fail dan pilih \"Berkongsi\". Kemudian, pilih \"QuickDrop\" dari senarai aplikasi dan ikuti arahan.\n\nJika anda tidak melihat QuickDrop dalam senarai, klik \"Edit Sambungan\", tatal ke bawah, dan aktifkan togol untuk QuickDrop.\n\nAnda juga boleh menghantar kandungan semasa papan klip Mac anda ke peranti Android anda dengan mengklik pada ikon bar menu QuickDrop dan memilih \"Hantar Papan Klip\"."
+            "value" : "Untuk menghantar fail ke peranti Android anda, klik ikon Kongsi atau klik kanan pada fail dan pilih \"Kongsi\". Seterusnya, pilih \"QuickDrop\" daripada senarai aplikasi dan ikut arahan yang diberikan.\n\nJika anda tidak nampak QuickDrop dalam senarai, klik pada \"Edit Extensions\", skrol ke bawah dan aktifkan togol untuk QuickDrop. Jika QuickDrop masih tidak muncul selepas langkah ini, sila mulakan semula Mac anda. Setelah dimulakan semula, QuickDrop sepatutnya tersedia dalam menu.\n\nAnda juga boleh hantar kandungan papan klip Mac anda ke peranti Android dengan klik ikon bar menu QuickDrop dan memilih \"Hantar Papan Klip\"."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "For å sende en fil til Android-enheten din, klikk på deleikonet eller høyreklikk på filen og velg \"Del\". Deretter velg \"QuickDrop\" fra applisten og følg instruksjonene.\n\nHvis du ikke ser QuickDrop i listen, klikk på \"Rediger utvidelser\", rull ned og aktiver bryteren for QuickDrop.\n\nDu kan også sende det nåværende innholdet på utklippstavlen på Mac-en din til Android-enheten ved å klikke på QuickDrop-menylinjeikonet og velge \"Send utklippstavle\"."
+            "value" : "For å sende en fil til din Android-enhet, klikk på delingsikonet eller høyreklikk på filen og velg \"Del\". Velg deretter \"QuickDrop\" fra listen over apper og følg instruksjonene.\n\nHvis du ikke ser QuickDrop i listen, klikk på \"Rediger utvidelser\", bla ned og aktiver bryteren for QuickDrop. Hvis QuickDrop fortsatt ikke vises etter dette, start Mac-en på nytt. Etter omstart skal QuickDrop være tilgjengelig i menyen.\n\nDu kan også sende innholdet fra utklippstavlen på Mac-en til Android-enheten ved å klikke på QuickDrop-ikonet i menylinjen og velge \"Send utklippstavle\"."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Om een bestand naar je Android-apparaat te sturen, klik op het Deel-icoon of klik met de rechtermuisknop op het bestand en selecteer \"Delen\". Kies vervolgens \"QuickDrop\" uit de lijst met apps en volg de instructies.\n\nAls je QuickDrop niet in de lijst ziet, klik op \"Extensies bewerken\", scroll naar beneden en schakel QuickDrop in.\n\nJe kunt ook de huidige inhoud van het klembord van je Mac naar je Android-apparaat sturen door op het QuickDrop-pictogram in de menubalk te klikken en \"Klembord verzenden\" te selecteren."
+            "value" : "Om een bestand naar je Android-apparaat te sturen, klik je op het Deel-pictogram of klik je met de rechtermuisknop op het bestand en kies je \"Delen\". Selecteer daarna \"QuickDrop\" uit de lijst met apps en volg de instructies.\n\nZie je QuickDrop niet in de lijst, klik dan op \"Extensies bewerken\", scroll naar beneden en zet de schakelaar voor QuickDrop aan. Verschijnt QuickDrop nog steeds niet na deze stap, herstart dan je Mac. Na het herstarten zou QuickDrop zichtbaar moeten zijn in het menu.\n\nJe kunt ook de huidige inhoud van het klembord van je Mac naar je Android-apparaat sturen via het menu-icoon van QuickDrop door te kiezen voor \"Klembord verzenden\"."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aby wysłać plik na urządzenie z Androidem, kliknij ikonę Udostępnij lub kliknij plik prawym przyciskiem myszy i wybierz „Udostępnij”. Następnie wybierz „QuickDrop” z listy aplikacji i postępuj zgodnie z instrukcjami.\n\nJeśli QuickDrop nie jest widoczny na liście, kliknij \"Edytuj rozszerzenia\", przewiń w dół i włącz przełącznik dla QuickDrop.\n\nMożesz również wysłać zawartość schowka swojego Maca na urządzenie z Androidem, klikając ikonę QuickDrop na pasku menu i wybierając „Wyślij schowek”."
+            "value" : "Aby wysłać plik na swoje urządzenie z Androidem, kliknij ikonę Udostępnij lub kliknij prawym przyciskiem myszy na pliku i wybierz „Udostępnij”. Następnie wybierz „QuickDrop” z listy aplikacji i postępuj zgodnie z instrukcjami.\n\nJeśli nie widzisz QuickDrop na liście, kliknij „Edytuj rozszerzenia”, przewiń w dół i włącz przełącznik dla QuickDrop. Jeśli po tym kroku QuickDrop nadal się nie pojawia, uruchom Maca ponownie. Po restarcie QuickDrop powinien być dostępny w menu.\n\nMożesz także wysłać aktualną zawartość schowka swojego Maca na Androida, klikając ikonę QuickDrop na pasku menu i wybierając „Wyślij schowek”."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para enviar um arquivo para seu dispositivo Android, clique no ícone de Compartilhar ou clique com o botão direito no arquivo e selecione \"Compartilhar\". Em seguida, selecione \"QuickDrop\" na lista de aplicativos e siga as instruções.\n\nSe não encontrar o QuickDrop na lista, clique em \"Editar Extensões\", role para baixo e ative a opção para QuickDrop.\n\nVocê também pode enviar o conteúdo atual da área de transferência do seu Mac para seu dispositivo Android clicando no ícone do QuickDrop na barra de menu e selecionando \"Enviar Área de Transferência\"."
+            "value" : "Para enviar um arquivo para seu dispositivo Android, clique no ícone de Compartilhar ou clique com o botão direito no arquivo e selecione \"Compartilhar\". Em seguida, escolha \"QuickDrop\" na lista de apps e siga as instruções.\n\nSe você não vir o QuickDrop na lista, clique em \"Editar Extensões\", role para baixo e ative o QuickDrop. Caso o QuickDrop não apareça após esse passo, reinicie seu Mac. Depois de reiniciar, o QuickDrop deve estar disponível no menu.\n\nVocê também pode enviar o conteúdo atual da área de transferência do seu Mac para o Android clicando no ícone do QuickDrop na barra de menus e selecionando \"Enviar Área de Transferência\"."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para enviar um ficheiro para o seu dispositivo Android, clique no ícone de Partilhar ou clique com o botão direito no ficheiro e selecione \"Partilhar\". Depois, selecione \"QuickDrop\" na lista de aplicações e siga as instruções.\n\nSe não encontrar o QuickDrop na lista, clique em \"Editar Extensões\", desloque-se para baixo e ative a opção para QuickDrop.\n\nTambém pode enviar o conteúdo atual da área de transferência do seu Mac para o seu dispositivo Android clicando no ícone do QuickDrop na barra de menu e selecionando \"Enviar Área de Transferência\"."
+            "value" : "Para enviar um ficheiro para o seu dispositivo Android, clique no ícone Partilhar ou clique com o botão direito no ficheiro e selecione \"Partilhar\". Depois, escolha \"QuickDrop\" na lista de aplicações e siga as instruções.\n\nSe não vir o QuickDrop na lista, clique em \"Editar Extensões\", desça até encontrar o QuickDrop e ative-o. Se o QuickDrop continuar sem aparecer após este passo, reinicie o seu Mac. Após reiniciar, o QuickDrop deverá estar disponível no menu.\n\nTambém pode enviar o conteúdo atual da área de transferência do seu Mac para o dispositivo Android, clicando no ícone da barra de menu do QuickDrop e selecionando \"Enviar Área de Transferência\"."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pentru a trimite un fișier către dispozitivul dvs. Android, faceți clic pe pictograma Partajare sau faceți clic dreapta pe fișier și selectați \"Partajare\". Apoi, selectați \"QuickDrop\" din lista de aplicații și urmați instrucțiunile.\n\nDacă nu vedeți QuickDrop în listă, faceți clic pe \"Editare extensii\", derulați în jos și activați opțiunea pentru QuickDrop.\n\nDe asemenea, puteți trimite conținutul curent al clipboard-ului Mac-ului dvs. către dispozitivul Android făcând clic pe pictograma QuickDrop din bara de meniu și selectând \"Trimite clipboard\"."
+            "value" : "Pentru a trimite un fișier pe dispozitivul Android, fă clic pe pictograma Partajare sau dă clic dreapta pe fișier și selectează „Partajare”. Apoi, alege „QuickDrop” din lista de aplicații și urmează instrucțiunile.\n\nDacă nu vezi QuickDrop în listă, fă clic pe „Editează extensii”, derulează în jos și activează comutatorul pentru QuickDrop. Dacă QuickDrop nu apare după acest pas, repornește Mac-ul. După repornire, QuickDrop ar trebui să fie disponibil în meniu.\n\nPoți trimite și conținutul actual din clipboard-ul Mac-ului către dispozitivul Android făcând clic pe pictograma QuickDrop din bara de meniu și selectând „Trimite clipboard”."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Чтобы отправить файл на ваше устройство Android, нажмите на значок \"Поделиться\" или щелкните файл правой кнопкой мыши и выберите \"Поделиться\". Затем выберите \"QuickDrop\" из списка приложений и следуйте инструкциям.\n\nЕсли QuickDrop отсутствует в списке, нажмите \"Редактировать расширения\", прокрутите вниз и включите переключатель для QuickDrop.\n\nВы также можете отправить текущий содержимое буфера обмена вашего Mac на устройство Android, нажав на значок QuickDrop в строке меню и выбрав \"Отправить буфер обмена\"."
+            "value" : "Чтобы отправить файл на ваше Android-устройство, нажмите на значок «Поделиться» или щелкните правой кнопкой мыши по файлу и выберите «Поделиться». Затем выберите «QuickDrop» из списка приложений и следуйте инструкциям.\n\nЕсли QuickDrop не отображается в списке, нажмите «Изменить расширения», прокрутите вниз и включите переключатель для QuickDrop. Если даже после этого QuickDrop не появился, перезапустите ваш Mac. После перезапуска QuickDrop должен появиться в меню.\n\nТакже вы можете отправить содержимое буфера обмена вашего Mac на Android-устройство, нажав на иконку QuickDrop в строке меню и выбрав «Отправить буфер обмена»."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "För att skicka en fil till din Android-enhet, klicka på Dela-ikonen eller högerklicka på filen och välj \"Dela\". Välj sedan \"QuickDrop\" från applistan och följ instruktionerna.\n\nOm du inte ser QuickDrop i listan, klicka på \"Ändra Tillägg\", bläddra ner och aktivera reglaget för QuickDrop.\n\nDu kan också skicka det aktuella innehållet från din Macs urklipp till din Android-enhet genom att klicka på QuickDrops menyradsikon och välja \"Skicka Urklipp\"."
+            "value" : "För att skicka en fil till din Android-enhet, klicka på Dela-ikonen eller högerklicka på filen och välj \"Dela\". Välj sedan \"QuickDrop\" från listan över appar och följ instruktionerna.\n\nOm du inte ser QuickDrop i listan, klicka på \"Redigera tillägg\", scrolla ner och aktivera reglaget för QuickDrop. Om QuickDrop fortfarande inte visas efter detta steg, starta om din Mac. Efter omstart ska QuickDrop finnas i menyn.\n\nDu kan också skicka innehållet från Macens urklipp till din Android-enhet genom att klicka på QuickDrops menyfältikonen och välja \"Skicka urklipp\"."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "หากต้องการส่งไฟล์ไปยังอุปกรณ์ Android ของคุณ ให้คลิกที่ไอคอนแชร์ หรือคลิกขวาที่ไฟล์แล้วเลือก \"แชร์\" หลังจากนั้นให้เลือก \"QuickDrop\" จากรายการแอปและทำตามคำแนะนำ\n\nหากคุณไม่เห็น QuickDrop ในรายการ ให้คลิกที่ \"แก้ไขส่วนขยาย\" เลื่อนลง และเปิดใช้งาน QuickDrop\n\nคุณยังสามารถส่งเนื้อหาปัจจุบันของคลิปบอร์ดของ Mac ไปยังอุปกรณ์ Android ของคุณโดยคลิกที่ไอคอน QuickDrop บนแถบเมนูและเลือก \"ส่งคลิปบอร์ด\""
+            "value" : "หากต้องการส่งไฟล์ไปยังอุปกรณ์ Android ของคุณ ให้คลิกไอคอนแชร์ หรือคลิกขวาที่ไฟล์แล้วเลือก \"แชร์\" จากนั้นเลือก \"QuickDrop\" จากรายการแอปแล้วทำตามคำแนะนำ\n\nหากคุณไม่เห็น QuickDrop ในรายการ ให้คลิก \"แก้ไขส่วนขยาย\" เลื่อนลงแล้วเปิดสวิตช์สำหรับ QuickDrop หากยังไม่พบ QuickDrop หลังจากขั้นตอนนี้ กรุณารีสตาร์ท Mac ของคุณ เมื่อรีสตาร์ทแล้ว QuickDrop จะปรากฏในเมนู\n\nคุณยังสามารถส่งเนื้อหาคลิปบอร์ดบน Mac ของคุณไปยัง Android ได้โดยคลิกที่ไอคอนแถบเมนูของ QuickDrop แล้วเลือก \"ส่งคลิปบอร์ด\""
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bir dosyayı Android cihazınıza göndermek için Paylaş simgesine tıklayın veya dosyaya sağ tıklayıp \"Paylaş\"ı seçin. Ardından uygulamalar listesinden \"QuickDrop\"u seçin ve talimatları takip edin.\n\nQuickDrop'u listede göremiyorsanız \"Uzantıları Düzenle\"ye tıklayın, aşağı kaydırın ve QuickDrop için anahtarı etkinleştirin.\n\nAyrıca Mac'inizin panosundaki mevcut içeriği \"QuickDrop\" menü çubuğu simgesine tıklayıp \"Pano Gönder\"i seçerek Android cihazınıza gönderebilirsiniz."
+            "value" : "Bir dosyayı Android cihazınıza göndermek için, Paylaş simgesine tıklayın veya dosyaya sağ tıklayıp \"Paylaş\"ı seçin. Ardından, uygulama listesinden \"QuickDrop\"u seçin ve talimatları izleyin.\n\nEğer QuickDrop'u listede göremiyorsanız, \"Uzantıları Düzenle\"ye tıklayın, aşağı kaydırın ve QuickDrop'un anahtarını etkinleştirin. Bu adımı tamamladıktan sonra hala QuickDrop görünmüyorsa, lütfen Mac'inizi yeniden başlatın. Yeniden başlattıktan sonra QuickDrop menüde yer alacaktır.\n\nAyrıca Mac'inizin panosundaki mevcut içeriği QuickDrop'un menü çubuğu simgesine tıklayıp \"Panoyu Gönder\" seçeneğini seçerek Android cihazınıza gönderebilirsiniz."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Щоб надіслати файл на ваш Android-пристрій, натисніть на значок \"Поділитися\" або клацніть файл правою кнопкою миші та виберіть \"Поділитися\". Потім виберіть \"QuickDrop\" зі списку програм і дотримуйтесь інструкцій.\n\nЯкщо ви не бачите QuickDrop у списку, натисніть \"Редагувати розширення\", прокрутіть вниз і увімкніть QuickDrop.\n\nВи також можете надіслати поточний вміст буфера обміну вашого Mac на Android-пристрій, натиснувши на значок QuickDrop на панелі меню та вибравши \"Надіслати буфер обміну\"."
+            "value" : "Щоб надіслати файл на свій Android-пристрій, натисніть піктограму «Поділитися» або клацніть правою кнопкою миші на файлі й виберіть «Поділитися». Потім виберіть «QuickDrop» зі списку додатків і дотримуйтесь інструкцій.\n\nЯкщо QuickDrop не відображається у списку, натисніть «Редагувати розширення», прокрутіть вниз і ввімкніть перемикач для QuickDrop. Якщо після цього QuickDrop все ще не з’явився, перезапустіть Mac. Після перезапуску QuickDrop має з’явитись у меню.\n\nВи також можете надіслати вміст буфера обміну Mac на свій Android-пристрій, натиснувши іконку QuickDrop у меню та обравши «Надіслати буфер обміну»."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Để gửi tệp vào thiết bị Android, nhấp vào biểu tượng Chia sẻ hoặc nhấp chuột phải vào tệp và chọn \"Chia sẻ\". Sau đó, chọn \"QuickDrop\" từ danh sách ứng dụng và làm theo hướng dẫn.\n\nNếu bạn không thấy QuickDrop trong danh sách, nhấp vào \"Chỉnh sửa Tiện ích mở rộng\", cuộn xuống, và bật nút gạt cho QuickDrop.\n\nBạn cũng có thể gửi nội dung hiện tại của bảng ghi tạm Mac của bạn đến thiết bị Android bằng cách nhấp vào biểu tượng thanh menu của QuickDrop và chọn \"Gửi Bảng ghi tạm\"."
+            "value" : "Để gửi tệp đến thiết bị Android, hãy nhấp vào biểu tượng Chia sẻ hoặc nhấp chuột phải vào tệp và chọn \"Chia sẻ\". Sau đó, chọn \"QuickDrop\" trong danh sách ứng dụng và làm theo hướng dẫn.\n\nNếu không thấy QuickDrop trong danh sách, hãy nhấp vào \"Chỉnh sửa Tiện ích mở rộng\", cuộn xuống và bật chuyển đổi cho QuickDrop. Nếu QuickDrop vẫn không xuất hiện sau bước này, vui lòng khởi động lại máy Mac. Sau khi khởi động lại, QuickDrop sẽ xuất hiện trong menu.\n\nBạn cũng có thể gửi nội dung hiện tại của bảng nhớ tạm trên Mac đến thiết bị Android bằng cách nhấp vào biểu tượng QuickDrop trên thanh menu và chọn \"Gửi Bảng Nhớ Tạm\"."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "要将文件发送到您的 Android 设备，请点击共享图标或右键点击文件并选择“共享”。然后，从应用列表中选择“QuickDrop”，并按照说明进行操作。\n\n如果列表中没有 QuickDrop，请点击“编辑扩展”，向下滚动并启用 QuickDrop。\n\n您还可以通过点击菜单栏中的 QuickDrop 图标并选择“发送剪贴板”，将 Mac 剪贴板的当前内容发送到您的 Android 设备。"
+            "value" : "要将文件发送到安卓设备，请点击“共享”图标或右键点击文件选择“共享”。随后，在应用列表中选择“QuickDrop”，并按照提示操作。\n\n如果未在列表中看到 QuickDrop，请点击“编辑扩展”，向下滚动并启用 QuickDrop 开关。如果完成此步骤后 QuickDrop 仍未出现，请重启 Mac。重启后，QuickDrop 应出现在菜单中。\n\n你还可以点击 QuickDrop 菜单栏图标，选择“发送剪贴板”，将 Mac 剪贴板内容发送到安卓设备。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "要將文件傳遞到您的 Android 裝置，請單擊分享圖標或右鍵點擊文件，然後選擇「分享」。接著，從應用程式列表中選擇「QuickDrop」，並按照指示進行操作。\n\n如果列表中沒有看到 QuickDrop，請點擊「編輯擴展項」，往下滑動並啟用 QuickDrop。"
+            "value" : "要將檔案傳送到您的 Android 裝置，請點擊分享圖示或在檔案上按右鍵，然後選擇「分享」。接著，從應用程式列表中選擇「QuickDrop」，並依照指示操作。\n\n如果您在列表中找不到 QuickDrop，請點擊「編輯擴充功能」，向下捲動並啟用 QuickDrop 的開關。如果完成這個步驟後仍未顯示 QuickDrop，請重新啟動您的 Mac。重新啟動後，QuickDrop 應會出現在選單中。\n\n您也可以點擊 QuickDrop 的選單列圖示，再選擇「傳送剪貼簿」，將 Mac 剪貼簿的內容傳送到 Android 裝置。"
           }
         }
       }
