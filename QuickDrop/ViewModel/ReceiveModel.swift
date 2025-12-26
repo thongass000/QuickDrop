@@ -172,7 +172,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     }
     
     
-    func connectionWasTerminated(connectionID: String, from device: RemoteDeviceInfo, savedFiles: [URL], wasPlainTextTransfer: Bool, error: (any Error)?) {
+    func connectionWasTerminated(connectionID: String, from device: RemoteDeviceInfo?, savedFiles: [URL], wasPlainTextTransfer: Bool, error: (any Error)?) {
         
         processes.removeValue(forKey: connectionID)
         
@@ -193,16 +193,16 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         
         func finish() {
             if let error = error {
-                
-                #if os(macOS)
-                DispatchQueue.main.async {
-                    self.hideQuickDropToast()
-                }
-                #endif
+                if let name = device?.name {
+                    
+                    #if os(macOS)
+                    DispatchQueue.main.async {
+                        self.hideQuickDropToast()
+                    }
+                    #endif
 
-                controlPlusScreen(false)
-                
-                if let name = device.name {
+                    controlPlusScreen(false)
+                    
                     errorVibration()
                     ErrorAlertHandler.shared.showErrorAlert(for: name, error: error)
                 }

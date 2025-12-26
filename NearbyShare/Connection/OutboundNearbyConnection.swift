@@ -347,6 +347,7 @@ class OutboundNearbyConnection: NearbyConnection {
             meta.textTitle = textToSend
             meta.size = Int64(textToSend.utf8.count)
             meta.payloadID = textPayloadID
+            meta.id = Int64.random(in: Int64.min ... Int64.max)
             introduction.v1.introduction.textMetadata.append(meta)
             
         } else if hasURL() {
@@ -355,6 +356,7 @@ class OutboundNearbyConnection: NearbyConnection {
             meta.textTitle = urlsToSend[0].host ?? "URL"
             meta.size = Int64(urlsToSend[0].absoluteString.utf8.count)
             meta.payloadID = textPayloadID
+            meta.id = Int64.random(in: Int64.min ... Int64.max)
             introduction.v1.introduction.textMetadata.append(meta)
         } else {
             for url in urlsToSend {
@@ -382,12 +384,15 @@ class OutboundNearbyConnection: NearbyConnection {
                 } else {
                     meta.type = .unknown
                 }
+
                 meta.payloadID = Int64.random(in: Int64.min ... Int64.max)
+                meta.id = Int64.random(in: Int64.min ... Int64.max)
+                
                 try queue.append(OutgoingFileTransfer(url: url, payloadID: meta.payloadID, handle: FileHandle(forReadingFrom: url), totalBytes: meta.size, currentOffset: 0))
                 introduction.v1.introduction.fileMetadata.append(meta)
                 totalBytesToSend += meta.size
                 
-                log("[OutboundNearbyConnection \(self.id)] Sending file with \(meta.size) bytes")
+                log("[OutboundNearbyConnection \(self.id)] Sending file with \(meta.size) bytes and mime type \(meta.mimeType) and type \(meta.type) and name \(meta.name)")
             }
         }
         try sendTransferSetupFrame(introduction)
@@ -454,8 +459,18 @@ class OutboundNearbyConnection: NearbyConnection {
             }
             if queue.isEmpty {
                 log("[OutboundNearbyConnection \(self.id)] Disconnecting because all files have been transferred")
-                try sendDisconnectionAndDisconnect()
-                delegate?.transferFinished(connection: self)
+                
+                // Delay disconnection to ensure EOF frame is processed at peer
+                NearbyConnection.dispatchQueue.asyncAfter(deadline: .now() + 0.5) {
+                    do {
+                        try self.sendDisconnectionAndDisconnect()
+                        self.delegate?.transferFinished(connection: self)
+                    }
+                    catch {
+                        log("[OutboundNearbyConnection \(self.id)] Error while sending disconnection: \(error)")
+                    }
+                }
+                
                 return
             }
             currentTransfer = queue.removeFirst()
@@ -476,6 +491,7 @@ class OutboundNearbyConnection: NearbyConnection {
         transfer.payloadHeader.type = .file
         transfer.payloadHeader.totalSize = Int64(currentTransfer!.totalBytes)
         transfer.payloadHeader.isSensitive = false
+        transfer.payloadHeader.fileName = OutboundNearbyConnection.sanitizeFileName(name: currentTransfer!.url.lastPathComponent)
         currentTransfer!.currentOffset += Int64(fileBuffer.count)
 
         var wrapper = Location_Nearby_Connections_OfflineFrame()
@@ -498,11 +514,12 @@ class OutboundNearbyConnection: NearbyConnection {
         delegate?.updatedTransferProgress(connection: self, progress: Double(bytesTransferred) / Double(totalBytesToSend))
 
         if currentTransfer!.currentOffset == currentTransfer!.totalBytes {
-            // Signal end of file (yes, all this for one bit)
+            
+            // Signal end of file
             var transfer = Location_Nearby_Connections_PayloadTransferFrame()
             transfer.packetType = .data
             transfer.payloadChunk.offset = currentTransfer!.currentOffset
-            transfer.payloadChunk.flags = 1 // <- this one here
+            transfer.payloadChunk.flags = 1
             transfer.payloadHeader.id = currentTransfer!.payloadID
             transfer.payloadHeader.type = .file
             transfer.payloadHeader.totalSize = Int64(currentTransfer!.totalBytes)

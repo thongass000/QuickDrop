@@ -17,7 +17,7 @@ import LUI
 class NearbyConnection {
     
     private let maxFrameLength = 5 * 1024 * 1024
-    private static let dispatchQueue = DispatchQueue(label: "com.leonboettger.quickdrop.queue", qos: .utility)
+    static let dispatchQueue = DispatchQueue(label: "com.leonboettger.quickdrop.queue", qos: .utility)
     
     let id: String
     let connection: NWConnection
@@ -118,7 +118,7 @@ class NearbyConnection {
     
     
     func connectionClosedByPeer(onError: @escaping () -> Void) {
-        NearbyConnection.dispatchQueue.asyncAfter(deadline: .now() + 0.5) {
+        NearbyConnection.dispatchQueue.asyncAfter(deadline: .now() + 1) {
             
             // If already closed, ignore the error, as file transfer has been processed
             if !self.connectionClosed {

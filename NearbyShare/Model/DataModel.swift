@@ -33,7 +33,7 @@ protocol OutboundNearbyConnectionDelegate {
 public protocol InboundAppDelegate: AnyObject {
     func obtainUserConsent(transfer: TransferMetadata, device: RemoteDeviceInfo)
     func obtainedUserConsentAutomatically(transfer: TransferMetadata, device: RemoteDeviceInfo)
-    func connectionWasTerminated(connectionID: String, from device: RemoteDeviceInfo, savedFiles: [URL], wasPlainTextTransfer: Bool, error: Error?)
+    func connectionWasTerminated(connectionID: String, from device: RemoteDeviceInfo?, savedFiles: [URL], wasPlainTextTransfer: Bool, error: Error?)
     func transferProgress(connectionID: String, progress: Double)
     func showPlusScreen()
 }

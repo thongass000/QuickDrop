@@ -547,7 +547,7 @@ class InboundNearbyConnection: NearbyConnection {
             TrustStore.shared.addTrusted(certificate: peerCertificate, device: remoteDeviceInfo)
         }
         
-        DispatchQueue.global(qos: .utility).async {
+        NearbyConnection.dispatchQueue.async {
             if accepted {
                 self.acceptTransfer()
             } else {
