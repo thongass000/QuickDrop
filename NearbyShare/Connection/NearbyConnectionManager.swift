@@ -44,7 +44,6 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private static let customDeviceNameKey = "com.leonboettger.quickdrop.deviceName"
     
     public let endpointID: [UInt8] = generateEndpointID()
-    public static let maxNameChars = 31
     
     public static let shared = NearbyConnectionManager()
     
@@ -151,13 +150,13 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         let deviceType = isMac() ? RemoteDeviceInfo.DeviceType.computer : (isiPadOrMac() ? .tablet : .phone)
         
         if let customName = getCustomDeviceName() {
-            return EndpointInfo(name: String(customName.prefix(Self.maxNameChars)), deviceType: deviceType)
+            return EndpointInfo(name: String(customName), deviceType: deviceType)
         }
         
         #if os(macOS)
-        return EndpointInfo(name: String((Host.current().localizedName ?? "Mac").prefix(Self.maxNameChars)), deviceType: deviceType)
+        return EndpointInfo(name: String((Host.current().localizedName ?? "Mac")), deviceType: deviceType)
         #else
-        return EndpointInfo(name: String(Device.current.description.withoutBracketedContent.prefix(Self.maxNameChars)), deviceType: deviceType)
+        return EndpointInfo(name: String(Device.current.description.withoutBracketedContent), deviceType: deviceType)
         #endif
     }
     

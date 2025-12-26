@@ -12,18 +12,11 @@ struct ChangeDeviceNameAlertModifier: ViewModifier {
     @Binding var isPresented: Bool
     @State var customName = ""
     
-    let maxLength = NearbyConnectionManager.maxNameChars
-    
     func body(content: Content) -> some View {
         
         content
             .alert("ChangeDeviceName", isPresented: $isPresented) {
                 TextField("DeviceName", text: $customName)
-                    .onChange(of: customName) { newValue in
-                        if newValue.count > maxLength {
-                            customName = String(newValue.prefix(maxLength))
-                        }
-                    }
                 
                 Button("Save") {
                     let trimmed = customName.trimmingCharacters(in: .whitespacesAndNewlines)

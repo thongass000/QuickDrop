@@ -182,14 +182,15 @@ public struct EndpointInfo {
     var name: String?
     let deviceType: RemoteDeviceInfo.DeviceType
     let qrCodeData: Data?
-
     
+    static let maxNameChars = 32
+
     init(name: String, deviceType: RemoteDeviceInfo.DeviceType) {
-        self.name = name
+        self.name = String(decoding: Self.sanitizedString(name), as: UTF8.self)
         self.deviceType = deviceType
         self.qrCodeData = nil
     }
-
+    
     
     init?(data: Data) {
         guard data.count > 17 else {
@@ -254,18 +255,29 @@ public struct EndpointInfo {
         var endpointInfo: [UInt8] = [UInt8(deviceType.rawValue << 1)]
         // 16 bytes: unknown random bytes
         for _ in 0 ... 15 {
-            endpointInfo.append(UInt8.random(in: 0 ... 255))
+            endpointInfo.append(UInt8.random(in: 0...255))
         }
         // Device name in UTF-8 prefixed with 1-byte length
-        var nameChars = [UInt8]((name ?? "").utf8)
-        if nameChars.count > 255 {
-            nameChars = [UInt8](nameChars[0 ..< 255])
-        }
+        let nameChars = Self.sanitizedString(self.name ?? "")
         endpointInfo.append(UInt8(nameChars.count))
         for ch in nameChars {
             endpointInfo.append(UInt8(ch))
         }
         return Data(endpointInfo)
+    }
+    
+    
+    private static func sanitizedString(_ string: String) -> [UInt8] {
+        var out: [UInt8] = []
+        out.reserveCapacity(min(Self.maxNameChars, string.utf8.count))
+
+        for scalar in string.unicodeScalars {
+            let bytes = Array(scalar.utf8)
+            if out.count + bytes.count > Self.maxNameChars { break }
+            out.append(contentsOf: bytes)
+        }
+
+        return out
     }
 }
 
