@@ -1,0 +1,126 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "07114EE9",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : true,
+      "internalID" : "6742512912",
+      "localizations" : [
+        {
+          "description" : "Unlocks unlimited file transfer, forever.",
+          "displayName" : "QuickDrop+",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "plusversion",
+      "referenceName" : "QuickDrop+ Lifetime",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6740147178",
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_developerTeamID" : "92SDAWLN76",
+    "_disableDialogs" : false,
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 788014826.59455097,
+    "_locale" : "en_US",
+    "_renewalBillingIssuesEnabled" : false,
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ],
+    "_timeRate" : 0
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21845627",
+      "localizations" : [
+
+      ],
+      "name" : "QuickDrop+ Subscription",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "1.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6756841799",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Unlocks unlimited file transfer.",
+              "displayName" : "QuickDrop+ (1 Month)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "quickdrop.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "QuickDrop+ (1 Month)",
+          "subscriptionGroupID" : "21845627",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "3.99",
+          "familyShareable" : true,
+          "groupNumber" : 1,
+          "internalID" : "6755912812",
+          "introductoryOffer" : {
+            "internalID" : "D30B2549",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "Unlocks unlimited file transfer.",
+              "displayName" : "QuickDrop+ (1 Year)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "quickdrop.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "QuickDrop+ (1 Year)",
+          "subscriptionGroupID" : "21845627",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}
