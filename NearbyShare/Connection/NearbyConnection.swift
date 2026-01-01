@@ -38,7 +38,10 @@ class NearbyConnection {
     private var connectionClosed: Bool = false
     
     private var inactivityTimer: DispatchSourceTimer?
-    private let timeoutInterval: TimeInterval = 30
+    
+    private let ackInterval: TimeInterval = 5
+    private let ackTimeoutInterval: TimeInterval = 30
+    private var lastKeepAliveFrameSent = Date()
     
     // UKEY2-related state
     var privateKey: ECPrivateKey?
@@ -429,11 +432,6 @@ class NearbyConnection {
             }
         }
         else if offlineFrame.hasV1, offlineFrame.v1.hasType, case .keepAlive = offlineFrame.v1.type {
-            
-            let bytesTransferred = self.bytesTransferred
-            let gigabytesTransferred = Double(bytesTransferred) / 1_000_000_000
-            
-            log("[NearbyConnection \(self.id)] Sent keep-alive, \(self.bytesTransferred) bytes (\(gigabytesTransferred) GB) sent")
             sendKeepAlive(ack: true)
         } else {
             
@@ -588,25 +586,33 @@ class NearbyConnection {
             } else {
                 try sendFrameAsync(offlineFrame.serializedData())
             }
+            
+            self.lastKeepAliveFrameSent = Date()
         } catch {
             log("[NearbyConnection \(self.id)] Error sending KEEP_ALIVE: \(error)")
         }
+        
+        log("[NearbyConnection \(self.id)] Sent keep-alive \(ack ? "ack" : "no ack"), \(self.bytesTransferred) bytes (\(Double(bytesTransferred) / 1_000_000_000) GB) sent")
     }
     
     
     func startAndResetHeartbeatTimer() {
         
+        if lastKeepAliveFrameSent.isOlderThan(seconds: ackInterval) {
+            sendKeepAlive(ack: false)
+        }
+        
         // Cancel previous timer if any
         inactivityTimer?.cancel()
         
         inactivityTimer = DispatchSource.makeTimerSource(queue: NearbyConnection.dispatchQueue)
-        inactivityTimer?.schedule(deadline: .now() + timeoutInterval)
+        inactivityTimer?.schedule(deadline: .now() + ackTimeoutInterval)
         inactivityTimer?.setEventHandler { [weak self] in
             
             guard let self = self else { return }
             
             if !self.connectionClosed {
-                log("[NearbyConnection \(self.id)] Connection timeout: No message received in \(self.timeoutInterval) seconds")
+                log("[NearbyConnection \(self.id)] Connection timeout: No message received in \(self.ackTimeoutInterval) seconds")
                 self.lastError = NearbyError.canceled(reason: .timedOut)
                 self.disconnect()
             }
@@ -617,7 +623,7 @@ class NearbyConnection {
     
     
     func startDataTransferTimer(previousBytesTransferred: Int64) {
-        NearbyConnection.dispatchQueue.asyncAfter(deadline: .now() + timeoutInterval) {
+        NearbyConnection.dispatchQueue.asyncAfter(deadline: .now() + ackTimeoutInterval) {
             
             if previousBytesTransferred < self.bytesTransferred {
                 // everything good, transferred more than last check, schedule next check
@@ -626,7 +632,7 @@ class NearbyConnection {
             else {
                 // connection stale, need to abort
                 if !self.connectionClosed {
-                    log("[NearbyConnection \(self.id)] Connection timeout: No more data received in \(self.timeoutInterval) seconds")
+                    log("[NearbyConnection \(self.id)] Connection timeout: No more data received in \(self.ackTimeoutInterval) seconds")
                     self.lastError = NearbyError.canceled(reason: .timedOut)
                     self.disconnect()
                 }
