@@ -98,7 +98,6 @@
 		EB3B9F342EF7150400D6704E /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9EF52EF7150400D6704E /* SwiftProtobuf */; };
 		EB3B9F352EF7150400D6704E /* LUI in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9EFB2EF7150400D6704E /* LUI */; };
 		EB3B9F362EF7150400D6704E /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = EB3B9EFD2EF7150400D6704E /* ZIPFoundation */; };
-		EB3B9F382EF7150400D6704E /* Config.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */; };
 		EB3B9F392EF7150400D6704E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DA9A1329E0BF5200A442DA /* Assets.xcassets */; };
 		EB3B9F3A2EF7150400D6704E /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
 		EB3B9F3B2EF7150400D6704E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
@@ -146,7 +145,6 @@
 		EB3B9F712EF7151900D6704E /* ActiveNetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E72E7025D900FD749C /* ActiveNetworkInterface.swift */; };
 		EB3B9F722EF7151900D6704E /* ApIsolation6Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1325E82E7025D900FD749C /* ApIsolation6Tester.swift */; };
 		EB3B9F732EF7151900D6704E /* sharing_enums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99257F2E45D53E00357055 /* sharing_enums.pb.swift */; };
-		EB3B9F7C2EF7151900D6704E /* Config.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */; };
 		EB3B9F7D2EF7151900D6704E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36922E34EBBD0052EFD7 /* Localizable.xcstrings */; };
 		EB3B9F7E2EF7151900D6704E /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
 		EB3B9F7F2EF7151900D6704E /* DeviceListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691F53BA2ABB70840089FD92 /* DeviceListCell.xib */; };
@@ -353,10 +351,6 @@
 		EBE5FF422EDB6F6F0019B380 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8D2E50CA23008B8C5C /* Configuration.swift */; };
 		EBE5FF432EDB71810019B380 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8D2E50CA23008B8C5C /* Configuration.swift */; };
 		EBE5FF442EDB877C0019B380 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E662E4F2F7C0052B7D9 /* License.swift */; };
-		EBE5FF4B2EDB8D4B0019B380 /* Config.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */; };
-		EBE5FF4C2EDB8D4B0019B380 /* Config.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */; };
-		EBE5FF4D2EDB8D4B0019B380 /* Config.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */; };
-		EBE5FF4E2EDB8D4B0019B380 /* Config.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -571,7 +565,6 @@
 		EBCC27F82D80C9F70079C478 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
 		EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		EBD6AFBA2EF826E600DED4CD /* ConfigSynced.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = ConfigSynced.storekit; sourceTree = "<group>"; };
-		EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Config.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -682,7 +675,6 @@
 			isa = PBXGroup;
 			children = (
 				EB721F232E75AFA900F2099F /* QuickDropIcon.icon */,
-				EBE5FF4A2EDB8D4B0019B380 /* Config.storekit */,
 				EBD6AFBA2EF826E600DED4CD /* ConfigSynced.storekit */,
 				69DA9A1029E0BF5100A442DA /* QuickDrop */,
 				699DEBA22AB0573200115D22 /* ShareExtension */,
@@ -1141,7 +1133,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBD6AFBC2EF826E600DED4CD /* ConfigSynced.storekit in Resources */,
-				EBE5FF4D2EDB8D4B0019B380 /* Config.storekit in Resources */,
 				EB5C36942E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */,
 				EB5C36E52E34EC0E0052EFD7 /* License.txt in Resources */,
 				691F53BC2ABB70840089FD92 /* DeviceListCell.xib in Resources */,
@@ -1158,7 +1149,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBD6AFBB2EF826E600DED4CD /* ConfigSynced.storekit in Resources */,
-				EBE5FF4C2EDB8D4B0019B380 /* Config.storekit in Resources */,
 				69DA9A1429E0BF5200A442DA /* Assets.xcassets in Resources */,
 				EB5C36E42E34EC0E0052EFD7 /* License.txt in Resources */,
 				EB5C36932E34EBBD0052EFD7 /* Localizable.xcstrings in Resources */,
@@ -1175,7 +1165,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBD6AFBF2EF826E600DED4CD /* ConfigSynced.storekit in Resources */,
-				EB3B9F382EF7150400D6704E /* Config.storekit in Resources */,
 				EB3B9F392EF7150400D6704E /* Assets.xcassets in Resources */,
 				EB3B9F3A2EF7150400D6704E /* License.txt in Resources */,
 				EB3B9F3B2EF7150400D6704E /* Localizable.xcstrings in Resources */,
@@ -1192,7 +1181,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBD6AFC02EF826E600DED4CD /* ConfigSynced.storekit in Resources */,
-				EB3B9F7C2EF7151900D6704E /* Config.storekit in Resources */,
 				EB3B9F7D2EF7151900D6704E /* Localizable.xcstrings in Resources */,
 				EB3B9F7E2EF7151900D6704E /* License.txt in Resources */,
 				EB3B9F7F2EF7151900D6704E /* DeviceListCell.xib in Resources */,
@@ -1208,7 +1196,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBE5FF4B2EDB8D4B0019B380 /* Config.storekit in Resources */,
 				EB5C383B2E38C1F60052EFD7 /* justMaybe.mp3 in Resources */,
 				EB1325FD2E7034B000FD749C /* InfoPlist.xcstrings in Resources */,
 				EB97A0142E51DD00008B8C5C /* License.txt in Resources */,
@@ -1226,7 +1213,6 @@
 			files = (
 				EB950B5B2E52065A002D68FA /* timeIsNow.mp3 in Resources */,
 				EB1325FE2E7034B000FD749C /* InfoPlist.xcstrings in Resources */,
-				EBE5FF4E2EDB8D4B0019B380 /* Config.storekit in Resources */,
 				EB950B702E520734002D68FA /* Localizable.xcstrings in Resources */,
 				EBD6AFBE2EF826E600DED4CD /* ConfigSynced.storekit in Resources */,
 				EB950B5C2E52065A002D68FA /* justMaybe.mp3 in Resources */,

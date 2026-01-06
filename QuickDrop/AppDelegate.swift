@@ -188,15 +188,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     func application(_ application: NSApplication, open urls: [URL]) {
         for url in urls {
-            if url.scheme == "quickdrop", url.host == "sendLog" {
-                sendLoggingString() // this time it runs in the main app
-            }
-            
-            
-            if url.scheme == "quickdrop", url.host == "openLog", let url = LogManager.sharedInstance.logFileURL {
-                log("Opening log file: \(url)")
-                // open folder containing the log file
-                NSWorkspace.shared.activateFileViewerSelecting([url])
+            if url.scheme == "quickdrop" {
+                
+                switch url.host {
+                    case "sendLog":
+                        sendLoggingString()
+                    case "openLog":
+                        if let url = LogManager.sharedInstance.logFileURL {
+                            NSWorkspace.shared.activateFileViewerSelecting([url])
+                        }
+                    case "removeData":
+                        Settings.shared.deleteAllUserDefaults()
+                    default:
+                        break
+                }
             }
         }
     }
