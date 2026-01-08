@@ -233,7 +233,7 @@ struct IntroductionView: View {
 
     private func advance() {
         
-        if currentPage == .localNetworkAccess {
+        if currentPage == .splash {
             triggerLocalNetworkPermission()
         }
         
@@ -337,7 +337,8 @@ enum IntroductionPage: CaseIterable {
     func presentNextPage() -> IntroductionPage? {
         switch self {
         case .splash:
-            return NearbyConnectionManager.shared.isConnectedToLocalNetwork ? firstPermissionPane() : .noWifi
+            return nil
+            //NearbyConnectionManager.shared.isConnectedToLocalNetwork ? firstPermissionPane() : .noWifi
         case .noWifi:
             return firstPermissionPane()
         case .localNetworkAccess:
