@@ -56,6 +56,10 @@ struct QuickDropToastView: View {
             }
 
             ZStack {
+                
+                QuickDropToastViewButton(title: "OpenInFinder") { }
+                .opacity(0)
+                
                 if let actions = receiveModel.toastActions {
                     HStack(spacing: 8) {
    
