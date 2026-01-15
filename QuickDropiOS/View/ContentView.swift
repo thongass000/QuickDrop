@@ -167,9 +167,8 @@ struct DeviceListView: View {
                             .font(.system(size: 14))
                             .foregroundColor(Color.primary.opacity(0.6))
                         
-                        LoadingIndicator()
+                        LoadingIndicator(size: 12)
                             .opacity(0.75)
-                            .frame(width: 12, height: 12)
                     }
                     .padding(.vertical, 16)
                 }

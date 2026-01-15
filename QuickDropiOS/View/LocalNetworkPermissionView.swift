@@ -15,7 +15,7 @@ public struct LocalNetworkPermissionView: View {
     
     public var body: some View {
         
-        PermissionView(title: "introduction_local_network_access", symbol: "", subtitle: "introduction_local_network_access_description", permissionAction: {
+        PermissionView(title: "introduction_local_network_access", symbol: "", subtitle: "introduction_local_network_access_description".localized(with: "introduction_continue".localized()), permissionAction: {
             
             if requestedLocalNetworkAccess {
                 // Something went wrong, user pressed again on continue. In this case, just continue with setup
@@ -27,15 +27,12 @@ public struct LocalNetworkPermissionView: View {
                 let manager = NearbyConnectionManager.shared
                 manager.startDeviceDiscovery()
             }
-        }, canSkip: false, nextView: {
+        }, continueLabel: "introduction_continue", canSkip: false, nextView: {
             IntroductionDoneView()
-        }, nextViewSkip: {}, frontMockup: {
-            AppMockupFrontView()
-        }, backMockup: {
-            SymbolMockupView(symbol: "globe")
+        }, nextViewSkip: {}, topView: {
+            IntroductionIconView(icon: "wifi")
         })
         .onChange(of: scenePhase) { newValue in
-            
             // alert was removed from screen, app is foreground again -> continue with intro
             if newValue == .active && requestedLocalNetworkAccess {
                 IntroductionViewController.sharedInstance.canProceed = true

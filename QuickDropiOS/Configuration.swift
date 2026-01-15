@@ -6,7 +6,7 @@
 //
 
 import LUI
-import Foundation
+import SwiftUI
 
 let configuration = LUIConfiguration(
     appName: "QuickDrop",
@@ -31,7 +31,9 @@ let configuration = LUIConfiguration(
     
     introductionViewInformation: "QuickDropWelcomeDescription",
     
-    usesAutomaticReviewPrompt: false,
+    introductionViewImage: Image(.quickDropMockup),
+    
+    usesAutomaticReviewPromptAndShareSheet: false,
     
     usesPagedIntroduction: true,
     

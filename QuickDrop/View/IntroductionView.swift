@@ -281,7 +281,7 @@ enum IntroductionPage: CaseIterable {
         case .noWifi:
             return "introduction_no_wifi_description"
         case .localNetworkAccess:
-            return "introduction_local_network_access_description"
+            return "introduction_local_network_access_description".localized(with: "introduction_continue".localized())
         case .enableShareExtension:
             if #available(macOS 13.0, *) {
                 return "introduction_enable_share_extension_description"
