@@ -1579,7 +1579,7 @@
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QuickDrop;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025-2026 Leon Böttger";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1631,7 +1631,7 @@
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QuickDrop;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025-2026 Leon Böttger";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1719,7 +1719,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 107;
+				SHARED_BUILD = 108;
 				SHARED_VERSION = 2.10.4;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1782,7 +1782,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 107;
+				SHARED_BUILD = 108;
 				SHARED_VERSION = 2.10.4;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1826,7 +1826,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Leon Böttger";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025-2026 Leon Böttger";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is needed to detect devices and transfer files over your Wi-Fi network.";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The add photos permission is required to save received photos and videos to your photo library.";
@@ -1891,7 +1891,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Leon Böttger";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025-2026 Leon Böttger";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is needed to detect devices and transfer files over your Wi-Fi network.";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The add photos permission is required to save received photos and videos to your photo library.";
@@ -1955,7 +1955,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Leon Böttger";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025-2026 Leon Böttger";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is needed to detect devices and transfer files over your Wi-Fi network.";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The add photos permission is required to save received photos and videos to your photo library.";
@@ -2021,7 +2021,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Leon Böttger";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025-2026 Leon Böttger";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is needed to detect devices and transfer files over your Wi-Fi network.";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The add photos permission is required to save received photos and videos to your photo library.";
@@ -2077,7 +2077,7 @@
 				INFOPLIST_FILE = "QuickDropShareExtension copy-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = QuickDrop;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025-2026 Leon Böttger";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -2129,7 +2129,7 @@
 				INFOPLIST_FILE = "QuickDropShareExtension copy-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = QuickDrop;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025-2026 Leon Böttger";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -2171,7 +2171,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Leon Böttger";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025-2026 Leon Böttger";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is needed to detect devices and transfer files over your Wi-Fi network.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The add photos permission is required to save received photos and videos to your photo library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2216,7 +2216,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Leon Böttger";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025-2026 Leon Böttger";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local network access is needed to detect devices and transfer files over your Wi-Fi network.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The add photos permission is required to save received photos and videos to your photo library.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2256,7 +2256,7 @@
 				INFOPLIST_FILE = iOSShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = iOSShareExtension;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025-2026 Leon Böttger";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2287,7 +2287,7 @@
 				INFOPLIST_FILE = iOSShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = iOSShareExtension;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025-2026 Leon Böttger";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
