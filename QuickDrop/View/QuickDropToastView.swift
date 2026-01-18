@@ -8,7 +8,7 @@
 import SwiftUI
 import AppKit
 
-let toastViewSize = CGSize(width: 400, height: 100)
+let toastViewSize = CGSize(width: 400, height: 120)
 
 struct QuickDropToastView: View {
     @ObservedObject var settings = Settings.shared
@@ -122,9 +122,9 @@ struct QuickDropToastView: View {
         )
         .overlay(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .stroke(Color.black.opacity(0.06), lineWidth: 1)
+                .stroke(Color.black.opacity(0.03), lineWidth: 1)
         )
-        .shadow(color: Color.black.opacity(0.1), radius: 20)
+        .shadow(color: Color.black.opacity(0.03), radius: 20)
         .frame(maxWidth: .infinity)
     }
 }
@@ -211,8 +211,9 @@ struct QuickDropToastView_Previews: PreviewProvider {
                 onCancel: { }
             )
             .frame(width: toastViewSize.width, height: toastViewSize.height)
+            .clipped()
             .padding(100)
-            .background(Color.white.opacity(0.2))
+            .background(Color.black.opacity(0.2))
             .onAppear {
                 model.progress = 0.01
             }
