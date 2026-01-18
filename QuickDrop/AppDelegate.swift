@@ -183,6 +183,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
     func applicationWillTerminate(_: Notification) {
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        NearbyConnectionManager.shared.stopDeviceDiscovery()
+        NearbyConnectionManager.shared.becomeInvisible()
     }
     
     
