@@ -12,7 +12,7 @@ import StoreKit
 struct ContentView: View {
     
     @ObservedObject var luiSettings = LUISettings.sharedInstance
-    @ObservedObject var settings = Settings.shared
+    @ObservedObject var settings = Settings.sharedInstance
     
     var body: some View {
         AppRootView(isPlus: $settings.gotPlus, phoneView: {
@@ -56,7 +56,7 @@ struct DeviceListView: View {
     @Environment(\.scenePhase) var scenePhase
     @Environment(\.sheetActive) var sheetActive
     @ObservedObject var nearbyConnectionManager = NearbyConnectionManager.shared
-    @ObservedObject var settings = Settings.shared
+    @ObservedObject var settings = Settings.sharedInstance
     
     var body: some View {
         
@@ -202,7 +202,7 @@ struct DeviceListView: View {
                 #if !EXTENSION
                 NearbyConnectionManager.shared.becomeVisible()
                 
-                if Settings.shared.incomingTransmissionCount > 0 {
+                if Settings.sharedInstance.incomingTransmissionCount > 0 {
                     runAfter(seconds: 0.3) {
                         requestReviewOnce()
                     }

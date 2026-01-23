@@ -12,7 +12,7 @@ import SwiftUI
 let toastViewSize = CGSize(width: 400, height: 120)
 
 struct QuickDropToastView: View {
-    @ObservedObject var settings = Settings.shared
+    @ObservedObject var settings = Settings.sharedInstance
     @ObservedObject var receiveModel: ReceiveModel
     
     @State var autoHider = DispatchWorkItem(block: {})

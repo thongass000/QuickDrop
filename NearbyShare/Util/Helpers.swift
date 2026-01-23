@@ -111,10 +111,10 @@ extension String {
 
 
 public func fullVersion() -> Bool {
-    return Settings.shared.gotPlus
+    return Settings.sharedInstance.gotPlus
 }
 
 
 public func isFileTransferRestricted() -> Bool {
-    (!fullVersion() && Settings.shared.incomingTransmissionCount > 1)
+    (!fullVersion() && Settings.sharedInstance.incomingTransmissionCount > 1)
 }

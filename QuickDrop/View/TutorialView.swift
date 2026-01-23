@@ -15,7 +15,7 @@ struct TutorialView: View {
     let openPlus: () -> Void
     
     @State private var licenseWindow: NSWindow?
-    @ObservedObject var settings = Settings.shared
+    @ObservedObject var settings = Settings.sharedInstance
     
     var body: some View {
         
@@ -55,7 +55,7 @@ struct TutorialView: View {
                         
 #if DEBUG
                         Button {
-                            Settings.shared.deleteAllUserDefaults()
+                            Settings.sharedInstance.deleteAllUserDefaults()
                         } label: {
                             Text("ResetAllSettings")
                                 .underline()

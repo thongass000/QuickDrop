@@ -11,7 +11,7 @@ import LUI
 
 struct SettingsView: View {
     
-    @ObservedObject var settings = Settings.shared
+    @ObservedObject var settings = Settings.sharedInstance
     @ObservedObject var connectionManager = NearbyConnectionManager.shared
     
     @State private var isChangeDeviceNameAlertPresented = false
@@ -116,8 +116,8 @@ struct SettingsView: View {
                 
                 let bookmarkData = try url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
                 
-                Settings.shared.saveFolderBookmark = bookmarkData
-                Settings.shared.openFinderAfterReceiving = true
+                Settings.sharedInstance.saveFolderBookmark = bookmarkData
+                Settings.sharedInstance.openFinderAfterReceiving = true
             } catch {
                 log("Failed to save security-scoped bookmark: \(error)")
                 

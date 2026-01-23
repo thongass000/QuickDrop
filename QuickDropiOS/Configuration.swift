@@ -16,7 +16,7 @@ let configuration = LUIConfiguration(
     setPlusVersion: { result in
         #if !GITHUB
         DispatchQueue.main.async {
-            Settings.shared.gotPlus = result
+            Settings.sharedInstance.gotPlus = result
         }
         #endif
     },

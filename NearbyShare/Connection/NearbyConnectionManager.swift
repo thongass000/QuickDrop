@@ -62,7 +62,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     // MARK: Public Properties
     
-    public var endpointID: [UInt8] = generateEndpointID(forceRegeneration: false)
+    public var endpointID: [UInt8] = getEndpointID(forceRegeneration: false)
     public var connectionUpdateCallback: (Bool) -> Void = { _ in } { didSet { informAboutStatus() }}
     public var changedDeviceNameCallback: () -> Void = { }
     
@@ -264,11 +264,11 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    private static func generateEndpointID(forceRegeneration: Bool) -> [UInt8] {
+    private static func getEndpointID(forceRegeneration: Bool) -> [UInt8] {
         
         // Try to retrieve from UserDefaults
         if !forceRegeneration,
-           let savedString = Settings.shared.endpointID,
+           let savedString = Settings.sharedInstance.endpointID,
            let savedData = savedString.data(using: .utf8) {
             log("[NearbyConnectionManager] Using cached endpoint ID: \(savedString)")
             return [UInt8](savedData)
@@ -283,7 +283,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         
         // Save to UserDefaults as String
         let idString = String(bytes: id, encoding: .utf8) ?? ""
-        Settings.shared.endpointID = idString
+        Settings.sharedInstance.endpointID = idString
         log("[NearbyConnectionManager] Storing new endpoint ID: \(idString) ======================================")
         
         return id
@@ -292,7 +292,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     private func initMDNS(forceIDRegeneration: Bool) {
         
-        self.endpointID = Self.generateEndpointID(forceRegeneration: forceIDRegeneration)
+        self.endpointID = Self.getEndpointID(forceRegeneration: forceIDRegeneration)
         
         let nameBytes: [UInt8] = [
             0x23, // PCP
@@ -573,18 +573,17 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         
         let domain = Domain.instance(curve: .EC256r1)
         let (pubKey, privKey) = domain.makeKeyPair()
+        
         qrCodePrivateKey = privKey
+        
         var keyData = Data()
         keyData.append(contentsOf: [0, 0, 2])
-        let keyBytes = Data(pubKey.w.x.asSignedBytes())
-        
-        // Sometimes, for some keys, there will be a leading zero byte. Strip that, Android really hates it (it breaks the endpoint info)
-        keyData.append(keyBytes.suffixOfAtMost(numBytes: 32))
+        keyData.append(Data(pubKey.w.x.asSignedBytes()).suffixOfAtMost(numBytes: 32))
         
         let ikm = SymmetricKey(data: keyData)
+        
         qrCodeAdvertisingToken = HKDF.deriveKey(ikm: ikm, salt: Data(), info: "advertisingContext".data(using: .utf8)!, outputLength: 16).data()
         qrCodeNameEncryptionKey = HKDF.deriveKey(ikm: ikm, salt: Data(), info: "encryptionKey".data(using: .utf8)!, outputLength: 16)
-        
         
         do {
             let qrKey = keyData.urlSafeBase64EncodedString()
@@ -622,6 +621,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             let conn = OutboundNearbyConnection(connection: nwconn, id: deviceID, urlsToSend: localUrls, textToSend: textToSend)
             conn.delegate = self
             conn.qrCodePrivateKey = qrCodePrivateKey
+            
             let transfer = OutgoingTransferInfo(service: info.service, device: info.device!, connection: conn, delegate: delegate)
             outgoingTransfers[deviceID] = transfer
             conn.start()
@@ -739,7 +739,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             return securityScopeUrl
         }
 
-        if let bookmarkData = Settings.shared.saveFolderBookmark {
+        if let bookmarkData = Settings.sharedInstance.saveFolderBookmark {
             var isStale = false
    
             do {

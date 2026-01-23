@@ -5,13 +5,14 @@
 //  Created by Leon Böttger on 09.09.25.
 //
 
+import LUI
 import SwiftUI
 
-class Settings: ObservableObject {
+final class Settings: SharedInstance {
     
     private init() {}
     
-    static var shared = Settings()
+    static var sharedInstance = Settings()
     
     
     //  MARK: - Published UserDefaults Backed Properties
@@ -65,14 +66,14 @@ class Settings: ObservableObject {
         }
         defaults.synchronize()
         
-        Settings.shared = Settings()
+        Settings.sharedInstance = Settings()
     }
     
     
     
     // MARK: - UserDefaults Keys
     
-    public enum UserDefaultsKeys: String, CaseIterable {
+    public enum UserDefaultsKeys: String, CaseIterable, RawRepresentable {
         case isEligibleForIap = "isEligibleForIap"
         case appLaunchedBefore = "ShowedWelcomeScreen"
         case plusVersion = "plusVersion"

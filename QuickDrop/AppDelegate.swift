@@ -77,13 +77,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         iapManager = IAPManager.sharedInstance
 
         // app did not lauch before
-        if !Settings.shared.appLaunchedBefore {
+        if !Settings.sharedInstance.appLaunchedBefore {
             log("[AppDelegate] Opening Welcome Screen")
             // open welcome screen
             openIntroductionWindow()
             
             // user installed the app after the IAP was implemented, set the user as eligible for IAP
-            Settings.shared.isEligibleForIap = true
+            Settings.sharedInstance.isEligibleForIap = true
         } else {
             // app launched before
 
@@ -91,9 +91,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             log("[AppDelegate] Downloaded from GitHub.")
             #else
             // user installed the app before the IAP was implemented, grant the plus version
-            if !Settings.shared.isEligibleForIap {
+            if !Settings.sharedInstance.isEligibleForIap {
                 log("[AppDelegate] Granting QuickDrop+ for old user")
-                Settings.shared.gotPlus = true
+                Settings.sharedInstance.gotPlus = true
                 UserDefaults.standard.set(true, forKey: Settings.UserDefaultsKeys.plusVersionLegacy.rawValue)
             } else {
                 if !fullVersion() {
@@ -165,7 +165,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     @objc func openApplicableScreen() {
-        if Settings.shared.appLaunchedBefore {
+        if Settings.sharedInstance.appLaunchedBefore {
             openMainWindow()
         }
         else {
@@ -200,7 +200,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                             NSWorkspace.shared.activateFileViewerSelecting([url])
                         }
                     case "removeData":
-                        Settings.shared.deleteAllUserDefaults()
+                        Settings.sharedInstance.deleteAllUserDefaults()
                     default:
                         break
                 }
@@ -289,7 +289,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
 
         let introductionView = IntroductionView(startReceiving: startReceiving) {
-            Settings.shared.appLaunchedBefore = true
+            Settings.sharedInstance.appLaunchedBefore = true
             self.introductionWindow?.close()
             self.introductionWindow = nil
             self.openMainWindow()

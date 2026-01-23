@@ -527,7 +527,7 @@ class InboundNearbyConnection: NearbyConnection {
         
         func checkIfCanProceed(metadata: TransferMetadata) {
             
-            let acceptAutomatically = isAuthenticated || Settings.shared.automaticallyAcceptFiles
+            let acceptAutomatically = isAuthenticated || Settings.sharedInstance.automaticallyAcceptFiles
             
             DispatchQueue.main.async {
                 if acceptAutomatically {

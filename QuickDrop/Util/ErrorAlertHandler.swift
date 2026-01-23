@@ -83,7 +83,7 @@ class ErrorAlertHandler {
             
             let title = String(format: "TransferError".localized(), arguments: [deviceName])
             log("Showing alert with title: \"\(title)\" and description: \"\(description)\"")
-            log("Unsuccessful transmission. Already successful transmissions: \(Settings.shared.incomingTransmissionCount)")
+            log("Unsuccessful transmission. Already successful transmissions: \(Settings.sharedInstance.incomingTransmissionCount)")
             
             #if os(macOS)
             

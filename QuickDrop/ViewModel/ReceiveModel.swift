@@ -247,7 +247,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 
                 #endif
                 
-                let currentCount = Settings.shared.incomingTransmissionCount
+                let currentCount = Settings.sharedInstance.incomingTransmissionCount
                 
                 #if os(macOS)
                 
@@ -296,13 +296,13 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                     }
                     
                     // Show received files if wanted
-                    if Settings.shared.openFinderAfterReceiving {
+                    if Settings.sharedInstance.openFinderAfterReceiving {
                         self.toastActions?.openFilesAction()
                     }
                 }
                 #endif
 
-                Settings.shared.incomingTransmissionCount = currentCount + 1
+                Settings.sharedInstance.incomingTransmissionCount = currentCount + 1
                 log("[ReceiveModel] Successful transmission. Current count: \(currentCount)")
             }
         }
