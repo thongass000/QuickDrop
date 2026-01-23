@@ -10,7 +10,19 @@
       "layers" : [
         {
           "image-name" : "QuickDropArrows.png",
-          "name" : "QuickDropArrows"
+          "name" : "QuickDropArrows",
+          "position-specializations" : [
+            {
+              "idiom" : "square",
+              "value" : {
+                "scale" : 1,
+                "translation-in-points" : [
+                  0,
+                  -5
+                ]
+              }
+            }
+          ]
         },
         {
           "image-name" : "QuickDropCircle.png",

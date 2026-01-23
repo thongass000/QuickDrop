@@ -21,6 +21,8 @@ import LUI
 
 public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearbyConnectionDelegate, OutboundNearbyConnectionDelegate, ObservableObject {
     
+    // MARK: Private Properties
+    
     #if !EXTENSION
     private let sleepManager = SleepManager.shared
     #endif
@@ -32,7 +34,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private var inboundAppDelegates: [InboundAppDelegate] = []
     private var outgoingTransfers: [String: OutgoingTransferInfo] = [:]
     private var startedDeviceDiscovery = false
-    private var startedAdvertising = false
+    private var startedAdvertising = false { didSet { informAboutStatus() }}
     private var browsers: [NWBrowser] = []
     private let serviceTypes = ["_FC9F5ED42C8A._tcp."]
     private var qrCodePrivateKey: ECPrivateKey?
@@ -42,23 +44,30 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private let connectionMonitorQueue = DispatchQueue(label: "NetworkConnectionMonitorQueue")
     private var securityScopeUrl: URL?
     private static let customDeviceNameKey = "com.leonboettger.quickdrop.deviceName"
+    private var defaultPort: NWEndpoint.Port = 50362
     
-    public let endpointID: [UInt8] = generateEndpointID()
+    
+    // MARK: Shared Instance
     
     public static let shared = NearbyConnectionManager()
     
+    
+    // MARK: Published State
+    
     @Published var attachments: AttachmentDetails? = nil
     @Published var hasLocalNetworkPermission = true
-    @Published var isConnectedToLocalNetwork = true
+    @Published var isConnectedToLocalNetwork = true { didSet { informAboutStatus() }}
     @Published var deviceInfo: EndpointInfo
     
-    public var connectionUpdateCallback: (Bool) -> Void = { _ in } {
-        didSet {
-            connectionUpdateCallback(isConnectedToLocalNetwork)
-        }
-    }
     
+    // MARK: Public Properties
+    
+    public var endpointID: [UInt8] = generateEndpointID(forceRegeneration: false)
+    public var connectionUpdateCallback: (Bool) -> Void = { _ in } { didSet { informAboutStatus() }}
     public var changedDeviceNameCallback: () -> Void = { }
+    
+    
+    // MARK: Initializers
     
     override init() {
         self.deviceInfo = Self.getEndpointInfo()
@@ -83,7 +92,6 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
                     log("[NearbyConnectionManager] Local network lost.")
                 }
                 self.isConnectedToLocalNetwork = isConnected
-                self.connectionUpdateCallback(isConnected)
             }
         }
         
@@ -112,6 +120,8 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
          }
     }
     
+    
+    // MARK: Deinitializer
     
     deinit {
         self.stopAccessingSaveDirectory()
@@ -161,22 +171,73 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    public func becomeVisible() {
+    public func becomeVisible(randomPort: Bool = false) {
         if startedAdvertising {
             log("[NearbyConnectionManager] Already advertising, skipping")
             return
         }
         
         log("[NearbyConnectionManager] Becoming visible")
+        let parameters = NWParameters(tls: .none)
         
-        tcpListener = try! NWListener(using: NWParameters(tls: .none))
-        startedAdvertising = true
-        
-        tcpListener.stateUpdateHandler = { (state: NWListener.State) in
-            if case .ready = state {
-                self.initMDNS()
+        do {
+            if randomPort {
+                self.tcpListener = try NWListener(using: parameters)
+            } else {
+                self.tcpListener = try NWListener(using: parameters, on: defaultPort)
             }
         }
+        catch {
+            log("[NearbyConnectionManager] Error starting TCP listener: \(error). Trying with random port.")
+            
+            runAfter(seconds: 1) {
+                self.becomeVisible(randomPort: true)
+            }
+            
+            return
+        }
+        
+        startedAdvertising = true
+        
+        tcpListener.stateUpdateHandler = { state in
+            switch state {
+            case .ready:
+                log("[NearbyConnectionManager] Listener ready")
+                self.initMDNS(forceIDRegeneration: randomPort)
+                
+                if let port = self.tcpListener.port, port != self.defaultPort {
+                    log("[NearbyConnectionManager] Updated default port to \(port)")
+                    self.defaultPort = port
+                }
+                
+            case .failed(let error):
+                log("[NearbyConnectionManager] Listener failed: \(error)")
+                self.becomeInvisible()
+                
+                runAfter(seconds: 1) {
+                    if case .posix(let posixError) = error,
+                       posixError == .EADDRINUSE {
+                        self.becomeVisible(randomPort: true)
+                    }
+                    else {
+                        self.becomeVisible()
+                    }
+                }
+                
+            case .cancelled:
+                log("[NearbyConnectionManager] Listener cancelled")
+                
+            case .setup:
+                log("[NearbyConnectionManager] Listener setup")
+                
+            case .waiting(let state):
+                log("[NearbyConnectionManager] Listener waiting: \(state)")
+                
+            @unknown default:
+                log("[NearbyConnectionManager] Listener unknown state")
+            }
+        }
+        
         tcpListener.newConnectionHandler = { (connection: NWConnection) in
             let id = UUID().uuidString
             let conn = InboundNearbyConnection(connection: connection, id: id)
@@ -184,6 +245,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             conn.delegate = self
             conn.start()
         }
+        
         tcpListener.start(queue: .global(qos: .utility))
     }
     
@@ -202,11 +264,13 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    private static func generateEndpointID() -> [UInt8] {
+    private static func generateEndpointID(forceRegeneration: Bool) -> [UInt8] {
         
         // Try to retrieve from UserDefaults
-        if let savedString = Settings.shared.endpointID,
+        if !forceRegeneration,
+           let savedString = Settings.shared.endpointID,
            let savedData = savedString.data(using: .utf8) {
+            log("[NearbyConnectionManager] Using cached endpoint ID: \(savedString)")
             return [UInt8](savedData)
         }
         
@@ -220,12 +284,16 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         // Save to UserDefaults as String
         let idString = String(bytes: id, encoding: .utf8) ?? ""
         Settings.shared.endpointID = idString
+        log("[NearbyConnectionManager] Storing new endpoint ID: \(idString) ======================================")
         
         return id
     }
     
     
-    private func initMDNS() {
+    private func initMDNS(forceIDRegeneration: Bool) {
+        
+        self.endpointID = Self.generateEndpointID(forceRegeneration: forceIDRegeneration)
+        
         let nameBytes: [UInt8] = [
             0x23, // PCP
             endpointID[0], endpointID[1], endpointID[2], endpointID[3],
@@ -720,6 +788,14 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         securityScopeUrl = nil
     }
     
+    
+    // MARK: Callbacks
+    
+    func informAboutStatus() {
+        DispatchQueue.main.async {
+            self.connectionUpdateCallback(self.isConnectedToLocalNetwork && self.startedAdvertising)
+        }
+    }
     
     
     // -- MARK: - Internal Data Model

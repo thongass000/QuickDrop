@@ -337,7 +337,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             }
         }), hasSheet: false)
         
-        let plusViewWidth: CGFloat = 550
+        let plusViewWidth: CGFloat = 750
         let plusViewHeight: CGFloat = 750
 
         // Create an NSWindow to host the SwiftUI view

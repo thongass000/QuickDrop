@@ -355,8 +355,8 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         let frame = screen.frame
         let visible = screen.visibleFrame
 
-        let marginX: CGFloat = 24
-        let marginFromTop: CGFloat = 30
+        let marginX: CGFloat = 20
+        let marginFromTop: CGFloat = 20
 
         // If the menu bar is auto-hidden, visible.maxY == frame.maxY; subtract the status bar thickness to stay clear
         let menuBarHidden = abs(frame.maxY - visible.maxY) < 0.5

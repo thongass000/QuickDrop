@@ -5,8 +5,9 @@
 //  Created by Leon Böttger on 05.10.25.
 //
 
-import SwiftUI
 import AppKit
+import LUI
+import SwiftUI
 
 let toastViewSize = CGSize(width: 400, height: 120)
 
@@ -32,14 +33,12 @@ struct QuickDropToastView: View {
         let isDone = receiveModel.toastActions != nil
         
         VStack(spacing: 12) {
-            HStack(spacing: 12) {
-                ZStack(alignment: .bottomLeading) {
-                    Image(.quickDropIcon)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 44, height: 44)
-                        .clipShape(Circle())
-                }
+            HStack(spacing: 10) {
+            
+                let iconSize = 39.0
+                
+                AppIconView(hasPlusIcon: false, size: iconSize)
+                    .frame(width: iconSize, height: iconSize)
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(String("QuickDrop"))
@@ -118,7 +117,7 @@ struct QuickDropToastView: View {
         .padding(16)
         .background(
             VisualEffectView(material: .hudWindow)
-                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
         )
         .overlay(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
@@ -142,6 +141,10 @@ fileprivate struct QuickDropToastViewButton: View {
                 .background(
                     Color.gray.opacity(0.15)
                         .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                        .stroke(Color.black.opacity(0.04), lineWidth: 1)
                 )
         }
         .buttonStyle(.plain)  // prevents blue macOS button look
@@ -203,7 +206,7 @@ struct CapsuleProgress: View {
 struct QuickDropToastView_Previews: PreviewProvider {
     struct Demo: View {
         @State var model = ReceiveModel(controlPlusScreen: { _ in })
-        @State var done = false
+        @State var done = true
 
         var body: some View {
             QuickDropToastView(
@@ -215,7 +218,8 @@ struct QuickDropToastView_Previews: PreviewProvider {
             .padding(100)
             .background(Color.black.opacity(0.2))
             .onAppear {
-                model.progress = 0.01
+                model.progress = 1
+                model.toastActions = .init(openFilesAction: {}, importPhotosAction: {}, closeToastAction: {})
             }
         }
     }
