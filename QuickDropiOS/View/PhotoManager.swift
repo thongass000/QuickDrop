@@ -19,7 +19,7 @@ struct PhotoManager {
 
     /// Returns if there are photos or videos among the given URLs.
     static func hasPhotosOrVideos(at urls: [URL]) -> Bool {
-        urls.contains(where: { isImageFile(at: $0) || isVideoFile(at: $0) })
+        urls.contains(where: { EXIFUtils.isImageFile(at: $0) || EXIFUtils.isVideoFile(at: $0) })
     }
     
     
@@ -30,9 +30,6 @@ struct PhotoManager {
     /// - Throws: `SaveToPhotosError` or underlying URLSession/Photos errors.
     static func saveMediaToPhotoLibrary(from urls: [URL], openPhotosOnSuccess: Bool = true) async throws {
         
-        let candidates = urls.filter { isImageFile(at: $0) || isVideoFile(at: $0) }
-        guard !candidates.isEmpty else { throw SaveToPhotosError.noSavableContent }
-        
         let authStatus = await requestAddOnlyPhotoAuthorization()
         guard authStatus == .authorized || authStatus == .limited else {
             throw SaveToPhotosError.permissionDenied
@@ -41,16 +38,15 @@ struct PhotoManager {
         var imageItems: [ImageItem] = []
         var videoItems: [VideoItem] = []
         
-        
         // Extract creation date for image and video
-        for sourceURL in candidates {
-            
-            if isImageFile(at: sourceURL) {
-                let exifDate = EXIFUtils.exifOriginalDate(from: sourceURL)
-                imageItems.append(ImageItem(fileURL: sourceURL, creationDate: exifDate))
-            } else {
-                let videoDate = getVideoCreationDate(from: sourceURL)
-                videoItems.append(VideoItem(fileURL: sourceURL, creationDate: videoDate))
+        for sourceURL in urls {
+            if let (type, date) = EXIFUtils.originalDate(from: sourceURL) {
+                if type == .image {
+                    imageItems.append(ImageItem(fileURL: sourceURL, creationDate: date))
+                }
+                if type == .video {
+                    videoItems.append(VideoItem(fileURL: sourceURL, creationDate: date))
+                }
             }
         }
         
@@ -116,40 +112,6 @@ struct PhotoManager {
     }
     
     
-    private static func isImageFile(at url: URL) -> Bool {
-        let ext = url.pathExtension.lowercased()
-        guard let type = UTType(filenameExtension: ext) else {
-            return false
-        }
-        
-        return type.conforms(to: .image)
-    }
-    
-    
-    private static func isVideoFile(at url: URL) -> Bool {
-        let ext = url.pathExtension.lowercased()
-        guard let type = UTType(filenameExtension: ext) else {
-            return false
-        }
-        // `.movie` is the canonical file-based video type; `.audiovisualContent`
-        // catches some broader cases if needed.
-        return type.conforms(to: .movie) || type.conforms(to: .audiovisualContent)
-    }
-    
-    
-    private static func getVideoCreationDate(from url: URL) -> Date? {
-        let asset = AVURLAsset(url: url)
-        // AVMetadataItem that typically contains an ISO‑8601 string
-        guard let item = asset.creationDate,
-              let dateString = item.stringValue else {
-            return nil
-        }
-        
-        let formatter = ISO8601DateFormatter()
-        return formatter.date(from: dateString)
-    }
-    
-    
     /// Requests add-only Photos permission
     private static func requestAddOnlyPhotoAuthorization() async -> PHAuthorizationStatus {
         await withCheckedContinuation { continuation in
@@ -158,8 +120,12 @@ struct PhotoManager {
             }
         }
     }
-    
-    
+}
+
+
+// MARK: - Private types
+
+private extension PhotoManager {
     private enum SaveToPhotosError: Error, LocalizedError {
         case noSavableContent
         case permissionDenied

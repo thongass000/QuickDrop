@@ -169,7 +169,7 @@ class InboundNearbyConnection: NearbyConnection {
             fileInfo.progress?.unpublish()
             #endif
             downloadedFiles.append(fileInfo.destinationURL)
-            EXIFUtils.applyEXIFTimestamps(at: fileInfo.destinationURL)
+            EXIFUtils.applyTimestamps(at: fileInfo.destinationURL)
 
             filesToBeReceived.removeValue(forKey: id)
             
@@ -223,7 +223,7 @@ class InboundNearbyConnection: NearbyConnection {
             #endif
             filesToBeReceived.removeValue(forKey: id)
             downloadedFiles.append(fileInfo.destinationURL)
-            EXIFUtils.applyEXIFTimestamps(at: fileInfo.destinationURL)
+            EXIFUtils.applyTimestamps(at: fileInfo.destinationURL)
             
             if filesToBeReceived.isEmpty {
                 log("[InboundNearbyConnection \(self.id)] Received file payload. Disconnecting...")
