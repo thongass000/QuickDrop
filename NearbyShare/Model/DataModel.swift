@@ -137,6 +137,7 @@ public struct TransferMetadata {
         case file
         case text
         case url
+        case wifiPassword
     }
     
     private func getSummary() -> String {
@@ -162,6 +163,9 @@ public struct TransferMetadata {
             
             case .url:
                 return String(format: (alreadyAccepted ? "DeviceCurrentlySendingUrl" : "DeviceSendingUrl").localized(), arguments: [deviceName, fileStr])
+            
+            case .wifiPassword:
+                return String(format: (alreadyAccepted ? "DeviceCurrentlySendingWifiPassword" : "DeviceSendingWifiPassword").localized(), arguments: [deviceName, fileStr])
         }
     }
     

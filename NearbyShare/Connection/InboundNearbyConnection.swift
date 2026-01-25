@@ -517,6 +517,15 @@ class InboundNearbyConnection: NearbyConnection {
             
             checkIfCanProceed(metadata: metadata)
         }
+        else if let wifiMetadata = frame.v1.introduction.wifiCredentialsMetadata.first {
+            
+            let metadata = TransferMetadata(files: [], id: id, pinCode: pinCode, textDescription: wifiMetadata.ssid, transferType: .wifiPassword, allowsToBeAddedAsTrustedDevice: self.peerCertificate != nil)
+            textPayloadID = wifiMetadata.payloadID
+            
+            isPlainTextTransfer = true
+            
+            checkIfCanProceed(metadata: metadata)
+        }
         else {
             log("[InboundNearbyConnection \(self.id)] Rejecting transfer due to unsupported file type. Frame is \(frame.debugDescription)")
             

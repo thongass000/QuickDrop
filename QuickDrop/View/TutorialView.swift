@@ -21,12 +21,26 @@ struct TutorialView: View {
         
         LargeAppIconView(title: tab.title) {
             VStack {
-                
-                Text(tab.text.localized())
-                    .multilineTextAlignment(.leading)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .padding()
-                    .frame(width: 550)
+                Group {
+                    if tab == .troubleshooting {
+                        FAQView(faqItems: [
+                            .init(question: "FaqNotVisibleOrConnectingQuestion", answer: "FaqNotVisibleOrConnectingAnswer"),
+                            .init(question: "FaqPhotoDateNotPreservedQuestion", answer: "FaqPhotoDateNotPreservedAnswer"),
+                            .init(question: "FaqAndroidDeviceNotVisibleQuestion", answer: "FaqAndroidDeviceNotVisibleAnswer"),
+                            .init(question: "FaqTrustedDevicesQuestion", answer: "FaqTrustedDevicesAnswer"),
+                            .init(question: "MultipleFilesSendingQuestion", answer: "MultipleFilesSendingAnswer"),
+                            .init(question: "FaqBugQuestion", answer: "FaqBugAnswer"),
+                        ])
+                        .padding(.top)
+                    }
+                    else {
+                        Text(tab.text.localized())
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding()
+                    }
+                }
+                .frame(width: 550)
                 
                 if tab == .receive {
                     HStack(spacing: 30) {
@@ -172,14 +186,19 @@ struct LargeAppIconView<Content: View>: View {
         ScrollView {
             
             VStack {
-                AppIconView(hasPlusIcon: false, size: 120)
-                    .padding(.top, 35)
+                AppIconView(hasPlusIcon: false, size: 100)
+                    .padding(.top, 30)
                 
                 Text(title.localized())
                     .font(.largeTitle)
-                    .padding()
+                    .padding(.bottom)
+                    .padding(.top, 7)
+                
+                Divider()
+                    .padding(.bottom, 10)
                 
                 bottomView()
+                    .padding(.bottom, 30)
             }
             .frame(maxWidth: 500)
             .frame(maxWidth: .infinity)

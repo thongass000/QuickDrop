@@ -188,7 +188,7 @@ enum Tab: CaseIterable {
         case .send:
             return "SendFiles".localized()
         case .troubleshooting:
-            return "DeviceNotShown".localized()
+            return "TroubleshootingAndFaq".localized()
         case .settings:
             return "Settings".localized()
         }
@@ -196,8 +196,6 @@ enum Tab: CaseIterable {
     
     var title: String {
         switch self {
-        case .troubleshooting:
-            return "Troubleshooting"
         default:
             return sidebarTitle
         }
@@ -209,9 +207,7 @@ enum Tab: CaseIterable {
             "UserManualDescription"
         case .send:
             "SendFilesDescription"
-        case .troubleshooting:
-            "TroubleshootingDescription"
-        case .settings:
+        default:
             ""
         }
     }
