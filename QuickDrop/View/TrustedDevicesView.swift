@@ -5,10 +5,8 @@
 //  Created by Leon Böttger on 23.08.25.
 //
 
-import SwiftUI
-#if !os(macOS)
 import LUI
-#endif
+import SwiftUI
 
 struct TrustedDevicesView: View {
     @StateObject private var store = TrustStore.shared
@@ -17,38 +15,28 @@ struct TrustedDevicesView: View {
     @State private var showRemoveAlert = false
     
     var body: some View {
-        VStack {
-            if store.trustedCertificates.isEmpty {
-                VStack(spacing: 12) {
-                    Text("NoTrustedDevices")
-                        .font(.headline)
-                        .foregroundColor(.secondary)
-                    Text("TrustedDevicesDescription")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+        NavigationSubView(header: isMac() ? "" : "TrustedDevices") {
+            VStack {
+                if store.trustedCertificates.isEmpty {
+                    VStack(spacing: 12) {
+                        Text("NoTrustedDevices")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                        Text("TrustedDevicesDescription")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    .multilineTextAlignment(.center)
+                    .padding()
+                    .frame(maxHeight: .infinity)
+                } else {
+                    CustomSection(footer: "TrustedDevicesDescription") {
+                        devicesView
+                            .padding(.vertical, 4)
+                    }
                 }
-                .multilineTextAlignment(.center)
-                .padding()
-                .frame(maxHeight: .infinity)
-            } else {
-                
-                #if !os(macOS)
-                CustomSection(footer: "TrustedDevicesDescription") {
-                    devicesView
-                        .padding(.vertical, 4)
-                }
-                #else
-                List {
-                    devicesView
-                    
-                    Text("TrustedDevicesDescription")
-                        .font(.footnote)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .foregroundColor(.secondary)
-                        .padding(.top, 4)
-                }
-                #endif
             }
+            .padding(.top, isMac() ? 18 : 0)
         }
         .animation(.default, value: store.trustedCertificates)
         .alert(isPresented: $showRemoveAlert) {
@@ -71,32 +59,24 @@ struct TrustedDevicesView: View {
             if let cert = store.trustedCertificates[key] {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(cert.device.name ?? "Unknown".localized())
-                            .font(.headline)
-                        
-                        // macOS 11: use DateFormatter instead of .formatted
-                        Text(Self.dateFormatter.string(from: cert.creationDate))
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+                        LUIText(cert.device.name ?? "Unknown".localized(), isBold: true)
+                        LUIText(Self.dateFormatter.string(from: cert.creationDate), color: .mainColor.opacity(0.7))
                     }
+                    
                     Spacer()
-                    Button(action: {
+                    
+                    LUIButton {
                         deviceToRemove = key
                         showRemoveAlert = true
-                    }) {
-                        Image(systemName: "minus.circle.fill")
-                            .font(.system(size: 20))
-                            .foregroundColor(.red)
+                    } label: {
+                        ReorderListIcon(imageName: "minus.circle.fill", color: .red)
                     }
-                    .buttonStyle(BorderlessButtonStyle())
                 }
                 .padding(.vertical, 8)
             }
         }
     }
     
-    
-    // MARK: - DateFormatter for macOS 11
     private static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -107,7 +87,7 @@ struct TrustedDevicesView: View {
 
 
 #Preview {
-        TrustedDevicesView()
+    TrustedDevicesView()
         .onAppear {
             
             var cert1 = Sharing_Nearby_PublicCertificate()
@@ -120,6 +100,6 @@ struct TrustedDevicesView: View {
             cert2.secretID = Data([0x0A, 0x0B, 0x0C, 0x0D])
             
             TrustStore.shared.addTrusted(certificate: cert2, device: RemoteDeviceInfo(name: "iPhone", type: .phone))
-    
+            
         }
 }
