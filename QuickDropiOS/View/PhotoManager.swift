@@ -40,13 +40,13 @@ struct PhotoManager {
         
         // Extract creation date for image and video
         for sourceURL in urls {
-            if let (type, date) = EXIFUtils.originalDate(from: sourceURL) {
-                if type == .image {
-                    imageItems.append(ImageItem(fileURL: sourceURL, creationDate: date))
-                }
-                if type == .video {
-                    videoItems.append(VideoItem(fileURL: sourceURL, creationDate: date))
-                }
+            let (type, date) = EXIFUtils.originalDate(from: sourceURL)
+            
+            if type == .image {
+                imageItems.append(ImageItem(fileURL: sourceURL, creationDate: date))
+            }
+            if type == .video {
+                videoItems.append(VideoItem(fileURL: sourceURL, creationDate: date))
             }
         }
         
