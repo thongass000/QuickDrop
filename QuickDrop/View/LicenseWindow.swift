@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct LicensePage: View {
     var body: some View {
         ZStack {

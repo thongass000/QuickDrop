@@ -22825,229 +22825,229 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "للاتصال بجهاز الأندرويد الخاص بك، اسحب للأسفل من أعلى الشاشة لفتح الإعدادات السريعة. ابحث عن \"المشاركة السريعة\" واضغط عليها. إذا لم تجد هذا الخيار، امسح رمز QR. تأكد من أن كلا الجهازين على نفس الشبكة.\n\nلإرسال الملفات بسهولة أكبر، ثبّت تطبيق QuickDrop (انظر أعلاه)."
+            "value" : "للاتصال بجهاز Android الخاص بك، اسحب للأسفل من أعلى الشاشة لفتح الإعدادات السريعة، ثم اضغط على مشاركة سريعة (Quick Share).\n\nبدلاً من ذلك، يمكنك مسح رمز QR. تأكد أن كلا الجهازين متصلان بنفس الشبكة. لتسهيل النقل، ثبّت تطبيق QuickDrop (انظر أعلاه)."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per connectar-te amb el teu dispositiu Android, llisca el dit cap avall des de la part superior de la pantalla per obrir la configuració ràpida. Busca Quick Share i toca-hi. Si no trobes aquesta opció, escaneja el codi QR. Assegura't que ambdós dispositius estiguin a la mateixa xarxa.\n\nPer facilitar les transferències, instal·la l'app QuickDrop (vegeu més amunt)."
+            "value" : "Per connectar-te al teu dispositiu Android, desliza cap avall des de la part superior de la pantalla per obrir els ajustos ràpids i toca Quick Share.\n\nTambé pots escanejar el codi QR. Assegura't que tots dos dispositius estiguin a la mateixa xarxa. Per a transferències més fàcils, instal·la l'aplicació QuickDrop (vegeu a dalt)."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chcete-li se připojit ke svému zařízení Android, stáhněte horní lištu a otevřete rychlá nastavení. Najděte možnost Quick Share a klepněte na ni. Pokud tuto možnost nenajdete, naskenujte QR kód. Ujistěte se, že obě zařízení jsou ve stejné síti.\n\nPro jednodušší přenosy si nainstalujte aplikaci QuickDrop (viz výše)."
+            "value" : "Chcete-li se připojit ke svému zařízení Android, stáhněte horní lištu dolů pro otevření rychlého nastavení a klepněte na Quick Share.\n\nPřípadně naskenujte QR kód. Ujistěte se, že jsou obě zařízení ve stejné síti. Pro jednodušší přenosy si nainstalujte aplikaci QuickDrop (viz výše)."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "For at oprette forbindelse til din Android-enhed, skal du stryge ned fra toppen af skærmen for at åbne hurtigindstillingerne. Find Quick Share, og tryk på det. Hvis du ikke kan finde denne indstilling, så scan QR-koden. Sørg for, at begge enheder er på det samme netværk.\n\nFor nemmere overførsler, installer QuickDrop-appen (se ovenfor)."
+            "value" : "For at oprette forbindelse til din Android-enhed skal du stryge ned fra toppen af skærmen for at åbne hurtigindstillingerne og derefter trykke på Quick Share.\n\nAlternativt kan du scanne QR-koden. Sørg for, at begge enheder er på det samme netværk. For nemmere overførsler kan du installere QuickDrop-appen (se ovenfor)."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Um eine Verbindung zu deinem Android-Gerät herzustellen, streiche vom oberen Bildschirmrand nach unten, um die Schnelleinstellungen zu öffnen. Suche nach „Quick Share“ und tippe darauf. Falls du diese Einstellung nicht findest, scanne den QR-Code. Stelle sicher, dass beide Geräte im selben Netzwerk sind.\n\nFür einfachere Übertragungen installiere die QuickDrop-App (siehe oben)."
+            "value" : "Um eine Verbindung zu deinem Android-Gerät herzustellen, wische vom oberen Bildschirmrand nach unten, um die Schnelleinstellungen zu öffnen, und tippe dann auf Quick Share.\n\nAlternativ kannst du den QR-Code scannen. Stelle sicher, dass beide Geräte im selben Netzwerk sind. Für einfachere Übertragungen installiere die QuickDrop-App (siehe oben)."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Για να συνδεθείτε με τη συσκευή Android σας, σύρετε προς τα κάτω από το επάνω μέρος της οθόνης για να ανοίξετε τις γρήγορες ρυθμίσεις. Βρείτε το Quick Share και πατήστε το. Αν δεν βρίσκετε αυτή τη ρύθμιση, σαρώστε τον κωδικό QR. Βεβαιωθείτε ότι και οι δύο συσκευές είναι στο ίδιο δίκτυο.\n\nΓια πιο εύκολες μεταφορές, εγκαταστήστε την εφαρμογή QuickDrop (δείτε παραπάνω)."
+            "value" : "Για να συνδεθείτε με τη συσκευή Android, σύρετε προς τα κάτω από το πάνω μέρος της οθόνης για να ανοίξετε τις γρήγορες ρυθμίσεις και πατήστε στο Quick Share.\n\nΕναλλακτικά, σαρώστε τον QR κωδικό. Βεβαιωθείτε ότι και οι δύο συσκευές βρίσκονται στο ίδιο δίκτυο. Για πιο εύκολες μεταφορές, εγκαταστήστε την εφαρμογή QuickDrop (δείτε παραπάνω)."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To connect to your Android device, swipe down from the top of the screen to open the quick settings. Look for Quick Share and tap on it. If you cannot find this setting, scan the QR code. Make sure both devices are on the same network.\n\nFor easier transfers, install the QuickDrop app (see above)."
+            "value" : "To connect to your Android device, swipe down from the top of the screen to open the quick settings, then tap on Quick Share. \n\nAlternatively, scan the QR code. Make sure both devices are on the same network. For easier transfers, install the QuickDrop app (see above)."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To connect to your Android device, swipe down from the top of the screen to open the quick settings. Look for Quick Share and tap on it. If you cannot find this setting, scan the QR code. Make sure both devices are on the same network.\n\nFor easier transfers, install the QuickDrop app (see above)."
+            "value" : "To connect to your Android device, swipe down from the top of the screen to open the quick settings, then tap on Quick Share. \n\nAlternatively, scan the QR code. Make sure both devices are on the same network. For easier transfers, install the QuickDrop app (see above)."
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To connect to your Android device, swipe down from the top of the screen to open the quick settings. Look for Quick Share and tap on it. If you can't find this setting, scan the QR code. Make sure both devices are on the same network.\n\nFor easier transfers, install the QuickDrop app (see above)."
+            "value" : "To connect to your Android device, swipe down from the top of the screen to open the quick settings, then tap on Quick Share. \n\nAlternatively, scan the QR code. Make sure both devices are on the same network. For easier transfers, install the QuickDrop app (see above)."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To connect to your Android device, swipe down from the top of the screen to open the quick settings. Look for Quick Share and tap on it. If you cannot find this setting, scan the QR code. Make sure both devices are on the same network.\n\nFor easier transfers, install the QuickDrop app (see above)."
+            "value" : "To connect to your Android device, swipe down from the top of the screen to open the quick settings, then tap on Quick Share.\n\nAlternatively, scan the QR code. Make sure both devices are on the same network. For easier transfers, install the QuickDrop app (see above)."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para conectar con tu dispositivo Android, desliza hacia abajo desde la parte superior de la pantalla para abrir los ajustes rápidos. Busca Quick Share y tócalo. Si no puedes encontrar esta opción, escanea el código QR. Asegúrate de que ambos dispositivos estén en la misma red.\n\nPara facilitar las transferencias, instala la app QuickDrop (ver arriba)."
+            "value" : "Para conectar con tu dispositivo Android, desliza hacia abajo desde la parte superior de la pantalla para abrir los ajustes rápidos y toca Quick Share.\n\nTambién puedes escanear el código QR. Asegúrate de que ambos dispositivos estén en la misma red. Para transferencias más fáciles, instala la app QuickDrop (ver arriba)."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para conectar con tu dispositivo Android, desliza hacia abajo desde la parte superior de la pantalla para abrir los ajustes rápidos. Busca Quick Share y tócala. Si no encuentras esta opción, escanea el código QR. Asegúrate de que ambos dispositivos estén en la misma red.\n\nPara transferencias más fáciles, instala la app QuickDrop (ver arriba)."
+            "value" : "Para conectar tu dispositivo Android, desliza hacia abajo desde la parte superior de la pantalla para abrir los ajustes rápidos y luego toca Quick Share.\n\nTambién puedes escanear el código QR. Asegúrate de que ambos dispositivos estén en la misma red. Para transferencias más fáciles, instala la app QuickDrop (ver arriba)."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Yhdistääksesi Android-laitteeseesi, pyyhkäise alas näytön yläreunasta avataksesi pikavalikon. Etsi Quick Share ja napauta sitä. Jos et löydä asetusta, skannaa QR-koodi. Varmista, että molemmat laitteet ovat samassa verkossa.\n\nHelpompia siirtoja varten asenna QuickDrop-sovellus (katso yllä)."
+            "value" : "Yhdistääksesi Android-laitteeseesi, pyyhkäise alas näytön yläreunasta avataksesi pikalähteet ja napauta Quick Sharea.\n\nVoit myös skannata QR-koodin. Varmista, että molemmat laitteet ovat samassa verkossa. Helpompia siirtoja varten asenna QuickDrop-sovellus (katso yllä)."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pour connecter votre appareil Android, faites glisser vers le bas depuis le haut de l'écran pour ouvrir les paramètres rapides. Cherchez Quick Share et appuyez dessus. Si vous ne trouvez pas ce paramètre, scannez le code QR. Assurez-vous que les deux appareils sont sur le même réseau.\n\nPour faciliter les transferts, installez l'application QuickDrop (voir ci-dessus)."
+            "value" : "Pour connecter votre appareil Android, faites glisser vers le bas depuis le haut de l’écran pour ouvrir les paramètres rapides, puis touchez Quick Share.\n\nVous pouvez aussi scanner le code QR. Assurez-vous que les deux appareils sont sur le même réseau. Pour des transferts plus faciles, installez l’application QuickDrop (voir ci-dessus)."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pour connecter votre appareil Android, faites glisser votre doigt vers le bas à partir du haut de l’écran pour ouvrir les réglages rapides. Recherchez Partage rapide (Quick Share) et appuyez dessus. Si vous ne trouvez pas ce réglage, scannez le code QR. Assurez-vous que les deux appareils sont sur le même réseau.\n\nPour des transferts plus faciles, installez l’application QuickDrop (voir ci-dessus)."
+            "value" : "Pour connecter votre appareil Android, balayez vers le bas à partir du haut de l’écran pour ouvrir les réglages rapides, puis touchez Partage rapide.\n\nVous pouvez aussi scanner le code QR. Assurez-vous que les deux appareils sont sur le même réseau. Pour faciliter les transferts, installez l’application QuickDrop (voir ci-dessus)."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "כדי להתחבר למכשיר האנדרואיד שלך, החלק למטה מהחלק העליון של המסך כדי לפתוח את ההגדרות המהירות. חפש את Quick Share והקש עליו. אם אינך מוצא את ההגדרה, סרוק את קוד ה-QR. ודא ששני המכשירים מחוברים לאותה רשת.\n\nלהעברות קלות יותר, התקן את אפליקציית QuickDrop (ראה למעלה)."
+            "value" : "כדי להתחבר למכשיר האנדרואיד שלך, החלק מטה מהחלק העליון של המסך כדי לפתוח את הגדרות המהירות, ואז הקש על Quick Share.\n\nאפשר גם לסרוק את קוד ה-QR. ודא ששני המכשירים נמצאים על אותה רשת. להעברות קלות יותר, התקן את אפליקציית QuickDrop (ראה למעלה)."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "अपने Android डिवाइस से कनेक्ट करने के लिए, स्क्रीन के ऊपर से नीचे स्वाइप करें और क्विक सेटिंग्स खोलें। Quick Share खोजें और उस पर टैप करें। अगर यह सेटिंग नहीं मिलती, तो QR कोड स्कैन करें। सुनिश्चित करें कि दोनों डिवाइस एक ही नेटवर्क पर हैं।\n\nआसानी से फाइल ट्रांसफर करने के लिए QuickDrop ऐप इंस्टॉल करें (ऊपर देखें)।"
+            "value" : "अपने Android डिवाइस से कनेक्ट करने के लिए, स्क्रीन के ऊपर से नीचे की ओर स्वाइप करें और क्विक सेटिंग्स खोलें, फिर Quick Share पर टैप करें।\n\nया फिर QR कोड स्कैन करें। सुनिश्चित करें कि दोनों डिवाइस एक ही नेटवर्क पर हों। आसान ट्रांसफर के लिए QuickDrop ऐप इंस्टॉल करें (ऊपर देखें)।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Za povezivanje s vašim Android uređajem, povucite prstom prema dolje s vrha zaslona kako biste otvorili brze postavke. Pronađite Quick Share i dodirnite ga. Ako ne možete pronaći tu postavku, skenirajte QR kod. Provjerite jesu li oba uređaja na istoj mreži.\n\nZa lakši prijenos instalirajte QuickDrop aplikaciju (pogledajte gore)."
+            "value" : "Za povezivanje s Android uređajem, povucite prstom prema dolje s vrha ekrana kako biste otvorili brze postavke, zatim dodirnite Quick Share.\n\nAlternativno, skenirajte QR kod. Provjerite jesu li oba uređaja na istoj mreži. Za lakši prijenos instalirajte aplikaciju QuickDrop (vidi gore)."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Az Android eszköz csatlakoztatásához húzza le az értesítési sávot felülről a gyorsbeállítások megnyitásához. Keresse meg a Quick Share-t és koppintson rá. Ha nem találja ezt a beállítást, olvassa be a QR-kódot. Bizonyosodjon meg róla, hogy mindkét eszköz ugyanazon a hálózaton van.\n\nAz egyszerűbb átvitel érdekében telepítse a QuickDrop alkalmazást (lásd fent)."
+            "value" : "Az Android eszközöd csatlakoztatásához húzd le az ujjad a képernyő tetejéről a gyorsbeállítások megnyitásához, majd koppints a Gyors Megosztásra (Quick Share).\n\nAlternatív megoldásként olvasd be a QR-kódot. Győződj meg róla, hogy mindkét eszköz ugyanazon a hálózaton van. Az egyszerűbb átvitelhez telepítsd a QuickDrop alkalmazást (fentebb találod)."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Untuk menghubungkan ke perangkat Android Anda, geser ke bawah dari bagian atas layar untuk membuka pengaturan cepat. Cari Quick Share lalu ketuk. Jika Anda tidak menemukan pengaturan ini, pindai kode QR. Pastikan kedua perangkat terhubung ke jaringan yang sama.\n\nAgar transfer lebih mudah, instal aplikasi QuickDrop (lihat di atas)."
+            "value" : "Untuk menghubungkan ke perangkat Android Anda, geser turun dari bagian atas layar untuk membuka pengaturan cepat, lalu ketuk Quick Share.\n\nAtau, pindai kode QR. Pastikan kedua perangkat berada di jaringan yang sama. Untuk transfer yang lebih mudah, instal aplikasi QuickDrop (lihat di atas)."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per connetterti al tuo dispositivo Android, scorri verso il basso dalla parte superiore dello schermo per aprire le impostazioni rapide. Cerca Quick Share e toccalo. Se non trovi questa opzione, scansiona il codice QR. Assicurati che entrambi i dispositivi siano sulla stessa rete.\n\nPer trasferimenti più semplici, installa l'app QuickDrop (vedi sopra)."
+            "value" : "Per collegarti al tuo dispositivo Android, scorri verso il basso dalla parte superiore dello schermo per aprire le impostazioni rapide, quindi tocca Quick Share.\n\nIn alternativa, scansiona il codice QR. Assicurati che entrambi i dispositivi siano sulla stessa rete. Per trasferimenti più semplici, installa l'app QuickDrop (vedi sopra)."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Androidデバイスに接続するには、画面上部から下にスワイプしてクイック設定を開き、Quick Share を探してタップしてください。もし見つからない場合は、QRコードをスキャンしてください。両方のデバイスが同じネットワークに接続されていることを確認してください。\n\nより簡単に転送するには、QuickDropアプリ（上記参照）をインストールしてください。"
+            "value" : "Androidデバイスに接続するには、画面上部から下にスワイプしてクイック設定を開き、「クイック共有」をタップしてください。\n\nまたは、QRコードをスキャンしてください。両方のデバイスが同じネットワーク上にあることを確認してください。より簡単に転送するには、QuickDropアプリのインストールをおすすめします（上記参照）。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Android 기기와 연결하려면, 화면 상단에서 아래로 스와이프하여 빠른 설정을 엽니다. Quick Share를 찾아 탭하세요. 설정이 보이지 않으면 QR 코드를 스캔하세요. 두 기기가 같은 네트워크에 연결되어 있는지 확인하세요.\n\n더 쉽고 빠른 전송을 원하시면 QuickDrop 앱을 설치하세요(위 참고)."
+            "value" : "Android 기기에 연결하려면 화면 상단에서 아래로 스와이프하여 빠른 설정을 연 다음, Quick Share를 탭하세요.\n\n또는 QR 코드를 스캔할 수도 있습니다. 두 기기가 같은 네트워크에 연결되어 있는지 확인하세요. 더 쉽게 전송하려면 QuickDrop 앱을 설치하세요(위 참조)."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Untuk sambung ke peranti Android anda, leret ke bawah dari atas skrin untuk buka tetapan pantas. Cari Quick Share dan ketik padanya. Jika anda tidak jumpa tetapan ini, imbas kod QR. Pastikan kedua-dua peranti berada pada rangkaian yang sama.\n\nUntuk pemindahan yang lebih mudah, pasang aplikasi QuickDrop (lihat di atas)."
+            "value" : "Untuk sambung ke peranti Android anda, leret ke bawah dari bahagian atas skrin untuk buka tetapan pantas, kemudian ketik pada Quick Share.\n\nSebagai alternatif, imbas kod QR. Pastikan kedua-dua peranti berada pada rangkaian yang sama. Untuk pemindahan yang lebih mudah, pasang aplikasi QuickDrop (lihat di atas)."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "For å koble til Android-enheten din, sveip ned fra toppen av skjermen for å åpne hurtiginnstillingene. Se etter Quick Share og trykk på den. Hvis du ikke finner innstillingen, skann QR-koden. Sørg for at begge enhetene er på samme nettverk.\n\nFor enklere overføringer, installer QuickDrop-appen (se ovenfor)."
+            "value" : "For å koble til Android-enheten din, sveip ned fra toppen av skjermen for å åpne hurtiginnstillingene, og trykk deretter på Quick Share.\n\nAlternativt kan du skanne QR-koden. Sørg for at begge enhetene er på samme nettverk. For enklere overføringer, installer QuickDrop-appen (se ovenfor)."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Om verbinding te maken met je Android-apparaat, veeg omlaag vanaf de bovenkant van het scherm om de snelle instellingen te openen. Zoek Quick Share en tik erop. Kun je deze optie niet vinden? Scan dan de QR-code. Zorg ervoor dat beide apparaten met hetzelfde netwerk verbonden zijn.\n\nVoor eenvoudiger overzetten, installeer de QuickDrop-app (zie hierboven)."
+            "value" : "Om verbinding te maken met je Android-apparaat, veeg vanaf de bovenkant van het scherm naar beneden om de snelle instellingen te openen en tik op Quick Share. \n\nJe kunt ook de QR-code scannen. Zorg dat beide apparaten op hetzelfde netwerk zitten. Voor makkelijker overzetten kun je de QuickDrop-app installeren (zie hierboven)."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aby połączyć się z urządzeniem z Androidem, przesuń palcem w dół od góry ekranu, aby otworzyć szybkie ustawienia. Znajdź opcję Quick Share i stuknij ją. Jeśli nie możesz jej znaleźć, zeskanuj kod QR. Upewnij się, że oba urządzenia są w tej samej sieci.\n\nAby ułatwić przesyłanie, zainstaluj aplikację QuickDrop (patrz wyżej)."
+            "value" : "Aby połączyć się z urządzeniem z Androidem, przesuń palcem w dół od góry ekranu, aby otworzyć szybkie ustawienia, a następnie stuknij Quick Share.\n\nMożesz też zeskanować kod QR. Upewnij się, że oba urządzenia są w tej samej sieci. Dla łatwiejszego przesyłania plików zainstaluj aplikację QuickDrop (patrz wyżej)."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para conectar ao seu dispositivo Android, deslize de cima para baixo na tela para abrir as configurações rápidas. Procure por Quick Share e toque nele. Se não encontrar essa opção, escaneie o código QR. Certifique-se de que ambos os dispositivos estejam na mesma rede.\n\nPara transferências mais fáceis, instale o app QuickDrop (veja acima)."
+            "value" : "Para conectar ao seu dispositivo Android, deslize de cima para baixo na tela para abrir as configurações rápidas e toque em Quick Share.\n\nComo alternativa, escaneie o código QR. Certifique-se de que ambos os dispositivos estejam na mesma rede. Para transferências mais fáceis, instale o app QuickDrop (veja acima)."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para ligar ao seu dispositivo Android, deslize para baixo a partir do topo do ecrã para abrir as definições rápidas. Procure pelo Quick Share e toque nele. Se não encontrar esta opção, leia o código QR. Certifique-se de que ambos os dispositivos estão na mesma rede.\n\nPara transferências mais fáceis, instale a aplicação QuickDrop (ver acima)."
+            "value" : "Para ligar ao seu dispositivo Android, deslize para baixo no topo do ecrã para abrir as definições rápidas e toque em Quick Share.\n\nEm alternativa, digitalize o código QR. Certifique-se de que ambos os dispositivos estão na mesma rede. Para transferências mais fáceis, instale a aplicação QuickDrop (ver acima)."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pentru a te conecta la dispozitivul Android, glisează în jos din partea de sus a ecranului pentru a deschide setările rapide. Caută Quick Share și atinge-l. Dacă nu găsești această opțiune, scanează codul QR. Asigură-te că ambele dispozitive sunt conectate la aceeași rețea.\n\nPentru transferuri mai ușoare, instalează aplicația QuickDrop (vezi mai sus)."
+            "value" : "Pentru a te conecta la dispozitivul tău Android, glisează în jos din partea de sus a ecranului pentru a deschide setările rapide, apoi apasă pe Quick Share.\n\nAlternativ, scanează codul QR. Asigură-te că ambele dispozitive sunt în aceeași rețea. Pentru transferuri mai ușoare, instalează aplicația QuickDrop (vezi mai sus)."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Чтобы подключиться к вашему Android-устройству, смахните вниз от верхнего края экрана, чтобы открыть быстрые настройки. Найдите «Quick Share» и нажмите на него. Если такой настройки нет, отсканируйте QR-код. Убедитесь, что оба устройства подключены к одной сети.\n\nДля удобной передачи файлов, установите приложение QuickDrop (см. выше)."
+            "value" : "Чтобы подключиться к вашему Android-устройству, смахните вниз от верхнего края экрана, чтобы открыть быстрые настройки, затем коснитесь Quick Share.\n\nИли отсканируйте QR-код. Убедитесь, что оба устройства в одной сети. Для удобной передачи файлов установите приложение QuickDrop (см. выше)."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "För att ansluta till din Android-enhet, dra ner från toppen av skärmen för att öppna snabbinställningarna. Leta efter Quick Share och tryck på det. Om du inte hittar inställningen, skanna QR-koden. Se till att båda enheterna är anslutna till samma nätverk.\n\nFör enklare överföringar, installera QuickDrop-appen (se ovan)."
+            "value" : "För att ansluta till din Android-enhet, svep ner från toppen av skärmen för att öppna snabbinställningarna och tryck sedan på Quick Share.\n\nAlternativt kan du skanna QR-koden. Kontrollera att båda enheterna är på samma nätverk. För enklare överföringar, installera QuickDrop-appen (se ovan)."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ในการเชื่อมต่อกับอุปกรณ์ Android ของคุณ ให้ปัดหน้าจอลงจากขอบบนเพื่อเปิดการตั้งค่าด่วน มองหา Quick Share แล้วแตะ หากหาไม่พบให้สแกนคิวอาร์โค้ด ตรวจสอบให้แน่ใจว่าอุปกรณ์ทั้งสองอยู่บนเครือข่ายเดียวกัน\n\nเพื่อโอนถ่ายไฟล์ได้ง่ายขึ้น ติดตั้งแอป QuickDrop (ดูด้านบน)"
+            "value" : "เพื่อเชื่อมต่อกับอุปกรณ์ Android ของคุณ ให้ปัดหน้าจอลงจากด้านบนเพื่อเปิดการตั้งค่าด่วน แล้วแตะที่ Quick Share \n\nหรือสแกนคิวอาร์โค้ด ตรวจสอบให้แน่ใจว่าอุปกรณ์ทั้งสองอยู่ในเครือข่ายเดียวกัน เพื่อความสะดวกในการถ่ายโอน ติดตั้งแอป QuickDrop (ดูด้านบน)"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Android cihazınıza bağlanmak için ekranın üstünden aşağı kaydırarak hızlı ayarları açın. Quick Share’ı bulun ve dokunun. Bu ayarı bulamazsanız, QR kodunu tarayın. Her iki cihazın da aynı ağa bağlı olduğundan emin olun.\n\nDaha kolay dosya aktarımı için QuickDrop uygulamasını yükleyin (yukarıya bakın)."
+            "value" : "Android cihazınıza bağlanmak için ekranın üstünden aşağı kaydırarak hızlı ayarları açın ve ardından Quick Share'e dokunun.\n\nAlternatif olarak, QR kodunu tarayın. Her iki cihazın da aynı ağda olduğundan emin olun. Dosya iletimini kolaylaştırmak için QuickDrop uygulamasını yükleyin (yukarıya bakın)."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Щоб підключитися до вашого Android-пристрою, проведіть пальцем вниз від верхньої частини екрана, щоб відкрити швидкі налаштування. Знайдіть Quick Share і торкніться його. Якщо цього пункту немає, відскануйте QR-код. Переконайтеся, що обидва пристрої підключені до однієї мережі.\n\nДля зручніших передач встановіть додаток QuickDrop (див. вище)."
+            "value" : "Щоб підключитися до вашого Android-пристрою, проведіть пальцем вниз від верхньої частини екрана, щоб відкрити швидкі налаштування, і натисніть Quick Share.\n\nАбо відскануйте QR-код. Переконайтеся, що обидва пристрої підключені до однієї мережі. Для зручнішої передачі встановіть додаток QuickDrop (див. вище)."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Để kết nối với thiết bị Android của bạn, vuốt xuống từ đầu màn hình để mở cài đặt nhanh. Tìm Quick Share và nhấn vào đó. Nếu không thấy tùy chọn này, hãy quét mã QR. Đảm bảo cả hai thiết bị đều dùng cùng một mạng.\n\nĐể chuyển file dễ dàng hơn, hãy cài đặt ứng dụng QuickDrop (xem bên trên)."
+            "value" : "Để kết nối với thiết bị Android của bạn, vuốt xuống từ trên cùng màn hình để mở cài đặt nhanh, sau đó nhấn vào Quick Share.\n\nHoặc, quét mã QR. Đảm bảo cả hai thiết bị cùng chung mạng. Để chia sẻ dễ dàng hơn, hãy cài đặt ứng dụng QuickDrop (xem phía trên)."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "要连接到您的 Android 设备，请从屏幕顶部下拉以打开快捷设置，找到“快速共享”并点击。如果没有找到该设置，请扫描二维码。请确保两台设备在同一网络。\n\n为更方便的传输，建议安装 QuickDrop 应用（见上方）。"
+            "value" : "要连接您的 Android 设备，请从屏幕顶部下拉打开快捷设置，然后点击 Quick Share。\n\n或者，扫描二维码。请确保两台设备在同一网络下。为更便捷的传输，建议安装 QuickDrop 应用（见上方）。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "要連接到你的 Android 裝置，請從螢幕頂部下滑打開快速設定，找到『Quick Share』並點擊。如果找不到，請掃描 QR 碼。請確保兩台裝置在同一網路上。\n\n如需更輕鬆傳輸，建議安裝 QuickDrop 應用程式（參見上方）。"
+            "value" : "要連接您的 Android 裝置，請從螢幕頂端向下滑動以開啟快速設定，然後輕觸「快速分享」（Quick Share）。\n\n您也可以掃描 QR 碼。請確保兩台裝置在同一網路下。為更方便傳檔，建議安裝 QuickDrop 應用程式（詳見上方）。"
           }
         }
       }

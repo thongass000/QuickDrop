@@ -258,7 +258,6 @@
 		EB950B3E2E52038A002D68FA /* SendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F902E50CA23008B8C5C /* SendModel.swift */; };
 		EB950B3F2E52038A002D68FA /* FilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8F2E50CA23008B8C5C /* FilePicker.swift */; };
 		EB950B402E52038A002D68FA /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8D2E50CA23008B8C5C /* Configuration.swift */; };
-		EB950B412E52038A002D68FA /* PieProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F992E50CAA6008B8C5C /* PieProgressView.swift */; };
 		EB950B432E52038A002D68FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8E2E50CA23008B8C5C /* ContentView.swift */; };
 		EB950B442E520414002D68FA /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB886E662E4F2F7C0052B7D9 /* License.swift */; };
 		EB950B452E520436002D68FA /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9BFA2DA04B67004010A2 /* Helpers.swift */; };
@@ -301,7 +300,6 @@
 		EB979F962E50CA23008B8C5C /* FilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F8F2E50CA23008B8C5C /* FilePicker.swift */; };
 		EB979F972E50CA23008B8C5C /* SendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F902E50CA23008B8C5C /* SendModel.swift */; };
 		EB979F982E50CA23008B8C5C /* QuickDropiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */; };
-		EB979F9A2E50CAA6008B8C5C /* PieProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB979F992E50CAA6008B8C5C /* PieProgressView.swift */; };
 		EB97A00F2E511124008B8C5C /* ReceiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A00E2E511120008B8C5C /* ReceiveModel.swift */; };
 		EB97A0102E51CD13008B8C5C /* ReceiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A00E2E511120008B8C5C /* ReceiveModel.swift */; };
 		EB97A0142E51DD00008B8C5C /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5C36E32E34EC0E0052EFD7 /* License.txt */; };
@@ -541,7 +539,6 @@
 		EB979F902E50CA23008B8C5C /* SendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendModel.swift; sourceTree = "<group>"; };
 		EB979F912E50CA23008B8C5C /* QuickDropiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickDropiOS.entitlements; sourceTree = "<group>"; };
 		EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDropiOSApp.swift; sourceTree = "<group>"; };
-		EB979F992E50CAA6008B8C5C /* PieProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieProgressView.swift; sourceTree = "<group>"; };
 		EB97A00E2E511120008B8C5C /* ReceiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveModel.swift; sourceTree = "<group>"; };
 		EB97A0162E51DF4F008B8C5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EB97A0192E51EA9C008B8C5C /* UIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlert.swift; sourceTree = "<group>"; };
@@ -699,6 +696,7 @@
 			isa = PBXGroup;
 			children = (
 				69DA9A1129E0BF5100A442DA /* AppDelegate.swift */,
+				EB979F8D2E50CA23008B8C5C /* Configuration.swift */,
 				EB1325D22E701D8900FD749C /* Settings.swift */,
 				EB644B852EA507CF006C2E6C /* ViewModel */,
 				EBC05C6A2E33B55100EECC18 /* View */,
@@ -809,7 +807,6 @@
 				EB97A0192E51EA9C008B8C5C /* UIAlert.swift */,
 				EBBEE1452EC9D92F00AA7831 /* PhotoManager.swift */,
 				EBBC93B12EC8B75F00F541A1 /* LocalNetworkPermissionView.swift */,
-				EB979F992E50CAA6008B8C5C /* PieProgressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -837,7 +834,6 @@
 			children = (
 				EB97A0162E51DF4F008B8C5C /* Info.plist */,
 				EB1325FC2E7034B000FD749C /* InfoPlist.xcstrings */,
-				EB979F8D2E50CA23008B8C5C /* Configuration.swift */,
 				EB644B862EA50807006C2E6C /* View */,
 				EB979F912E50CA23008B8C5C /* QuickDropiOS.entitlements */,
 				EB979F922E50CA23008B8C5C /* QuickDropiOSApp.swift */,
@@ -1450,7 +1446,6 @@
 				EBBEE1462EC9D93400AA7831 /* PhotoManager.swift in Sources */,
 				EB97A01A2E51EAA2008B8C5C /* UIAlert.swift in Sources */,
 				EB979F962E50CA23008B8C5C /* FilePicker.swift in Sources */,
-				EB979F9A2E50CAA6008B8C5C /* PieProgressView.swift in Sources */,
 				EB979F972E50CA23008B8C5C /* SendModel.swift in Sources */,
 				EB979F982E50CA23008B8C5C /* QuickDropiOSApp.swift in Sources */,
 				EB16B61A2E58B4C8007D9792 /* TrustStore.swift in Sources */,
@@ -1496,7 +1491,6 @@
 				EB950B3F2E52038A002D68FA /* FilePicker.swift in Sources */,
 				EB4F9D252EC27CFB00A74A0F /* FileManager+DocumentsOpener.swift in Sources */,
 				EB950B402E52038A002D68FA /* Configuration.swift in Sources */,
-				EB950B412E52038A002D68FA /* PieProgressView.swift in Sources */,
 				EB950B592E520649002D68FA /* AudioManager.swift in Sources */,
 				EB950B752E52111C002D68FA /* Attachments.swift in Sources */,
 				EB950B6F2E5206E2002D68FA /* ShareViewController.swift in Sources */,
@@ -1705,7 +1699,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 112;
+				SHARED_BUILD = 114;
 				SHARED_VERSION = 2.11;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1768,7 +1762,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 112;
+				SHARED_BUILD = 114;
 				SHARED_VERSION = 2.11;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;

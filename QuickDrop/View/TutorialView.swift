@@ -177,36 +177,6 @@ private struct SharingPickerPresenter: NSViewRepresentable {
 }
 
 
-struct LargeAppIconView<Content: View>: View {
-    
-    let title: String
-    let bottomView: () -> Content
-    
-    var body: some View {
-        ScrollView {
-            
-            VStack {
-                AppIconView(hasPlusIcon: false, size: 100)
-                    .padding(.top, 30)
-                
-                Text(title.localized())
-                    .font(.largeTitle)
-                    .padding(.bottom)
-                    .padding(.top, 7)
-                
-                Divider()
-                    .padding(.bottom, 10)
-                
-                bottomView()
-                    .padding(.bottom, 30)
-            }
-            .frame(maxWidth: 500)
-            .frame(maxWidth: .infinity)
-        }
-    }
-}
-
-
 #Preview {
     WelcomeScreen(openPlusScreen: {}, openAppAdvertisementView: {}, openCableTransmissionView: {}, checkForNetworkIssues: {})
 }
