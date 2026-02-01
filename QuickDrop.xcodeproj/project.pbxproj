@@ -222,6 +222,8 @@
 		EB5C383F2E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
 		EB5C38402E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
 		EB5C38412E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
+		EB6E51A52F2F9370006D9812 /* IntroductionSheetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6E51A42F2F9370006D9812 /* IntroductionSheetManager.swift */; };
+		EB6E51A62F2F9370006D9812 /* IntroductionSheetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6E51A42F2F9370006D9812 /* IntroductionSheetManager.swift */; };
 		EB6E6AB42ECBA46D00E71D57 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBEE1452EC9D92F00AA7831 /* PhotoManager.swift */; };
 		EB6E6B212ECBA95000E71D57 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB6E6B202ECBA95000E71D57 /* InfoPlist.xcstrings */; };
 		EB6E6B222ECBA95000E71D57 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB6E6B202ECBA95000E71D57 /* InfoPlist.xcstrings */; };
@@ -514,6 +516,7 @@
 		EB5C37E22E377C2E0052EFD7 /* QuickDropiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDropiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5C38382E38C1F60052EFD7 /* justMaybe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = justMaybe.mp3; sourceTree = "<group>"; };
 		EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
+		EB6E51A42F2F9370006D9812 /* IntroductionSheetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionSheetManager.swift; sourceTree = "<group>"; };
 		EB6E6B202ECBA95000E71D57 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB6FE7CC2EFEAFF000FF2BCF /* NoLocalNetworkAccessAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLocalNetworkAccessAlertView.swift; sourceTree = "<group>"; };
@@ -819,6 +822,43 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		EB6E51A72F2F95D0006D9812 /* Introduction */ = {
+			isa = PBXGroup;
+			children = (
+				EB6E51A42F2F9370006D9812 /* IntroductionSheetManager.swift */,
+				EB7A95F22EF6E1BE0021111B /* IntroductionView.swift */,
+			);
+			path = Introduction;
+			sourceTree = "<group>";
+		};
+		EB6E51A82F2F95E0006D9812 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */,
+				EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */,
+				EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		EB6E51A92F2F95EE006D9812 /* UserManual */ = {
+			isa = PBXGroup;
+			children = (
+				EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */,
+				EB7F54112D78E95C00989564 /* TutorialView.swift */,
+				EB7F54132D78E9E400989564 /* LicenseWindow.swift */,
+			);
+			path = UserManual;
+			sourceTree = "<group>";
+		};
+		EB6E51AA2F2F9606006D9812 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				EB869DB42E92AA33009AAAD4 /* QuickDropToastView.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		EB950B6C2E5206E2002D68FA /* iOSShareExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -845,14 +885,10 @@
 			isa = PBXGroup;
 			children = (
 				EB7654772E525ACC006B4AA3 /* MainMenu.xib */,
-				EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */,
-				EB7F54112D78E95C00989564 /* TutorialView.swift */,
-				EB7F54132D78E9E400989564 /* LicenseWindow.swift */,
-				EB869DB42E92AA33009AAAD4 /* QuickDropToastView.swift */,
-				EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */,
-				EB7A95F22EF6E1BE0021111B /* IntroductionView.swift */,
-				EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */,
-				EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */,
+				EB6E51A92F2F95EE006D9812 /* UserManual */,
+				EB6E51AA2F2F9606006D9812 /* Toast */,
+				EB6E51A82F2F95E0006D9812 /* Settings */,
+				EB6E51A72F2F95D0006D9812 /* Introduction */,
 				EBC05C812E33B58300EECC18 /* IssueViews */,
 			);
 			path = View;
@@ -1294,6 +1330,7 @@
 				EB886E682E4F2F800052B7D9 /* License.swift in Sources */,
 				EB7F54142D78E9E700989564 /* LicenseWindow.swift in Sources */,
 				69DA9A1229E0BF5100A442DA /* AppDelegate.swift in Sources */,
+				EB6E51A62F2F9370006D9812 /* IntroductionSheetManager.swift in Sources */,
 				EB6F62D72D91F4AF00534EC2 /* SettingsView.swift in Sources */,
 				EB7F54122D78E96000989564 /* TutorialView.swift in Sources */,
 				EB9925812E45D53E00357055 /* sharing_enums.pb.swift in Sources */,
@@ -1348,6 +1385,7 @@
 				EB3B9F1D2EF7150400D6704E /* License.swift in Sources */,
 				EB3B9F1E2EF7150400D6704E /* LicenseWindow.swift in Sources */,
 				EB3B9F202EF7150400D6704E /* AppDelegate.swift in Sources */,
+				EB6E51A52F2F9370006D9812 /* IntroductionSheetManager.swift in Sources */,
 				EB3B9F212EF7150400D6704E /* SettingsView.swift in Sources */,
 				EB3B9F222EF7150400D6704E /* TutorialView.swift in Sources */,
 				EB3B9F232EF7150400D6704E /* sharing_enums.pb.swift in Sources */,

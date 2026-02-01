@@ -20,7 +20,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     private var statusItem: NSStatusItem?
 
     var welcomeWindow: NSWindow?
-    var introductionWindow: NSWindow?
     var plusWindow: NSWindow?
     
     private var sheetView: NSPanel? = nil
@@ -61,7 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         menu.addItem(NSMenuItem.separator())
 
-        let userManualItem = NSMenuItem(title: "UserManual".localized(), action: #selector(openApplicableScreen), keyEquivalent: "")
+        let userManualItem = NSMenuItem(title: "UserManual".localized(), action: #selector(openMainWindow), keyEquivalent: "")
         userManualItem.image = NSImage(systemSymbolName: "gear", accessibilityDescription: nil)
         menu.addItem(userManualItem)
 
@@ -80,7 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         if !Settings.sharedInstance.appLaunchedBefore {
             log("[AppDelegate] Opening Welcome Screen")
             // open welcome screen
-            openIntroductionWindow()
+            openMainWindow()
             
             // user installed the app after the IAP was implemented, set the user as eligible for IAP
             Settings.sharedInstance.isEligibleForIap = true
@@ -150,7 +149,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     func windowWillClose(_ notification: Notification) {
           if let window = notification.object as? NSWindow, window == welcomeWindow {
-              log("Welcome window closed")
+              log("[AppDelegate] Welcome window closed")
               welcomeWindow = nil
               NSApp.setActivationPolicy(.accessory)
           }
@@ -158,19 +157,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     func applicationShouldHandleReopen(_: NSApplication, hasVisibleWindows _: Bool) -> Bool {
-        self.openApplicableScreen()
+        self.openMainWindow()
         statusItem?.isVisible = true
         return true
-    }
-    
-    
-    @objc func openApplicableScreen() {
-        if Settings.sharedInstance.appLaunchedBefore {
-            openMainWindow()
-        }
-        else {
-            openIntroductionWindow()
-        }
     }
     
 
@@ -233,6 +222,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
     
     @objc func openMainWindow() {
+        defer {
+            if let welcomeWindow, !Settings.sharedInstance.appLaunchedBefore {
+                IntroductionSheetManager.sharedInstance.openIntroductionWindow(on: welcomeWindow, startReceiving: startReceiving) {
+                    Settings.sharedInstance.appLaunchedBefore = true
+                }
+            }
+        }
         
         NSApp.setActivationPolicy(.regular)
         
@@ -272,49 +268,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         NSApp.activate(ignoringOtherApps: true)
         welcomeWindow?.makeKeyAndOrderFront(nil)
         welcomeWindow?.level = .normal
-    }
-
-    
-    @objc func openIntroductionWindow() {
-        
-        NSApp.setActivationPolicy(.regular)
-        
-        if let window = introductionWindow {
-            if window.isMiniaturized {
-                window.deminiaturize(nil)
-            }
-            NSApp.activate(ignoringOtherApps: true)
-            window.makeKeyAndOrderFront(nil)
-            return
-        }
-
-        let introductionView = IntroductionView(startReceiving: startReceiving) {
-            Settings.sharedInstance.appLaunchedBefore = true
-            self.introductionWindow?.close()
-            self.introductionWindow = nil
-            self.openMainWindow()
-        }
-
-        introductionWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: IntroductionView.width, height: IntroductionView.height),
-            styleMask: [.titled, .closable],
-            backing: .buffered,
-            defer: false
-        )
-
-        introductionWindow?.styleMask.insert(.fullSizeContentView)
-        introductionWindow?.titleVisibility = .hidden
-        introductionWindow?.titlebarAppearsTransparent = true
-
-        introductionWindow?.center()
-        introductionWindow?.isReleasedWhenClosed = false
-        introductionWindow?.setFrameAutosaveName("IntroductionScreen")
-        introductionWindow?.contentView = NSHostingView(rootView: introductionView)
-        introductionWindow?.delegate = self
-
-        NSApp.activate(ignoringOtherApps: true)
-        introductionWindow?.makeKeyAndOrderFront(nil)
-        introductionWindow?.level = .normal
     }
     
     
