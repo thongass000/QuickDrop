@@ -63,6 +63,10 @@ struct IntroductionView: View {
                             .padding(.top)
                             .minimumScaleFactor(0.5)
                             .opacity(0.8)
+                        
+                        if currentPage == .enableShareExtension {
+                            EnableExtensionView(canShowIntialCheckmark: true)
+                        }
                     }
                     .padding(.horizontal, 40)
 
@@ -78,8 +82,7 @@ struct IntroductionView: View {
                     Divider()
 
                     HStack {
-                        if let skipAction = currentPage.skipAction,
-                            (currentPage.needRequestBeforeSkipAvailable == false || pollingPage != nil) {
+                        if let skipAction = currentPage.skipAction, pollingPage != nil {
                             
                             Button("introduction_skip") {
                                 self.skipAction = skipAction
@@ -105,22 +108,6 @@ struct IntroductionView: View {
                         }
 
                         Spacer()
-                        
-                        if let helpAction = currentPage.helpAction, pollingPage != nil {
-                            HStack(spacing: 3) {
-                                Image(systemName: "questionmark.circle")
-                                Text(helpAction.question.localized())
-                            }
-                            .opacity(0.8)
-                            .foregroundColor(.blue)
-                            .font(.system(size: 15))
-                            .onTapGesture {
-                                helpActionAlert = helpAction
-                            }
-                            .alert(item: $helpActionAlert) { helpAction in
-                                .init(title: Text(helpAction.question.localized()), message: Text(helpAction.answer.localized()), dismissButton: .cancel(Text("introduction_help_action_alert_close")))
-                            }
-                        }
 
                         continueArea
                     }
@@ -155,6 +142,7 @@ struct IntroductionView: View {
             }
         }
     }
+    
 
     @ViewBuilder
     private var continueArea: some View {
@@ -180,6 +168,7 @@ struct IntroductionView: View {
         }
         
     }
+    
 
     private func pageDidChange(to newPage: IntroductionPage) {
         stopPolling()
@@ -189,6 +178,7 @@ struct IntroductionView: View {
             pollingPage = newPage
         }
     }
+    
 
     private func continueTapped() {
         // If already allowed, advance immediately
@@ -199,41 +189,18 @@ struct IntroductionView: View {
 
         // Not allowed yet: show loading and start polling every 1s
         pollingPage = currentPage
-
-        // Page-specific "kickoff" action that should happen only after user presses continue
-        if currentPage == .enableShareExtension {
-            if let url = URL(string: "x-apple.systempreferences:com.apple.LoginItems-Settings.extension") {
-                NSWorkspace.shared.open(url)
-            }
-        }
-        
-        if currentPage == .localNetworkAccess {
-            Task {
-                do {
-                    try await Task.sleep(nanoseconds: 20_000_000_000)
-                } catch {
-                    return
-                }
-
-                await MainActor.run {
-                    guard currentPage == .localNetworkAccess else { return }
-                    guard skipAction == nil else { return }
-
-                    if let action = currentPage.skipAction {
-                        skipAction = action
-                    }
-                }
-            }
-        }
     }
+    
     
     private func triggerLocalNetworkPermission() {
         self.startReceiving()
     }
 
+    
     private func advance() {
         
-        if currentPage == .splash {
+        if currentPage == .localNetworkAccess {
+            let _ = DeviceToDeviceHeuristicScanner.shared.hasLocalNetworkAccess(completion: {_ in })
             triggerLocalNetworkPermission()
         }
         
@@ -244,12 +211,12 @@ struct IntroductionView: View {
         }
     }
 
+    
     private func stopPolling() {
         // Cancels the .task(id:) by changing the id and resets UI state
         pollingPage = nil
     }
 }
-
 
 
 enum IntroductionPage: CaseIterable {
@@ -274,6 +241,7 @@ enum IntroductionPage: CaseIterable {
         }
     }
     
+    
     var subtitle: String {
         switch self {
         case .splash:
@@ -283,47 +251,22 @@ enum IntroductionPage: CaseIterable {
         case .localNetworkAccess:
             return "introduction_local_network_access_description".localized(with: "introduction_continue".localized())
         case .enableShareExtension:
-            if #available(macOS 13.0, *) {
-                return "introduction_enable_share_extension_description"
-            }
-            return "introduction_enable_share_extension_description_macos12"
+            return "introduction_enable_share_extension_description".localized(with: "EnableQuickDropExtension".localized())
         case .finished:
             return "introduction_finished_description"
         }
     }
     
+    
     var skipAction: SkipAction? {
         switch self {
-        case .splash:
-            return nil
         case .noWifi:
             return .init(action: presentNextPage, warningTitle: "introduction_no_wifi_skip_title", warningMessage: "introduction_no_wifi_skip_message")
-        case .localNetworkAccess:
-            return .init(action: presentNextPage, warningTitle: "introduction_local_network_access_skip_title", warningMessage: "introduction_local_network_access_skip_message")
-        case .enableShareExtension:
-            return .init(action: presentNextPage, warningTitle: "introduction_enable_share_extension_skip_title", warningMessage: "introduction_enable_share_extension_skip_message")
-        case .finished:
-            return nil
-        }
-    }
-    
-    var helpAction: HelpAction? {
-        switch self {
-        case .enableShareExtension:
-            return .init(question: "introduction_enable_share_extension_not_visible", answer: "introduction_enable_share_extension_not_visible_answer")
         default:
             return nil
         }
     }
     
-    var needRequestBeforeSkipAvailable: Bool {
-        switch self {
-            case .localNetworkAccess:
-                return true
-            default:
-                return false
-        }
-    }
     
     var canPerformAction: Bool {
         switch self {
@@ -334,11 +277,11 @@ enum IntroductionPage: CaseIterable {
         }
     }
     
+    
     func presentNextPage() -> IntroductionPage? {
         switch self {
         case .splash:
-            return nil
-            //NearbyConnectionManager.shared.isConnectedToLocalNetwork ? firstPermissionPane() : .noWifi
+            return NearbyConnectionManager.shared.isConnectedToLocalNetwork ? firstPermissionPane() : .noWifi
         case .noWifi:
             return firstPermissionPane()
         case .localNetworkAccess:
@@ -350,6 +293,7 @@ enum IntroductionPage: CaseIterable {
         }
     }
     
+    
     private func firstPermissionPane() -> IntroductionPage {
         if #available(macOS 15.0, *) {
             // Local network access is requested first on macOS 15+
@@ -358,18 +302,16 @@ enum IntroductionPage: CaseIterable {
         return .enableShareExtension
     }
     
+    
     func canContinue() -> Bool {
         switch self {
             case .noWifi:
                 return NearbyConnectionManager.shared.isConnectedToLocalNetwork
-            case .enableShareExtension:
-                return NSSharingService(named: NSSharingService.Name("com.leonboettger.neardrop.ShareExtension")) != nil
-            case .localNetworkAccess:
-                return DeviceToDeviceHeuristicScanner.shared.hasLocalNetworkAccess(completion: {_ in })
             default:
                 return true
         }
     }
+    
     
     func topHeader(with height: CGFloat) -> some View {
         ZStack {
@@ -395,6 +337,7 @@ enum IntroductionPage: CaseIterable {
         .foregroundColor(.blue)
     }
     
+    
     private func imageView(for image: String, with height: CGFloat) -> some View {
         Image(systemName: image)
             .resizable()
@@ -403,6 +346,7 @@ enum IntroductionPage: CaseIterable {
             .padding(.top, height * 0.13)
     }
     
+    
     struct SkipAction: Identifiable {
         let action: () -> IntroductionPage?
         let warningTitle: String
@@ -410,6 +354,7 @@ enum IntroductionPage: CaseIterable {
         
         var id: String { warningTitle }
     }
+    
     
     struct HelpAction: Identifiable {
         let question: String

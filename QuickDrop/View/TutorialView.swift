@@ -100,8 +100,15 @@ struct EnableExtensionView: View {
 
     private let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 
-    init() {
-        _isExtensionEnabled = State(initialValue: Self.isEnabled())
+    init(canShowIntialCheckmark: Bool = false) {
+        let isEnabled = Self.isEnabled()
+        
+        _isExtensionEnabled = State(initialValue: isEnabled)
+        
+        if canShowIntialCheckmark && isEnabled {
+            _showSuccessCheckmark = State(initialValue: true)
+            _animateCheckmark = State(initialValue: true)
+        }
     }
 
     var body: some View {
