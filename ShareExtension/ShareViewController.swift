@@ -5,10 +5,11 @@
 //  Created by Grishka on 12.09.2023.
 //
 
+import AppKit
 import Cocoa
 import Foundation
-import SwiftUI
 import LUI
+import SwiftUI
 
 class ShareViewController: NSViewController, OutboundAppDelegate {
     
@@ -54,7 +55,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
         
         loadAttachments(with: extensionContext, loadedItems: { result in
             
-            log("Loaded attachments: \(result)")
+            log("[ShareViewController] Loaded attachments: \(result)")
             
             self.urls = result.urls
             self.textToSend = result.textToSend
@@ -107,7 +108,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
     
     
     override func viewWillDisappear() {
-        log("ShareViewController: viewWillDisappear")
+        log("[ShareViewController] ShareViewController: viewWillDisappear")
         
         timeoutDispatchWorkItem?.cancel()
         
@@ -268,15 +269,25 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
                     alert.alertStyle = .critical
                     
                     alert.messageText = "TimeoutTitle".localized()
-                    alert.informativeText = "TimeoutDescription".localized()
-                    alert.addButton(withTitle: "TimeoutButton".localized())
                     
-                    alert.beginSheetModal(for: self.view.window!) { _ in }
+                    if #available(macOS 15.0, *) {
+                        alert.informativeText = "TimeoutDescription".localized()
+                        alert.addButton(withTitle: "TimeoutButton".localized())
+                    } else {
+                        alert.informativeText = "TimeoutDescriptionLegacy".localized()
+                        alert.addButton(withTitle: "TimeoutButtonLegacy".localized())
+                    }
+                    
+                    alert.beginSheetModal(for: self.view.window!) { _ in
+                        if #available(macOS 15.0, *) {
+                            openPrivacyAndSecuritySettings()
+                        }
+                    }
                 }
             }
             
             self.timeoutDispatchWorkItem = timeoutAlert
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: timeoutAlert)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: timeoutAlert) 
         }
     }
     
@@ -301,18 +312,18 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
         let isRunning = runningApps.contains { $0.bundleIdentifier == bundleIdentifier }
         
         if !isRunning {
-            log("Launching main app")
+            log("[ShareViewController] Launching main app")
             if let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleIdentifier) {
                 let configuration = NSWorkspace.OpenConfiguration()
                 NSWorkspace.shared.openApplication(at: url, configuration: configuration) { app, error in
                     if let error = error {
-                        log("Failed to launch application: \(error)")
+                        log("[ShareViewController] Failed to launch application: \(error)")
                     } else {
-                        log("Application launched successfully")
+                        log("[ShareViewController] Application launched successfully")
                     }
                 }
             } else {
-                log("Could not find application with bundle identifier \(bundleIdentifier)")
+                log("[ShareViewController] Could not find application with bundle identifier \(bundleIdentifier)")
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -324,6 +335,9 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
             NearbyConnectionManager.shared.startDeviceDiscovery()
             scheduleAutomaticQrCodeView()
         }
+        
+        // Force local network access prompt if not already granted
+        let _ = DeviceToDeviceHeuristicScanner.shared.hasLocalNetworkAccess(completion: {_ in })
     }
     
     
@@ -388,4 +402,10 @@ extension ShareViewController: NSCollectionViewDataSource {
         
         return "UnknownDevice".localized()
     }
+}
+
+
+fileprivate func openPrivacyAndSecuritySettings() {
+    guard let url = URL(string: "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension") else { return }
+    NSWorkspace.shared.open(url)
 }
