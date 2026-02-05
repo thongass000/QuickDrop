@@ -44,7 +44,7 @@ struct WelcomeScreen: View {
                 Divider()
                 
                 ExternalLinkLabel(label: "GetSupport", icon: "questionmark.circle") {
-                    sendLoggingString()
+                    SupportMail.sendSupportMail()
                 }
                 
                 ExternalLinkLabel(label: "PrivacyPolicy", icon: "hand.raised") {

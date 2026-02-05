@@ -43,5 +43,5 @@ let configuration = LUIConfiguration(
     
     supportsPortraitSplitView: false,
     
-    supportsDarkModeShadow: false
+    supportsDarkModeShadow: true
 )

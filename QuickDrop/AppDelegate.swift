@@ -128,6 +128,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
         
         log("[AppDelegate] Application did finish launching")
+        log("[AppDelegate] Currently running apps: \(NSWorkspace.shared.runningApplications.map { $0.localizedName ?? "-" })")
     }
     
     
@@ -183,11 +184,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 
                 switch url.host {
                     case "sendLog":
-                        sendLoggingString()
-                    case "openLog":
-                        if let url = LogManager.sharedInstance.logFileURL {
-                            NSWorkspace.shared.activateFileViewerSelecting([url])
+                        // If we're in an extension, redirect to the main app
+                        if Bundle.main.bundlePath.hasSuffix(".appex") {
+                            log("sendLoggingString: in extension, redirecting to main app")
+                            
+                            if let url = URL(string: "quickdrop://sendLog") {
+                                NSWorkspace.shared.open(url)
+                            }
+                            return
                         }
+                        
+                        LogExportPresenter.copyLogsToClipboardAndShowAlert()
                     case "removeData":
                         Settings.sharedInstance.deleteAllUserDefaults()
                     default:
