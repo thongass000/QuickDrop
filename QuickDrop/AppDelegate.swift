@@ -231,8 +231,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     @objc func openMainWindow() {
         defer {
             if let welcomeWindow, !Settings.sharedInstance.appLaunchedBefore {
-                IntroductionSheetManager.sharedInstance.openIntroductionWindow(on: welcomeWindow, startReceiving: startReceiving) {
-                    Settings.sharedInstance.appLaunchedBefore = true
+                runAfter(seconds: 0.2) {
+                    IntroductionSheetManager.sharedInstance.openIntroductionWindow(on: welcomeWindow, startReceiving: self.startReceiving) {
+                        Settings.sharedInstance.appLaunchedBefore = true
+                    }
                 }
             }
         }
