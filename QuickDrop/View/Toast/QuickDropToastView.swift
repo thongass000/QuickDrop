@@ -9,13 +9,16 @@ import AppKit
 import LUI
 import SwiftUI
 
-let toastViewSize = CGSize(width: 400, height: 120)
+let toastViewSize = CGSize(width: 420, height: 75)
+let actionColumnWidth: CGFloat = 120
+let actionColumnWidthEnd: CGFloat = 165
 
 struct QuickDropToastView: View {
     @ObservedObject var settings = Settings.sharedInstance
     @ObservedObject var receiveModel: ReceiveModel
     
     @State var autoHider = DispatchWorkItem(block: {})
+    @State private var isHovering = false
 
     /// Cancel while receiving.
     public var onCancel: () -> Void
@@ -28,93 +31,188 @@ struct QuickDropToastView: View {
         self.onCancel = onCancel
     }
 
+    private func startAutoHide(_ actions: ReceiveModel.ToastViewAction) {
+        autoHider.cancel()
+        autoHider = DispatchWorkItem(block: {
+            actions.closeToastAction()
+        })
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + actions.autoHideDelay, execute: autoHider)
+    }
+
+    private func startAutoHideIfPossible() {
+        guard !isHovering, let actions = receiveModel.toastActions else { return }
+        startAutoHide(actions)
+    }
+
     public var body: some View {
         
-        let isDone = receiveModel.toastActions != nil
+        let consent = receiveModel.consentState
+        let actions = receiveModel.toastActions
+        let hasActionButtons = actions?.openFilesAction != nil || actions?.importPhotosAction != nil
+        let showsRightColumn = consent != nil || hasActionButtons
         
-        VStack(spacing: 12) {
-            HStack(spacing: 10) {
-            
-                let iconSize = 39.0
-                
-                AppIconView(hasPlusIcon: false, size: iconSize)
-                    .frame(width: iconSize, height: iconSize)
+        let subHeaderSize = 21.0
 
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(String("QuickDrop"))
-                        .font(.system(size: 16, weight: .semibold))
+        let closeButtonVisible = isHovering && actions != nil
+        let deviceName = receiveModel.activeDeviceName ?? "UnknownDevice".localized()
+        
+        ZStack(alignment: .topTrailing) {
+            HStack(alignment: .center, spacing: 12) {
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack(spacing: 10) {
 
-                    Text(isDone ? "FileTransferCompleted" : "Receiving")
-                        .font(.system(size: 13))
-                        .foregroundColor(.secondary)
-                        .lineLimit(1)
-                        .truncationMode(.tail)
+                        let iconSize = 39.0
+
+                        AppIconView(hasPlusIcon: false, size: iconSize)
+                            .frame(width: iconSize, height: iconSize)
+
+                        VStack(alignment: .leading, spacing: 2) {
+                            if let consent = consent {
+                                Text(verbatim: "QuickDrop | \(consent.pinCodeMessage)")
+                                    .font(.system(size: 14, weight: .semibold))
+
+                                Text(consent.message)
+                                    .font(.system(size: 13))
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(1)
+                                    .truncationMode(.tail)
+                                    .frame(height: subHeaderSize)
+                            } else {
+                                HStack {
+                                    Text(String("QuickDrop"))
+                                        .font(.system(size: 14, weight: .semibold))
+                                    
+                                    
+                                    if consent == nil, actions == nil {
+                                        Text("FromDevice".localized(with: deviceName))
+                                            .font(.system(size: 13))
+                                            .foregroundColor(.secondary)
+                                            .lineLimit(1)
+                                            .truncationMode(.tail)
+                                            .padding(.trailing, 16)
+                                    }
+                                }
+                                
+                                if consent == nil, actions == nil {
+                                    HStack {
+                                        ZStack {
+                                            CapsuleProgress(value: 0.5)
+                                                .opacity(0)
+
+                                            if let progress = receiveModel.progress {
+                                                CapsuleProgress(value: progress)
+                                            }
+                                        }
+                                        .animation(.easeInOut, value: receiveModel.progress == nil)
+
+                                        Button(action: onCancel) {
+                                            Image(systemName: "xmark")
+                                                .font(.system(size: 10, weight: .semibold))
+                                                .foregroundColor(.secondary)
+                                                .frame(width: 18, height: 18)
+                                        }
+                                        .buttonStyle(PlainButtonStyle())
+                                    }
+                                    .padding(.trailing, 16)
+                                    .frame(height: subHeaderSize)
+                                }
+                                else {
+                                    
+                                    Text(LocalizedStringKey(actions?.completionMessageKey ?? "FileTransferCompleted"))
+                                        .font(.system(size: 13))
+                                        .foregroundColor(.secondary)
+                                        .lineLimit(1)
+                                        .truncationMode(.tail)
+                                        .frame(height: subHeaderSize)
+                                }
+                            }
+                        }
+                    }
+
+                    
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
 
-                Spacer(minLength: 12)
+                if showsRightColumn {
+                    ActionColumn(width: consent == nil ? actionColumnWidthEnd : actionColumnWidth) {
+                        if let consent = consent {
+                            ActionButtonRow {
+                                QuickDropToastViewButton(title: "Decline") {
+                                    consent.declineAction()
+                                }
+                            }
+
+                            ActionDividerLine()
+
+                            ActionButtonRow {
+                                if consent.allowsTrust {
+                                    QuickDropToastViewMenuButton(title: "Accept") {
+                                        Button("Accept".localized()) {
+                                            consent.acceptAction(false)
+                                        }
+                                        Button("AutoAcceptFromThisDevice".localized()) {
+                                            consent.acceptAction(true)
+                                        }
+                                    }
+                                } else {
+                                    QuickDropToastViewButton(title: "Accept") {
+                                        consent.acceptAction(false)
+                                    }
+                                }
+                            }
+                        } else if let actions = actions {
+                            if let openFilesAction = actions.openFilesAction {
+                                ActionButtonRow {
+                                    QuickDropToastViewButton(title: "OpenInFinder") {
+                                        openFilesAction()
+                                        actions.closeToastAction()
+                                    }
+                                }
+                            }
+
+                            if let onImportToPhotos = actions.importPhotosAction {
+                                if actions.openFilesAction != nil {
+                                    ActionDividerLine()
+                                }
+
+                                ActionButtonRow {
+                                    QuickDropToastViewButton(title: "ImportToPhotos") {
+                                        onImportToPhotos()
+                                        actions.closeToastAction()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
-            ZStack {
-                
-                QuickDropToastViewButton(title: "OpenInFinder") { }
-                .opacity(0)
-                
-                if let actions = receiveModel.toastActions {
-                    HStack(spacing: 8) {
-   
-                        QuickDropToastViewButton(title: "OpenInFinder") {
-                            actions.openFilesAction()
-                            actions.closeToastAction()
-                        }
+        }
+        .padding(.leading, 16)
+        .frame(height: toastViewSize.height)
+        .contentShape(Rectangle())
+        .onHover { hovering in
+            withAnimation(.easeInOut(duration: 0.15)) {
+                isHovering = hovering
+            }
 
-                        if let onImportToPhotos = actions.importPhotosAction {
-                            QuickDropToastViewButton(title: "ImportToPhotos") {
-                                onImportToPhotos()
-                                actions.closeToastAction()
-                            }
-                        }
-                        
-                        Spacer()
-                        
-                        QuickDropToastViewButton(title: "Done", action: actions.closeToastAction)
-                            .onAppear {
-                                self.autoHider = DispatchWorkItem(block: {
-                                    actions.closeToastAction()
-                                })
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 10, execute: self.autoHider)
-                            }
-                            .onDisappear {
-                                self.autoHider.cancel()
-                            }
-                    }
-                    .buttonStyle(.bordered)
-                    .controlSize(.small)
-                }
-                
-                HStack {
-                    ZStack {
-                        CapsuleProgress(value: 0.5)
-                            .opacity(0)
-                        
-                        if let progress = receiveModel.progress {
-                            CapsuleProgress(value: progress)
-                        }
-                    }
-                    .animation(.easeInOut, value: receiveModel.progress == nil)
-                    
-                    Button(action: onCancel) {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 10, weight: .semibold))
-                            .foregroundColor(.secondary)
-                            .frame(width: 18, height: 18)
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                }
-                .opacity(isDone ? 0 : 1)
+            if hovering {
+                autoHider.cancel()
+            } else {
+                startAutoHideIfPossible()
             }
         }
-        .padding(16)
+        .onChange(of: receiveModel.toastActions != nil) { hasActions in
+            if hasActions {
+                startAutoHideIfPossible()
+            } else {
+                autoHider.cancel()
+            }
+        }
+        .onAppear {
+            startAutoHideIfPossible()
+        }
         .background(
             VisualEffectView(material: .hudWindow)
                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
@@ -123,6 +221,30 @@ struct QuickDropToastView: View {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .stroke(Color.black.opacity(0.03), lineWidth: 1)
         )
+        .overlay(alignment: .topTrailing) {
+            if closeButtonVisible, let actions = actions {
+                Button(action: actions.closeToastAction) {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 9, weight: .semibold))
+                        .foregroundColor(.secondary)
+                        .frame(width: 18, height: 18)
+                        .background(
+                            Circle()
+                                .fill(Color(NSColor.windowBackgroundColor).opacity(0.9))
+                                .shadow(color: Color.black.opacity(0.12), radius: 2, x: 0, y: 1)
+                        )
+                }
+                .buttonStyle(PlainButtonStyle())
+                .onHover { hovering in
+                    if hovering {
+                        withAnimation(.easeInOut(duration: 0.15)) {
+                            isHovering = true
+                        }
+                    }
+                }
+                .transition(.opacity.combined(with: .scale(scale: 0.95)))
+            }
+        }
         .shadow(color: Color.black.opacity(0.03), radius: 20)
         .frame(maxWidth: .infinity)
     }
@@ -135,19 +257,76 @@ fileprivate struct QuickDropToastViewButton: View {
 
     var body: some View {
         Button(action: action) {
-            Text(title.localized())
-                .padding(.horizontal, 12)
-                .padding(.vertical, 4)
-                .background(
-                    Color.gray.opacity(0.15)
-                        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                )
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .stroke(Color.black.opacity(0.04), lineWidth: 1)
-                )
+            ToastButtonLabel(title: title)
         }
         .buttonStyle(.plain)  // prevents blue macOS button look
+    }
+}
+
+fileprivate struct QuickDropToastViewMenuButton<Content: View>: View {
+    let title: String
+    @ViewBuilder let content: () -> Content
+
+    var body: some View {
+        Menu {
+            content()
+        } label: {
+            ToastButtonLabel(title: title)
+        }
+        .menuStyle(.borderlessButton)
+    }
+}
+
+fileprivate struct ToastButtonLabel: View {
+    let title: String
+
+    var body: some View {
+        Text(title.localized())
+            .font(.system(size: 13, weight: .semibold))
+            .foregroundColor(.mainColor.opacity(0.75))
+            .lineLimit(1)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 14)
+            .padding(.vertical, 8)
+            .contentShape(Rectangle())
+    }
+}
+
+fileprivate struct ActionColumn<Content: View>: View {
+    let width: CGFloat
+    @ViewBuilder let content: () -> Content
+
+    var body: some View {
+        VStack(spacing: 0) {
+            content()
+        }
+        .padding(.vertical, 3)
+        .frame(width: width)
+        .frame(maxHeight: .infinity)
+        .overlay(alignment: .leading) {
+            Rectangle()
+                .foregroundColor(.mainColor.opacity(0.05))
+                .frame(width: 2)
+        }
+        .minimumScaleFactor(0.7)
+    }
+}
+
+fileprivate struct ActionButtonRow<Content: View>: View {
+    @ViewBuilder let content: () -> Content
+
+    var body: some View {
+        content()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+}
+
+fileprivate struct ActionDividerLine: View {
+    var body: some View {
+        Rectangle()
+            .foregroundColor(.mainColor.opacity(0.05))
+            .frame(height: 2)
+            .frame(maxWidth: .infinity)
     }
 }
 
@@ -196,7 +375,7 @@ struct CapsuleProgress: View {
                     )
             }
         }
-        .frame(height: 8)
+        .frame(height: 6)
         .animation(.easeInOut(duration: 0.25), value: value)
     }
 }
@@ -206,7 +385,6 @@ struct CapsuleProgress: View {
 struct QuickDropToastView_Previews: PreviewProvider {
     struct Demo: View {
         @State var model = ReceiveModel(controlPlusScreen: { _ in })
-        @State var done = true
 
         var body: some View {
             QuickDropToastView(
@@ -219,10 +397,89 @@ struct QuickDropToastView_Previews: PreviewProvider {
             .background(Color.black.opacity(0.2))
             .onAppear {
                 model.progress = 1
-                model.toastActions = .init(openFilesAction: {}, importPhotosAction: {}, closeToastAction: {})
+                model.toastActions = .init(completionMessageKey: "Saved", autoHideDelay: 10, openFilesAction: {}, importPhotosAction: {}, closeToastAction: {})
             }
         }
     }
 
-    static var previews: some View { Demo() }
+    struct ConsentDemo: View {
+        @State var model = ReceiveModel(controlPlusScreen: { _ in })
+
+        var body: some View {
+            QuickDropToastView(
+                receiveModel: model,
+                onCancel: { }
+            )
+            .frame(width: toastViewSize.width, height: toastViewSize.height)
+            .clipped()
+            .padding(100)
+            .background(QuickDropToastView_Previews.previewWallpaper)
+            .onAppear {
+                model.consentState = .init(
+                    transferID: "preview",
+                    pinCodeMessage: "PIN: 1233",
+                    message: "45 images from Pixel 6 Pro",
+                    allowsTrust: true,
+                    acceptAction: { _ in },
+                    declineAction: { }
+                )
+            }
+        }
+    }
+
+    struct ProgressDemo: View {
+        @State var model = ReceiveModel(controlPlusScreen: { _ in })
+
+        var body: some View {
+            QuickDropToastView(
+                receiveModel: model,
+                onCancel: { }
+            )
+            .frame(width: toastViewSize.width, height: toastViewSize.height)
+            .clipped()
+            .padding(100)
+            .background(QuickDropToastView_Previews.previewWallpaper)
+            .onAppear {
+                model.progress = 0.42
+                model.toastActions = nil
+            }
+        }
+    }
+
+    struct CompletedDemo: View {
+        @State var model = ReceiveModel(controlPlusScreen: { _ in })
+
+        var body: some View {
+            QuickDropToastView(
+                receiveModel: model,
+                onCancel: { }
+            )
+            .frame(width: toastViewSize.width, height: toastViewSize.height)
+            .clipped()
+            .padding(100)
+            .background(previewWallpaper)
+            .onAppear {
+                model.progress = 1
+                model.toastActions = .init(completionMessageKey: "Saved", autoHideDelay: 10, openFilesAction: {}, importPhotosAction: {}, closeToastAction: {})
+            }
+        }
+    }
+
+    private static let previewWallpaper = LinearGradient(
+        gradient: Gradient(colors: [
+            Color(red: 0.92, green: 0.82, blue: 0.94),
+            Color(red: 0.86, green: 0.76, blue: 0.90),
+            Color(red: 0.78, green: 0.70, blue: 0.86)
+        ]),
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+
+    static var previews: some View {
+        Group {
+            ConsentDemo()
+            ProgressDemo()
+            CompletedDemo()
+        }
+    }
 }

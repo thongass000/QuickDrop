@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UniformTypeIdentifiers
 import Network
 import CryptoKit
 import SwiftECC
@@ -144,28 +145,57 @@ public struct TransferMetadata {
         if let textTitle = textDescription {
             return textTitle
         } else if files.count == 1 {
-            return files[0].name
+            return fileTypeSummary(for: files[0])
         } else {
             return String.localizedStringWithFormat("NFiles".localized(), files.count)
         }
     }
+
+    private func fileTypeSummary(for file: FileMetadata) -> String {
+        let mimeType = file.mimeType.lowercased()
+        let ext = URL(fileURLWithPath: file.name).pathExtension.lowercased()
+        let type = UTType(mimeType: mimeType) ?? UTType(filenameExtension: ext)
+
+        if let type, type.conforms(to: .pdf) {
+            return UTType.pdf.localizedDescription ?? "PDF"
+        }
+        if let type, type.conforms(to: .image) {
+            return UTType.image.localizedDescription ?? "Image"
+        }
+        if let type, type.conforms(to: .video) || type.conforms(to: .movie) {
+            return UTType.video.localizedDescription ?? "Video"
+        }
+        if let type, type.conforms(to: .audio) {
+            return UTType.audio.localizedDescription ?? "Audio"
+        }
+        if let type, type.conforms(to: .text) {
+            return UTType.text.localizedDescription ?? "Text"
+        }
+        if let type, type.conforms(to: .archive) {
+            return UTType.archive.localizedDescription ?? "Archive"
+        }
+        if let type, let description = type.localizedDescription {
+            return description
+        }
+        return "File"
+    }
     
-    public func getDescription(deviceName: String, alreadyAccepted: Bool) -> String {
+    public func getDescription(deviceName: String) -> String {
         
         let fileStr = getSummary()
         
         switch type {
             case .file:
-                return String(format: (alreadyAccepted ? "DeviceCurrentlySendingFiles" : "DeviceSendingFiles").localized(), arguments: [deviceName, fileStr])
+            return "DeviceSendingFiles".localized(with: fileStr, deviceName)
             
             case .text:
-                return String(format: (alreadyAccepted ? "DeviceCurrentlySendingText" : "DeviceSendingText").localized(), arguments: [deviceName, fileStr])
+            return "DeviceSendingText".localized(with: deviceName)
             
             case .url:
-                return String(format: (alreadyAccepted ? "DeviceCurrentlySendingUrl" : "DeviceSendingUrl").localized(), arguments: [deviceName, fileStr])
+            return "DeviceSendingUrl".localized(with: deviceName)
             
             case .wifiPassword:
-                return String(format: (alreadyAccepted ? "DeviceCurrentlySendingWifiPassword" : "DeviceSendingWifiPassword").localized(), arguments: [deviceName, fileStr])
+            return "DeviceSendingWifiPassword".localized(with: deviceName)
         }
     }
     

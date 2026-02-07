@@ -29,6 +29,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private var tcpListener: NWListener
     private var mdnsServices: [NetService] = []
     private var incomingConnections: [String: InboundNearbyConnection] = [:]
+    private var activeIncomingTransferID: String?
     private var foundServices: [String: FoundServiceInfo] = [:]
     private var outboundAppDelegates: [OutboundAppDelegate] = []
     private var inboundAppDelegates: [InboundAppDelegate] = []
@@ -340,6 +341,9 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     
     func connectionWasTerminated(connection: InboundNearbyConnection, savedFiles: [URL], error: Error?) {
+        if activeIncomingTransferID == connection.id {
+            activeIncomingTransferID = nil
+        }
         incomingConnections.removeValue(forKey: connection.id)
         
         if !connection.wasUserRejected {
@@ -480,6 +484,14 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         if let info = outgoingTransfers[id] {
             info.connection.cancel()
         }
+    }
+
+    func claimIncomingTransfer(id: String) -> Bool {
+        if let activeIncomingTransferID, activeIncomingTransferID != id {
+            return false
+        }
+        activeIncomingTransferID = id
+        return true
     }
     
     

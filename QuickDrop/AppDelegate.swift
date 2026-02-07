@@ -329,7 +329,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         // Ensure the window is always on top
         NSApp.activate(ignoringOtherApps: true)
         window.makeKeyAndOrderFront(nil)
-        window.level = .normal
+        window.level = .floating
     }
     
     

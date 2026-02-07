@@ -7,26 +7,23 @@
 
 import SwiftUI
 import StoreKit
-import UserNotifications
 import LUI
-
-#if os(macOS)
-import BezelNotification
-#endif
 
 class ReceiveModel: ObservableObject, InboundAppDelegate {
     
     /// For each connection ID, store the last reported progress value
     private var processes: [String: Double] = [:]
     
-    #if os(macOS)
+#if os(macOS)
     @Published var progress: Double? = nil
     @Published var toastActions: ToastViewAction? = nil
+    @Published var consentState: ConsentToastState? = nil
+    @Published var activeDeviceName: String? = nil
     private var pendingReview = false
     private var toastWindow: NSWindow?
     private var toastHosting: NSHostingView<QuickDropToastView>?
     private let monitor = AllowedWorkMonitor()
-    #endif
+#endif
     
     let controlPlusScreen: (Bool) -> Void
     
@@ -67,7 +64,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         AudioManager.playIncomingFileSound()
         #endif
 
-        let mainMessage = transfer.getDescription(deviceName: device.name ?? "UnknownDevice".localized(), alreadyAccepted: false)
+        let mainMessage = transfer.getDescription(deviceName: device.name ?? "UnknownDevice".localized())
         let pinCodeMessage = transfer.getPinCodeMessage()
         let transferID = transfer.id
         
@@ -75,39 +72,36 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         let primaryButtonTitle = "Accept".localized()
         let primaryButtonAction = { (trustDevice: Bool) in
             NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: true, trustDevice: trustDevice)
-            
-            #if os(macOS)
-            if transfer.type == .text {
-                DispatchQueue.main.async {
-                    BezelNotification.show(messageText: "InsertedIntoClipboard".localized(), icon: .clipboard)
-                }
-            }
-            #endif
         }
         
         let secondaryButtonTitle = "Decline".localized()
         let secondaryButtonAction = { NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: false, trustDevice: false) }
-        
+
         #if os(macOS)
-        let alert = NSAlert()
-        alert.alertStyle = .informational
-
-        alert.messageText = title
-        alert.informativeText = mainMessage
-        alert.addButton(withTitle: primaryButtonTitle)
-        alert.addButton(withTitle: secondaryButtonTitle)
-        
-        if transfer.allowsToBeAddedAsTrustedDevice {
-            alert.showsSuppressionButton = true
-            alert.suppressionButton?.title = "AutoAcceptFromThisDevice".localized()
-        }
-
-        let result = alert.runModal()
-
-        if result == .alertFirstButtonReturn {
-            primaryButtonAction(alert.suppressionButton?.state == .on)
-        } else if result == .alertSecondButtonReturn {
-            secondaryButtonAction()
+        DispatchQueue.main.async {
+            self.toastActions = nil
+            self.progress = nil
+            self.activeDeviceName = device.name ?? "UnknownDevice".localized()
+            self.consentState = ConsentToastState(
+                transferID: transferID,
+                pinCodeMessage: pinCodeMessage,
+                message: mainMessage,
+                allowsTrust: transfer.allowsToBeAddedAsTrustedDevice,
+                acceptAction: { [weak self] trustDevice in
+                    DispatchQueue.main.async {
+                        withAnimation {
+                            self?.consentState = nil
+                        }
+                    }
+                    primaryButtonAction(trustDevice)
+                },
+                declineAction: { [weak self] in
+                    self?.consentState = nil
+                    secondaryButtonAction()
+                    self?.hideQuickDropToast()
+                }
+            )
+            self.showQuickDropToast(for: transferID)
         }
         #else
         // iOS
@@ -129,33 +123,18 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     
     func obtainedUserConsentAutomatically(transfer: TransferMetadata, device: RemoteDeviceInfo) {
         
-        let mainMessage = transfer.getDescription(deviceName: device.name ?? "UnknownDevice".localized(), alreadyAccepted: true)
+        let mainMessage = transfer.getDescription(deviceName: device.name ?? "UnknownDevice".localized())
         
         #if os(macOS)
         
         NSApp.activate(ignoringOtherApps: true)
         AudioManager.playIncomingFileSound()
-        
-        // If file -> no notification, as there is the QuickDrop progress toast
-        if transfer.type != .file {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
-                if granted {
-                    log("[ReceiveModel] User granted notification permissions")
-                    
-                    let notificationContent = UNMutableNotificationContent()
-                    notificationContent.title = "QuickDrop"
-                    notificationContent.body = mainMessage
-                    notificationContent.sound = nil
-                    let notificationId = UUID().uuidString
-                    
-                    let notificationReq = UNNotificationRequest(identifier: notificationId, content: notificationContent, trigger: nil)
-                    UNUserNotificationCenter.current().add(notificationReq)
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notificationId])
-                    }
-                }
-            }
+        DispatchQueue.main.async {
+            self.toastActions = nil
+            self.progress = nil
+            self.activeDeviceName = device.name ?? "UnknownDevice".localized()
+            self.consentState = nil
+            self.showQuickDropToast(for: transfer.id)
         }
         #else
         // If text is received, nothing is shown, as it is directly inserted into clipboard automatically
@@ -196,11 +175,17 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         
         #if os(macOS)
         DispatchQueue.main.async {
+            let wasPendingConsent = self.consentState?.transferID == connectionID
             if self.processes.isEmpty {
                 self.progress = nil
             }
+            if wasPendingConsent {
+                self.consentState = nil
+                self.toastActions = nil
+                self.hideQuickDropToast()
+            }
+            finishMacTermination(device: device, savedFiles: savedFiles, error: error, wasPendingConsent: wasPendingConsent)
         }
-        finish()
         #else
         if self.processes.isEmpty {
             ProgressAlert.shared.updateProgress(nil, onCancel: {}) {
@@ -251,16 +236,27 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 
                 #if os(macOS)
                 
+                let completionKey: String
+                let autoHideDelay: TimeInterval
+
+                if !savedFiles.isEmpty {
+                    completionKey = "Saved"
+                    autoHideDelay = 10
+                } else if wasPlainTextTransfer {
+                    completionKey = "CopiedToClipboard"
+                    autoHideDelay = 10
+                } else {
+                    completionKey = "URLOpened"
+                    autoHideDelay = 4
+                }
+                
                 if currentCount == 0 {
                     pendingReview = true
                 }
                 
-                let openFilesAction = {
-                    if !savedFiles.isEmpty {
-                        log("[SaveFilesManager] Opening \(savedFiles.count) file(s) in Finder.")
-                        NSWorkspace.shared.activateFileViewerSelecting(savedFiles)
-                    }
-                    
+                let openFilesAction: (() -> ())? = savedFiles.isEmpty ? nil : {
+                    log("[SaveFilesManager] Opening \(savedFiles.count) file(s) in Finder.")
+                    NSWorkspace.shared.activateFileViewerSelecting(savedFiles)
                     showReviewIfAppropriate(currentTransmissionCount: currentCount)
                 }
                 
@@ -292,12 +288,12 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 
                 DispatchQueue.main.async {
                     withAnimation {
-                        self.toastActions = ToastViewAction(openFilesAction: openFilesAction, importPhotosAction: importPhotosAction, closeToastAction: closeToastAction)
+                        self.toastActions = ToastViewAction(completionMessageKey: completionKey, autoHideDelay: autoHideDelay, openFilesAction: openFilesAction, importPhotosAction: importPhotosAction, closeToastAction: closeToastAction)
                     }
                     
                     // Show received files if wanted
                     if Settings.sharedInstance.openFinderAfterReceiving {
-                        self.toastActions?.openFilesAction()
+                        self.toastActions?.openFilesAction?()
                     }
                 }
                 #endif
@@ -307,7 +303,89 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             }
         }
         
+        
         #if os(macOS)
+        func finishMacTermination(device: RemoteDeviceInfo?, savedFiles: [URL], error: (any Error)?, wasPendingConsent: Bool) {
+            if wasPendingConsent {
+                return
+            }
+
+            if let error = error {
+                if let name = device?.name {
+                    self.hideQuickDropToast()
+
+                    controlPlusScreen(false)
+
+                    errorVibration()
+                    ErrorAlertHandler.shared.showErrorAlert(for: name, error: error)
+                }
+                return
+            }
+
+            let currentCount = Settings.sharedInstance.incomingTransmissionCount
+            let completionKey: String
+            let autoHideDelay: TimeInterval
+
+            if !savedFiles.isEmpty {
+                completionKey = "Saved"
+                autoHideDelay = 10
+            } else if wasPlainTextTransfer {
+                completionKey = "CopiedToClipboard"
+                autoHideDelay = 10
+            } else {
+                completionKey = "URLOpened"
+                autoHideDelay = 4
+            }
+
+            if currentCount == 0 {
+                pendingReview = true
+            }
+
+            let openFilesAction: (() -> ())? = savedFiles.isEmpty ? nil : {
+                log("[SaveFilesManager] Opening \(savedFiles.count) file(s) in Finder.")
+                NSWorkspace.shared.activateFileViewerSelecting(savedFiles)
+                showReviewIfAppropriate(currentTransmissionCount: currentCount)
+            }
+
+            let hasPhotoOrVideos = PhotoManager.hasPhotosOrVideos(at: savedFiles)
+            let importPhotosAction: (()->())? = hasPhotoOrVideos ? {
+                Task {
+                    do {
+                        try await PhotoManager.saveMediaToPhotoLibrary(from: savedFiles)
+                        showReviewIfAppropriate(currentTransmissionCount: currentCount)
+                    }
+                    catch {
+                        DispatchQueue.main.async {
+                            let alert = NSAlert()
+                            alert.alertStyle = .critical
+                            alert.messageText = "CouldNotSaveMediaToPhotoLibrary".localized()
+                            alert.informativeText = error.localizedDescription
+                            alert.addButton(withTitle: "CloseAlert".localized())
+
+                            alert.runModal()
+                        }
+                    }
+                }
+            } : nil
+
+            let closeToastAction = {
+                self.hideQuickDropToast()
+                showReviewIfAppropriate(currentTransmissionCount: currentCount)
+            }
+
+            withAnimation {
+                self.toastActions = ToastViewAction(completionMessageKey: completionKey, autoHideDelay: autoHideDelay, openFilesAction: openFilesAction, importPhotosAction: importPhotosAction, closeToastAction: closeToastAction)
+            }
+
+            // Show received files if wanted
+            if Settings.sharedInstance.openFinderAfterReceiving {
+                self.toastActions?.openFilesAction?()
+            }
+
+            Settings.sharedInstance.incomingTransmissionCount = currentCount + 1
+            log("[ReceiveModel] Successful transmission. Current count: \(currentCount)")
+        }
+
         func showReviewIfAppropriate(currentTransmissionCount: Int) {
             if pendingReview {
                 // Dont request review again
@@ -324,6 +402,12 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     
     func showPlusScreen() {
         DispatchQueue.main.async {
+#if os(macOS)
+            self.consentState = nil
+            self.toastActions = nil
+            self.progress = nil
+            self.hideQuickDropToast()
+#endif
             self.controlPlusScreen(true)
         }
     }
@@ -397,7 +481,13 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
 
     func hideQuickDropToast() {
         guard let window = toastWindow,
-              let screen = NSScreen.main else { return }
+              let screen = NSScreen.main else {
+            self.toastWindow = nil
+            self.toastHosting = nil
+            self.toastActions = nil
+            self.consentState = nil
+            return
+        }
 
         let offscreenY = screen.visibleFrame.origin.y + screen.visibleFrame.height + 20
 
@@ -411,14 +501,28 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             self.toastWindow = nil
             self.toastHosting = nil
             self.toastActions = nil
+            self.consentState = nil
+            self.activeDeviceName = nil
         })
     }
     
     
     struct ToastViewAction {
-        let openFilesAction: () -> ()
+        let completionMessageKey: String
+        let autoHideDelay: TimeInterval
+        let openFilesAction: (() -> ())?
         let importPhotosAction: (() -> ())?
         let closeToastAction: () -> ()
+    }
+    
+
+    struct ConsentToastState {
+        let transferID: String
+        let pinCodeMessage: String
+        let message: String
+        let allowsTrust: Bool
+        let acceptAction: (Bool) -> ()
+        let declineAction: () -> ()
     }
     #endif
 }

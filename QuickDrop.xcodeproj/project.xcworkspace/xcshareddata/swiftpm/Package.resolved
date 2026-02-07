@@ -52,7 +52,7 @@
       "location" : "https://github.com/leonboe1/LUI.git",
       "state" : {
         "branch" : "main",
-        "revision" : "87f9d26e499b49838dc9135e063d10e1701480e9"
+        "revision" : "b35bcccf183c075d8d58d5b5763702b29a779b32"
       }
     },
     {
@@ -87,8 +87,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-protobuf.git",
       "state" : {
-        "revision" : "959a56cda79509e66abd367a6498951b656aa460",
-        "version" : "1.34.0"
+        "revision" : "c5ab62237f21cad094812719a1bbe29443407c5f",
+        "version" : "1.34.1"
       }
     },
     {
@@ -124,7 +124,7 @@
       "location" : "https://github.com/siteline/swiftui-introspect",
       "state" : {
         "branch" : "main",
-        "revision" : "69d97e5463727a67a5aef8db2986667d3bd83a83"
+        "revision" : "379cbeb697ef528b24c56c59f77a8cfc394ae793"
       }
     },
     {
