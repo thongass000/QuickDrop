@@ -12,6 +12,7 @@ import SwiftUI
 let toastViewSize = CGSize(width: 420, height: 75)
 let actionColumnWidth: CGFloat = 120
 let actionColumnWidthEnd: CGFloat = 165
+let toastCornerRadius: CGFloat = 20
 
 struct QuickDropToastView: View {
     @ObservedObject var settings = Settings.sharedInstance
@@ -64,7 +65,7 @@ struct QuickDropToastView: View {
 
                         let iconSize = 39.0
 
-                        AppIconView(hasPlusIcon: false, size: iconSize)
+                        AppIconView(hasPlusIcon: false, size: iconSize, supportsDarkModeShadow: false)
                             .frame(width: iconSize, height: iconSize)
 
                         VStack(alignment: .leading, spacing: 2) {
@@ -190,7 +191,7 @@ struct QuickDropToastView: View {
 
         }
         .padding(.leading, 16)
-        .frame(height: toastViewSize.height)
+        .frame(width: toastViewSize.width, height: toastViewSize.height)
         .contentShape(Rectangle())
         .onHover { hovering in
             withAnimation(.easeInOut(duration: 0.15)) {
@@ -214,11 +215,10 @@ struct QuickDropToastView: View {
             startAutoHideIfPossible()
         }
         .background(
-            VisualEffectView(material: .hudWindow)
-                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+            VisualEffectView(material: .hudWindow, cornerRadius: toastCornerRadius)
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
+            RoundedRectangle(cornerRadius: toastCornerRadius, style: .continuous)
                 .stroke(Color.black.opacity(0.03), lineWidth: 1)
         )
         .overlay(alignment: .topTrailing) {
@@ -282,7 +282,7 @@ fileprivate struct ToastButtonLabel: View {
 
     var body: some View {
         Text(title.localized())
-            .font(.system(size: 13, weight: .semibold))
+            .font(.system(size: 12.5, weight: .medium))
             .foregroundColor(.mainColor.opacity(0.75))
             .lineLimit(1)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -336,6 +336,7 @@ struct VisualEffectView: NSViewRepresentable {
     var material: NSVisualEffectView.Material = .hudWindow
     var blendingMode: NSVisualEffectView.BlendingMode = .withinWindow
     var state: NSVisualEffectView.State = .active
+    var cornerRadius: CGFloat = 0
 
     func makeNSView(context: Context) -> NSVisualEffectView {
         let v = NSVisualEffectView()
@@ -343,6 +344,11 @@ struct VisualEffectView: NSViewRepresentable {
         v.blendingMode = blendingMode
         v.state = state
         v.isEmphasized = true
+        if cornerRadius > 0 {
+            v.wantsLayer = true
+            v.layer?.cornerRadius = cornerRadius
+            v.layer?.masksToBounds = true
+        }
         return v
     }
 
@@ -350,6 +356,14 @@ struct VisualEffectView: NSViewRepresentable {
         v.material = material
         v.blendingMode = blendingMode
         v.state = state
+        if cornerRadius > 0 {
+            v.wantsLayer = true
+            v.layer?.cornerRadius = cornerRadius
+            v.layer?.masksToBounds = true
+        } else {
+            v.layer?.cornerRadius = 0
+            v.layer?.masksToBounds = false
+        }
     }
 }
 
@@ -383,25 +397,6 @@ struct CapsuleProgress: View {
 
 // MARK: - Preview
 struct QuickDropToastView_Previews: PreviewProvider {
-    struct Demo: View {
-        @State var model = ReceiveModel(controlPlusScreen: { _ in })
-
-        var body: some View {
-            QuickDropToastView(
-                receiveModel: model,
-                onCancel: { }
-            )
-            .frame(width: toastViewSize.width, height: toastViewSize.height)
-            .clipped()
-            .padding(100)
-            .background(Color.black.opacity(0.2))
-            .onAppear {
-                model.progress = 1
-                model.toastActions = .init(completionMessageKey: "Saved", autoHideDelay: 10, openFilesAction: {}, importPhotosAction: {}, closeToastAction: {})
-            }
-        }
-    }
-
     struct ConsentDemo: View {
         @State var model = ReceiveModel(controlPlusScreen: { _ in })
 

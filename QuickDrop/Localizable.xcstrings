@@ -2569,229 +2569,229 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "قبول تلقائي من هذا الجهاز"
+            "value" : "دائماً قبول من هذا الجهاز"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Acceptar automàticament d'aquest dispositiu"
+            "value" : "Accepta sempre d'aquest dispositiu"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automaticky přijímat z tohoto zařízení"
+            "value" : "Vždy přijímat z tohoto zařízení"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accepter automatisk fra denne enhed"
+            "value" : "Accepter altid fra denne enhed"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatisch von diesem Gerät annehmen"
+            "value" : "Von diesem Gerät immer akzeptieren"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Αυτόματη αποδοχή από αυτή τη συσκευή"
+            "value" : "Να γίνεται πάντα αποδοχή από αυτή τη συσκευή"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatically accept from this device"
+            "value" : "Always accept from this device"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Auto accept from this device"
+            "value" : "Always accept from this device"
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatically accept from this device"
+            "value" : "Always accept from this device"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatically accept from this device"
+            "value" : "Always accept from this device"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aceptar automáticamente desde este dispositivo"
+            "value" : "Aceptar siempre desde este dispositivo"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aceptar automáticamente de este dispositivo"
+            "value" : "Aceptar siempre de este dispositivo"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hyväksy automaattisesti tältä laitteelta"
+            "value" : "Hyväksy aina tältä laitteelta"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accepter automatiquement depuis cet appareil"
+            "value" : "Toujours accepter depuis cet appareil"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accepter automatiquement cet appareil"
+            "value" : "Toujours accepter de cet appareil"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "קבל אוטומטית ממכשיר זה"
+            "value" : "תמיד לאשר מהמכשיר הזה"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "इस डिवाइस से स्वचालित रूप से स्वीकार करें"
+            "value" : "इस डिवाइस से हमेशा स्वीकृत करें"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatski prihvati s ovog uređaja"
+            "value" : "Uvijek prihvati s ovog uređaja"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatikusan fogadás erről az eszközről"
+            "value" : "Mindig fogadjon erről az eszközről"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Terima otomatis dari perangkat ini"
+            "value" : "Selalu terima dari perangkat ini"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accetta automaticamente da questo dispositivo"
+            "value" : "Accetta sempre da questo dispositivo"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "このデバイスから自動的に受け入れる"
+            "value" : "このデバイスからは常に受信する"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "이 장치로부터 자동으로 수락"
+            "value" : "이 기기에서 항상 허용"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Terima secara automatik dari peranti ini"
+            "value" : "Sentiasa terima dari peranti ini"
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Godta automatisk fra denne enheten"
+            "value" : "Godta alltid fra denne enheten"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatisch accepteren van dit apparaat"
+            "value" : "Altijd accepteren van dit apparaat"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatycznie akceptuj z tego urządzenia"
+            "value" : "Zawsze akceptuj z tego urządzenia"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aceitar automaticamente deste dispositivo"
+            "value" : "Sempre aceitar deste dispositivo"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aceitar automaticamente deste dispositivo"
+            "value" : "Aceitar sempre deste dispositivo"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Acceptă automat de pe acest dispozitiv"
+            "value" : "Acceptă întotdeauna de pe acest dispozitiv"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Автоматически принимать файлы с этого устройства"
+            "value" : "Всегда принимать с этого устройства"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Acceptera automatiskt från den här enheten"
+            "value" : "Acceptera alltid från denna enhet"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ยอมรับอัตโนมัติจากอุปกรณ์นี้"
+            "value" : "ยอมรับเสมอจากอุปกรณ์นี้"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bu cihazdan gelenleri otomatik kabul et"
+            "value" : "Bu cihazdan her zaman kabul et"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Автоматично приймати з цього пристрою"
+            "value" : "Завжди приймати з цього пристрою"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tự động chấp nhận từ thiết bị này"
+            "value" : "Luôn chấp nhận từ thiết bị này"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自动接受来自此设备的文件"
+            "value" : "始终接受来自此设备的文件"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自動接受來自此裝置的傳輸"
+            "value" : "總是允許此裝置"
           }
         }
       }
