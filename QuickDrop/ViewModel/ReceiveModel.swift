@@ -22,6 +22,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     @Published var toastIsVisible: Bool = false
     @Published var toastDismissStyle: ToastDismissStyle = .slide
     private var pendingReview = false
+    private var toastWindowPending = false
     private var toastWindow: NSWindow?
     private var toastHosting: NSHostingView<QuickDropToastHostView>?
     private let monitor = AllowedWorkMonitor()
@@ -427,10 +428,20 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     
     #if os(macOS)
     func showQuickDropToast(for connectionID: String) {
-        guard toastWindow == nil else { return }
+        if let window = toastWindow {
+            toastDismissStyle = .slide
+            toastIsVisible = true
+            window.makeKeyAndOrderFront(nil)
+            return
+        }
+        guard !toastWindowPending else { return }
+        toastWindowPending = true
 
         DispatchQueue.main.async {
-            guard self.toastWindow == nil else { return }
+            guard self.toastWindow == nil else {
+                self.toastWindowPending = false
+                return
+            }
 
             self.toastIsVisible = false
             self.toastDismissStyle = .slide
@@ -449,7 +460,10 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 ?? NSApp.keyWindow?.screen
                 ?? NSScreen.main
 
-            guard let screen else { return }
+            guard let screen else {
+                self.toastWindowPending = false
+                return
+            }
 
             let frame = screen.frame
             let visible = screen.visibleFrame
@@ -484,6 +498,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
 
             self.toastWindow = window
             self.toastHosting = hostingView
+            self.toastWindowPending = false
             self.toastIsVisible = false
             DispatchQueue.main.async {
                 self.toastIsVisible = true
@@ -498,6 +513,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             self.toastHosting = nil
             self.toastActions = nil
             self.consentState = nil
+            self.toastWindowPending = false
             return
         }
 
@@ -513,6 +529,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             self.toastActions = nil
             self.consentState = nil
             self.activeDeviceName = nil
+            self.toastWindowPending = false
         }
     }
     
