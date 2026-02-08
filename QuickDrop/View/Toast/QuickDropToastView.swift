@@ -13,6 +13,8 @@ let toastViewSize = CGSize(width: 420, height: 75)
 let actionColumnWidth: CGFloat = 120
 let actionColumnWidthEnd: CGFloat = 165
 let toastCornerRadius: CGFloat = 20
+let toastTrailingPadding: CGFloat = 20
+let toastSlideDistance: CGFloat = 420
 
 struct QuickDropToastView: View {
     @ObservedObject var settings = Settings.sharedInstance
@@ -35,7 +37,7 @@ struct QuickDropToastView: View {
     private func startAutoHide(_ actions: ReceiveModel.ToastViewAction) {
         autoHider.cancel()
         autoHider = DispatchWorkItem(block: {
-            actions.closeToastAction()
+            actions.autoHideAction()
         })
 
         DispatchQueue.main.asyncAfter(deadline: .now() + actions.autoHideDelay, execute: autoHider)
@@ -250,6 +252,33 @@ struct QuickDropToastView: View {
     }
 }
 
+struct QuickDropToastHostView: View {
+    @ObservedObject var receiveModel: ReceiveModel
+    let onCancel: () -> Void
+
+    private let slideAnimation = Animation.smooth
+    private let fadeAnimation = Animation.easeInOut
+
+    var body: some View {
+        let isVisible = receiveModel.toastIsVisible
+        let isSlide = receiveModel.toastDismissStyle == .slide
+        let hiddenOffset: CGFloat = isSlide ? toastSlideDistance : 0
+        let hiddenOpacity: Double = isSlide ? 1 : 0
+        let hiddenBlur: CGFloat = isSlide ? 0 : 8
+        let animation = isSlide ? slideAnimation : fadeAnimation
+
+        QuickDropToastView(receiveModel: receiveModel, onCancel: onCancel)
+            .frame(width: toastViewSize.width, height: toastViewSize.height)
+            .offset(x: isVisible ? 0 : hiddenOffset)
+            .opacity(isVisible ? 1 : hiddenOpacity)
+            .blur(radius: isVisible ? 0 : hiddenBlur)
+            .animation(animation, value: receiveModel.toastIsVisible)
+            .animation(animation, value: receiveModel.toastDismissStyle)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
+            .padding(.trailing, toastTrailingPadding)
+    }
+}
+
 
 fileprivate struct QuickDropToastViewButton: View {
     let title: String
@@ -455,7 +484,7 @@ struct QuickDropToastView_Previews: PreviewProvider {
             .background(previewWallpaper)
             .onAppear {
                 model.progress = 1
-                model.toastActions = .init(completionMessageKey: "Saved", autoHideDelay: 10, openFilesAction: {}, importPhotosAction: {}, closeToastAction: {})
+                model.toastActions = .init(completionMessageKey: "Saved", autoHideDelay: 10, openFilesAction: {}, importPhotosAction: {}, closeToastAction: {}, autoHideAction: {})
             }
         }
     }

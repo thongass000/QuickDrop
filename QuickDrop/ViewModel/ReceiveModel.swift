@@ -19,9 +19,11 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     @Published var toastActions: ToastViewAction? = nil
     @Published var consentState: ConsentToastState? = nil
     @Published var activeDeviceName: String? = nil
+    @Published var toastIsVisible: Bool = false
+    @Published var toastDismissStyle: ToastDismissStyle = .slide
     private var pendingReview = false
     private var toastWindow: NSWindow?
-    private var toastHosting: NSHostingView<QuickDropToastView>?
+    private var toastHosting: NSHostingView<QuickDropToastHostView>?
     private let monitor = AllowedWorkMonitor()
 #endif
     
@@ -282,13 +284,17 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 } : nil
                 
                 let closeToastAction = {
-                    self.hideQuickDropToast()
+                    self.hideQuickDropToast(style: .fade)
+                    showReviewIfAppropriate(currentTransmissionCount: currentCount)
+                }
+                let autoHideAction = {
+                    self.hideQuickDropToast(style: .slide)
                     showReviewIfAppropriate(currentTransmissionCount: currentCount)
                 }
                 
                 DispatchQueue.main.async {
                     withAnimation {
-                        self.toastActions = ToastViewAction(completionMessageKey: completionKey, autoHideDelay: autoHideDelay, openFilesAction: openFilesAction, importPhotosAction: importPhotosAction, closeToastAction: closeToastAction)
+                        self.toastActions = ToastViewAction(completionMessageKey: completionKey, autoHideDelay: autoHideDelay, openFilesAction: openFilesAction, importPhotosAction: importPhotosAction, closeToastAction: closeToastAction, autoHideAction: autoHideAction)
                     }
                     
                     // Show received files if wanted
@@ -369,12 +375,16 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             } : nil
 
             let closeToastAction = {
-                self.hideQuickDropToast()
+                self.hideQuickDropToast(style: .fade)
+                showReviewIfAppropriate(currentTransmissionCount: currentCount)
+            }
+            let autoHideAction = {
+                self.hideQuickDropToast(style: .slide)
                 showReviewIfAppropriate(currentTransmissionCount: currentCount)
             }
 
             withAnimation {
-                self.toastActions = ToastViewAction(completionMessageKey: completionKey, autoHideDelay: autoHideDelay, openFilesAction: openFilesAction, importPhotosAction: importPhotosAction, closeToastAction: closeToastAction)
+                self.toastActions = ToastViewAction(completionMessageKey: completionKey, autoHideDelay: autoHideDelay, openFilesAction: openFilesAction, importPhotosAction: importPhotosAction, closeToastAction: closeToastAction, autoHideAction: autoHideAction)
             }
 
             // Show received files if wanted
@@ -419,69 +429,71 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     func showQuickDropToast(for connectionID: String) {
         guard toastWindow == nil else { return }
 
-        let contentView = QuickDropToastView(
-            receiveModel: self,
-            onCancel: {
-                NearbyConnectionManager.shared.cancelTransfer(id: connectionID)
+        DispatchQueue.main.async {
+            guard self.toastWindow == nil else { return }
+
+            self.toastIsVisible = false
+            self.toastDismissStyle = .slide
+
+            let contentView = QuickDropToastHostView(
+                receiveModel: self,
+                onCancel: {
+                    NearbyConnectionManager.shared.cancelTransfer(id: connectionID)
+                }
+            )
+
+            let hostingView = NSHostingView(rootView: contentView)
+
+            // Prefer the screen under the mouse, then the key window’s screen, then main
+            let screen = NSScreen.screens.first { $0.frame.contains(NSEvent.mouseLocation) }
+                ?? NSApp.keyWindow?.screen
+                ?? NSScreen.main
+
+            guard let screen else { return }
+
+            let frame = screen.frame
+            let visible = screen.visibleFrame
+
+            let marginX: CGFloat = 20
+            let marginFromTop: CGFloat = 20
+
+            // If the menu bar is auto-hidden, visible.maxY == frame.maxY; subtract the status bar thickness to stay clear
+            let menuBarHidden = abs(frame.maxY - visible.maxY) < 0.5
+            let extraTopInset = menuBarHidden ? NSStatusBar.system.thickness : 0
+
+            let targetX = visible.maxX - toastViewSize.width - marginX
+            let targetY = visible.maxY - toastViewSize.height - marginFromTop - extraTopInset
+            let windowWidth = visible.maxX - targetX
+            let targetFrame = CGRect(x: targetX, y: targetY, width: windowWidth, height: toastViewSize.height)
+
+            hostingView.frame.size = targetFrame.size
+
+            let window = NSWindow(contentRect: targetFrame,
+                                  styleMask: [.borderless],
+                                  backing: .buffered,
+                                  defer: false)
+            window.isOpaque = false
+            window.backgroundColor = .clear
+            window.hasShadow = true
+            window.level = .statusBar
+            window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+            window.contentView = hostingView
+            window.ignoresMouseEvents = false
+            window.alphaValue = 1
+            window.makeKeyAndOrderFront(nil)
+
+            self.toastWindow = window
+            self.toastHosting = hostingView
+            self.toastIsVisible = false
+            DispatchQueue.main.async {
+                self.toastIsVisible = true
             }
-        )
-
-        let hostingView = NSHostingView(rootView: contentView)
-        hostingView.frame.size = toastViewSize
-
-        // Prefer the screen under the mouse, then the key window’s screen, then main
-        let screen = NSScreen.screens.first { $0.frame.contains(NSEvent.mouseLocation) }
-            ?? NSApp.keyWindow?.screen
-            ?? NSScreen.main
-
-        guard let screen else { return }
-
-        let frame = screen.frame
-        let visible = screen.visibleFrame
-
-        let marginX: CGFloat = 20
-        let marginFromTop: CGFloat = 20
-
-        // If the menu bar is auto-hidden, visible.maxY == frame.maxY; subtract the status bar thickness to stay clear
-        let menuBarHidden = abs(frame.maxY - visible.maxY) < 0.5
-        let extraTopInset = menuBarHidden ? NSStatusBar.system.thickness : 0
-
-        let targetX = visible.maxX - toastViewSize.width - marginX
-        let targetY = visible.maxY - toastViewSize.height - marginFromTop - extraTopInset
-
-        // Start slightly above the final spot for a smooth slide-in
-        let startY = min(frame.maxY + 10, targetY + 10)
-        let startFrame = CGRect(x: targetX, y: startY, width: toastViewSize.width, height: toastViewSize.height)
-
-        let window = NSWindow(contentRect: startFrame,
-                              styleMask: [.borderless],
-                              backing: .buffered,
-                              defer: false)
-        window.isOpaque = false
-        window.backgroundColor = .clear
-        window.hasShadow = true
-        window.level = .statusBar
-        window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
-        window.contentView = hostingView
-        window.ignoresMouseEvents = false
-        window.alphaValue = 0
-        window.makeKeyAndOrderFront(nil)
-
-        self.toastWindow = window
-        self.toastHosting = hostingView
-
-        NSAnimationContext.runAnimationGroup { ctx in
-            ctx.duration = 0.35
-            ctx.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-            window.animator().setFrameOrigin(CGPoint(x: targetX, y: targetY))
-            window.animator().alphaValue = 1
         }
     }
 
 
-    func hideQuickDropToast() {
-        guard let window = toastWindow,
-              let screen = NSScreen.main else {
+    func hideQuickDropToast(style: ToastDismissStyle = .fade) {
+        guard let window = toastWindow else {
             self.toastWindow = nil
             self.toastHosting = nil
             self.toastActions = nil
@@ -489,21 +501,19 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             return
         }
 
-        let offscreenY = screen.visibleFrame.origin.y + screen.visibleFrame.height + 20
+        self.toastDismissStyle = style
+        self.toastIsVisible = false
 
-        NSAnimationContext.runAnimationGroup({ ctx in
-            ctx.duration = 0.35
-            ctx.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-            window.animator().setFrameOrigin(CGPoint(x: window.frame.origin.x, y: offscreenY))
-            window.animator().alphaValue = 0
-        }, completionHandler: {
+        let cleanupDelay: TimeInterval = (style == .slide) ? 0.5 : 0.3
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + cleanupDelay) {
             window.orderOut(nil)
             self.toastWindow = nil
             self.toastHosting = nil
             self.toastActions = nil
             self.consentState = nil
             self.activeDeviceName = nil
-        })
+        }
     }
     
     
@@ -513,6 +523,13 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         let openFilesAction: (() -> ())?
         let importPhotosAction: (() -> ())?
         let closeToastAction: () -> ()
+        let autoHideAction: () -> ()
+    }
+
+
+    enum ToastDismissStyle {
+        case slide
+        case fade
     }
     
 
