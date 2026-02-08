@@ -400,7 +400,7 @@ struct VisualEffectView: NSViewRepresentable {
 // Capsule-style linear progress (0...1)
 struct CapsuleProgress: View {
     var value: Double
-    var track = Color(NSColor.separatorColor).opacity(0.28)
+    var track = Color(NSColor.systemBlue).opacity(0.28)
     var fill  = Color(NSColor.systemBlue)
 
     var body: some View {
