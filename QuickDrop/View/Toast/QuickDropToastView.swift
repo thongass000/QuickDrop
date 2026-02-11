@@ -153,7 +153,7 @@ struct QuickDropToastView: View {
                             ActionButtonRow {
                                 if consent.allowsTrust {
                                     QuickDropToastViewMenuButton(title: "Accept") {
-                                        Button("Accept".localized()) {
+                                        Button("AcceptOnce".localized()) {
                                             consent.acceptAction(false)
                                         }
                                         Button("AutoAcceptFromThisDevice".localized()) {
@@ -249,6 +249,8 @@ struct QuickDropToastView: View {
                 .transition(.opacity.combined(with: .scale(scale: 0.95)))
             }
         }
+        .shadow(color: Color.black.opacity(colorScheme.isLight ? 0.16 : 0.30), radius: 10, x: 0, y: 5)
+        .shadow(color: Color.black.opacity(colorScheme.isLight ? 0.06 : 0.14), radius: 2, x: 0, y: 1)
         .frame(maxWidth: .infinity)
     }
 }
@@ -287,7 +289,7 @@ fileprivate struct QuickDropToastViewButton: View {
 
     var body: some View {
         Button(action: action) {
-            ToastButtonLabel(title: title)
+            ToastButtonLabel(title: title, fillsWidth: true)
         }
         .buttonStyle(.plain)  // prevents blue macOS button look
     }
@@ -301,7 +303,7 @@ fileprivate struct QuickDropToastViewMenuButton<Content: View>: View {
         Menu {
             content()
         } label: {
-            ToastButtonLabel(title: title)
+            ToastButtonLabel(title: title, fillsWidth: false)
         }
         .menuStyle(.borderlessButton)
     }
@@ -309,13 +311,14 @@ fileprivate struct QuickDropToastViewMenuButton<Content: View>: View {
 
 fileprivate struct ToastButtonLabel: View {
     let title: String
+    let fillsWidth: Bool
 
     var body: some View {
         Text(title.localized())
             .font(.system(size: 12.5, weight: .medium))
             .foregroundColor(.mainColor.opacity(0.75))
             .lineLimit(1)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(maxWidth: fillsWidth ? .infinity : nil, maxHeight: .infinity)
             .padding(.horizontal, 14)
             .padding(.vertical, 8)
             .contentShape(Rectangle())
@@ -451,6 +454,31 @@ struct QuickDropToastView_Previews: PreviewProvider {
             }
         }
     }
+    
+    struct ConsentDemo2: View {
+        @State var model = ReceiveModel(controlPlusScreen: { _ in })
+
+        var body: some View {
+            QuickDropToastView(
+                receiveModel: model,
+                onCancel: { }
+            )
+            .frame(width: toastViewSize.width, height: toastViewSize.height)
+            .clipped()
+            .padding(100)
+            //.background(QuickDropToastView_Previews.previewWallpaper)
+            .onAppear {
+                model.consentState = .init(
+                    transferID: "preview",
+                    pinCodeMessage: "PIN: 1233",
+                    message: "45 images from Pixel 6 Pro",
+                    allowsTrust: false,
+                    acceptAction: { _ in },
+                    declineAction: { }
+                )
+            }
+        }
+    }
 
     struct ProgressDemo: View {
         @State var model = ReceiveModel(controlPlusScreen: { _ in })
@@ -503,6 +531,7 @@ struct QuickDropToastView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ConsentDemo()
+            ConsentDemo2()
             ProgressDemo()
             CompletedDemo()
         }

@@ -19,7 +19,12 @@ func sendToSharingService(items: [Any]) {
             let alert = NSAlert()
             alert.alertStyle = .critical
             alert.messageText = "ShareExtensionDisabledTitle".localized()
-            alert.informativeText = "ShareExtensionDisabledDescription".localized()
+            if #available(macOS 13.0, *) {
+                alert.informativeText = "ShareExtensionDisabledDescription".localized()
+            }
+            else {
+                alert.informativeText = "ShareExtensionDisabledDescriptionLegacy".localized()
+            }
             alert.addButton(withTitle: "CloseAlert".localized())
             alert.runModal()
         }

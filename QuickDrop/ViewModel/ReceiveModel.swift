@@ -70,14 +70,11 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         let mainMessage = transfer.getDescription(deviceName: device.name ?? "UnknownDevice".localized())
         let pinCodeMessage = transfer.getPinCodeMessage()
         let transferID = transfer.id
-        
-        let title = "QuickDrop - \(pinCodeMessage)"
-        let primaryButtonTitle = "Accept".localized()
+    
         let primaryButtonAction = { (trustDevice: Bool) in
             NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: true, trustDevice: trustDevice)
         }
-        
-        let secondaryButtonTitle = "Decline".localized()
+
         let secondaryButtonAction = { NearbyConnectionManager.shared.submitUserConsent(transferID: transferID, accept: false, trustDevice: false) }
 
         #if os(macOS)
@@ -107,6 +104,11 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             self.showQuickDropToast(for: transferID)
         }
         #else
+        
+        let title = "QuickDrop - \(pinCodeMessage)"
+        let primaryButtonTitle = "Accept".localized()
+        let secondaryButtonTitle = "Decline".localized()
+        
         // iOS
         let alwaysAcceptLabel = transfer.allowsToBeAddedAsTrustedDevice ? "AlwaysAccept".localized() : nil
         ProgressAlert.shared.askForUserPermission(title: title, message: mainMessage, acceptLabel: primaryButtonTitle, acceptAlwaysLabel: alwaysAcceptLabel, rejectLabel: secondaryButtonTitle) { accepted in
@@ -479,10 +481,33 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             let targetY = visible.maxY - toastViewSize.height - marginFromTop - extraTopInset
             let windowWidth = visible.maxX - targetX
             let targetFrame = CGRect(x: targetX, y: targetY, width: windowWidth, height: toastViewSize.height)
+            
+            // Expand the borderless window so SwiftUI shadow can render without clipping.
+            // Keep the toast anchored at the same screen position by offsetting hostingView
+            // inside a clear container view.
+            let shadowInsetLeft: CGFloat = 22
+            let shadowInsetTop: CGFloat = 18
+            let shadowInsetBottom: CGFloat = 24
+            let windowFrame = CGRect(
+                x: targetFrame.minX - shadowInsetLeft,
+                y: targetFrame.minY - shadowInsetBottom,
+                width: targetFrame.width + shadowInsetLeft,
+                height: targetFrame.height + shadowInsetTop + shadowInsetBottom
+            )
+            
+            let containerView = NSView(frame: CGRect(origin: .zero, size: windowFrame.size))
+            containerView.wantsLayer = true
+            containerView.layer?.backgroundColor = NSColor.clear.cgColor
+            
+            hostingView.frame = CGRect(
+                x: shadowInsetLeft,
+                y: shadowInsetBottom,
+                width: targetFrame.width,
+                height: targetFrame.height
+            )
+            containerView.addSubview(hostingView)
 
-            hostingView.frame.size = targetFrame.size
-
-            let window = NSWindow(contentRect: targetFrame,
+            let window = NSWindow(contentRect: windowFrame,
                                   styleMask: [.borderless],
                                   backing: .buffered,
                                   defer: false)
@@ -493,7 +518,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             window.hasShadow = false
             window.level = .statusBar
             window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
-            window.contentView = hostingView
+            window.contentView = containerView
             window.ignoresMouseEvents = false
             window.alphaValue = 1
             window.makeKeyAndOrderFront(nil)

@@ -234,6 +234,239 @@
         }
       }
     },
+    "AcceptOnce" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قبول مرة واحدة"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accepta una vegada"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přijmout jednorázově"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accepter én gang"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einmal akzeptieren"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αποδοχή Μια Φορά"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accept Once"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accept Once"
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accept Once"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accept Once"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceptar una vez"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceptar una vez"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hyväksy kerran"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accepter une fois"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accepter une fois"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "קבל פעם אחת"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "एक बार स्वीकार करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prihvati jednom"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Egyszeri elfogadás"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terima Sekali"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accetta una volta"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1回だけ許可"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "한 번 허용"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terima Sekali"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Godta én gang"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eenmalig accepteren"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaakceptuj jednorazowo"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceitar uma vez"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceitar uma vez"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acceptă o dată"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Принять один раз"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acceptera en gång"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "อนุญาตครั้งเดียว"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir Kez Kabul Et"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прийняти один раз"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chấp nhận một lần"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅接受一次"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "僅接受一次"
+          }
+        }
+      }
+    },
     "Acknowledgements" : {
       "localizations" : {
         "ar" : {
@@ -30728,6 +30961,239 @@
         }
       }
     },
+    "ShareExtensionDisabledDescriptionLegacy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لمشاركة هذا المحتوى مع جهاز آخر، افتح تفضيلات النظام في جهاز Mac وانتقل إلى الإضافات.\n\nفعّل زر QuickDrop وحاول مرة أخرى."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per compartir aquest contingut amb un altre dispositiu, obre les Preferències del sistema del teu Mac i ves a Extensions.\n\nActiva l'interruptor de QuickDrop i torna-ho a intentar."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chcete-li tento obsah sdílet s jiným zařízením, otevřete Předvolby systému Macu a přejděte do sekce Rozšíření.\n\nZapněte přepínač pro QuickDrop a zkuste to znovu."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For at dele dette indhold med en anden enhed, skal du åbne Systemindstillinger på din Mac og gå til Udvidelser.\n\nAktivér QuickDrop og prøv igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um diesen Inhalt mit einem anderen Gerät zu teilen, öffne die Systemeinstellungen deines Macs und gehe zu Erweiterungen.\n\nAktiviere den Schalter für QuickDrop und versuche es erneut."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Για να μοιραστείτε αυτό το περιεχόμενο με άλλη συσκευή, ανοίξτε τις Προτιμήσεις Συστήματος του Mac σας και πηγαίνετε στις Επεκτάσεις.\n\nΕνεργοποιήστε τον διακόπτη για το QuickDrop και δοκιμάστε ξανά."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To share this content with another device, open your Mac’s System Preferences and navigate to Extensions.\n\nEnable the toggle for QuickDrop and try again."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To share this content with another device, open your Mac’s System Preferences and navigate to Extensions.\n\nEnable the toggle for QuickDrop and try again."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To share this content with another device, open your Mac’s System Preferences and navigate to Extensions.\n\nEnable the toggle for QuickDrop and try again."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To share this content with another device, open your Mac’s System Preferences and navigate to Extensions.\n\nEnable the toggle for QuickDrop and try again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para compartir este contenido con otro dispositivo, abre las Preferencias del Sistema en tu Mac y ve a Extensiones.\n\nActiva el interruptor para QuickDrop e inténtalo de nuevo."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para compartir este contenido con otro dispositivo, abre las Preferencias del Sistema de tu Mac y ve a Extensiones.\n\nActiva el interruptor para QuickDrop e inténtalo de nuevo."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jos haluat jakaa tämän sisällön toiselle laitteelle, avaa Macin Järjestelmäasetukset ja siirry Laajennukset-osioon.\n\nOta QuickDrop käyttöön ja yritä uudelleen."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour partager ce contenu avec un autre appareil, ouvrez les Préférences Système de votre Mac puis allez dans Extensions.\n\nActivez l’interrupteur pour QuickDrop et réessayez."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour partager ce contenu avec un autre appareil, ouvrez les Préférences Système de votre Mac et allez dans Extensions.\n\nActivez l’interrupteur pour QuickDrop et réessayez."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "כדי לשתף תוכן זה עם מכשיר אחר, פתח את העדפות המערכת במק שלך וגש להרחבות.\n\nאפשר את המתג עבור QuickDrop ונסה שוב."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "इस सामग्री को दूसरे डिवाइस के साथ साझा करने के लिए, अपने Mac की System Preferences में जाएँ और Extensions खोलें।\n\nQuickDrop का टॉगल चालू करें और फिर से प्रयास करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Za dijeljenje ovog sadržaja s drugim uređajem otvorite Postavke sustava na Macu i idite na Proširenja.\n\nOmogućite QuickDrop prekidač i pokušajte ponovno."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha ezt a tartalmat másik eszközzel szeretnéd megosztani, nyisd meg a Mac rendszerbeállításait, majd keresd meg a Bővítmények részt.\n\nKapcsold be a QuickDrop-ot, és próbáld újra."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Untuk membagikan konten ini ke perangkat lain, buka Preferensi Sistem di Mac Anda lalu buka Ekstensi.\n\nAktifkan tombol QuickDrop lalu coba lagi."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per condividere questo contenuto con un altro dispositivo, apri le Preferenze di Sistema del Mac e vai su Estensioni.\n\nAttiva l'interruttore per QuickDrop e riprova."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このコンテンツを他のデバイスと共有するには、Macの「システム環境設定」を開き、「機能拡張」に移動してください。\n\nQuickDropのトグルを有効にして、再度お試しください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 콘텐츠를 다른 기기와 공유하려면 Mac의 시스템 환경설정에서 확장 프로그램으로 이동하세요.\n\nQuickDrop 토글을 활성화한 후 다시 시도하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Untuk kongsikan kandungan ini dengan peranti lain, buka Keutamaan Sistem Mac anda dan pergi ke Sambungan.\n\nAktifkan togol untuk QuickDrop dan cuba lagi."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For å dele dette innholdet med en annen enhet, åpne Systemvalg på Mac-en og gå til Utvidelser.\n\nAktiver bryteren for QuickDrop og prøv igjen."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Om deze inhoud met een ander apparaat te delen, open je de Systeemvoorkeuren van je Mac en ga naar Extensies.\n\nSchakel de schakelaar voor QuickDrop in en probeer het opnieuw."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aby udostępnić tę zawartość innemu urządzeniu, otwórz Preferencje systemowe Maca i przejdź do sekcji Rozszerzenia.\n\nWłącz przełącznik dla QuickDrop, a następnie spróbuj ponownie."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para compartilhar este conteúdo com outro dispositivo, abra as Preferências do Sistema do seu Mac e vá até Extensões.\n\nAtive o QuickDrop e tente novamente."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para partilhar este conteúdo com outro dispositivo, abra as Preferências do Sistema do seu Mac e vá a Extensões.\n\nAtive a opção para o QuickDrop e tente novamente."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pentru a partaja acest conținut cu un alt dispozitiv, deschide Preferințele de sistem ale Mac-ului și mergi la Extensii.\n\nActivează comutatorul pentru QuickDrop și încearcă din nou."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чтобы поделиться этим контентом с другим устройством, откройте Системные настройки Mac и перейдите в раздел «Расширения».\n\nВключите переключатель для QuickDrop и попробуйте снова."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "För att dela detta innehåll med en annan enhet, öppna Systeminställningar på din Mac och gå till Tillägg.\n\nAktivera QuickDrop-växeln och försök igen."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เพื่อแชร์เนื้อหานี้กับอุปกรณ์อื่น ให้เปิดการตั้งค่าระบบของ Mac ของคุณแล้วไปที่ ส่วนเสริม\n\nเปิดสวิตช์สำหรับ QuickDrop แล้วลองใหม่อีกครั้ง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu içeriği başka bir cihazla paylaşmak için Mac’inizin Sistem Tercihleri’ni açın ve Uzantılar bölümüne gidin.\n\nQuickDrop’u etkinleştirin ve tekrar deneyin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щоб поділитися цим контентом з іншим пристроєм, відкрийте Системні налаштування Mac і перейдіть до Розширень.\n\nУвімкніть перемикач для QuickDrop і спробуйте ще раз."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Để chia sẻ nội dung này với thiết bị khác, hãy mở Tùy chọn Hệ thống trên Mac và đi tới Tiện ích Mở rộng.\n\nBật chuyển đổi cho QuickDrop và thử lại."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要与其他设备共享此内容，请打开 Mac 的系统偏好设置并进入扩展。\n\n启用 QuickDrop 的开关后重试。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "若要將此內容分享至其他裝置，請開啟您的 Mac「系統偏好設定」，前往「擴充功能」。\n\n啟用 QuickDrop 開關後再試一次。"
+          }
+        }
+      }
+    },
     "ShareExtensionDisabledTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -38878,6 +39344,239 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "若要從這台 Mac 傳送檔案，您可以啟用可選的分享擴充功能。請點選「%@」，選擇「編輯擴充功能」，向下捲動並開啟 QuickDrop 的切換。"
+          }
+        }
+      }
+    },
+    "introduction_enable_share_extension_description_legacy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لإرسال ملفات من هذا الـMac، يمكنك تفعيل امتداد المشاركة الاختياري. انقر على \"%@\"، اختر \"المزيد\"، ثم انزل للأسفل وفعّل زر QuickDrop."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per enviar fitxers des d'aquest Mac, pots activar l'extensió de compartició opcional. Fes clic a \"%@\", selecciona \"Més\", desplaça't cap avall i activa l'interruptor de QuickDrop."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chcete-li odesílat soubory z tohoto Macu, můžete povolit volitelné rozšíření pro sdílení. Klikněte na „%@“, vyberte „Více“, sjeďte dolů a zapněte přepínač pro QuickDrop."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For at sende filer fra denne Mac kan du aktivere den valgfrie delingsudvidelse. Klik på \"%@\", vælg \"Mere\", rul ned og aktiver QuickDrop."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um Dateien von diesem Mac zu senden, kannst du die optionale Share-Erweiterung aktivieren. Klicke auf „%@“, wähle „Mehr“, scrolle nach unten und aktiviere den Schalter für QuickDrop."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Για να στείλετε αρχεία από αυτό το Mac, μπορείτε να ενεργοποιήσετε την προαιρετική επέκταση κοινής χρήσης. Κάντε κλικ στο \"%@\", επιλέξτε \"Περισσότερα\", μετακινηθείτε προς τα κάτω και ενεργοποιήστε τον διακόπτη για το QuickDrop."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To send files from this Mac, you may enable the optional share extension. Click on \"%@\" choose \"More\", scroll down, and enable the toggle for QuickDrop."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To send files from this Mac, you may enable the optional share extension. Click on \"%@\", choose \"More\", scroll down, and enable the toggle for QuickDrop."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To send files from this Mac, you may enable the optional share extension. Click on \"%@\", choose \"More\", scroll down, and enable the toggle for QuickDrop."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To send files from this Mac, you may enable the optional share extension. Click on \"%@\" choose \"More\", scroll down, and enable the toggle for QuickDrop."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para enviar archivos desde este Mac, puedes habilitar la extensión de compartir opcional. Haz clic en \"%@\", elige \"Más\", desplázate hacia abajo y activa el interruptor de QuickDrop."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para enviar archivos desde esta Mac, puedes habilitar la extensión para compartir opcional. Haz clic en \"%@\", selecciona \"Más\", desplázate hacia abajo y activa el interruptor de QuickDrop."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jos haluat lähettää tiedostoja tältä Macilta, voit ottaa käyttöön valinnaisen jakolaajennuksen. Napsauta \"%@\", valitse \"Lisää\", vieritä alas ja ota QuickDrop käyttöön."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour envoyer des fichiers depuis ce Mac, vous pouvez activer l’extension de partage optionnelle. Cliquez sur « %@ », choisissez « Plus », faites défiler vers le bas et activez l’interrupteur pour QuickDrop."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour envoyer des fichiers depuis ce Mac, vous pouvez activer l’extension de partage optionnelle. Cliquez sur « %@ », choisissez « Plus », faites défiler vers le bas et activez QuickDrop."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "כדי לשלוח קבצים מהמחשב הזה, תוכל לאפשר את הרחבת השיתוף האופציונלית. לחץ על \"%@\", בחר \"עוד\", גלול למטה ואפשר את מתג QuickDrop."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "इस Mac से फ़ाइलें भेजने के लिए, आप वैकल्पिक शेयर एक्सटेंशन सक्षम कर सकते हैं। \"%@\" पर क्लिक करें, \"More\" चुनें, नीचे स्क्रॉल करें, और QuickDrop का टॉगल चालू करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Za slanje datoteka s ovog Maca možete omogućiti opcionalni dodatak za dijeljenje. Kliknite na „%@“, odaberite „Više“, skrolajte dolje i uključite QuickDrop prekidač."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha fájlokat szeretnél küldeni erről a Mac-ről, engedélyezheted az opcionális megosztási bővítményt. Kattints a \"%@\"-ra, válaszd a \"Több\" lehetőséget, görgess le, és kapcsold be a QuickDrop-ot."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Untuk mengirim file dari Mac ini, Anda dapat mengaktifkan ekstensi berbagi opsional. Klik \"%@\", pilih \"Lainnya\", gulir ke bawah, lalu aktifkan QuickDrop."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per inviare file da questo Mac, puoi abilitare l'estensione di condivisione opzionale. Clicca su \"%@\", scegli \"Altro\", scorri in basso e attiva l'interruttore per QuickDrop."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このMacからファイルを送信するには、オプションの共有機能拡張を有効にしてください。 \"%@\" をクリックし、「その他」を選択、下にスクロールしてQuickDropのトグルをオンにします。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 Mac에서 파일을 보내려면 선택적 공유 확장 기능을 활성화할 수 있습니다. \"%@\"를 클릭하고 \"더 보기\"를 선택한 다음 아래로 스크롤하여 QuickDrop 토글을 켜세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Untuk hantar fail dari Mac ini, anda boleh aktifkan sambungan perkongsian pilihan. Klik pada \"%@\", pilih \"Lagi\", skrol ke bawah, dan aktifkan togol untuk QuickDrop."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For å sende filer fra denne Mac-en, kan du aktivere den valgfrie delingsutvidelsen. Klikk på «%@», velg «Mer», bla ned og aktiver bryteren for QuickDrop."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Om bestanden vanaf deze Mac te verzenden, kun je de optionele deel-extensie inschakelen. Klik op \"%@\", kies \"Meer\", scroll naar beneden en schakel QuickDrop in."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aby wysyłać pliki z tego Maca, możesz włączyć opcjonalne rozszerzenie udostępniania. Kliknij „%@”, wybierz „Więcej”, przewiń w dół i włącz przełącznik dla QuickDrop."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para enviar arquivos deste Mac, você pode ativar a extensão de compartilhamento opcional. Clique em \"%@\", escolha \"Mais\", role para baixo e ative o QuickDrop."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para enviar ficheiros a partir deste Mac, pode ativar a extensão de partilha opcional. Clique em \"%@\", escolha \"Mais\", desça e ative a opção para o QuickDrop."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pentru a trimite fișiere de pe acest Mac, poți activa extensia opțională de partajare. Fă clic pe \"%@\", alege „Mai multe”, derulează în jos și activează comutatorul pentru QuickDrop."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чтобы отправлять файлы с этого Mac, вы можете включить дополнительное расширение для обмена. Нажмите «%@», выберите «Ещё», пролистайте вниз и включите переключатель для QuickDrop."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "För att skicka filer från denna Mac kan du aktivera det valfria delningstillägget. Klicka på \"%@\", välj \"Mer\", scrolla ner och slå på växeln för QuickDrop."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "หากต้องการส่งไฟล์จาก Mac เครื่องนี้ คุณสามารถเปิดใช้งานส่วนขยายการแชร์ เลือก \"%@\" เลือก \"เพิ่มเติม\" เลื่อนลง แล้วเปิดสวิตช์สำหรับ QuickDrop"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu Mac’ten dosya göndermek için, isteğe bağlı paylaşım uzantısını etkinleştirebilirsiniz. \"%@\" simgesine tıklayın, \"Diğer\"i seçin, aşağı kaydırın ve QuickDrop’u etkinleştirin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щоб надсилати файли з цього Mac, ви можете ввімкнути додатковий розширювач спільного доступу. Натисніть на «%@», виберіть «Ще», прокрутіть вниз і увімкніть перемикач для QuickDrop."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Để gửi tệp từ máy Mac này, bạn có thể bật tiện ích chia sẻ tùy chọn. Nhấp vào \"%@\", chọn \"Thêm\", cuộn xuống và bật chuyển đổi cho QuickDrop."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果要从此 Mac 发送文件，可以启用可选的分享扩展。在“%@”中点击“更多”，向下滚动并启用 QuickDrop 的开关。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "若要從此 Mac 傳送檔案，您可以啟用選用的分享擴充功能。請點擊「%@」，選擇「更多」，往下捲動並啟用 QuickDrop 開關。"
           }
         }
       }
