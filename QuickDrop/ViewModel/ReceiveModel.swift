@@ -488,7 +488,9 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                                   defer: false)
             window.isOpaque = false
             window.backgroundColor = .clear
-            window.hasShadow = true
+            // Use SwiftUI shadow on the toast view itself. On macOS 12, window
+            // shadow can reveal a rectangular artifact in transparent trailing space.
+            window.hasShadow = false
             window.level = .statusBar
             window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
             window.contentView = hostingView
