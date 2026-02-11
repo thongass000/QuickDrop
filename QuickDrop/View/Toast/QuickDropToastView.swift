@@ -20,6 +20,8 @@ struct QuickDropToastView: View {
     @ObservedObject var settings = Settings.sharedInstance
     @ObservedObject var receiveModel: ReceiveModel
     
+    @Environment(\.colorScheme) var colorScheme
+    
     @State var autoHider = DispatchWorkItem(block: {})
     @State private var isHovering = false
 
@@ -221,7 +223,7 @@ struct QuickDropToastView: View {
         )
         .overlay(
             RoundedRectangle(cornerRadius: toastCornerRadius, style: .continuous)
-                .stroke(Color.black.opacity(0.03), lineWidth: 1)
+                .stroke((colorScheme.isLight ? Color.white.opacity(0.5) : Color.gray.opacity(0.33)), lineWidth: 1)
         )
         .overlay(alignment: .topTrailing) {
             if closeButtonVisible, let actions = actions {
@@ -247,7 +249,6 @@ struct QuickDropToastView: View {
                 .transition(.opacity.combined(with: .scale(scale: 0.95)))
             }
         }
-        .shadow(color: Color.black.opacity(0.03), radius: 20)
         .frame(maxWidth: .infinity)
     }
 }
@@ -437,7 +438,7 @@ struct QuickDropToastView_Previews: PreviewProvider {
             .frame(width: toastViewSize.width, height: toastViewSize.height)
             .clipped()
             .padding(100)
-            .background(QuickDropToastView_Previews.previewWallpaper)
+            //.background(QuickDropToastView_Previews.previewWallpaper)
             .onAppear {
                 model.consentState = .init(
                     transferID: "preview",
