@@ -289,7 +289,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                     showReviewIfAppropriate(currentTransmissionCount: currentCount)
                 }
                 let autoHideAction = {
-                    self.hideQuickDropToast(style: .slide)
+                    self.hideQuickDropToast()
                     showReviewIfAppropriate(currentTransmissionCount: currentCount)
                 }
                 
@@ -380,7 +380,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 showReviewIfAppropriate(currentTransmissionCount: currentCount)
             }
             let autoHideAction = {
-                self.hideQuickDropToast(style: .slide)
+                self.hideQuickDropToast()
                 showReviewIfAppropriate(currentTransmissionCount: currentCount)
             }
 
