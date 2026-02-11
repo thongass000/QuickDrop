@@ -46,7 +46,6 @@
 		EB2F9BFE2DA05F48004010A2 /* BezelNotification in Frameworks */ = {isa = PBXBuildFile; productRef = EB2F9BFD2DA05F48004010A2 /* BezelNotification */; };
 		EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36435F2D73A29F009CDFF8 /* AudioManager.swift */; };
 		EB3B9F002EF7150400D6704E /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2A2162D2860BE00BCB8E2 /* WelcomeScreen.swift */; };
-		EB3B9F012EF7150400D6704E /* ChangeDeviceNameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */; };
 		EB3B9F022EF7150400D6704E /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36435F2D73A29F009CDFF8 /* AudioManager.swift */; };
 		EB3B9F032EF7150400D6704E /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C383E2E38C49D0052EFD7 /* LaunchAtLogin.swift */; };
 		EB3B9F042EF7150400D6704E /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B41E32DC63AC80070FC39 /* SleepManager.swift */; };
@@ -316,7 +315,6 @@
 		EB9925852E45EF0900357055 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB9925842E45EF0900357055 /* QRCode */; };
 		EB9925872E45F12F00357055 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB9925862E45F12F00357055 /* QRCode */; };
 		EB9925892E45F13500357055 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = EB9925882E45F13500357055 /* QRCode */; };
-		EBA1BB1D2EF1F5650068E46E /* ChangeDeviceNameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */; };
 		EBA1BB1E2EF1F6030068E46E /* ChangeDeviceNameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */; };
 		EBA1BB1F2EF1F6030068E46E /* ChangeDeviceNameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */; };
 		EBADEB8F2E8029750021B5E4 /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = EBADEB8E2E8029750021B5E4 /* DeviceKit */; };
@@ -808,6 +806,7 @@
 			isa = PBXGroup;
 			children = (
 				EB979F8E2E50CA23008B8C5C /* ContentView.swift */,
+				EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */,
 				EB6FE7CC2EFEAFF000FF2BCF /* NoLocalNetworkAccessAlertView.swift */,
 				EB979F8F2E50CA23008B8C5C /* FilePicker.swift */,
 				EB97A0192E51EA9C008B8C5C /* UIAlert.swift */,
@@ -837,7 +836,6 @@
 		EB6E51A82F2F95E0006D9812 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				EBA1BB1C2EF1F5650068E46E /* ChangeDeviceNameModifier.swift */,
 				EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */,
 				EB6F62D62D91F4AC00534EC2 /* SettingsView.swift */,
 			);
@@ -1305,7 +1303,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBD2A2172D2860C100BCB8E2 /* WelcomeScreen.swift in Sources */,
-				EBA1BB1D2EF1F5650068E46E /* ChangeDeviceNameModifier.swift in Sources */,
 				EB3643602D73A2A2009CDFF8 /* AudioManager.swift in Sources */,
 				EB5C38412E38C49D0052EFD7 /* LaunchAtLogin.swift in Sources */,
 				EB5C37B82E377A6F0052EFD7 /* SleepManager.swift in Sources */,
@@ -1360,7 +1357,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB3B9F002EF7150400D6704E /* WelcomeScreen.swift in Sources */,
-				EB3B9F012EF7150400D6704E /* ChangeDeviceNameModifier.swift in Sources */,
 				EB3B9F022EF7150400D6704E /* AudioManager.swift in Sources */,
 				EB3B9F032EF7150400D6704E /* LaunchAtLogin.swift in Sources */,
 				EB3B9F042EF7150400D6704E /* SleepManager.swift in Sources */,

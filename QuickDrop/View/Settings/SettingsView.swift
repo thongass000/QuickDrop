@@ -48,9 +48,8 @@ struct SettingsView: View {
                         .foregroundColor(.gray)
                     
                     Button("Edit") {
-                        isChangeDeviceNameAlertPresented.toggle()
+                        presentRenameAlert()
                     }
-                    .changeDeviceNameAlert(isPresented: $isChangeDeviceNameAlertPresented)
                 }
                 
                 Divider()
@@ -154,6 +153,40 @@ struct SettingsView: View {
         NSApp.activate(ignoringOtherApps: true)
         window.makeKeyAndOrderFront(nil)
         window.level = .normal
+    }
+    
+    
+    private func presentRenameAlert() {
+        guard let window = NSApplication.shared.keyWindow else { return }
+
+        let alert = NSAlert()
+        alert.messageText = "ChangeDeviceName".localized()
+        alert.informativeText = "ChangeDeviceNameDescription".localized()
+        alert.alertStyle = .informational
+
+        let textField = NSTextField(string: NearbyConnectionManager.shared.deviceInfo.name ?? "")
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.frame = NSRect(x: 0, y: 0, width: 260, height: 24)
+        alert.accessoryView = textField
+
+        alert.addButton(withTitle: "Save".localized())
+        alert.addButton(withTitle: "Cancel".localized())
+
+        alert.beginSheetModal(for: window) { response in
+
+            if response == .alertFirstButtonReturn {
+                let trimmed = textField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
+                NearbyConnectionManager.shared.setCustomDeviceName(to: trimmed)
+            }
+        }
+
+        DispatchQueue.main.async {
+            let alertWindow = alert.window
+            alertWindow.makeFirstResponder(textField)
+            if let editor = alertWindow.fieldEditor(true, for: textField) as? NSTextView {
+                editor.selectedRange = NSRange(location: 0, length: textField.stringValue.count)
+            }
+        }
     }
 }
 

@@ -30,6 +30,7 @@ struct ChangeDeviceNameAlertModifier: ViewModifier {
     }
 }
 
+
 extension View {
     func changeDeviceNameAlert(
         isPresented: Binding<Bool>,
