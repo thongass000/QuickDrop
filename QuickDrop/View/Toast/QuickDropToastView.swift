@@ -192,7 +192,6 @@ struct QuickDropToastView: View {
                     }
                 }
             }
-
         }
         .padding(.leading, 16)
         .frame(width: toastViewSize.width, height: toastViewSize.height)
@@ -255,6 +254,7 @@ struct QuickDropToastView: View {
     }
 }
 
+
 struct QuickDropToastHostView: View {
     @ObservedObject var receiveModel: ReceiveModel
     let onCancel: () -> Void
@@ -295,6 +295,7 @@ fileprivate struct QuickDropToastViewButton: View {
     }
 }
 
+
 fileprivate struct QuickDropToastViewMenuButton<Content: View>: View {
     let title: String
     @ViewBuilder let content: () -> Content
@@ -306,8 +307,10 @@ fileprivate struct QuickDropToastViewMenuButton<Content: View>: View {
             ToastButtonLabel(title: title, fillsWidth: false)
         }
         .menuStyle(.borderlessButton)
+        .padding(.horizontal, 6)
     }
 }
+
 
 fileprivate struct ToastButtonLabel: View {
     let title: String
@@ -324,6 +327,7 @@ fileprivate struct ToastButtonLabel: View {
             .contentShape(Rectangle())
     }
 }
+
 
 fileprivate struct ActionColumn<Content: View>: View {
     let width: CGFloat
@@ -345,6 +349,7 @@ fileprivate struct ActionColumn<Content: View>: View {
     }
 }
 
+
 fileprivate struct ActionButtonRow<Content: View>: View {
     @ViewBuilder let content: () -> Content
 
@@ -353,6 +358,7 @@ fileprivate struct ActionButtonRow<Content: View>: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
+
 
 fileprivate struct ActionDividerLine: View {
     var body: some View {
@@ -455,6 +461,7 @@ struct QuickDropToastView_Previews: PreviewProvider {
         }
     }
     
+    
     struct ConsentDemo2: View {
         @State var model = ReceiveModel(controlPlusScreen: { _ in })
 
@@ -479,6 +486,7 @@ struct QuickDropToastView_Previews: PreviewProvider {
             }
         }
     }
+    
 
     struct ProgressDemo: View {
         @State var model = ReceiveModel(controlPlusScreen: { _ in })
@@ -498,6 +506,7 @@ struct QuickDropToastView_Previews: PreviewProvider {
             }
         }
     }
+    
 
     struct CompletedDemo: View {
         @State var model = ReceiveModel(controlPlusScreen: { _ in })
@@ -517,6 +526,7 @@ struct QuickDropToastView_Previews: PreviewProvider {
             }
         }
     }
+    
 
     private static let previewWallpaper = LinearGradient(
         gradient: Gradient(colors: [
@@ -527,6 +537,7 @@ struct QuickDropToastView_Previews: PreviewProvider {
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
+    
 
     static var previews: some View {
         Group {
