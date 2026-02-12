@@ -306,8 +306,8 @@ fileprivate struct QuickDropToastViewMenuButton<Content: View>: View {
         } label: {
             ToastButtonLabel(title: title, fillsWidth: false)
         }
-        .menuStyle(.borderlessButton)
-        .padding(.horizontal, 6)
+        .menuStyle(BorderlessButtonMenuStyle(showsMenuIndicator: false))
+        .fixedSize()
     }
 }
 
@@ -354,8 +354,13 @@ fileprivate struct ActionButtonRow<Content: View>: View {
     @ViewBuilder let content: () -> Content
 
     var body: some View {
-        content()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        HStack(spacing: 0) {
+            Spacer(minLength: 0)
+            content()
+                .fixedSize()
+            Spacer(minLength: 0)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
