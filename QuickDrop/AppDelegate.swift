@@ -133,6 +133,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     func startReceiving() {
+        guard receiveModel == nil else {
+            log("[AppDelegate] startReceiving called while receiver is already active. Ignoring duplicate call.")
+            return
+        }
+
         receiveModel = ReceiveModel(controlPlusScreen: { shouldOpen in
             if shouldOpen {
                 self.openPlusScreen()
