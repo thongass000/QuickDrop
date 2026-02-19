@@ -457,8 +457,16 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
 
         let contentView = QuickDropToastHostView(
             receiveModel: self,
-            onCancel: {
+            onCancel: { [weak self] in
                 NearbyConnectionManager.shared.cancelTransfer(id: connectionID)
+                guard let self else { return }
+                self.processes.removeValue(forKey: connectionID)
+                if self.processes.isEmpty {
+                    self.progress = nil
+                }
+                self.toastActions = nil
+                self.consentState = nil
+                self.hideQuickDropToast(style: .fade)
             }
         )
 
