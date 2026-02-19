@@ -482,6 +482,13 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         }
     }
 
+    public func cancelAllIncomingConnections() {
+        let incomingTransfers = Array(incomingConnections.values)
+        for transfer in incomingTransfers {
+            transfer.cancel()
+        }
+    }
+
     private func endpointID(for service: NWBrowser.Result) -> String? {
         guard case let NWEndpoint.service(name: serviceName, type: _, domain: _, interface: _) = service.endpoint else { return nil }
         guard let nameData = Data.dataFromUrlSafeBase64(serviceName) else { return nil }
