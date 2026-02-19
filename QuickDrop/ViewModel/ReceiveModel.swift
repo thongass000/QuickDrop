@@ -430,111 +430,121 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     
     #if os(macOS)
     func showQuickDropToast(for connectionID: String) {
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.showQuickDropToast(for: connectionID)
+            }
+            return
+        }
+
         if let window = toastWindow {
             toastDismissStyle = .slide
             toastIsVisible = true
             window.makeKeyAndOrderFront(nil)
             return
         }
+
         guard !toastWindowPending else { return }
         toastWindowPending = true
 
-        DispatchQueue.main.async {
-            guard self.toastWindow == nil else {
-                self.toastWindowPending = false
-                return
-            }
-
-            self.toastIsVisible = false
-            self.toastDismissStyle = .slide
-
-            let contentView = QuickDropToastHostView(
-                receiveModel: self,
-                onCancel: {
-                    NearbyConnectionManager.shared.cancelTransfer(id: connectionID)
-                }
-            )
-
-            let hostingView = NSHostingView(rootView: contentView)
-
-            // Prefer the screen under the mouse, then the key window’s screen, then main
-            let screen = NSScreen.screens.first { $0.frame.contains(NSEvent.mouseLocation) }
-                ?? NSApp.keyWindow?.screen
-                ?? NSScreen.main
-
-            guard let screen else {
-                self.toastWindowPending = false
-                return
-            }
-
-            let frame = screen.frame
-            let visible = screen.visibleFrame
-
-            let marginX: CGFloat = 20
-            let marginFromTop: CGFloat = 20
-
-            // If the menu bar is auto-hidden, visible.maxY == frame.maxY; subtract the status bar thickness to stay clear
-            let menuBarHidden = abs(frame.maxY - visible.maxY) < 0.5
-            let extraTopInset = menuBarHidden ? NSStatusBar.system.thickness : 0
-
-            let targetX = visible.maxX - toastViewSize.width - marginX
-            let targetY = visible.maxY - toastViewSize.height - marginFromTop - extraTopInset
-            let windowWidth = visible.maxX - targetX
-            let targetFrame = CGRect(x: targetX, y: targetY, width: windowWidth, height: toastViewSize.height)
-            
-            // Expand the borderless window so SwiftUI shadow can render without clipping.
-            // Keep the toast anchored at the same screen position by offsetting hostingView
-            // inside a clear container view.
-            let shadowInsetLeft: CGFloat = 22
-            let shadowInsetTop: CGFloat = 18
-            let shadowInsetBottom: CGFloat = 24
-            let windowFrame = CGRect(
-                x: targetFrame.minX - shadowInsetLeft,
-                y: targetFrame.minY - shadowInsetBottom,
-                width: targetFrame.width + shadowInsetLeft,
-                height: targetFrame.height + shadowInsetTop + shadowInsetBottom
-            )
-            
-            let containerView = NSView(frame: CGRect(origin: .zero, size: windowFrame.size))
-            containerView.wantsLayer = true
-            containerView.layer?.backgroundColor = NSColor.clear.cgColor
-            
-            hostingView.frame = CGRect(
-                x: shadowInsetLeft,
-                y: shadowInsetBottom,
-                width: targetFrame.width,
-                height: targetFrame.height
-            )
-            containerView.addSubview(hostingView)
-
-            let window = NSWindow(contentRect: windowFrame,
-                                  styleMask: [.borderless],
-                                  backing: .buffered,
-                                  defer: false)
-            window.isOpaque = false
-            window.backgroundColor = .clear
-            // Use SwiftUI shadow on the toast view itself. On macOS 12, window
-            // shadow can reveal a rectangular artifact in transparent trailing space.
-            window.hasShadow = false
-            window.level = .statusBar
-            window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
-            window.contentView = containerView
-            window.ignoresMouseEvents = false
-            window.alphaValue = 1
-            window.makeKeyAndOrderFront(nil)
-
-            self.toastWindow = window
-            self.toastHosting = hostingView
-            self.toastWindowPending = false
-            self.toastIsVisible = false
-            DispatchQueue.main.async {
-                self.toastIsVisible = true
-            }
+        guard toastWindow == nil else {
+            toastWindowPending = false
+            return
         }
+
+        toastIsVisible = false
+        toastDismissStyle = .slide
+
+        let contentView = QuickDropToastHostView(
+            receiveModel: self,
+            onCancel: {
+                NearbyConnectionManager.shared.cancelTransfer(id: connectionID)
+            }
+        )
+
+        let hostingView = NSHostingView(rootView: contentView)
+
+        // Prefer the screen under the mouse, then the key window’s screen, then main
+        let screen = NSScreen.screens.first { $0.frame.contains(NSEvent.mouseLocation) }
+            ?? NSApp.keyWindow?.screen
+            ?? NSScreen.main
+
+        guard let screen else {
+            toastWindowPending = false
+            return
+        }
+
+        let frame = screen.frame
+        let visible = screen.visibleFrame
+
+        let marginX: CGFloat = 20
+        let marginFromTop: CGFloat = 20
+
+        // If the menu bar is auto-hidden, visible.maxY == frame.maxY; subtract the status bar thickness to stay clear
+        let menuBarHidden = abs(frame.maxY - visible.maxY) < 0.5
+        let extraTopInset = menuBarHidden ? NSStatusBar.system.thickness : 0
+
+        let targetX = visible.maxX - toastViewSize.width - marginX
+        let targetY = visible.maxY - toastViewSize.height - marginFromTop - extraTopInset
+        let windowWidth = visible.maxX - targetX
+        let targetFrame = CGRect(x: targetX, y: targetY, width: windowWidth, height: toastViewSize.height)
+        
+        // Expand the borderless window so SwiftUI shadow can render without clipping.
+        // Keep the toast anchored at the same screen position by offsetting hostingView
+        // inside a clear container view.
+        let shadowInsetLeft: CGFloat = 22
+        let shadowInsetTop: CGFloat = 18
+        let shadowInsetBottom: CGFloat = 24
+        let windowFrame = CGRect(
+            x: targetFrame.minX - shadowInsetLeft,
+            y: targetFrame.minY - shadowInsetBottom,
+            width: targetFrame.width + shadowInsetLeft,
+            height: targetFrame.height + shadowInsetTop + shadowInsetBottom
+        )
+        
+        let containerView = NSView(frame: CGRect(origin: .zero, size: windowFrame.size))
+        containerView.wantsLayer = true
+        containerView.layer?.backgroundColor = NSColor.clear.cgColor
+        
+        hostingView.frame = CGRect(
+            x: shadowInsetLeft,
+            y: shadowInsetBottom,
+            width: targetFrame.width,
+            height: targetFrame.height
+        )
+        containerView.addSubview(hostingView)
+
+        let window = NSWindow(contentRect: windowFrame,
+                              styleMask: [.borderless],
+                              backing: .buffered,
+                              defer: false)
+        window.isOpaque = false
+        window.backgroundColor = .clear
+        // Use SwiftUI shadow on the toast view itself. On macOS 12, window
+        // shadow can reveal a rectangular artifact in transparent trailing space.
+        window.hasShadow = false
+        window.level = .statusBar
+        window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+        window.contentView = containerView
+        window.ignoresMouseEvents = false
+        window.alphaValue = 1
+        window.makeKeyAndOrderFront(nil)
+
+        toastWindow = window
+        toastHosting = hostingView
+        toastWindowPending = false
+        toastIsVisible = true
     }
 
 
     func hideQuickDropToast(style: ToastDismissStyle = .fade) {
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.hideQuickDropToast(style: style)
+            }
+            return
+        }
+
         guard let window = toastWindow else {
             self.toastWindow = nil
             self.toastHosting = nil
