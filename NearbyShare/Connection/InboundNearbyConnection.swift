@@ -539,12 +539,6 @@ class InboundNearbyConnection: NearbyConnection {
             let acceptAutomatically = isAuthenticated || Settings.sharedInstance.automaticallyAcceptFiles
             
             DispatchQueue.main.async {
-                if !NearbyConnectionManager.shared.claimIncomingTransfer(id: self.id) {
-                    log("[InboundNearbyConnection \(self.id)] Another transfer is active. Rejecting incoming transfer.")
-                    self.rejectTransfer()
-                    return
-                }
-
                 if acceptAutomatically {
                     self.delegate?.obtainedUserConsentAutomatically(transfer: metadata, device: self.remoteDeviceInfo!, connection: self)
                     self.submitUserConsent(accepted: true, trustDevice: false)
