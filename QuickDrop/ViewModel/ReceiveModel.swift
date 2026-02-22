@@ -25,6 +25,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     private var toastWindowPending = false
     private var toastWindow: NSWindow?
     private var toastHosting: NSHostingView<QuickDropToastHostView>?
+    private var toastCleanupTask: DispatchWorkItem?
     private let monitor = AllowedWorkMonitor()
 #endif
     
@@ -437,6 +438,10 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             return
         }
 
+        // If a previous hide is still waiting for cleanup, keep the toast alive for this new request.
+        toastCleanupTask?.cancel()
+        toastCleanupTask = nil
+
         if let window = toastWindow {
             toastDismissStyle = .slide
             toastIsVisible = true
@@ -552,6 +557,9 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             return
         }
 
+        toastCleanupTask?.cancel()
+        toastCleanupTask = nil
+
         guard let window = toastWindow else {
             self.toastWindow = nil
             self.toastHosting = nil
@@ -565,8 +573,8 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         self.toastIsVisible = false
 
         let cleanupDelay: TimeInterval = (style == .slide) ? 0.5 : 0.3
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + cleanupDelay) {
+        let cleanupTask = DispatchWorkItem { [weak self] in
+            guard let self else { return }
             window.orderOut(nil)
             self.toastWindow = nil
             self.toastHosting = nil
@@ -574,7 +582,11 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             self.consentState = nil
             self.activeDeviceName = nil
             self.toastWindowPending = false
+            self.toastCleanupTask = nil
         }
+        toastCleanupTask = cleanupTask
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + cleanupDelay, execute: cleanupTask)
     }
     
     
