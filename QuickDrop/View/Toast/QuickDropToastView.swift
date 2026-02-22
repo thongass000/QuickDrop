@@ -276,7 +276,6 @@ struct QuickDropToastHostView: View {
             .opacity(isVisible ? 1 : hiddenOpacity)
             .blur(radius: isVisible ? 0 : hiddenBlur)
             .animation(animation, value: receiveModel.toastIsVisible)
-            .animation(animation, value: receiveModel.toastDismissStyle)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
             .padding(.trailing, toastTrailingPadding)
     }

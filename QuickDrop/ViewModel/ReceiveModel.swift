@@ -431,7 +431,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     // MARK: - macOS Progress Overlay
     
     #if os(macOS)
-    private func scheduleToastReveal(for window: NSWindow, delay: TimeInterval = 0.1) {
+    private func scheduleToastReveal(for window: NSWindow) {
         toastRevealTask?.cancel()
         toastRevealTask = nil
         
@@ -443,7 +443,8 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         }
         
         toastRevealTask = revealTask
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: revealTask)
+        // Reveal on the next run-loop tick to avoid pop-in without timer jitter.
+        DispatchQueue.main.async(execute: revealTask)
     }
     
     func showQuickDropToast(for connectionID: String) {
@@ -461,10 +462,10 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         toastRevealTask = nil
 
         if let window = toastWindow {
-            window.makeKeyAndOrderFront(nil)
             toastDismissStyle = .slide
             
             if !toastIsVisible {
+                window.makeKeyAndOrderFront(nil)
                 scheduleToastReveal(for: window)
             }
             return
