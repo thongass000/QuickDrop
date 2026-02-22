@@ -25,6 +25,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     private var toastWindowPending = false
     private var toastWindow: NSWindow?
     private var toastHosting: NSHostingView<QuickDropToastHostView>?
+    private var toastRevealTask: DispatchWorkItem?
     private var toastCleanupTask: DispatchWorkItem?
     private let monitor = AllowedWorkMonitor()
 #endif
@@ -430,6 +431,21 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     // MARK: - macOS Progress Overlay
     
     #if os(macOS)
+    private func scheduleToastReveal(for window: NSWindow, delay: TimeInterval = 0.1) {
+        toastRevealTask?.cancel()
+        toastRevealTask = nil
+        
+        let revealTask = DispatchWorkItem { [weak self, weak window] in
+            guard let self, let window else { return }
+            guard self.toastWindow === window else { return }
+            self.toastIsVisible = true
+            self.toastRevealTask = nil
+        }
+        
+        toastRevealTask = revealTask
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: revealTask)
+    }
+    
     func showQuickDropToast(for connectionID: String) {
         if !Thread.isMainThread {
             DispatchQueue.main.async {
@@ -441,11 +457,16 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         // If a previous hide is still waiting for cleanup, keep the toast alive for this new request.
         toastCleanupTask?.cancel()
         toastCleanupTask = nil
+        toastRevealTask?.cancel()
+        toastRevealTask = nil
 
         if let window = toastWindow {
-            toastDismissStyle = .slide
-            toastIsVisible = true
             window.makeKeyAndOrderFront(nil)
+            toastDismissStyle = .slide
+            
+            if !toastIsVisible {
+                scheduleToastReveal(for: window)
+            }
             return
         }
 
@@ -545,7 +566,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         toastWindow = window
         toastHosting = hostingView
         toastWindowPending = false
-        toastIsVisible = true
+        scheduleToastReveal(for: window)
     }
 
 
@@ -559,6 +580,8 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
 
         toastCleanupTask?.cancel()
         toastCleanupTask = nil
+        toastRevealTask?.cancel()
+        toastRevealTask = nil
 
         guard let window = toastWindow else {
             self.toastWindow = nil
@@ -583,6 +606,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             self.activeDeviceName = nil
             self.toastWindowPending = false
             self.toastCleanupTask = nil
+            self.toastRevealTask = nil
         }
         toastCleanupTask = cleanupTask
 
