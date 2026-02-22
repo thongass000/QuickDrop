@@ -238,6 +238,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             if let welcomeWindow, !Settings.sharedInstance.appLaunchedBefore {
                 runAfter(seconds: 0.2) {
                     IntroductionSheetManager.sharedInstance.openIntroductionWindow(on: welcomeWindow, startReceiving: self.startReceiving) {
+                        self.startReceiving()
                         Settings.sharedInstance.appLaunchedBefore = true
                     }
                 }
