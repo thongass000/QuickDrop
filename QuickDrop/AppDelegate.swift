@@ -26,7 +26,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     private var sheetAttachedWindow: NSWindow? = nil
     private var errorAlertHandler = ErrorAlertHandler.shared
 
-    private var iapManager: IAPManager?
     private var receiveModel: ReceiveModel?
 
     var showsFirewallAlert = false
@@ -34,11 +33,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
     
     // MARK: NSApplicationDelegate functions
-    
-    func applicationWillFinishLaunching(_: Notification) {
-        LUIInit(configuration: configuration)
-    }
-    
     
     func applicationDidFinishLaunching(_: Notification) {
         
@@ -72,27 +66,26 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         statusItem?.button?.image = NSImage(named: "MenuBarIcon")
         statusItem?.menu = menu
         statusItem?.behavior = .removalAllowed
-
-        iapManager = IAPManager.sharedInstance
-
+        
         // app did not lauch before
         if !Settings.sharedInstance.appLaunchedBefore {
             log("[AppDelegate] Opening Welcome Screen")
-            // open welcome screen
-            openMainWindow()
+            
+            DispatchQueue.main.async {
+                // open welcome screen in next cycle (await LUIInit)
+                self.openMainWindow()
+            }
             
             // user installed the app after the IAP was implemented, set the user as eligible for IAP
             Settings.sharedInstance.isEligibleForIap = true
         } else {
             // app launched before
-
             #if GITHUB
             log("[AppDelegate] Downloaded from GitHub.")
             #else
             // user installed the app before the IAP was implemented, grant the plus version
             if !Settings.sharedInstance.isEligibleForIap {
                 log("[AppDelegate] Granting QuickDrop+ for old user")
-                Settings.sharedInstance.gotPlus = true
                 UserDefaults.standard.set(true, forKey: Settings.UserDefaultsKeys.plusVersionLegacy.rawValue)
             } else {
                 if !fullVersion() {
@@ -109,6 +102,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             // only start receiving immediately for existing user, for new users we want to delay the permission prompt
             startReceiving()
         }
+        
+        LUIInit(configuration: configuration)
 
         UNUserNotificationCenter.current().delegate = self
         

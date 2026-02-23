@@ -17,14 +17,6 @@ final class Settings: SharedInstance {
     
     //  MARK: - Published UserDefaults Backed Properties
     
-    #if GITHUB
-    let gotPlus = true
-    #else
-    @Published var gotPlus = UserDefaults.standard.bool(forKey: UserDefaultsKeys.plusVersion.rawValue)
-    { didSet { UserDefaults.standard.set(gotPlus, forKey: UserDefaultsKeys.plusVersion.rawValue) }}
-    #endif
-    
-    
     @Published var automaticallyAcceptFiles: Bool = UserDefaults.standard.bool(forKey: UserDefaultsKeys.automaticallyAcceptFiles.rawValue)
     { didSet { UserDefaults.standard.set(automaticallyAcceptFiles, forKey: UserDefaultsKeys.automaticallyAcceptFiles.rawValue) }}
 
@@ -76,7 +68,6 @@ final class Settings: SharedInstance {
     public enum UserDefaultsKeys: String, CaseIterable, RawRepresentable {
         case isEligibleForIap = "isEligibleForIap"
         case appLaunchedBefore = "ShowedWelcomeScreen"
-        case plusVersion = "plusVersion"
         case transmissionCount = "reviewRequestCountKey"
         case automaticallyAcceptFiles = "automaticallyAcceptFiles"
         case saveFolderBookmark = "saveFolderBookmark"

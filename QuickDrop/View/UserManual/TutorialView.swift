@@ -15,7 +15,7 @@ struct TutorialView: View {
     let openPlus: () -> Void
     
     @State private var licenseWindow: NSWindow?
-    @ObservedObject var settings = Settings.sharedInstance
+    @ObservedObject var iapManager = IAPManager.sharedInstance
     
     var body: some View {
         
@@ -54,8 +54,9 @@ struct TutorialView: View {
                                 .opacity(0.5)
                         }
                         .buttonStyle(.plain)
-                        
-                        if !settings.gotPlus {
+                       
+                        #if !GITHUB
+                        if !iapManager.plusVersionState {
                             Button {
                                 openPlus()
                             } label: {
@@ -66,8 +67,9 @@ struct TutorialView: View {
                             }
                             .buttonStyle(.plain)
                         }
+                        #endif
                         
-#if DEBUG
+                        #if DEBUG
                         Button {
                             Settings.sharedInstance.deleteAllUserDefaults()
                         } label: {
@@ -77,7 +79,7 @@ struct TutorialView: View {
                                 .opacity(0.5)
                         }
                         .buttonStyle(.plain)
-#endif
+                        #endif
                     }
                     .padding()
                 }

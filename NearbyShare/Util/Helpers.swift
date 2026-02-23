@@ -5,8 +5,9 @@
 //  Created by Leon Böttger on 04.04.25.
 //
 
-import Foundation
 import CryptoKit
+import Foundation
+import LUI
 
 extension Data {
     func urlSafeBase64EncodedString() -> String {
@@ -111,7 +112,11 @@ extension String {
 
 
 public func fullVersion() -> Bool {
-    return Settings.sharedInstance.gotPlus
+    #if GITHUB
+    return true
+    #else
+    return IAPManager.sharedInstance.plusVersionState
+    #endif
 }
 
 

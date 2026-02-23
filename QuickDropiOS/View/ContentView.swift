@@ -12,14 +12,14 @@ import StoreKit
 struct ContentView: View {
     
     @ObservedObject var luiSettings = LUISettings.sharedInstance
-    @ObservedObject var settings = Settings.sharedInstance
+    @ObservedObject var iapManager = IAPManager.sharedInstance
     
     var body: some View {
-        AppRootView(isPlus: $settings.gotPlus, phoneView: {
+        AppRootView(phoneView: {
             DeviceListView()
                 .environment(\.sheetActive, isShareExtension())
         }, settingsView: {
-            CustomSection(header: settings.gotPlus ? "" : "General", footer: "TrustedDevicesFooterShort") {
+            CustomSection(header: iapManager.plusVersionState ? "" : "General", footer: "TrustedDevicesFooterShort") {
                 LUIButton {
                     FileManager.default.openDocumentFolder()
                 } label: {
@@ -46,12 +46,9 @@ struct DeviceListView: View {
     #if !EXTENSION
     @StateObject var receiveModel = ReceiveModel(controlPlusScreen: { show in
         log("[DeviceListView] Setting showPlusScreen to \(show)")
-        errorVibration()
-        DeviceListViewModel.sharedInstance.showPlusScreen = show
+        presentPaywall()
     })
     #endif
-    
-    @ObservedObject var model = DeviceListViewModel.sharedInstance
     
     @Environment(\.scenePhase) var scenePhase
     @Environment(\.sheetActive) var sheetActive
@@ -219,9 +216,6 @@ struct DeviceListView: View {
                 NearbyConnectionManager.shared.stopDeviceDiscovery()
             }
         }
-        #if !EXTENSION
-        .modifier(PlusVersionSheetModifier(sheetActive: $model.showPlusScreen, isPlusVersion: $settings.gotPlus))
-        #endif
         .animation(.smooth, value: nearbyConnectionManager.hasLocalNetworkPermission)
         .animation(.smooth, value: nearbyConnectionManager.isConnectedToLocalNetwork)
         .navigationBarItems(trailing: ZStack {
@@ -233,13 +227,6 @@ struct DeviceListView: View {
             }
         })
     }
-}
-
-
-final class DeviceListViewModel: SharedInstance {
-    static var sharedInstance = DeviceListViewModel()
-
-    @Published var showPlusScreen = false
 }
 
 
