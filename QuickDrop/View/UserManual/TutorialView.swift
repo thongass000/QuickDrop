@@ -71,6 +71,7 @@ struct TutorialView: View {
                         
                         #if DEBUG
                         Button {
+                            IAPManager.sharedInstance.plusVersionState = false
                             Settings.sharedInstance.deleteAllUserDefaults()
                         } label: {
                             Text("ResetAllSettings")
