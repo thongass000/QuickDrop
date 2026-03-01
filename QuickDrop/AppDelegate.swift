@@ -97,13 +97,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
         
         LUIInit(configuration: configuration)
-        
-        if !fullVersion() {
-            log("[AppDelegate] New user - QuickDrop+ not available")
-        }
-        else {
-            log("[AppDelegate] QuickDrop+ available")
-        }
 
         UNUserNotificationCenter.current().delegate = self
         
