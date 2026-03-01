@@ -259,11 +259,13 @@ struct QuickDropToastHostView: View {
     @ObservedObject var receiveModel: ReceiveModel
     let onCancel: () -> Void
 
+    @State private var didRenderOnce = false
+
     private let slideAnimation = Animation.smooth
     private let fadeAnimation = Animation.easeInOut
 
     var body: some View {
-        let isVisible = receiveModel.toastIsVisible
+        let isVisible = didRenderOnce && receiveModel.toastIsVisible
         let isSlide = receiveModel.toastDismissStyle == .slide
         let hiddenOffset: CGFloat = isSlide ? toastSlideDistance : 0
         let hiddenOpacity: Double = isSlide ? 1 : 0
@@ -275,9 +277,20 @@ struct QuickDropToastHostView: View {
             .offset(x: isVisible ? 0 : hiddenOffset)
             .opacity(isVisible ? 1 : hiddenOpacity)
             .blur(radius: isVisible ? 0 : hiddenBlur)
-            .animation(animation, value: receiveModel.toastIsVisible)
+            .animation(animation, value: isVisible)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
             .padding(.trailing, toastTrailingPadding)
+            .onAppear {
+                // Defer the visibility gate one run-loop tick so initial state is
+                // always rendered hidden before we animate to visible.
+                guard !didRenderOnce else { return }
+                DispatchQueue.main.async {
+                    didRenderOnce = true
+                }
+            }
+            .onDisappear {
+                didRenderOnce = false
+            }
     }
 }
 
