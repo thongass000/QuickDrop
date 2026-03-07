@@ -46,7 +46,13 @@ struct DeviceListView: View {
     #if !EXTENSION
     @StateObject var receiveModel = ReceiveModel(controlPlusScreen: { show in
         log("[DeviceListView] Setting showPlusScreen to \(show)")
-        presentPaywall()
+        errorVibration()
+        if show {
+            presentPaywall()
+        }
+        else {
+            OverlayCoverStack.shared.dismissTop(animated: true)
+        }
     })
     #endif
     
