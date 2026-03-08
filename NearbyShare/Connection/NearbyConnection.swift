@@ -217,6 +217,13 @@ class NearbyConnection {
                 
                 if let content = content, !content.isEmpty {
                     log("[NearbyConnection \(self.id)] Connection closed by peer during receiveFrameAsync(length:), and frame not empty. Frame length: \(content.count)")
+                    
+                    if content.count == Int(length) {
+                        self.processReceivedFrame(frameData: content)
+                    }
+                    else {
+                        log("[NearbyConnection \(self.id)] Dropping trailing partial frame during connection close. Expected \(length) bytes, got \(content.count)")
+                    }
                 }
                 else {
                     log("[NearbyConnection \(self.id)] Connection closed by peer during receiveFrameAsync(length:), but no content received anymore (\(String(describing: content))).")
