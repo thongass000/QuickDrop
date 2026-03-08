@@ -45,6 +45,10 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private var securityScopeUrl: URL?
     private static let customDeviceNameKey = "com.leonboettger.quickdrop.deviceName"
     private var defaultPort: NWEndpoint.Port = 50362
+    private let txtKeyEndpointInfo = "n"
+    private let txtKeyNotificationSyncCapabilities = "qd_caps"
+    private let txtKeyNotificationSyncKeyFingerprint = "qd_kid"
+    private let notificationSyncCapabilityToken = "nsync1"
     
     
     // MARK: Shared Instance
@@ -307,12 +311,27 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         mdnsServices = serviceTypes.map { serviceType in
             let service = NetService(domain: "", type: serviceType, name: name, port: port)
             service.delegate = self
-            service.setTXTRecord(NetService.data(fromTXTRecord: [
-                "n": deviceInfo.serialize().urlSafeBase64EncodedString().data(using: .utf8)!,
-            ]))
+            var txtRecord: [String: Data] = [
+                txtKeyEndpointInfo: deviceInfo.serialize().urlSafeBase64EncodedString().data(using: .utf8)!,
+            ]
+            #if os(macOS)
+            txtRecord[txtKeyNotificationSyncCapabilities] = Data(notificationSyncCapabilityToken.utf8)
+            if let keyFingerprint = notificationSyncKeyFingerprintHex() {
+                txtRecord[txtKeyNotificationSyncKeyFingerprint] = Data(keyFingerprint.utf8)
+            }
+            #endif
+            service.setTXTRecord(NetService.data(fromTXTRecord: txtRecord))
             service.publish()
             return service
         }
+    }
+    
+
+    private func notificationSyncKeyFingerprintHex() -> String? {
+        guard let keyID = IdentityManager.shared.getPublicKey()?.toGenericPublicKey().id() else {
+            return nil
+        }
+        return keyID.hex.lowercased()
     }
     
     
@@ -341,7 +360,11 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     func connectionWasTerminated(connection: InboundNearbyConnection, savedFiles: [URL], error: Error?) {
         incomingConnections.removeValue(forKey: connection.id)
-        
+
+        if connection.shouldSuppressAppDelegates {
+            return
+        }
+
         if !connection.wasUserRejected {
             inboundAppDelegates.forEach { delegate in
                 delegate.connectionWasTerminated(connectionID: connection.id, from: connection.remoteDeviceInfo, savedFiles: savedFiles, wasPlainTextTransfer: connection.isPlainTextTransfer, error: error)
@@ -513,7 +536,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         var foundService = FoundServiceInfo(service: service)
         
         guard case let NWBrowser.Result.Metadata.bonjour(txtRecord) = service.metadata else { return }
-        guard let endpointInfoEncoded = txtRecord.dictionary["n"] else { return }
+        guard let endpointInfoEncoded = txtRecord.dictionary[txtKeyEndpointInfo] else { return }
         guard let endpointInfoData = Data.dataFromUrlSafeBase64(endpointInfoEncoded) else { return }
         guard var endpointInfo = EndpointInfo(data: endpointInfoData) else { return }
         var deviceInfo: RemoteDeviceInfo?

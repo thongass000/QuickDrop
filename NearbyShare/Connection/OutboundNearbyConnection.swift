@@ -269,6 +269,15 @@ class OutboundNearbyConnection: NearbyConnection {
     private func processConnectionResponse(frame: Location_Nearby_Connections_OfflineFrame) throws {
         
         guard frame.version == .v1 else { throw NearbyError.protocolError("Unexpected offline frame version \(frame.version)") }
+        guard frame.hasV1, frame.v1.hasType else { throw NearbyError.requiredFieldMissing("offlineFrame.v1.type") }
+
+        if frame.v1.type == .keepAlive {
+            log("[OutboundNearbyConnection \(self.id)] Received keep-alive while waiting for connection response")
+            if frame.v1.hasKeepAlive, !frame.v1.keepAlive.ack {
+                sendKeepAlive(ack: true)
+            }
+            return
+        }
         
         guard frame.v1.type == .connectionResponse else { throw NearbyError.protocolError("Unexpected frame type \(frame.v1.type)") }
         

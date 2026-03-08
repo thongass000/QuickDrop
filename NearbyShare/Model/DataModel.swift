@@ -139,6 +139,7 @@ public struct TransferMetadata {
         case text
         case url
         case wifiPassword
+        case notificationSync
     }
     
     private func getSummary() -> String {
@@ -196,6 +197,12 @@ public struct TransferMetadata {
             
             case .wifiPassword:
             return "DeviceSendingWifiPassword".localized(with: deviceName)
+
+            case .notificationSync:
+            if let textDescription, !textDescription.isEmpty {
+                return textDescription
+            }
+            return "NotificationSyncConsentPromptFromDevice".localized(with: deviceName)
         }
     }
     

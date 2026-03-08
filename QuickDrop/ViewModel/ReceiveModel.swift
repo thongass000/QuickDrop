@@ -81,6 +81,31 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
 
         #if os(macOS)
         DispatchQueue.main.async {
+            if transfer.type == .notificationSync {
+                self.hideQuickDropToast()
+                self.toastActions = nil
+                self.progress = nil
+                self.consentState = nil
+                let senderName = device.name?.trimmingCharacters(in: .whitespacesAndNewlines)
+                let resolvedSenderName = (senderName?.isEmpty == false) ? senderName! : "UnknownDevice".localized()
+                self.activeDeviceName = resolvedSenderName
+
+                let alert = NSAlert()
+                alert.alertStyle = .informational
+                alert.messageText = "NotificationSyncConsentPromptFromDevice".localized(with: resolvedSenderName)
+                alert.informativeText = pinCodeMessage
+                alert.addButton(withTitle: "Accept".localized())
+                alert.addButton(withTitle: "Decline".localized())
+
+                let result = alert.runModal()
+                if result == .alertFirstButtonReturn {
+                    primaryButtonAction(true)
+                } else {
+                    secondaryButtonAction()
+                }
+                return
+            }
+
             self.toastActions = nil
             self.progress = nil
             self.activeDeviceName = device.name ?? "UnknownDevice".localized()
