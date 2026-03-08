@@ -218,7 +218,7 @@ struct QuickDropToastView: View {
             startAutoHideIfPossible()
         }
         .background(
-            VisualEffectView(material: .hudWindow, cornerRadius: toastCornerRadius)
+            AdaptiveToastBackgroundLayer(cornerRadius: toastCornerRadius)
         )
         .overlay(
             RoundedRectangle(cornerRadius: toastCornerRadius, style: .continuous)
@@ -383,6 +383,22 @@ fileprivate struct ActionDividerLine: View {
             .foregroundColor(.mainColor.opacity(0.05))
             .frame(height: 2)
             .frame(maxWidth: .infinity)
+    }
+}
+
+
+struct AdaptiveToastBackgroundLayer: View {
+    let cornerRadius: CGFloat
+
+    var body: some View {
+        Group {
+            if #available(macOS 26.0, *) {
+                Color.clear
+                    .glassEffect(.regular, in: .rect(cornerRadius: cornerRadius, style: .continuous))
+            } else {
+                VisualEffectView(material: .hudWindow, cornerRadius: cornerRadius)
+            }
+        }
     }
 }
 
