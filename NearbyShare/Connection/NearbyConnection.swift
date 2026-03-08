@@ -263,7 +263,10 @@ class NearbyConnection {
             UInt8(truncatingIfNeeded: length),
         ])
         lengthPrefixedData.append(frame)
-        connection.send(content: lengthPrefixedData, completion: .contentProcessed { _ in
+        connection.send(content: lengthPrefixedData, completion: .contentProcessed { error in
+            if let error = error {
+                log("[NearbyConnection \(self.id)] Error while sending frame: \(error)")
+            }
             if let completion = completion {
                 completion()
             }
@@ -556,15 +559,23 @@ class NearbyConnection {
         offlineFrame.version = .v1
         offlineFrame.v1.type = .disconnection
         offlineFrame.v1.disconnection = Location_Nearby_Connections_DisconnectionFrame()
-        
-        if encryptionDone {
-            try encryptAndSendOfflineFrame(offlineFrame)
-        } else {
-            try sendFrameAsync(offlineFrame.serializedData())
+
+        if connectionClosed {
+            disconnect()
+            return
+        }
+
+        let finishDisconnect: () -> Void = {
+            log("[NearbyConnection \(self.id)] Sent disconnection frame during sendDisconnectionAndDisconnect")
+            self.disconnect()
         }
         
-        log("[NearbyConnection \(self.id)] Sent disconnection frame during sendDisconnectionAndDisconnect")
-        disconnect()
+        if encryptionDone {
+            try encryptAndSendOfflineFrame(offlineFrame, completion: finishDisconnect)
+        } else {
+            let data = try offlineFrame.serializedData()
+            sendFrameAsync(data, completion: finishDisconnect)
+        }
     }
     
     
