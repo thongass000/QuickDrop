@@ -123,9 +123,48 @@ class InboundNearbyConnection: NearbyConnection {
         }
         switch currentState {
         case .sentConnectionResponse:
-            try processPairedKeyEncryptionFrame(frame)
+            if frame.hasV1, frame.v1.hasPairedKeyEncryption {
+                try processPairedKeyEncryptionFrame(frame)
+                return
+            }
+            if frame.hasV1, frame.v1.hasIntroduction {
+                log("[InboundNearbyConnection \(self.id)] Received introduction before paired-key exchange finished; continuing unauthenticated flow.")
+                try sendPairedKeyResult(status: .unable)
+                try processIntroductionFrame(frame)
+                return
+            }
+            if frame.hasV1, frame.v1.hasType {
+                if frame.v1.type == .pairedKeyResult || frame.v1.type == .progressUpdate {
+                    log("[InboundNearbyConnection \(self.id)] Ignoring duplicate/intermediate transfer setup frame \(frame.v1.type) while waiting for pairedKeyEncryption.")
+                    return
+                }
+                if frame.v1.type == .response, case .accept = frame.v1.connectionResponse.status {
+                    log("[InboundNearbyConnection \(self.id)] Ignoring accept response while waiting for pairedKeyEncryption.")
+                    return
+                }
+            }
+            throw NearbyError.requiredFieldMissing("shareNearbyFrame.v1.pairedKeyEncryption")
         case .sentPairedKeyResult:
-            try processPairedKeyResultFrame(frame)
+            if frame.hasV1, frame.v1.hasPairedKeyResult {
+                try processPairedKeyResultFrame(frame)
+                return
+            }
+            if frame.hasV1, frame.v1.hasIntroduction {
+                log("[InboundNearbyConnection \(self.id)] Received introduction without pairedKeyResult; continuing for legacy compatibility.")
+                try processIntroductionFrame(frame)
+                return
+            }
+            if frame.hasV1, frame.v1.hasType {
+                if frame.v1.type == .pairedKeyEncryption || frame.v1.type == .progressUpdate {
+                    log("[InboundNearbyConnection \(self.id)] Ignoring duplicate/intermediate transfer setup frame \(frame.v1.type) while waiting for pairedKeyResult.")
+                    return
+                }
+                if frame.v1.type == .response, case .accept = frame.v1.connectionResponse.status {
+                    log("[InboundNearbyConnection \(self.id)] Ignoring accept response while waiting for pairedKeyResult.")
+                    return
+                }
+            }
+            throw NearbyError.requiredFieldMissing("shareNearbyFrame.v1.pairedKeyResult")
         case .receivedPairedKeyResult:
             if frame.hasV1, frame.v1.hasIntroduction {
                 try processIntroductionFrame(frame)

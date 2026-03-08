@@ -147,15 +147,50 @@ class OutboundNearbyConnection: NearbyConnection {
         
         switch currentState {
         case .sentPairedKeyEncryption:
-            try processPairedKeyEncryption(frame: frame)
+            if frame.hasV1, frame.v1.hasPairedKeyEncryption {
+                try processPairedKeyEncryption(frame: frame)
+                return
+            }
+            if frame.hasV1, frame.v1.hasPairedKeyResult {
+                log("[OutboundNearbyConnection \(self.id)] Received pairedKeyResult before pairedKeyEncryption; continuing for legacy compatibility.")
+                try processPairedKeyResult(frame: frame)
+                return
+            }
+            if frame.hasV1, frame.v1.hasType {
+                if frame.v1.type == .progressUpdate || frame.v1.type == .response {
+                    log("[OutboundNearbyConnection \(self.id)] Ignoring duplicate/intermediate transfer setup frame \(frame.v1.type) while waiting for pairedKeyEncryption.")
+                    return
+                }
+            }
+            throw NearbyError.requiredFieldMissing("sharingNearbyFrame.v1.pairedKeyEncryption")
         case .sentPairedKeyResult:
-            try processPairedKeyResult(frame: frame)
+            if frame.hasV1, frame.v1.hasPairedKeyResult {
+                try processPairedKeyResult(frame: frame)
+                return
+            }
+            if frame.hasV1, frame.v1.hasType {
+                if frame.v1.type == .pairedKeyEncryption || frame.v1.type == .progressUpdate || frame.v1.type == .response {
+                    log("[OutboundNearbyConnection \(self.id)] Ignoring duplicate/intermediate transfer setup frame \(frame.v1.type) while waiting for pairedKeyResult.")
+                    return
+                }
+            }
+            throw NearbyError.requiredFieldMissing("sharingNearbyFrame.v1.pairedKeyResult")
         case .sentIntroduction:
-            try processConsent(frame: frame)
+            if frame.version == .v1, frame.v1.type == .response {
+                try processConsent(frame: frame)
+                return
+            }
+            if frame.hasV1, frame.v1.hasType {
+                if frame.v1.type == .pairedKeyEncryption || frame.v1.type == .pairedKeyResult || frame.v1.type == .progressUpdate {
+                    log("[OutboundNearbyConnection \(self.id)] Ignoring duplicate/intermediate transfer setup frame \(frame.v1.type) while waiting for consent.")
+                    return
+                }
+            }
+            throw NearbyError.requiredFieldMissing("sharingNearbyFrame.v1.type==response")
         case .sendingFiles:
             break
         default:
-            assertionFailure("[OutboundNearbyConnection \(self.id)] Unexpected state \(currentState)")
+            log("[OutboundNearbyConnection \(self.id)] Unexpected state \(currentState)")
         }
     }
     
