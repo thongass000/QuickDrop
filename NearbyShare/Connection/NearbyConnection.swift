@@ -442,7 +442,15 @@ class NearbyConnection {
             }
         }
         else if offlineFrame.hasV1, offlineFrame.v1.hasType, case .keepAlive = offlineFrame.v1.type {
-            sendKeepAlive(ack: true)
+            if offlineFrame.v1.hasKeepAlive {
+                let keepAlive = offlineFrame.v1.keepAlive
+                if !keepAlive.hasAck || !keepAlive.ack {
+                    sendKeepAlive(ack: true)
+                }
+            } else {
+                // Older peers can omit the keepAlive payload; default to ACK reply.
+                sendKeepAlive(ack: true)
+            }
         } else {
             
             if offlineFrame.hasV1, offlineFrame.v1.hasType, offlineFrame.v1.type == .bandwidthUpgradeRetry {
