@@ -48,6 +48,16 @@ class InboundNearbyConnection: NearbyConnection {
     
 
     override func disconnect() {
+        let recoveredAllPendingFiles = recoverCompletedFilesOnDisconnect()
+        if recoveredAllPendingFiles {
+            if case let .protocolError(message) = self.lastError as? NearbyError,
+               message == "Error.ClosedByPeer".localized() {
+                log("[InboundNearbyConnection \(self.id)] Recovering completed transfer after connection closed by peer.")
+                self.lastError = nil
+                NearbyConnectionManager.shared.updatedTransferProgress(connection: self, progress: 1)
+            }
+        }
+
         super.disconnect()
         currentState = .disconnected
         deletePartiallyReceivedFiles()
@@ -703,5 +713,42 @@ class InboundNearbyConnection: NearbyConnection {
             guard file.created else { continue }
             try? FileManager.default.removeItem(at: file.destinationURL)
         }
+    }
+
+
+    private func recoverCompletedFilesOnDisconnect() -> Bool {
+        guard !filesToBeReceived.isEmpty else { return false }
+
+        var recoveredCount = 0
+        let pendingFileIDs = Array(filesToBeReceived.keys)
+
+        for fileID in pendingFileIDs {
+            guard let file = filesToBeReceived[fileID] else { continue }
+            guard file.created, file.bytesTransferred == file.meta.size else { continue }
+
+            do {
+                try file.fileHandle?.close()
+            } catch {
+                log("[InboundNearbyConnection \(self.id)] Failed to close recovered file handle for \(file.destinationURL.lastPathComponent): \(error.localizedDescription)")
+            }
+
+            #if os(macOS)
+            file.progress?.unpublish()
+            #endif
+
+            if !downloadedFiles.contains(file.destinationURL) {
+                downloadedFiles.append(file.destinationURL)
+            }
+            EXIFUtils.applyTimestamps(at: file.destinationURL)
+
+            filesToBeReceived.removeValue(forKey: fileID)
+            recoveredCount += 1
+        }
+
+        if recoveredCount > 0 {
+            log("[InboundNearbyConnection \(self.id)] Recovered \(recoveredCount) completed file(s) during disconnect.")
+        }
+
+        return recoveredCount > 0 && filesToBeReceived.isEmpty
     }
 }
