@@ -157,18 +157,8 @@ class OutboundNearbyConnection: NearbyConnection {
                 return
             }
             if frame.hasV1, frame.v1.hasType {
-                if frame.v1.type == .progressUpdate {
+                if frame.v1.type == .progressUpdate || frame.v1.type == .response {
                     log("[OutboundNearbyConnection \(self.id)] Ignoring duplicate/intermediate transfer setup frame \(frame.v1.type) while waiting for pairedKeyEncryption.")
-                    return
-                }
-                if frame.v1.type == .response {
-                    let status = frame.v1.connectionResponse.status
-                    if status == .accept {
-                        log("[OutboundNearbyConnection \(self.id)] Ignoring out-of-order accept response while waiting for pairedKeyEncryption.")
-                        return
-                    }
-                    log("[OutboundNearbyConnection \(self.id)] Received terminal response \(status) while waiting for pairedKeyEncryption.")
-                    try processConsent(frame: frame)
                     return
                 }
             }
@@ -179,18 +169,8 @@ class OutboundNearbyConnection: NearbyConnection {
                 return
             }
             if frame.hasV1, frame.v1.hasType {
-                if frame.v1.type == .pairedKeyEncryption || frame.v1.type == .progressUpdate {
+                if frame.v1.type == .pairedKeyEncryption || frame.v1.type == .progressUpdate || frame.v1.type == .response {
                     log("[OutboundNearbyConnection \(self.id)] Ignoring duplicate/intermediate transfer setup frame \(frame.v1.type) while waiting for pairedKeyResult.")
-                    return
-                }
-                if frame.v1.type == .response {
-                    let status = frame.v1.connectionResponse.status
-                    if status == .accept {
-                        log("[OutboundNearbyConnection \(self.id)] Ignoring out-of-order accept response while waiting for pairedKeyResult.")
-                        return
-                    }
-                    log("[OutboundNearbyConnection \(self.id)] Received terminal response \(status) while waiting for pairedKeyResult.")
-                    try processConsent(frame: frame)
                     return
                 }
             }
