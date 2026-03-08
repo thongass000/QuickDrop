@@ -152,19 +152,23 @@ class InboundNearbyConnection: NearbyConnection {
         
         let id = frame.payloadHeader.id
         
-        guard let fileInfo = filesToBeReceived[id] else { throw NearbyError.protocolError("File payload ID \(id) is not known") }
+        guard var fileInfo = filesToBeReceived[id] else { throw NearbyError.protocolError("File payload ID \(id) is not known") }
         
         let currentOffset = fileInfo.bytesTransferred
         
         guard frame.payloadChunk.offset == currentOffset else { throw NearbyError.protocolError("Invalid offset into file \(frame.payloadChunk.offset), expected \(currentOffset)") }
         
         guard currentOffset + Int64(frame.payloadChunk.body.count) <= fileInfo.meta.size else { throw NearbyError.protocolError("Transferred file size exceeds previously specified value") }
-        
-        if !frame.payloadChunk.body.isEmpty {
+
+        let hasBody = !frame.payloadChunk.body.isEmpty
+        let isLastChunk = (frame.payloadChunk.flags & 1) == 1
+
+        if hasBody {
             do {
                 try fileInfo.fileHandle?.write(contentsOf: frame.payloadChunk.body)
-                filesToBeReceived[id]!.bytesTransferred += Int64(frame.payloadChunk.body.count)
-                fileInfo.progress?.completedUnitCount = filesToBeReceived[id]!.bytesTransferred
+                fileInfo.bytesTransferred += Int64(frame.payloadChunk.body.count)
+                fileInfo.progress?.completedUnitCount = fileInfo.bytesTransferred
+                filesToBeReceived[id] = fileInfo
                 
                 self.bytesTransferred += Int64(frame.payloadChunk.body.count)
                 NearbyConnectionManager.shared.updatedTransferProgress(connection: self, progress: Double(self.bytesTransferred) / Double(self.bytesToBeTransferred))
@@ -174,15 +178,19 @@ class InboundNearbyConnection: NearbyConnection {
                 throw NearbyError.protocolError(error.localizedDescription)
             }
         }
-        else if (frame.payloadChunk.flags & 1) == 1 {
+
+        if isLastChunk {
+            guard fileInfo.bytesTransferred == fileInfo.meta.size else {
+                throw NearbyError.protocolError("Received EOF before file was fully transferred (\(fileInfo.bytesTransferred)/\(fileInfo.meta.size) bytes)")
+            }
             try fileInfo.fileHandle?.close()
-            filesToBeReceived[id]!.fileHandle = nil
+            fileInfo.fileHandle = nil
             #if os(macOS)
             fileInfo.progress?.unpublish()
             #endif
             downloadedFiles.append(fileInfo.destinationURL)
             EXIFUtils.applyTimestamps(at: fileInfo.destinationURL)
-
+            filesToBeReceived[id] = fileInfo
             filesToBeReceived.removeValue(forKey: id)
             
             if filesToBeReceived.isEmpty {
@@ -191,7 +199,7 @@ class InboundNearbyConnection: NearbyConnection {
                 try sendDisconnectionAndDisconnect()
             }
         }
-        else {
+        else if !hasBody {
             log("[InboundNearbyConnection \(self.id)] Received file chunk with no body and no flags, ignoring it.")
         }
     }
