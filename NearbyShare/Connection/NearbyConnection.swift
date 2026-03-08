@@ -389,9 +389,17 @@ class NearbyConnection {
         let d2dMsg = try Securegcm_DeviceToDeviceMessage(serializedBytes: decryptedData)
         
         guard d2dMsg.hasMessage, d2dMsg.hasSequenceNumber else { throw NearbyError.requiredFieldMissing("d2dMessage.message|sequenceNumber") }
-        clientSeq += 1
+        let receivedSeq = d2dMsg.sequenceNumber
+        let expectedSeq = clientSeq + 1
         
-        guard d2dMsg.sequenceNumber == clientSeq else { throw NearbyError.protocolError("Wrong sequence number. Expected \(clientSeq), got \(d2dMsg.sequenceNumber)") }
+        if receivedSeq == expectedSeq {
+            clientSeq = receivedSeq
+        } else if receivedSeq <= clientSeq {
+            log("[NearbyConnection \(self.id)] Ignoring duplicate/stale frame sequence \(receivedSeq). Current sequence is \(clientSeq)")
+            return
+        } else {
+            throw NearbyError.protocolError("Wrong sequence number. Expected \(expectedSeq), got \(receivedSeq)")
+        }
         let offlineFrame = try Location_Nearby_Connections_OfflineFrame(serializedBytes: d2dMsg.message)
         
         if offlineFrame.hasV1, offlineFrame.v1.hasType, case .payloadTransfer = offlineFrame.v1.type {

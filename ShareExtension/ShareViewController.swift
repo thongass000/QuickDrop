@@ -273,13 +273,14 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
                     if #available(macOS 15.0, *) {
                         alert.informativeText = "TimeoutDescription".localized()
                         alert.addButton(withTitle: "TimeoutButton".localized())
+                        alert.addButton(withTitle: "CloseAlert".localized())
                     } else {
                         alert.informativeText = "TimeoutDescriptionLegacy".localized()
                         alert.addButton(withTitle: "TimeoutButtonLegacy".localized())
                     }
                     
-                    alert.beginSheetModal(for: self.view.window!) { _ in
-                        if #available(macOS 15.0, *) {
+                    alert.beginSheetModal(for: self.view.window!) { response in
+                        if #available(macOS 15.0, *), response == .alertFirstButtonReturn {
                             openPrivacyAndSecuritySettings()
                         }
                     }
