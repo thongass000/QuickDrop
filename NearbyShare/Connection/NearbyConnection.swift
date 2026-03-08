@@ -189,7 +189,14 @@ class NearbyConnection {
             }
             guard let content = content else {
                 log("[NearbyConnection \(self.id)] Received nil content during receiveFrameAsync(). IsComplete: \(isComplete)")
-                assertionFailure()
+                self.lastError = NearbyError.protocolError("Received empty frame header")
+                self.protocolError()
+                return
+            }
+            guard content.count == 4 else {
+                log("[NearbyConnection \(self.id)] Received invalid frame header size \(content.count), expected 4")
+                self.lastError = NearbyError.protocolError("Unexpected frame header length")
+                self.protocolError()
                 return
             }
             let frameLength = UInt32(content[0]) << 24 | UInt32(content[1]) << 16 | UInt32(content[2]) << 8 | UInt32(content[3])
