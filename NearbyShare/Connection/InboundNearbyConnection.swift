@@ -127,7 +127,21 @@ class InboundNearbyConnection: NearbyConnection {
         case .sentPairedKeyResult:
             try processPairedKeyResultFrame(frame)
         case .receivedPairedKeyResult:
-            try processIntroductionFrame(frame)
+            if frame.hasV1, frame.v1.hasIntroduction {
+                try processIntroductionFrame(frame)
+                return
+            }
+            if frame.hasV1, frame.v1.hasType {
+                if frame.v1.type == .pairedKeyResult || frame.v1.type == .pairedKeyEncryption || frame.v1.type == .progressUpdate {
+                    log("[InboundNearbyConnection \(self.id)] Ignoring duplicate/intermediate transfer setup frame \(frame.v1.type) while waiting for introduction.")
+                    return
+                }
+                if frame.v1.type == .response, case .accept = frame.v1.connectionResponse.status {
+                    log("[InboundNearbyConnection \(self.id)] Ignoring accept response while waiting for introduction.")
+                    return
+                }
+            }
+            throw NearbyError.requiredFieldMissing("shareNearbyFrame.v1.introduction")
         default:
             if frame.hasV1, frame.v1.hasType, frame.v1.type == .progressUpdate {
                 // ignore progress updates

@@ -206,7 +206,7 @@ class NearbyConnection {
     
     
     private func receiveFrameAsync(length: UInt32) {
-        connection.receive(minimumIncompleteLength: Int(length), maximumLength: Int(length)) { [self] content, _, isComplete, _ in
+        connection.receive(minimumIncompleteLength: Int(length), maximumLength: Int(length)) { [self] content, _, isComplete, error in
             if self.connectionClosed {
                 log("[NearbyConnection \(self.id)] Received FIN from peer, connection closed.")
                 connection.cancel()
@@ -237,8 +237,20 @@ class NearbyConnection {
                 
                 return
             }
+            if let error = error {
+                log("[NearbyConnection \(self.id)] Error during receiveFrameAsync(length:): \(error)")
+                self.lastError = error
+                self.protocolError()
+                return
+            }
             guard let content = content else {
                 log("[NearbyConnection \(self.id)] Received nil content during receiveFrameAsync(length:). IsComplete: \(isComplete)")
+                self.protocolError()
+                return
+            }
+            guard content.count == Int(length) else {
+                log("[NearbyConnection \(self.id)] Dropping partial frame body. Expected \(length) bytes, got \(content.count)")
+                self.lastError = NearbyError.protocolError("Unexpected frame body length")
                 self.protocolError()
                 return
             }
