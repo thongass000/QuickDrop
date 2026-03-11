@@ -187,7 +187,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                             return
                         }
                         
-                        LogExportPresenter.copyLogsToClipboardAndShowAlert()
+                        LogExportPresenter.showUploadLogsAlert()
                     case "removeData":
                         Settings.sharedInstance.deleteAllUserDefaults()
                     default:

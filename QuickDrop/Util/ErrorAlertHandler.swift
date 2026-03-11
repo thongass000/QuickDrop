@@ -102,8 +102,7 @@ class ErrorAlertHandler {
             self.isAlertShown = false
             
             if result == .alertFirstButtonReturn {
-                //log("Sending logging string")
-                //sendLoggingString()
+                LogExportPresenter.showUploadLogsAlert()
             }
             #else
             showAlert(title: title, message: description)
