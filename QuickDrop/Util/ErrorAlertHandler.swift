@@ -102,7 +102,7 @@ class ErrorAlertHandler {
             self.isAlertShown = false
             
             if result == .alertFirstButtonReturn {
-                LogExportPresenter.showUploadLogsAlert()
+                LogExportPresenter.showUploadLogsAlert(openSupportMailAfterUpload: false)
             }
             #else
             showAlert(title: title, message: description)

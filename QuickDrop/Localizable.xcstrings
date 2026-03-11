@@ -42833,6 +42833,239 @@
         }
       }
     },
+    "log_upload_disclaimer_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قد تتضمن بيانات التشخيص بيانات وصفية تتم معالجتها بواسطة التطبيق. في بعض الحالات، قد تحتوي هذه البيانات الوصفية على معلومات شخصية مثل أسماء الأجهزة أو أسماء الملفات. لن يتم رفع الملفات المنقولة. سيتم استخدام البيانات المرفوعة فقط لأغراض استكشاف الأخطاء وسيتم حذفها تلقائيًا بعد 30 يومًا."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les dades de diagnòstic poden incloure metadades processades per l'app. En alguns casos, aquestes metadades podrien contenir informació personal, com ara noms de dispositius o de fitxers. Els fitxers transferits no s'enviaran. Les dades carregades només s'utilitzaran per a la resolució de problemes i s'esborraran automàticament després de 30 dies."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnostická data mohou obsahovat metadata zpracovaná aplikací. V některých případech mohou tato metadata obsahovat osobní údaje, například názvy zařízení nebo souborů. Přenesené soubory nebudou nahrávány. Nahraná data budou použita pouze pro odstraňování problémů a automaticky smazána po 30 dnech."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnostiske data kan omfatte metadata, som behandles af appen. I nogle tilfælde kan disse metadata indeholde personlige oplysninger, såsom enhedsnavne eller filnavne. Overførte filer vil ikke blive uploadet. De uploadede data vil kun blive brugt til fejlfinding og slettes automatisk efter 30 dage."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnosedaten können Metadaten enthalten, die von der App verarbeitet werden. In manchen Fällen können diese Metadaten persönliche Informationen wie Gerätenamen oder Dateinamen enthalten. Übertragene Dateien werden nicht hochgeladen. Die hochgeladenen Daten werden nur zur Fehlerbehebung verwendet und nach 30 Tagen automatisch gelöscht."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Τα διαγνωστικά δεδομένα μπορεί να περιλαμβάνουν μεταδεδομένα που επεξεργάζεται η εφαρμογή. Σε ορισμένες περιπτώσεις, αυτά τα μεταδεδομένα μπορεί να περιέχουν προσωπικές πληροφορίες, όπως ονόματα συσκευών ή ονόματα αρχείων. Τα μεταφερόμενα αρχεία δεν θα ανέβουν. Τα ανεβασμένα δεδομένα θα χρησιμοποιηθούν μόνο για την επίλυση προβλημάτων και θα διαγραφούν αυτόματα μετά από 30 ημέρες."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnostic data may include metadata processed by the app. In some cases, this metadata could contain personal information, such as device names or file names. Transferred files will not be uploaded. The uploaded data will be used only for troubleshooting and will be automatically deleted after 30 days."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnostic data may include metadata processed by the app. In some cases, this metadata could contain personal information, such as device names or file names. Transferred files will not be uploaded. The uploaded data will be used only for troubleshooting and will be automatically deleted after 30 days."
+          }
+        },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnostic data may include metadata processed by the app. In some cases, this metadata could contain personal information, such as device names or file names. Transferred files will not be uploaded. The uploaded data will be used only for troubleshooting and will be automatically deleted after 30 days."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnostic data may include metadata processed by the app. In some cases, this metadata could contain personal information, such as device names or file names. Transferred files will not be uploaded. The uploaded data will be used only for troubleshooting and will be automatically deleted after 30 days."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los datos de diagnóstico pueden incluir metadatos procesados por la aplicación. En algunos casos, estos metadatos podrían contener información personal, como nombres de dispositivos o de archivos. Los archivos transferidos no serán subidos. Los datos enviados solo se usarán para solucionar problemas y se eliminarán automáticamente después de 30 días."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los datos de diagnóstico pueden incluir metadatos procesados por la aplicación. En algunos casos, estos metadatos podrían contener información personal, como nombres de dispositivos o archivos. Los archivos transferidos no se cargarán. Los datos subidos se usarán solo para resolver problemas y se eliminarán automáticamente después de 30 días."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnostiikkatiedot voivat sisältää sovelluksen käsittelemää metatietoa. Joissain tapauksissa tämä metatieto voi sisältää henkilökohtaista tietoa, kuten laitteiden nimiä tai tiedostonimiä. Siirrettyjä tiedostoja ei ladata. Ladattuja tietoja käytetään vain ongelmien selvittämiseen ja ne poistetaan automaattisesti 30 päivän kuluttua."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les données de diagnostic peuvent inclure des métadonnées traitées par l'application. Dans certains cas, ces métadonnées peuvent contenir des informations personnelles, comme des noms d’appareils ou de fichiers. Les fichiers transférés ne seront pas téléchargés. Les données envoyées serviront uniquement au dépannage et seront automatiquement supprimées après 30 jours."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les données de diagnostic peuvent inclure des métadonnées traitées par l'application. Dans certains cas, ces métadonnées pourraient contenir des renseignements personnels, comme des noms d'appareils ou de fichiers. Les fichiers transférés ne seront pas téléchargés. Les données envoyées seront utilisées uniquement pour le dépannage et seront automatiquement supprimées après 30 jours."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "נתוני אבחון עשויים לכלול נתונים מטא processed על ידי האפליקציה. במקרים מסוימים, נתונים אלו עשויים לכלול מידע אישי, כמו שמות מכשירים או שמות קבצים. קבצים שהועברו לא יועלו. הנתונים שיועלו ישמשו אך ורק לאיתור תקלות ויימחקו אוטומטית לאחר 30 יום."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "डायग्नोस्टिक डेटा में ऐप द्वारा प्रोसेस की गई मेटाडेटा शामिल हो सकती है। कुछ मामलों में, इस मेटाडेटा में व्यक्तिगत जानकारी हो सकती है, जैसे डिवाइस नाम या फाइल नाम। ट्रांसफर की गई फाइलें अपलोड नहीं की जाएंगी। अपलोड किए गए डेटा का उपयोग केवल समस्या समाधान के लिए किया जाएगा और यह 30 दिनों के बाद अपने आप हटा दिया जाएगा।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dijagnostički podaci mogu uključivati metapodatke koje aplikacija obrađuje. U nekim slučajevima ti metapodaci mogu sadržavati osobne podatke, poput naziva uređaja ili datoteka. Prenesene datoteke neće biti učitane. Učitani podaci koristit će se samo za otklanjanje poteškoća i automatski će biti obrisani nakon 30 dana."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A diagnosztikai adatok tartalmazhatnak az alkalmazás által feldolgozott metaadatokat. Egyes esetekben ezek a metaadatok személyes információkat is tartalmazhatnak, például eszköz- vagy fájlneveket. Az átküldött fájlokat nem töltjük fel. A feltöltött adatokat kizárólag hibakereséshez használjuk, és 30 nap után automatikusan töröljük."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data diagnostik dapat mencakup metadata yang diproses oleh aplikasi. Dalam beberapa kasus, metadata ini dapat berisi informasi pribadi, seperti nama perangkat atau nama file. File yang ditransfer tidak akan diunggah. Data yang diunggah hanya akan digunakan untuk pemecahan masalah dan akan dihapus secara otomatis setelah 30 hari."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I dati diagnostici possono includere metadati elaborati dall'app. In alcuni casi, questi metadati potrebbero contenere informazioni personali, come nomi di dispositivi o nomi di file. I file trasferiti non verranno caricati. I dati caricati saranno usati solo per la risoluzione dei problemi e verranno eliminati automaticamente dopo 30 giorni."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "診断データには、アプリで処理されたメタデータが含まれる場合があります。このメタデータには、デバイス名やファイル名などの個人情報が含まれることがあります。転送されたファイルがアップロードされることはありません。アップロードされるデータはトラブルシューティングの目的のみに使用され、30日後に自動的に削除されます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "진단 데이터에는 앱에서 처리된 메타데이터가 포함될 수 있습니다. 경우에 따라 이 메타데이터에는 기기 이름이나 파일 이름 같은 개인 정보가 포함될 수 있습니다. 전송된 파일은 업로드되지 않습니다. 업로드된 데이터는 문제 해결에만 사용되며 30일 후 자동으로 삭제됩니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data diagnostik mungkin merangkumi metadata yang diproses oleh aplikasi. Dalam beberapa kes, metadata ini boleh mengandungi maklumat peribadi seperti nama peranti atau nama fail. Fail yang dipindahkan tidak akan dimuat naik. Data yang dimuat naik hanya akan digunakan untuk penyelesaian masalah dan akan dipadamkan secara automatik selepas 30 hari."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnosedata kan inneholde metadata som behandles av appen. I noen tilfeller kan disse metadataene inneholde personlige opplysninger, som enhetsnavn eller filnavn. Overførte filer vil ikke bli lastet opp. De opplastede dataene vil kun brukes til feilsøking og vil automatisk bli slettet etter 30 dager."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnostische gegevens kunnen metadata bevatten die door de app zijn verwerkt. In sommige gevallen kan deze metadata persoonlijke informatie bevatten, zoals apparaatnamen of bestandsnamen. Overgedragen bestanden worden niet geüpload. De geüploade gegevens worden alleen gebruikt voor probleemoplossing en automatisch verwijderd na 30 dagen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dane diagnostyczne mogą zawierać metadane przetwarzane przez aplikację. W niektórych przypadkach metadane te mogą zawierać dane osobowe, takie jak nazwy urządzeń lub plików. Przesyłane pliki nie będą wysyłane. Przesłane dane będą używane wyłącznie do rozwiązywania problemów i zostaną automatycznie usunięte po 30 dniach."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Os dados de diagnóstico podem incluir metadados processados pelo app. Em alguns casos, esses metadados podem conter informações pessoais, como nomes de dispositivos ou de arquivos. Arquivos transferidos não serão enviados. Os dados enviados serão usados apenas para suporte e serão automaticamente apagados após 30 dias."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Os dados de diagnóstico podem incluir metadados processados pela aplicação. Em alguns casos, estes metadados podem conter informações pessoais, como nomes de dispositivos ou nomes de ficheiros. Os ficheiros transferidos não serão carregados. Os dados enviados serão usados apenas para resolução de problemas e serão automaticamente eliminados após 30 dias."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datele de diagnostic pot include metadate prelucrate de aplicație. În unele cazuri, aceste metadate pot conține informații personale, cum ar fi nume de dispozitive sau de fișiere. Fișierele transferate nu vor fi încărcate. Datele încărcate vor fi folosite doar pentru depanare și vor fi șterse automat după 30 de zile."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Диагностические данные могут включать метаданные, обрабатываемые приложением. В некоторых случаях эти метаданные могут содержать личную информацию, например, имена устройств или файлов. Передаваемые файлы не будут загружены. Загруженные данные будут использоваться только для устранения неполадок и автоматически удалятся через 30 дней."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagnostiska data kan innehålla metadata som bearbetats av appen. I vissa fall kan denna metadata innehålla personuppgifter, såsom enhetsnamn eller filnamn. Överförda filer kommer inte att laddas upp. Den uppladdade datan används endast för felsökning och tas automatiskt bort efter 30 dagar."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ข้อมูลวินิจฉัยอาจรวมถึงข้อมูลเมตาที่แอปประมวลผล ในบางกรณี ข้อมูลนี้อาจมีข้อมูลส่วนตัว เช่น ชื่ออุปกรณ์หรือชื่อไฟล์ ไฟล์ที่รับส่งจะไม่ถูกอัปโหลด ข้อมูลที่อัปโหลดใช้สำหรับแก้ไขปัญหาเท่านั้น และจะถูกลบอัตโนมัติหลัง 30 วัน"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tanılama verileri, uygulama tarafından işlenen meta verileri içerebilir. Bazı durumlarda, bu meta verileri cihaz adları veya dosya adları gibi kişisel bilgiler içerebilir. Aktarılan dosyalar yüklenmez. Yüklenen veriler yalnızca sorun giderme amaçlı kullanılacak ve 30 gün sonra otomatik olarak silinecektir."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Діагностичні дані можуть містити метадані, які обробляє програма. У деяких випадках ці метадані можуть містити особисту інформацію, наприклад, імена пристроїв або файлів. Передані файли не будуть завантажені. Завантажені дані використовуватимуться лише для усунення неполадок і будуть автоматично видалені через 30 днів."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dữ liệu chẩn đoán có thể bao gồm siêu dữ liệu được xử lý bởi ứng dụng. Trong một số trường hợp, siêu dữ liệu này có thể chứa thông tin cá nhân, như tên thiết bị hoặc tên tệp. Các tệp đã truyền sẽ không được tải lên. Dữ liệu được tải lên chỉ dùng cho mục đích khắc phục sự cố và sẽ tự động bị xóa sau 30 ngày."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "诊断数据可能包括应用处理的元数据。在某些情况下，这些元数据可能包含个人信息，如设备名称或文件名。传输的文件不会被上传。上传的数据仅用于故障排查，并将在30天后自动删除。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "診斷資料可能包含由應用程式處理的中繼資料。在某些情況下，這些中繼資料可能包含個人資訊，例如裝置名稱或檔案名稱。傳輸的檔案不會被上傳。上傳的資料僅用於故障排除，並會在30天後自動刪除。"
+          }
+        }
+      }
+    },
     "plusview_description" : {
       "localizations" : {
         "ar" : {

@@ -19,6 +19,8 @@ let configuration = LUIConfiguration(
     
     copyrightInformation: licenseText,
     
+    logUploadDisclaimerMessage: "log_upload_disclaimer_message",
+    
     loggingUrl: AppGroup.appGroupDirectory,
     
     introductionViewInformation: "QuickDropWelcomeDescription",
