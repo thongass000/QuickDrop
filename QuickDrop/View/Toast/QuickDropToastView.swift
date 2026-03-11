@@ -393,10 +393,15 @@ struct AdaptiveToastBackgroundLayer: View {
     var body: some View {
         Group {
             if #available(macOS 26.0, *) {
-                Color.clear
-                    .glassEffect(.regular, in: .rect(cornerRadius: cornerRadius, style: .continuous))
+                // Force periodic recomposition so glass sampling keeps tracking
+                // backdrop changes even when no other view state changes.
+                TimelineView(.periodic(from: .now, by: 1.0 / 12.0)) { context in
+                    Color.clear
+                        .glassEffect(.regular, in: .rect(cornerRadius: cornerRadius, style: .continuous))
+                        .id(context.date)
+                }
             } else {
-                VisualEffectView(material: .hudWindow, cornerRadius: cornerRadius)
+                VisualEffectView(material: .hudWindow, blendingMode: .behindWindow, cornerRadius: cornerRadius)
             }
         }
     }
