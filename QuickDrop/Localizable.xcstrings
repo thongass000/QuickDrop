@@ -12585,229 +12585,229 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "بشكل افتراضي، جهاز أندرويد الخاص بك غير مرئي لجهاز الماك. لتغيير ذلك، اسحب من أعلى شاشة جهاز الأندرويد لفتح الإعدادات السريعة، ثم اضغط على QuickShare.\n\nبدلاً من ذلك، قم بتنزيل تطبيق QuickDrop من Google Play وافتحه ليظهر جهازك."
+            "value" : "افتراضيًا، لا يكون جهاز الأندرويد الخاص بك مرئيًا لجهاز الماك. لتغيير ذلك، اسحب من أعلى شاشة جهاز الأندرويد، وافتح الإعدادات السريعة، ثم اضغط على QuickShare. في أجهزة سامسونج، تحتاج إلى مسح رمز الاستجابة السريعة (QR) الظاهر عند محاولة إرسال الملفات بواسطة QuickDrop.\n\nبدلاً من ذلك، قم بتحميل تطبيق QuickDrop من متجر Google Play وافتحه لجعل جهازك مرئيًا."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per defecte, el teu dispositiu Android no és visible per al teu Mac. Per canviar-ho, fes lliscar des de la part superior de la pantalla del teu Android, obre la configuració ràpida i toca QuickShare.\n\nAlternativament, baixa l'app QuickDrop de Google Play i obre-la per fer visible el dispositiu."
+            "value" : "Per defecte, el teu dispositiu Android no és visible pel teu Mac. Per canviar-ho, fes lliscar des de la part superior de la pantalla del teu Android, obre la configuració ràpida i toca QuickShare. Als dispositius Samsung, has d'escanejar el codi QR que es mostra quan intentes enviar fitxers amb QuickDrop.\n\nAlternativament, descarrega l'aplicació QuickDrop des de Google Play i obre-la per fer visible el teu dispositiu."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ve výchozím nastavení není vaše zařízení Android viditelné pro váš Mac. Chcete-li to změnit, přejeďte na zařízení Android prstem shora dolů, otevřete rychlá nastavení a klepněte na QuickShare.\n\nPřípadně si stáhněte aplikaci QuickDrop z Google Play a otevřete ji, aby bylo vaše zařízení viditelné."
+            "value" : "Ve výchozím nastavení není vaše zařízení Android pro váš Mac viditelné. Pro změnu tohoto nastavení přejeďte prstem shora dolů na obrazovce vašeho Androidu, otevřete rychlá nastavení a klepněte na QuickShare. Na zařízeních Samsung je potřeba naskenovat QR kód, který se zobrazí při pokusu o odeslání souborů pomocí QuickDrop.\n\nAlternativně si stáhněte aplikaci QuickDrop z Google Play a otevřete ji, aby bylo zařízení viditelné."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Som standard er din Android-enhed ikke synlig for din Mac. For at ændre dette skal du swipe ned fra toppen af skærmen på din Android-enhed, åbne hurtigindstillingerne og trykke på QuickShare.\n\nAlternativt kan du downloade QuickDrop-appen fra Google Play og åbne den for at gøre din enhed synlig."
+            "value" : "Som standard er din Android-enhed ikke synlig for din Mac. For at ændre dette skal du swipe ned fra toppen af skærmen på din Android-enhed, åbne hurtigindstillingerne og trykke på QuickShare. På Samsung-enheder skal du scanne QR-koden, der vises, når du forsøger at sende filer med QuickDrop.\n\nAlternativt kan du downloade QuickDrop-appen fra Google Play og åbne den for at gøre din enhed synlig."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Standardmäßig ist dein Android-Gerät für deinen Mac nicht sichtbar. Um das zu ändern, wische von oben nach unten auf deinem Android-Gerät, öffne die Schnelleinstellungen und tippe auf QuickShare.\n\nAlternativ kannst du die QuickDrop-App aus dem Google Play Store herunterladen und öffnen, um dein Gerät sichtbar zu machen."
+            "value" : "Standardmäßig ist dein Android-Gerät für deinen Mac nicht sichtbar. Um dies zu ändern, wische vom oberen Bildschirmrand auf deinem Android-Gerät nach unten, öffne die Schnelleinstellungen und tippe auf QuickShare. Auf Samsung-Geräten musst du den QR-Code scannen, der beim Senden von Dateien mit QuickDrop angezeigt wird.\n\nAlternativ lade die QuickDrop-App aus dem Google Play Store herunter und öffne sie, um dein Gerät sichtbar zu machen."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Από προεπιλογή, η συσκευή Android σας δεν είναι ορατή στο Mac σας. Για να το αλλάξετε αυτό, σύρετε από το πάνω μέρος της οθόνης στη συσκευή σας Android, ανοίξτε τις γρήγορες ρυθμίσεις και πατήστε στο QuickShare.\n\nΕναλλακτικά, κατεβάστε την εφαρμογή QuickDrop από το Google Play και ανοίξτε την για να κάνετε τη συσκευή σας ορατή."
+            "value" : "Από προεπιλογή, η συσκευή Android δεν είναι ορατή στο Mac σας. Για να το αλλάξετε, σύρετε προς τα κάτω από το επάνω μέρος της οθόνης στη συσκευή σας Android, ανοίξτε τις γρήγορες ρυθμίσεις και πατήστε το QuickShare. Στις συσκευές Samsung, πρέπει να σαρώσετε τον QR κωδικό που εμφανίζεται όταν προσπαθείτε να στείλετε αρχεία με το QuickDrop.\n\nΕναλλακτικά, κατεβάστε την εφαρμογή QuickDrop από το Google Play και ανοίξτε την για να κάνετε τη συσκευή σας ορατή."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "By default, your Android device is not visible to your Mac. To change this, swipe from the top of the screen on your Android device, open the quick settings, and tap on QuickShare.\n\nAlternatively, download the QuickDrop app from Google Play and open it to make your device visible."
+            "value" : "By default, your Android device is not visible to your Mac. To change this, swipe from the top of the screen on your Android device, open the quick settings, and tap on QuickShare. On Samsung devices, you need to scan the QR code which is shown when trying to send files with QuickDrop.\n\nAlternatively, download the QuickDrop app from Google Play and open it to make your device visible."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "By default, your Android device is not visible to your Mac. To change this, swipe from the top of the screen on your Android device, open the quick settings, and tap on QuickShare.\n\nAlternatively, download the QuickDrop app from Google Play and open it to make your device visible."
+            "value" : "By default, your Android device is not visible to your Mac. To change this, swipe from the top of the screen on your Android device, open the quick settings, and tap on QuickShare. On Samsung devices, you need to scan the QR code which is shown when trying to send files with QuickDrop.\n\nAlternatively, download the QuickDrop app from Google Play and open it to make your device visible."
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "By default, your Android device isn’t visible to your Mac. To change this, swipe down from the top of the screen on your Android device, open the quick settings, and tap QuickShare.\n\nAlternatively, download the QuickDrop app from Google Play and open it to make your device visible."
+            "value" : "By default, your Android device is not visible to your Mac. To change this, swipe down from the top of the screen on your Android device, open the quick settings, and tap on QuickShare. On Samsung devices, you need to scan the QR code shown when trying to send files with QuickDrop.\n\nAlternatively, download the QuickDrop app from Google Play and open it to make your device visible."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "By default, your Android device is not visible to your Mac. To change this, swipe down from the top of the screen on your Android device, open the quick settings, and tap on QuickShare.\n\nAlternatively, download the QuickDrop app from Google Play and open it to make your device visible."
+            "value" : "By default, your Android device is not visible to your Mac. To change this, swipe from the top of the screen on your Android device, open the quick settings, and tap on QuickShare. On Samsung devices, you need to scan the QR code which is shown when trying to send files with QuickDrop.\n\nAlternatively, download the QuickDrop app from Google Play and open it to make your device visible."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "De forma predeterminada, tu dispositivo Android no es visible para tu Mac. Para cambiar esto, desliza hacia abajo desde la parte superior de la pantalla en tu dispositivo Android, abre los ajustes rápidos y toca en QuickShare.\n\nAlternativamente, descarga la app QuickDrop desde Google Play y ábrela para hacer visible tu dispositivo."
+            "value" : "Por defecto, tu dispositivo Android no es visible para tu Mac. Para cambiar esto, desliza hacia abajo desde la parte superior de la pantalla en tu Android, abre los ajustes rápidos y toca en QuickShare. En dispositivos Samsung, necesitas escanear el código QR que aparece al intentar enviar archivos con QuickDrop.\n\nAlternativamente, descarga la app QuickDrop desde Google Play y ábrela para hacer visible tu dispositivo."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Por defecto, tu dispositivo Android no es visible para tu Mac. Para cambiar esto, desliza hacia abajo desde la parte superior de la pantalla en tu dispositivo Android, abre los ajustes rápidos y toca QuickShare.\n\nTambién puedes descargar la app QuickDrop desde Google Play y abrirla para hacer visible tu dispositivo."
+            "value" : "De forma predeterminada, tu dispositivo Android no es visible para tu Mac. Para cambiar esto, desliza desde la parte superior de la pantalla en tu Android, abre los ajustes rápidos y toca en QuickShare. En dispositivos Samsung, necesitas escanear el código QR que aparece cuando intentas enviar archivos con QuickDrop.\n\nTambién puedes descargar la app QuickDrop desde Google Play y abrirla para hacer visible tu dispositivo."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oletuksena Android-laitteesi ei näy Macillesi. Muuta tämä pyyhkäisemällä näytön yläreunasta Androidissa, avaa pikalinkit ja napauta QuickSharea.\n\nVaihtoehtoisesti lataa QuickDrop Google Playsta ja avaa se, jolloin laite näkyy."
+            "value" : "Oletuksena Android-laitteesi ei ole näkyvissä Macillesi. Voit muuttaa tämän pyyhkäisemällä näytön yläreunasta Android-laitteellasi, avaamalla pika-asetukset ja napauttamalla QuickSharea. Samsung-laitteilla sinun täytyy skannata QR-koodi, joka näkyy, kun yrität lähettää tiedostoja QuickDropilla.\n\nVaihtoehtoisesti lataa QuickDrop-sovellus Google Playsta ja avaa se, jotta laitteesi tulee näkyviin."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Par défaut, votre appareil Android n’est pas visible sur votre Mac. Pour changer cela, faites glisser le doigt du haut de l’écran vers le bas sur votre appareil Android, ouvrez les réglages rapides puis appuyez sur QuickShare.\n\nSinon, téléchargez l’application QuickDrop depuis Google Play et ouvrez-la pour que votre appareil devienne visible."
+            "value" : "Par défaut, votre appareil Android n’est pas visible par votre Mac. Pour changer cela, faites glisser vers le bas depuis le haut de l’écran sur votre appareil Android, ouvrez les paramètres rapides et touchez QuickShare. Sur les appareils Samsung, vous devez scanner le code QR affiché lors de l’envoi de fichiers avec QuickDrop.\n\nVous pouvez aussi télécharger l’application QuickDrop sur Google Play et l’ouvrir pour rendre votre appareil visible."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Par défaut, votre appareil Android n’est pas visible pour votre Mac. Pour modifier cela, balayez vers le bas à partir du haut de l’écran de votre appareil Android, ouvrez les réglages rapides et touchez QuickShare.\n\nSinon, téléchargez l’app QuickDrop sur Google Play et ouvrez-la pour rendre votre appareil visible."
+            "value" : "Par défaut, votre appareil Android n’est pas visible pour votre Mac. Pour modifier cela, faites glisser vers le bas depuis le haut de l’écran sur votre appareil Android, ouvrez les réglages rapides et appuyez sur QuickShare. Sur les appareils Samsung, vous devez scanner le code QR affiché lors de l’envoi de fichiers avec QuickDrop.\n\nSinon, téléchargez l’application QuickDrop sur Google Play et ouvrez-la pour rendre votre appareil visible."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "כברירת מחדל, מכשיר האנדרואיד שלך אינו נראה למק שלך. כדי לשנות זאת, החלק מטה מהחלק העליון של המסך במכשיר האנדרואיד, פתח את ההגדרות המהירות והקש על QuickShare.\n\nלחלופין, תוכל להוריד את אפליקציית QuickDrop מחנות Play ולפתוח אותה כדי שהמכשיר שלך יהיה גלוי."
+            "value" : "כברירת מחדל, מכשיר האנדרואיד שלך אינו גלוי ל-Mac שלך. כדי לשנות זאת, החלק מלמעלה למטה במסך האנדרואיד, פתח את הגדרות המהירות ולחץ על QuickShare. במכשירי Samsung צריך לסרוק את קוד ה-QR שמוצג כשמנסים לשלוח קבצים עם QuickDrop.\n\nלחילופין, הורד את אפליקציית QuickDrop מ-Google Play ופתח אותה כדי להציג את המכשיר."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "डिफ़ॉल्ट रूप से, आपका Android डिवाइस आपके Mac को दिखाई नहीं देता है। इसे बदलने के लिए, अपने Android डिवाइस पर ऊपर से नीचे स्वाइप करें, क्विक सेटिंग्स खोलें, और QuickShare पर टैप करें।\n\nवैकल्पिक रूप से, Google Play से QuickDrop ऐप डाउनलोड करें और उसे खोलें ताकि आपका डिवाइस दिखाई देने लगे।"
+            "value" : "डिफ़ॉल्ट रूप से, आपका Android डिवाइस आपके Mac को दिखाई नहीं देता। इसे बदलने के लिए, अपने Android डिवाइस की स्क्रीन के ऊपर से नीचे स्वाइप करें, क्विक सेटिंग्स खोलें और QuickShare पर टैप करें। Samsung डिवाइसेस पर, QuickDrop से फाइल भेजते समय दिखने वाले QR कोड को स्कैन करना होगा।\n\nवैकल्पिक रूप से, Google Play से QuickDrop ऐप डाउनलोड करें और ओपन करें ताकि आपका डिवाइस दिखाई दे सके।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Po zadanim postavkama, vaš Android uređaj nije vidljiv vašem Macu. Da biste to promijenili, povucite prstom prema dolje s vrha ekrana na Androidu, otvorite brze postavke i dodirnite QuickShare.\n\nIli preuzmite QuickDrop aplikaciju s Google Playa i otvorite je kako biste učinili svoj uređaj vidljivim."
+            "value" : "Po zadanom, vaš Android uređaj nije vidljiv vašem Macu. Da biste to promijenili, povucite prstom od vrha ekrana na svom Android uređaju, otvorite brze postavke i dodirnite QuickShare. Na Samsung uređajima morate skenirati QR kod koji se prikazuje kada pokušavate poslati datoteke putem QuickDropa.\n\nAlternativno, preuzmite QuickDrop aplikaciju s Google Playa i otvorite je da bi vaš uređaj postao vidljiv."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Alapértelmezetten az Android-eszközöd nem látható a Mac számára. Ehhez húzd le az értesítési sávot Androidon, nyisd meg a gyorsbeállításokat, majd koppints a QuickShare-re.\n\nAlternatívaként töltsd le a QuickDrop alkalmazást a Google Play-ről, majd nyisd meg, hogy az eszköz látható legyen."
+            "value" : "Alapértelmezés szerint az Android készüléked nem látható a Mac számára. Ehhez húzd le az értesítési sávot az Android telefonodon, nyisd meg a gyorsbeállításokat, majd koppints a QuickShare-re. Samsung telefonokon fájl átküldés indításakor a megjelenő QR-kódot kell beolvasni QuickDrop-pal.\n\nAlternatívaként töltsd le a QuickDrop alkalmazást a Google Play-ről, és nyisd meg, hogy láthatóvá tedd a készüléket."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Secara default, perangkat Android Anda tidak terlihat oleh Mac Anda. Untuk mengubahnya, geser layar dari atas di perangkat Android Anda, buka pengaturan cepat, lalu ketuk QuickShare.\n\nAtau, unduh aplikasi QuickDrop dari Google Play dan buka untuk membuat perangkat Anda terlihat."
+            "value" : "Secara default, perangkat Android Anda tidak terlihat oleh Mac Anda. Untuk mengubahnya, geser layar dari atas pada perangkat Android Anda, buka pengaturan cepat, lalu ketuk QuickShare. Pada perangkat Samsung, Anda perlu memindai kode QR yang ditampilkan saat mencoba mengirim file dengan QuickDrop.\n\nAtau, unduh aplikasi QuickDrop dari Google Play dan buka aplikasinya agar perangkat Anda terlihat."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Di default, il tuo dispositivo Android non è visibile al Mac. Per modificarlo, scorri verso il basso dalla parte superiore dello schermo Android, apri le Impostazioni rapide e tocca QuickShare.\n\nIn alternativa, scarica l’app QuickDrop dal Google Play Store e aprila per rendere visibile il dispositivo."
+            "value" : "Per impostazione predefinita, il tuo dispositivo Android non è visibile al Mac. Per modificarlo, scorri dall'alto verso il basso sullo schermo del dispositivo Android, apri le impostazioni rapide e tocca QuickShare. Sui dispositivi Samsung, è necessario scansionare il codice QR che viene mostrato quando provi a inviare file con QuickDrop.\n\nIn alternativa, scarica l'app QuickDrop da Google Play e aprila per rendere visibile il tuo dispositivo."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "デフォルトでは、あなたのAndroidデバイスはMacから見えません。変更するには、Androidデバイスで画面上部からスワイプし、クイック設定を開いてQuickShareをタップしてください。\n\nまたは、Google PlayからQuickDropアプリをダウンロードして開くことで、デバイスを表示できます。"
+            "value" : "初期設定では、あなたのAndroid端末はMacから見えません。これを変更するには、Android端末で画面上部から下にスワイプし、クイック設定を開いて「QuickShare」をタップしてください。Samsung端末では、QuickDropでファイル送信時に表示されるQRコードをスキャンする必要があります。\n\nまたは、Google PlayからQuickDropアプリをダウンロードして開くことで、端末を見えるようにできます。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "기본적으로 Android 기기는 Mac에서 보이지 않습니다. 변경하려면 Android 기기에서 상단을 아래로 쓸어내려 빠른 설정을 열고 QuickShare를 탭하세요.\n\n또는 Google Play에서 QuickDrop 앱을 다운로드해 열면 기기가 표시됩니다."
+            "value" : "기본적으로 Android 기기는 Mac에서 보이지 않습니다. 변경하려면 Android 기기 상단에서 아래로 스와이프하여 빠른 설정을 연 후 QuickShare를 누르세요. 삼성 기기의 경우 QuickDrop으로 파일 전송 시 표시되는 QR 코드를 스캔해야 합니다.\n\n또는 Google Play에서 QuickDrop 앱을 다운로드하고 실행해 기기 가시성을 높일 수 있습니다."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Secara lalai, peranti Android anda tidak kelihatan kepada Mac anda. Untuk ubah ini, leret dari atas skrin pada peranti Android anda, buka tetapan pantas, dan ketik pada QuickShare.\n\nSebagai alternatif, muat turun aplikasi QuickDrop dari Google Play dan buka untuk menjadikan peranti anda kelihatan."
+            "value" : "Secara lalai, peranti Android anda tidak kelihatan kepada Mac anda. Untuk menukar ini, leret dari bahagian atas skrin pada peranti Android anda, buka tetapan pantas, dan ketik pada QuickShare. Pada peranti Samsung, anda perlu imbas kod QR yang dipaparkan apabila anda cuba menghantar fail dengan QuickDrop.\n\nSebagai alternatif, muat turun aplikasi QuickDrop dari Google Play dan buka untuk menjadikan peranti anda kelihatan."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Som standard er ikke Android-enheten din synlig for Mac-en din. For å endre dette, sveip ned fra toppen av skjermen på Android-enheten, åpne hurtiginnstillingene, og trykk på QuickShare.\n\nAlternativt kan du laste ned QuickDrop-appen fra Google Play og åpne den for å gjøre enheten synlig."
+            "value" : "Som standard er ikke Android-enheten din synlig for Mac-en din. For å endre dette, sveip ned fra toppen av skjermen på Android-enheten din, åpne hurtiginnstillingene og trykk på QuickShare. På Samsung-enheter må du skanne QR-koden som vises når du prøver å sende filer med QuickDrop.\n\nAlternativt kan du laste ned QuickDrop-appen fra Google Play og åpne den for å gjøre enheten din synlig."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Standaard is je Android-apparaat niet zichtbaar voor je Mac. Om dit te veranderen, veeg je vanaf de bovenkant van het scherm op je Android-apparaat, open je de snelle instellingen en tik je op QuickShare.\n\nJe kunt ook de QuickDrop-app downloaden uit Google Play en openen om je apparaat zichtbaar te maken."
+            "value" : "Standaard is je Android-apparaat niet zichtbaar voor je Mac. Om dit te wijzigen, veeg je van boven naar beneden op het scherm van je Android-apparaat, open je de snelle instellingen en tik je op QuickShare. Op Samsung-apparaten moet je de QR-code scannen die wordt getoond wanneer je met QuickDrop bestanden probeert te verzenden.\n\nJe kunt ook de QuickDrop-app downloaden uit de Google Play Store en openen om je apparaat zichtbaar te maken."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Domyślnie Twoje urządzenie z Androidem nie jest widoczne dla Maca. Aby to zmienić, przesuń palcem od góry ekranu na Androidzie, otwórz szybkie ustawienia i stuknij w QuickShare.\n\nMożesz też pobrać aplikację QuickDrop z Google Play i ją uruchomić, aby udostępnić urządzenie."
+            "value" : "Domyślnie Twoje urządzenie z Androidem nie jest widoczne dla Maca. Aby to zmienić, przesuń palcem w dół od góry ekranu na swoim Androidzie, otwórz szybkie ustawienia i stuknij w QuickShare. Na urządzeniach Samsung musisz zeskanować kod QR, który pojawi się podczas próby wysyłania plików przez QuickDrop.\n\nAlternatywnie pobierz aplikację QuickDrop ze sklepu Google Play i otwórz ją, aby uczynić swoje urządzenie widocznym."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Por padrão, seu dispositivo Android não fica visível para o Mac. Para mudar isso, deslize de cima para baixo na tela do seu Android, abra as configurações rápidas e toque em QuickShare.\n\nComo alternativa, baixe o app QuickDrop na Google Play e abra-o para tornar seu dispositivo visível."
+            "value" : "Por padrão, seu dispositivo Android não é visível para o seu Mac. Para mudar isso, deslize de cima para baixo na tela do seu Android, abra as configurações rápidas e toque em QuickShare. Em dispositivos Samsung, é necessário escanear o código QR exibido ao tentar enviar arquivos com o QuickDrop.\n\nAlternativamente, baixe o app QuickDrop na Google Play e abra-o para tornar seu dispositivo visível."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Por predefinição, o seu dispositivo Android não está visível para o Mac. Para alterar isto, deslize de cima para baixo no ecrã do Android, aceda às definições rápidas e toque em QuickShare.\n\nEm alternativa, transfira a aplicação QuickDrop da Google Play e abra-a para tornar o dispositivo visível."
+            "value" : "Por defeito, o seu dispositivo Android não é visível para o seu Mac. Para alterar isto, deslize de cima para baixo no ecrã do seu dispositivo Android, abra as definições rápidas e toque em QuickShare. Nos dispositivos Samsung, é necessário digitalizar o código QR que é apresentado ao tentar enviar ficheiros com o QuickDrop.\n\nEm alternativa, transfira a aplicação QuickDrop da Google Play e abra-a para tornar o seu dispositivo visível."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Implicit, dispozitivul tău Android nu este vizibil pentru Mac-ul tău. Pentru a schimba acest lucru, glisați în jos din partea de sus a ecranului pe Android, deschideți setările rapide și atingeți QuickShare.\n\nAlternativ, descărcați aplicația QuickDrop din Google Play și deschideți-o pentru a vă face dispozitivul vizibil."
+            "value" : "În mod implicit, dispozitivul tău Android nu este vizibil pentru Mac. Pentru a schimba acest lucru, glisează din partea de sus a ecranului pe dispozitivul Android, deschide setările rapide și atinge QuickShare. Pe dispozitivele Samsung, trebuie să scanezi codul QR afișat când încerci să trimiți fișiere cu QuickDrop.\n\nAlternativ, descarcă aplicația QuickDrop din Google Play și deschide-o pentru a face dispozitivul vizibil."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "По умолчанию ваше Android-устройство не видно для Mac. Чтобы изменить это, проведите вниз от верхнего края экрана Android-устройства, откройте быстрые настройки и выберите QuickShare.\n\nИли скачайте приложение QuickDrop из Google Play и откройте его, чтобы сделать устройство видимым."
+            "value" : "По умолчанию ваше Android-устройство не видно для Mac. Чтобы это изменить, смахните вниз от верхнего края экрана на Android, откройте быстрые настройки и коснитесь QuickShare. На устройствах Samsung нужно отсканировать QR-код, который появляется при попытке отправить файлы через QuickDrop.\n\nИли просто скачайте приложение QuickDrop из Google Play и откройте его, чтобы сделать устройство видимым."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Som standard är din Android-enhet inte synlig för din Mac. För att ändra detta, svep ner från toppen av skärmen på din Android-enhet, öppna snabbinställningarna och tryck på QuickShare.\n\nAlternativt kan du ladda ner QuickDrop-appen från Google Play och öppna den för att göra din enhet synlig."
+            "value" : "Som standard är din Android-enhet inte synlig för din Mac. För att ändra detta, svep ner från toppen av skärmen på din Android, öppna snabbinställningarna och tryck på QuickShare. På Samsung-enheter måste du skanna QR-koden som visas när du försöker skicka filer med QuickDrop.\n\nAlternativt kan du ladda ner QuickDrop-appen från Google Play och öppna den för att göra din enhet synlig."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "โดยปกติแล้ว อุปกรณ์ Android ของคุณจะไม่ปรากฏบน Mac ให้เปลี่ยนค่าดังนี้ ปัดหน้าจอลงจากด้านบนบนเครื่อง Android ของคุณ เปิดการตั้งค่าอย่างรวดเร็ว แล้วแตะที่ QuickShare\n\nหรือจะดาวน์โหลดแอป QuickDrop จาก Google Play แล้วเปิดแอปเพื่อให้อุปกรณ์ปรากฏก็ได้"
+            "value" : "โดยปกติแล้ว อุปกรณ์ Android ของคุณจะไม่ปรากฏให้ Mac มองเห็น หากต้องการเปลี่ยนแปลง ให้ปัดลงจากด้านบนของหน้าจอ Android เปิดการตั้งค่าด่วน แล้วแตะที่ QuickShare บนอุปกรณ์ Samsung คุณต้องสแกนรหัส QR ที่แสดงขึ้นขณะพยายามส่งไฟล์ด้วย QuickDrop\n\nหรือดาวน์โหลดแอป QuickDrop จาก Google Play แล้วเปิดใช้งานเพื่อให้อุปกรณ์ของคุณปรากฏให้เห็น"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Varsayılan olarak Android cihazınız, Mac’iniz tarafından görünmez. Bunu değiştirmek için, Android cihazınızda ekranın üstünden aşağı kaydırın, hızlı ayarları açın ve QuickShare’a dokunun.\n\nAlternatif olarak, Google Play’den QuickDrop uygulamasını indirip açarak cihazınızı görünür yapabilirsiniz."
+            "value" : "Varsayılan olarak, Android cihazınız Mac'iniz tarafından görünür değildir. Bunu değiştirmek için Android cihazınızda ekranın üstünden aşağı doğru kaydırın, hızlı ayarları açın ve QuickShare'a dokunun. Samsung cihazlarda, QuickDrop ile dosya göndermeye çalıştığınızda gösterilen QR kodunu taramanız gerekir.\n\nAlternatif olarak, Google Play'den QuickDrop uygulamasını indirip açarak cihazınızı görünür yapabilirsiniz."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "За замовчуванням ваш Android-пристрій невидимий для вашого Mac. Щоб змінити це, проведіть пальцем вниз від верхнього краю екрана Android, відкрийте швидкі налаштування та натисніть QuickShare.\n\nАбо завантажте додаток QuickDrop у Google Play і відкрийте його, щоб зробити пристрій видимим."
+            "value" : "За замовчуванням ваш Android-пристрій не видимий для Mac. Щоб змінити це: проведіть пальцем вниз від верху екрана на Android, відкрийте швидкі налаштування й натисніть QuickShare. На пристроях Samsung потрібно сканувати QR-код, який з’явиться при спробі надіслати файли через QuickDrop.\n\nАбо ж завантажте додаток QuickDrop з Google Play і відкрийте його, щоб зробити пристрій видимим."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mặc định, thiết bị Android của bạn không hiển thị với máy Mac. Để thay đổi điều này, hãy vuốt từ trên xuống trên màn hình thiết bị Android, mở cài đặt nhanh và chạm vào QuickShare.\n\nHoặc, tải ứng dụng QuickDrop từ Google Play và mở nó để giúp thiết bị của bạn hiển thị."
+            "value" : "Theo mặc định, thiết bị Android của bạn không hiển thị với Mac. Để thay đổi, vuốt từ trên xuống trên thiết bị Android, mở Cài đặt nhanh và chạm vào QuickShare. Với thiết bị Samsung, bạn cần quét mã QR hiển thị khi cố gửi tệp bằng QuickDrop.\n\nHoặc, tải ứng dụng QuickDrop từ Google Play và mở để làm thiết bị của bạn hiển thị."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "默认情况下，您的安卓设备对Mac不可见。要更改此项，请在安卓设备上从屏幕顶部下滑，打开快捷设置，然后点击QuickShare。\n\n或者，您也可以从Google Play下载QuickDrop应用并打开，这样设备就会变为可见。"
+            "value" : "默认情况下，您的安卓设备对 Mac 不可见。要更改此设置，请从安卓设备屏幕顶部下滑，打开快捷设置，并点击 QuickShare。在三星设备上，当尝试用 QuickDrop 发送文件时，需要扫描显示的二维码。\n\n或者，您也可以从 Google Play 下载 QuickDrop 应用并打开，使设备可见。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "預設情況下，您的 Android 裝置對 Mac 是隱藏的。要改變此設定，請在 Android 裝置上從螢幕頂端下拉，開啟快速設定，然後點選 QuickShare。\n\n或者，您也可以從 Google Play 下載 QuickDrop 應用程式並打開，以讓您的裝置顯示。"
+            "value" : "預設情況下，您的 Android 裝置對 Mac 是隱藏的。若要更改此設定，請在 Android 裝置從螢幕頂端下滑，打開快速設定，點選 QuickShare。在三星裝置上，需於以 QuickDrop 傳檔時掃描顯示的 QR 碼。\n\n或者，可從 Google Play 下載並打開 QuickDrop 應用程式讓裝置顯示。"
           }
         }
       }
@@ -24458,229 +24458,229 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "للاتصال بجهاز Android الخاص بك، اسحب للأسفل من أعلى الشاشة لفتح الإعدادات السريعة، ثم اضغط على مشاركة سريعة (Quick Share).\n\nبدلاً من ذلك، يمكنك مسح رمز QR. تأكد أن كلا الجهازين متصلان بنفس الشبكة. لتسهيل النقل، ثبّت تطبيق QuickDrop (انظر أعلاه)."
+            "value" : "امسح رمز الاستجابة السريعة (QR) باستخدام جهاز الأندرويد الخاص بك للاتصال بجهاز الماك. تأكد من أن هاتفك متصل بنفس الشبكة.\n\nإذا لم ترغب بمسح رمز الاستجابة في كل مرة ترسل فيها ملفًا، قم بتثبيت تطبيق QuickDrop (انظر أعلاه)."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per connectar-te al teu dispositiu Android, desliza cap avall des de la part superior de la pantalla per obrir els ajustos ràpids i toca Quick Share.\n\nTambé pots escanejar el codi QR. Assegura't que tots dos dispositius estiguin a la mateixa xarxa. Per a transferències més fàcils, instal·la l'aplicació QuickDrop (vegeu a dalt)."
+            "value" : "Escaneja el codi QR amb el teu dispositiu Android per connectar-lo al teu Mac. Assegura't que el teu telèfon està connectat a la mateixa xarxa.\n\nSi no vols escanejar el codi QR per a cada transferència de fitxers, instal·la l'aplicació QuickDrop (vegeu més amunt)."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chcete-li se připojit ke svému zařízení Android, stáhněte horní lištu dolů pro otevření rychlého nastavení a klepněte na Quick Share.\n\nPřípadně naskenujte QR kód. Ujistěte se, že jsou obě zařízení ve stejné síti. Pro jednodušší přenosy si nainstalujte aplikaci QuickDrop (viz výše)."
+            "value" : "Naskenujte QR kód svým zařízením Android, abyste jej připojili k Macu. Ujistěte se, že je telefon připojen ke stejné síti.\n\nPokud nechcete skenovat QR kód při každém odesílání souboru, nainstalujte si aplikaci QuickDrop (viz výše)."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "For at oprette forbindelse til din Android-enhed skal du stryge ned fra toppen af skærmen for at åbne hurtigindstillingerne og derefter trykke på Quick Share.\n\nAlternativt kan du scanne QR-koden. Sørg for, at begge enheder er på det samme netværk. For nemmere overførsler kan du installere QuickDrop-appen (se ovenfor)."
+            "value" : "Scan QR-koden med din Android-enhed for at forbinde den til din Mac. Sørg for, at din telefon er forbundet til det samme netværk.\n\nHvis du ikke ønsker at scanne QR-koden ved hver overførsel, kan du installere QuickDrop-appen (se ovenfor)."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Um eine Verbindung zu deinem Android-Gerät herzustellen, wische vom oberen Bildschirmrand nach unten, um die Schnelleinstellungen zu öffnen, und tippe dann auf Quick Share.\n\nAlternativ kannst du den QR-Code scannen. Stelle sicher, dass beide Geräte im selben Netzwerk sind. Für einfachere Übertragungen installiere die QuickDrop-App (siehe oben)."
+            "value" : "Scanne den QR-Code mit deinem Android-Gerät, um es mit deinem Mac zu verbinden. Stelle sicher, dass dein Handy mit demselben Netzwerk verbunden ist.\n\nWenn du nicht bei jedem Datei-Transfer den QR-Code scannen möchtest, installiere die QuickDrop-App (siehe oben)."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Για να συνδεθείτε με τη συσκευή Android, σύρετε προς τα κάτω από το πάνω μέρος της οθόνης για να ανοίξετε τις γρήγορες ρυθμίσεις και πατήστε στο Quick Share.\n\nΕναλλακτικά, σαρώστε τον QR κωδικό. Βεβαιωθείτε ότι και οι δύο συσκευές βρίσκονται στο ίδιο δίκτυο. Για πιο εύκολες μεταφορές, εγκαταστήστε την εφαρμογή QuickDrop (δείτε παραπάνω)."
+            "value" : "Σαρώστε τον QR κωδικό με τη συσκευή Android για να τη συνδέσετε με το Mac σας. Βεβαιωθείτε ότι το τηλέφωνό σας είναι συνδεδεμένο στο ίδιο δίκτυο.\n\nΑν δεν θέλετε να σαρώνετε τον QR κωδικό κάθε φορά που μεταφέρετε αρχεία, εγκαταστήστε την εφαρμογή QuickDrop (βλ. παραπάνω)."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To connect to your Android device, swipe down from the top of the screen to open the quick settings, then tap on Quick Share. \n\nAlternatively, scan the QR code. Make sure both devices are on the same network. For easier transfers, install the QuickDrop app (see above)."
+            "value" : "Scan the QR Code with your Android device to connect it to your Mac. Make sure your phone is connected to the same network.\n\nIf you do not want to scan the QR code for every file transfer, install the QuickDrop app (see above)."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To connect to your Android device, swipe down from the top of the screen to open the quick settings, then tap on Quick Share. \n\nAlternatively, scan the QR code. Make sure both devices are on the same network. For easier transfers, install the QuickDrop app (see above)."
+            "value" : "Scan the QR Code with your Android device to connect it to your Mac. Make sure your phone is connected to the same network.\n\nIf you do not want to scan the QR code for every file transfer, install the QuickDrop app (see above)."
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To connect to your Android device, swipe down from the top of the screen to open the quick settings, then tap on Quick Share. \n\nAlternatively, scan the QR code. Make sure both devices are on the same network. For easier transfers, install the QuickDrop app (see above)."
+            "value" : "Scan the QR Code with your Android device to connect it to your Mac. Make sure your phone is connected to the same network.\n\nIf you do not want to scan the QR code for every file transfer, install the QuickDrop app (see above)."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To connect to your Android device, swipe down from the top of the screen to open the quick settings, then tap on Quick Share.\n\nAlternatively, scan the QR code. Make sure both devices are on the same network. For easier transfers, install the QuickDrop app (see above)."
+            "value" : "Scan the QR Code with your Android device to connect it to your Mac. Make sure your phone is connected to the same network.\n\nIf you do not want to scan the QR code for every file transfer, install the QuickDrop app (see above)."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para conectar con tu dispositivo Android, desliza hacia abajo desde la parte superior de la pantalla para abrir los ajustes rápidos y toca Quick Share.\n\nTambién puedes escanear el código QR. Asegúrate de que ambos dispositivos estén en la misma red. Para transferencias más fáciles, instala la app QuickDrop (ver arriba)."
+            "value" : "Escanea el código QR con tu dispositivo Android para conectarlo a tu Mac. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nSi no quieres escanear el código QR para cada transferencia, instala la app QuickDrop (ver arriba)."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para conectar tu dispositivo Android, desliza hacia abajo desde la parte superior de la pantalla para abrir los ajustes rápidos y luego toca Quick Share.\n\nTambién puedes escanear el código QR. Asegúrate de que ambos dispositivos estén en la misma red. Para transferencias más fáciles, instala la app QuickDrop (ver arriba)."
+            "value" : "Escanea el código QR con tu dispositivo Android para conectarlo a tu Mac. Asegúrate de que tu teléfono esté conectado a la misma red.\n\nSi no quieres escanear el código QR en cada transferencia, instala la app QuickDrop (ver arriba)."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Yhdistääksesi Android-laitteeseesi, pyyhkäise alas näytön yläreunasta avataksesi pikalähteet ja napauta Quick Sharea.\n\nVoit myös skannata QR-koodin. Varmista, että molemmat laitteet ovat samassa verkossa. Helpompia siirtoja varten asenna QuickDrop-sovellus (katso yllä)."
+            "value" : "Skannaa QR-koodi Android-laitteellasi yhdistääksesi sen Maciin. Varmista, että puhelin on yhdistetty samaan verkkoon.\n\nJos et halua skannata QR-koodia jokaista tiedostonsiirtoa varten, asenna QuickDrop-sovellus (katso yllä)."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pour connecter votre appareil Android, faites glisser vers le bas depuis le haut de l’écran pour ouvrir les paramètres rapides, puis touchez Quick Share.\n\nVous pouvez aussi scanner le code QR. Assurez-vous que les deux appareils sont sur le même réseau. Pour des transferts plus faciles, installez l’application QuickDrop (voir ci-dessus)."
+            "value" : "Scannez le code QR avec votre appareil Android pour le connecter à votre Mac. Assurez-vous que votre téléphone est connecté au même réseau.\n\nSi vous ne voulez pas scanner le code QR à chaque transfert de fichier, installez l’application QuickDrop (voir ci-dessus)."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pour connecter votre appareil Android, balayez vers le bas à partir du haut de l’écran pour ouvrir les réglages rapides, puis touchez Partage rapide.\n\nVous pouvez aussi scanner le code QR. Assurez-vous que les deux appareils sont sur le même réseau. Pour faciliter les transferts, installez l’application QuickDrop (voir ci-dessus)."
+            "value" : "Scannez le code QR avec votre appareil Android pour le connecter à votre Mac. Assurez-vous que votre téléphone est connecté au même réseau.\n\nSi vous ne voulez pas scanner le code QR à chaque transfert, installez l’application QuickDrop (voir ci-dessus)."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "כדי להתחבר למכשיר האנדרואיד שלך, החלק מטה מהחלק העליון של המסך כדי לפתוח את הגדרות המהירות, ואז הקש על Quick Share.\n\nאפשר גם לסרוק את קוד ה-QR. ודא ששני המכשירים נמצאים על אותה רשת. להעברות קלות יותר, התקן את אפליקציית QuickDrop (ראה למעלה)."
+            "value" : "סרוק את קוד ה-QR עם מכשיר האנדרואיד שלך כדי לחבר אותו ל-Mac שלך. ודא שהטלפון שלך מחובר לאותה רשת.\n\nאם אינך רוצה לסרוק את קוד ה-QR בכל העברת קובץ, התקן את אפליקציית QuickDrop (ראה למעלה)."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "अपने Android डिवाइस से कनेक्ट करने के लिए, स्क्रीन के ऊपर से नीचे की ओर स्वाइप करें और क्विक सेटिंग्स खोलें, फिर Quick Share पर टैप करें।\n\nया फिर QR कोड स्कैन करें। सुनिश्चित करें कि दोनों डिवाइस एक ही नेटवर्क पर हों। आसान ट्रांसफर के लिए QuickDrop ऐप इंस्टॉल करें (ऊपर देखें)।"
+            "value" : "अपने Android डिवाइस से अपने Mac से कनेक्ट होने के लिए QR कोड स्कैन करें। सुनिश्चित करें कि आपका फोन उसी नेटवर्क से जुड़ा है।\n\nअगर आप हर फाइल ट्रांसफर के लिए QR कोड स्कैन नहीं करना चाहते, तो QuickDrop ऐप इंस्टॉल करें (ऊपर देखें)।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Za povezivanje s Android uređajem, povucite prstom prema dolje s vrha ekrana kako biste otvorili brze postavke, zatim dodirnite Quick Share.\n\nAlternativno, skenirajte QR kod. Provjerite jesu li oba uređaja na istoj mreži. Za lakši prijenos instalirajte aplikaciju QuickDrop (vidi gore)."
+            "value" : "Skenirajte QR kod svojim Android uređajem kako biste ga povezali s Macom. Provjerite je li telefon spojen na istu mrežu.\n\nAko ne želite skenirati QR kod pri svakom prijenosu datoteke, instalirajte QuickDrop aplikaciju (vidi gore)."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Az Android eszközöd csatlakoztatásához húzd le az ujjad a képernyő tetejéről a gyorsbeállítások megnyitásához, majd koppints a Gyors Megosztásra (Quick Share).\n\nAlternatív megoldásként olvasd be a QR-kódot. Győződj meg róla, hogy mindkét eszköz ugyanazon a hálózaton van. Az egyszerűbb átvitelhez telepítsd a QuickDrop alkalmazást (fentebb találod)."
+            "value" : "Olvasd be a QR-kódot Android készülékeddel, hogy csatlakoztasd a Mac-hez. Győződj meg róla, hogy a telefonod ugyanahhoz a hálózathoz csatlakozik.\n\nHa nem szeretnéd minden fájlátvitelkor beolvasni a QR-kódot, telepítsd a QuickDrop alkalmazást (lásd fent)."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Untuk menghubungkan ke perangkat Android Anda, geser turun dari bagian atas layar untuk membuka pengaturan cepat, lalu ketuk Quick Share.\n\nAtau, pindai kode QR. Pastikan kedua perangkat berada di jaringan yang sama. Untuk transfer yang lebih mudah, instal aplikasi QuickDrop (lihat di atas)."
+            "value" : "Pindai Kode QR dengan perangkat Android Anda untuk menghubungkannya ke Mac Anda. Pastikan ponsel Anda terhubung ke jaringan yang sama.\n\nJika Anda tidak ingin memindai kode QR setiap kali mentransfer file, instal aplikasi QuickDrop (lihat di atas)."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per collegarti al tuo dispositivo Android, scorri verso il basso dalla parte superiore dello schermo per aprire le impostazioni rapide, quindi tocca Quick Share.\n\nIn alternativa, scansiona il codice QR. Assicurati che entrambi i dispositivi siano sulla stessa rete. Per trasferimenti più semplici, installa l'app QuickDrop (vedi sopra)."
+            "value" : "Scansiona il codice QR con il tuo dispositivo Android per collegarlo al tuo Mac. Assicurati che il telefono sia connesso alla stessa rete.\n\nSe non vuoi scansionare il QR code per ogni trasferimento, installa l'app QuickDrop (vedi sopra)."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Androidデバイスに接続するには、画面上部から下にスワイプしてクイック設定を開き、「クイック共有」をタップしてください。\n\nまたは、QRコードをスキャンしてください。両方のデバイスが同じネットワーク上にあることを確認してください。より簡単に転送するには、QuickDropアプリのインストールをおすすめします（上記参照）。"
+            "value" : "Android端末でQRコードをスキャンしてMacに接続してください。スマートフォンが同じネットワークに接続されていることを確認してください。\n\n毎回ファイル転送のたびにQRコードをスキャンしたくない場合は、QuickDropアプリをインストールしてください（上記参照）。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Android 기기에 연결하려면 화면 상단에서 아래로 스와이프하여 빠른 설정을 연 다음, Quick Share를 탭하세요.\n\n또는 QR 코드를 스캔할 수도 있습니다. 두 기기가 같은 네트워크에 연결되어 있는지 확인하세요. 더 쉽게 전송하려면 QuickDrop 앱을 설치하세요(위 참조)."
+            "value" : "Android 기기로 QR 코드를 스캔하여 Mac에 연결하세요. 휴대폰이 동일한 네트워크에 연결되어 있어야 합니다.\n\n파일 전송마다 QR 코드를 스캔하기 싫다면 QuickDrop 앱을 설치하세요(위 참고)."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Untuk sambung ke peranti Android anda, leret ke bawah dari bahagian atas skrin untuk buka tetapan pantas, kemudian ketik pada Quick Share.\n\nSebagai alternatif, imbas kod QR. Pastikan kedua-dua peranti berada pada rangkaian yang sama. Untuk pemindahan yang lebih mudah, pasang aplikasi QuickDrop (lihat di atas)."
+            "value" : "Imbas Kod QR dengan peranti Android anda untuk sambungkannya ke Mac anda. Pastikan telefon anda disambungkan ke rangkaian yang sama.\n\nJika anda tidak mahu imbas kod QR setiap kali pemindahan fail, pasang aplikasi QuickDrop (rujuk atas)."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "For å koble til Android-enheten din, sveip ned fra toppen av skjermen for å åpne hurtiginnstillingene, og trykk deretter på Quick Share.\n\nAlternativt kan du skanne QR-koden. Sørg for at begge enhetene er på samme nettverk. For enklere overføringer, installer QuickDrop-appen (se ovenfor)."
+            "value" : "Skann QR-koden med Android-enheten din for å koble den til Mac-en. Sørg for at telefonen er koblet til det samme nettverket.\n\nHvis du ikke vil skanne QR-koden hver gang du skal overføre filer, installer QuickDrop-appen (se ovenfor)."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Om verbinding te maken met je Android-apparaat, veeg vanaf de bovenkant van het scherm naar beneden om de snelle instellingen te openen en tik op Quick Share. \n\nJe kunt ook de QR-code scannen. Zorg dat beide apparaten op hetzelfde netwerk zitten. Voor makkelijker overzetten kun je de QuickDrop-app installeren (zie hierboven)."
+            "value" : "Scan de QR-code met je Android-apparaat om verbinding te maken met je Mac. Zorg ervoor dat je telefoon met hetzelfde netwerk is verbonden.\n\nWil je niet voor elke bestandsoverdracht de QR-code scannen? Installeer dan de QuickDrop-app (zie hierboven)."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aby połączyć się z urządzeniem z Androidem, przesuń palcem w dół od góry ekranu, aby otworzyć szybkie ustawienia, a następnie stuknij Quick Share.\n\nMożesz też zeskanować kod QR. Upewnij się, że oba urządzenia są w tej samej sieci. Dla łatwiejszego przesyłania plików zainstaluj aplikację QuickDrop (patrz wyżej)."
+            "value" : "Zeskanuj kod QR swoim urządzeniem z Androidem, aby połączyć je z Maciem. Upewnij się, że Twój telefon jest podłączony do tej samej sieci.\n\nJeśli nie chcesz skanować kodu QR przy każdym transferze plików, zainstaluj aplikację QuickDrop (zobacz powyżej)."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para conectar ao seu dispositivo Android, deslize de cima para baixo na tela para abrir as configurações rápidas e toque em Quick Share.\n\nComo alternativa, escaneie o código QR. Certifique-se de que ambos os dispositivos estejam na mesma rede. Para transferências mais fáceis, instale o app QuickDrop (veja acima)."
+            "value" : "Escaneie o código QR com seu dispositivo Android para conectá-lo ao seu Mac. Certifique-se de que seu telefone está conectado à mesma rede.\n\nSe não quiser escanear o código QR a cada transferência de arquivo, instale o app QuickDrop (veja acima)."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Para ligar ao seu dispositivo Android, deslize para baixo no topo do ecrã para abrir as definições rápidas e toque em Quick Share.\n\nEm alternativa, digitalize o código QR. Certifique-se de que ambos os dispositivos estão na mesma rede. Para transferências mais fáceis, instale a aplicação QuickDrop (ver acima)."
+            "value" : "Digitalize o código QR com o seu dispositivo Android para o conectar ao seu Mac. Certifique-se de que o seu telemóvel está ligado à mesma rede.\n\nSe não quiser digitalizar o código QR em todas as transferências de ficheiros, instale a app QuickDrop (ver acima)."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pentru a te conecta la dispozitivul tău Android, glisează în jos din partea de sus a ecranului pentru a deschide setările rapide, apoi apasă pe Quick Share.\n\nAlternativ, scanează codul QR. Asigură-te că ambele dispozitive sunt în aceeași rețea. Pentru transferuri mai ușoare, instalează aplicația QuickDrop (vezi mai sus)."
+            "value" : "Scanează codul QR cu dispozitivul tău Android pentru a-l conecta la Mac. Asigură-te că telefonul este conectat la aceeași rețea.\n\nDacă nu vrei să scanezi codul QR la fiecare transfer de fișiere, instalează aplicația QuickDrop (vezi mai sus)."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Чтобы подключиться к вашему Android-устройству, смахните вниз от верхнего края экрана, чтобы открыть быстрые настройки, затем коснитесь Quick Share.\n\nИли отсканируйте QR-код. Убедитесь, что оба устройства в одной сети. Для удобной передачи файлов установите приложение QuickDrop (см. выше)."
+            "value" : "Сканируйте QR-код с помощью вашего Android-устройства, чтобы подключить его к Mac. Убедитесь, что оба устройства в одной сети.\n\nЧтобы не сканировать QR-код при каждом переносе файлов, установите приложение QuickDrop (см. выше)."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "För att ansluta till din Android-enhet, svep ner från toppen av skärmen för att öppna snabbinställningarna och tryck sedan på Quick Share.\n\nAlternativt kan du skanna QR-koden. Kontrollera att båda enheterna är på samma nätverk. För enklare överföringar, installera QuickDrop-appen (se ovan)."
+            "value" : "Skanna QR-koden med din Android-enhet för att ansluta den till din Mac. Kontrollera att din telefon är ansluten till samma nätverk.\n\nOm du inte vill skanna QR-koden vid varje filöverföring, installera QuickDrop-appen (se ovan)."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "เพื่อเชื่อมต่อกับอุปกรณ์ Android ของคุณ ให้ปัดหน้าจอลงจากด้านบนเพื่อเปิดการตั้งค่าด่วน แล้วแตะที่ Quick Share \n\nหรือสแกนคิวอาร์โค้ด ตรวจสอบให้แน่ใจว่าอุปกรณ์ทั้งสองอยู่ในเครือข่ายเดียวกัน เพื่อความสะดวกในการถ่ายโอน ติดตั้งแอป QuickDrop (ดูด้านบน)"
+            "value" : "สแกนคิวอาร์โค้ดด้วยอุปกรณ์ Android เพื่อเชื่อมต่อกับ Mac ของคุณ ตรวจสอบให้แน่ใจว่าโทรศัพท์เชื่อมต่อกับเครือข่ายเดียวกัน\n\nหากไม่ต้องการสแกนคิวอาร์โค้ดทุกครั้งที่โอนไฟล์ ให้ติดตั้งแอป QuickDrop (ดูด้านบน)"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Android cihazınıza bağlanmak için ekranın üstünden aşağı kaydırarak hızlı ayarları açın ve ardından Quick Share'e dokunun.\n\nAlternatif olarak, QR kodunu tarayın. Her iki cihazın da aynı ağda olduğundan emin olun. Dosya iletimini kolaylaştırmak için QuickDrop uygulamasını yükleyin (yukarıya bakın)."
+            "value" : "Android cihazınızı Mac'inize bağlamak için QR Kodunu tarayın. Telefonunuzun aynı ağa bağlı olduğundan emin olun.\n\nHer dosya aktarımında QR kodunu taramak istemiyorsanız, QuickDrop uygulamasını yükleyin (yukarıya bakın)."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Щоб підключитися до вашого Android-пристрою, проведіть пальцем вниз від верхньої частини екрана, щоб відкрити швидкі налаштування, і натисніть Quick Share.\n\nАбо відскануйте QR-код. Переконайтеся, що обидва пристрої підключені до однієї мережі. Для зручнішої передачі встановіть додаток QuickDrop (див. вище)."
+            "value" : "Скануйте QR-код вашим Android-пристроєм, щоб підключитися до Mac. Переконайтесь, що телефон підключено до тієї ж мережі.\n\nЩоб не сканувати QR-код при кожній передачі файлів, встановіть додаток QuickDrop (див. вище)."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Để kết nối với thiết bị Android của bạn, vuốt xuống từ trên cùng màn hình để mở cài đặt nhanh, sau đó nhấn vào Quick Share.\n\nHoặc, quét mã QR. Đảm bảo cả hai thiết bị cùng chung mạng. Để chia sẻ dễ dàng hơn, hãy cài đặt ứng dụng QuickDrop (xem phía trên)."
+            "value" : "Quét mã QR bằng thiết bị Android của bạn để kết nối với Mac. Đảm bảo điện thoại kết nối cùng mạng.\n\nNếu không muốn quét mã QR cho mỗi lần chuyển tệp, hãy cài đặt ứng dụng QuickDrop (xem trên)."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "要连接您的 Android 设备，请从屏幕顶部下拉打开快捷设置，然后点击 Quick Share。\n\n或者，扫描二维码。请确保两台设备在同一网络下。为更便捷的传输，建议安装 QuickDrop 应用（见上方）。"
+            "value" : "用您的安卓设备扫描二维码以将其连接到您的 Mac。请确保手机已连接到同一网络。\n\n如果不想每次传输文件都扫描二维码，请安装 QuickDrop 应用（见上方）。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "要連接您的 Android 裝置，請從螢幕頂端向下滑動以開啟快速設定，然後輕觸「快速分享」（Quick Share）。\n\n您也可以掃描 QR 碼。請確保兩台裝置在同一網路下。為更方便傳檔，建議安裝 QuickDrop 應用程式（詳見上方）。"
+            "value" : "請使用您的 Android 裝置掃描 QR 碼以連接到 Mac。確保手機連接在同一網路。\\n\\n若不想每次傳檔都掃描 QR 碼，請安裝 QuickDrop 應用程式（見上方）。"
           }
         }
       }
