@@ -102,7 +102,13 @@ class ErrorAlertHandler {
             self.isAlertShown = false
             
             if result == .alertFirstButtonReturn {
-                LogExportPresenter.showUploadLogsAlert(openSupportMailAfterUpload: false)
+                if Bundle.main.bundlePath.hasSuffix(".appex") {
+                    if let url = URL(string: "quickdrop://sendLog") {
+                        NSWorkspace.shared.open(url)
+                    }
+                } else {
+                    LogExportPresenter.showUploadLogsAlert(openSupportMailAfterUpload: false)
+                }
             }
             #else
             showAlert(title: title, message: description)
