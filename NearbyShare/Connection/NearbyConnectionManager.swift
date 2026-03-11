@@ -361,7 +361,9 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     func connectionWasTerminated(connection: InboundNearbyConnection, savedFiles: [URL], error: Error?) {
         incomingConnections.removeValue(forKey: connection.id)
 
-        if connection.shouldSuppressAppDelegates {
+        // Notification-sync transfers suppress normal success callbacks, but
+        // still forward failures so pending consent/error UI can be cleaned up.
+        if connection.shouldSuppressAppDelegates, error == nil {
             return
         }
 

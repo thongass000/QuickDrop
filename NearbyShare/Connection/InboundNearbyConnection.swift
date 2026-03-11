@@ -611,7 +611,7 @@ class InboundNearbyConnection: NearbyConnection {
                         id: id,
                         pinCode: pinCode,
                         transferType: .notificationSync,
-                        allowsToBeAddedAsTrustedDevice: false
+                        allowsToBeAddedAsTrustedDevice: true
                     )
 
                     DispatchQueue.main.async {
