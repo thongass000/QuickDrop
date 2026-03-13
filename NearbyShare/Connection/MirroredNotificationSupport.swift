@@ -131,7 +131,11 @@ final class MirroredNotificationPresenter {
             if let error = error {
                 log("[MirroredNotificationPresenter] Could not post notification: \(error.localizedDescription)")
             } else {
-                log("[MirroredNotificationPresenter] Posted mirrored notification (\(identifier))")
+                DispatchQueue.main.async {
+                    Settings.sharedInstance.incomingNotificationCount += 1
+                    let count = Settings.sharedInstance.incomingNotificationCount
+                    log("[MirroredNotificationPresenter] Posted mirrored notification (\(identifier)). Current count: \(count)")
+                }
             }
         }
     }

@@ -688,7 +688,7 @@ class InboundNearbyConnection: NearbyConnection {
             return
         }
         
-        if isFileTransferRestricted() {
+        if !isMirroredNotificationTransfer && isFileTransferRestricted() {
             log("[InboundNearbyConnection \(self.id)] File transfer restrictions detected.")
             delegate?.showPlusScreen()
             rejectTransfer()

@@ -34,6 +34,10 @@ final class Settings: SharedInstance {
     
     var incomingTransmissionCount: Int = UserDefaults.standard.integer(forKey: UserDefaultsKeys.transmissionCount.rawValue)
     { didSet { UserDefaults.standard.set(incomingTransmissionCount, forKey: UserDefaultsKeys.transmissionCount.rawValue) }}
+
+
+    var incomingNotificationCount: Int = UserDefaults.standard.integer(forKey: UserDefaultsKeys.incomingNotificationCount.rawValue)
+    { didSet { UserDefaults.standard.set(incomingNotificationCount, forKey: UserDefaultsKeys.incomingNotificationCount.rawValue) }}
     
     
     var endpointID: String? = UserDefaults.standard.string(forKey: UserDefaultsKeys.endpointID.rawValue)
@@ -69,6 +73,7 @@ final class Settings: SharedInstance {
         case isEligibleForIap = "isEligibleForIap"
         case appLaunchedBefore = "ShowedWelcomeScreen"
         case transmissionCount = "reviewRequestCountKey"
+        case incomingNotificationCount = "incomingNotificationCount"
         case automaticallyAcceptFiles = "automaticallyAcceptFiles"
         case saveFolderBookmark = "saveFolderBookmark"
         case openFinderAfterReceiving = "openFinderAfterReceiving"
