@@ -49,6 +49,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private let txtKeyNotificationSyncCapabilities = "qd_caps"
     private let txtKeyNotificationSyncKeyFingerprint = "qd_kid"
     private let notificationSyncCapabilityToken = "nsync1"
+    private let unnamedAndroidFallbackDeviceName = "AndroidDevice".localized()
     
     
     // MARK: Shared Instance
@@ -540,22 +541,22 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         guard case let NWBrowser.Result.Metadata.bonjour(txtRecord) = service.metadata else { return }
         guard let endpointInfoEncoded = txtRecord.dictionary[txtKeyEndpointInfo] else { return }
         guard let endpointInfoData = Data.dataFromUrlSafeBase64(endpointInfoEncoded) else { return }
-        guard var endpointInfo = EndpointInfo(data: endpointInfoData) else { return }
-        var deviceInfo: RemoteDeviceInfo?
-        
-        if let _ = endpointInfo.name {
-            deviceInfo = addFoundDevice(foundService: &foundService, endpointInfo: endpointInfo, endpointID: endpointID)
+        var endpointInfo = EndpointInfo(data: endpointInfoData)
+            ?? EndpointInfo(name: unnamedAndroidFallbackDeviceName, deviceType: .unknown)
+
+        let cleanedName = endpointInfo.name?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if cleanedName?.isEmpty != false {
+            endpointInfo.name = unnamedAndroidFallbackDeviceName
         }
+        let deviceInfo = addFoundDevice(foundService: &foundService, endpointInfo: endpointInfo, endpointID: endpointID)
         
         if let qrData = endpointInfo.qrCodeData, let qrCodeAdvertisingToken = qrCodeAdvertisingToken, let qrCodeNameEncryptionKey = qrCodeNameEncryptionKey {
             
             log("[NearbyConnectionManager] Device has QR data: \(qrData.base64EncodedString()), advertising token is \(qrCodeAdvertisingToken.base64EncodedString())")
             
             if qrData == qrCodeAdvertisingToken {
-                if let deviceInfo = deviceInfo {
-                    for delegate in outboundAppDelegates {
-                        delegate.startTransferWithQrCode(device: deviceInfo)
-                    }
+                for delegate in outboundAppDelegates {
+                    delegate.startTransferWithQrCode(device: deviceInfo)
                 }
             }
             else if qrData.count > 28 {
@@ -577,9 +578,16 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     
     
     private func addFoundDevice(foundService: inout FoundServiceInfo, endpointInfo: EndpointInfo, endpointID: String) -> RemoteDeviceInfo {
+        let hadPreviousDevice = foundServices[endpointID]?.device != nil
         let deviceInfo = RemoteDeviceInfo(info: endpointInfo, id: endpointID)
         foundService.device = deviceInfo
         foundServices[endpointID] = foundService
+        
+        if hadPreviousDevice {
+            for delegate in outboundAppDelegates {
+                delegate.removeDevice(id: endpointID)
+            }
+        }
         
         for delegate in outboundAppDelegates {
             delegate.addDevice(device: deviceInfo)
