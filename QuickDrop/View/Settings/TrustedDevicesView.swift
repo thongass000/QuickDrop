@@ -55,25 +55,24 @@ struct TrustedDevicesView: View {
     
     
     var devicesView: some View {
-        ForEach(Array(store.trustedCertificates.keys), id: \.self) { key in
-            if let cert = store.trustedCertificates[key] {
-                HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                        LUIText(cert.device.name ?? "Unknown".localized(), isBold: true)
-                        LUIText(Self.dateFormatter.string(from: cert.creationDate), color: .mainColor.opacity(0.7))
-                    }
-                    
-                    Spacer()
-                    
-                    LUIButton {
-                        deviceToRemove = key
-                        showRemoveAlert = true
-                    } label: {
-                        ReorderListIcon(imageName: "minus.circle.fill", color: .red)
-                    }
+        let entries = store.trustedCertificates.sorted { $0.value.creationDate < $1.value.creationDate }
+        return ForEach(entries, id: \.key) { key, cert in
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    LUIText(cert.device.name ?? "Unknown".localized(), isBold: true)
+                    LUIText(Self.dateFormatter.string(from: cert.creationDate), color: .mainColor.opacity(0.7))
                 }
-                .padding(.vertical, 8)
+                
+                Spacer()
+                
+                LUIButton {
+                    deviceToRemove = key
+                    showRemoveAlert = true
+                } label: {
+                    ReorderListIcon(imageName: "minus.circle.fill", color: .red)
+                }
             }
+            .padding(.vertical, 8)
         }
     }
     
