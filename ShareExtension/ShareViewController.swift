@@ -401,7 +401,7 @@ extension ShareViewController: NSCollectionViewDataSource {
             return name
         }
         
-        return "UnknownDevice".localized()
+        return "AndroidDevice".localized()
     }
 }
 

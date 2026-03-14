@@ -269,7 +269,7 @@ struct DeviceButtonLabel: View {
     var body: some View {
         HStack(spacing: 12) {
             
-            let name = device.name ?? "UnknownDevice".localized()
+            let name = device.name ?? "AndroidDevice".localized()
             
             ZStack {
                 Circle()

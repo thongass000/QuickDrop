@@ -60,7 +60,7 @@ struct QuickDropToastView: View {
         let subHeaderSize = 21.0
 
         let closeButtonVisible = isHovering && actions != nil
-        let deviceName = receiveModel.activeDeviceName ?? "UnknownDevice".localized()
+        let deviceName = receiveModel.activeDeviceName ?? "AndroidDevice".localized()
         
         ZStack(alignment: .topTrailing) {
             HStack(alignment: .center, spacing: 12) {

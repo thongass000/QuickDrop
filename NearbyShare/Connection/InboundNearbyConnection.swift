@@ -318,8 +318,11 @@ class InboundNearbyConnection: NearbyConnection {
         guard case .connectionRequest = frame.v1.type else { throw NearbyError.protocolError("Unexpected frame type \(frame.v1.type)") }
         
         let endpointInfo = EndpointInfo(data: frame.v1.connectionRequest.endpointInfo)
+        let fallbackDeviceName = "AndroidDevice".localized()
+        let resolvedDeviceName = endpointInfo?.name?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let deviceName = (resolvedDeviceName?.isEmpty == false) ? resolvedDeviceName : fallbackDeviceName
         
-        remoteDeviceInfo = RemoteDeviceInfo(name: endpointInfo?.name, type: endpointInfo?.deviceType)
+        remoteDeviceInfo = RemoteDeviceInfo(name: deviceName, type: endpointInfo?.deviceType)
         currentState = .receivedConnectionRequest
     }
     

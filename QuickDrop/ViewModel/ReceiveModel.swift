@@ -69,7 +69,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         AudioManager.playIncomingFileSound()
         #endif
 
-        let mainMessage = transfer.getDescription(deviceName: device.name ?? "UnknownDevice".localized())
+        let mainMessage = transfer.getDescription(deviceName: device.name ?? "AndroidDevice".localized())
         let pinCodeMessage = transfer.getPinCodeMessage()
         let transferID = transfer.id
     
@@ -87,7 +87,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 self.progress = nil
                 self.consentState = nil
                 let senderName = device.name?.trimmingCharacters(in: .whitespacesAndNewlines)
-                let resolvedSenderName = (senderName?.isEmpty == false) ? senderName! : "UnknownDevice".localized()
+                let resolvedSenderName = (senderName?.isEmpty == false) ? senderName! : "AndroidDevice".localized()
                 self.activeDeviceName = resolvedSenderName
 
                 let alert = NSAlert()
@@ -108,7 +108,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
 
             self.toastActions = nil
             self.progress = nil
-            self.activeDeviceName = device.name ?? "UnknownDevice".localized()
+            self.activeDeviceName = device.name ?? "AndroidDevice".localized()
             self.consentState = ConsentToastState(
                 transferID: transferID,
                 pinCodeMessage: pinCodeMessage,
@@ -155,7 +155,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     
     func obtainedUserConsentAutomatically(transfer: TransferMetadata, device: RemoteDeviceInfo) {
         
-        let mainMessage = transfer.getDescription(deviceName: device.name ?? "UnknownDevice".localized())
+        let mainMessage = transfer.getDescription(deviceName: device.name ?? "AndroidDevice".localized())
         
         #if os(macOS)
         
@@ -164,7 +164,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
         DispatchQueue.main.async {
             self.toastActions = nil
             self.progress = nil
-            self.activeDeviceName = device.name ?? "UnknownDevice".localized()
+            self.activeDeviceName = device.name ?? "AndroidDevice".localized()
             self.consentState = nil
             self.showQuickDropToast(for: transfer.id)
         }
