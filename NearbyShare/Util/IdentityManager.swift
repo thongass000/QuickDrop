@@ -51,17 +51,21 @@ class IdentityManager {
     private func generateAndStoreKeyPair() -> (ECPrivateKey, ECPublicKey) {
         let domain = Domain.instance(curve: .EC256r1)
         let (pubKey, privKey) = domain.makeKeyPair()
-        
-        AppGroup.appGroupUD.set(Data(privKey.s.asSignedBytes()), forKey: signingKeyTag)
+
+        let privateKeyData = Data(privKey.s.asSignedBytes())
+        do {
+            try KeychainStore.saveData(privateKeyData, account: signingKeyTag)
+            AppGroup.appGroupUD.removeObject(forKey: signingKeyTag)
+        } catch {
+            log("[IdentityManager] Failed to store private key in keychain: \(error.localizedDescription)")
+        }
         
         return (privKey, pubKey)
     }
     
 
     private func loadKeys() -> (ECPrivateKey, ECPublicKey)? {
-        let keyData = AppGroup.appGroupUD.data(forKey: signingKeyTag)
-        
-        guard let keyData = keyData else { return nil }
+        guard let keyData = loadStoredKeyData() else { return nil }
         
         let domain = Domain.instance(curve: .EC256r1)
         guard let privateKey = try? ECPrivateKey(domain: domain, s: .init(signed: Array(keyData))) else {
@@ -79,6 +83,32 @@ class IdentityManager {
         }
         
         return (privateKey, publicKey)
+    }
+
+
+    private func loadStoredKeyData() -> Data? {
+        do {
+            if let keyData = try KeychainStore.loadData(account: signingKeyTag) {
+                AppGroup.appGroupUD.removeObject(forKey: signingKeyTag)
+                return keyData
+            }
+        } catch {
+            log("[IdentityManager] Failed to load private key from keychain: \(error.localizedDescription)")
+        }
+
+        guard let legacyKeyData = AppGroup.appGroupUD.data(forKey: signingKeyTag) else {
+            return nil
+        }
+
+        do {
+            try KeychainStore.saveData(legacyKeyData, account: signingKeyTag)
+            AppGroup.appGroupUD.removeObject(forKey: signingKeyTag)
+            log("[IdentityManager] Migrated private key from shared defaults to keychain.")
+        } catch {
+            log("[IdentityManager] Failed to migrate private key to keychain: \(error.localizedDescription)")
+        }
+
+        return legacyKeyData
     }
 }
 

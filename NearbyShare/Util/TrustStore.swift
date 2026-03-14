@@ -25,29 +25,40 @@ class TrustStore: ObservableObject {
     // MARK: - Persistence
     
     private func loadTrustedCertificates() {
-        guard let dict = AppGroup.appGroupUD.dictionary(forKey: trustedKeysKey) as? [String: Data] else {
+        do {
+            if let data = try KeychainStore.loadData(account: trustedKeysKey) {
+                trustedCertificates = try JSONDecoder().decode([String: TrustedCertificate].self, from: data)
+                AppGroup.appGroupUD.removeObject(forKey: trustedKeysKey)
+                return
+            }
+        } catch {
+            print("[TrustStore] Failed to load trusted certificates from keychain: \(error.localizedDescription)")
+        }
+
+        guard let dict = legacyTrustedCertificates() else {
             trustedCertificates = [:]
             return
         }
         
-        var decoded: [String: TrustedCertificate] = [:]
-        for (key, data) in dict {
-            if let cert = try? JSONDecoder().decode(TrustedCertificate.self, from: data) {
-                decoded[key] = cert
-            }
+        trustedCertificates = dict
+
+        do {
+            try persistTrustedCertificates()
+            AppGroup.appGroupUD.removeObject(forKey: trustedKeysKey)
+            print("[TrustStore] Migrated trusted certificates from shared defaults to keychain.")
+        } catch {
+            print("[TrustStore] Failed to migrate trusted certificates to keychain: \(error.localizedDescription)")
         }
-        trustedCertificates = decoded
     }
     
     
     private func saveTrustedCertificates() {
-        var dict: [String: Data] = [:]
-        for (key, cert) in trustedCertificates {
-            if let data = try? JSONEncoder().encode(cert) {
-                dict[key] = data
-            }
+        do {
+            try persistTrustedCertificates()
+            AppGroup.appGroupUD.removeObject(forKey: trustedKeysKey)
+        } catch {
+            print("[TrustStore] Failed to save trusted certificates to keychain: \(error.localizedDescription)")
         }
-        AppGroup.appGroupUD.set(dict, forKey: trustedKeysKey)
     }
     
     
@@ -83,5 +94,26 @@ class TrustStore: ObservableObject {
         let device: RemoteDeviceInfo
         let creationDate: Date
         let certificateData: Data
+    }
+
+
+    private func persistTrustedCertificates() throws {
+        let data = try JSONEncoder().encode(trustedCertificates)
+        try KeychainStore.saveData(data, account: trustedKeysKey)
+    }
+
+
+    private func legacyTrustedCertificates() -> [String: TrustedCertificate]? {
+        guard let dict = AppGroup.appGroupUD.dictionary(forKey: trustedKeysKey) as? [String: Data] else {
+            return nil
+        }
+
+        var decoded: [String: TrustedCertificate] = [:]
+        for (key, data) in dict {
+            if let cert = try? JSONDecoder().decode(TrustedCertificate.self, from: data) {
+                decoded[key] = cert
+            }
+        }
+        return decoded
     }
 }
