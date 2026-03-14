@@ -30,6 +30,7 @@ class InboundNearbyConnection: NearbyConnection {
     private var bytesToBeTransferred: Int64 = 0
     private var isAuthenticated = false
     private var peerCertificate: Sharing_Nearby_PublicCertificate? = nil
+    private var mirroredNotificationMetadata: Sharing_Nearby_MirroredNotificationMetadata?
     var isPlainTextTransfer = false
     private var isMirroredNotificationTransfer = false
     
@@ -260,20 +261,6 @@ class InboundNearbyConnection: NearbyConnection {
     
     override func processBytesPayload(payload: Data, id: Int64) throws -> Bool {
         if id == textPayloadID {
-            #if os(macOS)
-            if isMirroredNotificationTransfer {
-                if let payloadString = String(data: payload, encoding: .utf8) {
-                    log("[InboundNearbyConnection \(self.id)] Received mirrored notification payload (\(payload.count) bytes)")
-                    MirroredNotificationPresenter.shared.present(rawPayload: payloadString, senderDeviceName: remoteDeviceInfo?.name)
-                } else {
-                    log("[InboundNearbyConnection \(self.id)] Failed to decode mirrored notification payload as UTF-8")
-                }
-
-                try sendDisconnectionAndDisconnect()
-                return true
-            }
-            #endif
-
             if let urlStr = String(data: payload, encoding: .utf8) {
                 
                 if isPlainTextTransfer {
@@ -591,39 +578,42 @@ class InboundNearbyConnection: NearbyConnection {
             }
             let metadata = TransferMetadata(files: filesToBeReceived.map { $0.value.meta }, id: id, pinCode: pinCode, allowsToBeAddedAsTrustedDevice: self.peerCertificate != nil)
             checkIfCanProceed(metadata: metadata)
+            return
         }
-        else if let textMetadata = frame.v1.introduction.textMetadata.first {
-            let isURL = textMetadata.type == .url
-            textPayloadID = textMetadata.payloadID
 
-            #if os(macOS)
-            if textMetadata.type == .text && textMetadata.textTitle == MirroredNotificationProtocol.introductionTitle {
-                isMirroredNotificationTransfer = true
-                shouldSuppressAppDelegates = true
+        #if os(macOS)
+        if frame.v1.introduction.hasMirroredNotificationMetadata {
+            isMirroredNotificationTransfer = true
+            mirroredNotificationMetadata = frame.v1.introduction.mirroredNotificationMetadata
+            shouldSuppressAppDelegates = true
 
-                if !isAuthenticated {
-                    guard let device = self.remoteDeviceInfo else {
-                        self.rejectTransfer(with: .reject)
-                        return
-                    }
-                    let metadata = TransferMetadata(
-                        files: [],
-                        id: id,
-                        pinCode: pinCode,
-                        transferType: .notificationSync,
-                        allowsToBeAddedAsTrustedDevice: true
-                    )
-
-                    DispatchQueue.main.async {
-                        self.delegate?.obtainUserConsent(transfer: metadata, device: device, connection: self)
-                    }
+            if !isAuthenticated {
+                guard let device = self.remoteDeviceInfo else {
+                    self.rejectTransfer(with: .reject)
                     return
                 }
+                let metadata = TransferMetadata(
+                    files: [],
+                    id: id,
+                    pinCode: pinCode,
+                    transferType: .notificationSync,
+                    allowsToBeAddedAsTrustedDevice: true
+                )
 
-                submitUserConsent(accepted: true, trustDevice: false)
+                DispatchQueue.main.async {
+                    self.delegate?.obtainUserConsent(transfer: metadata, device: device, connection: self)
+                }
                 return
             }
-            #endif
+
+            submitUserConsent(accepted: true, trustDevice: false)
+            return
+        }
+        #endif
+
+        if let textMetadata = frame.v1.introduction.textMetadata.first {
+            let isURL = textMetadata.type == .url
+            textPayloadID = textMetadata.payloadID
 
             let metadata = TransferMetadata(files: [], id: id, pinCode: pinCode, textDescription: textMetadata.textTitle, transferType: isURL ? .url : .text, allowsToBeAddedAsTrustedDevice: self.peerCertificate != nil)
 
@@ -732,6 +722,11 @@ class InboundNearbyConnection: NearbyConnection {
             currentState = .receivingFiles
             isTransferring = true
             try sendTransferSetupFrame(frame)
+
+            if let mirroredNotificationMetadata {
+                MirroredNotificationPresenter.shared.present(metadata: mirroredNotificationMetadata, senderDeviceName: remoteDeviceInfo?.name)
+                try sendDisconnectionAndDisconnect()
+            }
         } catch {
             lastError = error
             protocolError()
