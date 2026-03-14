@@ -334,7 +334,7 @@ struct Sharing_Nearby_WifiCredentialsMetadata: Sendable {
   fileprivate var _id: Int64? = nil
 }
 
-/// NEXT_ID=8
+/// NEXT_ID=10
 struct Sharing_Nearby_MirroredNotificationMetadata: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -403,6 +403,24 @@ struct Sharing_Nearby_MirroredNotificationMetadata: Sendable {
   /// Clears the value of `postedAtEpochMs`. Subsequent reads from it will return its default value.
   mutating func clearPostedAtEpochMs() {self._postedAtEpochMs = nil}
 
+  var setupRequest: Bool {
+    get {return _setupRequest ?? false}
+    set {_setupRequest = newValue}
+  }
+  /// Returns true if `setupRequest` has been explicitly set.
+  var hasSetupRequest: Bool {return self._setupRequest != nil}
+  /// Clears the value of `setupRequest`. Subsequent reads from it will return its default value.
+  mutating func clearSetupRequest() {self._setupRequest = nil}
+
+  var setupPinHash: Data {
+    get {return _setupPinHash ?? Data()}
+    set {_setupPinHash = newValue}
+  }
+  /// Returns true if `setupPinHash` has been explicitly set.
+  var hasSetupPinHash: Bool {return self._setupPinHash != nil}
+  /// Clears the value of `setupPinHash`. Subsequent reads from it will return its default value.
+  mutating func clearSetupPinHash() {self._setupPinHash = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -414,6 +432,8 @@ struct Sharing_Nearby_MirroredNotificationMetadata: Sendable {
   fileprivate var _title: String? = nil
   fileprivate var _body: String? = nil
   fileprivate var _postedAtEpochMs: Int64? = nil
+  fileprivate var _setupRequest: Bool? = nil
+  fileprivate var _setupPinHash: Data? = nil
 }
 
 /// NEXT_ID=8
@@ -1465,7 +1485,7 @@ extension Sharing_Nearby_WifiCredentialsMetadata.SecurityType: SwiftProtobuf._Pr
 
 extension Sharing_Nearby_MirroredNotificationMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MirroredNotificationMetadata"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}version\0\u{3}notification_key\0\u{3}package_name\0\u{3}app_name\0\u{1}title\0\u{1}body\0\u{3}posted_at_epoch_ms\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}version\0\u{3}notification_key\0\u{3}package_name\0\u{3}app_name\0\u{1}title\0\u{1}body\0\u{3}posted_at_epoch_ms\0\u{3}setup_request\0\u{3}setup_pin_hash\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1480,6 +1500,8 @@ extension Sharing_Nearby_MirroredNotificationMetadata: SwiftProtobuf.Message, Sw
       case 5: try { try decoder.decodeSingularStringField(value: &self._title) }()
       case 6: try { try decoder.decodeSingularStringField(value: &self._body) }()
       case 7: try { try decoder.decodeSingularInt64Field(value: &self._postedAtEpochMs) }()
+      case 8: try { try decoder.decodeSingularBoolField(value: &self._setupRequest) }()
+      case 9: try { try decoder.decodeSingularBytesField(value: &self._setupPinHash) }()
       default: break
       }
     }
@@ -1511,6 +1533,12 @@ extension Sharing_Nearby_MirroredNotificationMetadata: SwiftProtobuf.Message, Sw
     try { if let v = self._postedAtEpochMs {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 7)
     } }()
+    try { if let v = self._setupRequest {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 8)
+    } }()
+    try { if let v = self._setupPinHash {
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 9)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1522,6 +1550,8 @@ extension Sharing_Nearby_MirroredNotificationMetadata: SwiftProtobuf.Message, Sw
     if lhs._title != rhs._title {return false}
     if lhs._body != rhs._body {return false}
     if lhs._postedAtEpochMs != rhs._postedAtEpochMs {return false}
+    if lhs._setupRequest != rhs._setupRequest {return false}
+    if lhs._setupPinHash != rhs._setupPinHash {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

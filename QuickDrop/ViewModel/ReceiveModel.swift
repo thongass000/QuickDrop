@@ -8,6 +8,9 @@
 import SwiftUI
 import StoreKit
 import LUI
+#if os(macOS)
+import AppKit
+#endif
 
 class ReceiveModel: ObservableObject, InboundAppDelegate {
     
@@ -90,19 +93,35 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 let resolvedSenderName = (senderName?.isEmpty == false) ? senderName! : "AndroidDevice".localized()
                 self.activeDeviceName = resolvedSenderName
 
-                let alert = NSAlert()
-                alert.alertStyle = .informational
-                alert.messageText = "NotificationSyncConsentPromptFromDevice".localized(with: resolvedSenderName)
-                alert.informativeText = pinCodeMessage
-                alert.addButton(withTitle: "Accept".localized())
-                alert.addButton(withTitle: "Decline".localized())
-
-                let result = alert.runModal()
-                if result == .alertFirstButtonReturn {
-                    primaryButtonAction(true)
-                } else {
-                    secondaryButtonAction()
-                }
+                let pinCode = transfer.pinCode ?? "----"
+                self.consentState = ConsentToastState(
+                    transferID: transferID,
+                    pinCodeMessage: resolvedSenderName,
+                    message: "NotificationSyncToastEnableSubtitle".localized(),
+                    notificationSyncStage: .consent,
+                    allowsTrust: false,
+                    acceptAction: { [weak self] _ in
+                        guard let self else { return }
+                        primaryButtonAction(false)
+                        self.consentState = ConsentToastState(
+                            transferID: transferID,
+                            pinCodeMessage: resolvedSenderName,
+                            message: "NotificationSyncToastPinSubtitle".localized(with: pinCode),
+                            notificationSyncStage: .pin,
+                            allowsTrust: false,
+                            acceptAction: { _ in },
+                            declineAction: {}
+                        )
+                        self.showQuickDropToast(for: transferID)
+                    },
+                    declineAction: { [weak self] in
+                        guard let self else { return }
+                        self.consentState = nil
+                        secondaryButtonAction()
+                        self.hideQuickDropToast(style: .fade)
+                    }
+                )
+                self.showQuickDropToast(for: transferID)
                 return
             }
 
@@ -113,6 +132,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 transferID: transferID,
                 pinCodeMessage: pinCodeMessage,
                 message: mainMessage,
+                notificationSyncStage: nil,
                 allowsTrust: transfer.allowsToBeAddedAsTrustedDevice,
                 acceptAction: { [weak self] trustDevice in
                     DispatchQueue.main.async {
@@ -196,6 +216,17 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             self.toastActions = nil
             self.progress = averageProgress
             self.showQuickDropToast(for: connectionID)
+        }
+        #endif
+    }
+
+    
+    func notificationSyncSetupConfirmed() {
+        #if os(macOS)
+        DispatchQueue.main.async {
+            if self.consentState?.notificationSyncStage != nil {
+                self.hideQuickDropToast(style: .fade)
+            }
         }
         #endif
     }
@@ -657,9 +688,15 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
     
 
     struct ConsentToastState {
+        enum NotificationSyncStage {
+            case consent
+            case pin
+        }
+
         let transferID: String
         let pinCodeMessage: String
         let message: String
+        let notificationSyncStage: NotificationSyncStage?
         let allowsTrust: Bool
         let acceptAction: (Bool) -> ()
         let declineAction: () -> ()

@@ -364,7 +364,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
 
         // Notification-sync transfers suppress normal success callbacks, but
         // still forward failures so pending consent/error UI can be cleaned up.
-        if connection.shouldSuppressAppDelegates, error == nil {
+        if connection.isMirroredNotificationTransfer, error == nil {
             return
         }
 
@@ -372,6 +372,12 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
             inboundAppDelegates.forEach { delegate in
                 delegate.connectionWasTerminated(connectionID: connection.id, from: connection.remoteDeviceInfo, savedFiles: savedFiles, wasPlainTextTransfer: connection.isPlainTextTransfer, error: error)
             }
+        }
+    }
+
+    func notificationSyncSetupConfirmed(connection _: InboundNearbyConnection) {
+        inboundAppDelegates.forEach { delegate in
+            delegate.notificationSyncSetupConfirmed()
         }
     }
     

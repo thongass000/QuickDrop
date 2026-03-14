@@ -5,9 +5,8 @@
 //  Created by Leon Böttger on 22.08.25.
 //
 
-
 import Foundation
-
+import CryptoKit
 
 class TrustStore: ObservableObject {
     
@@ -16,6 +15,9 @@ class TrustStore: ObservableObject {
     @Published private(set) var trustedCertificates: [String: TrustedCertificate] = [:]
     
     private let trustedKeysKey = "com.leonboettger.quickdrop.identity.trustedKeys"
+    private let pendingNotificationSyncQueue = DispatchQueue(label: "TrustStore.notificationSyncPending")
+    private var pendingNotificationSyncTrust: [String: PendingNotificationSyncTrust] = [:]
+    private let pendingNotificationSyncTTL: TimeInterval = 5 * 60
         
     private init() {
         loadTrustedCertificates()
@@ -86,6 +88,48 @@ class TrustStore: ObservableObject {
         trustedCertificates.removeValue(forKey: secretIdHex)
         saveTrustedCertificates()
     }
+
+
+    // MARK: - Notification Sync Pending Trust
+
+    func registerPendingNotificationSyncTrust(secretIdHex: String, pinCode: String) {
+        let normalized = secretIdHex.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let trimmedPin = pinCode.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !normalized.isEmpty, !trimmedPin.isEmpty else { return }
+
+        let pinHash = Self.pinHash(for: trimmedPin)
+        pendingNotificationSyncQueue.sync {
+            pendingNotificationSyncTrust[normalized] = PendingNotificationSyncTrust(
+                pinHash: pinHash,
+                createdAt: Date()
+            )
+        }
+    }
+
+    func confirmPendingNotificationSyncTrust(secretIdHex: String, pinHash: Data) -> Bool {
+        let normalized = secretIdHex.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        guard !normalized.isEmpty, !pinHash.isEmpty else { return false }
+
+        let now = Date()
+        return pendingNotificationSyncQueue.sync {
+            guard let pending = pendingNotificationSyncTrust[normalized] else { return false }
+            pendingNotificationSyncTrust.removeValue(forKey: normalized)
+            let expired = now.timeIntervalSince(pending.createdAt) > pendingNotificationSyncTTL
+            if expired {
+                return false
+            }
+            return pending.pinHash == pinHash
+        }
+    }
+
+    func clearPendingNotificationSyncTrust(secretIdHex: String) {
+        let normalized = secretIdHex.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        guard !normalized.isEmpty else { return }
+
+        _ = pendingNotificationSyncQueue.sync {
+            pendingNotificationSyncTrust.removeValue(forKey: normalized)
+        }
+    }
     
     
     struct TrustedCertificate: Codable, Equatable {
@@ -94,6 +138,11 @@ class TrustStore: ObservableObject {
         let device: RemoteDeviceInfo
         let creationDate: Date
         let certificateData: Data
+    }
+
+    struct PendingNotificationSyncTrust: Equatable {
+        let pinHash: Data
+        let createdAt: Date
     }
 
 
@@ -115,5 +164,11 @@ class TrustStore: ObservableObject {
             }
         }
         return decoded
+    }
+
+    private static func pinHash(for pinCode: String) -> Data {
+        let data = Data(pinCode.utf8)
+        let digest = SHA256.hash(data: data)
+        return Data(digest)
     }
 }

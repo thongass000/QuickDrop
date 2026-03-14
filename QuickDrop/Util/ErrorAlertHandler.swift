@@ -36,7 +36,6 @@ class ErrorAlertHandler {
         
         var description = ""
         let fixInstructions = " " + "Error.FixInstructions".localized()
-        
         if let ne = (error as? NearbyError) {
             switch ne {
             case .inputOutput:
@@ -61,6 +60,8 @@ class ErrorAlertHandler {
                 description = errorMessage + fixInstructions
             case .ukey2:
                 description = "Error.Crypto".localized() + ": \(ne.localizedDescription)" + fixInstructions
+            case .notificationSyncNotTrusted:
+                description = "NotificationSyncNotTrustedMessage".localized()
             case .canceled(reason: let reason):
                 if reason == .timedOut {
                     description = reason.localizedDescription() + fixInstructions

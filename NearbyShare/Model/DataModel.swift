@@ -19,6 +19,7 @@ protocol InboundNearbyConnectionDelegate {
     func updatedTransferProgress(connection: InboundNearbyConnection, progress: Double)
     func connectionWasTerminated(connection: InboundNearbyConnection, savedFiles: [URL], error: Error?)
     func showPlusScreen()
+    func notificationSyncSetupConfirmed(connection: InboundNearbyConnection)
 }
 
 
@@ -37,6 +38,11 @@ public protocol InboundAppDelegate: AnyObject {
     func connectionWasTerminated(connectionID: String, from device: RemoteDeviceInfo?, savedFiles: [URL], wasPlainTextTransfer: Bool, error: Error?)
     func transferProgress(connectionID: String, progress: Double)
     func showPlusScreen()
+    func notificationSyncSetupConfirmed()
+}
+
+extension InboundAppDelegate {
+    func notificationSyncSetupConfirmed() {}
 }
 
 
@@ -330,6 +336,7 @@ public enum NearbyError: Error {
     case packetFilterError
     case firewallError
     case inputOutput
+    case notificationSyncNotTrusted
     case canceled(reason: CancellationReason)
 
     public enum CancellationReason {

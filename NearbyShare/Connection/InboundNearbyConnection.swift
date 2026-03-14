@@ -32,11 +32,11 @@ class InboundNearbyConnection: NearbyConnection {
     private var isAuthenticated = false
     private var peerCertificate: Sharing_Nearby_PublicCertificate? = nil
     private var mirroredNotificationMetadata: Sharing_Nearby_MirroredNotificationMetadata?
+    private var isNotificationSyncSetupPing = false
     var isPlainTextTransfer = false
-    private var isMirroredNotificationTransfer = false
+    var isMirroredNotificationTransfer = false
     
     var wasUserRejected = false
-    var shouldSuppressAppDelegates = false
     var delegate: InboundNearbyConnectionDelegate?
 
     enum State {
@@ -511,6 +511,7 @@ class InboundNearbyConnection: NearbyConnection {
                 
                 if peerPublicKey.verify(signature: signature, msg: authKeyData) {
                     log("[InboundNearbyConnection \(self.id)] Paired key authentication successful.")
+                    self.peerCertificate = trustedCert
                     try sendPairedKeyResult(status: .success)
                     isAuthenticated = true
                 } else {
@@ -608,13 +609,65 @@ class InboundNearbyConnection: NearbyConnection {
         if frame.v1.introduction.hasMirroredNotificationMetadata {
             isMirroredNotificationTransfer = true
             mirroredNotificationMetadata = frame.v1.introduction.mirroredNotificationMetadata
-            shouldSuppressAppDelegates = true
+            isNotificationSyncSetupPing = mirroredNotificationMetadata?.setupRequest == true
+            let setupSuccessNotice = mirroredNotificationMetadata?.hasSetupPinHash == true
 
-            if !isAuthenticated {
-                guard let device = self.remoteDeviceInfo else {
+            guard let device = self.remoteDeviceInfo else {
+                self.rejectTransfer(with: .reject)
+                return
+            }
+
+            if !isAuthenticated && !isNotificationSyncSetupPing && !setupSuccessNotice {
+                self.lastError = NearbyError.notificationSyncNotTrusted
+                self.rejectTransfer(with: .reject, markAsUserRejected: false)
+                return
+            }
+
+            if setupSuccessNotice {
+                guard let peerCertificate = peerCertificate else {
                     self.rejectTransfer(with: .reject)
                     return
                 }
+
+                let trustedData = TrustStore.shared.findTrustedKey(for: peerCertificate.secretID)
+                if let trustedData {
+                    guard let currentData = try? peerCertificate.serializedData(),
+                          currentData == trustedData else {
+                        self.rejectTransfer(with: .reject)
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self.delegate?.notificationSyncSetupConfirmed(connection: self)
+                    }
+                    submitUserConsent(accepted: true, trustDevice: false)
+                    return
+                }
+
+                guard let metadata = mirroredNotificationMetadata,
+                      metadata.hasSetupPinHash else {
+                    self.rejectTransfer(with: .reject)
+                    return
+                }
+
+                let matches = TrustStore.shared.confirmPendingNotificationSyncTrust(
+                    secretIdHex: peerCertificate.secretID.hex,
+                    pinHash: metadata.setupPinHash
+                )
+
+                guard matches else {
+                    self.rejectTransfer(with: .reject)
+                    return
+                }
+
+                TrustStore.shared.addTrusted(certificate: peerCertificate, device: device)
+                DispatchQueue.main.async {
+                    self.delegate?.notificationSyncSetupConfirmed(connection: self)
+                }
+                submitUserConsent(accepted: true, trustDevice: false)
+                return
+            }
+
+            if !isAuthenticated || isNotificationSyncSetupPing {
                 let metadata = TransferMetadata(
                     files: [],
                     id: id,
@@ -681,6 +734,21 @@ class InboundNearbyConnection: NearbyConnection {
     
 
     func submitUserConsent(accepted: Bool, trustDevice: Bool) {
+        if isNotificationSyncSetupPing, let peerCertificate = peerCertificate {
+            let secretIdHex = peerCertificate.secretID.hex
+            if accepted {
+                if TrustStore.shared.findTrustedKey(for: peerCertificate.secretID) == nil,
+                   let pinCode = pinCode {
+                    TrustStore.shared.registerPendingNotificationSyncTrust(
+                        secretIdHex: secretIdHex,
+                        pinCode: pinCode
+                    )
+                }
+            } else {
+                TrustStore.shared.clearPendingNotificationSyncTrust(secretIdHex: secretIdHex)
+            }
+        }
+
         if trustDevice, let peerCertificate = peerCertificate, let remoteDeviceInfo = remoteDeviceInfo {
             TrustStore.shared.addTrusted(certificate: peerCertificate, device: remoteDeviceInfo)
         }
@@ -747,7 +815,9 @@ class InboundNearbyConnection: NearbyConnection {
             try sendTransferSetupFrame(frame)
 
             if let mirroredNotificationMetadata {
-                MirroredNotificationPresenter.shared.present(metadata: mirroredNotificationMetadata, senderDeviceName: remoteDeviceInfo?.name)
+                if !isNotificationSyncSetupPing {
+                    MirroredNotificationPresenter.shared.present(metadata: mirroredNotificationMetadata, senderDeviceName: remoteDeviceInfo?.name)
+                }
                 try sendDisconnectionAndDisconnect()
             }
         } catch {
@@ -757,10 +827,10 @@ class InboundNearbyConnection: NearbyConnection {
     }
 
     
-    private func rejectTransfer(with reason: Sharing_Nearby_ConnectionResponseFrame.Status = .reject) {
+    private func rejectTransfer(with reason: Sharing_Nearby_ConnectionResponseFrame.Status = .reject, markAsUserRejected: Bool = true) {
         
         // rejected by user
-        if reason == .reject {
+        if reason == .reject && markAsUserRejected {
             self.wasUserRejected = true
         }
         

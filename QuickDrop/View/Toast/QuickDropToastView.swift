@@ -55,12 +55,16 @@ struct QuickDropToastView: View {
         let consent = receiveModel.consentState
         let actions = receiveModel.toastActions
         let hasActionButtons = actions?.openFilesAction != nil || actions?.importPhotosAction != nil
-        let showsRightColumn = consent != nil || hasActionButtons
+        let deviceName = receiveModel.activeDeviceName ?? "AndroidDevice".localized()
+        let isNotificationSyncToast = consent?.notificationSyncStage != nil
+        let isNotificationSyncConsent = consent?.notificationSyncStage == .consent
+        let isNotificationSyncPinStage = consent?.notificationSyncStage == .pin
+        let showConsentActions = consent != nil && (!isNotificationSyncToast || isNotificationSyncConsent)
+        let showsRightColumn = showConsentActions || hasActionButtons
         
         let subHeaderSize = 21.0
 
-        let closeButtonVisible = isHovering && actions != nil
-        let deviceName = receiveModel.activeDeviceName ?? "AndroidDevice".localized()
+        let closeButtonVisible = isHovering && (actions != nil || isNotificationSyncPinStage)
         
         ZStack(alignment: .topTrailing) {
             HStack(alignment: .center, spacing: 12) {
@@ -74,15 +78,26 @@ struct QuickDropToastView: View {
 
                         VStack(alignment: .leading, spacing: 2) {
                             if let consent = consent {
-                                Text(verbatim: "QuickDrop | \(consent.pinCodeMessage)")
-                                    .font(.system(size: 14, weight: .semibold))
+                                if isNotificationSyncToast {
+                                    Text(verbatim: "QuickDrop - \(deviceName)")
+                                        .font(.system(size: 14, weight: .semibold))
 
-                                Text(consent.message)
-                                    .font(.system(size: 13))
-                                    .foregroundColor(.secondary)
-                                    .lineLimit(1)
-                                    .truncationMode(.tail)
-                                    .frame(height: subHeaderSize)
+                                    Text(consent.message)
+                                        .font(.system(size: 13))
+                                        .foregroundColor(.secondary)
+                                        .lineLimit(2)
+                                        .truncationMode(.tail)
+                                } else {
+                                    Text(verbatim: "QuickDrop | \(consent.pinCodeMessage)")
+                                        .font(.system(size: 14, weight: .semibold))
+
+                                    Text(consent.message)
+                                        .font(.system(size: 13))
+                                        .foregroundColor(.secondary)
+                                        .lineLimit(1)
+                                        .truncationMode(.tail)
+                                        .frame(height: subHeaderSize)
+                                }
                             } else {
                                 HStack {
                                     Text(String("QuickDrop"))
@@ -140,8 +155,9 @@ struct QuickDropToastView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
 
                 if showsRightColumn {
-                    ActionColumn(width: consent == nil ? actionColumnWidthEnd : actionColumnWidth) {
-                        if let consent = consent {
+                    let columnWidth = showConsentActions ? actionColumnWidth : actionColumnWidthEnd
+                    ActionColumn(width: columnWidth) {
+                        if showConsentActions, let consent = consent {
                             ActionButtonRow {
                                 QuickDropToastViewButton(title: "Decline") {
                                     consent.declineAction()
@@ -225,8 +241,14 @@ struct QuickDropToastView: View {
                 .stroke((colorScheme.isLight ? Color.white.opacity(0.5) : Color.gray.opacity(0.33)), lineWidth: 1)
         )
         .overlay(alignment: .topTrailing) {
-            if closeButtonVisible, let actions = actions {
-                Button(action: actions.closeToastAction) {
+            if closeButtonVisible {
+                Button(action: {
+                    if let actions = actions {
+                        actions.closeToastAction()
+                    } else if isNotificationSyncPinStage {
+                        receiveModel.hideQuickDropToast(style: .fade)
+                    }
+                }) {
                     Image(systemName: "xmark")
                         .font(.system(size: 9, weight: .semibold))
                         .foregroundColor(.secondary)
@@ -486,6 +508,7 @@ struct QuickDropToastView_Previews: PreviewProvider {
                     transferID: "preview",
                     pinCodeMessage: "PIN: 1233",
                     message: "45 images from Pixel 6 Pro",
+                    notificationSyncStage: nil,
                     allowsTrust: true,
                     acceptAction: { _ in },
                     declineAction: { }
@@ -512,6 +535,7 @@ struct QuickDropToastView_Previews: PreviewProvider {
                     transferID: "preview",
                     pinCodeMessage: "PIN: 1233",
                     message: "45 images from Pixel 6 Pro",
+                    notificationSyncStage: nil,
                     allowsTrust: false,
                     acceptAction: { _ in },
                     declineAction: { }

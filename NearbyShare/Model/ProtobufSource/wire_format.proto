@@ -127,7 +127,7 @@ message WifiCredentialsMetadata {
   optional int64 id = 5;
 }
 
-// NEXT_ID=8
+// NEXT_ID=10
 message MirroredNotificationMetadata {
   optional int32 version = 1 [default = 1];
   optional string notification_key = 2;
@@ -136,6 +136,8 @@ message MirroredNotificationMetadata {
   optional string title = 5;
   optional string body = 6;
   optional int64 posted_at_epoch_ms = 7;
+  optional bool setup_request = 8;
+  optional bytes setup_pin_hash = 9;
 }
 
 // NEXT_ID=8

@@ -16,7 +16,6 @@ final class MirroredNotificationPresenter {
     private let queue = DispatchQueue(label: "MirroredNotificationPresenter")
     private var pendingNotifications: [(Sharing_Nearby_MirroredNotificationMetadata, String?)] = []
     private var authorizationRequestInFlight = false
-
     private init() {}
 
     func present(metadata: Sharing_Nearby_MirroredNotificationMetadata, senderDeviceName: String?) {
@@ -106,7 +105,6 @@ final class MirroredNotificationPresenter {
 
         let identifier = makeIdentifier(sender: identifierSender, notificationKey: notificationKey)
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: nil)
-
         center.add(request) { error in
             if let error = error {
                 log("[MirroredNotificationPresenter] Could not post notification: \(error.localizedDescription)")
