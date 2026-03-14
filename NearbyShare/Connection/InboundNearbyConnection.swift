@@ -12,6 +12,7 @@ import Network
 import System
 import BigInt
 import SwiftECC
+import ASN1
 import LUI
 
 #if os(macOS)
@@ -438,10 +439,29 @@ class InboundNearbyConnection: NearbyConnection {
             pairedEncryption.v1 = Sharing_Nearby_V1Frame()
             pairedEncryption.v1.type = .pairedKeyEncryption
             pairedEncryption.v1.pairedKeyEncryption = Sharing_Nearby_PairedKeyEncryptionFrame()
-            
-            // For inbound connections, we do not use provide secretIDHash and signedData
-            pairedEncryption.v1.pairedKeyEncryption.secretIDHash = Data.randomData(length: 6)
-            pairedEncryption.v1.pairedKeyEncryption.signedData = Data.randomData(length: 72)
+
+            if let signingPrivateKey = IdentityManager.shared.getPrivateKey(),
+               let publicKey = IdentityManager.shared.getPublicKey()?.toGenericPublicKey(),
+               let publicKeyData = IdentityManager.shared.getPublicKey()?.toGenericPublicKeyData(),
+               let publicKeyID = publicKey.id(),
+               let authKeyData = self.authKey?.data() {
+
+                var cert = Sharing_Nearby_PublicCertificate()
+                cert.secretID = publicKeyID
+                cert.publicKey = publicKeyData
+
+                let signatureTuple = signingPrivateKey.sign(msg: authKeyData)
+
+                pairedEncryption.v1.certificateInfo.publicCertificate.append(cert)
+                pairedEncryption.v1.pairedKeyEncryption.secretIDHash = cert.secretID
+                pairedEncryption.v1.pairedKeyEncryption.signedData = Data(signatureTuple.asn1.encode())
+                
+                pairedEncryption.v1.pairedKeyResult.status = .success
+            } else {
+                log("[InboundNearbyConnection \(self.id)] No private key available for receiver authentication.")
+                pairedEncryption.v1.pairedKeyEncryption.secretIDHash = Data.randomData(length: 6)
+                pairedEncryption.v1.pairedKeyEncryption.signedData = Data.randomData(length: 72)
+            }
             
             try sendTransferSetupFrame(pairedEncryption)
             currentState = .sentConnectionResponse
