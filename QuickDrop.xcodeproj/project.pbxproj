@@ -503,6 +503,8 @@
 		69DA9A2C29E18CB500A442DA /* securegcm.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = securegcm.pb.swift; sourceTree = "<group>"; };
 		69DA9A2D29E18CB500A442DA /* securemessage.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = securemessage.pb.swift; sourceTree = "<group>"; };
 		A1B2C3DA2F33AA0100ABC001 /* MirroredNotificationSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirroredNotificationSupport.swift; sourceTree = "<group>"; };
+		A1F5B3D82F3A1A0100A1B2C3 /* NotificationSyncPairingToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSyncPairingToken.swift; sourceTree = "<group>"; };
+		A1F5B3D92F3A1A0100A1B2C4 /* NotificationSyncQrSheetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSyncQrSheetManager.swift; sourceTree = "<group>"; };
 		EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedDevicesView.swift; sourceTree = "<group>"; };
 		EB1325D22E701D8900FD749C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		EB1325E72E7025D900FD749C /* ActiveNetworkInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNetworkInterface.swift; sourceTree = "<group>"; };
@@ -515,7 +517,6 @@
 		EB16B7762E59BA9F007D9792 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		EB2B41E32DC63AC80070FC39 /* SleepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager.swift; sourceTree = "<group>"; };
 		EB2F9BFA2DA04B67004010A2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		A1F5B3D82F3A1A0100A1B2C3 /* NotificationSyncPairingToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSyncPairingToken.swift; sourceTree = "<group>"; };
 		EB36435F2D73A29F009CDFF8 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		EB3B9F482EF7150400D6704E /* QuickDropGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDropGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3B9F492EF7150400D6704E /* QuickDrop copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "QuickDrop copy-Info.plist"; path = "/Users/leonboettger/QuickDrop Backup with git/QuickDrop copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -540,7 +541,6 @@
 		EB7F54112D78E95C00989564 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		EB7F54132D78E9E400989564 /* LicenseWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWindow.swift; sourceTree = "<group>"; };
 		EB869DB42E92AA33009AAAD4 /* QuickDropToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDropToastView.swift; sourceTree = "<group>"; };
-		A1F5B3D92F3A1A0100A1B2C4 /* NotificationSyncQrSheetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSyncQrSheetManager.swift; sourceTree = "<group>"; };
 		EB886E512E4E19390052B7D9 /* HKDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKDF.swift; sourceTree = "<group>"; };
 		EB886E662E4F2F7C0052B7D9 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		EB950B2D2E52027F002D68FA /* iOSShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = iOSShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -750,6 +750,14 @@
 			path = NearbyShare;
 			sourceTree = "<group>";
 		};
+		A1F5B3DA2F3A1A0100A1B2C5 /* NotificationSync */ = {
+			isa = PBXGroup;
+			children = (
+				A1F5B3D92F3A1A0100A1B2C4 /* NotificationSyncQrSheetManager.swift */,
+			);
+			path = NotificationSync;
+			sourceTree = "<group>";
+		};
 		EB1325EA2E7025D900FD749C /* SelfTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -909,14 +917,6 @@
 				EBC05C812E33B58300EECC18 /* IssueViews */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		A1F5B3DA2F3A1A0100A1B2C5 /* NotificationSync */ = {
-			isa = PBXGroup;
-			children = (
-				A1F5B3D92F3A1A0100A1B2C4 /* NotificationSyncQrSheetManager.swift */,
-			);
-			path = NotificationSync;
 			sourceTree = "<group>";
 		};
 		EBC05C6B2E33B57100EECC18 /* Util */ = {
@@ -1773,8 +1773,8 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 135;
-				SHARED_VERSION = 3.0;
+				SHARED_BUILD = 136;
+				SHARED_VERSION = 2.14;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1836,8 +1836,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SHARED_BUILD = 135;
-				SHARED_VERSION = 3.0;
+				SHARED_BUILD = 136;
+				SHARED_VERSION = 2.14;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;

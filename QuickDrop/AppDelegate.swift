@@ -35,6 +35,41 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     // MARK: NSApplicationDelegate functions
     
     func applicationDidFinishLaunching(_: Notification) {
+        // app did not lauch before
+        if !Settings.sharedInstance.appLaunchedBefore {
+            log("[AppDelegate] Opening Welcome Screen")
+            
+            DispatchQueue.main.async {
+                // open welcome screen in next cycle (await LUIInit)
+                self.openMainWindow()
+            }
+            
+            // user installed the app after the IAP was implemented, set the user as eligible for IAP
+            Settings.sharedInstance.isEligibleForIap = true
+            LUIInit(configuration: configuration)
+        } else {
+            // app launched before
+            #if GITHUB
+            log("[AppDelegate] Downloaded from GitHub.")
+            #else
+            // user installed the app before the IAP was implemented, grant the plus version
+            if !Settings.sharedInstance.isEligibleForIap {
+                log("[AppDelegate] Granting QuickDrop+ for old user")
+                UserDefaults.standard.set(true, forKey: Settings.UserDefaultsKeys.plusVersionLegacy.rawValue)
+            }
+            #endif
+
+            BezelNotification.show(messageText: "ReadyToReceive".localized(), icon: .receiveIcon)
+            
+            // only start receiving immediately for existing user, for new users we want to delay the permission prompt
+            LUIInit(configuration: configuration)
+            startReceiving()
+        }
+
+        UNUserNotificationCenter.current().delegate = self
+        
+        
+        // MARK: Menu Bar
         
         let menu = NSMenu()
 
@@ -67,38 +102,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         statusItem?.menu = menu
         statusItem?.behavior = .removalAllowed
         
-        // app did not lauch before
-        if !Settings.sharedInstance.appLaunchedBefore {
-            log("[AppDelegate] Opening Welcome Screen")
-            
-            DispatchQueue.main.async {
-                // open welcome screen in next cycle (await LUIInit)
-                self.openMainWindow()
-            }
-            
-            // user installed the app after the IAP was implemented, set the user as eligible for IAP
-            Settings.sharedInstance.isEligibleForIap = true
-        } else {
-            // app launched before
-            #if GITHUB
-            log("[AppDelegate] Downloaded from GitHub.")
-            #else
-            // user installed the app before the IAP was implemented, grant the plus version
-            if !Settings.sharedInstance.isEligibleForIap {
-                log("[AppDelegate] Granting QuickDrop+ for old user")
-                UserDefaults.standard.set(true, forKey: Settings.UserDefaultsKeys.plusVersionLegacy.rawValue)
-            }
-            #endif
-
-            BezelNotification.show(messageText: "ReadyToReceive".localized(), icon: .receiveIcon)
-            
-            // only start receiving immediately for existing user, for new users we want to delay the permission prompt
-            startReceiving()
-        }
         
-        LUIInit(configuration: configuration)
-
-        UNUserNotificationCenter.current().delegate = self
+        // MARK: Nearby Connections Callbacks
         
         NearbyConnectionManager.shared.connectionUpdateCallback = { isConnected in
             if isConnected {
@@ -114,6 +119,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         NearbyConnectionManager.shared.changedDeviceNameCallback = {
             self.visibleItem?.title = self.getDefaultVisibleLabel()
         }
+        
+        
+        // MARK: Logging
         
         log("[AppDelegate] Application did finish launching")
         log("[AppDelegate] Currently running apps: \(NSWorkspace.shared.runningApplications.map { $0.localizedName ?? "-" })")
