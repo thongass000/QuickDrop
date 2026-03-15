@@ -94,25 +94,21 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 self.activeDeviceName = resolvedSenderName
 
                 let pinCode = transfer.pinCode ?? "----"
+                let pinHeader = "PinCode".localized(with: pinCode)
+                let compareMessage = "NotificationSyncToastPinSubtitle".localized()
                 self.consentState = ConsentToastState(
                     transferID: transferID,
-                    pinCodeMessage: resolvedSenderName,
-                    message: "NotificationSyncToastEnableSubtitle".localized(),
+                    pinCodeMessage: pinHeader,
+                    message: compareMessage,
                     notificationSyncStage: .consent,
                     allowsTrust: false,
                     acceptAction: { [weak self] _ in
                         guard let self else { return }
+                        withAnimation {
+                            self.consentState = nil
+                        }
                         primaryButtonAction(false)
-                        self.consentState = ConsentToastState(
-                            transferID: transferID,
-                            pinCodeMessage: resolvedSenderName,
-                            message: "NotificationSyncToastPinSubtitle".localized(with: pinCode),
-                            notificationSyncStage: .pin,
-                            allowsTrust: false,
-                            acceptAction: { _ in },
-                            declineAction: {}
-                        )
-                        self.showQuickDropToast(for: transferID)
+                        self.hideQuickDropToast(style: .fade)
                     },
                     declineAction: { [weak self] in
                         guard let self else { return }
