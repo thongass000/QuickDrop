@@ -10,8 +10,6 @@ import LUI
 import SwiftUI
 
 let toastViewSize = CGSize(width: 340, height: 65)
-let actionColumnWidth: CGFloat = 120
-let actionColumnWidthEnd: CGFloat = 165
 let toastCornerRadius: CGFloat = 22
 let toastTrailingPadding: CGFloat = 20
 let toastSlideDistance: CGFloat = 420
@@ -83,29 +81,36 @@ struct QuickDropToastView: View {
                         VStack(alignment: .leading, spacing: 1) {
                             if let consent = consent {
                                 if isNotificationSyncToast {
-                                    Text(verbatim: "QuickDrop - \(deviceName)")
+                                    Text(verbatim: "QuickDrop | \(consent.pinCodeMessage)")
                                         .font(headerFont)
+                                        .lineLimit(1)
+                                        .fixedSize(horizontal: true, vertical: false)
 
                                     Text(consent.message)
                                         .font(subheaderFont)
                                         .foregroundColor(subheaderColor)
                                         .lineLimit(2)
+                                        .fixedSize(horizontal: false, vertical: true)
                                         .truncationMode(.tail)
                                 } else {
                                     Text(verbatim: "QuickDrop | \(consent.pinCodeMessage)")
                                         .font(headerFont)
+                                        .lineLimit(1)
+                                        .fixedSize(horizontal: true, vertical: false)
 
                                     Text(consent.message)
                                         .font(subheaderFont)
                                         .foregroundColor(subheaderColor)
-                                        .lineLimit(1)
+                                        .lineLimit(2)
+                                        .fixedSize(horizontal: false, vertical: true)
                                         .truncationMode(.tail)
-                                        .frame(height: subHeaderSize)
                                 }
                             } else {
                                 HStack {
                                     Text(String("QuickDrop"))
                                         .font(headerFont)
+                                        .lineLimit(1)
+                                        .fixedSize(horizontal: true, vertical: false)
                                     
                                     if consent == nil, actions == nil {
                                         Text("FromDevice".localized(with: deviceName))
@@ -152,14 +157,11 @@ struct QuickDropToastView: View {
                             }
                         }
                     }
-
-                    
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
 
                 if showsRightColumn {
-                    let columnWidth = showConsentActions ? actionColumnWidth : actionColumnWidthEnd
-                    ActionColumn(width: columnWidth) {
+                    ActionColumn() {
                         if showConsentActions, let consent = consent {
                             ActionButtonRow {
                                 QuickDropToastViewButton(title: "Decline") {
@@ -321,7 +323,7 @@ fileprivate struct QuickDropToastViewButton: View {
 
     var body: some View {
         Button(action: action) {
-            ToastButtonLabel(title: title, fillsWidth: true)
+            ToastButtonLabel(title: title, fillsWidth: false, showsBackground: true)
         }
         .buttonStyle(.plain)  // prevents blue macOS button look
     }
@@ -333,12 +335,17 @@ fileprivate struct QuickDropToastViewMenuButton<Content: View>: View {
     @ViewBuilder let content: () -> Content
 
     var body: some View {
-        Menu {
-            content()
-        } label: {
-            ToastButtonLabel(title: title, fillsWidth: false)
+        ZStack {
+            ToastButtonLabel(title: title, fillsWidth: false, showsBackground: true)
+                .allowsHitTesting(false)
+
+            Menu {
+                content()
+            } label: {
+                ToastButtonLabel(title: title, fillsWidth: false, showsBackground: false)
+            }
+            .menuStyle(BorderlessButtonMenuStyle(showsMenuIndicator: false))
         }
-        .menuStyle(BorderlessButtonMenuStyle(showsMenuIndicator: false))
         .fixedSize()
     }
 }
@@ -347,16 +354,16 @@ fileprivate struct QuickDropToastViewMenuButton<Content: View>: View {
 fileprivate struct ToastButtonLabel: View {
     let title: String
     let fillsWidth: Bool
+    let showsBackground: Bool
 
     var body: some View {
         Text(title.localized())
-            .font(.system(size: 12.5, weight: .medium))
-            .foregroundColor(.mainColor.opacity(0.75))
+            .font(.system(size: 11.5, weight: .medium))
+            .foregroundColor(.mainColor.opacity(showsBackground ? 0.75 : 0))
             .lineLimit(1)
-            .frame(maxWidth: fillsWidth ? .infinity : nil, maxHeight: .infinity)
             .padding(.horizontal, 7)
-            .padding(.vertical, 2.5)
-            .background(Color.gray.opacity(0.1).cornerRadius(8))
+            .padding(.vertical, 3.5)
+            .background(Color.gray.opacity(showsBackground ? 0.1 : 0).cornerRadius(5))
             .padding(.horizontal, 7)
             .padding(.vertical, 4)
             .contentShape(Rectangle())
@@ -365,17 +372,15 @@ fileprivate struct ToastButtonLabel: View {
 
 
 fileprivate struct ActionColumn<Content: View>: View {
-    let width: CGFloat
     @ViewBuilder let content: () -> Content
 
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(alignment: .trailing, spacing: 0) {
             content()
         }
         .padding(.vertical, 3)
-        .frame(width: width)
+        .padding(.trailing, 4)
         .frame(maxHeight: .infinity)
-        .minimumScaleFactor(0.7)
     }
 }
 
@@ -384,12 +389,7 @@ fileprivate struct ActionButtonRow<Content: View>: View {
     @ViewBuilder let content: () -> Content
 
     var body: some View {
-        HStack(spacing: 0) {
-            Spacer(minLength: 0)
-            content()
-                .fixedSize()
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        content()
     }
 }
 
@@ -502,7 +502,7 @@ struct QuickDropToastView_Previews: PreviewProvider {
                 model.consentState = .init(
                     transferID: "preview",
                     pinCodeMessage: "PIN: 1233",
-                    message: "45 images from Pixel 6 Pro",
+                    message: "45 images from Pixel 6 Pro von Leon",
                     notificationSyncStage: nil,
                     allowsTrust: true,
                     acceptAction: { _ in },
