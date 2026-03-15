@@ -9,10 +9,10 @@ import AppKit
 import LUI
 import SwiftUI
 
-let toastViewSize = CGSize(width: 420, height: 75)
+let toastViewSize = CGSize(width: 340, height: 65)
 let actionColumnWidth: CGFloat = 120
 let actionColumnWidthEnd: CGFloat = 165
-let toastCornerRadius: CGFloat = 20
+let toastCornerRadius: CGFloat = 22
 let toastTrailingPadding: CGFloat = 20
 let toastSlideDistance: CGFloat = 420
 
@@ -71,29 +71,33 @@ struct QuickDropToastView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(spacing: 10) {
 
-                        let iconSize = 39.0
+                        let iconSize = 32.0
+                        
+                        let headerFont = Font.system(.body).bold()
+                        let subheaderFont = Font.system(.body)
+                        let subheaderColor = Color.secondary
 
                         AppIconView(hasPlusIcon: false, size: iconSize, supportsDarkModeShadow: false)
                             .frame(width: iconSize, height: iconSize)
 
-                        VStack(alignment: .leading, spacing: 2) {
+                        VStack(alignment: .leading, spacing: 1) {
                             if let consent = consent {
                                 if isNotificationSyncToast {
                                     Text(verbatim: "QuickDrop - \(deviceName)")
-                                        .font(.system(size: 14, weight: .semibold))
+                                        .font(headerFont)
 
                                     Text(consent.message)
-                                        .font(.system(size: 13))
-                                        .foregroundColor(.secondary)
+                                        .font(subheaderFont)
+                                        .foregroundColor(subheaderColor)
                                         .lineLimit(2)
                                         .truncationMode(.tail)
                                 } else {
                                     Text(verbatim: "QuickDrop | \(consent.pinCodeMessage)")
-                                        .font(.system(size: 14, weight: .semibold))
+                                        .font(headerFont)
 
                                     Text(consent.message)
-                                        .font(.system(size: 13))
-                                        .foregroundColor(.secondary)
+                                        .font(subheaderFont)
+                                        .foregroundColor(subheaderColor)
                                         .lineLimit(1)
                                         .truncationMode(.tail)
                                         .frame(height: subHeaderSize)
@@ -101,13 +105,12 @@ struct QuickDropToastView: View {
                             } else {
                                 HStack {
                                     Text(String("QuickDrop"))
-                                        .font(.system(size: 14, weight: .semibold))
-                                    
+                                        .font(headerFont)
                                     
                                     if consent == nil, actions == nil {
                                         Text("FromDevice".localized(with: deviceName))
-                                            .font(.system(size: 13))
-                                            .foregroundColor(.secondary)
+                                            .font(subheaderFont)
+                                            .foregroundColor(subheaderColor)
                                             .lineLimit(1)
                                             .truncationMode(.tail)
                                             .padding(.trailing, 16)
@@ -164,8 +167,6 @@ struct QuickDropToastView: View {
                                 }
                             }
 
-                            ActionDividerLine()
-
                             ActionButtonRow {
                                 if consent.allowsTrust {
                                     QuickDropToastViewMenuButton(title: "Accept") {
@@ -193,9 +194,6 @@ struct QuickDropToastView: View {
                             }
 
                             if let onImportToPhotos = actions.importPhotosAction {
-                                if actions.openFilesAction != nil {
-                                    ActionDividerLine()
-                                }
 
                                 ActionButtonRow {
                                     QuickDropToastViewButton(title: "ImportToPhotos") {
@@ -356,8 +354,11 @@ fileprivate struct ToastButtonLabel: View {
             .foregroundColor(.mainColor.opacity(0.75))
             .lineLimit(1)
             .frame(maxWidth: fillsWidth ? .infinity : nil, maxHeight: .infinity)
-            .padding(.horizontal, 14)
-            .padding(.vertical, 8)
+            .padding(.horizontal, 7)
+            .padding(.vertical, 2.5)
+            .background(Color.gray.opacity(0.1).cornerRadius(8))
+            .padding(.horizontal, 7)
+            .padding(.vertical, 4)
             .contentShape(Rectangle())
     }
 }
@@ -374,11 +375,6 @@ fileprivate struct ActionColumn<Content: View>: View {
         .padding(.vertical, 3)
         .frame(width: width)
         .frame(maxHeight: .infinity)
-        .overlay(alignment: .leading) {
-            Rectangle()
-                .foregroundColor(.mainColor.opacity(0.05))
-                .frame(width: 2)
-        }
         .minimumScaleFactor(0.7)
     }
 }
@@ -392,7 +388,6 @@ fileprivate struct ActionButtonRow<Content: View>: View {
             Spacer(minLength: 0)
             content()
                 .fixedSize()
-            Spacer(minLength: 0)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -502,7 +497,7 @@ struct QuickDropToastView_Previews: PreviewProvider {
             .frame(width: toastViewSize.width, height: toastViewSize.height)
             .clipped()
             .padding(100)
-            //.background(QuickDropToastView_Previews.previewWallpaper)
+            .background(QuickDropToastView_Previews.previewWallpaper)
             .onAppear {
                 model.consentState = .init(
                     transferID: "preview",
@@ -529,7 +524,7 @@ struct QuickDropToastView_Previews: PreviewProvider {
             .frame(width: toastViewSize.width, height: toastViewSize.height)
             .clipped()
             .padding(100)
-            //.background(QuickDropToastView_Previews.previewWallpaper)
+            .background(QuickDropToastView_Previews.previewWallpaper)
             .onAppear {
                 model.consentState = .init(
                     transferID: "preview",
