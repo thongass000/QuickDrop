@@ -733,16 +733,20 @@ class InboundNearbyConnection: NearbyConnection {
     }
     
 
-    func submitUserConsent(accepted: Bool, trustDevice: Bool) {
+    func submitUserConsent(accepted: Bool, trustDevice: Bool, notificationSyncToken: String? = nil) {
         if isNotificationSyncSetupPing, let peerCertificate = peerCertificate {
             let secretIdHex = peerCertificate.secretID.hex
             if accepted {
-                if TrustStore.shared.findTrustedKey(for: peerCertificate.secretID) == nil,
-                   let pinCode = pinCode {
-                    TrustStore.shared.registerPendingNotificationSyncTrust(
-                        secretIdHex: secretIdHex,
-                        pinCode: pinCode
-                    )
+                if TrustStore.shared.findTrustedKey(for: peerCertificate.secretID) == nil {
+                    if let token = notificationSyncToken {
+                        TrustStore.shared.registerPendingNotificationSyncTrust(
+                            secretIdHex: secretIdHex,
+                            pinCode: token
+                        )
+                    } else {
+                        log("[InboundNearbyConnection \(self.id)] Missing notification sync pairing token; pending trust not registered.")
+                        TrustStore.shared.clearPendingNotificationSyncTrust(secretIdHex: secretIdHex)
+                    }
                 }
             } else {
                 TrustStore.shared.clearPendingNotificationSyncTrust(secretIdHex: secretIdHex)

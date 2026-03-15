@@ -396,11 +396,16 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     }
     
     
-    public func submitUserConsent(transferID: String, accept: Bool, trustDevice: Bool) {
+    public func submitUserConsent(
+        transferID: String,
+        accept: Bool,
+        trustDevice: Bool,
+        notificationSyncToken: String? = nil
+    ) {
         guard let conn = incomingConnections[transferID] else { return }
         
         log("[NearbyConnectionManager] Submitting user consent for transfer \(transferID), accepted: \(accept)")
-        conn.submitUserConsent(accepted: accept, trustDevice: trustDevice)
+        conn.submitUserConsent(accepted: accept, trustDevice: trustDevice, notificationSyncToken: notificationSyncToken)
     }
     
     

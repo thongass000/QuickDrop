@@ -81,28 +81,32 @@ struct QuickDropToastView: View {
                         VStack(alignment: .leading, spacing: 1) {
                             if let consent = consent {
                                 if isNotificationSyncToast {
-                                    Text(verbatim: "QuickDrop | \(consent.pinCodeMessage)")
-                                        .font(headerFont)
-                                        .lineLimit(1)
-                                        .fixedSize(horizontal: true, vertical: false)
-
+                                    HStack {
+                                        Text(String("QuickDrop"))
+                                            .font(headerFont)
+                                            .lineLimit(1)
+                                        
+                                        Text("FromDevice".localized(with: deviceName))
+                                            .font(subheaderFont)
+                                            .foregroundColor(subheaderColor)
+                                            .lineLimit(1)
+                                            .truncationMode(.tail)
+                                    }
+                                    
                                     Text(consent.message)
                                         .font(subheaderFont)
                                         .foregroundColor(subheaderColor)
                                         .lineLimit(2)
-                                        .fixedSize(horizontal: false, vertical: true)
                                         .truncationMode(.tail)
                                 } else {
                                     Text(verbatim: "QuickDrop | \(consent.pinCodeMessage)")
                                         .font(headerFont)
                                         .lineLimit(1)
-                                        .fixedSize(horizontal: true, vertical: false)
-
+                                    
                                     Text(consent.message)
                                         .font(subheaderFont)
                                         .foregroundColor(subheaderColor)
                                         .lineLimit(2)
-                                        .fixedSize(horizontal: false, vertical: true)
                                         .truncationMode(.tail)
                                 }
                             } else {
@@ -110,7 +114,6 @@ struct QuickDropToastView: View {
                                     Text(String("QuickDrop"))
                                         .font(headerFont)
                                         .lineLimit(1)
-                                        .fixedSize(horizontal: true, vertical: false)
                                     
                                     if consent == nil, actions == nil {
                                         Text("FromDevice".localized(with: deviceName))
@@ -118,7 +121,6 @@ struct QuickDropToastView: View {
                                             .foregroundColor(subheaderColor)
                                             .lineLimit(1)
                                             .truncationMode(.tail)
-                                            .padding(.trailing, 16)
                                     }
                                 }
                                 

@@ -93,12 +93,10 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                 let resolvedSenderName = (senderName?.isEmpty == false) ? senderName! : "AndroidDevice".localized()
                 self.activeDeviceName = resolvedSenderName
 
-                let pinCode = transfer.pinCode ?? "----"
-                let pinHeader = "PinCode".localized(with: pinCode)
-                let compareMessage = "NotificationSyncToastPinSubtitle".localized()
+                let compareMessage = "NotificationSyncToastQrSubtitle".localized()
                 self.consentState = ConsentToastState(
                     transferID: transferID,
-                    pinCodeMessage: pinHeader,
+                    pinCodeMessage: "",
                     message: compareMessage,
                     notificationSyncStage: .consent,
                     allowsTrust: false,
@@ -107,7 +105,24 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                         withAnimation {
                             self.consentState = nil
                         }
-                        primaryButtonAction(false)
+                        guard let receiverFingerprint = NotificationSyncPairingToken.receiverFingerprintHex() else {
+                            log("[ReceiveModel] Missing local receiver fingerprint; cannot start notification sync pairing.")
+                            secondaryButtonAction()
+                            self.hideQuickDropToast(style: .fade)
+                            return
+                        }
+                        let pairingToken = NotificationSyncPairingToken.generate()
+                        NotificationSyncQrSheetManager.shared.open(
+                            token: pairingToken,
+                            receiverFingerprint: receiverFingerprint,
+                            deviceName: resolvedSenderName
+                        )
+                        NearbyConnectionManager.shared.submitUserConsent(
+                            transferID: transferID,
+                            accept: true,
+                            trustDevice: false,
+                            notificationSyncToken: pairingToken
+                        )
                         self.hideQuickDropToast(style: .fade)
                     },
                     declineAction: { [weak self] in
@@ -223,6 +238,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
             if self.consentState?.notificationSyncStage != nil {
                 self.hideQuickDropToast(style: .fade)
             }
+            NotificationSyncQrSheetManager.shared.close()
         }
         #endif
     }

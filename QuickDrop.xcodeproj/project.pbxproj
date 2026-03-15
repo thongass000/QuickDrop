@@ -20,6 +20,10 @@
 		A1B2C3D72F33AA0100ABC001 /* MirroredNotificationSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3DA2F33AA0100ABC001 /* MirroredNotificationSupport.swift */; };
 		A1B2C3D82F33AA0100ABC001 /* MirroredNotificationSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3DA2F33AA0100ABC001 /* MirroredNotificationSupport.swift */; };
 		A1B2C3D92F33AA0100ABC001 /* MirroredNotificationSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3DA2F33AA0100ABC001 /* MirroredNotificationSupport.swift */; };
+		A1F5B3DB2F3A1A0100A1B2C6 /* NotificationSyncPairingToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F5B3D82F3A1A0100A1B2C3 /* NotificationSyncPairingToken.swift */; };
+		A1F5B3DC2F3A1A0100A1B2C7 /* NotificationSyncPairingToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F5B3D82F3A1A0100A1B2C3 /* NotificationSyncPairingToken.swift */; };
+		A1F5B3DD2F3A1A0100A1B2C8 /* NotificationSyncQrSheetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F5B3D92F3A1A0100A1B2C4 /* NotificationSyncQrSheetManager.swift */; };
+		A1F5B3DE2F3A1A0100A1B2C9 /* NotificationSyncQrSheetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F5B3D92F3A1A0100A1B2C4 /* NotificationSyncQrSheetManager.swift */; };
 		EB05DFBE2E59FC8900EF567A /* TrustedDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */; };
 		EB05DFBF2E59FD0A00EF567A /* TrustedDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */; };
 		EB05DFC02E5A2EAA00EF567A /* TrustedDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05DFBD2E59FC8000EF567A /* TrustedDevicesView.swift */; };
@@ -511,6 +515,7 @@
 		EB16B7762E59BA9F007D9792 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		EB2B41E32DC63AC80070FC39 /* SleepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager.swift; sourceTree = "<group>"; };
 		EB2F9BFA2DA04B67004010A2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		A1F5B3D82F3A1A0100A1B2C3 /* NotificationSyncPairingToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSyncPairingToken.swift; sourceTree = "<group>"; };
 		EB36435F2D73A29F009CDFF8 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		EB3B9F482EF7150400D6704E /* QuickDropGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDropGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3B9F492EF7150400D6704E /* QuickDrop copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "QuickDrop copy-Info.plist"; path = "/Users/leonboettger/QuickDrop Backup with git/QuickDrop copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -535,6 +540,7 @@
 		EB7F54112D78E95C00989564 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		EB7F54132D78E9E400989564 /* LicenseWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWindow.swift; sourceTree = "<group>"; };
 		EB869DB42E92AA33009AAAD4 /* QuickDropToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDropToastView.swift; sourceTree = "<group>"; };
+		A1F5B3D92F3A1A0100A1B2C4 /* NotificationSyncQrSheetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSyncQrSheetManager.swift; sourceTree = "<group>"; };
 		EB886E512E4E19390052B7D9 /* HKDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKDF.swift; sourceTree = "<group>"; };
 		EB886E662E4F2F7C0052B7D9 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		EB950B2D2E52027F002D68FA /* iOSShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = iOSShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -765,6 +771,7 @@
 				EB886E512E4E19390052B7D9 /* HKDF.swift */,
 				EB4F9D232EC27CF000A74A0F /* FileManager+DocumentsOpener.swift */,
 				EB2F9BFA2DA04B67004010A2 /* Helpers.swift */,
+				A1F5B3D82F3A1A0100A1B2C3 /* NotificationSyncPairingToken.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -896,11 +903,20 @@
 				EB7654772E525ACC006B4AA3 /* MainMenu.xib */,
 				EB6E51A92F2F95EE006D9812 /* UserManual */,
 				EB6E51AA2F2F9606006D9812 /* Toast */,
+				A1F5B3DA2F3A1A0100A1B2C5 /* NotificationSync */,
 				EB6E51A82F2F95E0006D9812 /* Settings */,
 				EB6E51A72F2F95D0006D9812 /* Introduction */,
 				EBC05C812E33B58300EECC18 /* IssueViews */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A1F5B3DA2F3A1A0100A1B2C5 /* NotificationSync */ = {
+			isa = PBXGroup;
+			children = (
+				A1F5B3D92F3A1A0100A1B2C4 /* NotificationSyncQrSheetManager.swift */,
+			);
+			path = NotificationSync;
 			sourceTree = "<group>";
 		};
 		EBC05C6B2E33B57100EECC18 /* Util */ = {
@@ -1330,6 +1346,8 @@
 				EB16B6152E58B4B9007D9792 /* IdentityManager.swift in Sources */,
 				EB5C37C42E377A780052EFD7 /* securegcm.pb.swift in Sources */,
 				EB97A0102E51CD13008B8C5C /* ReceiveModel.swift in Sources */,
+				A1F5B3DD2F3A1A0100A1B2C8 /* NotificationSyncQrSheetManager.swift in Sources */,
+				A1F5B3DB2F3A1A0100A1B2C6 /* NotificationSyncPairingToken.swift in Sources */,
 				EB5C37CB2E377A7F0052EFD7 /* NearbyConnection.swift in Sources */,
 				EB5C37CC2E377A7F0052EFD7 /* DataModel.swift in Sources */,
 				EB5C37CD2E377A7F0052EFD7 /* OutboundNearbyConnection.swift in Sources */,
@@ -1385,6 +1403,8 @@
 				EB3B9F112EF7150400D6704E /* IdentityManager.swift in Sources */,
 				EB3B9F122EF7150400D6704E /* securegcm.pb.swift in Sources */,
 				EB3B9F132EF7150400D6704E /* ReceiveModel.swift in Sources */,
+				A1F5B3DE2F3A1A0100A1B2C9 /* NotificationSyncQrSheetManager.swift in Sources */,
+				A1F5B3DC2F3A1A0100A1B2C7 /* NotificationSyncPairingToken.swift in Sources */,
 				EB3B9F142EF7150400D6704E /* NearbyConnection.swift in Sources */,
 				EB3B9F152EF7150400D6704E /* DataModel.swift in Sources */,
 				EB3B9F162EF7150400D6704E /* OutboundNearbyConnection.swift in Sources */,
