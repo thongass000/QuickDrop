@@ -365,9 +365,9 @@ fileprivate struct ToastButtonLabel: View {
             .lineLimit(1)
             .padding(.horizontal, 7)
             .padding(.vertical, 3.5)
-            .background(Color.gray.opacity(showsBackground ? 0.1 : 0).cornerRadius(5))
+            .background(Color.gray.opacity(showsBackground ? 0.1 : 0).cornerRadius(10))
             .padding(.horizontal, 7)
-            .padding(.vertical, 4)
+            .padding(.vertical, 3)
             .contentShape(Rectangle())
     }
 }
