@@ -23994,229 +23994,229 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "امسح الرمز باستخدام %1$@ لإكمال العملية."
+            "value" : "امسح الرمز باستخدام %1$@ لإكمال الاقتران."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Escaneja el codi amb %1$@ per completar."
+            "value" : "Escaneja el codi amb %1$@ per completar l'aparellament."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Naskenujte kód pomocí %1$@ a dokončete."
+            "value" : "Naskenujte kód pomocí %1$@ pro dokončení spárování."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan koden med %1$@ for at fuldføre."
+            "value" : "Scan koden med %1$@ for at fuldføre parringen."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scanne den Code mit %1$@, um abzuschließen."
+            "value" : "Scanne den Code mit %1$@, um das Koppeln abzuschließen."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Σαρώστε τον κωδικό με %1$@ για να ολοκληρώσετε."
+            "value" : "Σαρώστε τον κωδικό με το %1$@ για να ολοκληρώσετε τη σύζευξη."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan the code with %1$@ to complete."
+            "value" : "Scan the code with %1$@ to finish pairing."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan the code with %1$@ to complete."
+            "value" : "Scan the code with %1$@ to finish pairing."
           }
         },
         "en-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan the code with %1$@ to complete."
+            "value" : "Scan the code with %1$@ to finish pairing."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan the code with %1$@ to complete."
+            "value" : "Scan the code with %1$@ to finish pairing."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Escanea el código con %1$@ para completar."
+            "value" : "Escanea el código con %1$@ para finalizar el emparejamiento."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Escanea el código con %1$@ para completar."
+            "value" : "Escanea el código con %1$@ para finalizar el emparejamiento."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skannaa koodi laitteella %1$@ viimeistelläksesi."
+            "value" : "Skannaa koodi laitteella %1$@ pariliitoksen viimeistelemiseksi."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scannez le code avec %1$@ pour terminer."
+            "value" : "Scannez le code avec %1$@ pour terminer l’appairage."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scannez le code avec %1$@ pour terminer."
+            "value" : "Scannez le code avec %1$@ pour terminer l’appariement."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "סרוק את הקוד עם %1$@ כדי להשלים."
+            "value" : "סרקו את הקוד עם ‏%1$@ כדי לסיים את ההתאמה."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "पूरा करने के लिए %1$@ से कोड स्कैन करें।"
+            "value" : "पेयरिंग पूरा करने के लिए %1$@ से कोड स्कैन करें।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skenirajte kod pomoću %1$@ da biste dovršili."
+            "value" : "Skenirajte kod s uređajem %1$@ za dovršetak uparivanja."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Olvasd be a kódot %1$@ segítségével a befejezéshez."
+            "value" : "Olvasd be a kódot a(z) %1$@ eszközzel a párosítás befejezéséhez."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pindai kode dengan %1$@ untuk menyelesaikan."
+            "value" : "Pindai kode dengan %1$@ untuk menyelesaikan pemasangan."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scansiona il codice con %1$@ per completare."
+            "value" : "Scansiona il codice con %1$@ per completare l’abbinamento."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "完了するには%1$@でコードをスキャンしてください。"
+            "value" : "ペア設定を完了するには、%1$@でコードをスキャンしてください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@로 코드를 스캔해 완료하세요."
+            "value" : "%1$@로 코드를 스캔하여 페어링을 완료하세요."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imbas kod dengan %1$@ untuk melengkapkan."
+            "value" : "Imbas kod dengan %1$@ untuk selesaikan pemasangan."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skann koden med %1$@ for å fullføre."
+            "value" : "Skann koden med %1$@ for å fullføre paringen."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan de code met %1$@ om te voltooien."
+            "value" : "Scan de code met %1$@ om het koppelen te voltooien."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zeskanuj kod za pomocą %1$@, aby zakończyć."
+            "value" : "Zeskanuj kod za pomocą %1$@, aby zakończyć parowanie."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Escaneie o código com %1$@ para concluir."
+            "value" : "Escaneie o código com %1$@ para concluir o pareamento."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Digitalize o código com %1$@ para concluir."
+            "value" : "Digitalize o código com %1$@ para concluir o emparelhamento."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scanează codul cu %1$@ pentru a finaliza."
+            "value" : "Scanează codul cu %1$@ pentru a finaliza împerecherea."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Отсканируйте код с помощью %1$@, чтобы завершить."
+            "value" : "Сканируйте код с помощью %1$@ для завершения соединения."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skanna koden med %1$@ för att slutföra."
+            "value" : "Skanna koden med %1$@ för att slutföra parkopplingen."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "สแกนโค้ดด้วย %1$@ เพื่อให้เสร็จสิ้น"
+            "value" : "สแกนโค้ดด้วย %1$@ เพื่อเสร็จสิ้นการจับคู่"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tamamlamak için %1$@ ile kodu tarayın."
+            "value" : "Eşleştirmeyi tamamlamak için %1$@ ile kodu tarayın."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Відскануйте код за допомогою %1$@, щоб завершити."
+            "value" : "Відскануйте код за допомогою %1$@, щоб завершити сполучення."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quét mã bằng %1$@ để hoàn tất."
+            "value" : "Quét mã bằng %1$@ để hoàn tất ghép nối."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "用 %1$@ 扫描此代码以完成。"
+            "value" : "用 %1$@ 扫描二维码以完成配对。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "用 %1$@ 掃描此代碼以完成。"
+            "value" : "請使用 %1$@ 掃描此碼以完成配對。"
           }
         }
       }
