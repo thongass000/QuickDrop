@@ -511,17 +511,12 @@ class NearbyConnection {
         guard peerKey.hasEcP256PublicKey else { throw NearbyError.requiredFieldMissing("peerKey.ecP256PublicKey") }
         
         let domain = Domain.instance(curve: .EC256r1)
-        var clientX = peerKey.ecP256PublicKey.x
-        var clientY = peerKey.ecP256PublicKey.y
-        if clientX.count > 32 {
-            clientX = clientX.suffix(32)
-        }
-        if clientY.count > 32 {
-            clientY = clientY.suffix(32)
-        }
+        let clientX = peerKey.ecP256PublicKey.x.ensureLength(length: 32)
+        let clientY = peerKey.ecP256PublicKey.y.ensureLength(length: 32)
         let key = try ECPublicKey(domain: domain, w: Point(BInt(magnitude: [UInt8](clientX)), BInt(magnitude: [UInt8](clientY))))
         
-        let dhs = try (privateKey?.domain.multiplyPoint(key.w, privateKey!.s).x.asMagnitudeBytes())!
+        let dhsRaw = try (privateKey?.domain.multiplyPoint(key.w, privateKey!.s).x.asMagnitudeBytes())!
+        let dhs = Data(dhsRaw).ensureLength(length: 32)
         var sha = SHA256()
         sha.update(data: dhs)
         let derivedSecretKey = Data(sha.finalize())

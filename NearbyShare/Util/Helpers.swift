@@ -31,17 +31,6 @@ extension Data {
         return data
     }
     
-    
-    func suffixOfAtMost(numBytes: Int) -> Data {
-        
-        if count <= numBytes {
-            return self
-        }
-        
-        return subdata(in: count-numBytes..<count)
-    }
-    
-    
     static func dataFromUrlSafeBase64(_ str: String) -> Data? {
         var regularB64 = String(str.map {
             if $0 == "_" {

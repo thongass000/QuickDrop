@@ -628,7 +628,7 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         
         var keyData = Data()
         keyData.append(contentsOf: [0, 0, 2])
-        keyData.append(Data(pubKey.w.x.asSignedBytes()).suffixOfAtMost(numBytes: 32))
+        keyData.append(Data(pubKey.w.x.asSignedBytes()).ensureLength(length: 32))
         
         let ikm = SymmetricKey(data: keyData)
         
