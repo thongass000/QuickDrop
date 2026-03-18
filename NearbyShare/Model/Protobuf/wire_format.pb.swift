@@ -403,6 +403,43 @@ struct Sharing_Nearby_MirroredNotificationMetadata: Sendable {
   /// Clears the value of `postedAtEpochMs`. Subsequent reads from it will return its default value.
   mutating func clearPostedAtEpochMs() {self._postedAtEpochMs = nil}
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _version: Int32? = nil
+  fileprivate var _notificationKey: String? = nil
+  fileprivate var _packageName: String? = nil
+  fileprivate var _appName: String? = nil
+  fileprivate var _title: String? = nil
+  fileprivate var _body: String? = nil
+  fileprivate var _postedAtEpochMs: Int64? = nil
+}
+
+/// NEXT_ID=5
+struct Sharing_Nearby_PairingMetadata: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var version: Int32 {
+    get {return _version ?? 1}
+    set {_version = newValue}
+  }
+  /// Returns true if `version` has been explicitly set.
+  var hasVersion: Bool {return self._version != nil}
+  /// Clears the value of `version`. Subsequent reads from it will return its default value.
+  mutating func clearVersion() {self._version = nil}
+
+  var useCase: Sharing_Nearby_PairingMetadata.UseCase {
+    get {return _useCase ?? .unknown}
+    set {_useCase = newValue}
+  }
+  /// Returns true if `useCase` has been explicitly set.
+  var hasUseCase: Bool {return self._useCase != nil}
+  /// Clears the value of `useCase`. Subsequent reads from it will return its default value.
+  mutating func clearUseCase() {self._useCase = nil}
+
   var setupRequest: Bool {
     get {return _setupRequest ?? false}
     set {_setupRequest = newValue}
@@ -423,15 +460,21 @@ struct Sharing_Nearby_MirroredNotificationMetadata: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  enum UseCase: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case unknown = 0
+    case notificationSync = 1
+    case clipboardSync = 2
+
+    init() {
+      self = .unknown
+    }
+
+  }
+
   init() {}
 
   fileprivate var _version: Int32? = nil
-  fileprivate var _notificationKey: String? = nil
-  fileprivate var _packageName: String? = nil
-  fileprivate var _appName: String? = nil
-  fileprivate var _title: String? = nil
-  fileprivate var _body: String? = nil
-  fileprivate var _postedAtEpochMs: Int64? = nil
+  fileprivate var _useCase: Sharing_Nearby_PairingMetadata.UseCase? = nil
   fileprivate var _setupRequest: Bool? = nil
   fileprivate var _setupPinHash: Data? = nil
 }
@@ -607,76 +650,76 @@ struct Sharing_Nearby_Frame: Sendable {
 }
 
 /// NEXT_ID=8
-struct Sharing_Nearby_V1Frame: @unchecked Sendable {
+struct Sharing_Nearby_V1Frame: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var type: Sharing_Nearby_V1Frame.FrameType {
-    get {return _storage._type ?? .unknownFrameType}
-    set {_uniqueStorage()._type = newValue}
+    get {return _type ?? .unknownFrameType}
+    set {_type = newValue}
   }
   /// Returns true if `type` has been explicitly set.
-  var hasType: Bool {return _storage._type != nil}
+  var hasType: Bool {return self._type != nil}
   /// Clears the value of `type`. Subsequent reads from it will return its default value.
-  mutating func clearType() {_uniqueStorage()._type = nil}
+  mutating func clearType() {self._type = nil}
 
   /// At most one of the following fields will be set.
   var introduction: Sharing_Nearby_IntroductionFrame {
-    get {return _storage._introduction ?? Sharing_Nearby_IntroductionFrame()}
-    set {_uniqueStorage()._introduction = newValue}
+    get {return _introduction ?? Sharing_Nearby_IntroductionFrame()}
+    set {_introduction = newValue}
   }
   /// Returns true if `introduction` has been explicitly set.
-  var hasIntroduction: Bool {return _storage._introduction != nil}
+  var hasIntroduction: Bool {return self._introduction != nil}
   /// Clears the value of `introduction`. Subsequent reads from it will return its default value.
-  mutating func clearIntroduction() {_uniqueStorage()._introduction = nil}
+  mutating func clearIntroduction() {self._introduction = nil}
 
   var connectionResponse: Sharing_Nearby_ConnectionResponseFrame {
-    get {return _storage._connectionResponse ?? Sharing_Nearby_ConnectionResponseFrame()}
-    set {_uniqueStorage()._connectionResponse = newValue}
+    get {return _connectionResponse ?? Sharing_Nearby_ConnectionResponseFrame()}
+    set {_connectionResponse = newValue}
   }
   /// Returns true if `connectionResponse` has been explicitly set.
-  var hasConnectionResponse: Bool {return _storage._connectionResponse != nil}
+  var hasConnectionResponse: Bool {return self._connectionResponse != nil}
   /// Clears the value of `connectionResponse`. Subsequent reads from it will return its default value.
-  mutating func clearConnectionResponse() {_uniqueStorage()._connectionResponse = nil}
+  mutating func clearConnectionResponse() {self._connectionResponse = nil}
 
   var pairedKeyEncryption: Sharing_Nearby_PairedKeyEncryptionFrame {
-    get {return _storage._pairedKeyEncryption ?? Sharing_Nearby_PairedKeyEncryptionFrame()}
-    set {_uniqueStorage()._pairedKeyEncryption = newValue}
+    get {return _pairedKeyEncryption ?? Sharing_Nearby_PairedKeyEncryptionFrame()}
+    set {_pairedKeyEncryption = newValue}
   }
   /// Returns true if `pairedKeyEncryption` has been explicitly set.
-  var hasPairedKeyEncryption: Bool {return _storage._pairedKeyEncryption != nil}
+  var hasPairedKeyEncryption: Bool {return self._pairedKeyEncryption != nil}
   /// Clears the value of `pairedKeyEncryption`. Subsequent reads from it will return its default value.
-  mutating func clearPairedKeyEncryption() {_uniqueStorage()._pairedKeyEncryption = nil}
+  mutating func clearPairedKeyEncryption() {self._pairedKeyEncryption = nil}
 
   var pairedKeyResult: Sharing_Nearby_PairedKeyResultFrame {
-    get {return _storage._pairedKeyResult ?? Sharing_Nearby_PairedKeyResultFrame()}
-    set {_uniqueStorage()._pairedKeyResult = newValue}
+    get {return _pairedKeyResult ?? Sharing_Nearby_PairedKeyResultFrame()}
+    set {_pairedKeyResult = newValue}
   }
   /// Returns true if `pairedKeyResult` has been explicitly set.
-  var hasPairedKeyResult: Bool {return _storage._pairedKeyResult != nil}
+  var hasPairedKeyResult: Bool {return self._pairedKeyResult != nil}
   /// Clears the value of `pairedKeyResult`. Subsequent reads from it will return its default value.
-  mutating func clearPairedKeyResult() {_uniqueStorage()._pairedKeyResult = nil}
+  mutating func clearPairedKeyResult() {self._pairedKeyResult = nil}
 
   /// NOTE: This field was marked as deprecated in the .proto file.
   var certificateInfo: Sharing_Nearby_CertificateInfoFrame {
-    get {return _storage._certificateInfo ?? Sharing_Nearby_CertificateInfoFrame()}
-    set {_uniqueStorage()._certificateInfo = newValue}
+    get {return _certificateInfo ?? Sharing_Nearby_CertificateInfoFrame()}
+    set {_certificateInfo = newValue}
   }
   /// Returns true if `certificateInfo` has been explicitly set.
-  var hasCertificateInfo: Bool {return _storage._certificateInfo != nil}
+  var hasCertificateInfo: Bool {return self._certificateInfo != nil}
   /// Clears the value of `certificateInfo`. Subsequent reads from it will return its default value.
-  mutating func clearCertificateInfo() {_uniqueStorage()._certificateInfo = nil}
+  mutating func clearCertificateInfo() {self._certificateInfo = nil}
 
   /// NOTE: This field was marked as deprecated in the .proto file.
   var progressUpdate: Sharing_Nearby_ProgressUpdateFrame {
-    get {return _storage._progressUpdate ?? Sharing_Nearby_ProgressUpdateFrame()}
-    set {_uniqueStorage()._progressUpdate = newValue}
+    get {return _progressUpdate ?? Sharing_Nearby_ProgressUpdateFrame()}
+    set {_progressUpdate = newValue}
   }
   /// Returns true if `progressUpdate` has been explicitly set.
-  var hasProgressUpdate: Bool {return _storage._progressUpdate != nil}
+  var hasProgressUpdate: Bool {return self._progressUpdate != nil}
   /// Clears the value of `progressUpdate`. Subsequent reads from it will return its default value.
-  mutating func clearProgressUpdate() {_uniqueStorage()._progressUpdate = nil}
+  mutating func clearProgressUpdate() {self._progressUpdate = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -702,65 +745,98 @@ struct Sharing_Nearby_V1Frame: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _type: Sharing_Nearby_V1Frame.FrameType? = nil
+  fileprivate var _introduction: Sharing_Nearby_IntroductionFrame? = nil
+  fileprivate var _connectionResponse: Sharing_Nearby_ConnectionResponseFrame? = nil
+  fileprivate var _pairedKeyEncryption: Sharing_Nearby_PairedKeyEncryptionFrame? = nil
+  fileprivate var _pairedKeyResult: Sharing_Nearby_PairedKeyResultFrame? = nil
+  fileprivate var _certificateInfo: Sharing_Nearby_CertificateInfoFrame? = nil
+  fileprivate var _progressUpdate: Sharing_Nearby_ProgressUpdateFrame? = nil
 }
 
 /// An introduction packet sent by the sending side. Contains a list of files
 /// they'd like to share.
-/// NEXT_ID=1002
-struct Sharing_Nearby_IntroductionFrame: Sendable {
+/// NEXT_ID=1003
+struct Sharing_Nearby_IntroductionFrame: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var fileMetadata: [Sharing_Nearby_FileMetadata] = []
+  var fileMetadata: [Sharing_Nearby_FileMetadata] {
+    get {return _storage._fileMetadata}
+    set {_uniqueStorage()._fileMetadata = newValue}
+  }
 
-  var textMetadata: [Sharing_Nearby_TextMetadata] = []
+  var textMetadata: [Sharing_Nearby_TextMetadata] {
+    get {return _storage._textMetadata}
+    set {_uniqueStorage()._textMetadata = newValue}
+  }
 
   /// The required app package to open the content. May be null.
   var requiredPackage: String {
-    get {return _requiredPackage ?? String()}
-    set {_requiredPackage = newValue}
+    get {return _storage._requiredPackage ?? String()}
+    set {_uniqueStorage()._requiredPackage = newValue}
   }
   /// Returns true if `requiredPackage` has been explicitly set.
-  var hasRequiredPackage: Bool {return self._requiredPackage != nil}
+  var hasRequiredPackage: Bool {return _storage._requiredPackage != nil}
   /// Clears the value of `requiredPackage`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredPackage() {self._requiredPackage = nil}
+  mutating func clearRequiredPackage() {_uniqueStorage()._requiredPackage = nil}
 
-  var wifiCredentialsMetadata: [Sharing_Nearby_WifiCredentialsMetadata] = []
+  var wifiCredentialsMetadata: [Sharing_Nearby_WifiCredentialsMetadata] {
+    get {return _storage._wifiCredentialsMetadata}
+    set {_uniqueStorage()._wifiCredentialsMetadata = newValue}
+  }
 
-  var appMetadata: [Sharing_Nearby_AppMetadata] = []
+  var appMetadata: [Sharing_Nearby_AppMetadata] {
+    get {return _storage._appMetadata}
+    set {_uniqueStorage()._appMetadata = newValue}
+  }
 
   var startTransfer: Bool {
-    get {return _startTransfer ?? false}
-    set {_startTransfer = newValue}
+    get {return _storage._startTransfer ?? false}
+    set {_uniqueStorage()._startTransfer = newValue}
   }
   /// Returns true if `startTransfer` has been explicitly set.
-  var hasStartTransfer: Bool {return self._startTransfer != nil}
+  var hasStartTransfer: Bool {return _storage._startTransfer != nil}
   /// Clears the value of `startTransfer`. Subsequent reads from it will return its default value.
-  mutating func clearStartTransfer() {self._startTransfer = nil}
+  mutating func clearStartTransfer() {_uniqueStorage()._startTransfer = nil}
 
-  var streamMetadata: [Sharing_Nearby_StreamMetadata] = []
+  var streamMetadata: [Sharing_Nearby_StreamMetadata] {
+    get {return _storage._streamMetadata}
+    set {_uniqueStorage()._streamMetadata = newValue}
+  }
 
   var useCase: Sharing_Nearby_IntroductionFrame.SharingUseCase {
-    get {return _useCase ?? .unknown}
-    set {_useCase = newValue}
+    get {return _storage._useCase ?? .unknown}
+    set {_uniqueStorage()._useCase = newValue}
   }
   /// Returns true if `useCase` has been explicitly set.
-  var hasUseCase: Bool {return self._useCase != nil}
+  var hasUseCase: Bool {return _storage._useCase != nil}
   /// Clears the value of `useCase`. Subsequent reads from it will return its default value.
-  mutating func clearUseCase() {self._useCase = nil}
+  mutating func clearUseCase() {_uniqueStorage()._useCase = nil}
 
-  var previewPayloadIds: [Int64] = []
+  var previewPayloadIds: [Int64] {
+    get {return _storage._previewPayloadIds}
+    set {_uniqueStorage()._previewPayloadIds = newValue}
+  }
 
   var mirroredNotificationMetadata: Sharing_Nearby_MirroredNotificationMetadata {
-    get {return _mirroredNotificationMetadata ?? Sharing_Nearby_MirroredNotificationMetadata()}
-    set {_mirroredNotificationMetadata = newValue}
+    get {return _storage._mirroredNotificationMetadata ?? Sharing_Nearby_MirroredNotificationMetadata()}
+    set {_uniqueStorage()._mirroredNotificationMetadata = newValue}
   }
   /// Returns true if `mirroredNotificationMetadata` has been explicitly set.
-  var hasMirroredNotificationMetadata: Bool {return self._mirroredNotificationMetadata != nil}
+  var hasMirroredNotificationMetadata: Bool {return _storage._mirroredNotificationMetadata != nil}
   /// Clears the value of `mirroredNotificationMetadata`. Subsequent reads from it will return its default value.
-  mutating func clearMirroredNotificationMetadata() {self._mirroredNotificationMetadata = nil}
+  mutating func clearMirroredNotificationMetadata() {_uniqueStorage()._mirroredNotificationMetadata = nil}
+
+  var pairingMetadata: Sharing_Nearby_PairingMetadata {
+    get {return _storage._pairingMetadata ?? Sharing_Nearby_PairingMetadata()}
+    set {_uniqueStorage()._pairingMetadata = newValue}
+  }
+  /// Returns true if `pairingMetadata` has been explicitly set.
+  var hasPairingMetadata: Bool {return _storage._pairingMetadata != nil}
+  /// Clears the value of `pairingMetadata`. Subsequent reads from it will return its default value.
+  mutating func clearPairingMetadata() {_uniqueStorage()._pairingMetadata = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -777,10 +853,7 @@ struct Sharing_Nearby_IntroductionFrame: Sendable {
 
   init() {}
 
-  fileprivate var _requiredPackage: String? = nil
-  fileprivate var _startTransfer: Bool? = nil
-  fileprivate var _useCase: Sharing_Nearby_IntroductionFrame.SharingUseCase? = nil
-  fileprivate var _mirroredNotificationMetadata: Sharing_Nearby_MirroredNotificationMetadata? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// A progress update packet sent by the sending side. Contains transfer progress
@@ -1485,7 +1558,7 @@ extension Sharing_Nearby_WifiCredentialsMetadata.SecurityType: SwiftProtobuf._Pr
 
 extension Sharing_Nearby_MirroredNotificationMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MirroredNotificationMetadata"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}version\0\u{3}notification_key\0\u{3}package_name\0\u{3}app_name\0\u{1}title\0\u{1}body\0\u{3}posted_at_epoch_ms\0\u{3}setup_request\0\u{3}setup_pin_hash\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}version\0\u{3}notification_key\0\u{3}package_name\0\u{3}app_name\0\u{1}title\0\u{1}body\0\u{3}posted_at_epoch_ms\0\u{c}\u{8}\u{1}\u{c}\u{9}\u{1}")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1500,8 +1573,6 @@ extension Sharing_Nearby_MirroredNotificationMetadata: SwiftProtobuf.Message, Sw
       case 5: try { try decoder.decodeSingularStringField(value: &self._title) }()
       case 6: try { try decoder.decodeSingularStringField(value: &self._body) }()
       case 7: try { try decoder.decodeSingularInt64Field(value: &self._postedAtEpochMs) }()
-      case 8: try { try decoder.decodeSingularBoolField(value: &self._setupRequest) }()
-      case 9: try { try decoder.decodeSingularBytesField(value: &self._setupPinHash) }()
       default: break
       }
     }
@@ -1533,12 +1604,6 @@ extension Sharing_Nearby_MirroredNotificationMetadata: SwiftProtobuf.Message, Sw
     try { if let v = self._postedAtEpochMs {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 7)
     } }()
-    try { if let v = self._setupRequest {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 8)
-    } }()
-    try { if let v = self._setupPinHash {
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 9)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1550,11 +1615,62 @@ extension Sharing_Nearby_MirroredNotificationMetadata: SwiftProtobuf.Message, Sw
     if lhs._title != rhs._title {return false}
     if lhs._body != rhs._body {return false}
     if lhs._postedAtEpochMs != rhs._postedAtEpochMs {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Sharing_Nearby_PairingMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".PairingMetadata"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}version\0\u{3}use_case\0\u{3}setup_request\0\u{3}setup_pin_hash\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._version) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self._useCase) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self._setupRequest) }()
+      case 4: try { try decoder.decodeSingularBytesField(value: &self._setupPinHash) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._version {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._useCase {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._setupRequest {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._setupPinHash {
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 4)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Sharing_Nearby_PairingMetadata, rhs: Sharing_Nearby_PairingMetadata) -> Bool {
+    if lhs._version != rhs._version {return false}
+    if lhs._useCase != rhs._useCase {return false}
     if lhs._setupRequest != rhs._setupRequest {return false}
     if lhs._setupPinHash != rhs._setupPinHash {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension Sharing_Nearby_PairingMetadata.UseCase: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNKNOWN\0\u{1}NOTIFICATION_SYNC\0\u{1}CLIPBOARD_SYNC\0")
 }
 
 extension Sharing_Nearby_AppMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -1717,14 +1833,86 @@ extension Sharing_Nearby_V1Frame: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   static let protoMessageName: String = _protobuf_package + ".V1Frame"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}type\0\u{1}introduction\0\u{3}connection_response\0\u{3}paired_key_encryption\0\u{3}paired_key_result\0\u{3}certificate_info\0\u{3}progress_update\0")
 
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self._type) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._introduction) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._connectionResponse) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._pairedKeyEncryption) }()
+      case 5: try { try decoder.decodeSingularMessageField(value: &self._pairedKeyResult) }()
+      case 6: try { try decoder.decodeSingularMessageField(value: &self._certificateInfo) }()
+      case 7: try { try decoder.decodeSingularMessageField(value: &self._progressUpdate) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._type {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._introduction {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._connectionResponse {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._pairedKeyEncryption {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._pairedKeyResult {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    } }()
+    try { if let v = self._certificateInfo {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+    } }()
+    try { if let v = self._progressUpdate {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Sharing_Nearby_V1Frame, rhs: Sharing_Nearby_V1Frame) -> Bool {
+    if lhs._type != rhs._type {return false}
+    if lhs._introduction != rhs._introduction {return false}
+    if lhs._connectionResponse != rhs._connectionResponse {return false}
+    if lhs._pairedKeyEncryption != rhs._pairedKeyEncryption {return false}
+    if lhs._pairedKeyResult != rhs._pairedKeyResult {return false}
+    if lhs._certificateInfo != rhs._certificateInfo {return false}
+    if lhs._progressUpdate != rhs._progressUpdate {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Sharing_Nearby_V1Frame.FrameType: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNKNOWN_FRAME_TYPE\0\u{1}INTRODUCTION\0\u{1}RESPONSE\0\u{1}PAIRED_KEY_ENCRYPTION\0\u{1}PAIRED_KEY_RESULT\0\u{1}CERTIFICATE_INFO\0\u{1}CANCEL\0\u{1}PROGRESS_UPDATE\0")
+}
+
+extension Sharing_Nearby_IntroductionFrame: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".IntroductionFrame"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_metadata\0\u{3}text_metadata\0\u{3}required_package\0\u{3}wifi_credentials_metadata\0\u{3}app_metadata\0\u{3}start_transfer\0\u{3}stream_metadata\0\u{3}use_case\0\u{3}preview_payload_ids\0\u{4}`\u{f}mirrored_notification_metadata\0\u{3}pairing_metadata\0")
+
   fileprivate class _StorageClass {
-    var _type: Sharing_Nearby_V1Frame.FrameType? = nil
-    var _introduction: Sharing_Nearby_IntroductionFrame? = nil
-    var _connectionResponse: Sharing_Nearby_ConnectionResponseFrame? = nil
-    var _pairedKeyEncryption: Sharing_Nearby_PairedKeyEncryptionFrame? = nil
-    var _pairedKeyResult: Sharing_Nearby_PairedKeyResultFrame? = nil
-    var _certificateInfo: Sharing_Nearby_CertificateInfoFrame? = nil
-    var _progressUpdate: Sharing_Nearby_ProgressUpdateFrame? = nil
+    var _fileMetadata: [Sharing_Nearby_FileMetadata] = []
+    var _textMetadata: [Sharing_Nearby_TextMetadata] = []
+    var _requiredPackage: String? = nil
+    var _wifiCredentialsMetadata: [Sharing_Nearby_WifiCredentialsMetadata] = []
+    var _appMetadata: [Sharing_Nearby_AppMetadata] = []
+    var _startTransfer: Bool? = nil
+    var _streamMetadata: [Sharing_Nearby_StreamMetadata] = []
+    var _useCase: Sharing_Nearby_IntroductionFrame.SharingUseCase? = nil
+    var _previewPayloadIds: [Int64] = []
+    var _mirroredNotificationMetadata: Sharing_Nearby_MirroredNotificationMetadata? = nil
+    var _pairingMetadata: Sharing_Nearby_PairingMetadata? = nil
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -1735,13 +1923,17 @@ extension Sharing_Nearby_V1Frame: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     private init() {}
 
     init(copying source: _StorageClass) {
-      _type = source._type
-      _introduction = source._introduction
-      _connectionResponse = source._connectionResponse
-      _pairedKeyEncryption = source._pairedKeyEncryption
-      _pairedKeyResult = source._pairedKeyResult
-      _certificateInfo = source._certificateInfo
-      _progressUpdate = source._progressUpdate
+      _fileMetadata = source._fileMetadata
+      _textMetadata = source._textMetadata
+      _requiredPackage = source._requiredPackage
+      _wifiCredentialsMetadata = source._wifiCredentialsMetadata
+      _appMetadata = source._appMetadata
+      _startTransfer = source._startTransfer
+      _streamMetadata = source._streamMetadata
+      _useCase = source._useCase
+      _previewPayloadIds = source._previewPayloadIds
+      _mirroredNotificationMetadata = source._mirroredNotificationMetadata
+      _pairingMetadata = source._pairingMetadata
     }
   }
 
@@ -1760,13 +1952,17 @@ extension Sharing_Nearby_V1Frame: SwiftProtobuf.Message, SwiftProtobuf._MessageI
         // allocates stack space for every case branch when no optimizations are
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
-        case 1: try { try decoder.decodeSingularEnumField(value: &_storage._type) }()
-        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._introduction) }()
-        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._connectionResponse) }()
-        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._pairedKeyEncryption) }()
-        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._pairedKeyResult) }()
-        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._certificateInfo) }()
-        case 7: try { try decoder.decodeSingularMessageField(value: &_storage._progressUpdate) }()
+        case 1: try { try decoder.decodeRepeatedMessageField(value: &_storage._fileMetadata) }()
+        case 2: try { try decoder.decodeRepeatedMessageField(value: &_storage._textMetadata) }()
+        case 3: try { try decoder.decodeSingularStringField(value: &_storage._requiredPackage) }()
+        case 4: try { try decoder.decodeRepeatedMessageField(value: &_storage._wifiCredentialsMetadata) }()
+        case 5: try { try decoder.decodeRepeatedMessageField(value: &_storage._appMetadata) }()
+        case 6: try { try decoder.decodeSingularBoolField(value: &_storage._startTransfer) }()
+        case 7: try { try decoder.decodeRepeatedMessageField(value: &_storage._streamMetadata) }()
+        case 8: try { try decoder.decodeSingularEnumField(value: &_storage._useCase) }()
+        case 9: try { try decoder.decodeRepeatedInt64Field(value: &_storage._previewPayloadIds) }()
+        case 1001: try { try decoder.decodeSingularMessageField(value: &_storage._mirroredNotificationMetadata) }()
+        case 1002: try { try decoder.decodeSingularMessageField(value: &_storage._pairingMetadata) }()
         default: break
         }
       }
@@ -1779,130 +1975,63 @@ extension Sharing_Nearby_V1Frame: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       // allocates stack space for every if/case branch local when no optimizations
       // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
       // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._type {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._introduction {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      } }()
-      try { if let v = _storage._connectionResponse {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      } }()
-      try { if let v = _storage._pairedKeyEncryption {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      } }()
-      try { if let v = _storage._pairedKeyResult {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-      } }()
-      try { if let v = _storage._certificateInfo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-      } }()
-      try { if let v = _storage._progressUpdate {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-      } }()
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: Sharing_Nearby_V1Frame, rhs: Sharing_Nearby_V1Frame) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._type != rhs_storage._type {return false}
-        if _storage._introduction != rhs_storage._introduction {return false}
-        if _storage._connectionResponse != rhs_storage._connectionResponse {return false}
-        if _storage._pairedKeyEncryption != rhs_storage._pairedKeyEncryption {return false}
-        if _storage._pairedKeyResult != rhs_storage._pairedKeyResult {return false}
-        if _storage._certificateInfo != rhs_storage._certificateInfo {return false}
-        if _storage._progressUpdate != rhs_storage._progressUpdate {return false}
-        return true
+      if !_storage._fileMetadata.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._fileMetadata, fieldNumber: 1)
       }
-      if !storagesAreEqual {return false}
-    }
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Sharing_Nearby_V1Frame.FrameType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNKNOWN_FRAME_TYPE\0\u{1}INTRODUCTION\0\u{1}RESPONSE\0\u{1}PAIRED_KEY_ENCRYPTION\0\u{1}PAIRED_KEY_RESULT\0\u{1}CERTIFICATE_INFO\0\u{1}CANCEL\0\u{1}PROGRESS_UPDATE\0")
-}
-
-extension Sharing_Nearby_IntroductionFrame: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".IntroductionFrame"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_metadata\0\u{3}text_metadata\0\u{3}required_package\0\u{3}wifi_credentials_metadata\0\u{3}app_metadata\0\u{3}start_transfer\0\u{3}stream_metadata\0\u{3}use_case\0\u{3}preview_payload_ids\0\u{4}`\u{f}mirrored_notification_metadata\0")
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.fileMetadata) }()
-      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.textMetadata) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self._requiredPackage) }()
-      case 4: try { try decoder.decodeRepeatedMessageField(value: &self.wifiCredentialsMetadata) }()
-      case 5: try { try decoder.decodeRepeatedMessageField(value: &self.appMetadata) }()
-      case 6: try { try decoder.decodeSingularBoolField(value: &self._startTransfer) }()
-      case 7: try { try decoder.decodeRepeatedMessageField(value: &self.streamMetadata) }()
-      case 8: try { try decoder.decodeSingularEnumField(value: &self._useCase) }()
-      case 9: try { try decoder.decodeRepeatedInt64Field(value: &self.previewPayloadIds) }()
-      case 1001: try { try decoder.decodeSingularMessageField(value: &self._mirroredNotificationMetadata) }()
-      default: break
+      if !_storage._textMetadata.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._textMetadata, fieldNumber: 2)
       }
+      try { if let v = _storage._requiredPackage {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+      } }()
+      if !_storage._wifiCredentialsMetadata.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._wifiCredentialsMetadata, fieldNumber: 4)
+      }
+      if !_storage._appMetadata.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._appMetadata, fieldNumber: 5)
+      }
+      try { if let v = _storage._startTransfer {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 6)
+      } }()
+      if !_storage._streamMetadata.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._streamMetadata, fieldNumber: 7)
+      }
+      try { if let v = _storage._useCase {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 8)
+      } }()
+      if !_storage._previewPayloadIds.isEmpty {
+        try visitor.visitRepeatedInt64Field(value: _storage._previewPayloadIds, fieldNumber: 9)
+      }
+      try { if let v = _storage._mirroredNotificationMetadata {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1001)
+      } }()
+      try { if let v = _storage._pairingMetadata {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1002)
+      } }()
     }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.fileMetadata.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.fileMetadata, fieldNumber: 1)
-    }
-    if !self.textMetadata.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.textMetadata, fieldNumber: 2)
-    }
-    try { if let v = self._requiredPackage {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-    } }()
-    if !self.wifiCredentialsMetadata.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.wifiCredentialsMetadata, fieldNumber: 4)
-    }
-    if !self.appMetadata.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.appMetadata, fieldNumber: 5)
-    }
-    try { if let v = self._startTransfer {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 6)
-    } }()
-    if !self.streamMetadata.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.streamMetadata, fieldNumber: 7)
-    }
-    try { if let v = self._useCase {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 8)
-    } }()
-    if !self.previewPayloadIds.isEmpty {
-      try visitor.visitRepeatedInt64Field(value: self.previewPayloadIds, fieldNumber: 9)
-    }
-    try { if let v = self._mirroredNotificationMetadata {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1001)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Sharing_Nearby_IntroductionFrame, rhs: Sharing_Nearby_IntroductionFrame) -> Bool {
-    if lhs.fileMetadata != rhs.fileMetadata {return false}
-    if lhs.textMetadata != rhs.textMetadata {return false}
-    if lhs._requiredPackage != rhs._requiredPackage {return false}
-    if lhs.wifiCredentialsMetadata != rhs.wifiCredentialsMetadata {return false}
-    if lhs.appMetadata != rhs.appMetadata {return false}
-    if lhs._startTransfer != rhs._startTransfer {return false}
-    if lhs.streamMetadata != rhs.streamMetadata {return false}
-    if lhs._useCase != rhs._useCase {return false}
-    if lhs.previewPayloadIds != rhs.previewPayloadIds {return false}
-    if lhs._mirroredNotificationMetadata != rhs._mirroredNotificationMetadata {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._fileMetadata != rhs_storage._fileMetadata {return false}
+        if _storage._textMetadata != rhs_storage._textMetadata {return false}
+        if _storage._requiredPackage != rhs_storage._requiredPackage {return false}
+        if _storage._wifiCredentialsMetadata != rhs_storage._wifiCredentialsMetadata {return false}
+        if _storage._appMetadata != rhs_storage._appMetadata {return false}
+        if _storage._startTransfer != rhs_storage._startTransfer {return false}
+        if _storage._streamMetadata != rhs_storage._streamMetadata {return false}
+        if _storage._useCase != rhs_storage._useCase {return false}
+        if _storage._previewPayloadIds != rhs_storage._previewPayloadIds {return false}
+        if _storage._mirroredNotificationMetadata != rhs_storage._mirroredNotificationMetadata {return false}
+        if _storage._pairingMetadata != rhs_storage._pairingMetadata {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -362,9 +362,9 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     func connectionWasTerminated(connection: InboundNearbyConnection, savedFiles: [URL], error: Error?) {
         incomingConnections.removeValue(forKey: connection.id)
 
-        // Notification-sync transfers suppress normal success callbacks, but
+        // Control transfers suppress normal success callbacks, but
         // still forward failures so pending consent/error UI can be cleaned up.
-        if connection.isMirroredNotificationTransfer, error == nil {
+        if connection.isControlTransfer, error == nil {
             return
         }
 
@@ -400,12 +400,12 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
         transferID: String,
         accept: Bool,
         trustDevice: Bool,
-        notificationSyncToken: String? = nil
+        pairingToken: String? = nil
     ) {
         guard let conn = incomingConnections[transferID] else { return }
         
         log("[NearbyConnectionManager] Submitting user consent for transfer \(transferID), accepted: \(accept)")
-        conn.submitUserConsent(accepted: accept, trustDevice: trustDevice, notificationSyncToken: notificationSyncToken)
+        conn.submitUserConsent(accepted: accept, trustDevice: trustDevice, pairingToken: pairingToken)
     }
     
     

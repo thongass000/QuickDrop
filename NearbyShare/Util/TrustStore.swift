@@ -15,9 +15,9 @@ class TrustStore: ObservableObject {
     @Published private(set) var trustedCertificates: [String: TrustedCertificate] = [:]
     
     private let trustedKeysKey = "com.leonboettger.quickdrop.identity.trustedKeys"
-    private let pendingNotificationSyncQueue = DispatchQueue(label: "TrustStore.notificationSyncPending")
-    private var pendingNotificationSyncTrust: [String: PendingNotificationSyncTrust] = [:]
-    private let pendingNotificationSyncTTL: TimeInterval = 5 * 60
+    private let pendingPairingQueue = DispatchQueue(label: "TrustStore.pairingPending")
+    private var pendingPairingTrust: [String: PendingPairingTrust] = [:]
+    private let pendingPairingTTL: TimeInterval = 5 * 60
         
     private init() {
         loadTrustedCertificates()
@@ -90,44 +90,48 @@ class TrustStore: ObservableObject {
     }
 
 
-    // MARK: - Notification Sync Pending Trust
+    // MARK: - Pending Pairing Trust
 
-    func registerPendingNotificationSyncTrust(secretIdHex: String, pinCode: String) {
+    func registerPendingPairingTrust(secretIdHex: String, pinCode: String, useCase: PairingUseCase) {
         let normalized = secretIdHex.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let trimmedPin = pinCode.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !normalized.isEmpty, !trimmedPin.isEmpty else { return }
 
         let pinHash = Self.pinHash(for: trimmedPin)
-        pendingNotificationSyncQueue.sync {
-            pendingNotificationSyncTrust[normalized] = PendingNotificationSyncTrust(
+        pendingPairingQueue.sync {
+            pendingPairingTrust[normalized] = PendingPairingTrust(
+                useCase: useCase,
                 pinHash: pinHash,
                 createdAt: Date()
             )
         }
     }
 
-    func confirmPendingNotificationSyncTrust(secretIdHex: String, pinHash: Data) -> Bool {
+    func confirmPendingPairingTrust(secretIdHex: String, useCase: PairingUseCase, pinHash: Data) -> Bool {
         let normalized = secretIdHex.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         guard !normalized.isEmpty, !pinHash.isEmpty else { return false }
 
         let now = Date()
-        return pendingNotificationSyncQueue.sync {
-            guard let pending = pendingNotificationSyncTrust[normalized] else { return false }
-            pendingNotificationSyncTrust.removeValue(forKey: normalized)
-            let expired = now.timeIntervalSince(pending.createdAt) > pendingNotificationSyncTTL
+        return pendingPairingQueue.sync {
+            guard let pending = pendingPairingTrust[normalized] else { return false }
+            pendingPairingTrust.removeValue(forKey: normalized)
+            let expired = now.timeIntervalSince(pending.createdAt) > pendingPairingTTL
             if expired {
+                return false
+            }
+            guard pending.useCase == useCase else {
                 return false
             }
             return pending.pinHash == pinHash
         }
     }
 
-    func clearPendingNotificationSyncTrust(secretIdHex: String) {
+    func clearPendingPairingTrust(secretIdHex: String) {
         let normalized = secretIdHex.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         guard !normalized.isEmpty else { return }
 
-        _ = pendingNotificationSyncQueue.sync {
-            pendingNotificationSyncTrust.removeValue(forKey: normalized)
+        _ = pendingPairingQueue.sync {
+            pendingPairingTrust.removeValue(forKey: normalized)
         }
     }
     
@@ -140,7 +144,8 @@ class TrustStore: ObservableObject {
         let certificateData: Data
     }
 
-    struct PendingNotificationSyncTrust: Equatable {
+    struct PendingPairingTrust: Equatable {
+        let useCase: PairingUseCase
         let pinHash: Data
         let createdAt: Date
     }

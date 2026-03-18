@@ -217,6 +217,31 @@ public struct TransferMetadata {
     }
 }
 
+enum PairingUseCase: String {
+    case notificationSync = "notification_sync"
+    case clipboardSync = "clipboard_sync"
+
+    var protoValue: Sharing_Nearby_PairingMetadata.UseCase {
+        switch self {
+        case .notificationSync:
+            return .notificationSync
+        case .clipboardSync:
+            return .clipboardSync
+        }
+    }
+
+    init?(protoValue: Sharing_Nearby_PairingMetadata.UseCase) {
+        switch protoValue {
+        case .notificationSync:
+            self = .notificationSync
+        case .clipboardSync:
+            self = .clipboardSync
+        case .unknown:
+            return nil
+        }
+    }
+}
+
 
 public struct FileMetadata {
     public let name: String

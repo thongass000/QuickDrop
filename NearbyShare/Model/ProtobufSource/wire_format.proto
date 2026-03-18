@@ -136,8 +136,21 @@ message MirroredNotificationMetadata {
   optional string title = 5;
   optional string body = 6;
   optional int64 posted_at_epoch_ms = 7;
-  optional bool setup_request = 8;
-  optional bytes setup_pin_hash = 9;
+  reserved 8, 9;
+}
+
+// NEXT_ID=5
+message PairingMetadata {
+  enum UseCase {
+    UNKNOWN = 0;
+    NOTIFICATION_SYNC = 1;
+    CLIPBOARD_SYNC = 2;
+  }
+
+  optional int32 version = 1 [default = 1];
+  optional UseCase use_case = 2 [default = UNKNOWN];
+  optional bool setup_request = 3;
+  optional bytes setup_pin_hash = 4;
 }
 
 // NEXT_ID=8
@@ -225,7 +238,7 @@ message V1Frame {
 
 // An introduction packet sent by the sending side. Contains a list of files
 // they'd like to share.
-// NEXT_ID=1002
+// NEXT_ID=1003
 message IntroductionFrame {
   enum SharingUseCase {
     UNKNOWN = 0;
@@ -244,6 +257,7 @@ message IntroductionFrame {
   optional SharingUseCase use_case = 8;
   repeated int64 preview_payload_ids = 9;
   optional MirroredNotificationMetadata mirrored_notification_metadata = 1001;
+  optional PairingMetadata pairing_metadata = 1002;
 }
 
 // A progress update packet sent by the sending side. Contains transfer progress

@@ -32,9 +32,10 @@ class InboundNearbyConnection: NearbyConnection {
     private var isAuthenticated = false
     private var peerCertificate: Sharing_Nearby_PublicCertificate? = nil
     private var mirroredNotificationMetadata: Sharing_Nearby_MirroredNotificationMetadata?
-    private var isNotificationSyncSetupPing = false
+    private var pairingMetadata: Sharing_Nearby_PairingMetadata?
+    private var isPairingSetupRequest = false
     var isPlainTextTransfer = false
-    var isMirroredNotificationTransfer = false
+    var isControlTransfer = false
     
     var wasUserRejected = false
     var delegate: InboundNearbyConnectionDelegate?
@@ -606,25 +607,46 @@ class InboundNearbyConnection: NearbyConnection {
         }
 
         #if os(macOS)
-        if frame.v1.introduction.hasMirroredNotificationMetadata {
-            isMirroredNotificationTransfer = true
-            mirroredNotificationMetadata = frame.v1.introduction.mirroredNotificationMetadata
-            isNotificationSyncSetupPing = mirroredNotificationMetadata?.setupRequest == true
-            let setupSuccessNotice = mirroredNotificationMetadata?.hasSetupPinHash == true
+        if frame.v1.introduction.hasMirroredNotificationMetadata || frame.v1.introduction.hasPairingMetadata {
+            isControlTransfer = true
+            mirroredNotificationMetadata = frame.v1.introduction.hasMirroredNotificationMetadata
+                ? frame.v1.introduction.mirroredNotificationMetadata
+                : nil
+            pairingMetadata = frame.v1.introduction.hasPairingMetadata
+                ? frame.v1.introduction.pairingMetadata
+                : nil
+            isPairingSetupRequest = pairingMetadata?.setupRequest == true
+            let hasPairingConfirmation = pairingMetadata?.hasSetupPinHash == true
+            let pairingUseCase = pairingMetadata.flatMap { PairingUseCase(protoValue: $0.useCase) }
 
             guard let device = self.remoteDeviceInfo else {
                 self.rejectTransfer(with: .reject)
                 return
             }
 
-            if !isAuthenticated && !isNotificationSyncSetupPing && !setupSuccessNotice {
+            if pairingMetadata != nil && pairingUseCase == nil {
+                self.rejectTransfer(with: .reject)
+                return
+            }
+
+            if pairingMetadata != nil,
+               mirroredNotificationMetadata == nil,
+               !isPairingSetupRequest,
+               !hasPairingConfirmation {
+                self.rejectTransfer(with: .reject)
+                return
+            }
+
+            if !isAuthenticated && !isPairingSetupRequest && !hasPairingConfirmation {
                 self.lastError = NearbyError.notificationSyncNotTrusted
                 self.rejectTransfer(with: .reject, markAsUserRejected: false)
                 return
             }
 
-            if setupSuccessNotice {
-                guard let peerCertificate = peerCertificate else {
+            if hasPairingConfirmation {
+                guard let peerCertificate = peerCertificate,
+                      let pairingMetadata,
+                      let pairingUseCase else {
                     self.rejectTransfer(with: .reject)
                     return
                 }
@@ -643,15 +665,10 @@ class InboundNearbyConnection: NearbyConnection {
                     return
                 }
 
-                guard let metadata = mirroredNotificationMetadata,
-                      metadata.hasSetupPinHash else {
-                    self.rejectTransfer(with: .reject)
-                    return
-                }
-
-                let matches = TrustStore.shared.confirmPendingNotificationSyncTrust(
+                let matches = TrustStore.shared.confirmPendingPairingTrust(
                     secretIdHex: peerCertificate.secretID.hex,
-                    pinHash: metadata.setupPinHash
+                    useCase: pairingUseCase,
+                    pinHash: pairingMetadata.setupPinHash
                 )
 
                 guard matches else {
@@ -667,12 +684,16 @@ class InboundNearbyConnection: NearbyConnection {
                 return
             }
 
-            if !isAuthenticated || isNotificationSyncSetupPing {
+            if !isAuthenticated || isPairingSetupRequest {
+                guard let transferType = pairingTransferType(for: pairingUseCase) else {
+                    self.rejectTransfer(with: .reject)
+                    return
+                }
                 let metadata = TransferMetadata(
                     files: [],
                     id: id,
                     pinCode: pinCode,
-                    transferType: .notificationSync,
+                    transferType: transferType,
                     allowsToBeAddedAsTrustedDevice: true
                 )
 
@@ -733,23 +754,27 @@ class InboundNearbyConnection: NearbyConnection {
     }
     
 
-    func submitUserConsent(accepted: Bool, trustDevice: Bool, notificationSyncToken: String? = nil) {
-        if isNotificationSyncSetupPing, let peerCertificate = peerCertificate {
+    func submitUserConsent(accepted: Bool, trustDevice: Bool, pairingToken: String? = nil) {
+        if isPairingSetupRequest,
+           let peerCertificate = peerCertificate,
+           let pairingMetadata,
+           let pairingUseCase = PairingUseCase(protoValue: pairingMetadata.useCase) {
             let secretIdHex = peerCertificate.secretID.hex
             if accepted {
                 if TrustStore.shared.findTrustedKey(for: peerCertificate.secretID) == nil {
-                    if let token = notificationSyncToken {
-                        TrustStore.shared.registerPendingNotificationSyncTrust(
+                    if let token = pairingToken {
+                        TrustStore.shared.registerPendingPairingTrust(
                             secretIdHex: secretIdHex,
-                            pinCode: token
+                            pinCode: token,
+                            useCase: pairingUseCase
                         )
                     } else {
-                        log("[InboundNearbyConnection \(self.id)] Missing notification sync pairing token; pending trust not registered.")
-                        TrustStore.shared.clearPendingNotificationSyncTrust(secretIdHex: secretIdHex)
+                        log("[InboundNearbyConnection \(self.id)] Missing pairing token; pending trust not registered.")
+                        TrustStore.shared.clearPendingPairingTrust(secretIdHex: secretIdHex)
                     }
                 }
             } else {
-                TrustStore.shared.clearPendingNotificationSyncTrust(secretIdHex: secretIdHex)
+                TrustStore.shared.clearPendingPairingTrust(secretIdHex: secretIdHex)
             }
         }
 
@@ -773,7 +798,7 @@ class InboundNearbyConnection: NearbyConnection {
             return
         }
         
-        if !isMirroredNotificationTransfer && isFileTransferRestricted() {
+        if !isControlTransfer && isFileTransferRestricted() {
             log("[InboundNearbyConnection \(self.id)] File transfer restrictions detected.")
             delegate?.showPlusScreen()
             rejectTransfer()
@@ -818,15 +843,25 @@ class InboundNearbyConnection: NearbyConnection {
             isTransferring = true
             try sendTransferSetupFrame(frame)
 
-            if let mirroredNotificationMetadata {
-                if !isNotificationSyncSetupPing {
-                    MirroredNotificationPresenter.shared.present(metadata: mirroredNotificationMetadata, senderDeviceName: remoteDeviceInfo?.name)
-                }
+            if let mirroredNotificationMetadata,
+               !isPairingSetupRequest {
+                MirroredNotificationPresenter.shared.present(metadata: mirroredNotificationMetadata, senderDeviceName: remoteDeviceInfo?.name)
+            }
+            if isControlTransfer {
                 try sendDisconnectionAndDisconnect()
             }
         } catch {
             lastError = error
             protocolError()
+        }
+    }
+
+    private func pairingTransferType(for useCase: PairingUseCase?) -> TransferMetadata.TransferType? {
+        switch useCase {
+        case .notificationSync:
+            return .notificationSync
+        case .clipboardSync, .none:
+            return nil
         }
     }
 

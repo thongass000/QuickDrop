@@ -22,14 +22,14 @@ enum NotificationSyncPairingToken {
         return keyId.hex.lowercased()
     }
 
-    static func qrPayload(token: String, receiverFingerprint: String, useCase: String = "notification_sync") -> String {
-        "quickdrop://pair?token=\(token)&usecase=\(useCase)&receiver=\(receiverFingerprint)"
+    static func qrPayload(token: String, receiverFingerprint: String, useCase: PairingUseCase = .notificationSync) -> String {
+        "quickdrop://pair?token=\(token)&usecase=\(useCase.rawValue)&receiver=\(receiverFingerprint)"
     }
 
     static func makeQrImage(
         token: String,
         receiverFingerprint: String,
-        useCase: String = "notification_sync",
+        useCase: PairingUseCase = .notificationSync,
         foregroundColor: CGColor = CGColor(gray: 0, alpha: 1),
         backgroundColor: CGColor = CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 1)
     ) -> Image? {

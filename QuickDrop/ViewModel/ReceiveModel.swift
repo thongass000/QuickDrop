@@ -121,7 +121,7 @@ class ReceiveModel: ObservableObject, InboundAppDelegate {
                             transferID: transferID,
                             accept: true,
                             trustDevice: false,
-                            notificationSyncToken: pairingToken
+                            pairingToken: pairingToken
                         )
                         self.hideQuickDropToast(style: .fade)
                     },
