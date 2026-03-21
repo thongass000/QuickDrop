@@ -29,8 +29,13 @@ class NearbyConnection {
     var cancelled: Bool = false
     var isTransferring: Bool = false {
         didSet {
-            log("[NearbyConnection \(self.id)] Now transferring. Setting up data transfer inactivity timer.")
-            startDataTransferTimer(previousBytesTransferred: bytesTransferred)
+            dataTransferInactivityTimer?.cancel()
+            dataTransferInactivityTimer = nil
+            
+            if isTransferring {
+                log("[NearbyConnection \(self.id)] Now transferring. Setting up data transfer inactivity timer.")
+                startDataTransferTimer(previousBytesTransferred: bytesTransferred)
+            }
         }
     }
     
@@ -38,6 +43,7 @@ class NearbyConnection {
     private var connectionClosed: Bool = false
     
     private var inactivityTimer: DispatchSourceTimer?
+    private var dataTransferInactivityTimer: DispatchSourceTimer?
     
     private let ackInterval: TimeInterval = 5
     private let ackTimeoutInterval: TimeInterval = 30
@@ -579,6 +585,8 @@ class NearbyConnection {
         connection.stateUpdateHandler = nil
         inactivityTimer?.cancel()
         inactivityTimer = nil
+        dataTransferInactivityTimer?.cancel()
+        dataTransferInactivityTimer = nil
         connectionClosed = true
         connection.send(content: nil, isComplete: true, completion: .contentProcessed { _ in })
     }
@@ -645,6 +653,9 @@ class NearbyConnection {
     
     
     func startAndResetHeartbeatTimer() {
+        if connectionClosed {
+            return
+        }
         
         if lastKeepAliveFrameSent.isOlderThan(seconds: ackInterval) {
             sendKeepAlive(ack: false)
@@ -671,7 +682,14 @@ class NearbyConnection {
     
     
     func startDataTransferTimer(previousBytesTransferred: Int64) {
-        NearbyConnection.dispatchQueue.asyncAfter(deadline: .now() + ackTimeoutInterval) {
+        dataTransferInactivityTimer?.cancel()
+        
+        dataTransferInactivityTimer = DispatchSource.makeTimerSource(queue: NearbyConnection.dispatchQueue)
+        dataTransferInactivityTimer?.schedule(deadline: .now() + ackTimeoutInterval)
+        dataTransferInactivityTimer?.setEventHandler { [weak self] in
+            
+            guard let self = self else { return }
+            guard !self.connectionClosed, self.isTransferring else { return }
             
             if previousBytesTransferred < self.bytesTransferred {
                 // everything good, transferred more than last check, schedule next check
@@ -679,13 +697,13 @@ class NearbyConnection {
             }
             else {
                 // connection stale, need to abort
-                if !self.connectionClosed {
-                    log("[NearbyConnection \(self.id)] Connection timeout: No more data received in \(self.ackTimeoutInterval) seconds")
-                    self.lastError = NearbyError.canceled(reason: .timedOut)
-                    self.disconnect()
-                }
+                log("[NearbyConnection \(self.id)] Connection timeout: No more data received in \(self.ackTimeoutInterval) seconds")
+                self.lastError = NearbyError.canceled(reason: .timedOut)
+                self.disconnect()
             }
         }
+        
+        dataTransferInactivityTimer?.resume()
     }
     
     
