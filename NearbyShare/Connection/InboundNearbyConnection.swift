@@ -83,7 +83,10 @@ class InboundNearbyConnection: NearbyConnection {
            frame.hasV1,
            frame.v1.hasType,
            case .keepAlive = frame.v1.type {
-            log("[InboundNearbyConnection \(self.id)] Ignoring keep-alive during handshake in state \(currentState)")
+            log("[InboundNearbyConnection \(self.id)] Received keep-alive during handshake in state \(currentState)")
+            if !frame.v1.hasKeepAlive || !frame.v1.keepAlive.ack {
+                sendKeepAlive(ack: true)
+            }
             return
         }
         
