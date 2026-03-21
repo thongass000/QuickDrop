@@ -76,6 +76,16 @@ class InboundNearbyConnection: NearbyConnection {
         if currentState != .receivingFiles {
             log("[InboundNearbyConnection \(self.id)] Received frame in state \(currentState)...")
         }
+
+        if !encryptionDone,
+           currentState != .initial,
+           let frame = try? Location_Nearby_Connections_OfflineFrame(serializedBytes: frameData),
+           frame.hasV1,
+           frame.v1.hasType,
+           case .keepAlive = frame.v1.type {
+            log("[InboundNearbyConnection \(self.id)] Ignoring keep-alive during handshake in state \(currentState)")
+            return
+        }
         
         do {
             switch currentState {
