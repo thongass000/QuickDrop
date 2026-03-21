@@ -657,7 +657,7 @@ class NearbyConnection {
             return
         }
         
-        if lastKeepAliveFrameSent.isOlderThan(seconds: ackInterval) {
+        if encryptionDone && lastKeepAliveFrameSent.isOlderThan(seconds: ackInterval) {
             sendKeepAlive(ack: false)
         }
         
