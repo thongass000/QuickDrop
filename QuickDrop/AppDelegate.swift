@@ -196,6 +196,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                         }
                         
                         LogExportPresenter.showUploadLogsAlert()
+                    case "openLog":
+                        if let url = LogManager.sharedInstance.logFileURL {
+                            log("Opening log file: \(url)")
+                            NSWorkspace.shared.activateFileViewerSelecting([url])
+                        }
                     case "mockTransferFailure":
                         ErrorAlertHandler.shared.showErrorAlert(for: "Test Device", error: NearbyError.inputOutput)
                     case "removeData":
