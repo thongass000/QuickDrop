@@ -180,14 +180,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     
     func application(_ application: NSApplication, open urls: [URL]) {
+        
+        log("[AppDelegate] application(open:): Received URLs: \(urls)")
+        
         for url in urls {
             if url.scheme == "quickdrop" {
-                
                 switch url.host {
                     case "sendLog":
                         // If we're in an extension, redirect to the main app
                         if Bundle.main.bundlePath.hasSuffix(".appex") {
-                            log("sendLoggingString: in extension, redirecting to main app")
+                            log("[AppDelegate] sendLoggingString: in extension, redirecting to main app")
                             
                             if let url = URL(string: "quickdrop://sendLog") {
                                 NSWorkspace.shared.open(url)
@@ -198,8 +200,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                         LogExportPresenter.showUploadLogsAlert()
                     case "openLog":
                         if let url = LogManager.sharedInstance.logFileURL {
-                            log("Opening log file: \(url)")
+                            log("[AppDelegate] Opening log file: \(url)")
                             NSWorkspace.shared.activateFileViewerSelecting([url])
+                        }
+                        else {
+                            log("[AppDelegate] No log file found to open.")
                         }
                     case "mockTransferFailure":
                         ErrorAlertHandler.shared.showErrorAlert(for: "Test Device", error: NearbyError.inputOutput)
@@ -294,11 +299,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         if let window = plusWindow, window.isVisible {
             NSApp.activate(ignoringOtherApps: true)
             window.makeKeyAndOrderFront(nil)
-            log("Plus screen already open, bringing to front")
+            log("[AppDelegate] Plus screen already open, bringing to front")
             return
         }
         
-        log("Opening Plus screen")
+        log("[AppDelegate] Opening Plus screen")
 
         // Create the welcome screen SwiftUI view
         let plusView = GetPlusViewV4(showSheet: Binding(get: { self.plusWindow != nil }, set: { newValue in
@@ -383,10 +388,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         let scanner = DeviceToDeviceHeuristicScanner.shared
         scanner.scan { allowed in
             if allowed {
-                log("✅ Device-to-device likely allowed (peer responded on LAN).")
+                log("[AppDelegate] ✅ Device-to-device likely allowed (peer responded on LAN).")
                 ErrorAlertHandler.shared.closeApIsolationAlert()
             } else {
-                log("❌ Device-to-device check failed. Informing user...")
+                log("[AppDelegate] ❌ Device-to-device check failed. Informing user...")
                 ErrorAlertHandler.shared.openAlert(type: .ApIsolation)
             }
         }
