@@ -242,7 +242,7 @@ struct QuickDropToastView: View {
             RoundedRectangle(cornerRadius: toastCornerRadius, style: .continuous)
                 .stroke((colorScheme.isLight ? Color.white.opacity(0.5) : Color.gray.opacity(0.33)), lineWidth: 1)
         )
-        .overlay(alignment: .topTrailing) {
+        .overlay(alignment: .topLeading) {
             if closeButtonVisible {
                 Button(action: {
                     if let actions = actions {
@@ -262,6 +262,8 @@ struct QuickDropToastView: View {
                         )
                 }
                 .buttonStyle(PlainButtonStyle())
+                .padding(.bottom, 5)
+                .padding(.trailing, 3)
                 .onHover { hovering in
                     if hovering {
                         withAnimation(.easeInOut(duration: 0.15)) {
