@@ -148,6 +148,7 @@ struct SettingsView: View {
         window.center()
         window.isReleasedWhenClosed = false
         window.title = "TrustedDevices".localized()
+        window.backgroundColor = NSColor(Color.defaultMacBackgroundColor)
         window.contentView = NSHostingView(rootView: TrustedDevicesView())
         
         NSApp.activate(ignoringOtherApps: true)

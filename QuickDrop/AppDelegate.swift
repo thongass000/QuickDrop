@@ -37,7 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     func applicationDidFinishLaunching(_: Notification) {
         // app did not lauch before
         if !Settings.sharedInstance.appLaunchedBefore {
-            log("[AppDelegate] Opening Welcome Screen")
+            runAfter(seconds: 0.1) { log("[AppDelegate] Opening Welcome Screen") }
             
             DispatchQueue.main.async {
                 // open welcome screen in next cycle (await LUIInit)
@@ -50,11 +50,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         } else {
             // app launched before
             #if GITHUB
-            log("[AppDelegate] Downloaded from GitHub.")
+            runAfter(seconds: 0.1) { log("[AppDelegate] Downloaded from GitHub.") }
             #else
             // user installed the app before the IAP was implemented, grant the plus version
             if !Settings.sharedInstance.isEligibleForIap {
-                log("[AppDelegate] Granting QuickDrop+ for old user")
+                runAfter(seconds: 0.1) { log("[AppDelegate] Granting QuickDrop+ for old user") }
                 UserDefaults.standard.set(true, forKey: Settings.UserDefaultsKeys.plusVersionLegacy.rawValue)
             }
             #endif
