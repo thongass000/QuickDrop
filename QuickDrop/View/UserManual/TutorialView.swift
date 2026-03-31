@@ -13,6 +13,7 @@ struct TutorialView: View {
     
     let tab: Tab
     let openPlus: () -> Void
+    let openAppAdvertisementView: () -> Void
     
     @State private var licenseWindow: NSWindow?
     @ObservedObject var iapManager = IAPManager.sharedInstance
@@ -86,6 +87,15 @@ struct TutorialView: View {
                 }
                 else if tab == .send {
                     EnableExtensionView()
+                }
+                else if tab == .notificationSync {
+                    Button {
+                        openAppAdvertisementView()
+                    } label: {
+                        Text("DownloadMobileApp".localized())
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .padding()
                 }
             }
         }

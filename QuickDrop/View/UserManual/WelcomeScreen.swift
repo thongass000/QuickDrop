@@ -79,12 +79,16 @@ struct WelcomeScreen: View {
                         SettingsView()
                     }
                     else {
-                        TutorialView(tab: selection, openPlus: openPlusScreen)
-                            .onAppear {
-                                if selection == .troubleshooting {
-                                    checkForNetworkIssues()
-                                }
+                        TutorialView(
+                            tab: selection,
+                            openPlus: openPlusScreen,
+                            openAppAdvertisementView: openAppAdvertisementView
+                        )
+                        .onAppear {
+                            if selection == .troubleshooting {
+                                checkForNetworkIssues()
                             }
+                        }
                     }
             }
         }
@@ -177,6 +181,7 @@ struct ExternalLinkLabel: View {
 enum Tab: CaseIterable {
     case receive
     case send
+    case notificationSync
     case troubleshooting
     case settings
     
@@ -186,6 +191,8 @@ enum Tab: CaseIterable {
             return "ReceiveFiles".localized()
         case .send:
             return "SendFiles".localized()
+        case .notificationSync:
+            return "NotificationSyncSidebar".localized()
         case .troubleshooting:
             return "TroubleshootingAndFaq".localized()
         case .settings:
@@ -206,6 +213,8 @@ enum Tab: CaseIterable {
             "UserManualDescription"
         case .send:
             "SendFilesDescription"
+        case .notificationSync:
+            "NotificationSyncManualDescription"
         default:
             ""
         }
@@ -217,6 +226,8 @@ enum Tab: CaseIterable {
             return "tray.and.arrow.down"
         case .send:
             return "tray.and.arrow.up"
+        case .notificationSync:
+            return "bell"
         case .troubleshooting:
             return "exclamationmark.triangle"
         case .settings:
