@@ -13,10 +13,12 @@ let toastViewSize = CGSize(width: 340, height: 65)
 let toastCornerRadius: CGFloat = 22
 let toastTrailingPadding: CGFloat = 20
 let toastSlideDistance: CGFloat = 420
+let toastSlideAnimationDuration: TimeInterval = 0.5
 
 struct QuickDropToastView: View {
     @ObservedObject var settings = Settings.sharedInstance
     @ObservedObject var receiveModel: ReceiveModel
+    let animateProgressVisibility: Bool
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -28,9 +30,11 @@ struct QuickDropToastView: View {
 
     init(
         receiveModel: ReceiveModel,
+        animateProgressVisibility: Bool = true,
         onCancel: @escaping () -> Void = {}
     ) {
         self.receiveModel = receiveModel
+        self.animateProgressVisibility = animateProgressVisibility
         self.onCancel = onCancel
     }
 
@@ -134,7 +138,12 @@ struct QuickDropToastView: View {
                                                 CapsuleProgress(value: progress)
                                             }
                                         }
-                                        .animation(.easeInOut, value: receiveModel.progress == nil)
+                                        .animation(
+                                            animateProgressVisibility
+                                                ? .easeInOut
+                                                : .easeInOut.delay(toastSlideAnimationDuration),
+                                            value: receiveModel.progress == nil
+                                        )
 
                                         Button(action: onCancel) {
                                             Image(systemName: "xmark")
@@ -286,6 +295,7 @@ struct QuickDropToastHostView: View {
     let onCancel: () -> Void
 
     @State private var didRenderOnce = false
+    @State private var hasFinishedSlideIn = false
 
     private let slideAnimation = Animation.smooth
     private let fadeAnimation = Animation.easeInOut
@@ -298,7 +308,11 @@ struct QuickDropToastHostView: View {
         let hiddenBlur: CGFloat = isSlide ? 0 : 8
         let animation = isSlide ? slideAnimation : fadeAnimation
 
-        QuickDropToastView(receiveModel: receiveModel, onCancel: onCancel)
+        QuickDropToastView(
+            receiveModel: receiveModel,
+            animateProgressVisibility: hasFinishedSlideIn,
+            onCancel: onCancel
+        )
             .frame(width: toastViewSize.width, height: toastViewSize.height)
             .offset(x: isVisible ? 0 : hiddenOffset)
             .opacity(isVisible ? 1 : hiddenOpacity)
@@ -314,7 +328,18 @@ struct QuickDropToastHostView: View {
                     didRenderOnce = true
                 }
             }
+            .task(id: isVisible) {
+                hasFinishedSlideIn = !isVisible || !isSlide
+
+                guard isVisible, isSlide else { return }
+
+                try? await Task.sleep(nanoseconds: UInt64(toastSlideAnimationDuration * 1_000_000_000))
+                guard !Task.isCancelled else { return }
+
+                hasFinishedSlideIn = true
+            }
             .onDisappear {
+                hasFinishedSlideIn = false
                 didRenderOnce = false
             }
     }
