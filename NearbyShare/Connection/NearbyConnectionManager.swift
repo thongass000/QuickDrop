@@ -46,8 +46,8 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
     private static let customDeviceNameKey = "com.leonboettger.quickdrop.deviceName"
     private var defaultPort: NWEndpoint.Port = 50362
     private let txtKeyEndpointInfo = "n"
-    private let txtKeyNotificationSyncCapabilities = "qd_caps"
-    private let txtKeyNotificationSyncKeyFingerprint = "qd_kid"
+    private let txtQuickDropCapabilities = "qd_caps"
+    private let txtQuickDropDeviceKeyFingerprint = "qd_kid"
     private let notificationSyncCapabilityToken = "nsync1"
     private let unnamedAndroidFallbackDeviceName = "AndroidDevice".localized()
     
@@ -316,9 +316,9 @@ public class NearbyConnectionManager: NSObject, NetServiceDelegate, InboundNearb
                 txtKeyEndpointInfo: deviceInfo.serialize().urlSafeBase64EncodedString().data(using: .utf8)!,
             ]
             #if os(macOS)
-            txtRecord[txtKeyNotificationSyncCapabilities] = Data(notificationSyncCapabilityToken.utf8)
+            txtRecord[txtQuickDropCapabilities] = Data(notificationSyncCapabilityToken.utf8)
             if let keyFingerprint = notificationSyncKeyFingerprintHex() {
-                txtRecord[txtKeyNotificationSyncKeyFingerprint] = Data(keyFingerprint.utf8)
+                txtRecord[txtQuickDropDeviceKeyFingerprint] = Data(keyFingerprint.utf8)
             }
             #endif
             service.setTXTRecord(NetService.data(fromTXTRecord: txtRecord))
