@@ -112,9 +112,7 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
         
         timeoutDispatchWorkItem?.cancel()
         
-        if chosenDevice == nil {
-            NearbyConnectionManager.shared.stopDeviceDiscovery()
-        }
+        NearbyConnectionManager.shared.stopDeviceDiscovery()
         NearbyConnectionManager.shared.removeOutboundAppDelegate(self)
     }
     
@@ -255,7 +253,6 @@ class ShareViewController: NSViewController, OutboundAppDelegate {
         progressProgressBar?.startAnimation(nil)
         progressState?.stringValue = "Preparing".localized()
         chosenDevice = device
-        NearbyConnectionManager.shared.stopDeviceDiscovery()
         
         runAfter(seconds: 0.3) {
             NearbyConnectionManager.shared.startOutgoingTransfer(deviceID: device.id!, delegate: self, urls: self.urls, textToSend: self.textToSend)
