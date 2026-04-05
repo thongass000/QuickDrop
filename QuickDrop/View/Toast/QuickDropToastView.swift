@@ -439,12 +439,27 @@ struct AdaptiveToastBackgroundLayer: View {
     var body: some View {
         Group {
             if #available(macOS 26.0, *) {
-                Color.clear
-                    .glassEffect(.regular, in: .rect(cornerRadius: cornerRadius, style: .continuous))
+                GlassEffectBackgroundView(cornerRadius: cornerRadius)
             } else {
                 VisualEffectView(material: .hudWindow, blendingMode: .behindWindow, cornerRadius: cornerRadius)
             }
         }
+    }
+}
+
+
+@available(macOS 26.0, *)
+struct GlassEffectBackgroundView: NSViewRepresentable {
+    var cornerRadius: CGFloat = 0
+
+    func makeNSView(context: Context) -> NSGlassEffectView {
+        let v = NSGlassEffectView()
+        v.cornerRadius = cornerRadius
+        return v
+    }
+
+    func updateNSView(_ v: NSGlassEffectView, context: Context) {
+        v.cornerRadius = cornerRadius
     }
 }
 
