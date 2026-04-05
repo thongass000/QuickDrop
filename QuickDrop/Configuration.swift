@@ -11,7 +11,17 @@ import SwiftUI
 let configuration = LUIConfiguration(
     appName: "QuickDrop",
     
-    plusVersionInfo: GetPlusViewInformation(lifetimeID: "plusversion", monthlyID: "quickdrop.monthly", yearlyID: "quickdrop.yearly", plusViewHeader: isMac() ? "plusview_title" : nil, description: isMac() ? "plusview_description" : "plusview_description_phone", onBoughtPlusVersionAlertMessage: "plusview_success_description", plusVersionFeatures: [], settingsLabelColor: .orange, settingsFooter: "plusview_footer_phone"),
+    plusVersionInfo: GetPlusViewInformation(
+        lifetimeID: "plusversion",
+        monthlyID: "quickdrop.monthly",
+        yearlyID: "quickdrop.yearly",
+        plusViewHeader: isMac() ? "plusview_title" : nil,
+        description: isMac() ? "plusview_description" : "plusview_description_phone",
+        onBoughtPlusVersionAlertMessage: "plusview_success_description",
+        plusVersionFeatures: [],
+        settingsLabelColor: .orange,
+        settingsFooter: "plusview_footer_phone"
+    ),
     
     hasRoundedFont: false,
     
