@@ -101,14 +101,10 @@ extension String {
 
 
 public func fullVersion() -> Bool {
-    #if GITHUB
     return true
-    #else
-    return IAPManager.sharedInstance.plusVersionState
-    #endif
 }
 
 
 public func isFileTransferRestricted() -> Bool {
-    (!fullVersion() && Settings.sharedInstance.incomingTransmissionCount > 1)
+    return false
 }
